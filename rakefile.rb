@@ -11,6 +11,16 @@ task :build do
         --export-width 192 --export-height 192
         --export-png images/icon.png
         images/icon.svg].join ' '
+
+  sh 'npx react-scripts-ts build'
+end
+
+task :run do
+  sh 'npx react-scripts-ts start'
+end
+
+task :test do
+  sh 'npx react-scripts-ts test --env=jsdom'
 end
 
 task :clean do
