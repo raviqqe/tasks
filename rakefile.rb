@@ -5,11 +5,11 @@ end
 task :build do
   sh %w[inkscape
         --export-width 16 --export-height 16
-        --export-png images/favicon.png
+        --export-png public/favicon.png
         images/icon.svg].join ' '
   sh %w[inkscape
         --export-width 192 --export-height 192
-        --export-png images/icon.png
+        --export-png public/icon.png
         images/icon.svg].join ' '
 
   sh 'npx react-scripts-ts build'
