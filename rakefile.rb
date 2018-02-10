@@ -1,0 +1,18 @@
+task :deps do
+  sh 'npm install'
+end
+
+task :build do
+  sh %w[inkscape
+        --export-width 16 --export-height 16
+        --export-png images/favicon.png
+        images/icon.svg].join ' '
+  sh %w[inkscape
+        --export-width 192 --export-height 192
+        --export-png images/icon.png
+        images/icon.svg].join ' '
+end
+
+task :clean do
+  sh 'git clean -dfx'
+end
