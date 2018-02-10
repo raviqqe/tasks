@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: node
+    steps:
+      - run:
+          name: Setup
+          command: |
+            apt -y update --fix-missing
+            apt -y upgrade
+            apt -y install inkscape rake
+      - checkout
+      - run:
+          name: Dependencies
+          command: rake deps
+      - run:
+          name: Build
+          command: rake build
+      - run:
+          name: Test
+          command: rake test
