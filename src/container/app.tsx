@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 import { persistor, store } from "../state";
+import Tasks from "./tasks";
 
 import "./style/app.css";
 
@@ -11,11 +12,7 @@ export default class extends React.Component {
         return (
             <Provider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
-                    <div className="App">
-                        <header className="App-header">
-                            <h1 className="App-title">Welcome to React</h1>
-                        </header>
-                    </div>
+                    <Tasks />
                 </PersistGate>
             </Provider>
         );
