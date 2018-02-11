@@ -12,7 +12,7 @@ class Tasks extends React.Component<typeof initialState> {
             return <div>Create a project.</div>;
         }
 
-        return projects[currentProject].tasks.map((task, key) => <Task key={key} {...task} />);
+        return projects[currentProject].map((task, key) => <Task key={key} {...task} />);
     }
 }
 

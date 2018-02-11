@@ -1,9 +1,9 @@
 import { actionCreators, initialState, reducer } from "../projects";
 
 test("Create a new project", () => {
-    expect(initialState.projects).toEqual([]);
+    expect(initialState.projects).toEqual({});
     const state = reducer(initialState, actionCreators.addProject("foo"));
-    expect(state.projects).toEqual([{ name: "foo", tasks: [] }]);
+    expect(state.projects).toEqual({ foo: [] });
 });
 
 test("Set a current project", () => {

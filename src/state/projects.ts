@@ -1,7 +1,7 @@
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 
-import { IProject } from "../domain/project";
+import { ITask } from "../domain/task";
 
 const actionCreator = actionCreatorFactory("PROJECTS");
 
@@ -13,15 +13,20 @@ export const actionCreators = {
     setCurrentProject,
 };
 
-export const initialState: { currentProject: string | null, projects: IProject[] } = {
+interface IState {
+    currentProject: string | null;
+    projects: { [name: string]: ITask[] };
+}
+
+export const initialState: IState = {
     currentProject: null,
-    projects: [],
+    projects: {},
 };
 
 export const reducer = reducerWithInitialState(initialState)
     .case(addProject,
         ({ projects, ...rest }, name) => ({
-            projects: [{ name, tasks: [] }, ...projects],
+            projects: { ...projects, [name]: [] },
             ...rest,
         }))
     .case(setCurrentProject, (state, currentProject) => ({ ...state, currentProject }));
