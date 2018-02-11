@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "firebase": "^4.9.1",
+    "lodash": "^4.17.5",
     "material-ui": "^1.0.0-beta.33",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -13,7 +14,9 @@
     "redux": "^3.7.2",
     "redux-persist": "^5.7.0",
     "redux-thunk": "^2.2.0",
-    "sortablejs": "^1.7.0"
+    "sortablejs": "^1.7.0",
+    "typescript-fsa": "^2.5.0",
+    "typescript-fsa-reducers": "^0.4.5"
   },
   "devDependencies": {
     "@types/jest": "^22.1.2",
