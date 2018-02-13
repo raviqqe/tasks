@@ -13,6 +13,7 @@ task :build do
         images/icon.svg].join ' '
 
   sh 'npx react-scripts-ts build'
+  sh 'npx workbox generate:sw'
 end
 
 task :run do
