@@ -12,6 +12,7 @@ task :build do
         --export-png public/icon.png
         images/icon.svg].join ' '
 
+  sh 'npx node-sass-chokidar src -o src'
   sh 'npx react-scripts-ts build'
   sh 'npx workbox generate:sw'
 end
