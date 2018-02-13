@@ -7,20 +7,13 @@ import { createTask, ITask } from "../domain/task";
 
 const actionCreator = actionCreatorFactory("PROJECTS");
 
-const addProject = actionCreator<string>("ADD_PROJECT");
-const addTask = actionCreator<ITask>("ADD_TASK");
-const changeProjectName = actionCreator<{ oldName: string, newName: string }>("CHANGE_PROJECT_NAME");
-const modifyTask = actionCreator<ITask>("MODIFY_TASK");
-const setCurrentProject = actionCreator<string>("SET_CURRENT_PROJECT");
-const toggleTaskState = actionCreator<string>("TOGGLE_TASK");
-
 export const actionCreators = {
-    addProject,
-    addTask,
-    changeProjectName,
-    modifyTask,
-    setCurrentProject,
-    toggleTaskState,
+    addProject: actionCreator<string>("ADD_PROJECT"),
+    addTask: actionCreator<ITask>("ADD_TASK"),
+    changeProjectName: actionCreator<{ oldName: string, newName: string }>("CHANGE_PROJECT_NAME"),
+    modifyTask: actionCreator<ITask>("MODIFY_TASK"),
+    setCurrentProject: actionCreator<string>("SET_CURRENT_PROJECT"),
+    toggleTaskState: actionCreator<string>("TOGGLE_TASK"),
 };
 
 interface IState {
@@ -36,12 +29,12 @@ export const initialState: IState = {
 };
 
 export const reducer = reducerWithInitialState(initialState)
-    .case(addProject,
+    .case(actionCreators.addProject,
         ({ projects, ...rest }, name) => ({
             projects: { ...projects, [name]: { done: [], todo: [] } },
             ...rest,
         }))
-    .case(addTask,
+    .case(actionCreators.addTask,
         ({ currentProject, projects, todo }, task) => {
             const project = projects[currentProject];
 
@@ -56,12 +49,12 @@ export const reducer = reducerWithInitialState(initialState)
                 todo,
             };
         })
-    .case(changeProjectName,
+    .case(actionCreators.changeProjectName,
         ({ projects, ...rest }, { oldName, newName }) => ({
             projects: { ...omit(projects, oldName), [newName]: projects[oldName] },
             ...rest,
         }))
-    .case(modifyTask,
+    .case(actionCreators.modifyTask,
         ({ currentProject, projects, todo }, task) => {
             const taskState = booleanToTaskState(todo);
             const project = projects[currentProject];
@@ -79,29 +72,31 @@ export const reducer = reducerWithInitialState(initialState)
                 todo,
             };
         })
-    .case(setCurrentProject, (state, currentProject) => ({ ...state, currentProject }))
-    .case(toggleTaskState, ({ currentProject, projects, ...rest }, id) => {
-        const project = projects[currentProject];
-        const todo = !!find(project.todo, { id });
+    .case(actionCreators.setCurrentProject,
+        (state, currentProject) => ({ ...state, currentProject }))
+    .case(actionCreators.toggleTaskState,
+        ({ currentProject, projects, ...rest }, id) => {
+            const project = projects[currentProject];
+            const todo = !!find(project.todo, { id });
 
-        let sourceTasks = project[booleanToTaskState(todo)];
-        const destinationTasks = [
-            find(sourceTasks, { id }),
-            ...project[booleanToTaskState(!todo)],
-        ];
-        sourceTasks = reject(sourceTasks, { id });
+            let sourceTasks = project[booleanToTaskState(todo)];
+            const destinationTasks = [
+                find(sourceTasks, { id }),
+                ...project[booleanToTaskState(!todo)],
+            ];
+            sourceTasks = reject(sourceTasks, { id });
 
-        return {
-            currentProject,
-            projects: {
-                ...projects,
-                [currentProject]: {
-                    done: todo ? destinationTasks : sourceTasks,
-                    todo: todo ? sourceTasks : destinationTasks,
+            return {
+                currentProject,
+                projects: {
+                    ...projects,
+                    [currentProject]: {
+                        done: todo ? destinationTasks : sourceTasks,
+                        todo: todo ? sourceTasks : destinationTasks,
+                    },
                 },
-            },
-            ...rest,
-        };
-    });
+                ...rest,
+            };
+        });
 
 export const persistent = true;
