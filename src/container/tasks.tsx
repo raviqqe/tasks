@@ -5,9 +5,16 @@ import Task from "../component/task";
 import { booleanToTaskState } from "../domain/project";
 import { actionCreators, initialState } from "../state/tasks";
 
-class Tasks extends React.Component<typeof initialState> {
+interface IState {
+    todo: boolean;
+}
+
+class Tasks extends React.Component<typeof initialState, IState> {
+    public state: IState = { todo: true };
+
     public render() {
-        const { currentProjectName, projects, todo } = this.props;
+        const { currentProjectName, projects } = this.props;
+        const { todo } = this.state;
 
         if (currentProjectName === null) {
             return <div>Create a project.</div>;
