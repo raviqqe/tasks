@@ -5,7 +5,7 @@ import { reducerWithInitialState } from "typescript-fsa-reducers";
 import { booleanToTaskState, IProject } from "../domain/project";
 import { createTask, ITask } from "../domain/task";
 
-const actionCreator = actionCreatorFactory("PROJECTS");
+const actionCreator = actionCreatorFactory("TASKS");
 
 export const actionCreators = {
     addProject: actionCreator<string>("ADD_PROJECT"),
