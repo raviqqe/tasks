@@ -17,13 +17,13 @@ export const actionCreators = {
 };
 
 interface IState {
-    currentProject: string | null;
+    currentProjectName: string | null;
     todo: boolean;
     projects: { [name: string]: IProject };
 }
 
 export const initialState: IState = {
-    currentProject: null,
+    currentProjectName: null,
     projects: {},
     todo: true,
 };
@@ -35,13 +35,13 @@ export const reducer = reducerWithInitialState(initialState)
             ...rest,
         }))
     .case(actionCreators.addTask,
-        ({ currentProject, projects, todo }, task) => {
-            const project = projects[currentProject];
+        ({ currentProjectName, projects, todo }, task) => {
+            const project = projects[currentProjectName];
 
             return {
-                currentProject,
+                currentProjectName,
                 projects: {
-                    ...projects, [currentProject]: {
+                    ...projects, [currentProjectName]: {
                         ...project,
                         todo: [task, ...project.todo],
                     },
@@ -55,16 +55,16 @@ export const reducer = reducerWithInitialState(initialState)
             ...rest,
         }))
     .case(actionCreators.modifyTask,
-        ({ currentProject, projects, todo }, task) => {
+        ({ currentProjectName, projects, todo }, task) => {
             const taskState = booleanToTaskState(todo);
-            const project = projects[currentProject];
+            const project = projects[currentProjectName];
             const tasks = project[taskState];
 
             return {
-                currentProject,
+                currentProjectName,
                 projects: {
                     ...projects,
-                    [currentProject]: {
+                    [currentProjectName]: {
                         ...project,
                         [taskState]: Object.assign(tasks, { [findIndex(tasks, { id: task.id })]: task }),
                     },
@@ -73,10 +73,10 @@ export const reducer = reducerWithInitialState(initialState)
             };
         })
     .case(actionCreators.setCurrentProject,
-        (state, currentProject) => ({ ...state, currentProject }))
+        (state, currentProjectName) => ({ ...state, currentProjectName }))
     .case(actionCreators.toggleTaskState,
-        ({ currentProject, projects, ...rest }, id) => {
-            const project = projects[currentProject];
+        ({ currentProjectName, projects, ...rest }, id) => {
+            const project = projects[currentProjectName];
             const todo = !!find(project.todo, { id });
 
             let sourceTasks = project[booleanToTaskState(todo)];
@@ -87,10 +87,10 @@ export const reducer = reducerWithInitialState(initialState)
             sourceTasks = reject(sourceTasks, { id });
 
             return {
-                currentProject,
+                currentProjectName,
                 projects: {
                     ...projects,
-                    [currentProject]: {
+                    [currentProjectName]: {
                         done: todo ? destinationTasks : sourceTasks,
                         todo: todo ? sourceTasks : destinationTasks,
                     },

@@ -17,7 +17,7 @@ test("Add a new project", () => {
 test("Add a new task", () => {
     let state: typeof initialState = {
         ...initialState,
-        currentProject: "foo",
+        currentProjectName: "foo",
         projects: { foo: emptyProject },
     };
 
@@ -33,7 +33,7 @@ test("Add a new task", () => {
 test("Change a project name", () => {
     let state: typeof initialState = {
         ...initialState,
-        currentProject: "foo",
+        currentProjectName: "foo",
         projects: { foo: emptyProject },
     };
 
@@ -44,7 +44,7 @@ test("Change a project name", () => {
 test("Modify a task", () => {
     let state: typeof initialState = {
         ...initialState,
-        currentProject: "foo",
+        currentProjectName: "foo",
         projects: {
             foo: { done: [], todo: [createTask("bar", "")] },
         },
@@ -57,9 +57,9 @@ test("Modify a task", () => {
 });
 
 test("Set a current project", () => {
-    expect(initialState.currentProject).toBe(null);
+    expect(initialState.currentProjectName).toBe(null);
     const state = reducer(initialState, actionCreators.setCurrentProject("foo"));
-    expect(state.currentProject).toBe("foo");
+    expect(state.currentProjectName).toBe("foo");
 });
 
 test("Toggle a task's state", () => {
@@ -67,7 +67,7 @@ test("Toggle a task's state", () => {
 
     let state: typeof initialState = {
         ...initialState,
-        currentProject: "foo",
+        currentProjectName: "foo",
         projects: { foo: { done: [], todo: [fooTask] } },
     };
 

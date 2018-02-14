@@ -7,13 +7,13 @@ import { actionCreators, initialState } from "../state/tasks";
 
 class Tasks extends React.Component<typeof initialState> {
     public render() {
-        const { currentProject, projects, todo } = this.props;
+        const { currentProjectName, projects, todo } = this.props;
 
-        if (currentProject === null) {
+        if (currentProjectName === null) {
             return <div>Create a project.</div>;
         }
 
-        return projects[currentProject][booleanToTaskState(todo)].map((task, key) => <Task key={key} {...task} />);
+        return projects[currentProjectName][booleanToTaskState(todo)].map((task, key) => <Task key={key} {...task} />);
     }
 }
 
