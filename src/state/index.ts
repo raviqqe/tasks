@@ -4,11 +4,12 @@ import { Persistor, persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 
+import * as message from "./message";
 import * as tasks from "./tasks";
 import * as timer from "./timer";
 
 const ducks: { [name: string]: { persistent: boolean, reducer: Reducer<any> } }
-    = { tasks, timer };
+    = { message, tasks, timer };
 
 export function createStore(): { persistor: Persistor, store: Store<any> } {
     const store = createReduxStore(
