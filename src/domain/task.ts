@@ -1,3 +1,4 @@
+import { find } from "lodash";
 import nanoid = require("nanoid");
 
 import { getUnixTimeStamp } from "./utils";
@@ -26,4 +27,8 @@ export function createTask(name: string, description: string): ITask {
 
 export function modifyTask(task: ITask, newFields: Partial<ITask>): ITask {
     return Object.assign(task, newFields);
+}
+
+export function includeTaskInTasks(id: string, tasks: ITask[]): boolean {
+    return !!find(tasks, { id });
 }

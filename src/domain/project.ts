@@ -1,5 +1,4 @@
-import { find } from "lodash";
-import { ITask } from "./task";
+import { includeTaskInTasks, ITask } from "./task";
 
 export interface IProject {
     done: ITask[];
@@ -13,5 +12,5 @@ export function booleanToTaskState(todo: boolean): "todo" | "done" {
 }
 
 export function isTodoTask(project: IProject, id: string): boolean {
-    return !!find(project.todo, { id });
+    return includeTaskInTasks(id, project.todo);
 }
