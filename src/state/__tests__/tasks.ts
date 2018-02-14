@@ -37,7 +37,7 @@ test("Change a project name", () => {
         projects: { foo: emptyProject },
     };
 
-    state = reducer(state, actionCreators.changeProjectName({ oldName: "foo", newName: "bar" }));
+    state = reducer(state, actionCreators.changeProjectName("bar"));
     expect(state.projects).toEqual({ bar: emptyProject });
 });
 
@@ -66,6 +66,22 @@ test("Set a current task", () => {
     expect(initialState.currentTaskId).toBe(null);
     const state = reducer(initialState, actionCreators.setCurrentTaskId("foo"));
     expect(state.currentTaskId).toBe("foo");
+});
+
+test("Set tasks", () => {
+    const fooTask = createTask("foo", "");
+    const barTask = createTask("bar", "");
+
+    let state: typeof initialState = {
+        ...initialState,
+        currentProjectName: "foo",
+        projects: {
+            foo: { done: [], todo: [fooTask, barTask] },
+        },
+    };
+
+    state = reducer(state, actionCreators.setTasks([barTask, fooTask]));
+    expect(state.projects.foo).toEqual({ done: [], todo: [barTask, fooTask] });
 });
 
 test("Toggle a task's state", () => {
