@@ -1,12 +1,14 @@
 import { mapValues } from "lodash";
-import { applyMiddleware, combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, createStore, Reducer } from "redux";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 
 import * as tasks from "./tasks";
+import * as timer from "./timer";
 
-const ducks = { tasks };
+const ducks: { [name: string]: { persistent: boolean, reducer: Reducer<any> } }
+    = { tasks, timer };
 
 export const store = createStore(
     persistReducer(
