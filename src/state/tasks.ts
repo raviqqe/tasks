@@ -12,18 +12,21 @@ export const actionCreators = {
     addTask: actionCreator<ITask>("ADD_TASK"),
     changeProjectName: actionCreator<{ oldName: string, newName: string }>("CHANGE_PROJECT_NAME"),
     modifyTask: actionCreator<ITask>("MODIFY_TASK"),
-    setCurrentProject: actionCreator<string>("SET_CURRENT_PROJECT"),
+    setCurrentProjectName: actionCreator<string>("SET_CURRENT_PROJECT"),
+    setCurrentTaskId: actionCreator<string>("SET_CURRENT_TASK_ID"),
     toggleTaskState: actionCreator<string>("TOGGLE_TASK"),
 };
 
 interface IState {
     currentProjectName: string | null;
+    currentTaskId: string | null;
     todo: boolean;
     projects: { [name: string]: IProject };
 }
 
 export const initialState: IState = {
     currentProjectName: null,
+    currentTaskId: null,
     projects: {},
     todo: true,
 };
@@ -35,7 +38,7 @@ export const reducer = reducerWithInitialState(initialState)
             ...rest,
         }))
     .case(actionCreators.addTask,
-        ({ currentProjectName, projects, todo }, task) => {
+        ({ currentProjectName, projects, ...rest }, task) => {
             const project = projects[currentProjectName];
 
             return {
@@ -46,7 +49,7 @@ export const reducer = reducerWithInitialState(initialState)
                         todo: [task, ...project.todo],
                     },
                 },
-                todo,
+                ...rest,
             };
         })
     .case(actionCreators.changeProjectName,
@@ -55,7 +58,7 @@ export const reducer = reducerWithInitialState(initialState)
             ...rest,
         }))
     .case(actionCreators.modifyTask,
-        ({ currentProjectName, projects, todo }, task) => {
+        ({ currentProjectName, projects, todo, ...rest }, task) => {
             const taskState = booleanToTaskState(todo);
             const project = projects[currentProjectName];
             const tasks = project[taskState];
@@ -70,10 +73,13 @@ export const reducer = reducerWithInitialState(initialState)
                     },
                 },
                 todo,
+                ...rest,
             };
         })
-    .case(actionCreators.setCurrentProject,
+    .case(actionCreators.setCurrentProjectName,
         (state, currentProjectName) => ({ ...state, currentProjectName }))
+    .case(actionCreators.setCurrentTaskId,
+        (state, currentTaskId) => ({ ...state, currentTaskId }))
     .case(actionCreators.toggleTaskState,
         ({ currentProjectName, projects, ...rest }, id) => {
             const project = projects[currentProjectName];

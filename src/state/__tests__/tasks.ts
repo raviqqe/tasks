@@ -58,8 +58,14 @@ test("Modify a task", () => {
 
 test("Set a current project", () => {
     expect(initialState.currentProjectName).toBe(null);
-    const state = reducer(initialState, actionCreators.setCurrentProject("foo"));
+    const state = reducer(initialState, actionCreators.setCurrentProjectName("foo"));
     expect(state.currentProjectName).toBe("foo");
+});
+
+test("Set a current task", () => {
+    expect(initialState.currentTaskId).toBe(null);
+    const state = reducer(initialState, actionCreators.setCurrentTaskId("foo"));
+    expect(state.currentTaskId).toBe("foo");
 });
 
 test("Toggle a task's state", () => {
