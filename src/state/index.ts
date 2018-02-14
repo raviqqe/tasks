@@ -5,11 +5,12 @@ import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 
 import * as message from "./message";
+import * as settings from "./settings";
 import * as tasks from "./tasks";
 import * as timer from "./timer";
 
 const ducks: { [name: string]: { persistent: boolean, reducer: Reducer<any> } }
-    = { message, tasks, timer };
+    = { message, settings, tasks, timer };
 
 export function createStore(): { persistor: Persistor, store: Store<any> } {
     const store = createReduxStore(
