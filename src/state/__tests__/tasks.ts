@@ -1,4 +1,4 @@
-import { actionCreators, initialState, reducer } from "../projects";
+import { actionCreators, initialState, reducer } from "../tasks";
 
 import { emptyProject } from "../../domain/project";
 import { createTask } from "../../domain/task";

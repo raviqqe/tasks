@@ -4,9 +4,9 @@ import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 
-import * as projects from "./projects";
+import * as tasks from "./tasks";
 
-const ducks = { projects };
+const ducks = { tasks };
 
 export const store = createStore(
     persistReducer(

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import Task from "../component/task";
 import { booleanToTaskState } from "../domain/project";
-import { actionCreators, initialState } from "../state/projects";
+import { actionCreators, initialState } from "../state/tasks";
 
 class Tasks extends React.Component<typeof initialState> {
     public render() {
@@ -17,4 +17,4 @@ class Tasks extends React.Component<typeof initialState> {
     }
 }
 
-export default connect(({ projects }) => projects, actionCreators)(Tasks);
+export default connect(({ tasks }) => tasks, actionCreators)(Tasks);
