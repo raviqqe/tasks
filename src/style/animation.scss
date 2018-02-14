@@ -1,0 +1,11 @@
+$instant-duration: 0.05s;
+$short-duration: 0.1s;
+$long-duration: 0.2s;
+
+@mixin hover-rotate {
+	transition: transform $short-duration;
+
+	&:hover {
+		transform: rotate(90deg);
+	}
+}

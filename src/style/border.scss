@@ -1,0 +1,5 @@
+$paper-border-radius: 0.2rem;
+
+@mixin paper-border {
+	border-radius: $paper-border-radius;
+}

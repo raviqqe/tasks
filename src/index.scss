@@ -1,5 +1,65 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans");
+
+@import "./style/colors.scss";
+@import "./style/border.scss";
+@import "./style/media.scss";
+@import "./style/shadow.scss";
+
+@mixin font-without-size {
+	color: $black;
+	font-family: "Noto Sans", sans-serif;
+	line-height: 1.4;
+}
+
+@mixin font {
+	@include font-without-size;
+
+	font-size: 14px;
+}
+
+* {
+	box-sizing: border-box;
+
+	@include large-window {
+		&::-webkit-scrollbar {
+			width: 0.7rem;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border-radius: 1rem;
+			background: $grey;
+		}
+	}
+}
+
 body {
+	@include font;
+
+	background: $light-green;
 	margin: 0;
 	padding: 0;
-	font-family: sans-serif;
+
+	@include large-window {
+		&::-webkit-scrollbar {
+			background: $white;
+		}
+	}
+}
+
+input, textarea {
+	@include font;
+
+	border: {
+		style: solid;
+		color: $grey;
+		radius: $paper-border-radius;
+		width: 1px;
+	};
+	outline: none;
+	padding: 0.2em;
+	width: 100%;
+
+	&:focus {
+		@include font-without-size;
+	}
 }
