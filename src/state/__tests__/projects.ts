@@ -21,8 +21,8 @@ test("Add a new task", () => {
         projects: { foo: emptyProject },
     };
 
-    const fooTask = createTask("foo");
-    const barTask = createTask("bar");
+    const fooTask = createTask("foo", "");
+    const barTask = createTask("bar", "");
 
     state = reducer(state, actionCreators.addTask(fooTask));
     expect(state.projects).toEqual({ foo: { done: [], todo: [fooTask] } });
@@ -46,7 +46,7 @@ test("Modify a task", () => {
         ...initialState,
         currentProject: "foo",
         projects: {
-            foo: { done: [], todo: [createTask("bar")] },
+            foo: { done: [], todo: [createTask("bar", "")] },
         },
     };
 
@@ -63,7 +63,7 @@ test("Set a current project", () => {
 });
 
 test("Toggle a task's state", () => {
-    const fooTask = createTask("foo");
+    const fooTask = createTask("foo", "");
 
     let state: typeof initialState = {
         ...initialState,
