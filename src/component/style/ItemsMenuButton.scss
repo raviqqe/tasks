@@ -1,0 +1,59 @@
+@import "../../style/animation.scss";
+@import "../../style/colors.scss";
+@import "./CircleButton.scss";
+
+.ItemsMenuButton-button-container {
+	position: fixed;
+	bottom: 1em;
+	right: 1em;
+	transition: opacity $short-duration, visibility $short-duration;
+}
+
+.ItemsMenuButton-button-container-hidden {
+	@extend .ItemsMenuButton-button-container;
+
+	opacity: 0;
+	visibility: hidden;
+}
+.ItemsMenuButton-button {
+	@include CircleButton-container($dark-grey);
+}
+
+.ItemsMenuButton-menu-container {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100vw;
+	height: 100vh;
+	background: $transparent-black;
+	transition: background $short-duration, visibility $short-duration;
+	z-index: 100;
+
+	> * {
+		height: 100%;
+		position: fixed;
+		top: 0;
+		right: 0;
+		transition: transform $short-duration;
+		z-index: 200;
+	}
+}
+
+.ItemsMenuButton-menu-container-hidden {
+	@extend .ItemsMenuButton-menu-container;
+
+	background: transparent;
+	visibility: hidden;
+
+	> * {
+		transform: translateX(100%);
+	}
+}
+
+.ItemsMenuButton-menu-container-appear.ItemsMenuButton-menu-container-appear-active, .ItemsMenuButton-menu-container-exit {
+	@extend .ItemsMenuButton-menu-container;
+}
+
+.ItemsMenuButton-menu-container-appear, .ItemsMenuButton-menu-container-exit.ItemsMenuButton-menu-container-exit-active {
+	@extend .ItemsMenuButton-menu-container-hidden;
+}
