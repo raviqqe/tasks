@@ -21,6 +21,10 @@ task :build do
   sh 'npx workbox generate:sw'
 end
 
+task deploy: %i[deps build] do
+  sh 'npx firebase deploy'
+end
+
 task :run do
   sh 'npx react-scripts-ts start'
 end
