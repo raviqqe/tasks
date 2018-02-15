@@ -4,13 +4,20 @@ import { Persistor, persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 
+import * as environment from "./environment";
 import * as message from "./message";
 import * as settings from "./settings";
 import * as tasks from "./tasks";
 import * as timer from "./timer";
 
-const ducks: { [name: string]: { persistent: boolean, reducer: Reducer<any> } }
-    = { message, settings, tasks, timer };
+interface IDuck {
+    initializeStore?: (store: Store<any>) => void;
+    persistent: boolean;
+    reducer: Reducer<any>;
+}
+
+const ducks: { [name: string]: IDuck }
+    = { environment, message, settings, tasks, timer };
 
 export function createStore(): { persistor: Persistor, store: Store<any> } {
     const store = createReduxStore(
@@ -22,6 +29,14 @@ export function createStore(): { persistor: Persistor, store: Store<any> } {
             },
             combineReducers(mapValues(ducks, ({ reducer }) => reducer))),
         applyMiddleware(thunk));
+
+    for (const name of Object.keys(ducks)) {
+        const { initializeStore } = ducks[name];
+
+        if (initializeStore) {
+            initializeStore(store);
+        }
+    }
 
     return { persistor: persistStore(store), store };
 }
