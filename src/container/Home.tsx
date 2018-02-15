@@ -64,7 +64,7 @@ class Home extends React.Component<IProps, IState> {
             sorting,
         };
 
-        const currentTask = this.tasks && find(this.tasks, { id: currentTaskId });
+        const currentTask = this.currentTasks && find(this.currentTasks, { id: currentTaskId });
 
         return (
             <div className="Home-container">
@@ -77,13 +77,13 @@ class Home extends React.Component<IProps, IState> {
                                 (<ItemList
                                     style={done ? { display: "none" } : {}}
                                     done={false}
-                                    tasks={this.project.todoTasks}
+                                    tasks={this.currentProject.todoTasks}
                                     {...itemListProps}
                                 />),
                                 (<ItemList
                                     style={done ? {} : { display: "none" }}
                                     done={true}
-                                    tasks={this.project.doneTasks}
+                                    tasks={this.currentProject.doneTasks}
                                     {...itemListProps}
                                 />),
                                 !isSmallWindow &&
@@ -124,7 +124,7 @@ class Home extends React.Component<IProps, IState> {
 
     public componentDidUpdate() {
         const { currentTaskId, setCurrentTaskId } = this.props;
-        const tasks = this.tasks;
+        const tasks = this.currentTasks;
 
         if (tasks &&
             (currentTaskId === null && tasks.length !== 0 ||
@@ -134,14 +134,14 @@ class Home extends React.Component<IProps, IState> {
         }
     }
 
-    private get project(): IProject | null {
+    private get currentProject(): IProject | null {
         const { currentProjectName, projects } = this.props;
 
         return currentProjectName && projects[currentProjectName];
     }
 
-    private get tasks(): ITask[] | null {
-        const project = this.project;
+    private get currentTasks(): ITask[] | null {
+        const project = this.currentProject;
 
         return project && getTasksFromProject(project, this.state.done);
     }
