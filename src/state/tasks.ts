@@ -12,6 +12,7 @@ export const actionCreators = {
     addTask: actionCreator<ITask>("ADD_TASK"),
     changeProjectName: actionCreator<string>("CHANGE_PROJECT_NAME"),
     modifyTask: actionCreator<ITask>("MODIFY_TASK"),
+    removeProject: actionCreator<string>("REMOVE_PROJECT"),
     removeTask: actionCreator<string>("REMOVE_TASK"),
     setCurrentProjectName: actionCreator<string>("SET_CURRENT_PROJECT"),
     setCurrentTaskId: actionCreator<string>("SET_CURRENT_TASK_ID"),
@@ -76,6 +77,18 @@ export const reducer = reducerWithInitialState(initialState)
                         [taskState]: Object.assign(tasks, { [findIndex(tasks, { id: task.id })]: task }),
                     },
                 },
+                ...rest,
+            };
+        })
+    .case(actionCreators.removeProject,
+        ({ currentProjectName, projects, ...rest }, name) => {
+            const newProjects = omit(projects, name);
+
+            return {
+                currentProjectName: name === currentProjectName
+                    ? Object.keys(newProjects)[0] || null
+                    : currentProjectName,
+                projects: newProjects,
                 ...rest,
             };
         })
