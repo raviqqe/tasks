@@ -1,0 +1,16 @@
+@import "../../style/colors.scss";
+
+.TaskDescription-input {
+	height: 20vh;
+	resize: vertical;
+}
+
+.TaskDescription-markdown {
+	padding: 0;
+	margin: 0;
+	overflow-x: auto;
+}
+
+.TaskDescription-message {
+	color: $grey;
+}
