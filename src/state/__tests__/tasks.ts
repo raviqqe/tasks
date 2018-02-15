@@ -56,6 +56,22 @@ test("Modify a task", () => {
     expect(state.projects).toEqual({ foo: { done: [], todo: [{ ...oldTask, name: "baz" }] } });
 });
 
+test("Remove a task", () => {
+    const fooTask = createTask("foo", "");
+    const barTask = createTask("bar", "");
+
+    let state: typeof initialState = {
+        ...initialState,
+        currentProjectName: "foo",
+        projects: {
+            foo: { done: [], todo: [fooTask, barTask] },
+        },
+    };
+
+    state = reducer(state, actionCreators.removeTask(fooTask.id));
+    expect(state.projects.foo).toEqual({ done: [], todo: [barTask] });
+});
+
 test("Set a current project", () => {
     expect(initialState.currentProjectName).toBe(null);
     const state = reducer(initialState, actionCreators.setCurrentProjectName("foo"));

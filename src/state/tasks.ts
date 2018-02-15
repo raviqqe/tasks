@@ -12,6 +12,7 @@ export const actionCreators = {
     addTask: actionCreator<ITask>("ADD_TASK"),
     changeProjectName: actionCreator<string>("CHANGE_PROJECT_NAME"),
     modifyTask: actionCreator<ITask>("MODIFY_TASK"),
+    removeTask: actionCreator<string>("REMOVE_TASK"),
     setCurrentProjectName: actionCreator<string>("SET_CURRENT_PROJECT"),
     setCurrentTaskId: actionCreator<string>("SET_CURRENT_TASK_ID"),
     setTasks: actionCreator<ITask[]>("SET_TASKS"),
@@ -73,6 +74,24 @@ export const reducer = reducerWithInitialState(initialState)
                     [currentProjectName]: {
                         ...project,
                         [taskState]: Object.assign(tasks, { [findIndex(tasks, { id: task.id })]: task }),
+                    },
+                },
+                ...rest,
+            };
+        })
+    .case(actionCreators.removeTask,
+        ({ currentProjectName, projects, ...rest }, id) => {
+            const project = projects[currentProjectName];
+            const taskState = booleanToTaskState(isTodoTask(project, id));
+            const tasks = project[taskState];
+
+            return {
+                currentProjectName,
+                projects: {
+                    ...projects,
+                    [currentProjectName]: {
+                        ...project,
+                        [taskState]: reject(tasks, { id }),
                     },
                 },
                 ...rest,
