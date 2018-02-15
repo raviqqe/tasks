@@ -129,7 +129,8 @@ class Home extends React.Component<IProps, IState> {
         if (tasks &&
             (currentTaskId === null && tasks.length !== 0 ||
                 currentTaskId !== null && !includeTaskInTasks(currentTaskId, tasks))) {
-            setCurrentTaskId(tasks[0].id || null);
+            const task = tasks[0] || null;
+            setCurrentTaskId(task && task.id);
         }
     }
 
