@@ -43,7 +43,7 @@ class Home extends React.Component<IProps, IState> {
         } = this.props;
 
         if (timer.on) {
-            return <Timer />;
+            return <Timer currentTask={find(this.currentTasks, { id: currentTaskId })} />;
         }
 
         const { done } = this.state;
