@@ -1,0 +1,62 @@
+@import "../../style/animation.scss";
+@import "../../style/border.scss";
+@import "../../style/colors.scss";
+@import "../../style/media.scss";
+@import "../../style/shadow.scss";
+@import "./ProjectButton.scss";
+
+.ProjectsMenu-container {
+	position: relative;
+}
+
+.ProjectsMenu-box {
+	@include paper-shadow;
+	@include paper-border;
+
+	background: white;
+	padding: 1.5em 2em;
+	position: absolute;
+	top: 100%;
+	z-index: 200;
+	transform-origin: 0 0;
+	transition: transform $short-duration, opacity $short-duration, visibility $short-duration;
+
+	@include small-window {
+		right: 0;
+		transform-origin: 100% 0;
+	}
+}
+
+.ProjectsMenu-box-hidden {
+	@extend .ProjectsMenu-box;
+
+	transform: scale(0, 0);
+	opacity: 0;
+	visibility: hidden;
+}
+
+.ProjectsMenu-background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 100;
+
+	@include small-window {
+		left: auto;
+		right: 0;
+	}
+}
+
+.ProjectsMenu-background-hidden {
+	display: none;
+}
+
+.ProjectsMenu-current-button {
+	@include ProjectButton-container(white, white, transparent);
+}
+
+.ProjectsMenu-disabled-button {
+	@include ProjectButton-container($red, $red, transparent);
+}
