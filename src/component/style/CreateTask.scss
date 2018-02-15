@@ -1,0 +1,30 @@
+@import "../../style/colors.scss";
+@import "./Button.scss";
+@import "./TaskDescription.scss";
+
+.CreateTask-description {
+	@extend .TaskDescription-input;
+
+	flex: 1;
+}
+
+.CreateTask-buttons {
+	display: flex;
+
+	> * {
+		flex: 1;
+		margin-right: 0.5em;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+.CreateTask-button {
+	@include Button-container($red);
+}
+
+.CreateTask-cancel-button {
+	@include Button-container($grey);
+}
