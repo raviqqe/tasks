@@ -53,8 +53,8 @@ class Task extends React.Component<IProps> {
                         onEdit={(description) => modifyTask({ ...this.task, description })}
                     />,
                     this.renderSpentSeconds(),
-                    <LabeledDate key="createdAt" label="Created on" value={createdAt} />,
-                    <LabeledDate key="updatedAt" label="Updated on" value={updatedAt} />,
+                    <LabeledDate key="createdAt" label="Created on" timeStamp={createdAt} />,
+                    <LabeledDate key="updatedAt" label="Updated on" timeStamp={updatedAt} />,
                 ]}
                 item={this.task}
                 onEditName={detailed && ((name) => modifyTask({ ...this.task, name }))}
