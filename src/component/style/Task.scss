@@ -1,0 +1,5 @@
+@import "./Item.scss";
+
+.Task-button {
+	@extend .Item-button;
+}
