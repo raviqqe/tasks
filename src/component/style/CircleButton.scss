@@ -1,0 +1,18 @@
+@import "./Button.scss";
+
+@mixin CircleButton-container($background-color: $red) {
+	@include Button-container($background-color, true);
+
+	font-size: 2em;
+	width: 1.8em;
+	height: 1.8em;
+	padding: 0;
+	border-radius: 1.8em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.CircleButton-container {
+	@include CircleButton-container;
+}
