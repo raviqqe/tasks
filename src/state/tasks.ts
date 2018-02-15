@@ -2,7 +2,7 @@ import { find, findIndex, omit, reject } from "lodash";
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 
-import { booleanToTaskState, IProject, IProjects, isDoneTask } from "../domain/project";
+import { getTasksFromProject, IProject, IProjects, isDoneTask, setTasksToProject } from "../domain/project";
 import { createTask, ITask } from "../domain/task";
 
 const actionCreator = actionCreatorFactory("TASKS");
@@ -35,7 +35,7 @@ export const initialState: IState = {
 export const reducer = reducerWithInitialState(initialState)
     .case(actionCreators.addProject,
         ({ projects, ...rest }, name) => ({
-            projects: { ...projects, [name]: { done: [], todo: [] } },
+            projects: { ...projects, [name]: { doneTasks: [], todoTasks: [] } },
             ...rest,
         }))
     .case(actionCreators.addTask,
@@ -45,9 +45,10 @@ export const reducer = reducerWithInitialState(initialState)
             return {
                 currentProjectName,
                 projects: {
-                    ...projects, [currentProjectName]: {
+                    ...projects,
+                    [currentProjectName]: {
                         ...project,
-                        todo: [task, ...project.todo],
+                        todoTasks: [task, ...project.todoTasks],
                     },
                 },
                 ...rest,
@@ -65,17 +66,18 @@ export const reducer = reducerWithInitialState(initialState)
     .case(actionCreators.modifyTask,
         ({ currentProjectName, projects, ...rest }, task) => {
             const project = projects[currentProjectName];
-            const taskState = booleanToTaskState(isDoneTask(project, task.id));
-            const tasks = project[taskState];
+            const done = isDoneTask(project, task.id);
+            const tasks = getTasksFromProject(project, done);
 
             return {
                 currentProjectName,
                 projects: {
                     ...projects,
-                    [currentProjectName]: {
-                        ...project,
-                        [taskState]: Object.assign(tasks, { [findIndex(tasks, { id: task.id })]: task }),
-                    },
+                    [currentProjectName]: setTasksToProject(
+                        project,
+                        Object.assign(tasks, { [findIndex(tasks, { id: task.id })]: task }),
+                        done,
+                    ),
                 },
                 ...rest,
             };
@@ -95,17 +97,14 @@ export const reducer = reducerWithInitialState(initialState)
     .case(actionCreators.removeTask,
         ({ currentProjectName, projects, ...rest }, id) => {
             const project = projects[currentProjectName];
-            const taskState = booleanToTaskState(isDoneTask(project, id));
-            const tasks = project[taskState];
+            const done = isDoneTask(project, id);
+            const tasks = getTasksFromProject(project, done);
 
             return {
                 currentProjectName,
                 projects: {
                     ...projects,
-                    [currentProjectName]: {
-                        ...project,
-                        [taskState]: reject(tasks, { id }),
-                    },
+                    [currentProjectName]: setTasksToProject(project, reject(tasks, { id }), done),
                 },
                 ...rest,
             };
@@ -127,10 +126,9 @@ export const reducer = reducerWithInitialState(initialState)
                 ...state,
                 projects: {
                     ...projects,
-                    [currentProjectName]: {
-                        ...project,
-                        [booleanToTaskState(isDoneTask(project, tasks[0].id))]: tasks,
-                    },
+                    [currentProjectName]: setTasksToProject(
+                        project, tasks, isDoneTask(project, tasks[0].id),
+                    ),
                 },
             };
         })
@@ -139,10 +137,10 @@ export const reducer = reducerWithInitialState(initialState)
             const project = projects[currentProjectName];
             const done = isDoneTask(project, id);
 
-            let sourceTasks = project[booleanToTaskState(done)];
+            let sourceTasks = getTasksFromProject(project, done);
             const destinationTasks = [
                 find(sourceTasks, { id }),
-                ...project[booleanToTaskState(!done)],
+                ...getTasksFromProject(project, !done),
             ];
             sourceTasks = reject(sourceTasks, { id });
 
@@ -151,8 +149,8 @@ export const reducer = reducerWithInitialState(initialState)
                 projects: {
                     ...projects,
                     [currentProjectName]: {
-                        done: done ? sourceTasks : destinationTasks,
-                        todo: done ? destinationTasks : sourceTasks,
+                        doneTasks: done ? sourceTasks : destinationTasks,
+                        todoTasks: done ? destinationTasks : sourceTasks,
                     },
                 },
                 ...rest,

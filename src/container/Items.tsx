@@ -8,7 +8,7 @@ import ItemList from "../component/ItemList";
 import ItemsMenuButton from "../component/ItemsMenuButton";
 import Task from "../component/Task";
 import TasksMenu from "../component/TasksMenu";
-import { booleanToTaskState, emptyProject, IProject, IProjects } from "../domain/project";
+import { emptyProject, getTasksFromProject, IProject, IProjects } from "../domain/project";
 import { includeTaskInTasks, ITask } from "../domain/task";
 import { actionCreators as settingsActionCreators } from "../state/settings";
 import { actionCreators as tasksActionCreators } from "../state/tasks";
@@ -77,13 +77,13 @@ class Items extends React.Component<IProps, IState> {
                                 (<ItemList
                                     style={done ? { display: "none" } : {}}
                                     done={false}
-                                    tasks={this.project.todo}
+                                    tasks={this.project.todoTasks}
                                     {...itemListProps}
                                 />),
                                 (<ItemList
                                     style={done ? {} : { display: "none" }}
                                     done={true}
-                                    tasks={this.project.done}
+                                    tasks={this.project.doneTasks}
                                     {...itemListProps}
                                 />),
                                 !isSmallWindow &&
@@ -142,7 +142,7 @@ class Items extends React.Component<IProps, IState> {
     private get tasks(): ITask[] | null {
         const project = this.project;
 
-        return project && project[booleanToTaskState(this.state.done)];
+        return project && getTasksFromProject(project, this.state.done);
     }
 }
 

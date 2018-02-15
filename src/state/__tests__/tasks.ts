@@ -25,9 +25,9 @@ test("Add a new task", () => {
     const barTask = createTask("bar", "");
 
     state = reducer(state, actionCreators.addTask(fooTask));
-    expect(state.projects).toEqual({ foo: { done: [], todo: [fooTask] } });
+    expect(state.projects).toEqual({ foo: { doneTasks: [], todoTasks: [fooTask] } });
     state = reducer(state, actionCreators.addTask(barTask));
-    expect(state.projects).toEqual({ foo: { done: [], todo: [barTask, fooTask] } });
+    expect(state.projects).toEqual({ foo: { doneTasks: [], todoTasks: [barTask, fooTask] } });
 });
 
 test("Change a project name", () => {
@@ -46,14 +46,14 @@ test("Modify a task", () => {
         ...initialState,
         currentProjectName: "foo",
         projects: {
-            foo: { done: [], todo: [createTask("bar", "")] },
+            foo: { doneTasks: [], todoTasks: [createTask("bar", "")] },
         },
     };
 
-    const oldTask = state.projects.foo.todo[0];
+    const oldTask = state.projects.foo.todoTasks[0];
 
     state = reducer(state, actionCreators.modifyTask({ ...oldTask, name: "baz" }));
-    expect(state.projects).toEqual({ foo: { done: [], todo: [{ ...oldTask, name: "baz" }] } });
+    expect(state.projects).toEqual({ foo: { doneTasks: [], todoTasks: [{ ...oldTask, name: "baz" }] } });
 });
 
 test("Remove a project", () => {
@@ -83,12 +83,12 @@ test("Remove a task", () => {
         ...initialState,
         currentProjectName: "foo",
         projects: {
-            foo: { done: [], todo: [fooTask, barTask] },
+            foo: { doneTasks: [], todoTasks: [fooTask, barTask] },
         },
     };
 
     state = reducer(state, actionCreators.removeTask(fooTask.id));
-    expect(state.projects.foo).toEqual({ done: [], todo: [barTask] });
+    expect(state.projects.foo).toEqual({ doneTasks: [], todoTasks: [barTask] });
 });
 
 test("Set a current project", () => {
@@ -111,12 +111,12 @@ test("Set tasks", () => {
         ...initialState,
         currentProjectName: "foo",
         projects: {
-            foo: { done: [], todo: [fooTask, barTask] },
+            foo: { doneTasks: [], todoTasks: [fooTask, barTask] },
         },
     };
 
     state = reducer(state, actionCreators.setTasks([barTask, fooTask]));
-    expect(state.projects.foo).toEqual({ done: [], todo: [barTask, fooTask] });
+    expect(state.projects.foo).toEqual({ doneTasks: [], todoTasks: [barTask, fooTask] });
 });
 
 test("Toggle a task's state", () => {
@@ -125,12 +125,12 @@ test("Toggle a task's state", () => {
     let state: typeof initialState = {
         ...initialState,
         currentProjectName: "foo",
-        projects: { foo: { done: [], todo: [fooTask] } },
+        projects: { foo: { doneTasks: [], todoTasks: [fooTask] } },
     };
 
     state = reducer(state, actionCreators.toggleTaskState(fooTask.id));
-    expect(state.projects).toEqual({ foo: { done: [fooTask], todo: [] } });
+    expect(state.projects).toEqual({ foo: { doneTasks: [fooTask], todoTasks: [] } });
 
     state = reducer(state, actionCreators.toggleTaskState(fooTask.id));
-    expect(state.projects).toEqual({ foo: { done: [], todo: [fooTask] } });
+    expect(state.projects).toEqual({ foo: { doneTasks: [], todoTasks: [fooTask] } });
 });
