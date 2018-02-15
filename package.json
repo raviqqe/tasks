@@ -6,7 +6,6 @@
     "axios": "^0.17.1",
     "firebase": "^4.9.1",
     "lodash": "^4.17.5",
-    "material-ui": "^1.0.0-beta.33",
     "nanoid": "^1.0.1",
     "node-waves": "^0.7.6",
     "numeral": "^2.0.6",
