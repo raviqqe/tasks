@@ -8,7 +8,7 @@ import ItemList from "../component/ItemList";
 import ItemsMenuButton from "../component/ItemsMenuButton";
 import Task from "../component/Task";
 import TasksMenu from "../component/TasksMenu";
-import { booleanToTaskState, IProject } from "../domain/project";
+import { booleanToTaskState, emptyProject, IProject } from "../domain/project";
 import { includeTaskInTasks, ITask } from "../domain/task";
 import { actionCreators as settingsActionCreators } from "../state/settings";
 import { actionCreators as tasksActionCreators } from "../state/tasks";
@@ -71,35 +71,39 @@ class Items extends React.Component<IProps, IState> {
                 <div className="Items-content">
                     {!isSmallWindow && itemsMenu}
                     <div className="Items-main">
-                        <ItemList
-                            style={done ? { display: "none" } : {}}
-                            done={false}
-                            tasks={this.project.todo}
-                            {...itemListProps}
-                        />
-                        <ItemList
-                            style={done ? {} : { display: "none" }}
-                            done={true}
-                            tasks={this.project.done}
-                            {...itemListProps}
-                        />
-                        {!isSmallWindow &&
-                            <div className="Items-current-item-container">
-                                {currentTask &&
-                                    <Task detailed={true} done={done} {...currentTask} />}
-                            </div>}
-                        {isSmallWindow &&
-                            <ItemsMenuButton
-                                closed={sorting}
-                                hidden={sorting}
-                                itemsMenu={itemsMenu}
-                            />}
-                        {sorting &&
-                            <div className="Items-fix-list-button-container">
-                                <CircleButton onClick={() => this.setState({ fixed: true })}>
-                                    <Save />
-                                </CircleButton>
-                            </div>}
+                        {currentProjectName === null
+                            ? "No project."
+                            : [
+                                (<ItemList
+                                    style={done ? { display: "none" } : {}}
+                                    done={false}
+                                    tasks={this.project.todo}
+                                    {...itemListProps}
+                                />),
+                                (<ItemList
+                                    style={done ? {} : { display: "none" }}
+                                    done={true}
+                                    tasks={this.project.done}
+                                    {...itemListProps}
+                                />),
+                                !isSmallWindow &&
+                                <div className="Items-current-item-container">
+                                    {currentTask &&
+                                        <Task detailed={true} done={done} {...currentTask} />}
+                                </div>,
+                                isSmallWindow &&
+                                <ItemsMenuButton
+                                    closed={sorting}
+                                    hidden={sorting}
+                                    itemsMenu={itemsMenu}
+                                />,
+                                sorting &&
+                                <div className="Items-fix-list-button-container">
+                                    <CircleButton onClick={() => this.setState({ fixed: true })}>
+                                        <Save />
+                                    </CircleButton>
+                                </div>,
+                            ]}
                     </div>
                 </div>
             </div>
