@@ -1,0 +1,54 @@
+@import "../../component/style/Button.scss";
+@import "../../style/colors.scss";
+@import "../../style/media.scss";
+
+.Timer-container {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.Timer-container-rest {
+	@extend .Timer-container;
+
+	background: white;
+}
+
+.Timer-time {
+	color: white;
+	font-size: 10em;
+	display: flex;
+	align-items: flex-end;
+
+	@include small-window {
+		font-size: 6em;
+	}
+}
+
+.Timer-time-rest {
+	@extend .Timer-time;
+
+	color: $black;
+}
+
+.Timer-minutes {
+	font-size: 1.5em;
+	margin-right: 0.1em;
+}
+
+.Timer-seconds {
+	padding-bottom: 0.15em;
+}
+
+.Timer-button {
+	@include Button-container;
+
+	padding: 0.5em 2em;
+
+	> svg {
+		font-size: 2.5em;
+	}
+}
