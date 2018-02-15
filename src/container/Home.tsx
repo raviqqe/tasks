@@ -148,6 +148,6 @@ class Home extends React.Component<IProps, IState> {
 }
 
 export default connect(
-    ({ settings, tasks, timer }) => ({ ...settings, ...tasks, timer }),
+    ({ environment, settings, tasks, timer }) => ({ ...environment, ...settings, ...tasks, timer }),
     { ...settingsActionCreators, ...tasksActionCreators },
 )(Home);
