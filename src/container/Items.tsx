@@ -64,7 +64,7 @@ class Items extends React.Component<IProps, IState> {
             sorting,
         };
 
-        const currentTask = currentTaskId && find(this.tasks, { id: currentTaskId });
+        const currentTask = this.tasks && find(this.tasks, { id: currentTaskId });
 
         return (
             <div className="Items-container">
@@ -126,20 +126,23 @@ class Items extends React.Component<IProps, IState> {
         const { currentTaskId, setCurrentTaskId } = this.props;
         const tasks = this.tasks;
 
-        if (currentTaskId === null && tasks.length !== 0 ||
-            currentTaskId !== null && !includeTaskInTasks(currentTaskId, tasks)) {
+        if (tasks &&
+            (currentTaskId === null && tasks.length !== 0 ||
+                currentTaskId !== null && !includeTaskInTasks(currentTaskId, tasks))) {
             setCurrentTaskId(tasks[0].id || null);
         }
     }
 
-    private get project(): IProject {
+    private get project(): IProject | null {
         const { currentProjectName, projects } = this.props;
-        return projects[currentProjectName];
+
+        return currentProjectName && projects[currentProjectName];
     }
 
-    private get tasks(): ITask[] {
-        const { currentProjectName, projects } = this.props;
-        return projects[currentProjectName][booleanToTaskState(this.state.done)];
+    private get tasks(): ITask[] | null {
+        const project = this.project;
+
+        return project && project[booleanToTaskState(this.state.done)];
     }
 }
 
