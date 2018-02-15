@@ -8,7 +8,7 @@ interface IProps {
     onClick: () => void;
 }
 
-export default class PageButton extends React.Component<IProps> {
+export default class extends React.Component<IProps> {
     public render() {
         const { children, className, icon, onClick } = this.props;
 
