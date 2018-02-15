@@ -8,7 +8,7 @@ import ItemList from "../component/ItemList";
 import ItemsMenuButton from "../component/ItemsMenuButton";
 import Task from "../component/Task";
 import TasksMenu from "../component/TasksMenu";
-import { booleanToTaskState, emptyProject, IProject } from "../domain/project";
+import { booleanToTaskState, emptyProject, IProject, IProjects } from "../domain/project";
 import { includeTaskInTasks, ITask } from "../domain/task";
 import { actionCreators as settingsActionCreators } from "../state/settings";
 import { actionCreators as tasksActionCreators } from "../state/tasks";
@@ -21,7 +21,7 @@ interface IProps {
     currentTaskId: string | null;
     isSmallWindow: boolean;
     notificationOn: boolean | null;
-    projects: { [name: string]: IProject };
+    projects: IProjects;
     requestNotificationPermission: () => void;
     setCurrentTaskId: (id: string) => void;
     setTasks: (items: ITask[]) => void;

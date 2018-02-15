@@ -1,14 +1,14 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { IProject } from "../domain/project";
+import { IProject, IProjects } from "../domain/project";
 import { actionCreators } from "../state/tasks";
 import ProjectButton from "./ProjectButton";
 import "./style/ProjectsMenu.css";
 
 interface IProps {
     currentProjectName: string | null;
-    projects: { [name: string]: IProject };
+    projects: IProjects;
     setCurrentProjectName: (name: string) => void;
 }
 

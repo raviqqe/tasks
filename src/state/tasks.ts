@@ -2,7 +2,7 @@ import { find, findIndex, omit, reject } from "lodash";
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 
-import { booleanToTaskState, IProject, isDoneTask } from "../domain/project";
+import { booleanToTaskState, IProject, IProjects, isDoneTask } from "../domain/project";
 import { createTask, ITask } from "../domain/task";
 
 const actionCreator = actionCreatorFactory("TASKS");
@@ -23,7 +23,7 @@ export const actionCreators = {
 interface IState {
     currentProjectName: string | null;
     currentTaskId: string | null;
-    projects: { [name: string]: IProject };
+    projects: IProjects;
 }
 
 export const initialState: IState = {
