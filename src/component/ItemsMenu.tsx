@@ -11,7 +11,7 @@ import ProjectsMenu from "./ProjectsMenu";
 import Settings from "./Settings";
 import "./style/ItemsMenu.css";
 
-export interface IProps {
+interface IProps {
     done: boolean;
     pointerAvailable: boolean;
     makeTaskListSortable: () => void;
