@@ -33,7 +33,7 @@ class CreateTask extends React.Component<IProps, IState> {
                 focus={() => this.input && this.input.focus()}
             >
                 <input
-                    ref={this.ref}
+                    ref={(input) => this.input = input}
                     placeholder="Name"
                     value={name}
                     onChange={({ target: { value } }) => this.setState({ name: value })}
@@ -51,8 +51,6 @@ class CreateTask extends React.Component<IProps, IState> {
             </CreateItem>
         );
     }
-
-    private ref = (input) => this.input = input;
 }
 
 export default connect(null, actionCreators)(CreateTask);
