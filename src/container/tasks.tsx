@@ -1,27 +1,7 @@
 import * as React from "react";
-import { connect } from "react-redux";
 
-import Task from "../component/task";
-import { booleanToTaskState } from "../domain/project";
-import { actionCreators, initialState } from "../state/tasks";
-
-interface IState {
-    todo: boolean;
-}
-
-class Tasks extends React.Component<typeof initialState, IState> {
-    public state: IState = { todo: true };
-
+export default class extends React.Component {
     public render() {
-        const { currentProjectName, projects } = this.props;
-        const { todo } = this.state;
-
-        if (currentProjectName === null) {
-            return <div>Create a project.</div>;
-        }
-
-        return projects[currentProjectName][booleanToTaskState(todo)].map((task, key) => <Task key={key} {...task} />);
+        return <div>Create a project.</div>;
     }
 }
-
-export default connect(({ tasks }) => tasks, actionCreators)(Tasks);
