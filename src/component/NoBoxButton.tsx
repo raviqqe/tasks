@@ -4,7 +4,7 @@ import "./style/NoBoxButton.css";
 
 interface IProps {
     className?: string;
-    icon: JSX.Element;
+    icon?: JSX.Element;
     onClick: () => void;
 }
 
