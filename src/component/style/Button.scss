@@ -1,0 +1,93 @@
+@import "../../style/animation.scss";
+@import "../../style/colors.scss";
+@import "../../style/media.scss";
+
+@mixin Button-shadow-transition {
+	transition: box-shadow $instant-duration, transform $instant-duration;
+}
+
+@mixin Button-shadow-on {
+	$Button-shadow-size: 0.15rem;
+
+	transform: translateY(-$Button-shadow-size);
+	box-shadow: 0 $Button-shadow-size $Button-shadow-size $transparent-black;
+}
+
+@mixin Button-shadow-off {
+	transform: translateY(0);
+	box-shadow: none;
+}
+
+@mixin Button-container($background-color: $red, $shadow-only: false) {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	background: $background-color;
+	color: white;
+	cursor: pointer;
+	font: inherit;
+	white-space: nowrap;
+	padding: {
+		top: 0.4em;
+		bottom: 0.4em;
+		left: 1em;
+		right: 1em;
+	};
+	border: {
+		radius: 0.5rem;
+		width: 0;
+	};
+
+	@include untouchable {
+		@include Button-shadow-transition;
+
+		&:hover {
+			@include Button-shadow-on;
+		}
+
+		&:active {
+			@include Button-shadow-off;
+		}
+	}
+
+
+	@include touchable {
+		@if $shadow-only {
+			@include Button-shadow-transition;
+			@include Button-shadow-on;
+
+			&:active {
+				@include Button-shadow-off;
+			}
+		}
+		@else {
+			$dark-background: darken($background-color, 15%);
+			$thickness: 0.3rem;
+
+			margin: {
+				top: 0;
+				bottom: $thickness;
+			};
+			box-shadow: 0 $thickness $dark-background;
+			transition: box-shadow $short-duration, margin $short-duration;
+
+			&:active {
+				margin: {
+					top: $thickness;
+					bottom: 0;
+				};
+				box-shadow: 0 0 $dark-background;
+			}
+		}
+	}
+}
+
+.Button-container {
+	@include Button-container;
+}
+
+.Button-wrapper {
+	display: inline-block;
+}
