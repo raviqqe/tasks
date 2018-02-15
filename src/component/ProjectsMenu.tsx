@@ -51,4 +51,4 @@ class ProjectsMenu extends React.Component<IProps, IState> {
     }
 }
 
-export default connect(({ projects }) => projects, actionCreators)(ProjectsMenu);
+export default connect(({ tasks }) => tasks, actionCreators)(ProjectsMenu);
