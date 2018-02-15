@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 import Message from "./component/Message";
-import App from "./container/App";
+import Home from "./container/Home";
 import { createStore } from "./state";
 
 import "./index.css";
@@ -14,7 +14,7 @@ const { persistor, store } = createStore();
 ReactDOM.render(
     <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-            <App />
+            <Home />
             <Message />
         </PersistGate>
     </Provider>,

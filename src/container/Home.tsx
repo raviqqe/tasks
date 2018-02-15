@@ -14,7 +14,7 @@ import { actionCreators as settingsActionCreators } from "../state/settings";
 import { actionCreators as tasksActionCreators } from "../state/tasks";
 import Timer from "./Timer";
 
-import "./style/Items.css";
+import "./style/Home.css";
 
 interface IProps {
     currentProjectName: string | null;
@@ -34,7 +34,7 @@ interface IState {
     fixed: boolean;
 }
 
-class Items extends React.Component<IProps, IState> {
+class Home extends React.Component<IProps, IState> {
     public state: IState = { done: false, fixed: false };
 
     public render() {
@@ -67,10 +67,10 @@ class Items extends React.Component<IProps, IState> {
         const currentTask = this.tasks && find(this.tasks, { id: currentTaskId });
 
         return (
-            <div className="Items-container">
-                <div className="Items-content">
+            <div className="Home-container">
+                <div className="Home-content">
                     {!isSmallWindow && itemsMenu}
-                    <div className="Items-main">
+                    <div className="Home-main">
                         {currentProjectName === null
                             ? "No project."
                             : [
@@ -87,7 +87,7 @@ class Items extends React.Component<IProps, IState> {
                                     {...itemListProps}
                                 />),
                                 !isSmallWindow &&
-                                <div className="Items-current-item-container">
+                                <div className="Home-current-item-container">
                                     {currentTask &&
                                         <Task detailed={true} done={done} {...currentTask} />}
                                 </div>,
@@ -98,7 +98,7 @@ class Items extends React.Component<IProps, IState> {
                                     itemsMenu={itemsMenu}
                                 />,
                                 sorting &&
-                                <div className="Items-fix-list-button-container">
+                                <div className="Home-fix-list-button-container">
                                     <CircleButton onClick={() => this.setState({ fixed: true })}>
                                         <Save />
                                     </CircleButton>
@@ -149,4 +149,4 @@ class Items extends React.Component<IProps, IState> {
 export default connect(
     ({ settings, tasks, timer }) => ({ ...settings, ...tasks, timer }),
     { ...settingsActionCreators, ...tasksActionCreators },
-)(Items);
+)(Home);

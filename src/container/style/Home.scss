@@ -1,6 +1,6 @@
 @import "../../style/colors.scss";
 
-.Items-container {
+.Home-container {
 	display: flex;
 	justify-content: center;
 	width: 100vw;
@@ -8,13 +8,13 @@
 	overflow-y: hidden;
 }
 
-.Items-content {
+.Home-content {
 	display: flex;
 	width: 100%;
 	max-width: 100em;
 }
 
-.Items-main {
+.Home-main {
 	display: flex;
 	flex: 1;
 
@@ -23,12 +23,12 @@
 	}
 }
 
-.Items-current-item-container {
+.Home-current-item-container {
 	overflow-y: auto;
 	padding: 1em;
 }
 
-.Items-fix-list-button-container {
+.Home-fix-list-button-container {
 	position: fixed;
 	bottom: 1em;
 	right: 1em;
