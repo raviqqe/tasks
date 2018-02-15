@@ -8,7 +8,7 @@ import ItemList from "../component/ItemList";
 import ItemsMenuButton from "../component/ItemsMenuButton";
 import Task from "../component/Task";
 import TasksMenu from "../component/TasksMenu";
-import { emptyProject, getTasksFromProject, IProject, IProjects } from "../domain/project";
+import { getTasksFromProject, IProject, IProjects } from "../domain/project";
 import { includeTaskInTasks, ITask } from "../domain/task";
 import { actionCreators as settingsActionCreators } from "../state/settings";
 import { actionCreators as tasksActionCreators } from "../state/tasks";
