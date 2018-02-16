@@ -7,7 +7,6 @@ import { actionCreators } from "../state/tasks";
 import Button from "./Button";
 import IconedButton from "./IconedButton";
 import ModalWindowButton from "./ModalWindowButton";
-import "./style/CreateItem.css";
 import "./style/CreateTask.css";
 
 interface IProps {
@@ -31,13 +30,13 @@ class CreateTask extends React.Component<IProps, IState> {
             <ModalWindowButton
                 buttonComponent={({ openWindow }) =>
                     <IconedButton icon={<Plus />} onClick={openWindow}>
-                        <div className="CreateItem-button-text">new</div>
+                        <div className="CreateTask-button-text">new</div>
                     </IconedButton>}
                 onOpen={() => this.input && this.input.focus()}
             >
                 {(closeWindow) =>
                     <form
-                        className="CreateItem-form"
+                        className="CreateTask-form"
                         onSubmit={(event) => {
                             addTask(createTask(name, description));
                             this.setState({ description: "", name: "" });
