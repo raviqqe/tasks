@@ -10,6 +10,7 @@ import { ITask } from "../domain/task";
 import { actionCreators as tasksActionCreators } from "../state/tasks";
 import { actionCreators as timerActionCreators } from "../state/timer";
 import LabeledDate from "./LabeledDate";
+import SmallIconButton from "./SmallIconButton";
 import SubInformation from "./SubInformation";
 import TaskDescription from "./TaskDescription";
 import TaskName from "./TaskName";
@@ -38,7 +39,7 @@ class Task extends React.Component<IProps, IState> {
         const {
             createdAt, detailed, description, done, id, highlighted, modifyTask,
             name, removeTask, setCurrentTaskId, spentSeconds, toggleTaskState,
-            updatedAt,
+            toggleTimer, updatedAt,
         } = this.props;
 
         return (
@@ -56,37 +57,22 @@ class Task extends React.Component<IProps, IState> {
                     />
                     <div className={"Task-buttons" + (this.state.showButtons ? "" : "-hidden")}>
                         {(!done || detailed) &&
-                            <div
-                                className="Task-button"
-                                onClick={(event) => {
-                                    toggleTaskState(id);
-                                    event.stopPropagation();
-                                }}
-                            >
+                            <SmallIconButton onClick={() => toggleTaskState(id)}>
                                 {done ? <Repeat /> : <Check />}
-                            </div>}
+                            </SmallIconButton>}
                         {!done &&
-                            <div
-                                className="Task-button"
-                                onClick={(event) => {
-                                    this.props.setCurrentTaskId(id);
-                                    this.props.toggleTimer();
-                                    event.stopPropagation();
+                            <SmallIconButton
+                                onClick={() => {
+                                    setCurrentTaskId(id);
+                                    toggleTimer();
                                 }}
                             >
                                 <Clock />
-                            </div>}
+                            </SmallIconButton>}
                         {(done || detailed) &&
-                            <div
-                                key="trash"
-                                className="Task-button"
-                                onClick={(event) => {
-                                    removeTask(id);
-                                    event.stopPropagation();
-                                }}
-                            >
+                            <SmallIconButton onClick={() => removeTask(id)}>
                                 <Trash />
-                            </div>}
+                            </SmallIconButton>}
                     </div>
                 </div>
                 {detailed && [

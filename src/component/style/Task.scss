@@ -1,6 +1,5 @@
 @import "../../style/animation.scss";
 @import "../../style/border.scss";
-@import "../../style/colors.scss";
 @import "../../style/media.scss";
 
 .Task-container {
@@ -43,27 +42,5 @@
 	@include small-window {
 		opacity: 1;
 		visibility: visible;
-	}
-}
-
-.Task-button {
-	color: $black;
-	font-size: 1.5em;
-	display: flex;
-	margin-right: 0.1em;
-	transition: color $instant-duration, transform $instant-duration;
-	cursor: pointer;
-
-	&:last-child {
-		margin-right: 0;
-	}
-
-	&:hover {
-		color: $red;
-		transform: scale(1.5, 1.5);
-	}
-
-	@include small-window {
-		color: $grey;
 	}
 }
