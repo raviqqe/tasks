@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 import Message from "./component/Message";
+import config from "./config";
 import Home from "./container/Home";
 import { createStore } from "./state";
 
@@ -18,7 +19,7 @@ ReactDOM.render(
             <Message />
         </PersistGate>
     </Provider>,
-    document.getElementById("root") as HTMLElement,
+    document.getElementById(config.rootId) as HTMLElement,
 );
 
 if ("serviceWorker" in navigator) {
