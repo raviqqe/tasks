@@ -40,6 +40,7 @@ export default class extends React.Component<IProps> {
                         <ModalWindowButton
                             key={task.id}
                             buttonComponent={this.ClickableTask}
+                            buttonProps={{ done, task }}
                         >
                             <Task detailed={true} done={done} {...task} />
                         </ModalWindowButton> :
