@@ -56,7 +56,7 @@ class Home extends React.Component<IProps, IState> {
 
         const sorting = touchable && !this.state.fixed;
 
-        const itemListProps = {
+        const taskListProps = {
             ...this.props,
             fixed: this.state.fixed,
             sorting,
@@ -77,14 +77,14 @@ class Home extends React.Component<IProps, IState> {
                                     style={done ? { display: "none" } : {}}
                                     done={false}
                                     tasks={this.currentProject.todoTasks}
-                                    {...itemListProps}
+                                    {...taskListProps}
                                 />),
                                 (<TaskList
                                     key="done-tasks"
                                     style={done ? {} : { display: "none" }}
                                     done={true}
                                     tasks={this.currentProject.doneTasks}
-                                    {...itemListProps}
+                                    {...taskListProps}
                                 />),
                                 !isSmallWindow &&
                                 <div key="current-task" className="Home-current-item-container">
