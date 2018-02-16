@@ -9,7 +9,7 @@ import IconedButton from "./IconedButton";
 import NoBoxButton from "./NoBoxButton";
 import ProjectsMenu from "./ProjectsMenu";
 import Settings from "./Settings";
-import "./style/ItemsMenu.css";
+import "./style/Menu.css";
 
 interface IProps {
     done: boolean;
@@ -18,32 +18,32 @@ interface IProps {
     onTasksStateChange: (done: boolean) => void;
 }
 
-class ItemsMenu extends React.Component<IProps> {
+class Menu extends React.Component<IProps> {
     public render() {
         const { done, pointerAvailable, makeTaskListSortable, onTasksStateChange } = this.props;
 
         return (
-            <div className="ItemsMenu-container" onClick={(event) => event.stopPropagation()}>
-                <div className="ItemsMenu-upper-container">
-                    <div className="ItemsMenu-upper-background" />
-                    <div className="ItemsMenu-upper-content">
+            <div className="Menu-container" onClick={(event) => event.stopPropagation()}>
+                <div className="Menu-upper-container">
+                    <div className="Menu-upper-background" />
+                    <div className="Menu-upper-content">
                         <ProjectsMenu />
                     </div>
                 </div>
-                <div className="ItemsMenu-lower-container">
-                    <div className="ItemsMenu-lower-background" />
-                    <div className="ItemsMenu-lower-content">
-                        <div className="ItemsMenu-lower-upper-container">
-                            <div className="ItemsMenu-states">
+                <div className="Menu-lower-container">
+                    <div className="Menu-lower-background" />
+                    <div className="Menu-lower-content">
+                        <div className="Menu-lower-upper-container">
+                            <div className="Menu-states">
                                 <NoBoxButton
-                                    className={!done && "ItemsMenu-state-highlighted"}
+                                    className={!done && "Menu-state-highlighted"}
                                     icon={<Todo />}
                                     onClick={() => onTasksStateChange(false)}
                                 >
                                     todo
                                 </NoBoxButton>
                                 <NoBoxButton
-                                    className={done && "ItemsMenu-state-highlighted"}
+                                    className={done && "Menu-state-highlighted"}
                                     icon={<Done />}
                                     onClick={() => onTasksStateChange(true)}
                                 >
@@ -53,7 +53,7 @@ class ItemsMenu extends React.Component<IProps> {
                             {!done && <CreateTask />}
                             {!pointerAvailable &&
                                 <IconedButton
-                                    className="ItemsMenu-sort-button"
+                                    className="Menu-sort-button"
                                     icon={<Sort />}
                                     onClick={makeTaskListSortable}
                                 >
@@ -68,4 +68,4 @@ class ItemsMenu extends React.Component<IProps> {
     }
 }
 
-export default connect(({ environment }) => environment)(ItemsMenu);
+export default connect(({ environment }) => environment)(Menu);

@@ -3,7 +3,7 @@ import Menu = require("react-icons/lib/md/menu");
 
 import CircleButton from "./CircleButton";
 import ModalButton, { IButtonProps, IContentProps } from "./ModalButton";
-import "./style/ItemsMenuButton.css";
+import "./style/MenuButton.css";
 
 interface IProps {
     closed?: boolean;
@@ -20,15 +20,15 @@ export default class extends React.Component<IProps> {
                 buttonComponent={this.buttonComponent}
                 closed={closed}
                 contentComponent={this.contentComponent}
-                transitionClassNames="ItemsMenuButton-menu-container"
+                transitionClassNames="MenuButton-menu-container"
             />
         );
     }
 
     private buttonComponent = ({ openWindow }: IButtonProps): JSX.Element => (
-        <div className={"ItemsMenuButton-button-container" + (this.props.hidden ? "-hidden" : "")}>
+        <div className={"MenuButton-button-container" + (this.props.hidden ? "-hidden" : "")}>
             <CircleButton
-                className="ItemsMenuButton-button"
+                className="MenuButton-button"
                 onClick={openWindow}
             >
                 <Menu />
@@ -37,7 +37,7 @@ export default class extends React.Component<IProps> {
     )
 
     private contentComponent = ({ closeWindow }: IContentProps): JSX.Element => (
-        <div className="ItemsMenuButton-menu-container" onClick={closeWindow} >
+        <div className="MenuButton-menu-container" onClick={closeWindow} >
             {this.props.itemsMenu}
         </div>
     )

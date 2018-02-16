@@ -5,9 +5,9 @@ import { connect } from "react-redux";
 
 import CircleButton from "../component/CircleButton";
 import ItemList from "../component/ItemList";
-import ItemsMenuButton from "../component/ItemsMenuButton";
+import Menu from "../component/Menu";
+import MenuButton from "../component/MenuButton";
 import Task from "../component/Task";
-import TasksMenu from "../component/TasksMenu";
 import { getTasksFromProject, IProject, IProjects } from "../domain/project";
 import { includeTaskInTasks, ITask } from "../domain/task";
 import { actionCreators as settingsActionCreators } from "../state/settings";
@@ -49,7 +49,7 @@ class Home extends React.Component<IProps, IState> {
         const { done } = this.state;
 
         const itemsMenu = (
-            <TasksMenu
+            <Menu
                 done={done}
                 onTasksStateChange={(done) => this.setState({ done })}
                 makeTaskListSortable={() => this.setState({ fixed: false })}
@@ -92,7 +92,7 @@ class Home extends React.Component<IProps, IState> {
                                         <Task detailed={true} done={done} {...currentTask} />}
                                 </div>,
                                 isSmallWindow &&
-                                <ItemsMenuButton
+                                <MenuButton
                                     closed={sorting}
                                     hidden={sorting}
                                     itemsMenu={itemsMenu}
