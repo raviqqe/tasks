@@ -87,7 +87,7 @@ class Home extends React.Component<IProps, IState> {
                                     {...taskListProps}
                                 />),
                                 !isSmallWindow &&
-                                <div key="current-task" className="Home-current-item-container">
+                                <div key="current-task" className="Home-current-task-container">
                                     {currentTask &&
                                         <Task detailed={true} done={done} {...currentTask} />}
                                 </div>,
