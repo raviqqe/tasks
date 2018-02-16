@@ -75,30 +75,36 @@ class Home extends React.Component<IProps, IState> {
                             ? "No project."
                             : [
                                 (<TaskList
+                                    key="todo-tasks"
                                     style={done ? { display: "none" } : {}}
                                     done={false}
                                     tasks={this.currentProject.todoTasks}
                                     {...itemListProps}
                                 />),
                                 (<TaskList
+                                    key="done-tasks"
                                     style={done ? {} : { display: "none" }}
                                     done={true}
                                     tasks={this.currentProject.doneTasks}
                                     {...itemListProps}
                                 />),
                                 !isSmallWindow &&
-                                <div className="Home-current-item-container">
+                                <div key="current-task" className="Home-current-item-container">
                                     {currentTask &&
                                         <Task detailed={true} done={done} {...currentTask} />}
                                 </div>,
                                 isSmallWindow &&
                                 <MenuButton
+                                    key="menu-button"
                                     closed={sorting}
                                     hidden={sorting}
                                     itemsMenu={itemsMenu}
                                 />,
                                 sorting &&
-                                <div className="Home-fix-list-button-container">
+                                <div
+                                    key="fix-list-button"
+                                    className="Home-fix-list-button-container"
+                                >
                                     <CircleButton onClick={() => this.setState({ fixed: true })}>
                                         <Save />
                                     </CircleButton>
