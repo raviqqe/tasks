@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import "./style/ItemLike.css";
+import "./style/TaskLike.css";
 
 interface IProps {
     className?: string;
@@ -15,7 +15,7 @@ export default class extends React.Component<IProps> {
 
         return (
             <div
-                className={className || "ItemLike-container"}
+                className={className || "TaskLike-container"}
                 onClick={onClick}
                 onMouseOut={onMouseOut}
                 onMouseOver={onMouseOver}

@@ -4,8 +4,9 @@ import Trash = require("react-icons/lib/md/delete");
 import Repeat = require("react-icons/lib/md/replay");
 
 import { ITask } from "../domain/task";
-import ItemLike from "./ItemLike";
 import ItemName from "./ItemName";
+import TaskLike from "./TaskLike";
+
 import "./style/Item.css";
 
 interface IProps {
@@ -33,7 +34,7 @@ export default class extends React.Component<IProps, IState> {
             = this.props;
 
         return (
-            <ItemLike
+            <TaskLike
                 onClick={detailed ? undefined : () => setCurrentTaskId(item.id)}
                 onMouseOver={() => this.setState({ showButtons: true })}
                 onMouseOut={() => this.setState({ showButtons: false })}
@@ -47,7 +48,7 @@ export default class extends React.Component<IProps, IState> {
                     {this.buttons}
                 </div>
                 {detailed && details}
-            </ItemLike>
+            </TaskLike>
         );
     }
 
