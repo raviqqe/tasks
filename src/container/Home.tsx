@@ -48,13 +48,11 @@ class Home extends React.Component<IProps, IState> {
 
         const { done } = this.state;
 
-        const itemsMenu = (
-            <Menu
-                done={done}
-                onTasksStateChange={(done) => this.setState({ done })}
-                makeTaskListSortable={() => this.setState({ fixed: false })}
-            />
-        );
+        const menuProps = {
+            done,
+            makeTaskListSortable: () => this.setState({ fixed: false }),
+            onTasksStateChange: (done) => this.setState({ done }),
+        };
 
         const sorting = touchable && !this.state.fixed;
 
@@ -69,7 +67,7 @@ class Home extends React.Component<IProps, IState> {
         return (
             <div className="Home-container">
                 <div className="Home-content">
-                    {!isSmallWindow && itemsMenu}
+                    {!isSmallWindow && <Menu {...menuProps} />}
                     <div className="Home-main">
                         {currentProjectName === null
                             ? "No project."
@@ -98,7 +96,7 @@ class Home extends React.Component<IProps, IState> {
                                     key="menu-button"
                                     closed={sorting}
                                     hidden={sorting}
-                                    itemsMenu={itemsMenu}
+                                    {...menuProps}
                                 />,
                                 sorting &&
                                 <div

@@ -1,24 +1,25 @@
 import * as React from "react";
-import Menu = require("react-icons/lib/md/menu");
+import Hamburger = require("react-icons/lib/md/menu");
 
 import CircleButton from "./CircleButton";
+import Menu from "./Menu";
 import ModalButton, { IButtonProps, IContentProps } from "./ModalButton";
 import "./style/MenuButton.css";
 
 interface IProps {
     closed?: boolean;
+    done: boolean;
     hidden?: boolean;
-    itemsMenu: JSX.Element;
+    makeTaskListSortable: () => void;
+    onTasksStateChange: (done: boolean) => void;
 }
 
 export default class extends React.Component<IProps> {
     public render() {
-        const { closed, itemsMenu } = this.props;
-
         return (
             <ModalButton
                 buttonComponent={this.buttonComponent}
-                closed={closed}
+                closed={this.props.closed}
                 contentComponent={this.contentComponent}
                 transitionClassNames="MenuButton-menu-container"
             />
@@ -31,14 +32,14 @@ export default class extends React.Component<IProps> {
                 className="MenuButton-button"
                 onClick={openWindow}
             >
-                <Menu />
+                <Hamburger />
             </CircleButton>
         </div>
     )
 
     private contentComponent = ({ closeWindow }: IContentProps): JSX.Element => (
         <div className="MenuButton-menu-container" onClick={closeWindow} >
-            {this.props.itemsMenu}
+            <Menu {...this.props} />
         </div>
     )
 }
