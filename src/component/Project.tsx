@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import NoBoxButton from "./NoBoxButton";
-import "./style/ProjectButton.css";
+import "./style/Project.css";
 
 interface IProps {
     className?: string;
@@ -9,13 +9,13 @@ interface IProps {
     onClick: () => void;
 }
 
-export default class ProjectButton extends React.Component<IProps> {
+export default class Project extends React.Component<IProps> {
     public render() {
         const { className, projectName, onClick } = this.props;
 
         return (
             <NoBoxButton
-                className={className || "ProjectButton-container"}
+                className={className || "Project-container"}
                 onClick={onClick}
             >
                 {projectName}

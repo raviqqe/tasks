@@ -3,7 +3,7 @@
 @import "../../style/colors.scss";
 @import "../../style/media.scss";
 @import "../../style/shadow.scss";
-@import "./ProjectButton.scss";
+@import "./Project.scss";
 
 .ProjectsMenu-container {
 	position: relative;
@@ -66,5 +66,5 @@
 }
 
 .ProjectsMenu-disabled-button {
-	@include ProjectButton-container($red, $red, transparent);
+	@include Project-container($red, $red, transparent);
 }

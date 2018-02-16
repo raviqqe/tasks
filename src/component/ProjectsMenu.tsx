@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { IProject, IProjects } from "../domain/project";
 import { actionCreators } from "../state/tasks";
-import ProjectButton from "./ProjectButton";
+import Project from "./Project";
 import "./style/ProjectsMenu.css";
 
 interface IProps {
@@ -37,7 +37,7 @@ class ProjectsMenu extends React.Component<IProps, IState> {
                 />
                 <div className={"ProjectsMenu-box" + (opened ? "" : "-hidden")}>
                     {Object.keys(projects).map((name) =>
-                        <ProjectButton
+                        <Project
                             key={name}
                             className={name === currentProjectName && "ProjectsMenu-disabled-button"}
                             projectName={name}
