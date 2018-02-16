@@ -1,5 +1,50 @@
-@import "./Item.scss";
+@import "../../style/animation.scss";
+@import "../../style/border.scss";
+@import "../../style/colors.scss";
+@import "../../style/media.scss";
+
+.Task-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.Task-buttons {
+	display: flex;
+	align-items: center;
+	transition: opacity $instant-duration, visibility $instant-duration;
+}
+
+.Task-buttons-hidden {
+	@extend .Task-buttons;
+
+	opacity: 0;
+	visibility: hidden;
+
+	@include small-window {
+		opacity: 1;
+		visibility: visible;
+	}
+}
 
 .Task-button {
-	@extend .Item-button;
+	color: $black;
+	font-size: 1.5em;
+	display: flex;
+	margin-right: 0.1em;
+	transition: color $instant-duration, transform $instant-duration;
+	cursor: pointer;
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	&:hover {
+		color: $red;
+		transform: scale(1.5, 1.5);
+	}
+
+	@include small-window {
+		color: $grey;
+	}
 }
