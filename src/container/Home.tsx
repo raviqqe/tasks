@@ -24,7 +24,7 @@ interface IProps {
     projects: IProjects;
     requestNotificationPermission: () => void;
     setCurrentTaskId: (id: string) => void;
-    setTasks: (items: ITask[]) => void;
+    setTasks: (tasks: ITask[]) => void;
     timer: { on: boolean };
     touchable: boolean;
 }
