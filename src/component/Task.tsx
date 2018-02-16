@@ -36,8 +36,9 @@ class Task extends React.Component<IProps, IState> {
 
     public render() {
         const {
-            createdAt, detailed, description, id, highlighted, name, setCurrentTaskId,
-            spentSeconds, updatedAt, modifyTask,
+            createdAt, detailed, description, done, id, highlighted, modifyTask,
+            name, removeTask, setCurrentTaskId, spentSeconds, toggleTaskState,
+            updatedAt,
         } = this.props;
 
         return (
@@ -53,7 +54,40 @@ class Task extends React.Component<IProps, IState> {
                         onEdit={detailed && ((name) => modifyTask({ ...this.task, name }))}
                         text={name}
                     />
-                    {this.buttons}
+                    <div className={"Task-buttons" + (this.state.showButtons ? "" : "-hidden")}>
+                        {(!done || detailed) &&
+                            <div
+                                className="Task-button"
+                                onClick={(event) => {
+                                    toggleTaskState(id);
+                                    event.stopPropagation();
+                                }}
+                            >
+                                {done ? <Repeat /> : <Check />}
+                            </div>}
+                        {!done &&
+                            <div
+                                className="Task-button"
+                                onClick={(event) => {
+                                    this.props.setCurrentTaskId(id);
+                                    this.props.toggleTimer();
+                                    event.stopPropagation();
+                                }}
+                            >
+                                <Clock />
+                            </div>}
+                        {(done || detailed) &&
+                            <div
+                                key="trash"
+                                className="Task-button"
+                                onClick={(event) => {
+                                    removeTask(id);
+                                    event.stopPropagation();
+                                }}
+                            >
+                                <Trash />
+                            </div>}
+                    </div>
                 </div>
                 {detailed && [
                     <TaskDescription
@@ -84,63 +118,6 @@ class Task extends React.Component<IProps, IState> {
             <SubInformation key="spentTime">
                 Spent for: {time}
             </SubInformation>
-        );
-    }
-
-    private get buttons() {
-        const { detailed, done, id, removeTask, toggleTaskState } = this.props;
-
-        const buttons: JSX.Element[] = [];
-
-        if (!done || detailed) {
-            buttons.push(
-                <div
-                    key="toggleState"
-                    className="Task-button"
-                    onClick={(event) => {
-                        toggleTaskState(id);
-                        event.stopPropagation();
-                    }}
-                >
-                    {done ? <Repeat /> : <Check />}
-                </div>,
-            );
-        }
-
-        if (!done) {
-            buttons.push(
-                <div
-                    key="turnOnTimer"
-                    className="Task-button"
-                    onClick={(event) => {
-                        this.props.setCurrentTaskId(this.task.id);
-                        this.props.toggleTimer();
-                        event.stopPropagation();
-                    }}
-                >
-                    <Clock />
-                </div>);
-        }
-
-        if (done || detailed) {
-            buttons.push(
-                <div
-                    key="trash"
-                    className="Task-button"
-                    onClick={(event) => {
-                        removeTask(id);
-                        event.stopPropagation();
-                    }}
-                >
-                    <Trash />
-                </div>,
-            );
-        }
-
-        return (
-            <div className={"Task-buttons" + (this.state.showButtons ? "" : "-hidden")}>
-                {buttons}
-            </div>
         );
     }
 }
