@@ -2,7 +2,7 @@ import * as React from "react";
 import Markdown = require("react-markdown");
 
 import InputComponent, { IProps as IInputComponentProps } from "./InputComponent";
-import "./style/ItemName.css";
+import "./style/TaskName.css";
 
 interface IProps extends IInputComponentProps {
     highlighted?: boolean;
@@ -15,7 +15,7 @@ export default class extends InputComponent<IProps> {
         if (this.state.editing) {
             return (
                 <input
-                    className="ItemName-container"
+                    className="TaskName-container"
                     onKeyDown={(event: React.KeyboardEvent<{}>) => {
                         if (event.keyCode === 13) {
                             this.setState({ editing: false });
@@ -29,7 +29,7 @@ export default class extends InputComponent<IProps> {
 
         return (
             <div
-                className={"ItemName-container" + (highlighted ? "-highlighted" : "")}
+                className={"TaskName-container" + (highlighted ? "-highlighted" : "")}
                 onClick={() => this.setState({ editing: this.props.onEdit !== undefined })}
             >
                 {text}

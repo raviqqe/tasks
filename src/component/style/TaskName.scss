@@ -1,12 +1,12 @@
 @import "../../style/colors.scss";
 
-.ItemName-container {
+.TaskName-container {
 	font-size: 1.1em;
 	margin-right: 0.5em;
 }
 
-.ItemName-container-highlighted {
-	@extend .ItemName-container;
+.TaskName-container-highlighted {
+	@extend .TaskName-container;
 
 	color: $red;
 }

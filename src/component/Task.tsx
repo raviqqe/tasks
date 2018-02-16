@@ -9,11 +9,11 @@ import { connect } from "react-redux";
 import { ITask } from "../domain/task";
 import { actionCreators as tasksActionCreators } from "../state/tasks";
 import { actionCreators as timerActionCreators } from "../state/timer";
-import ItemName from "./ItemName";
 import LabeledDate from "./LabeledDate";
 import SubInformation from "./SubInformation";
 import TaskDescription from "./TaskDescription";
 import TaskLike from "./TaskLike";
+import TaskName from "./TaskName";
 
 import "./style/Task.css";
 
@@ -48,7 +48,7 @@ class Task extends React.Component<IProps, IState> {
                 onMouseOut={() => this.setState({ showButtons: false })}
             >
                 <div className="Task-header">
-                    <ItemName
+                    <TaskName
                         highlighted={highlighted}
                         onEdit={detailed && ((name) => modifyTask({ ...this.task, name }))}
                         text={name}
