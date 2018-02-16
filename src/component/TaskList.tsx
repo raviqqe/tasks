@@ -26,7 +26,7 @@ export default class extends React.Component<IProps> {
             = this.props;
 
         if (tasks.length === 0) {
-            return <div className="TaskList-message" style={style}>There is no item.</div>;
+            return <div className="TaskList-message" style={style}>There is no task.</div>;
         }
 
         return (
@@ -35,20 +35,19 @@ export default class extends React.Component<IProps> {
                 className={"TaskList-container" + (sorting ? "-shadowed" : "")}
                 style={style}
             >
-                {tasks.map((item) =>
+                {tasks.map((task) =>
                     isSmallWindow ?
                         <ModalWindowButton
-                            key={item.id}
+                            key={task.id}
                             buttonComponent={this.ClickableTask}
-                            buttonProps={{ done, item }}
                         >
-                            <Task detailed={true} done={done} {...item} />
+                            <Task detailed={true} done={done} {...task} />
                         </ModalWindowButton> :
                         <Task
-                            key={item.id}
+                            key={task.id}
                             done={done}
-                            highlighted={item.id === currentTaskId}
-                            {...item}
+                            highlighted={task.id === currentTaskId}
+                            {...task}
                         />)}
             </div>
         );
@@ -75,10 +74,10 @@ export default class extends React.Component<IProps> {
         }
     }
 
-    private ClickableTask = ({ done, openWindow, item }) => {
+    private ClickableTask = ({ done, openWindow, task }) => {
         return (
             <div onClick={openWindow}>
-                <Task done={done} {...item} />
+                <Task done={done} {...task} />
             </div>
         );
     }
