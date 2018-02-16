@@ -4,21 +4,21 @@ import NoBoxButton from "./NoBoxButton";
 import "./style/Project.css";
 
 interface IProps {
-    className?: string;
-    projectName: string;
+    disabled?: boolean;
+    name: string;
     onClick: () => void;
 }
 
 export default class Project extends React.Component<IProps> {
     public render() {
-        const { className, projectName, onClick } = this.props;
+        const { disabled, name, onClick } = this.props;
 
         return (
             <NoBoxButton
-                className={className || "Project-container"}
+                className={"Project-name" + (disabled ? "-disabled" : "")}
                 onClick={onClick}
             >
-                {projectName}
+                {name}
             </NoBoxButton>
         );
     }

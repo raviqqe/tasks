@@ -1,12 +1,16 @@
 @import "../../style/colors.scss";
 @import "./NoBoxButton.scss";
 
-@mixin Project-container($color, $active-color, $active-background-color) {
+@mixin Project-name($color, $active-color, $active-background-color) {
 	@include NoBoxButton-container($color, $active-color, $active-background-color);
 
 	font-size: 1.2em;
 }
 
-.Project-container {
-	@include Project-container($grey, $black, $transparent-grey);
+.Project-name {
+	@include Project-name($grey, $black, $transparent-grey);
+}
+
+.Project-name-disabled {
+	@include Project-name($red, $red, transparent);
 }

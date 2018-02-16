@@ -36,11 +36,11 @@ class ProjectsMenu extends React.Component<IProps, IState> {
                     onClick={() => this.setState({ opened: false })}
                 />
                 <div className={"ProjectsMenu-box" + (opened ? "" : "-hidden")}>
-                    {Object.keys(projects).map((name) =>
+                    {Object.keys(projects).map((name, index) =>
                         <Project
-                            key={name}
-                            className={name === currentProjectName && "ProjectsMenu-disabled-button"}
-                            projectName={name}
+                            key={index}
+                            disabled={name === currentProjectName}
+                            name={name}
                             onClick={() => {
                                 setCurrentProjectName(name);
                                 this.setState({ opened: false });
