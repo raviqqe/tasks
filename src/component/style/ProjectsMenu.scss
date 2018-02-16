@@ -9,6 +9,18 @@
 	position: relative;
 }
 
+.ProjectsMenu-current-project-name {
+	color: white;
+	cursor: pointer;
+	font-size: 1.5em;
+	user-select: none;
+
+	&:focus {
+		color: white;
+		background: transparent;
+	}
+}
+
 .ProjectsMenu-box {
 	@include paper-shadow;
 	@include paper-border;
@@ -51,10 +63,6 @@
 
 .ProjectsMenu-background-hidden {
 	display: none;
-}
-
-.ProjectsMenu-current-button {
-	@include ProjectButton-container(white, white, transparent);
 }
 
 .ProjectsMenu-disabled-button {

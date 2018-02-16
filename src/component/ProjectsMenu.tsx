@@ -25,11 +25,12 @@ class ProjectsMenu extends React.Component<IProps, IState> {
 
         return (
             <div className="ProjectsMenu-container">
-                <ProjectButton
-                    className="ProjectsMenu-current-button"
-                    projectName={currentProjectName}
+                <div
+                    className="ProjectsMenu-current-project-name"
                     onClick={() => this.setState({ opened: !opened })}
-                />
+                >
+                    {currentProjectName}
+                </div>
                 <div
                     className={"ProjectsMenu-background" + (opened ? "" : "-hidden")}
                     onClick={() => this.setState({ opened: false })}
