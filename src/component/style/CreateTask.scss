@@ -1,10 +1,10 @@
 @import "../../style/colors.scss";
 @import "./Button.scss";
-@import "./TaskLike.scss";
+@import "./Task.scss";
 @import "./TaskDescription.scss";
 
 .CreateTask-form {
-	@extend .TaskLike-container;
+	@extend .Task-container;
 
 	width: 40em;
 	padding: 1em;

@@ -12,7 +12,6 @@ import { actionCreators as timerActionCreators } from "../state/timer";
 import LabeledDate from "./LabeledDate";
 import SubInformation from "./SubInformation";
 import TaskDescription from "./TaskDescription";
-import TaskLike from "./TaskLike";
 import TaskName from "./TaskName";
 
 import "./style/Task.css";
@@ -42,7 +41,8 @@ class Task extends React.Component<IProps, IState> {
         } = this.props;
 
         return (
-            <TaskLike
+            <div
+                className="Task-container"
                 onClick={detailed ? undefined : () => setCurrentTaskId(id)}
                 onMouseOver={() => this.setState({ showButtons: true })}
                 onMouseOut={() => this.setState({ showButtons: false })}
@@ -65,7 +65,7 @@ class Task extends React.Component<IProps, IState> {
                     <LabeledDate key="createdAt" label="Created on" timeStamp={createdAt} />,
                     <LabeledDate key="updatedAt" label="Updated on" timeStamp={updatedAt} />,
                 ]}
-            </TaskLike>
+            </div>
         );
     }
 

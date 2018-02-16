@@ -3,6 +3,25 @@
 @import "../../style/colors.scss";
 @import "../../style/media.scss";
 
+.Task-container {
+	@include paper-border;
+
+	background: white;
+	padding: 0.5em 0.7em;
+
+	& > * {
+		margin: 0.3em 0;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
 .Task-header {
 	display: flex;
 	justify-content: space-between;
