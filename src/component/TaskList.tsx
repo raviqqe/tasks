@@ -3,8 +3,9 @@ import sortable = require("sortablejs");
 
 import { ITask } from "../domain/task";
 import ModalWindowButton from "./ModalWindowButton";
-import "./style/ItemList.css";
 import Task from "./Task";
+
+import "./style/TaskList.css";
 
 interface IProps {
     currentTaskId: string | null;
@@ -25,13 +26,13 @@ export default class extends React.Component<IProps> {
             = this.props;
 
         if (tasks.length === 0) {
-            return <div className="ItemList-message" style={style}>There is no item.</div>;
+            return <div className="TaskList-message" style={style}>There is no item.</div>;
         }
 
         return (
             <div
                 ref={(container) => this.container = container}
-                className={"ItemList-container" + (sorting ? "-shadowed" : "")}
+                className={"TaskList-container" + (sorting ? "-shadowed" : "")}
                 style={style}
             >
                 {tasks.map((item) =>
@@ -63,7 +64,7 @@ export default class extends React.Component<IProps> {
         if (this.container && !this.sortable) {
             this.sortable = sortable.create(this.container, {
                 animation: 200,
-                ghostClass: "ItemList-placeholder",
+                ghostClass: "TaskList-placeholder",
                 onSort: ({ oldIndex, newIndex }) => {
                     const tasks = [...this.props.tasks];
                     tasks.splice(newIndex, 0, tasks.splice(oldIndex, 1)[0]);

@@ -4,10 +4,10 @@ import Save = require("react-icons/lib/md/save");
 import { connect } from "react-redux";
 
 import CircleButton from "../component/CircleButton";
-import ItemList from "../component/ItemList";
 import Menu from "../component/Menu";
 import MenuButton from "../component/MenuButton";
 import Task from "../component/Task";
+import TaskList from "../component/TaskList";
 import { getTasksFromProject, IProject, IProjects } from "../domain/project";
 import { includeTaskInTasks, ITask } from "../domain/task";
 import { actionCreators as settingsActionCreators } from "../state/settings";
@@ -74,13 +74,13 @@ class Home extends React.Component<IProps, IState> {
                         {currentProjectName === null
                             ? "No project."
                             : [
-                                (<ItemList
+                                (<TaskList
                                     style={done ? { display: "none" } : {}}
                                     done={false}
                                     tasks={this.currentProject.todoTasks}
                                     {...itemListProps}
                                 />),
-                                (<ItemList
+                                (<TaskList
                                     style={done ? {} : { display: "none" }}
                                     done={true}
                                     tasks={this.currentProject.doneTasks}

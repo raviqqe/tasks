@@ -2,7 +2,7 @@
 @import "../../style/colors.scss";
 @import "../../style/media.scss";
 
-.ItemList-container {
+.TaskList-container {
 	overflow-y: auto;
 	height: 100%;
 	padding: 0.5em;
@@ -18,8 +18,8 @@
 	}
 }
 
-.ItemList-container-shadowed {
-	@extend .ItemList-container;
+.TaskList-container-shadowed {
+	@extend .TaskList-container;
 
 	> * {
 		box-shadow: 0 0.2em 0.2em $transparent-black;
@@ -27,10 +27,10 @@
 	}
 }
 
-.ItemList-message {
+.TaskList-message {
 	padding: 1em;
 }
 
-.ItemList-placeholder {
+.TaskList-placeholder {
 	visibility: hidden;
 }
