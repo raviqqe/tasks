@@ -29,7 +29,6 @@ export default class extends InputComponent {
                 {text.trim()
                     ? (
                         <Markdown
-                            className="TaskDescription-markdown"
                             source={text}
                             renderers={{
                                 Link: ({ href, title, children }) =>
