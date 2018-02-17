@@ -1,4 +1,5 @@
 @import "../../style/colors.scss";
+@import "../../style/margin.scss";
 @import "./Button.scss";
 @import "./Task.scss";
 @import "./TaskDescription.scss";
@@ -23,15 +24,12 @@
 }
 
 .CreateTask-buttons {
+	@include horizontal-child-margin(0.25em);
+
 	display: flex;
 
 	> * {
 		flex: 1;
-		margin-right: 0.5em;
-
-		&:last-child {
-			margin-right: 0;
-		}
 	}
 }
 
