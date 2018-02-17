@@ -7,7 +7,7 @@ import Project from "./Project";
 import "./style/ProjectsMenu.css";
 
 interface IProps {
-    currentProjectName: string | null;
+    currentProjectName: string;
     projects: IProjects;
     setCurrentProjectName: (name: string) => void;
 }

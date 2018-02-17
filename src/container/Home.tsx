@@ -17,7 +17,7 @@ import Timer from "./Timer";
 import "./style/Home.css";
 
 interface IProps {
-    currentProjectName: string | null;
+    currentProjectName: string;
     currentTaskId: string | null;
     isSmallWindow: boolean;
     notificationOn: boolean | null;
@@ -62,52 +62,42 @@ class Home extends React.Component<IProps, IState> {
             sorting,
         };
 
-        const currentTask = this.currentTasks && find(this.currentTasks, { id: currentTaskId });
+        const currentTask = find(this.currentTasks, { id: currentTaskId });
 
         return (
             <div className="Home-container">
                 <div className="Home-content">
                     {!isSmallWindow && <Menu {...menuProps} />}
                     <div className="Home-main">
-                        {currentProjectName === null
-                            ? "No project."
-                            : [
-                                (<TaskList
-                                    key="todo-tasks"
-                                    style={done ? { display: "none" } : {}}
-                                    done={false}
-                                    tasks={this.currentProject.todoTasks}
-                                    {...taskListProps}
-                                />),
-                                (<TaskList
-                                    key="done-tasks"
-                                    style={done ? {} : { display: "none" }}
-                                    done={true}
-                                    tasks={this.currentProject.doneTasks}
-                                    {...taskListProps}
-                                />),
-                                !isSmallWindow &&
-                                <div key="current-task" className="Home-current-task-container">
-                                    {currentTask &&
-                                        <Task detailed={true} done={done} {...currentTask} />}
-                                </div>,
-                                isSmallWindow &&
-                                <MenuButton
-                                    key="menu-button"
-                                    closed={sorting}
-                                    hidden={sorting}
-                                    {...menuProps}
-                                />,
-                                sorting &&
-                                <div
-                                    key="fix-list-button"
-                                    className="Home-fix-list-button-container"
-                                >
-                                    <CircleButton onClick={() => this.setState({ fixed: true })}>
-                                        <Save />
-                                    </CircleButton>
-                                </div>,
-                            ]}
+                        <TaskList
+                            style={done ? { display: "none" } : {}}
+                            done={false}
+                            tasks={this.currentProject.todoTasks}
+                            {...taskListProps}
+                        />
+                        <TaskList
+                            style={done ? {} : { display: "none" }}
+                            done={true}
+                            tasks={this.currentProject.doneTasks}
+                            {...taskListProps}
+                        />
+                        {!isSmallWindow &&
+                            <div className="Home-current-task-container">
+                                {currentTask &&
+                                    <Task detailed={true} done={done} {...currentTask} />}
+                            </div>}
+                        {isSmallWindow &&
+                            <MenuButton
+                                closed={sorting}
+                                hidden={sorting}
+                                {...menuProps}
+                            />}
+                        {sorting &&
+                            <div className="Home-fix-list-button-container">
+                                <CircleButton onClick={() => this.setState({ fixed: true })}>
+                                    <Save />
+                                </CircleButton>
+                            </div>}
                     </div>
                 </div>
             </div>
@@ -138,16 +128,14 @@ class Home extends React.Component<IProps, IState> {
         }
     }
 
-    private get currentProject(): IProject | null {
+    private get currentProject(): IProject {
         const { currentProjectName, projects } = this.props;
 
-        return currentProjectName && projects[currentProjectName];
+        return projects[currentProjectName];
     }
 
-    private get currentTasks(): ITask[] | null {
-        const project = this.currentProject;
-
-        return project && getTasksFromProject(project, this.state.done);
+    private get currentTasks(): ITask[] {
+        return getTasksFromProject(this.currentProject, this.state.done);
     }
 }
 
