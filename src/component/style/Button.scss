@@ -19,14 +19,12 @@
 }
 
 @mixin Button-container($background-color: $red, $shadow-only: false) {
-	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-shrink: 0;
 	background: $background-color;
 	color: white;
-	cursor: pointer;
 	font: inherit;
 	white-space: nowrap;
 	padding: {
@@ -66,18 +64,11 @@
 			$dark-background: darken($background-color, 15%);
 			$thickness: 0.3rem;
 
-			margin: {
-				top: 0;
-				bottom: $thickness;
-			};
 			box-shadow: 0 $thickness $dark-background;
-			transition: box-shadow $short-duration, margin $short-duration;
+			transition: box-shadow $short-duration, transform $short-duration;
 
 			&:active {
-				margin: {
-					top: $thickness;
-					bottom: 0;
-				};
+				transform: translateY($thickness);
 				box-shadow: 0 0 $dark-background;
 			}
 		}
@@ -86,8 +77,4 @@
 
 .Button-container {
 	@include Button-container;
-}
-
-.Button-wrapper {
-	display: inline-block;
 }
