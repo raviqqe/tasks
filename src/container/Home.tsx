@@ -41,9 +41,10 @@ class Home extends React.Component<IProps, IState> {
         const {
             currentProjectName, currentTaskId, isSmallWindow, timer, touchable,
         } = this.props;
+        const currentTask = find(this.currentTasks, { id: currentTaskId });
 
         if (timer.on) {
-            return <Timer currentTask={find(this.currentTasks, { id: currentTaskId })} />;
+            return <Timer currentTask={currentTask} />;
         }
 
         const { done } = this.state;
@@ -61,8 +62,6 @@ class Home extends React.Component<IProps, IState> {
             fixed: this.state.fixed,
             sorting,
         };
-
-        const currentTask = find(this.currentTasks, { id: currentTaskId });
 
         return (
             <div className="Home-container">
@@ -83,8 +82,7 @@ class Home extends React.Component<IProps, IState> {
                         />
                         {!isSmallWindow &&
                             <div className="Home-current-task-container">
-                                {currentTask &&
-                                    <Task detailed={true} done={done} {...currentTask} />}
+                                {currentTask && <Task detailed={true} done={done} {...currentTask} />}
                             </div>}
                         {isSmallWindow &&
                             <MenuButton
