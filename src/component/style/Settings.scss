@@ -8,7 +8,7 @@
 	font-size: 2em;
 	cursor: pointer;
 
-	& > svg {
+	> svg {
 		transition: transform $short-duration;
 	}
 }
@@ -16,7 +16,7 @@
 .Settings-icon-active {
 	@extend .Settings-icon;
 
-	& > svg {
+	> svg {
 		transform: rotate(90deg);
 	}
 }
@@ -50,7 +50,7 @@
 	font-size: 0.9em;
 	display: flex;
 
-	& > * {
+	> * {
 		margin: 0 0.5em;
 	}
 }
@@ -72,7 +72,7 @@
 	align-items: center;
 	flex-wrap: wrap;
 
-	& > * {
+	> * {
 		margin: 0 0.6em;
 	}
 
