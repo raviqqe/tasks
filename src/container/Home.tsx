@@ -64,10 +64,10 @@ class Home extends React.Component<IProps, IState> {
         };
 
         return (
-            <div className="Home-container">
-                <div className="Home-content">
+            <div className="Home">
+                <div className="content">
                     {!isSmallWindow && <Menu {...menuProps} />}
-                    <div className="Home-main">
+                    <div className="tasks">
                         <TaskList
                             style={done ? { display: "none" } : {}}
                             done={false}
@@ -81,7 +81,7 @@ class Home extends React.Component<IProps, IState> {
                             {...taskListProps}
                         />
                         {!isSmallWindow &&
-                            <div className="Home-current-task-container">
+                            <div className="current-task">
                                 {currentTask && <Task detailed={true} done={done} {...currentTask} />}
                             </div>}
                         {isSmallWindow &&
@@ -91,7 +91,7 @@ class Home extends React.Component<IProps, IState> {
                                 {...menuProps}
                             />}
                         {sorting &&
-                            <div className="Home-fix-list-button-container">
+                            <div className="fix-list-button">
                                 <CircleButton onClick={() => this.setState({ fixed: true })}>
                                     <Save />
                                 </CircleButton>

@@ -1,35 +1,33 @@
-@import "../../style/colors.scss";
-
-.Home-container {
+.Home {
 	display: flex;
 	justify-content: center;
 	width: 100vw;
 	height: 100vh;
 	overflow-y: hidden;
-}
 
-.Home-content {
-	display: flex;
-	width: 100%;
-	max-width: 100em;
-}
+	> .content {
+		display: flex;
+		width: 100%;
+		max-width: 100em;
 
-.Home-main {
-	display: flex;
-	flex: 1;
+		> .tasks {
+			display: flex;
+			flex: 1;
 
-	> * {
-		flex: 1;
+			> * {
+				flex: 1;
+			}
+
+			> .current-task {
+				overflow-y: auto;
+				padding: 1em;
+			}
+
+			> .fix-list-button {
+				position: fixed;
+				bottom: 1em;
+				right: 1em;
+			}
+		}
 	}
-}
-
-.Home-current-task-container {
-	overflow-y: auto;
-	padding: 1em;
-}
-
-.Home-fix-list-button-container {
-	position: fixed;
-	bottom: 1em;
-	right: 1em;
 }
