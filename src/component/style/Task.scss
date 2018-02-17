@@ -20,6 +20,8 @@
 }
 
 .Task-buttons {
+	@include horizontal-child-margin(0.1em);
+
 	display: flex;
 	align-items: center;
 	transition: opacity $instant-duration, visibility $instant-duration;
