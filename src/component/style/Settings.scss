@@ -1,5 +1,6 @@
 @import "../../style/animation.scss";
 @import "../../style/colors.scss";
+@import "../../style/margin.scss";
 @import "../../style/media.scss";
 @import "./Button.scss";
 
@@ -21,22 +22,12 @@
 }
 
 .Settings-container {
+	@include vertical-child-margin(2em);
+
 	font-size: 1.2em;
 	width: 50em;
 	max-width: 100%;
 	padding: 8vh 8vw;
-
-	& > * {
-		margin: 2em 0;
-
-		&:first-child {
-			margin-top: 0;
-		}
-
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
 }
 
 @mixin Settings-notification {

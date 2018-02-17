@@ -1,42 +1,22 @@
 @import "../../style/animation.scss";
 @import "../../style/border.scss";
+@import "../../style/margin.scss";
 @import "../../style/media.scss";
 
 .Task-container {
 	@include paper-border;
+	@include vertical-child-margin(0.3em);
 
 	background: white;
 	padding: 0.5em 0.7em;
-
-	& > * {
-		margin: 0.3em 0;
-
-		&:first-child {
-			margin-top: 0;
-		}
-
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
 }
 
 .Task-header {
+	@include horizontal-child-margin(0.5em);
+
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-
-	& > * {
-		margin: 0 0.5em;
-
-		&:first-child {
-			margin-left: 0;
-		}
-
-		&:last-child {
-			margin-right: 0;
-		}
-	}
 }
 
 .Task-buttons {
