@@ -118,9 +118,8 @@ class Home extends React.Component<IProps, IState> {
         const { currentTaskId, setCurrentTaskId } = this.props;
         const tasks = this.currentTasks;
 
-        if (tasks &&
-            (currentTaskId === null && tasks.length !== 0 ||
-                currentTaskId !== null && !includeTaskInTasks(currentTaskId, tasks))) {
+        if (currentTaskId === null && tasks.length !== 0 ||
+            currentTaskId !== null && !includeTaskInTasks(currentTaskId, tasks)) {
             const task = tasks[0] || null;
             setCurrentTaskId(task && task.id);
         }
