@@ -2,7 +2,7 @@
 @import "./Button.scss";
 
 @mixin IconedButton-container($background-color: $red) {
-	@include Button-container($background-color);
+	@include Button($background-color);
 
 	> *:first-child {
 		font-size: 1.5em;

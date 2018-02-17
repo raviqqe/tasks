@@ -56,7 +56,7 @@
 }
 
 .Settings-negative-button {
-	@include Button-container($grey);
+	@include Button($grey);
 }
 
 .Settings-footer {

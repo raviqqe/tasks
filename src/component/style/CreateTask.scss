@@ -34,9 +34,9 @@
 }
 
 .CreateTask-button {
-	@include Button-container($red);
+	@include Button($red);
 }
 
 .CreateTask-cancel-button {
-	@include Button-container($grey);
+	@include Button($grey);
 }

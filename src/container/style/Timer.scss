@@ -40,7 +40,7 @@
 	}
 
 	> .button {
-		@include Button-container;
+		@include Button;
 
 		padding: 0.5em 2em;
 
