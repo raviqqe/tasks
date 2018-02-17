@@ -1,6 +1,7 @@
 @import "../../style/animation.scss";
 @import "../../style/border.scss";
 @import "../../style/colors.scss";
+@import "../../style/margin.scss";
 @import "../../style/media.scss";
 @import "../../style/shadow.scss";
 
@@ -23,6 +24,7 @@
 .ProjectsMenu-box {
 	@include paper-shadow;
 	@include paper-border;
+	@include vertical-child-margin(0.8em);
 
 	background: white;
 	padding: 1.5em 2em;
@@ -38,8 +40,9 @@
 	}
 
 
-	& > *:last-child {
-		margin-top: 0.8em;
+	&-projects {
+		display: flex;
+		flex-direction: column;
 	}
 }
 
