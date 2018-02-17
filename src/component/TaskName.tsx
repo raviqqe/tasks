@@ -30,7 +30,7 @@ export default class extends InputComponent<IProps> {
         return (
             <div
                 className={"TaskName-container" + (highlighted ? "-highlighted" : "")}
-                onClick={() => this.setState({ editing: this.props.onEdit !== undefined })}
+                onClick={() => this.setState({ editing: onEdit !== undefined })}
             >
                 {text}
             </div>
