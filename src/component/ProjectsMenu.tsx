@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { IProject, IProjects } from "../domain/project";
 import { actionCreators } from "../state/tasks";
 import Project from "./Project";
+
 import "./style/ProjectsMenu.css";
 
 interface IProps {
