@@ -8,6 +8,7 @@ import { ITask } from "../domain/task";
 import * as notification from "../infra/notification";
 import { actionCreators as tasksActionCreators } from "../state/tasks";
 import { actionCreators as timerActionCreators } from "../state/timer";
+
 import "./style/Timer.css";
 
 const workSeconds = 25 * 60;
@@ -52,17 +53,15 @@ class Timer extends React.Component<IProps, IState> {
     }
 
     public render() {
-        const { toggleTimer } = this.props;
         const { rest, seconds } = this.state;
-        const postfix = rest ? "-rest" : "";
 
         return (
-            <div className={"Timer-container" + postfix}>
-                <div className={"Timer-time" + postfix}>
-                    <div className="Timer-minutes">
+            <div className="Timer" data-rest={rest}>
+                <div className="time" data-rest={rest}>
+                    <div className="minutes">
                         {Math.floor(seconds / 60)}
                     </div>
-                    <div className="Timer-seconds">
+                    <div className="seconds">
                         {numeral(seconds % 60).format("00")}
                     </div>
                 </div>
@@ -73,7 +72,7 @@ class Timer extends React.Component<IProps, IState> {
                             this.saveSpentTime();
                         }
 
-                        toggleTimer();
+                        this.props.toggleTimer();
                     }}
                 >
                     <Square />
