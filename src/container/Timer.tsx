@@ -66,7 +66,7 @@ class Timer extends React.Component<IProps, IState> {
                     </div>
                 </div>
                 <Button
-                    className="Timer-button"
+                    className="button"
                     onClick={() => {
                         if (!rest) {
                             this.saveSpentTime();
