@@ -13,7 +13,7 @@ export interface IState {
 export default abstract class InputComponent<P extends IProps = IProps> extends React.Component<P, IState> {
     public state: IState = { editing: false, text: "" };
 
-    protected form: { focus: () => void, value: string };
+    protected form: HTMLInputElement;
 
     public componentDidUpdate(_, { editing }: IState) {
         const { onEdit } = this.props;
