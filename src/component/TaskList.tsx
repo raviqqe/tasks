@@ -10,6 +10,7 @@ import "./style/TaskList.css";
 interface IProps {
     currentTaskId: string | null;
     done: boolean;
+    fixed?: boolean;
     isSmallWindow: boolean;
     tasks: ITask[];
     setTasks: (tasks: ITask[]) => void;
@@ -59,8 +60,6 @@ export default class extends React.Component<IProps> {
     }
 
     public componentDidUpdate() {
-        const { done, setTasks } = this.props;
-
         if (this.container && !this.sortable) {
             this.sortable = sortable.create(this.container, {
                 animation: 200,
@@ -68,10 +67,14 @@ export default class extends React.Component<IProps> {
                 onSort: ({ oldIndex, newIndex }) => {
                     const tasks = [...this.props.tasks];
                     tasks.splice(newIndex, 0, tasks.splice(oldIndex, 1)[0]);
-                    setTasks(tasks);
+                    this.props.setTasks(tasks);
                 },
                 scroll: true,
             });
+        }
+
+        if (this.sortable) {
+            this.sortable.option("disabled", this.props.fixed);
         }
     }
 
