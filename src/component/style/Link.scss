@@ -1,5 +1,3 @@
-@import "../../style/colors.scss";
-
 .Link-container {
 	color: inherit;
 	font-size: inherit;
@@ -11,15 +9,5 @@
 
 	&:hover {
 		text-decoration: underline;
-	}
-}
-
-.Link-container-colored {
-	@extend .Link-container;
-
-	color: $blue;
-
-	&:visited {
-		color: $blue;
 	}
 }

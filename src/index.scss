@@ -3,7 +3,6 @@
 @import "./style/colors.scss";
 @import "./style/border.scss";
 @import "./style/media.scss";
-@import "./style/shadow.scss";
 
 @mixin font-without-size {
 	color: $black;
@@ -38,12 +37,6 @@ body {
 	background: $light-green;
 	margin: 0;
 	padding: 0;
-
-	@include large-window {
-		&::-webkit-scrollbar {
-			background: $white;
-		}
-	}
 }
 
 input, textarea {
