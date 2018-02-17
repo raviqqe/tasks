@@ -27,8 +27,7 @@ interface IState {
 
 class Timer extends React.Component<IProps, IState> {
     public state: IState = { rest: false, seconds: workSeconds };
-
-    private timer;
+    private timer: NodeJS.Timer;
 
     public componentDidMount() {
         this.timer = setInterval(
