@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { IProject, IProjects } from "../domain/project";
 import { actionCreators } from "../state/tasks";
+import CreateProject from "./CreateProject";
 import Project from "./Project";
 
 import "./style/ProjectsMenu.css";
@@ -47,6 +48,7 @@ class ProjectsMenu extends React.Component<IProps, IState> {
                                 this.setState({ opened: false });
                             }}
                         />)}
+                    <CreateProject />
                 </div>
             </div>
         );

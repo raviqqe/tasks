@@ -36,6 +36,11 @@
 		right: 0;
 		transform-origin: 100% 0;
 	}
+
+
+	& > *:last-child {
+		margin-top: 0.8em;
+	}
 }
 
 .ProjectsMenu-box-hidden {
