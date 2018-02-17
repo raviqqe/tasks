@@ -2,17 +2,29 @@ import { find, findIndex, omit, reject } from "lodash";
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 
-import { getTasksFromProject, IProject, IProjects, isDoneTask, setTasksToProject } from "../domain/project";
+import {
+    emptyProject, getTasksFromProject, IProject, IProjects, isDoneTask, setTasksToProject,
+} from "../domain/project";
 import { createTask, ITask } from "../domain/task";
+import * as message from "./message";
 
 const actionCreator = actionCreatorFactory("TASKS");
+
+const removeProject = actionCreator<string>("REMOVE_PROJECT");
 
 export const actionCreators = {
     addProject: actionCreator<string>("ADD_PROJECT"),
     addTask: actionCreator<ITask>("ADD_TASK"),
     changeProjectName: actionCreator<string>("CHANGE_PROJECT_NAME"),
     modifyTask: actionCreator<ITask>("MODIFY_TASK"),
-    removeProject: actionCreator<string>("REMOVE_PROJECT"),
+    removeProject: (name: string) => (dispatch, getState) => {
+        if (Object.keys(getState().tasks.projects).length === 1) {
+            dispatch(message.actionCreators.sendMessage("You cannot delete the last project."));
+            return;
+        }
+
+        dispatch(removeProject(name));
+    },
     removeTask: actionCreator<string>("REMOVE_TASK"),
     setCurrentProjectName: actionCreator<string>("SET_CURRENT_PROJECT"),
     setCurrentTaskId: actionCreator<string>("SET_CURRENT_TASK_ID"),
@@ -21,15 +33,17 @@ export const actionCreators = {
 };
 
 interface IState {
-    currentProjectName: string | null;
+    currentProjectName: string;
     currentTaskId: string | null;
     projects: IProjects;
 }
 
+const defaultProjectName = "defalult";
+
 export const initialState: IState = {
-    currentProjectName: null,
+    currentProjectName: defaultProjectName,
     currentTaskId: null,
-    projects: {},
+    projects: { [defaultProjectName]: emptyProject },
 };
 
 export const reducer = reducerWithInitialState(initialState)
@@ -82,7 +96,7 @@ export const reducer = reducerWithInitialState(initialState)
                 ...rest,
             };
         })
-    .case(actionCreators.removeProject,
+    .case(removeProject,
         ({ currentProjectName, projects, ...rest }, name) => {
             const newProjects = omit(projects, name);
 

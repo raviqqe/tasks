@@ -1,17 +1,24 @@
-import { actionCreators, initialState, reducer } from "../tasks";
-
+import { createStore } from "..";
 import { emptyProject } from "../../domain/project";
 import { createTask } from "../../domain/task";
+import { actionCreators, initialState, reducer } from "../tasks";
+
+function getState(store): typeof initialState {
+    return store.getState().tasks;
+}
 
 test("Add a new project", () => {
     let state = initialState;
-    expect(state.projects).toEqual({});
 
     state = reducer(state, actionCreators.addProject("foo"));
-    expect(state.projects).toEqual({ foo: emptyProject });
+    expect(state.projects).toEqual({ ...initialState.projects, foo: emptyProject });
 
     state = reducer(state, actionCreators.addProject("bar"));
-    expect(state.projects).toEqual({ bar: emptyProject, foo: emptyProject });
+    expect(state.projects).toEqual({
+        ...initialState.projects,
+        bar: emptyProject,
+        foo: emptyProject,
+    });
 });
 
 test("Add a new task", () => {
@@ -57,22 +64,19 @@ test("Modify a task", () => {
 });
 
 test("Remove a project", () => {
-    let state: typeof initialState = {
-        ...initialState,
-        currentProjectName: "foo",
-        projects: {
-            bar: emptyProject,
-            foo: emptyProject,
-        },
-    };
+    const { store } = createStore();
 
-    state = reducer(state, actionCreators.removeProject("foo"));
-    expect(state.projects).toEqual({ bar: emptyProject });
-    expect(state.currentProjectName).toBe("bar");
+    expect(getState(store)).toEqual(initialState);
 
-    state = reducer(state, actionCreators.removeProject("bar"));
-    expect(state.projects).toEqual({});
-    expect(state.currentProjectName).toBe(null);
+    store.dispatch(actionCreators.removeProject("default"));
+    expect(getState(store).projects).toEqual(initialState.projects);
+    expect(getState(store).currentProjectName).toBe(initialState.currentProjectName);
+
+    store.dispatch(actionCreators.addProject("foo"));
+
+    store.dispatch(actionCreators.removeProject("foo"));
+    expect(getState(store).projects).toEqual(initialState.projects);
+    expect(getState(store).currentProjectName).toBe(initialState.currentProjectName);
 });
 
 test("Remove a task", () => {
@@ -92,7 +96,6 @@ test("Remove a task", () => {
 });
 
 test("Set a current project", () => {
-    expect(initialState.currentProjectName).toBe(null);
     const state = reducer(initialState, actionCreators.setCurrentProjectName("foo"));
     expect(state.currentProjectName).toBe("foo");
 });
