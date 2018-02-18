@@ -2,7 +2,7 @@
 @import "./NoBoxButton.scss";
 
 @mixin Project-name($color, $active-color, $active-background-color) {
-	@include NoBoxButton-container($color, $active-color, $active-background-color);
+	@include NoBoxButton($color, $active-color, $active-background-color);
 
 	font-size: 1.2em;
 }

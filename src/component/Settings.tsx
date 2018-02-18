@@ -37,7 +37,7 @@ class Settings extends React.Component<IProps> {
                             <Gear />
                         </div>}
             >
-                <div className="Settings-container">
+                <div className="Settings">
                     <SettingsItem
                         label="Notification"
                         value={notificationOn

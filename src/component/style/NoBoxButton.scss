@@ -1,7 +1,7 @@
 @import "../../style/animation.scss";
 @import "../../style/colors.scss";
 
-@mixin NoBoxButton-container($color: $grey, $active-color: $black, $active-background-color: $transparent-grey) {
+@mixin NoBoxButton($color: $grey, $active-color: $black, $active-background-color: $transparent-grey) {
 	font: inherit;
 	display: flex;
 	align-items: center;
@@ -26,6 +26,6 @@
 	}
 }
 
-.NoBoxButton-container {
-	@include NoBoxButton-container($grey, $black, transparentize($black, 0.95));
+.NoBoxButton {
+	@include NoBoxButton($grey, $black, transparentize($black, 0.95));
 }

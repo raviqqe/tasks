@@ -15,7 +15,7 @@
 	}
 }
 
-.Menu-container {
+.Menu {
 	@include Menu-flex-column;
 
 	width: 12em;
@@ -23,7 +23,7 @@
 	height: 100%;
 }
 
-.Menu-upper-container {
+.Menu-upper {
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -39,7 +39,7 @@
 	}
 }
 
-.Menu-lower-container {
+.Menu-lower {
 	flex: 1;
 	display: flex;
 	position: relative;
@@ -56,7 +56,7 @@
 	padding: 1.5em;
 }
 
-.Menu-lower-upper-container {
+.Menu-lower-upper {
 	@include Menu-flex-column;
 	@include vertical-child-margin(1em);
 
@@ -69,7 +69,7 @@
 }
 
 .Menu-state-highlighted {
-	@include NoBoxButton-container($red, $red, transparent);
+	@include NoBoxButton($red, $red, transparent);
 
 	cursor: auto;
 }
@@ -108,5 +108,5 @@
 }
 
 .Menu-sort-button {
-	@include IconedButton-container($grey);
+	@include IconedButton($grey);
 }

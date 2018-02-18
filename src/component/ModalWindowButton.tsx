@@ -24,7 +24,7 @@ class ModalWindowButton extends React.Component<IProps> {
                 buttonProps={buttonProps}
                 contentComponent={this.contentComponent}
                 onOpen={onOpen}
-                transitionClassNames="ModalWindowButton-container"
+                transitionClassNames="ModalWindowButton"
             />
         );
     }
@@ -33,9 +33,9 @@ class ModalWindowButton extends React.Component<IProps> {
         const { children, isSmallWindow, onOpen, showCloseButton } = this.props;
 
         return (
-            <div className="ModalWindowButton-container" onClick={closeWindow}>
+            <div className="ModalWindowButton" onClick={closeWindow}>
                 {(isSmallWindow || showCloseButton) &&
-                    <div className="ModalWindowButton-close-button-container">
+                    <div className="ModalWindowButton-close-button">
                         <CircleButton onClick={closeWindow}>
                             <Close />
                         </CircleButton>

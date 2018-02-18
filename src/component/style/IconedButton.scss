@@ -1,7 +1,7 @@
 @import "../../style/colors.scss";
 @import "./Button.scss";
 
-@mixin IconedButton-container($background-color: $red) {
+@mixin IconedButton($background-color: $red) {
 	@include Button($background-color);
 
 	> *:first-child {
@@ -10,6 +10,6 @@
 	}
 }
 
-.IconedButton-container {
-	@include IconedButton-container;
+.IconedButton {
+	@include IconedButton;
 }

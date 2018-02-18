@@ -5,7 +5,7 @@
 @import "./TaskDescription.scss";
 
 .CreateTask-form {
-	@extend .Task-container;
+	@extend .Task;
 
 	width: 40em;
 	padding: 1em;

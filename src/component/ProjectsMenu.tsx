@@ -26,7 +26,7 @@ class ProjectsMenu extends React.Component<IProps, IState> {
         const { opened } = this.state;
 
         return (
-            <div className="ProjectsMenu-container">
+            <div className="ProjectsMenu">
                 <div
                     className="ProjectsMenu-current-project-name"
                     onClick={() => this.setState({ opened: !opened })}

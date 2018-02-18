@@ -2,7 +2,7 @@
 @import "../../style/colors.scss";
 @import "../../style/media.scss";
 
-.TaskList-container {
+.TaskList {
 	overflow-y: auto;
 	height: 100%;
 	padding: 0.5em;
@@ -18,8 +18,8 @@
 	}
 }
 
-.TaskList-container-shadowed {
-	@extend .TaskList-container;
+.TaskList-shadowed {
+	@extend .TaskList;
 
 	> * {
 		box-shadow: 0 0.2em 0.2em $transparent-black;

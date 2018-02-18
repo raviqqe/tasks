@@ -3,7 +3,7 @@
 @import "../../style/margin.scss";
 @import "../../style/media.scss";
 
-.Task-container {
+.Task {
 	@include paper-border;
 	@include vertical-child-margin(0.3em);
 

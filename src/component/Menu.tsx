@@ -23,17 +23,17 @@ class Menu extends React.Component<IProps> {
         const { done, pointerAvailable, makeTaskListSortable, onTasksStateChange } = this.props;
 
         return (
-            <div className="Menu-container" onClick={(event) => event.stopPropagation()}>
-                <div className="Menu-upper-container">
+            <div className="Menu" onClick={(event) => event.stopPropagation()}>
+                <div className="Menu-upper">
                     <div className="Menu-upper-background" />
                     <div className="Menu-upper-content">
                         <ProjectsMenu />
                     </div>
                 </div>
-                <div className="Menu-lower-container">
+                <div className="Menu-lower">
                     <div className="Menu-lower-background" />
                     <div className="Menu-lower-content">
-                        <div className="Menu-lower-upper-container">
+                        <div className="Menu-lower-upper">
                             <div className="Menu-states">
                                 <NoBoxButton
                                     className={!done && "Menu-state-highlighted"}

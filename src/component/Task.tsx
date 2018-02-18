@@ -44,7 +44,7 @@ class Task extends React.Component<IProps, IState> {
 
         return (
             <div
-                className="Task-container"
+                className="Task"
                 onClick={detailed ? undefined : () => setCurrentTaskId(id)}
                 onMouseOver={() => this.setState({ showButtons: true })}
                 onMouseOut={() => this.setState({ showButtons: false })}

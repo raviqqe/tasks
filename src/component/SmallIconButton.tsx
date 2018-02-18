@@ -12,7 +12,7 @@ export default class extends React.Component<IProps> {
 
         return (
             <div
-                className="SmallIconButton-container"
+                className="SmallIconButton"
                 onClick={(event) => {
                     onClick();
                     event.stopPropagation();

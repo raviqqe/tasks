@@ -12,7 +12,7 @@ export default class extends React.Component<IProps> {
 
         return (
             <a
-                className="Link-container"
+                className="Link"
                 href={href}
                 onClick={(event) => event.stopPropagation()}
                 target="_blank"

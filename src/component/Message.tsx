@@ -20,7 +20,7 @@ class Message extends React.Component<IProps, IState> {
 
     public render() {
         return (
-            <div className="Message-container">
+            <div className="Message">
                 <div className={this.boxClassName} onClick={() => this.props.clearMessage()}>
                     {this.state.message}
                 </div>

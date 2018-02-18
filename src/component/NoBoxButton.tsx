@@ -13,7 +13,7 @@ export default class extends React.Component<IProps> {
         const { children, className, icon, onClick } = this.props;
 
         return (
-            <button className={className || "NoBoxButton-container"} onClick={onClick}>
+            <button className={className || "NoBoxButton"} onClick={onClick}>
                 {icon}
                 {children}
             </button>

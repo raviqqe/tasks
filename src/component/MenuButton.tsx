@@ -21,13 +21,13 @@ export default class extends React.Component<IProps> {
                 buttonComponent={this.buttonComponent}
                 closed={this.props.closed}
                 contentComponent={this.contentComponent}
-                transitionClassNames="MenuButton-menu-container"
+                transitionClassNames="MenuButton-menu"
             />
         );
     }
 
     private buttonComponent = ({ openWindow }: IButtonProps): JSX.Element => (
-        <div className={"MenuButton-button-container" + (this.props.hidden ? "-hidden" : "")}>
+        <div className={"MenuButton-button" + (this.props.hidden ? "-hidden" : "")}>
             <CircleButton
                 className="MenuButton-button"
                 onClick={openWindow}
@@ -38,7 +38,7 @@ export default class extends React.Component<IProps> {
     )
 
     private contentComponent = ({ closeWindow }: IContentProps): JSX.Element => (
-        <div className="MenuButton-menu-container" onClick={closeWindow} >
+        <div className="MenuButton-menu" onClick={closeWindow} >
             <Menu {...this.props} />
         </div>
     )

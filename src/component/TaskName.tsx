@@ -15,7 +15,7 @@ export default class extends InputComponent<IProps> {
         if (this.state.editing) {
             return (
                 <input
-                    className="TaskName-container"
+                    className="TaskName"
                     onKeyDown={(event: React.KeyboardEvent<{}>) => {
                         if (event.keyCode === 13) {
                             this.setState({ editing: false });
@@ -29,7 +29,7 @@ export default class extends InputComponent<IProps> {
 
         return (
             <div
-                className={"TaskName-container" + (highlighted ? "-highlighted" : "")}
+                className={"TaskName" + (highlighted ? "-highlighted" : "")}
                 onClick={() => this.setState({ editing: onEdit !== undefined })}
             >
                 {text}

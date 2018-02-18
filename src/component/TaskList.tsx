@@ -33,7 +33,7 @@ export default class extends React.Component<IProps> {
         return (
             <div
                 ref={(container) => this.container = container}
-                className={"TaskList-container" + (sorting ? "-shadowed" : "")}
+                className={"TaskList" + (sorting ? "-shadowed" : "")}
                 style={style}
             >
                 {tasks.map((task) =>
