@@ -2,6 +2,7 @@ import * as React from "react";
 import Markdown = require("react-markdown");
 
 import InputComponent from "./InputComponent";
+
 import "./style/TaskDescription.css";
 
 export default class extends InputComponent {
