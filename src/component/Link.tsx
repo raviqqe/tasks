@@ -15,7 +15,6 @@ export default class extends React.Component<IProps> {
                 className="Link"
                 href={href}
                 onClick={(event) => event.stopPropagation()}
-                target="_blank"
             >
                 {children}
             </a>

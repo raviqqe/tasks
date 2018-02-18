@@ -34,7 +34,6 @@ export default class extends InputComponent {
                                 Link: ({ href, title, children }) =>
                                     <a
                                         href={href}
-                                        target="_blank"
                                         onClick={(event) => event.stopPropagation()}
                                     >
                                         {children}
