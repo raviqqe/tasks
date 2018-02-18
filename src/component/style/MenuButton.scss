@@ -16,7 +16,7 @@
 	visibility: hidden;
 }
 .MenuButton-button {
-	@include CircleButton-container($dark-grey);
+	@include CircleButton($dark-grey);
 }
 
 .MenuButton-menu-container {

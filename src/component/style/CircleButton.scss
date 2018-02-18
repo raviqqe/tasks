@@ -1,6 +1,6 @@
 @import "./Button.scss";
 
-@mixin CircleButton-container($background-color: $red) {
+@mixin CircleButton($background-color: $red) {
 	@include Button($background-color, true);
 
 	font-size: 2em;
@@ -13,6 +13,6 @@
 	align-items: center;
 }
 
-.CircleButton-container {
-	@include CircleButton-container;
+.CircleButton {
+	@include CircleButton;
 }

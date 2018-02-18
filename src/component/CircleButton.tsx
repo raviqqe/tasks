@@ -14,7 +14,7 @@ export default class extends React.Component<IProps> {
 
         return (
             <Button
-                className={className || "CircleButton-container"}
+                className={className || "CircleButton"}
                 onClick={onClick}
             >
                 {children}
