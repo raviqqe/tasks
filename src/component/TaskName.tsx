@@ -29,7 +29,8 @@ export default class extends InputComponent<IProps> {
 
         return (
             <div
-                className={"TaskName" + (highlighted ? "-highlighted" : "")}
+                className="TaskName"
+                data-highlighted={highlighted}
                 onClick={() => this.setState({ editing: onEdit !== undefined })}
             >
                 {text}

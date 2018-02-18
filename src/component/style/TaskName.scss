@@ -2,10 +2,8 @@
 
 .TaskName {
 	font-size: 1.1em;
-}
 
-.TaskName-highlighted {
-	@extend .TaskName;
-
-	color: $red;
+	&[data-highlighted="true"] {
+		color: $red;
+	}
 }
