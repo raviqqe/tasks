@@ -40,38 +40,33 @@ class Settings extends React.Component<IProps> {
                         </div>}
             >
                 <div className="Settings">
-                    <SettingsItem
-                        label="Notification"
-                        value={notificationOn
+                    <SettingsItem label="Notification">
+                        {notificationOn
                             ? <div className="Settings-notification-enabled">enabled</div>
-                            : <div className="Settings-notification-disabled">disabled</div>
-                        }
-                    />
-                    <SettingsItem
-                        label="Alarm volume"
-                        value={
-                            <div className="Settings-volume-slider">
-                                <Slider
-                                    min={0}
-                                    max={1}
-                                    defaultValue={0.5}
-                                    value={alarmVolume}
-                                    step={0.125}
-                                    marks={{ 0: "0", 0.5: "0.5", 1: "1" }}
-                                    railStyle={{ backgroundColor: grey }}
-                                    trackStyle={{ backgroundColor: green }}
-                                    dotStyle={{ background: grey, borderColor: grey }}
-                                    activeDotStyle={{ background: green, borderColor: green }}
-                                    handleStyle={{
-                                        background: green,
-                                        borderColor: green,
-                                        boxShadow: "none",
-                                    }}
-                                    onChange={setAlarmVolume}
-                                />
-                            </div>
-                        }
-                    />
+                            : <div className="Settings-notification-disabled">disabled</div>}
+                    </SettingsItem>
+                    <SettingsItem label="Alarm volume">
+                        <div className="Settings-volume-slider">
+                            <Slider
+                                min={0}
+                                max={1}
+                                defaultValue={0.5}
+                                value={alarmVolume}
+                                step={0.125}
+                                marks={{ 0: "0", 0.5: "0.5", 1: "1" }}
+                                railStyle={{ backgroundColor: grey }}
+                                trackStyle={{ backgroundColor: green }}
+                                dotStyle={{ background: grey, borderColor: grey }}
+                                activeDotStyle={{ background: green, borderColor: green }}
+                                handleStyle={{
+                                    background: green,
+                                    borderColor: green,
+                                    boxShadow: "none",
+                                }}
+                                onChange={setAlarmVolume}
+                            />
+                        </div>
+                    </SettingsItem>
                     <div className="buttons">
                         <Button onClick={() => { /* TODO */ }}>Sign out</Button>
                         <Button className="negative-button" onClick={() => { /* TODO */ }}>
