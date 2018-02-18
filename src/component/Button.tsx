@@ -7,9 +7,6 @@ import "./style/Button.css";
 interface IProps {
     className?: string;
     onClick?: () => void;
-    onMouseOver?: () => void;
-    onMouseOut?: () => void;
-    style?: object;
     type?: string;
 }
 
@@ -17,7 +14,7 @@ export default class extends React.Component<IProps> {
     private button: HTMLButtonElement;
 
     public render() {
-        const { children, className, onClick, onMouseOver, onMouseOut, style, type }
+        const { children, className, onClick, type }
             = this.props;
 
         return (
@@ -28,9 +25,6 @@ export default class extends React.Component<IProps> {
                     onClick();
                     event.stopPropagation();
                 })}
-                onMouseOver={onMouseOver}
-                onMouseOut={onMouseOut}
-                style={style}
                 type={type}
             >
                 {children}
