@@ -41,32 +41,31 @@ export default class extends React.Component<IProps, IState> {
         const Content = contentComponent;
         const opened = !closed && this.state.opened;
 
-        return [
-            (
+        return (
+            <React.Fragment>
                 <Button
-                    key="button"
                     opened={opened}
                     openWindow={() => this.setState({ opened: true })}
                     {...{ ...(buttonProps || {}) }}
                 />
-            ),
-            !!this.modal && ReactDOM.createPortal(
-                <CSSTransition
-                    appear={true}
-                    classNames={transitionClassNames}
-                    in={opened}
-                    timeout={config.maxAnimationDelayMs}
-                    onEntered={onOpen}
-                    onExited={this.removeElement}
-                >
-                    <Content
-                        closeWindow={() => this.setState({ opened: false })}
-                        opened={opened}
-                        {...{ ...(contentProps || {}) }}
-                    />
-                </CSSTransition>,
-                this.modal),
-        ];
+                {!!this.modal && ReactDOM.createPortal(
+                    <CSSTransition
+                        appear={true}
+                        classNames={transitionClassNames}
+                        in={opened}
+                        timeout={config.maxAnimationDelayMs}
+                        onEntered={onOpen}
+                        onExited={this.removeElement}
+                    >
+                        <Content
+                            closeWindow={() => this.setState({ opened: false })}
+                            opened={opened}
+                            {...{ ...(contentProps || {}) }}
+                        />
+                    </CSSTransition>,
+                    this.modal)}
+            </React.Fragment>
+        );
     }
 
     public componentWillUpdate(_, { opened }: IState) {
