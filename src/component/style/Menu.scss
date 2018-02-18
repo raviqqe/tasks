@@ -1,11 +1,17 @@
-@import "../../style/animation.scss";
 @import "../../style/colors.scss";
 @import "../../style/margin.scss";
 @import "../../style/media.scss";
 @import "./IconedButton.scss";
 @import "./NoBoxButton.scss";
 
-@mixin Menu-flex-column {
+@mixin background {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	z-index: -1;
+}
+
+@mixin column {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -16,97 +22,94 @@
 }
 
 .Menu {
-	@include Menu-flex-column;
+	@include column;
 
 	width: 12em;
 	max-width: 100%;
 	height: 100%;
-}
 
-.Menu-upper {
-	display: flex;
-	flex-direction: column;
-	position: relative;
-}
+	> .upper {
+		display: flex;
+		flex-direction: column;
+		position: relative;
 
-.Menu-upper-content {
-	color: white;
-	display: flex;
-	justify-content: center;
+		> .background {
+			@include background;
 
-	> * {
-		margin: 1em;
+			background: $red;
+			bottom: 0;
+			right: 0;
+
+			@include small-window {
+				left: 0;
+				right: auto;
+			}
+		}
+
+		> .content {
+			color: white;
+			display: flex;
+			justify-content: center;
+
+			> * {
+				margin: 1em;
+			}
+		}
 	}
-}
 
-.Menu-lower {
-	flex: 1;
-	display: flex;
-	position: relative;
-}
+	> .lower {
+		flex: 1;
+		display: flex;
+		position: relative;
 
-.Menu-lower-content {
-	@include Menu-flex-column;
-	@include vertical-child-margin(1em);
+		> .background {
+			@include background;
 
-	align-items: center;
-	width: 100%;
-	height: 100%;
-	overflow-y: auto;
-	padding: 1.5em;
-}
+			background: white;
+			top: 0;
+			right: 0;
 
-.Menu-lower-upper {
-	@include Menu-flex-column;
-	@include vertical-child-margin(1em);
+			@include small-window {
+				left: 0;
+				right: auto;
+			}
+		}
 
-	align-items: center;
-	width: 100%;
-}
+		> .content {
+			@include column;
+			@include vertical-child-margin(1em);
 
-.Menu-states {
-	@include Menu-flex-column;
-}
+			align-items: center;
+			width: 100%;
+			height: 100%;
+			overflow-y: auto;
+			padding: 1.5em;
 
-.Menu-state-highlighted {
-	@include NoBoxButton($red, $red, transparent);
+			> .main {
+				@include column;
+				@include vertical-child-margin(1em);
 
-	cursor: auto;
-}
+				align-items: center;
+				width: 100%;
 
-@mixin Menu-background {
-	width: 100vw;
-	height: 100vh;
-	position: absolute;
-	z-index: -1;
-}
+				> .states {
+					@include column;
 
-.Menu-upper-background {
-	@include Menu-background;
+					> .state {
+						@include NoBoxButton;
 
-	background: $red;
-	bottom: 0;
-	right: 0;
+						&-highlighted {
+							@include NoBoxButton($red, $red, transparent);
 
-	@include small-window {
-		left: 0;
-		right: auto;
+							cursor: auto;
+						}
+					}
+				}
+
+				> .sort-button {
+					@include IconedButton($grey);
+				}
+			}
+		}
 	}
-}
-
-.Menu-lower-background {
-	@include Menu-background;
-
-	background: white;
-	top: 0;
-	right: 0;
-
-	@include small-window {
-		left: 0;
-		right: auto;
-	}
-}
-
-.Menu-sort-button {
-	@include IconedButton($grey);
 }

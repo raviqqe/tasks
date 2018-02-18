@@ -24,26 +24,26 @@ class Menu extends React.Component<IProps> {
 
         return (
             <div className="Menu" onClick={(event) => event.stopPropagation()}>
-                <div className="Menu-upper">
-                    <div className="Menu-upper-background" />
-                    <div className="Menu-upper-content">
+                <div className="upper">
+                    <div className="background" />
+                    <div className="content">
                         <ProjectsMenu />
                     </div>
                 </div>
-                <div className="Menu-lower">
-                    <div className="Menu-lower-background" />
-                    <div className="Menu-lower-content">
-                        <div className="Menu-lower-upper">
-                            <div className="Menu-states">
+                <div className="lower">
+                    <div className="background" />
+                    <div className="content">
+                        <div className="main">
+                            <div className="states">
                                 <NoBoxButton
-                                    className={!done && "Menu-state-highlighted"}
+                                    className={"state" + (done ? "" : "-highlighted")}
                                     icon={<Todo />}
                                     onClick={() => onTasksStateChange(false)}
                                 >
                                     todo
                                 </NoBoxButton>
                                 <NoBoxButton
-                                    className={done && "Menu-state-highlighted"}
+                                    className={"state" + (done ? "-highlighted" : "")}
                                     icon={<Done />}
                                     onClick={() => onTasksStateChange(true)}
                                 >
@@ -53,7 +53,7 @@ class Menu extends React.Component<IProps> {
                             {!done && <CreateTask />}
                             {!pointerAvailable &&
                                 <IconedButton
-                                    className="Menu-sort-button"
+                                    className="sort-button"
                                     icon={<Sort />}
                                     onClick={makeTaskListSortable}
                                 >
