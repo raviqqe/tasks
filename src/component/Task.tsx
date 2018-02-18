@@ -75,16 +75,16 @@ class Task extends React.Component<IProps, IState> {
                             </SmallIconButton>}
                     </div>
                 </div>
-                {detailed && [
-                    <TaskDescription
-                        key="description"
-                        text={description}
-                        onEdit={(description) => modifyTask({ ...this.task, description })}
-                    />,
-                    this.renderSpentSeconds(),
-                    <LabeledDate key="createdAt" label="Created on" timeStamp={createdAt} />,
-                    <LabeledDate key="updatedAt" label="Updated on" timeStamp={updatedAt} />,
-                ]}
+                {detailed &&
+                    <React.Fragment>
+                        <TaskDescription
+                            text={description}
+                            onEdit={(description) => modifyTask({ ...this.task, description })}
+                        />
+                        <SubInformation>Spent for: {this.spentSeconds}</SubInformation>
+                        <LabeledDate label="Created on" timeStamp={createdAt} />
+                        <LabeledDate label="Updated on" timeStamp={updatedAt} />
+                    </React.Fragment>}
             </div>
         );
     }
@@ -94,17 +94,12 @@ class Task extends React.Component<IProps, IState> {
         return { createdAt, description, id, name, spentSeconds, updatedAt };
     }
 
-    private renderSpentSeconds = () => {
+    private get spentSeconds(): string {
         const minutes: number = this.props.spentSeconds / 60;
-        const time: string = minutes < 60
+
+        return minutes < 60
             ? `${numeral(minutes).format("0")} mins`
             : `${numeral(minutes / 60).format("0[.]0")} hours`;
-
-        return (
-            <SubInformation key="spentTime">
-                Spent for: {time}
-            </SubInformation>
-        );
     }
 }
 
