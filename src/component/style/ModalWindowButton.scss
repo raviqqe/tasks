@@ -31,16 +31,26 @@
 		transform: translateY(0);
 		transition: transform $long-duration;
 	}
-}
 
-.ModalWindowButton-hidden {
-	@extend .ModalWindowButton;
+	> .close-button {
+		position: fixed;
+		top: 1em;
+		right: 1em;
+		z-index: 200;
 
-	visibility: hidden;
-	background: transparent;
+		@include small-window {
+			top: auto;
+			bottom: 1em;
+		}
+	}
 
-	> * {
-		transform: translateY(calc(-100vh - 100%));
+	> .window {
+		@include paper-border;
+
+		background: white;
+		display: flex;
+		max-width: 100%;
+		margin: auto;
 	}
 }
 
@@ -49,26 +59,12 @@
 }
 
 .ModalWindowButton-appear, .ModalWindowButton-exit.ModalWindowButton-exit-active {
-	@extend .ModalWindowButton-hidden;
-}
+	@extend .ModalWindowButton;
 
-.ModalWindowButton-window {
-	@include paper-border;
+	visibility: hidden;
+	background: transparent;
 
-	background: white;
-	display: flex;
-	max-width: 100%;
-	margin: auto;
-}
-
-.ModalWindowButton-close-button {
-	position: fixed;
-	top: 1em;
-	right: 1em;
-	z-index: 200;
-
-	@include small-window {
-		top: auto;
-		bottom: 1em;
+	> * {
+		transform: translateY(calc(-100vh - 100%));
 	}
 }

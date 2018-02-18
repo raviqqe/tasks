@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import CircleButton from "./CircleButton";
 import ModalButton, { IButtonProps, IContentProps } from "./ModalButton";
+
 import "./style/ModalWindowButton.css";
 
 interface IProps {
@@ -35,13 +36,13 @@ class ModalWindowButton extends React.Component<IProps> {
         return (
             <div className="ModalWindowButton" onClick={closeWindow}>
                 {(isSmallWindow || showCloseButton) &&
-                    <div className="ModalWindowButton-close-button">
+                    <div className="close-button">
                         <CircleButton onClick={closeWindow}>
                             <Close />
                         </CircleButton>
                     </div>}
                 <div
-                    className="ModalWindowButton-window"
+                    className="window"
                     onClick={(event) => event.stopPropagation()}
                 >
                     {typeof children === "function"
