@@ -16,21 +16,20 @@
 		// padding for a menu icon.
 		padding-bottom: 5em;
 	}
-}
 
-.TaskList-shadowed {
-	@extend .TaskList;
 
-	> * {
-		box-shadow: 0 0.2em 0.2em $transparent-black;
-		transform: translateY(-0.2em);
+	&[data-shadowed="true"] {
+		> * {
+			box-shadow: 0 0.2em 0.2em $transparent-black;
+			transform: translateY(-0.2em);
+		}
 	}
-}
 
-.TaskList-message {
-	padding: 1em;
-}
+	&-message {
+		padding: 1em;
+	}
 
-.TaskList-placeholder {
-	visibility: hidden;
+	&-placeholder {
+		visibility: hidden;
+	}
 }
