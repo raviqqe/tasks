@@ -9,6 +9,12 @@
 	height: 100vh;
 	position: absolute;
 	z-index: -1;
+	right: 0;
+
+	@include small-window {
+		left: 0;
+		right: unset;
+	}
 }
 
 @mixin column {
@@ -38,22 +44,6 @@
 
 			background: $red;
 			bottom: 0;
-			right: 0;
-
-			@include small-window {
-				left: 0;
-				right: auto;
-			}
-		}
-
-		> .content {
-			color: white;
-			display: flex;
-			justify-content: center;
-
-			> * {
-				margin: 1em;
-			}
 		}
 	}
 
@@ -67,12 +57,6 @@
 
 			background: white;
 			top: 0;
-			right: 0;
-
-			@include small-window {
-				left: 0;
-				right: auto;
-			}
 		}
 
 		> .content {

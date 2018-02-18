@@ -26,9 +26,7 @@ class Menu extends React.Component<IProps> {
             <div className="Menu" onClick={(event) => event.stopPropagation()}>
                 <div className="upper">
                     <div className="background" />
-                    <div className="content">
-                        <ProjectsMenu />
-                    </div>
+                    <ProjectsMenu />
                 </div>
                 <div className="lower">
                     <div className="background" />

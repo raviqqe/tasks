@@ -10,12 +10,9 @@
 		color: white;
 		cursor: pointer;
 		font-size: 1.5em;
-		user-select: none;
-
-		&:focus {
-			color: white;
-			background: transparent;
-		}
+		overflow-x: auto;
+		padding: 1em;
+		text-align: center;
 	}
 
 	> .background {
