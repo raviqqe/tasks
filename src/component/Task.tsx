@@ -49,13 +49,13 @@ class Task extends React.Component<IProps, IState> {
                 onMouseOver={() => this.setState({ showButtons: true })}
                 onMouseOut={() => this.setState({ showButtons: false })}
             >
-                <div className="Task-header">
+                <div className="header">
                     <TaskName
                         highlighted={highlighted}
                         onEdit={detailed && ((name) => modifyTask({ ...this.task, name }))}
                         text={name}
                     />
-                    <div className={"Task-buttons" + (this.state.showButtons ? "" : "-hidden")}>
+                    <div className="buttons" data-hidden={!this.state.showButtons}>
                         {(!done || detailed) &&
                             <SmallIconButton onClick={() => toggleTaskState(id)}>
                                 {done ? <Repeat /> : <Check />}
