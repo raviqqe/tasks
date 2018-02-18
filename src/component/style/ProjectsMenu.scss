@@ -7,61 +7,61 @@
 
 .ProjectsMenu {
 	position: relative;
-}
 
-.ProjectsMenu-current-project-name {
-	color: white;
-	cursor: pointer;
-	font-size: 1.5em;
-	user-select: none;
-
-	&:focus {
+	> .current-project-name {
 		color: white;
-		background: transparent;
+		cursor: pointer;
+		font-size: 1.5em;
+		user-select: none;
+
+		&:focus {
+			color: white;
+			background: transparent;
+		}
 	}
-}
 
-.ProjectsMenu-box {
-	@include paper-shadow;
-	@include paper-border;
-	@include vertical-child-margin(0.8em);
+	> .background {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: 100;
 
-	background: white;
-	padding: 1.5em 2em;
-	position: absolute;
-	top: 100%;
-	z-index: 200;
-	transform-origin: 0 0;
-	transition: transform $short-duration, opacity $short-duration, visibility $short-duration;
+		@include small-window {
+			left: unset;
+			right: 0;
+		}
 
-	@include small-window {
-		right: 0;
-		transform-origin: 100% 0;
+
+		&[data-hidden="true"] {
+			display: none;
+		}
 	}
-}
 
-.ProjectsMenu-box-hidden {
-	@extend .ProjectsMenu-box;
+	> .box {
+		@include paper-shadow;
+		@include paper-border;
+		@include vertical-child-margin(0.8em);
 
-	transform: scale(0, 0);
-	opacity: 0;
-	visibility: hidden;
-}
+		background: white;
+		padding: 1.5em 2em;
+		position: absolute;
+		top: 100%;
+		z-index: 200;
+		transform-origin: 0 0;
+		transition: transform $short-duration, opacity $short-duration, visibility $short-duration;
 
-.ProjectsMenu-background {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	z-index: 100;
+		@include small-window {
+			right: 0;
+			transform-origin: 100% 0;
+		}
 
-	@include small-window {
-		left: auto;
-		right: 0;
+
+		&[data-hidden="true"] {
+			transform: scale(0, 0);
+			opacity: 0;
+			visibility: hidden;
+		}
 	}
-}
-
-.ProjectsMenu-background-hidden {
-	display: none;
 }
