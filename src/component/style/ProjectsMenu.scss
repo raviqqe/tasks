@@ -6,8 +6,6 @@
 @import "../../style/shadow.scss";
 
 .ProjectsMenu {
-	position: relative;
-
 	> .current-project-name {
 		color: white;
 		cursor: pointer;
@@ -44,16 +42,23 @@
 		@include paper-border;
 		@include vertical-child-margin(0.8em);
 
+		$margin: 1em;
+
 		background: white;
 		padding: 1.5em 2em;
-		position: absolute;
-		top: 100%;
-		z-index: 200;
+		position: fixed;
+		left: $margin;
+		top: $margin;
+		max-width: calc(100vw - 2 * #{$margin});
+		max-height: calc(100vh - 2 * #{$margin});
+		overflow: auto;
 		transform-origin: 0 0;
 		transition: transform $short-duration, opacity $short-duration, visibility $short-duration;
+		z-index: 200;
 
 		@include small-window {
-			right: 0;
+			left: unset;
+			right: $margin;
 			transform-origin: 100% 0;
 		}
 
