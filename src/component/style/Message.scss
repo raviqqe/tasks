@@ -1,10 +1,6 @@
 @import "../../style/border.scss";
 @import "../../style/colors.scss";
 
-@mixin Message-hidden-box {
-	transform: translateY(-200%);
-}
-
 .Message {
 	position: fixed;
 	top: 0;
@@ -12,36 +8,26 @@
 	display: flex;
 	justify-content: center;
 	pointer-events: none;
-}
 
-.Message-box {
-	@include paper-border;
+	> .box {
+		@include paper-border;
 
-	color: white;
-	cursor: pointer;
-	font-size: 1.2em;
-	background: $grey;
-	max-width: 100%;
-	padding: 1em 2em;
-	margin: 1em;
-	transition: 0.2s;
-	pointer-events: auto;
-}
+		color: white;
+		cursor: pointer;
+		font-size: 1.2em;
+		background: $grey;
+		max-width: 100%;
+		padding: 1em 2em;
+		margin: 1em;
+		transition: 0.2s;
+		pointer-events: auto;
 
-.Message-box-hidden {
-	@extend .Message-box;
+		&[data-error="true"] {
+			background: $yellow;
+		}
 
-	@include Message-hidden-box;
-}
-
-.Message-box-error {
-	@extend .Message-box;
-
-	background: $yellow;
-}
-
-.Message-box-error-hidden {
-	@extend .Message-box-error;
-
-	@include Message-hidden-box;
+		&[data-hidden="true"] {
+			transform: translateY(-200%);
+		}
+	}
 }
