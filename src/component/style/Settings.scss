@@ -4,21 +4,8 @@
 @import "../../style/media.scss";
 @import "./Button.scss";
 
-.Settings-icon {
-	font-size: 2em;
-	cursor: pointer;
-
-	> svg {
-		transition: transform $short-duration;
-	}
-}
-
-.Settings-icon-active {
-	@extend .Settings-icon;
-
-	> svg {
-		transform: rotate(90deg);
-	}
+@mixin notification {
+	font-weight: bold;
 }
 
 .Settings {
@@ -28,62 +15,73 @@
 	width: 50em;
 	max-width: 100%;
 	padding: 8vh 8vw;
-}
 
-@mixin Settings-notification {
-	font-weight: bold;
-}
+	&-icon {
+		font-size: 2em;
+		cursor: pointer;
 
-.Settings-notification-enabled {
-	@include Settings-notification;
+		> svg {
+			transition: transform $short-duration;
+		}
 
-	color: $yellow-green;
-}
-
-.Settings-notification-disabled {
-	@include Settings-notification;
-
-	color: $grey;
-}
-
-.Settings-buttons {
-	font-size: 0.9em;
-	display: flex;
-
-	> * {
-		margin: 0 0.5em;
-	}
-}
-
-.Settings-negative-button {
-	@include Button($grey);
-}
-
-.Settings-footer {
-	font-size: 0.9em;
-	border-top: {
-		style: solid;
-		width: 1px;
-		color: $light-grey;
-	};
-	padding-top: 1em;
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	flex-wrap: wrap;
-
-	> * {
-		margin: 0 0.6em;
+		&[data-active="true"] {
+			> svg {
+				transform: rotate(90deg);
+			}
+		}
 	}
 
-	@include small-window {
-		justify-content: flex-start;
-	}
-}
+	&-notification-enabled {
+		@include notification;
 
-.Settings-volume-slider {
-	width: 15em;
-	max-width: 50%;
-	padding-bottom: 1.5em;
-	padding-right: 0.5em;
+		color: $yellow-green;
+	}
+
+	&-notification-disabled {
+		@include notification;
+
+		color: $grey;
+	}
+
+	&-volume-slider {
+		width: 15em;
+		max-width: 50%;
+		padding-bottom: 1.5em;
+		padding-right: 0.5em;
+	}
+
+	> .buttons {
+		font-size: 0.9em;
+		display: flex;
+
+		> * {
+			margin: 0 0.5em;
+		}
+
+		> .negative-button {
+			@include Button($grey);
+		}
+	}
+
+	> .footer {
+		font-size: 0.9em;
+		border-top: {
+			style: solid;
+			width: 1px;
+			color: $light-grey;
+		};
+		padding-top: 1em;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		flex-wrap: wrap;
+
+		> * {
+			margin: 0 0.6em;
+		}
+
+		@include small-window {
+			justify-content: flex-start;
+		}
+	}
 }

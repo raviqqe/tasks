@@ -11,6 +11,7 @@ import Button from "./Button";
 import Link from "./Link";
 import ModalWindowButton from "./ModalWindowButton";
 import SettingsItem from "./SettingsItem";
+
 import "./style/Settings.css";
 
 const grey = "#bcc";
@@ -31,7 +32,8 @@ class Settings extends React.Component<IProps> {
                 buttonComponent={
                     ({ opened, openWindow }) =>
                         <div
-                            className={"Settings-icon" + (opened ? "-active" : "")}
+                            className="Settings-icon"
+                            data-active={opened}
                             onClick={openWindow}
                         >
                             <Gear />
@@ -70,13 +72,13 @@ class Settings extends React.Component<IProps> {
                             </div>
                         }
                     />
-                    <div className="Settings-buttons">
+                    <div className="buttons">
                         <Button onClick={() => { /* TODO */ }}>Sign out</Button>
-                        <Button className="Settings-negative-button" onClick={() => { /* TODO */ }}>
+                        <Button className="negative-button" onClick={() => { /* TODO */ }}>
                             Delete account
                         </Button>
                     </div>
-                    <div className="Settings-footer">
+                    <div className="footer">
                         <Link href={config.repositoryUrl}>GitHub</Link>
                     </div>
                 </div>
