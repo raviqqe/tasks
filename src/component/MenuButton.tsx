@@ -27,7 +27,7 @@ export default class extends React.Component<IProps> {
     }
 
     private buttonComponent = ({ openWindow }: IButtonProps): JSX.Element => (
-        <div className={"MenuButton-button" + (this.props.hidden ? "-hidden" : "")}>
+        <div className="MenuButton-button-container" data-hidden={this.props.hidden}>
             <CircleButton
                 className="MenuButton-button"
                 onClick={openWindow}

@@ -2,19 +2,18 @@
 @import "../../style/colors.scss";
 @import "./CircleButton.scss";
 
-.MenuButton-button {
+.MenuButton-button-container {
 	position: fixed;
 	bottom: 1em;
 	right: 1em;
 	transition: opacity $short-duration, visibility $short-duration;
+
+	&[data-hidden="true"] {
+		opacity: 0;
+		visibility: hidden;
+	}
 }
 
-.MenuButton-button-hidden {
-	@extend .MenuButton-button;
-
-	opacity: 0;
-	visibility: hidden;
-}
 .MenuButton-button {
 	@include CircleButton($dark-grey);
 }
@@ -39,7 +38,11 @@
 	}
 }
 
-.MenuButton-menu-hidden {
+.MenuButton-menu-appear.MenuButton-menu-appear-active, .MenuButton-menu-exit {
+	@extend .MenuButton-menu;
+}
+
+.MenuButton-menu-appear, .MenuButton-menu-exit.MenuButton-menu-exit-active {
 	@extend .MenuButton-menu;
 
 	background: transparent;
@@ -48,12 +51,4 @@
 	> * {
 		transform: translateX(100%);
 	}
-}
-
-.MenuButton-menu-appear.MenuButton-menu-appear-active, .MenuButton-menu-exit {
-	@extend .MenuButton-menu;
-}
-
-.MenuButton-menu-appear, .MenuButton-menu-exit.MenuButton-menu-exit-active {
-	@extend .MenuButton-menu-hidden;
 }
