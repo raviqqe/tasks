@@ -15,7 +15,7 @@ export default class Project extends React.Component<IProps> {
 
         return (
             <NoBoxButton
-                className={"Project-name" + (disabled ? "-disabled" : "")}
+                className={"Project" + (disabled ? "-disabled" : "")}
                 onClick={onClick}
             >
                 {name}
