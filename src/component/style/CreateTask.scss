@@ -2,41 +2,35 @@
 @import "../../style/margin.scss";
 @import "./Button.scss";
 @import "./Task.scss";
-@import "./TaskDescription.scss";
 
-.CreateTask-form {
+.CreateTask {
 	@extend .Task;
 
 	width: 40em;
 	padding: 1em;
 	display: flex;
 	flex-direction: column;
-}
 
-.CreateTask-button-text {
-	margin-right: 0.3em;
-}
-
-.CreateTask-description {
-	@extend .TaskDescription-input;
-
-	flex: 1;
-}
-
-.CreateTask-buttons {
-	@include horizontal-child-margin(0.25em);
-
-	display: flex;
-
-	> * {
-		flex: 1;
+	> .description {
+		height: 20vh;
+		resize: vertical;
 	}
-}
 
-.CreateTask-button {
-	@include Button($red);
-}
+	> .buttons {
+		@include horizontal-child-margin(0.25em);
 
-.CreateTask-cancel-button {
-	@include Button($grey);
+		display: flex;
+
+		> * {
+			flex: 1;
+		}
+
+		> .cancel-button {
+			@include Button($grey);
+		}
+	}
+
+	&-new-button-text {
+		margin-right: 0.3em;
+	}
 }

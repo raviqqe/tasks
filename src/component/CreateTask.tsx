@@ -30,13 +30,13 @@ class CreateTask extends React.Component<IProps, IState> {
             <ModalWindowButton
                 buttonComponent={({ openWindow }) =>
                     <IconedButton icon={<Plus />} onClick={openWindow}>
-                        <div className="CreateTask-button-text">new</div>
+                        <div className="CreateTask-new-button-text">new</div>
                     </IconedButton>}
                 onOpen={() => this.input && this.input.focus()}
             >
                 {(closeWindow) =>
                     <form
-                        className="CreateTask-form"
+                        className="CreateTask"
                         onSubmit={(event) => {
                             addTask(createTask(name, description));
                             this.setState({ description: "", name: "" });
@@ -55,14 +55,14 @@ class CreateTask extends React.Component<IProps, IState> {
                             onChange={({ target: { value } }) => this.setState({ name: value })}
                         />
                         <textarea
-                            className="CreateTask-description"
+                            className="description"
                             placeholder="Description"
                             value={description}
                             onChange={({ target: { value } }) => this.setState({ description: value })}
                         />
-                        <div className="CreateTask-buttons">
-                            <Button className="CreateTask-button" type="submit">Create</Button>
-                            <Button className="CreateTask-cancel-button" type="reset">Cancel</Button>
+                        <div className="buttons">
+                            <Button type="submit">Create</Button>
+                            <Button className="cancel-button" type="reset">Cancel</Button>
                         </div>
                     </form>}
             </ModalWindowButton>
