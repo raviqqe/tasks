@@ -18,7 +18,6 @@ interface IState {
 
 class CreateProject extends React.Component<IProps, IState> {
     public state = { editing: false, name: "" };
-    private input: HTMLElement;
 
     public render() {
         const { addProject } = this.props;
