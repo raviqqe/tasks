@@ -10,11 +10,11 @@ const actionCreator = actionCreatorFactory("AUTHENTICATION");
 export const actionCreators = {
     deleteAccount: () => firebase.deleteAccount,
     setSignInState: actionCreator<boolean>("SET_SIGN_IN_STATE"),
-    signIn: () => async () => {
+    signIn: () => async (dispatch) => {
         try {
             await firebase.signIn();
         } catch (error) {
-            message.actionCreators.sendMessage("Failed to sign in.", { error: true });
+            dispatch(message.actionCreators.sendMessage("Failed to sign in.", { error: true }));
         }
     },
     signOut: () => firebase.signOut,
