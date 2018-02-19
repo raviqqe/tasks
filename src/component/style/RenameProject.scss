@@ -1,0 +1,5 @@
+@import "./Button.scss";
+
+.RenameProject-button {
+	@include Button($grey);
+}

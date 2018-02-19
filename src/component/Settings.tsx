@@ -7,9 +7,11 @@ import { connect } from "react-redux";
 import config from "../config";
 // TODO: import { actionCreators as authenticationActionCreators } from "../redux/authentication";
 import { actionCreators as settingsActionCreators } from "../state/settings";
+import { actionCreators as tasksActionCreators } from "../state/tasks";
 import Button from "./Button";
 import Link from "./Link";
 import ModalWindowButton from "./ModalWindowButton";
+import RenameProject from "./RenameProject";
 import SettingsItem from "./SettingsItem";
 
 import "./style/Settings.css";
@@ -19,13 +21,15 @@ const green = "#9db634";
 
 interface IProps {
     alarmVolume: number;
+    currentProjectName: string;
     notificationOn: boolean | null;
+    removeProject: (name: string) => void;
     setAlarmVolume: () => void;
 }
 
 class Settings extends React.Component<IProps> {
     public render() {
-        const { alarmVolume, notificationOn, setAlarmVolume } = this.props;
+        const { alarmVolume, currentProjectName, notificationOn, removeProject, setAlarmVolume } = this.props;
 
         return (
             <ModalWindowButton
@@ -67,11 +71,10 @@ class Settings extends React.Component<IProps> {
                             />
                         </div>
                     </SettingsItem>
-                    <div className="buttons">
-                        <Button onClick={() => { /* TODO */ }}>Sign out</Button>
-                        <Button className="negative-button" onClick={() => { /* TODO */ }}>
-                            Delete account
-                        </Button>
+                    <SettingsItem label="Current Project" />
+                    <div className="Settings-buttons">
+                        <RenameProject />
+                        <Button onClick={() => removeProject(currentProjectName)}>Delete</Button>
                     </div>
                     <div className="footer">
                         <Link href={config.repositoryUrl}>GitHub</Link>
@@ -83,6 +86,6 @@ class Settings extends React.Component<IProps> {
 }
 
 export default connect(
-    ({ settings }) => settings,
-    { /* TODO: ...authenticationActionCreators, */ ...settingsActionCreators },
+    ({ settings, tasks }) => ({ ...settings, ...tasks }),
+    { ...settingsActionCreators, ...tasksActionCreators },
 )(Settings);

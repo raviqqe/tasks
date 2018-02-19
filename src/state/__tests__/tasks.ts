@@ -37,14 +37,14 @@ test("Add a new task", () => {
     expect(state.projects).toEqual({ foo: { doneTasks: [], todoTasks: [barTask, fooTask] } });
 });
 
-test("Change a project name", () => {
+test("Rename a project", () => {
     let state: typeof initialState = {
         ...initialState,
         currentProjectName: "foo",
         projects: { foo: emptyProject },
     };
 
-    state = reducer(state, actionCreators.changeProjectName("bar"));
+    state = reducer(state, actionCreators.renameProject("bar"));
     expect(state.projects).toEqual({ bar: emptyProject });
 });
 

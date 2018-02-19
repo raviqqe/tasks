@@ -15,7 +15,6 @@ const removeProject = actionCreator<string>("REMOVE_PROJECT");
 export const actionCreators = {
     addProject: actionCreator<string>("ADD_PROJECT"),
     addTask: actionCreator<ITask>("ADD_TASK"),
-    changeProjectName: actionCreator<string>("CHANGE_PROJECT_NAME"),
     modifyTask: actionCreator<ITask>("MODIFY_TASK"),
     removeProject: (name: string) => (dispatch, getState) => {
         if (Object.keys(getState().tasks.projects).length === 1) {
@@ -26,6 +25,7 @@ export const actionCreators = {
         dispatch(removeProject(name));
     },
     removeTask: actionCreator<string>("REMOVE_TASK"),
+    renameProject: actionCreator<string>("RENAME_PROJECT"),
     setCurrentProjectName: actionCreator<string>("SET_CURRENT_PROJECT"),
     setCurrentTaskId: actionCreator<string>("SET_CURRENT_TASK_ID"),
     setTasks: actionCreator<ITask[]>("SET_TASKS"),
@@ -68,9 +68,9 @@ export const reducer = reducerWithInitialState(initialState)
                 ...rest,
             };
         })
-    .case(actionCreators.changeProjectName,
+    .case(actionCreators.renameProject,
         ({ currentProjectName, projects, ...rest }, name) => ({
-            currentProjectName,
+            currentProjectName: name,
             projects: {
                 ...omit(projects, currentProjectName),
                 [name]: projects[currentProjectName],
