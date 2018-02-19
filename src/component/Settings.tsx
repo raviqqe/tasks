@@ -5,7 +5,7 @@ import Gear = require("react-icons/lib/md/settings");
 import { connect } from "react-redux";
 
 import config from "../config";
-// TODO: import { actionCreators as authenticationActionCreators } from "../redux/authentication";
+import { actionCreators as authenticationActionCreators } from "../state/authentication";
 import { actionCreators as settingsActionCreators } from "../state/settings";
 import { actionCreators as tasksActionCreators } from "../state/tasks";
 import Button from "./Button";
@@ -22,14 +22,20 @@ const green = "#9db634";
 interface IProps {
     alarmVolume: number;
     currentProjectName: string;
+    deleteAccount: () => void;
     notificationOn: boolean | null;
     removeProject: (name: string) => void;
     setAlarmVolume: () => void;
+    signedIn: boolean;
+    signIn: () => void;
 }
 
 class Settings extends React.Component<IProps> {
     public render() {
-        const { alarmVolume, currentProjectName, notificationOn, removeProject, setAlarmVolume } = this.props;
+        const {
+            alarmVolume, currentProjectName, deleteAccount, notificationOn,
+            removeProject, setAlarmVolume, signedIn, signIn,
+        } = this.props;
 
         return (
             <ModalWindowButton
@@ -72,9 +78,18 @@ class Settings extends React.Component<IProps> {
                         </div>
                     </SettingsItem>
                     <SettingsItem label="Current Project" />
-                    <div className="Settings-buttons">
+                    <div className="buttons">
                         <RenameProject />
                         <Button onClick={() => removeProject(currentProjectName)}>Delete</Button>
+                    </div>
+                    <SettingsItem label="Remote Sync" />
+                    <div className="buttons">
+                        <Button
+                            className={"remote-sync-button" + (signedIn ? "" : "-signed-out")}
+                            onClick={() => signedIn ? deleteAccount() : signIn()}
+                        >
+                            {signedIn ? "Disable" : "Enable"}
+                        </Button>
                     </div>
                     <div className="footer">
                         <Link href={config.repositoryUrl}>GitHub</Link>
@@ -86,6 +101,6 @@ class Settings extends React.Component<IProps> {
 }
 
 export default connect(
-    ({ settings, tasks }) => ({ ...settings, ...tasks }),
-    { ...settingsActionCreators, ...tasksActionCreators },
+    ({ authentication, settings, tasks }) => ({ ...authentication, ...settings, ...tasks }),
+    { ...authenticationActionCreators, ...settingsActionCreators, ...tasksActionCreators },
 )(Settings);
