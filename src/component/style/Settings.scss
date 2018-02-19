@@ -56,7 +56,7 @@
 		font-size: 0.9em;
 		display: flex;
 		align-items: center;
-		flex-wrap: wrap;
+		max-width: 50%;
 
 		> .sign-in-button {
 			@include Button($yellow-green);
@@ -64,6 +64,13 @@
 
 		> .sign-out-button {
 			@include Button($grey);
+		}
+
+		@include small-window {
+			@include vertical-child-margin(0.25em);
+
+			flex-direction: column;
+			align-items: flex-end;
 		}
 	}
 

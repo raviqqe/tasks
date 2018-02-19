@@ -33,6 +33,7 @@ class RenameProject extends React.Component<IProps, IState> {
                     }}
                 >
                     <input
+                        className="RenameProject-input"
                         autoFocus={true}
                         onBlur={() => this.setState({ editing: false })}
                         onChange={({ target: { value } }) => this.setState({ name: value })}
