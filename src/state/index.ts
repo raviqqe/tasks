@@ -4,6 +4,7 @@ import { Persistor, persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 
+import * as authentication from "./authentication";
 import * as environment from "./environment";
 import * as message from "./message";
 import * as settings from "./settings";
@@ -17,7 +18,7 @@ interface IDuck {
 }
 
 const ducks: { [name: string]: IDuck }
-    = { environment, message, settings, tasks, timer };
+    = { authentication, environment, message, settings, tasks, timer };
 
 export function createStore(): { persistor: Persistor, store: Store<any> } {
     const store = createReduxStore(
