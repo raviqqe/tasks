@@ -50,14 +50,13 @@
 		padding-right: 0.5em;
 	}
 
-	> .buttons {
+	&-buttons {
+		@include horizontal-child-margin(0.5em);
+
 		font-size: 0.9em;
 		display: flex;
 		align-items: center;
-
-		> * {
-			margin: 0 0.5em;
-		}
+		flex-wrap: wrap;
 
 		> .remote-sync-button {
 			@include Button($grey);

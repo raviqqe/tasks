@@ -77,20 +77,22 @@ class Settings extends React.Component<IProps> {
                             />
                         </div>
                     </SettingsItem>
-                    <SettingsItem label="Current Project" />
-                    <div className="buttons">
-                        <RenameProject />
-                        <Button onClick={() => removeProject(currentProjectName)}>Delete</Button>
-                    </div>
-                    <SettingsItem label="Remote Sync" />
-                    <div className="buttons">
-                        <Button
-                            className={"remote-sync-button" + (signedIn ? "" : "-signed-out")}
-                            onClick={() => signedIn ? deleteAccount() : signIn()}
-                        >
-                            {signedIn ? "Disable" : "Enable"}
-                        </Button>
-                    </div>
+                    <SettingsItem label="Current Project">
+                        <div className="Settings-buttons">
+                            <RenameProject />
+                            <Button onClick={() => removeProject(currentProjectName)}>Delete</Button>
+                        </div>
+                    </SettingsItem>
+                    <SettingsItem label="Remote Sync">
+                        <div className="Settings-buttons">
+                            <Button
+                                className={"remote-sync-button" + (signedIn ? "" : "-signed-out")}
+                                onClick={() => signedIn ? deleteAccount() : signIn()}
+                            >
+                                {signedIn ? "Disable" : "Enable"}
+                            </Button>
+                        </div>
+                    </SettingsItem>
                     <div className="footer">
                         <Link href={config.repositoryUrl}>GitHub</Link>
                     </div>
