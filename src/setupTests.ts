@@ -26,4 +26,4 @@ class LocalStorageMock {
     }
 }
 
-(global as any).localStorage = new LocalStorageMock();
+(window as any).localStorage = new LocalStorageMock();
