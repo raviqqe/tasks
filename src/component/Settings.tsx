@@ -28,13 +28,14 @@ interface IProps {
     setAlarmVolume: () => void;
     signedIn: boolean;
     signIn: () => void;
+    signOut: () => void;
 }
 
 class Settings extends React.Component<IProps> {
     public render() {
         const {
             alarmVolume, currentProjectName, deleteAccount, notificationOn,
-            removeProject, setAlarmVolume, signedIn, signIn,
+            removeProject, setAlarmVolume, signedIn, signIn, signOut,
         } = this.props;
 
         return (
@@ -85,12 +86,18 @@ class Settings extends React.Component<IProps> {
                     </SettingsItem>
                     <SettingsItem label="Remote Sync">
                         <div className="Settings-buttons">
-                            <Button
-                                className={"remote-sync-button" + (signedIn ? "" : "-signed-out")}
-                                onClick={() => signedIn ? deleteAccount() : signIn()}
-                            >
-                                {signedIn ? "Disable" : "Enable"}
-                            </Button>
+                            {signedIn ?
+                                <React.Fragment>
+                                    <Button className="sign-out-button" onClick={signOut}>
+                                        Sign out
+                                    </Button>
+                                    <Button onClick={deleteAccount}>
+                                        Delete account
+                                    </Button>
+                                </React.Fragment> :
+                                <Button className="sign-in-button" onClick={signIn}>
+                                    Sign in
+                                </Button>}
                         </div>
                     </SettingsItem>
                     <div className="footer">

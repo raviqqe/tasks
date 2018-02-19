@@ -17,6 +17,10 @@ export async function signIn(): Promise<void> {
     await firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
 }
 
+export async function signOut(): Promise<void> {
+    await firebase.auth().signOut();
+}
+
 export async function deleteAccount(): Promise<void> {
     await firebase.auth().currentUser.delete();
 }

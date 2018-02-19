@@ -58,12 +58,12 @@
 		align-items: center;
 		flex-wrap: wrap;
 
-		> .remote-sync-button {
-			@include Button($grey);
+		> .sign-in-button {
+			@include Button($yellow-green);
+		}
 
-			&-signed-out {
-				@include Button($yellow-green);
-			}
+		> .sign-out-button {
+			@include Button($grey);
 		}
 	}
 

@@ -8,7 +8,7 @@ import * as message from "./message";
 const actionCreator = actionCreatorFactory("AUTHENTICATION");
 
 export const actionCreators = {
-    deleteAccount: () => async () => await firebase.deleteAccount(),
+    deleteAccount: () => firebase.deleteAccount,
     setSignInState: actionCreator<boolean>("SET_SIGN_IN_STATE"),
     signIn: () => async () => {
         try {
@@ -17,6 +17,7 @@ export const actionCreators = {
             message.actionCreators.sendMessage("Failed to sign in.", { error: true });
         }
     },
+    signOut: () => firebase.signOut,
 };
 
 export const initialState = { signedIn: false };
