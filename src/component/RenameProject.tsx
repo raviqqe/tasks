@@ -47,7 +47,7 @@ class RenameProject extends React.Component<IProps, IState> {
         return (
             <Button
                 className="RenameProject-button"
-                onClick={() => this.setState({ editing: true })}
+                onClick={() => this.setState({ editing: true, name: currentProjectName })}
             >
                 Rename
             </Button>
