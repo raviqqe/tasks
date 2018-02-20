@@ -8,13 +8,15 @@ function getState(store): typeof initialState {
 }
 
 test("Add a new project", () => {
-    let state = initialState;
+    const { store } = createStore();
 
-    state = reducer(state, actionCreators.addProject("foo"));
-    expect(state.projects).toEqual({ ...initialState.projects, foo: emptyProject });
+    store.dispatch(actionCreators.addProject("foo"));
+    expect(getState(store).currentProjectName).toBe("foo");
+    expect(getState(store).projects).toEqual({ ...initialState.projects, foo: emptyProject });
 
-    state = reducer(state, actionCreators.addProject("bar"));
-    expect(state.projects).toEqual({
+    store.dispatch(actionCreators.addProject("bar"));
+    expect(getState(store).currentProjectName).toBe("bar");
+    expect(getState(store).projects).toEqual({
         ...initialState.projects,
         bar: emptyProject,
         foo: emptyProject,
@@ -28,8 +30,11 @@ test("Add a new task", () => {
     const barTask = createTask("bar", "");
 
     store.dispatch(actionCreators.addTask(fooTask));
+    expect(getState(store).currentTaskId).toEqual(fooTask.id);
     expect(getState(store).projects).toEqual({ default: { doneTasks: [], todoTasks: [fooTask] } });
+
     store.dispatch(actionCreators.addTask(barTask));
+    expect(getState(store).currentTaskId).toEqual(barTask.id);
     expect(getState(store).projects).toEqual({ default: { doneTasks: [], todoTasks: [barTask, fooTask] } });
 });
 

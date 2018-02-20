@@ -12,6 +12,8 @@ const actionCreator = actionCreatorFactory("TASKS");
 
 const addOrModifyProject = actionCreator<{ name: string, project: IProject }>("MODIFY_PROJECT");
 const removeProject = actionCreator<string>("REMOVE_PROJECT");
+const setCurrentProjectName = actionCreator<string>("SET_CURRENT_PROJECT");
+const setCurrentTaskId = actionCreator<string>("SET_CURRENT_TASK_ID");
 
 function modifyProject(project: IProject) {
     return (dispatch, getState) => {
@@ -28,7 +30,10 @@ function getProject(getState: () => { tasks: IState }): IProject {
 }
 
 export const actionCreators = {
-    addProject: (name: string) => addOrModifyProject({ name, project: emptyProject }),
+    addProject: (name: string) => (dispatch) => {
+        dispatch(addOrModifyProject({ name, project: emptyProject }));
+        dispatch(setCurrentProjectName(name));
+    },
     addTask: (task: ITask) => (dispatch, getState) => {
         const project = getProject(getState);
 
@@ -36,6 +41,7 @@ export const actionCreators = {
             ...project,
             todoTasks: [task, ...project.todoTasks],
         }));
+        dispatch(setCurrentTaskId(task.id));
     },
     modifyTask: (task: ITask) => (dispatch, getState) => {
         const project = getProject(getState);
@@ -65,8 +71,8 @@ export const actionCreators = {
             done)));
     },
     renameProject: actionCreator<string>("RENAME_PROJECT"),
-    setCurrentProjectName: actionCreator<string>("SET_CURRENT_PROJECT"),
-    setCurrentTaskId: actionCreator<string>("SET_CURRENT_TASK_ID"),
+    setCurrentProjectName,
+    setCurrentTaskId,
     setTasks: (tasks: ITask[]) => (dispatch, getState) => {
         if (tasks.length === 0) {
             return;
