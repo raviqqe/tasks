@@ -2,10 +2,7 @@
 	"domain": "tasks.code2d.net",
 	"firebase": {
 		"apiKey": "AIzaSyA8sZm_Uf6XII864y9-dT_GgVDb891hLmQ",
-		"projectId": "tasks-3e65d",
-		"hosting": {
-			"addresses": ["151.101.1.195", "151.101.65.195"]
-		}
+		"projectId": "tasks-3e65d"
 	},
 	"repositoryUrl": "https://github.com/raviqqe/tasks"
 }
