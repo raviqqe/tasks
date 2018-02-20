@@ -31,11 +31,11 @@ interface IProps {
 
 interface IState {
     done: boolean;
-    fixed: boolean;
+    listsFixed: boolean;
 }
 
 class Home extends React.Component<IProps, IState> {
-    public state: IState = { done: false, fixed: false };
+    public state: IState = { done: false, listsFixed: false };
 
     public render() {
         const {
@@ -47,19 +47,19 @@ class Home extends React.Component<IProps, IState> {
             return <Timer currentTask={currentTask} />;
         }
 
-        const { done } = this.state;
+        const { done, listsFixed } = this.state;
 
         const menuProps = {
             done,
-            makeTaskListSortable: () => this.setState({ fixed: false }),
+            makeTaskListSortable: () => this.setState({ listsFixed: false }),
             onTasksStateChange: (done) => this.setState({ done }),
         };
 
-        const sorting = touchable && !this.state.fixed;
+        const sorting = touchable && !listsFixed;
 
         const taskListProps = {
             ...this.props,
-            fixed: this.state.fixed,
+            fixed: this.state.listsFixed,
             sorting,
         };
 
@@ -92,7 +92,7 @@ class Home extends React.Component<IProps, IState> {
                             />}
                         {sorting &&
                             <div className="fix-list-button">
-                                <CircleButton onClick={() => this.setState({ fixed: true })}>
+                                <CircleButton onClick={() => this.setState({ listsFixed: true })}>
                                     <Save />
                                 </CircleButton>
                             </div>}
@@ -108,7 +108,7 @@ class Home extends React.Component<IProps, IState> {
         }
 
         if (this.props.touchable) {
-            this.setState({ fixed: true });
+            this.setState({ listsFixed: true });
         }
 
         this.componentDidUpdate();
