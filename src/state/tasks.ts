@@ -39,7 +39,7 @@ interface IState {
     projects: IProjects;
 }
 
-const defaultProjectName = "defalult";
+const defaultProjectName = "default";
 
 export const initialState: IState = {
     currentProjectName: defaultProjectName,
