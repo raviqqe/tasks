@@ -15,7 +15,6 @@ interface IProps {
     tasks: ITask[];
     setTasks: (tasks: ITask[]) => void;
     sorting?: boolean;
-    style?: { [key: string]: any };
 }
 
 export default class extends React.Component<IProps> {
@@ -23,11 +22,10 @@ export default class extends React.Component<IProps> {
     private container: HTMLElement;
 
     public render() {
-        const { currentTaskId, done, isSmallWindow, tasks, setTasks, sorting, style }
-            = this.props;
+        const { currentTaskId, done, isSmallWindow, tasks, setTasks, sorting } = this.props;
 
         if (tasks.length === 0) {
-            return <div className="TaskList-message" style={style}>There is no task.</div>;
+            return <div className="TaskList-message">There is no task.</div>;
         }
 
         return (
@@ -35,7 +33,6 @@ export default class extends React.Component<IProps> {
                 ref={(container) => this.container = container}
                 className="TaskList"
                 data-shadowed={sorting}
-                style={style}
             >
                 {tasks.map((task) =>
                     isSmallWindow ?

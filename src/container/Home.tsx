@@ -57,28 +57,19 @@ class Home extends React.Component<IProps, IState> {
 
         const sorting = touchable && !listsFixed;
 
-        const taskListProps = {
-            ...this.props,
-            fixed: this.state.listsFixed,
-            sorting,
-        };
-
         return (
             <div className="Home">
                 <div className="content">
                     {!isSmallWindow && <Menu {...menuProps} />}
                     <div className="tasks">
                         <TaskList
-                            style={done ? { display: "none" } : {}}
-                            done={false}
-                            tasks={this.currentProject.todoTasks}
-                            {...taskListProps}
-                        />
-                        <TaskList
-                            style={done ? {} : { display: "none" }}
-                            done={true}
-                            tasks={this.currentProject.doneTasks}
-                            {...taskListProps}
+                            done={done}
+                            tasks={done
+                                ? this.currentProject.doneTasks
+                                : this.currentProject.todoTasks}
+                            fixed={listsFixed}
+                            sorting={sorting}
+                            {...this.props}
                         />
                         {!isSmallWindow &&
                             <div className="current-task">
