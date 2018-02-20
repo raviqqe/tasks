@@ -22,19 +22,15 @@ test("Add a new project", () => {
 });
 
 test("Add a new task", () => {
-    let state: typeof initialState = {
-        ...initialState,
-        currentProjectName: "foo",
-        projects: { foo: emptyProject },
-    };
+    const { store } = createStore();
 
     const fooTask = createTask("foo", "");
     const barTask = createTask("bar", "");
 
-    state = reducer(state, actionCreators.addTask(fooTask));
-    expect(state.projects).toEqual({ foo: { doneTasks: [], todoTasks: [fooTask] } });
-    state = reducer(state, actionCreators.addTask(barTask));
-    expect(state.projects).toEqual({ foo: { doneTasks: [], todoTasks: [barTask, fooTask] } });
+    store.dispatch(actionCreators.addTask(fooTask));
+    expect(getState(store).projects).toEqual({ default: { doneTasks: [], todoTasks: [fooTask] } });
+    store.dispatch(actionCreators.addTask(barTask));
+    expect(getState(store).projects).toEqual({ default: { doneTasks: [], todoTasks: [barTask, fooTask] } });
 });
 
 test("Rename a project", () => {
@@ -49,18 +45,19 @@ test("Rename a project", () => {
 });
 
 test("Modify a task", () => {
-    let state: typeof initialState = {
-        ...initialState,
-        currentProjectName: "foo",
-        projects: {
-            foo: { doneTasks: [], todoTasks: [createTask("bar", "")] },
-        },
-    };
+    const { store } = createStore();
 
-    const oldTask = state.projects.foo.todoTasks[0];
+    const fooTask = createTask("foo", "");
+    const barTask = createTask("bar", "");
 
-    state = reducer(state, actionCreators.modifyTask({ ...oldTask, name: "baz" }));
-    expect(state.projects).toEqual({ foo: { doneTasks: [], todoTasks: [{ ...oldTask, name: "baz" }] } });
+    store.dispatch(actionCreators.addTask(barTask));
+    store.dispatch(actionCreators.addTask(fooTask));
+    expect(getState(store).projects.default).toEqual({ doneTasks: [], todoTasks: [fooTask, barTask] });
+
+    const newFooTask = { ...fooTask, name: "baz" };
+
+    store.dispatch(actionCreators.modifyTask(newFooTask));
+    expect(getState(store).projects.default).toEqual({ doneTasks: [], todoTasks: [newFooTask, barTask] });
 });
 
 test("Remove a project", () => {
@@ -80,19 +77,17 @@ test("Remove a project", () => {
 });
 
 test("Remove a task", () => {
+    const { store } = createStore();
+
     const fooTask = createTask("foo", "");
     const barTask = createTask("bar", "");
 
-    let state: typeof initialState = {
-        ...initialState,
-        currentProjectName: "foo",
-        projects: {
-            foo: { doneTasks: [], todoTasks: [fooTask, barTask] },
-        },
-    };
+    store.dispatch(actionCreators.addTask(barTask));
+    store.dispatch(actionCreators.addTask(fooTask));
+    expect(getState(store).projects.default).toEqual({ doneTasks: [], todoTasks: [fooTask, barTask] });
 
-    state = reducer(state, actionCreators.removeTask(fooTask.id));
-    expect(state.projects.foo).toEqual({ doneTasks: [], todoTasks: [barTask] });
+    store.dispatch(actionCreators.removeTask(fooTask.id));
+    expect(getState(store).projects.default).toEqual({ doneTasks: [], todoTasks: [barTask] });
 });
 
 test("Set a current project", () => {
@@ -106,34 +101,29 @@ test("Set a current task", () => {
     expect(state.currentTaskId).toBe("foo");
 });
 
-test("Set tasks", () => {
+test("Set tasks", async () => {
+    const { store } = createStore();
+
     const fooTask = createTask("foo", "");
     const barTask = createTask("bar", "");
 
-    let state: typeof initialState = {
-        ...initialState,
-        currentProjectName: "foo",
-        projects: {
-            foo: { doneTasks: [], todoTasks: [fooTask, barTask] },
-        },
-    };
+    store.dispatch(actionCreators.addTask(barTask));
+    store.dispatch(actionCreators.addTask(fooTask));
+    expect(getState(store).projects.default).toEqual({ doneTasks: [], todoTasks: [fooTask, barTask] });
 
-    state = reducer(state, actionCreators.setTasks([barTask, fooTask]));
-    expect(state.projects.foo).toEqual({ doneTasks: [], todoTasks: [barTask, fooTask] });
+    store.dispatch(actionCreators.setTasks([barTask, fooTask]));
+    expect(getState(store).projects.default).toEqual({ doneTasks: [], todoTasks: [barTask, fooTask] });
 });
 
 test("Toggle a task's state", () => {
+    const { store } = createStore();
+
     const fooTask = createTask("foo", "");
 
-    let state: typeof initialState = {
-        ...initialState,
-        currentProjectName: "foo",
-        projects: { foo: { doneTasks: [], todoTasks: [fooTask] } },
-    };
+    store.dispatch(actionCreators.addTask(fooTask));
+    store.dispatch(actionCreators.toggleTaskState(fooTask.id));
+    expect(getState(store).projects.default).toEqual({ doneTasks: [fooTask], todoTasks: [] });
 
-    state = reducer(state, actionCreators.toggleTaskState(fooTask.id));
-    expect(state.projects).toEqual({ foo: { doneTasks: [fooTask], todoTasks: [] } });
-
-    state = reducer(state, actionCreators.toggleTaskState(fooTask.id));
-    expect(state.projects).toEqual({ foo: { doneTasks: [], todoTasks: [fooTask] } });
+    store.dispatch(actionCreators.toggleTaskState(fooTask.id));
+    expect(getState(store).projects.default).toEqual({ doneTasks: [], todoTasks: [fooTask] });
 });

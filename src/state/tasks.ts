@@ -10,12 +10,42 @@ import * as message from "./message";
 
 const actionCreator = actionCreatorFactory("TASKS");
 
+const addOrModifyProject = actionCreator<{ name: string, project: IProject }>("MODIFY_PROJECT");
 const removeProject = actionCreator<string>("REMOVE_PROJECT");
 
+function modifyProject(project: IProject) {
+    return (dispatch, getState) => {
+        const { currentProjectName }: IState = getState().tasks;
+
+        dispatch(addOrModifyProject({ name: currentProjectName, project }));
+    };
+}
+
+function getProject(getState: () => { tasks: IState }): IProject {
+    const { currentProjectName, projects } = getState().tasks;
+
+    return projects[currentProjectName];
+}
+
 export const actionCreators = {
-    addProject: actionCreator<string>("ADD_PROJECT"),
-    addTask: actionCreator<ITask>("ADD_TASK"),
-    modifyTask: actionCreator<ITask>("MODIFY_TASK"),
+    addProject: (name: string) => addOrModifyProject({ name, project: emptyProject }),
+    addTask: (task: ITask) => (dispatch, getState) => {
+        const project = getProject(getState);
+
+        dispatch(modifyProject({
+            ...project,
+            todoTasks: [task, ...project.todoTasks],
+        }));
+    },
+    modifyTask: (task: ITask) => (dispatch, getState) => {
+        const project = getProject(getState);
+        const done = isDoneTask(project, task.id);
+        const tasks = [...getTasksFromProject(project, done)];
+
+        tasks[findIndex(tasks, { id: task.id })] = task;
+
+        dispatch(modifyProject(setTasksToProject(project, tasks, done)));
+    },
     removeProject: (name: string) => (dispatch, getState) => {
         if (Object.keys(getState().tasks.projects).length === 1) {
             dispatch(message.actionCreators.sendMessage(
@@ -25,12 +55,45 @@ export const actionCreators = {
 
         dispatch(removeProject(name));
     },
-    removeTask: actionCreator<string>("REMOVE_TASK"),
+    removeTask: (id: string) => (dispatch, getState) => {
+        const project = getProject(getState);
+        const done = isDoneTask(project, id);
+
+        dispatch(modifyProject(setTasksToProject(
+            project,
+            reject(getTasksFromProject(project, done), { id }),
+            done)));
+    },
     renameProject: actionCreator<string>("RENAME_PROJECT"),
     setCurrentProjectName: actionCreator<string>("SET_CURRENT_PROJECT"),
     setCurrentTaskId: actionCreator<string>("SET_CURRENT_TASK_ID"),
-    setTasks: actionCreator<ITask[]>("SET_TASKS"),
-    toggleTaskState: actionCreator<string>("TOGGLE_TASK"),
+    setTasks: (tasks: ITask[]) => (dispatch, getState) => {
+        if (tasks.length === 0) {
+            return;
+        }
+
+        const project = getProject(getState);
+
+        dispatch(modifyProject(setTasksToProject(
+            project, tasks, isDoneTask(project, tasks[0].id),
+        )));
+    },
+    toggleTaskState: (id: string) => (dispatch, getState) => {
+        const project = getProject(getState);
+        const done = isDoneTask(project, id);
+
+        let sourceTasks = getTasksFromProject(project, done);
+        const destinationTasks = [
+            find(sourceTasks, { id }),
+            ...getTasksFromProject(project, !done),
+        ];
+        sourceTasks = reject(sourceTasks, { id });
+
+        dispatch(modifyProject({
+            doneTasks: done ? sourceTasks : destinationTasks,
+            todoTasks: done ? destinationTasks : sourceTasks,
+        }));
+    },
 };
 
 interface IState {
@@ -48,27 +111,6 @@ export const initialState: IState = {
 };
 
 export const reducer = reducerWithInitialState(initialState)
-    .case(actionCreators.addProject,
-        ({ projects, ...rest }, name) => ({
-            projects: { ...projects, [name]: { doneTasks: [], todoTasks: [] } },
-            ...rest,
-        }))
-    .case(actionCreators.addTask,
-        ({ currentProjectName, projects, ...rest }, task) => {
-            const project = projects[currentProjectName];
-
-            return {
-                currentProjectName,
-                projects: {
-                    ...projects,
-                    [currentProjectName]: {
-                        ...project,
-                        todoTasks: [task, ...project.todoTasks],
-                    },
-                },
-                ...rest,
-            };
-        })
     .case(actionCreators.renameProject,
         ({ currentProjectName, projects, ...rest }, name) => ({
             currentProjectName: name,
@@ -78,98 +120,26 @@ export const reducer = reducerWithInitialState(initialState)
             },
             ...rest,
         }))
-    .case(actionCreators.modifyTask,
-        ({ currentProjectName, projects, ...rest }, task) => {
-            const project = projects[currentProjectName];
-            const done = isDoneTask(project, task.id);
-            const tasks = getTasksFromProject(project, done);
-
-            return {
-                currentProjectName,
-                projects: {
-                    ...projects,
-                    [currentProjectName]: setTasksToProject(
-                        project,
-                        Object.assign(tasks, { [findIndex(tasks, { id: task.id })]: task }),
-                        done,
-                    ),
-                },
-                ...rest,
-            };
-        })
+    .case(addOrModifyProject,
+        ({ projects, ...rest }, { name, project }) => ({
+            projects: { ...projects, [name]: project },
+            ...rest,
+        }))
     .case(removeProject,
         ({ currentProjectName, projects, ...rest }, name) => {
             const newProjects = omit(projects, name);
 
             return {
                 currentProjectName: name === currentProjectName
-                    ? Object.keys(newProjects)[0] || null
+                    ? Object.keys(newProjects)[0]
                     : currentProjectName,
                 projects: newProjects,
-                ...rest,
-            };
-        })
-    .case(actionCreators.removeTask,
-        ({ currentProjectName, projects, ...rest }, id) => {
-            const project = projects[currentProjectName];
-            const done = isDoneTask(project, id);
-            const tasks = getTasksFromProject(project, done);
-
-            return {
-                currentProjectName,
-                projects: {
-                    ...projects,
-                    [currentProjectName]: setTasksToProject(project, reject(tasks, { id }), done),
-                },
                 ...rest,
             };
         })
     .case(actionCreators.setCurrentProjectName,
         (state, currentProjectName) => ({ ...state, currentProjectName }))
     .case(actionCreators.setCurrentTaskId,
-        (state, currentTaskId) => ({ ...state, currentTaskId }))
-    .case(actionCreators.setTasks,
-        (state, tasks) => {
-            if (tasks.length === 0) {
-                return state;
-            }
-
-            const { currentProjectName, projects } = state;
-            const project = projects[currentProjectName];
-
-            return {
-                ...state,
-                projects: {
-                    ...projects,
-                    [currentProjectName]: setTasksToProject(
-                        project, tasks, isDoneTask(project, tasks[0].id),
-                    ),
-                },
-            };
-        })
-    .case(actionCreators.toggleTaskState,
-        ({ currentProjectName, projects, ...rest }, id) => {
-            const project = projects[currentProjectName];
-            const done = isDoneTask(project, id);
-
-            let sourceTasks = getTasksFromProject(project, done);
-            const destinationTasks = [
-                find(sourceTasks, { id }),
-                ...getTasksFromProject(project, !done),
-            ];
-            sourceTasks = reject(sourceTasks, { id });
-
-            return {
-                currentProjectName,
-                projects: {
-                    ...projects,
-                    [currentProjectName]: {
-                        doneTasks: done ? sourceTasks : destinationTasks,
-                        todoTasks: done ? destinationTasks : sourceTasks,
-                    },
-                },
-                ...rest,
-            };
-        });
+        (state, currentTaskId) => ({ ...state, currentTaskId }));
 
 export const persistent = true;
