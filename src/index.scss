@@ -18,6 +18,7 @@
 
 * {
 	box-sizing: border-box;
+	user-select: none;
 
 	@include large-window {
 		&::-webkit-scrollbar {
