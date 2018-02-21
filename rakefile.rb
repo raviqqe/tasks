@@ -31,7 +31,7 @@ task :run do
 end
 
 task :test do
-  sh 'npx react-scripts-ts test --coverage --env=jsdom'
+  sh 'npx react-scripts-ts test --coverage --env=jsdom --mapCoverage'
 end
 
 task :clean do
