@@ -92,6 +92,10 @@ export const actionCreators = {
     renameProject: (name: string) => (dispatch, getState) => {
         const { currentProjectName, projects } = getState().tasks;
 
+        if (name === currentProjectName) {
+            return;
+        }
+
         dispatch(addOrModifyProject(name, projects[currentProjectName]));
         dispatch(removeProject(currentProjectName));
     },
