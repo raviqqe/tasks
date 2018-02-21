@@ -1,4 +1,5 @@
 import * as firebase from "firebase";
+import "firebase/firestore";
 
 import config from "../config";
 
@@ -9,6 +10,8 @@ firebase.initializeApp({
     authDomain: `${projectId}.firebaseapp.com`,
     projectId,
 });
+
+firebase.firestore().enablePersistence();
 
 export async function signIn(): Promise<void> {
     await firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());

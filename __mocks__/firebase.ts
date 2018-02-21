@@ -25,5 +25,8 @@ function doc() {
 }
 
 export function firestore() {
-    return { collection };
+    return {
+        collection,
+        enablePersistence: () => undefined,
+    };
 }
