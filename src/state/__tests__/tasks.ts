@@ -39,14 +39,10 @@ test("Add a new task", () => {
 });
 
 test("Rename a project", () => {
-    let state: typeof initialState = {
-        ...initialState,
-        currentProjectName: "foo",
-        projects: { foo: emptyProject },
-    };
+    const { store } = createStore();
 
-    state = reducer(state, actionCreators.renameProject("bar"));
-    expect(state.projects).toEqual({ bar: emptyProject });
+    store.dispatch(actionCreators.renameProject("foo"));
+    expect(getState(store).projects).toEqual({ foo: emptyProject });
 });
 
 test("Modify a task", () => {

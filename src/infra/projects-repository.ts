@@ -39,7 +39,9 @@ class ProjectsRepository {
     }
 
     public unsubscribeProjects(): void {
-        this.unsubscribe();
+        if (typeof this.unsubscribe === "function") {
+            this.unsubscribe();
+        }
     }
 
     private get collection(): firebase.firestore.CollectionReference {

@@ -1,4 +1,5 @@
 import { find, findIndex, omit, reject } from "lodash";
+import { Store } from "redux";
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 
@@ -6,20 +7,40 @@ import {
     emptyProject, getTasksFromProject, IProject, IProjects, isDoneTask, setTasksToProject,
 } from "../domain/project";
 import { createTask, ITask } from "../domain/task";
+import * as firebase from "../infra/firebase";
+import projectsRepository from "../infra/projects-repository";
 import * as message from "./message";
 
 const actionCreator = actionCreatorFactory("TASKS");
 
-const addOrModifyProject = actionCreator<{ name: string, project: IProject }>("MODIFY_PROJECT");
-const removeProject = actionCreator<string>("REMOVE_PROJECT");
+const originalAddOrModifyProject = actionCreator<{ name: string, project: IProject }>("ADD_OR_MODIFY_PROJECT");
+const originalRemoveProject = actionCreator<string>("REMOVE_PROJECT");
 const setCurrentProjectName = actionCreator<string>("SET_CURRENT_PROJECT");
 const setCurrentTaskId = actionCreator<string>("SET_CURRENT_TASK_ID");
 
+function addOrModifyProject(name: string, project: IProject) {
+    return (dispatch) => {
+        dispatch(originalAddOrModifyProject({ name, project }));
+        projectsRepository.addOrModifyProject(name, project);
+    };
+}
+
+function removeProject(name: string) {
+    return (dispatch, getState) => {
+        if (Object.keys(getState().tasks.projects).length === 1) {
+            dispatch(message.actionCreators.sendMessage(
+                "You cannot delete the last project.", { error: true }));
+            return;
+        }
+
+        dispatch(originalRemoveProject(name));
+        projectsRepository.removeProject(name);
+    };
+}
+
 function modifyProject(project: IProject) {
     return (dispatch, getState) => {
-        const { currentProjectName }: IState = getState().tasks;
-
-        dispatch(addOrModifyProject({ name: currentProjectName, project }));
+        dispatch(addOrModifyProject(getState().tasks.currentProjectName, project));
     };
 }
 
@@ -31,7 +52,7 @@ function getProject(getState: () => { tasks: IState }): IProject {
 
 export const actionCreators = {
     addProject: (name: string) => (dispatch) => {
-        dispatch(addOrModifyProject({ name, project: emptyProject }));
+        dispatch(addOrModifyProject(name, emptyProject));
         dispatch(setCurrentProjectName(name));
     },
     addTask: (task: ITask) => (dispatch, getState) => {
@@ -52,15 +73,7 @@ export const actionCreators = {
 
         dispatch(modifyProject(setTasksToProject(project, tasks, done)));
     },
-    removeProject: (name: string) => (dispatch, getState) => {
-        if (Object.keys(getState().tasks.projects).length === 1) {
-            dispatch(message.actionCreators.sendMessage(
-                "You cannot delete the last project.", { error: true }));
-            return;
-        }
-
-        dispatch(removeProject(name));
-    },
+    removeProject,
     removeTask: (id: string) => (dispatch, getState) => {
         const project = getProject(getState);
         const done = isDoneTask(project, id);
@@ -70,7 +83,12 @@ export const actionCreators = {
             reject(getTasksFromProject(project, done), { id }),
             done)));
     },
-    renameProject: actionCreator<string>("RENAME_PROJECT"),
+    renameProject: (name: string) => (dispatch, getState) => {
+        const { currentProjectName, projects } = getState().tasks;
+
+        dispatch(addOrModifyProject(name, projects[currentProjectName]));
+        dispatch(removeProject(currentProjectName));
+    },
     setCurrentProjectName,
     setCurrentTaskId,
     setTasks: (tasks: ITask[]) => (dispatch, getState) => {
@@ -100,6 +118,7 @@ export const actionCreators = {
             todoTasks: done ? destinationTasks : sourceTasks,
         }));
     },
+    updateProjects: actionCreator<IProjects>("UPDATE_PROJECTS"),
 };
 
 interface IState {
@@ -117,21 +136,12 @@ export const initialState: IState = {
 };
 
 export const reducer = reducerWithInitialState(initialState)
-    .case(actionCreators.renameProject,
-        ({ currentProjectName, projects, ...rest }, name) => ({
-            currentProjectName: name,
-            projects: {
-                ...omit(projects, currentProjectName),
-                [name]: projects[currentProjectName],
-            },
-            ...rest,
-        }))
-    .case(addOrModifyProject,
+    .case(originalAddOrModifyProject,
         ({ projects, ...rest }, { name, project }) => ({
             projects: { ...projects, [name]: project },
             ...rest,
         }))
-    .case(removeProject,
+    .case(originalRemoveProject,
         ({ currentProjectName, projects, ...rest }, name) => {
             const newProjects = omit(projects, name);
 
@@ -146,6 +156,29 @@ export const reducer = reducerWithInitialState(initialState)
     .case(actionCreators.setCurrentProjectName,
         (state, currentProjectName) => ({ ...state, currentProjectName }))
     .case(actionCreators.setCurrentTaskId,
-        (state, currentTaskId) => ({ ...state, currentTaskId }));
+        (state, currentTaskId) => ({ ...state, currentTaskId }))
+    .case(actionCreators.updateProjects, (state, projects) => ({ ...state, projects }));
 
 export const persistent = true;
+
+export function initializeStore(store: Store<any>): void {
+    firebase.onAuthStateChanged(async (user) => {
+        if (user) {
+            const getProjects: () => IProjects = () => store.getState().tasks.projects;
+
+            store.dispatch(actionCreators.updateProjects({
+                ...getProjects(),
+                ...(await projectsRepository.getProjects()),
+            }));
+
+            projectsRepository.subscribeProjects(
+                (name: string, project: IProject) =>
+                    store.dispatch(actionCreators.updateProjects(
+                        { ...getProjects(), [name]: project })),
+                (name: string) => store.dispatch(
+                    actionCreators.updateProjects(omit(getProjects(), name))));
+        } else {
+            projectsRepository.unsubscribeProjects();
+        }
+    });
+}
