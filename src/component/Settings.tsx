@@ -73,10 +73,7 @@ class Settings extends React.Component<IProps> {
                     </SettingsItem>
                     <SettingsItem label="Current Project">
                         <div className="Settings-buttons">
-                            <RenameProject
-                                currentProjectName={currentProjectName}
-                                renameProject={renameProject}
-                            />
+                            <RenameProject text={currentProjectName} onEdit={renameProject} />
                             <Button onClick={() => removeProject(currentProjectName)}>Delete</Button>
                         </div>
                     </SettingsItem>

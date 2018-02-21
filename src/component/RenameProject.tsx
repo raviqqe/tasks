@@ -1,51 +1,31 @@
 import * as React from "react";
 
 import Button from "./Button";
+import InputComponent, { IProps as IInputComponentProps } from "./InputComponent";
 
 import "./style/RenameProject.css";
 
-interface IProps {
-    currentProjectName: string;
-    renameProject: (name: string) => void;
-}
-
-interface IState {
-    editing: boolean;
-    name: string;
-}
-
-export default class extends React.Component<IProps, IState> {
-    public state = { editing: false, name: "" };
-
+export default class extends InputComponent {
     public render() {
-        const { currentProjectName, renameProject } = this.props;
-        const { editing, name } = this.state;
-
-        if (editing) {
+        if (this.state.editing) {
             return (
-                <form
-                    onSubmit={(event) => {
-                        renameProject(name);
-                        this.setState({ editing: false, name: "" });
-                        event.preventDefault();
+                <input
+                    className="RenameProject-input"
+                    onKeyDown={(event: React.KeyboardEvent<{}>) => {
+                        if (event.keyCode === 13) {
+                            this.setState({ editing: false });
+                            event.preventDefault();
+                        }
                     }}
-                >
-                    <input
-                        className="RenameProject-input"
-                        autoFocus={true}
-                        onBlur={() => this.setState({ editing: false })}
-                        onChange={({ target: { value } }) => this.setState({ name: value })}
-                        placeholder="Name"
-                        value={name}
-                    />
-                </form>
+                    {...this.getFormProps()}
+                />
             );
         }
 
         return (
             <Button
                 className="RenameProject-button"
-                onClick={() => this.setState({ editing: true, name: currentProjectName })}
+                onClick={() => this.setState({ editing: true })}
             >
                 Rename
             </Button>
