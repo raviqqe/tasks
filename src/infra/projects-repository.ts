@@ -26,14 +26,14 @@ class ProjectsRepository {
         removeProject: (name: string) => void,
     ): void {
         this.unsubscribe = this.collection.onSnapshot(({ docChanges }) => {
-            docChanges.forEach(({ doc: { data, id }, type }) => {
+            docChanges.forEach(({ doc, type }) => {
                 switch (type) {
                     case "added":
                     case "modified":
-                        addOrModifyProject(id, data() as IProject);
+                        addOrModifyProject(doc.id, doc.data() as IProject);
                         break;
                     case "removed":
-                        removeProject(id);
+                        removeProject(doc.id);
                 }
             });
         });
