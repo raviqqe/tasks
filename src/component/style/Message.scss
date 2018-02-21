@@ -16,16 +16,12 @@
 		color: white;
 		cursor: pointer;
 		font-size: 1.2em;
-		background: $grey;
+		background: $yellow;
 		max-width: 100%;
 		padding: 1em 2em;
 		margin: 1em;
 		transition: 0.2s;
 		pointer-events: auto;
-
-		&[data-error="true"] {
-			background: $yellow;
-		}
 
 		&[data-hidden="true"] {
 			transform: translateY(-200%);

@@ -1,4 +1,3 @@
-import { defaultTo } from "lodash";
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 
@@ -7,27 +6,28 @@ import { sleep } from "../infra/utils";
 const actionCreator = actionCreatorFactory("MESSAGE");
 
 const clearMessage = actionCreator("CLEAR_MESSAGE");
-const sendMessage = actionCreator<{ error: boolean, message: string }>("SEND_MESSAGE");
+const sendMessage = actionCreator<string>("SEND_MESSAGE");
 
 export const actionCreators = {
     clearMessage,
-    sendMessage: (message: string, options: { error?: boolean, temporary?: boolean } = {}) => async (dispatch) => {
-        dispatch(sendMessage({
-            error: defaultTo(options.error, false),
-            message,
-        }));
+    sendMessage: (message: string, temporary: boolean = true) => async (dispatch) => {
+        dispatch(sendMessage(message));
 
-        if (defaultTo(options.temporary, true)) {
+        if (temporary) {
             await sleep(5000);
             dispatch(clearMessage());
         }
     },
 };
 
-export const initialState = { error: false, message: "" };
+export type IActionCreators = typeof actionCreators;
+
+export const initialState = { message: "" };
+
+export type IState = typeof initialState;
 
 export const reducer = reducerWithInitialState(initialState)
-    .case(actionCreators.clearMessage, (state) => ({ error: false, message: "" }))
-    .case(sendMessage, (_, state) => state);
+    .case(actionCreators.clearMessage, () => ({ message: "" }))
+    .case(sendMessage, (_, message) => ({ message }));
 
 export const persistent = false;

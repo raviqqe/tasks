@@ -29,7 +29,7 @@ function removeProject(name: string) {
     return (dispatch, getState) => {
         if (Object.keys(getState().tasks.projects).length === 1) {
             dispatch(message.actionCreators.sendMessage(
-                "You cannot delete the last project.", { error: true }));
+                "You cannot delete the last project."));
             return;
         }
 

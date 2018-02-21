@@ -13,7 +13,7 @@ export const actionCreators = {
         try {
             await firebase.signIn();
         } catch (error) {
-            dispatch(message.actionCreators.sendMessage("Failed to sign in.", { error: true }));
+            dispatch(message.actionCreators.sendMessage("Failed to sign in."));
         }
     },
     signOut: () => firebase.signOut,
