@@ -7,9 +7,9 @@ import Repeat = require("react-icons/lib/md/replay");
 import { connect } from "react-redux";
 
 import { ITask } from "../domain/task";
+import { unixTimeStampToString } from "../domain/utils";
 import { actionCreators as tasksActionCreators } from "../state/tasks";
 import { actionCreators as timerActionCreators } from "../state/timer";
-import LabeledDate from "./LabeledDate";
 import SmallIconButton from "./SmallIconButton";
 import SubInformation from "./SubInformation";
 import TaskDescription from "./TaskDescription";
@@ -82,8 +82,12 @@ class Task extends React.Component<IProps, IState> {
                             onEdit={(description) => modifyTask({ ...this.task, description })}
                         />
                         <SubInformation>Spent for: {this.spentSeconds}</SubInformation>
-                        <LabeledDate label="Created on" timeStamp={createdAt} />
-                        <LabeledDate label="Updated on" timeStamp={updatedAt} />
+                        <SubInformation>
+                            Created on: {unixTimeStampToString(createdAt)}
+                        </SubInformation>
+                        <SubInformation>
+                            Updated on: {unixTimeStampToString(updatedAt)}
+                        </SubInformation>
                     </React.Fragment>}
             </div>
         );
