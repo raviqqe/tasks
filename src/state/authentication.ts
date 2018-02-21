@@ -8,7 +8,6 @@ import * as message from "./message";
 const actionCreator = actionCreatorFactory("AUTHENTICATION");
 
 export const actionCreators = {
-    deleteAccount: () => firebase.deleteAccount,
     setSignInState: actionCreator<boolean>("SET_SIGN_IN_STATE"),
     signIn: () => async (dispatch) => {
         try {

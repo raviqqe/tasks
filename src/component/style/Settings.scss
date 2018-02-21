@@ -58,11 +58,11 @@
 		align-items: center;
 		max-width: 50%;
 
-		> .sign-in-button {
+		> .enable-button {
 			@include Button($yellow-green);
 		}
 
-		> .sign-out-button {
+		> .disable-button {
 			@include Button($grey);
 		}
 

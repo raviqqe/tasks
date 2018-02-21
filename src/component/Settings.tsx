@@ -22,7 +22,6 @@ const green = "#9db634";
 interface IProps {
     alarmVolume: number;
     currentProjectName: string;
-    deleteAccount: () => void;
     notificationOn: boolean | null;
     removeProject: (name: string) => void;
     setAlarmVolume: () => void;
@@ -34,8 +33,8 @@ interface IProps {
 class Settings extends React.Component<IProps> {
     public render() {
         const {
-            alarmVolume, currentProjectName, deleteAccount, notificationOn,
-            removeProject, setAlarmVolume, signedIn, signIn, signOut,
+            alarmVolume, currentProjectName, notificationOn, removeProject,
+            setAlarmVolume, signedIn, signIn, signOut,
         } = this.props;
 
         return (
@@ -87,16 +86,11 @@ class Settings extends React.Component<IProps> {
                     <SettingsItem label="Remote Sync">
                         <div className="Settings-buttons">
                             {signedIn ?
-                                <React.Fragment>
-                                    <Button className="sign-out-button" onClick={signOut}>
-                                        Sign out
-                                    </Button>
-                                    <Button onClick={deleteAccount}>
-                                        Delete account
-                                    </Button>
-                                </React.Fragment> :
-                                <Button className="sign-in-button" onClick={signIn}>
-                                    Sign in
+                                <Button className="disable-button" onClick={signOut}>
+                                    Disable
+                                </Button> :
+                                <Button className="enable-button" onClick={signIn}>
+                                    Enable
                                 </Button>}
                         </div>
                     </SettingsItem>
