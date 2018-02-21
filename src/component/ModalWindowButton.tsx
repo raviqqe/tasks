@@ -2,15 +2,15 @@ import * as React from "react";
 import Close = require("react-icons/lib/md/close");
 import { connect } from "react-redux";
 
+import * as environment from "../state/environment";
 import CircleButton from "./CircleButton";
 import ModalButton, { IButtonProps, IContentProps } from "./ModalButton";
 
 import "./style/ModalWindowButton.css";
 
-interface IProps {
+interface IProps extends environment.IState {
     buttonComponent: (props: IButtonProps) => JSX.Element;
     buttonProps?: object;
-    isSmallWindow: boolean;
     onOpen?: () => void;
     showCloseButton?: boolean;
 }

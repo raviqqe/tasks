@@ -8,8 +8,8 @@ import { connect } from "react-redux";
 
 import { ITask } from "../domain/task";
 import { unixTimeStampToString } from "../domain/utils";
-import { actionCreators as tasksActionCreators } from "../state/tasks";
-import { actionCreators as timerActionCreators } from "../state/timer";
+import * as tasks from "../state/tasks";
+import * as timer from "../state/timer";
 import SmallIconButton from "./SmallIconButton";
 import SubInformation from "./SubInformation";
 import TaskDescription from "./TaskDescription";
@@ -17,15 +17,10 @@ import TaskName from "./TaskName";
 
 import "./style/Task.css";
 
-interface IProps extends ITask {
+interface IProps extends ITask, tasks.IActionCreators, timer.IActionCreators {
     detailed: boolean;
     done: boolean;
     highlighted?: boolean;
-    modifyTask: (task: ITask) => void;
-    toggleTaskState: (id: string) => void;
-    removeTask: (id: string) => void;
-    setCurrentTaskId: (id: string | null) => void;
-    toggleTimer: () => void;
 }
 
 interface IState {
@@ -107,4 +102,4 @@ class Task extends React.Component<IProps, IState> {
     }
 }
 
-export default connect(null, { ...tasksActionCreators, ...timerActionCreators })(Task);
+export default connect(null, { ...tasks.actionCreators, ...timer.actionCreators })(Task);

@@ -10,7 +10,11 @@ export const actionCreators = {
     toggleTimer: actionCreator("TOGGLE_TIMER"),
 };
 
+export type IActionCreators = typeof actionCreators;
+
 export const initialState = { on: false };
+
+export type IState = typeof initialState;
 
 export const reducer = reducerWithInitialState(initialState)
     .case(actionCreators.toggleTimer, (state) => ({ on: !state.on }));

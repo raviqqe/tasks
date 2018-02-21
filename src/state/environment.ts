@@ -13,17 +13,13 @@ const setIsSmallWindow = actionCreator<boolean>("SET_IS_SMALL_WINDOW");
 const setPointerAvailable = actionCreator<boolean>("SET_POINTER_AVAILABLE");
 const setTouchable = actionCreator<boolean>("SET_TOUCHABLE");
 
-export interface IState {
-    isSmallWindow: boolean;
-    pointerAvailable: boolean;
-    touchable: boolean;
-}
-
-export const initialState: IState = {
+export const initialState = {
     isSmallWindow,
     pointerAvailable,
     touchable,
 };
+
+export type IState = typeof initialState;
 
 export const reducer = reducerWithInitialState(initialState)
     .case(setIsSmallWindow, (state, isSmallWindow) => ({ ...state, isSmallWindow }))

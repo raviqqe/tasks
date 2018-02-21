@@ -121,7 +121,9 @@ export const actionCreators = {
     updateProjects: actionCreator<IProjects>("UPDATE_PROJECTS"),
 };
 
-interface IState {
+export type IActionCreators = typeof actionCreators;
+
+export interface IState {
     currentProjectName: string;
     currentTaskId: string | null;
     projects: IProjects;

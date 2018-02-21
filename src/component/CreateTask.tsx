@@ -3,22 +3,19 @@ import Plus = require("react-icons/lib/md/add");
 import { connect } from "react-redux";
 
 import { createTask, ITask } from "../domain/task";
-import { actionCreators } from "../state/tasks";
+import * as tasks from "../state/tasks";
 import Button from "./Button";
 import IconedButton from "./IconedButton";
 import ModalWindowButton from "./ModalWindowButton";
-import "./style/CreateTask.css";
 
-interface IProps {
-    addTask: (task: ITask) => void;
-}
+import "./style/CreateTask.css";
 
 interface IState {
     description: string;
     name: string;
 }
 
-class CreateTask extends React.Component<IProps, IState> {
+class CreateTask extends React.Component<tasks.IActionCreators, IState> {
     public input: HTMLElement;
     public state: IState = { description: "", name: "" };
 
@@ -70,4 +67,4 @@ class CreateTask extends React.Component<IProps, IState> {
     }
 }
 
-export default connect(null, actionCreators)(CreateTask);
+export default connect(null, tasks.actionCreators)(CreateTask);

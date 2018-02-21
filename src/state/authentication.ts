@@ -19,7 +19,11 @@ export const actionCreators = {
     signOut: () => firebase.signOut,
 };
 
+export type IActionCreators = typeof actionCreators;
+
 export const initialState = { signedIn: false };
+
+export type IState = typeof initialState;
 
 export const reducer = reducerWithInitialState(initialState)
     .case(actionCreators.setSignInState, (_, signedIn) => ({ signedIn }));

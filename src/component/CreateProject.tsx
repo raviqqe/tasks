@@ -2,21 +2,17 @@ import * as React from "react";
 import Plus = require("react-icons/lib/md/add");
 import { connect } from "react-redux";
 
-import { actionCreators } from "../state/tasks";
+import * as tasks from "../state/tasks";
 import IconedButton from "./IconedButton";
 
 import "./style/CreateProject.css";
-
-interface IProps {
-    addProject: (name: string) => void;
-}
 
 interface IState {
     editing: boolean;
     name: string;
 }
 
-class CreateProject extends React.Component<IProps, IState> {
+class CreateProject extends React.Component<tasks.IActionCreators, IState> {
     public state = { editing: false, name: "" };
 
     public render() {
@@ -51,4 +47,4 @@ class CreateProject extends React.Component<IProps, IState> {
     }
 }
 
-export default connect(null, actionCreators)(CreateProject);
+export default connect(null, tasks.actionCreators)(CreateProject);

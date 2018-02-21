@@ -2,17 +2,13 @@ import * as React from "react";
 import { connect } from "react-redux";
 
 import { IProject, IProjects } from "../domain/project";
-import { actionCreators } from "../state/tasks";
+import * as tasks from "../state/tasks";
 import CreateProject from "./CreateProject";
 import Project from "./Project";
 
 import "./style/ProjectsMenu.css";
 
-interface IProps {
-    currentProjectName: string;
-    projects: IProjects;
-    setCurrentProjectName: (name: string) => void;
-}
+interface IProps extends tasks.IActionCreators, tasks.IState { }
 
 interface IState {
     opened: boolean;
@@ -58,4 +54,4 @@ class ProjectsMenu extends React.Component<IProps, IState> {
     }
 }
 
-export default connect(({ tasks }) => tasks, actionCreators)(ProjectsMenu);
+export default connect(({ tasks }) => tasks, tasks.actionCreators)(ProjectsMenu);

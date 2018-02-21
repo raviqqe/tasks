@@ -9,22 +9,19 @@ import Task from "../component/Task";
 import TaskList from "../component/TaskList";
 import { getTasksFromProject, IProject, IProjects } from "../domain/project";
 import { includeTaskInTasks, ITask } from "../domain/task";
-import { IState as IEnvironmentState } from "../state/environment";
-import { actionCreators as settingsActionCreators } from "../state/settings";
-import { actionCreators as tasksActionCreators } from "../state/tasks";
+import * as environment from "../state/environment";
+import * as settings from "../state/settings";
+import * as tasks from "../state/tasks";
+import * as timer from "../state/timer";
 import Timer from "./Timer";
 
 import "./style/Home.css";
 
-interface IProps extends IEnvironmentState {
-    currentProjectName: string;
-    currentTaskId: string | null;
-    notificationOn: boolean | null;
-    projects: IProjects;
-    requestNotificationPermission: () => void;
-    setCurrentTaskId: (id: string) => void;
-    setTasks: (tasks: ITask[]) => void;
-    timer: { on: boolean };
+interface IProps extends
+    environment.IState,
+    settings.IActionCreators, settings.IState,
+    tasks.IActionCreators, tasks.IState {
+    timer: timer.IState;
 }
 
 interface IState {
@@ -128,5 +125,5 @@ class Home extends React.Component<IProps, IState> {
 
 export default connect(
     ({ environment, settings, tasks, timer }) => ({ ...environment, ...settings, ...tasks, timer }),
-    { ...settingsActionCreators, ...tasksActionCreators },
+    { ...settings.actionCreators, ...tasks.actionCreators },
 )(Home);

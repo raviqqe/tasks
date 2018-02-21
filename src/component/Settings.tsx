@@ -5,9 +5,9 @@ import Gear = require("react-icons/lib/md/settings");
 import { connect } from "react-redux";
 
 import config from "../config";
-import { actionCreators as authenticationActionCreators } from "../state/authentication";
-import { actionCreators as settingsActionCreators } from "../state/settings";
-import { actionCreators as tasksActionCreators } from "../state/tasks";
+import * as authentication from "../state/authentication";
+import * as settings from "../state/settings";
+import * as tasks from "../state/tasks";
 import Button from "./Button";
 import Link from "./Link";
 import ModalWindowButton from "./ModalWindowButton";
@@ -19,22 +19,16 @@ import "./style/Settings.css";
 const grey = "#bcc";
 const green = "#9db634";
 
-interface IProps {
-    alarmVolume: number;
-    currentProjectName: string;
-    notificationOn: boolean | null;
-    removeProject: (name: string) => void;
-    setAlarmVolume: () => void;
-    signedIn: boolean;
-    signIn: () => void;
-    signOut: () => void;
-}
+interface IProps extends
+    authentication.IActionCreators, authentication.IState,
+    settings.IActionCreators, settings.IState,
+    tasks.IActionCreators, tasks.IState { }
 
 class Settings extends React.Component<IProps> {
     public render() {
         const {
             alarmVolume, currentProjectName, notificationOn, removeProject,
-            setAlarmVolume, signedIn, signIn, signOut,
+            renameProject, setAlarmVolume, signedIn, signIn, signOut,
         } = this.props;
 
         return (
@@ -79,7 +73,10 @@ class Settings extends React.Component<IProps> {
                     </SettingsItem>
                     <SettingsItem label="Current Project">
                         <div className="Settings-buttons">
-                            <RenameProject />
+                            <RenameProject
+                                currentProjectName={currentProjectName}
+                                renameProject={renameProject}
+                            />
                             <Button onClick={() => removeProject(currentProjectName)}>Delete</Button>
                         </div>
                     </SettingsItem>
@@ -105,5 +102,5 @@ class Settings extends React.Component<IProps> {
 
 export default connect(
     ({ authentication, settings, tasks }) => ({ ...authentication, ...settings, ...tasks }),
-    { ...authenticationActionCreators, ...settingsActionCreators, ...tasksActionCreators },
+    { ...authentication.actionCreators, ...settings.actionCreators, ...tasks.actionCreators },
 )(Settings);

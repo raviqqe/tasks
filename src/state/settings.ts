@@ -21,7 +21,9 @@ export const actionCreators = {
     setNotificationState,
 };
 
-interface IState {
+export type IActionCreators = typeof actionCreators;
+
+export interface IState {
     alarmVolume: number; // 0 to 1
     notificationOn: boolean | null;
 }

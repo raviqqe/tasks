@@ -1,11 +1,11 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { actionCreators, IActionCreators, IState as IMessageState } from "../state/message";
+import * as message from "../state/message";
 
 import "./style/Message.css";
 
-interface IProps extends IActionCreators, IMessageState { }
+interface IProps extends message.IActionCreators, message.IState { }
 
 // Keep previous messages until they go away from screens.
 interface IState {
@@ -38,4 +38,4 @@ class Message extends React.Component<IProps, IState> {
     }
 }
 
-export default connect(({ message }) => message, actionCreators)(Message);
+export default connect(({ message }) => message, message.actionCreators)(Message);

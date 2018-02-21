@@ -1,7 +1,5 @@
 import * as React from "react";
-import { connect } from "react-redux";
 
-import { actionCreators } from "../state/tasks";
 import Button from "./Button";
 
 import "./style/RenameProject.css";
@@ -16,7 +14,7 @@ interface IState {
     name: string;
 }
 
-class RenameProject extends React.Component<IProps, IState> {
+export default class extends React.Component<IProps, IState> {
     public state = { editing: false, name: "" };
 
     public render() {
@@ -54,5 +52,3 @@ class RenameProject extends React.Component<IProps, IState> {
         );
     }
 }
-
-export default connect(({ tasks }) => tasks, actionCreators)(RenameProject);
