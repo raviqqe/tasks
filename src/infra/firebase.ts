@@ -7,8 +7,7 @@ const { apiKey, projectId } = config.firebase;
 firebase.initializeApp({
     apiKey,
     authDomain: `${projectId}.firebaseapp.com`,
-    databaseURL: `https://${projectId}.firebaseio.com`,
-    storageBucket: `${projectId}.appspot.com`,
+    projectId,
 });
 
 export async function signIn(): Promise<void> {
