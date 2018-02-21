@@ -54,7 +54,6 @@ class Home extends React.Component<IProps, IState> {
             <div className="Home">
                 <div className="content">
                     <Menu
-                        closed={sorting}
                         done={done}
                         hidden={sorting}
                         isSmallWindow={isSmallWindow}

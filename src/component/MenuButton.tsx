@@ -8,7 +8,6 @@ import ModalButton, { IButtonProps, IContentProps } from "./ModalButton";
 import "./style/MenuButton.css";
 
 export interface IProps extends IMenuBoxProps {
-    closed?: boolean;
     hidden?: boolean;
 }
 
@@ -17,7 +16,7 @@ export default class extends React.Component<IProps> {
         return (
             <ModalButton
                 buttonComponent={this.buttonComponent}
-                closed={this.props.closed}
+                closed={this.props.hidden}
                 contentComponent={this.contentComponent}
                 transitionClassNames="MenuButton-menu"
             />
