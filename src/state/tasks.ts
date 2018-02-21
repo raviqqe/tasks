@@ -19,9 +19,12 @@ const setCurrentProjectName = actionCreator<string>("SET_CURRENT_PROJECT");
 const setCurrentTaskId = actionCreator<string>("SET_CURRENT_TASK_ID");
 
 function addOrModifyProject(name: string, project: IProject) {
-    return (dispatch) => {
+    return (dispatch, getState) => {
         dispatch(originalAddOrModifyProject({ name, project }));
-        projectsRepository.addOrModifyProject(name, project);
+
+        if (getState().authentication.signedIn) {
+            projectsRepository.addOrModifyProject(name, project);
+        }
     };
 }
 
@@ -34,7 +37,10 @@ function removeProject(name: string) {
         }
 
         dispatch(originalRemoveProject(name));
-        projectsRepository.removeProject(name);
+
+        if (getState().authentication.signedIn) {
+            projectsRepository.removeProject(name);
+        }
     };
 }
 
