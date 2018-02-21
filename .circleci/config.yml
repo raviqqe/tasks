@@ -10,6 +10,7 @@ jobs:
             apt -y update --fix-missing
             apt -y upgrade
             apt -y install inkscape rake
+            npm install --global codecov
       - checkout
       - run:
           name: Dependencies
@@ -19,4 +20,6 @@ jobs:
           command: rake build
       - run:
           name: Test
-          command: rake test
+          command: |
+            rake test
+            codecov
