@@ -2,7 +2,7 @@ import * as React from "react";
 import Hamburger = require("react-icons/lib/md/menu");
 
 import CircleButton from "./CircleButton";
-import Menu from "./Menu";
+import MenuBox from "./MenuBox";
 import ModalButton, { IButtonProps, IContentProps } from "./ModalButton";
 import "./style/MenuButton.css";
 
@@ -39,7 +39,7 @@ export default class extends React.Component<IProps> {
 
     private contentComponent = ({ closeWindow }: IContentProps): JSX.Element => (
         <div className="MenuButton-menu" onClick={closeWindow} >
-            <Menu {...this.props} />
+            <MenuBox {...this.props} />
         </div>
     )
 }

@@ -9,7 +9,7 @@ import IconedButton from "./IconedButton";
 import NoBoxButton from "./NoBoxButton";
 import ProjectsMenu from "./ProjectsMenu";
 import Settings from "./Settings";
-import "./style/Menu.css";
+import "./style/MenuBox.css";
 
 interface IProps {
     done: boolean;
@@ -18,12 +18,12 @@ interface IProps {
     onTasksStateChange: (done: boolean) => void;
 }
 
-class Menu extends React.Component<IProps> {
+class MenuBox extends React.Component<IProps> {
     public render() {
         const { done, pointerAvailable, makeTaskListSortable, onTasksStateChange } = this.props;
 
         return (
-            <div className="Menu" onClick={(event) => event.stopPropagation()}>
+            <div className="MenuBox" onClick={(event) => event.stopPropagation()}>
                 <div className="upper">
                     <div className="background" />
                     <ProjectsMenu />
@@ -66,4 +66,4 @@ class Menu extends React.Component<IProps> {
     }
 }
 
-export default connect(({ environment }) => environment)(Menu);
+export default connect(({ environment }) => environment)(MenuBox);

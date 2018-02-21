@@ -4,7 +4,7 @@ import Save = require("react-icons/lib/md/save");
 import { connect } from "react-redux";
 
 import CircleButton from "../component/CircleButton";
-import Menu from "../component/Menu";
+import MenuBox from "../component/MenuBox";
 import MenuButton from "../component/MenuButton";
 import Task from "../component/Task";
 import TaskList from "../component/TaskList";
@@ -60,7 +60,7 @@ class Home extends React.Component<IProps, IState> {
         return (
             <div className="Home">
                 <div className="content">
-                    {!isSmallWindow && <Menu {...menuProps} />}
+                    {!isSmallWindow && <MenuBox {...menuProps} />}
                     <div className="tasks">
                         <TaskList
                             done={done}
