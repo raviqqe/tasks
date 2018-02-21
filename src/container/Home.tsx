@@ -102,11 +102,16 @@ class Home extends React.Component<IProps, IState> {
             this.setState({ listsFixed: true });
         }
 
-        this.componentDidUpdate();
+        this.componentDidUpdate(this.props);
     }
 
-    public componentDidUpdate() {
-        const { currentTaskId, setCurrentTaskId } = this.props;
+    public componentDidUpdate(props) {
+        const { currentProjectName, currentTaskId, setCurrentTaskId } = this.props;
+
+        if (props.currentProjectName !== currentProjectName) {
+            this.setState({ done: false });
+        }
+
         const tasks = this.currentTasks;
 
         if (tasks.length === 0) {
