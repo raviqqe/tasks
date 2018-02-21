@@ -1,4 +1,4 @@
-import { find, findIndex, omit, reject } from "lodash";
+import { difference, find, findIndex, omit, reject } from "lodash";
 import { Store } from "redux";
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
@@ -165,11 +165,14 @@ export function initializeStore(store: Store<any>): void {
     firebase.onAuthStateChanged(async (user) => {
         if (user) {
             const getProjects: () => IProjects = () => store.getState().tasks.projects;
+            const localProjects = getProjects();
+            const remoteProjects = await projectsRepository.getProjects();
 
-            store.dispatch(actionCreators.updateProjects({
-                ...getProjects(),
-                ...(await projectsRepository.getProjects()),
-            }));
+            for (const name of difference(Object.keys(localProjects), Object.keys(remoteProjects))) {
+                projectsRepository.addOrModifyProject(name, localProjects[name]);
+            }
+
+            store.dispatch(actionCreators.updateProjects({ ...localProjects, ...remoteProjects }));
 
             projectsRepository.subscribeProjects(
                 (name: string, project: IProject) =>
