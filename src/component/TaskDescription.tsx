@@ -18,7 +18,7 @@ export default class extends InputComponent {
                             event.preventDefault();
                         }
                     }}
-                    {...{ ...this.getFormProps() }}
+                    {...this.getFormProps()}
                 />
             );
         }

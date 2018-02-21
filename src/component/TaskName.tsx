@@ -22,7 +22,7 @@ export default class extends InputComponent<IProps> {
                             event.preventDefault();
                         }
                     }}
-                    {...{ ...this.getFormProps() }}
+                    {...this.getFormProps()}
                 />
             );
         }

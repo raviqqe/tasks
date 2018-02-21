@@ -46,7 +46,7 @@ export default class extends React.Component<IProps, IState> {
                 <Button
                     opened={opened}
                     openWindow={() => this.setState({ opened: true })}
-                    {...{ ...(buttonProps || {}) }}
+                    {...(buttonProps || {})}
                 />
                 {!!this.modal && ReactDOM.createPortal(
                     <CSSTransition
@@ -60,7 +60,7 @@ export default class extends React.Component<IProps, IState> {
                         <Content
                             closeWindow={() => this.setState({ opened: false })}
                             opened={opened}
-                            {...{ ...(contentProps || {}) }}
+                            {...(contentProps || {})}
                         />
                     </CSSTransition>,
                     this.modal)}
