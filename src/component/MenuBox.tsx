@@ -2,23 +2,23 @@ import * as React from "react";
 import Done = require("react-icons/lib/md/check-box");
 import Todo = require("react-icons/lib/md/check-box-outline-blank");
 import Sort = require("react-icons/lib/md/sort");
-import { connect } from "react-redux";
 
 import CreateTask from "./CreateTask";
 import IconedButton from "./IconedButton";
 import NoBoxButton from "./NoBoxButton";
 import ProjectsMenu from "./ProjectsMenu";
 import Settings from "./Settings";
+
 import "./style/MenuBox.css";
 
-interface IProps {
+export interface IProps {
     done: boolean;
-    pointerAvailable: boolean;
     makeTaskListSortable: () => void;
     onTasksStateChange: (done: boolean) => void;
+    pointerAvailable: boolean;
 }
 
-class MenuBox extends React.Component<IProps> {
+export default class extends React.Component<IProps> {
     public render() {
         const { done, pointerAvailable, makeTaskListSortable, onTasksStateChange } = this.props;
 
@@ -65,5 +65,3 @@ class MenuBox extends React.Component<IProps> {
         );
     }
 }
-
-export default connect(({ environment }) => environment)(MenuBox);

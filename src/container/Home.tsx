@@ -4,29 +4,27 @@ import Save = require("react-icons/lib/md/save");
 import { connect } from "react-redux";
 
 import CircleButton from "../component/CircleButton";
-import MenuBox from "../component/MenuBox";
-import MenuButton from "../component/MenuButton";
+import Menu from "../component/Menu";
 import Task from "../component/Task";
 import TaskList from "../component/TaskList";
 import { getTasksFromProject, IProject, IProjects } from "../domain/project";
 import { includeTaskInTasks, ITask } from "../domain/task";
+import { IState as IEnvironmentState } from "../state/environment";
 import { actionCreators as settingsActionCreators } from "../state/settings";
 import { actionCreators as tasksActionCreators } from "../state/tasks";
 import Timer from "./Timer";
 
 import "./style/Home.css";
 
-interface IProps {
+interface IProps extends IEnvironmentState {
     currentProjectName: string;
     currentTaskId: string | null;
-    isSmallWindow: boolean;
     notificationOn: boolean | null;
     projects: IProjects;
     requestNotificationPermission: () => void;
     setCurrentTaskId: (id: string) => void;
     setTasks: (tasks: ITask[]) => void;
     timer: { on: boolean };
-    touchable: boolean;
 }
 
 interface IState {
@@ -39,7 +37,8 @@ class Home extends React.Component<IProps, IState> {
 
     public render() {
         const {
-            currentProjectName, currentTaskId, isSmallWindow, timer, touchable,
+            currentProjectName, currentTaskId, isSmallWindow, pointerAvailable,
+            timer, touchable,
         } = this.props;
         const currentTask = find(this.currentTasks, { id: currentTaskId });
 
@@ -49,18 +48,20 @@ class Home extends React.Component<IProps, IState> {
 
         const { done, listsFixed } = this.state;
 
-        const menuProps = {
-            done,
-            makeTaskListSortable: () => this.setState({ listsFixed: false }),
-            onTasksStateChange: (done) => this.setState({ done }),
-        };
-
         const sorting = touchable && !listsFixed;
 
         return (
             <div className="Home">
                 <div className="content">
-                    {!isSmallWindow && <MenuBox {...menuProps} />}
+                    <Menu
+                        closed={sorting}
+                        done={done}
+                        hidden={sorting}
+                        isSmallWindow={isSmallWindow}
+                        makeTaskListSortable={() => this.setState({ listsFixed: false })}
+                        onTasksStateChange={(done) => this.setState({ done })}
+                        pointerAvailable={pointerAvailable}
+                    />
                     <div className="tasks">
                         <TaskList
                             done={done}
@@ -75,12 +76,6 @@ class Home extends React.Component<IProps, IState> {
                             <div className="current-task">
                                 {currentTask && <Task detailed={true} done={done} {...currentTask} />}
                             </div>}
-                        {isSmallWindow &&
-                            <MenuButton
-                                closed={sorting}
-                                hidden={sorting}
-                                {...menuProps}
-                            />}
                         {sorting &&
                             <div className="fix-list-button">
                                 <CircleButton onClick={() => this.setState({ listsFixed: true })}>

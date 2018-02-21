@@ -2,16 +2,14 @@ import * as React from "react";
 import Hamburger = require("react-icons/lib/md/menu");
 
 import CircleButton from "./CircleButton";
-import MenuBox from "./MenuBox";
+import MenuBox, { IProps as IMenuBoxProps } from "./MenuBox";
 import ModalButton, { IButtonProps, IContentProps } from "./ModalButton";
+
 import "./style/MenuButton.css";
 
-interface IProps {
+export interface IProps extends IMenuBoxProps {
     closed?: boolean;
-    done: boolean;
     hidden?: boolean;
-    makeTaskListSortable: () => void;
-    onTasksStateChange: (done: boolean) => void;
 }
 
 export default class extends React.Component<IProps> {
