@@ -1,6 +1,7 @@
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import * as React from "react";
+import GitHub = require("react-icons/lib/go/mark-github");
 import Gear = require("react-icons/lib/md/settings");
 import { connect } from "react-redux";
 
@@ -89,7 +90,9 @@ class Settings extends React.Component<IProps> {
                         </div>
                     </SettingsItem>
                     <div className="footer">
-                        <Link href={config.repositoryUrl}>GitHub</Link>
+                        <Link href={config.repositoryUrl}>
+                            <div className="Settings-github-link"><GitHub /> GitHub</div>
+                        </Link>
                     </div>
                 </div>
             </ModalWindowButton>

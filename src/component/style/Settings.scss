@@ -75,7 +75,7 @@
 	}
 
 	> .footer {
-		font-size: 0.9em;
+		font-size: 0.95em;
 		border-top: {
 			style: solid;
 			width: 1px;
@@ -93,6 +93,16 @@
 
 		@include small-window {
 			justify-content: flex-start;
+		}
+	}
+
+	&-github-link {
+		display: flex;
+		align-items: center;
+
+		> svg {
+			font-size: 1.2em;
+			margin-right: 0.3em;
 		}
 	}
 }
