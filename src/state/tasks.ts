@@ -15,7 +15,7 @@ const actionCreator = actionCreatorFactory("TASKS");
 
 const originalAddOrModifyProject = actionCreator<{ name: string, project: IProject }>("ADD_OR_MODIFY_PROJECT");
 const originalRemoveProject = actionCreator<string>("REMOVE_PROJECT");
-const setCurrentProjectName = actionCreator<string>("SET_CURRENT_PROJECT");
+const setCurrentProjectName = actionCreator<string>("SET_CURRENT_PROJECT_NAME");
 const setCurrentTaskId = actionCreator<string>("SET_CURRENT_TASK_ID");
 
 function addOrModifyProject(name: string, project: IProject) {
