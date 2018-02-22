@@ -2,8 +2,6 @@ import * as React from "react";
 
 import TextButton from "./TextButton";
 
-import "./style/Project.css";
-
 interface IProps {
     disabled?: boolean;
     name: string;
@@ -15,10 +13,7 @@ export default class Project extends React.Component<IProps> {
         const { disabled, name, onClick } = this.props;
 
         return (
-            <TextButton
-                className={"Project" + (disabled ? "-disabled" : "")}
-                onClick={onClick}
-            >
+            <TextButton disabled={disabled} onClick={onClick}>
                 {name}
             </TextButton>
         );

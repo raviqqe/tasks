@@ -27,4 +27,10 @@
 
 .TextButton {
 	@include TextButton($grey, $black, transparentize($black, 0.95));
+
+	&[data-disabled="true"] {
+		@include TextButton($red, $red, transparent);
+
+		cursor: auto;
+	}
 }

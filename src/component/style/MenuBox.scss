@@ -78,16 +78,6 @@
 
 				> .states {
 					@include column;
-
-					> .state {
-						@include TextButton;
-
-						&-highlighted {
-							@include TextButton($red, $red, transparent);
-
-							cursor: auto;
-						}
-					}
 				}
 
 				> .sort-button {

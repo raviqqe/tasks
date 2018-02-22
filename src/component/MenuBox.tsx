@@ -34,14 +34,14 @@ export default class extends React.Component<IProps> {
                         <div className="main">
                             <div className="states">
                                 <TextButton
-                                    className={"state" + (done ? "" : "-highlighted")}
+                                    disabled={!done}
                                     icon={<Todo />}
                                     onClick={() => onTasksStateChange(false)}
                                 >
                                     todo
                                 </TextButton>
                                 <TextButton
-                                    className={"state" + (done ? "-highlighted" : "")}
+                                    disabled={done}
                                     icon={<Done />}
                                     onClick={() => onTasksStateChange(true)}
                                 >
