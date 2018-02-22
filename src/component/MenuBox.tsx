@@ -5,9 +5,9 @@ import Sort = require("react-icons/lib/md/sort");
 
 import CreateTask from "./CreateTask";
 import IconedButton from "./IconedButton";
-import NoBoxButton from "./NoBoxButton";
 import ProjectsMenu from "./ProjectsMenu";
 import Settings from "./Settings";
+import TextButton from "./TextButton";
 
 import "./style/MenuBox.css";
 
@@ -33,20 +33,20 @@ export default class extends React.Component<IProps> {
                     <div className="content">
                         <div className="main">
                             <div className="states">
-                                <NoBoxButton
+                                <TextButton
                                     className={"state" + (done ? "" : "-highlighted")}
                                     icon={<Todo />}
                                     onClick={() => onTasksStateChange(false)}
                                 >
                                     todo
-                                </NoBoxButton>
-                                <NoBoxButton
+                                </TextButton>
+                                <TextButton
                                     className={"state" + (done ? "-highlighted" : "")}
                                     icon={<Done />}
                                     onClick={() => onTasksStateChange(true)}
                                 >
                                     done
-                                </NoBoxButton>
+                                </TextButton>
                             </div>
                             {!done && <CreateTask />}
                             {!pointerAvailable &&

@@ -1,15 +1,15 @@
 @import "../../style/colors.scss";
-@import "./NoBoxButton.scss";
+@import "./TextButton.scss";
 
 $name-size: 1.2em;
 
 .Project {
-	@include NoBoxButton;
+	@include TextButton;
 
 	font-size: $name-size;
 
 	&-disabled {
-		@include NoBoxButton($red, $red, transparent);
+		@include TextButton($red, $red, transparent);
 
 		font-size: $name-size;
 	}

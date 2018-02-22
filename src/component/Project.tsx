@@ -1,6 +1,7 @@
 import * as React from "react";
 
-import NoBoxButton from "./NoBoxButton";
+import TextButton from "./TextButton";
+
 import "./style/Project.css";
 
 interface IProps {
@@ -14,12 +15,12 @@ export default class Project extends React.Component<IProps> {
         const { disabled, name, onClick } = this.props;
 
         return (
-            <NoBoxButton
+            <TextButton
                 className={"Project" + (disabled ? "-disabled" : "")}
                 onClick={onClick}
             >
                 {name}
-            </NoBoxButton>
+            </TextButton>
         );
     }
 }

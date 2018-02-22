@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import "./style/NoBoxButton.css";
+import "./style/TextButton.css";
 
 interface IProps {
     className?: string;
@@ -13,7 +13,7 @@ export default class extends React.Component<IProps> {
         const { children, className, icon, onClick } = this.props;
 
         return (
-            <button className={className || "NoBoxButton"} onClick={onClick}>
+            <button className={className || "TextButton"} onClick={onClick}>
                 {icon}
                 {children}
             </button>

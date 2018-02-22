@@ -2,7 +2,7 @@
 @import "../../style/margin.scss";
 @import "../../style/media.scss";
 @import "./IconedButton.scss";
-@import "./NoBoxButton.scss";
+@import "./TextButton.scss";
 
 @mixin background {
 	width: 100vw;
@@ -80,10 +80,10 @@
 					@include column;
 
 					> .state {
-						@include NoBoxButton;
+						@include TextButton;
 
 						&-highlighted {
-							@include NoBoxButton($red, $red, transparent);
+							@include TextButton($red, $red, transparent);
 
 							cursor: auto;
 						}
