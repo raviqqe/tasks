@@ -11,12 +11,7 @@ export default class extends InputComponent {
             return (
                 <input
                     className="RenameProject-input"
-                    onKeyDown={(event: React.KeyboardEvent<{}>) => {
-                        if (event.keyCode === 13) {
-                            this.setState({ editing: false });
-                            event.preventDefault();
-                        }
-                    }}
+                    onKeyDown={this.onEnterKeyDown}
                     {...this.getFormProps()}
                 />
             );

@@ -32,4 +32,11 @@ export default abstract class InputComponent<P extends IProps = IProps> extends 
         },
         value: this.state.text,
     })
+
+    protected onEnterKeyDown = (event: React.KeyboardEvent<{}>) => {
+        if (event.keyCode === 13) {
+            this.setState({ editing: false });
+            event.preventDefault();
+        }
+    }
 }
