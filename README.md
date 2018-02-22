@@ -6,6 +6,22 @@
 
 Task management app for minimalists
 
+## Features
+
+- Tasks per project
+- Built-in pomodoro timer
+- Data sync among devices
+- Offline capability
+- Mobile support
+
+## Stack
+
+- React & Redux
+- TypeScript
+- Firebase
+  - Firestore
+  - Authentication
+
 ## License
 
 [MIT](LICENSE)
