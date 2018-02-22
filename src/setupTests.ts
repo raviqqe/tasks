@@ -27,3 +27,11 @@ class LocalStorageMock {
 }
 
 (window as any).localStorage = new LocalStorageMock();
+
+(window as any).Notification = class {
+    public static permission: NotificationPermission = "granted";
+
+    public static async requestPermission(): Promise<NotificationPermission> {
+        return "granted";
+    }
+};

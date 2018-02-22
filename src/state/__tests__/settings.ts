@@ -2,23 +2,9 @@ import { createStore } from "..";
 import { sleep } from "../../infra/utils";
 import { actionCreators, initialState, reducer } from "../settings";
 
-jest.mock("../../infra/notification", () => ({
-    permission: () => true,
-    requestPermission: () => true,
-}));
-
 function getState(store): typeof initialState {
     return store.getState().settings;
 }
-
-test("Check notification permission", () => {
-    const { store } = createStore();
-
-    expect(getState(store)).toEqual(initialState);
-
-    store.dispatch(actionCreators.checkNotificationPermission());
-    expect(getState(store)).toEqual({ ...initialState, notificationOn: true });
-});
 
 test("Request notification permission", async () => {
     const { store } = createStore();
@@ -37,7 +23,6 @@ test("Set alarm volume", () => {
 });
 
 test("Set notification state", () => {
-    expect(initialState.notificationOn).toBe(null);
     const state = reducer(initialState, actionCreators.setNotificationState(true));
     expect(state.notificationOn).toBe(true);
 });

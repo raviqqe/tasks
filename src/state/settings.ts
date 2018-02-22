@@ -5,15 +5,11 @@ import * as notification from "../infra/notification";
 
 const actionCreator = actionCreatorFactory("SETTINGS");
 
-const checkNotificationPermission = actionCreator("CHECK_NOTIFICATION_PERMISSION");
 const requestNotificationPermission = actionCreator("REQUEST_NOTIFICATION_PERMISSION");
 const setAlarmVolume = actionCreator<number>("SET_ALARM_VOLUME");
 const setNotificationState = actionCreator<boolean | null>("SET_NOTIFICATION_STATE");
 
 export const actionCreators = {
-    checkNotificationPermission: () => (dispatch) => {
-        dispatch(setNotificationState(notification.permission()));
-    },
     requestNotificationPermission: () => async (dispatch) => {
         dispatch(setNotificationState(await notification.requestPermission()));
     },
@@ -23,12 +19,12 @@ export const actionCreators = {
 
 export type IActionCreators = typeof actionCreators;
 
-export interface IState {
-    alarmVolume: number; // 0 to 1
-    notificationOn: boolean | null;
-}
+export const initialState = {
+    alarmVolume: 0.5, // 0 to 1
+    notificationOn: notification.permission(),
+};
 
-export const initialState: IState = { alarmVolume: 0.5, notificationOn: null };
+export type IState = typeof initialState;
 
 export const reducer = reducerWithInitialState(initialState)
     .case(setAlarmVolume, (state, alarmVolume) => ({ ...state, alarmVolume }))
