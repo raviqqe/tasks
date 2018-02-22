@@ -6,7 +6,7 @@ import { reducerWithInitialState } from "typescript-fsa-reducers";
 import {
     emptyProject, getTasksFromProject, IProject, IProjects, isDoneTask, setTasksToProject,
 } from "../domain/project";
-import { createTask, ITask } from "../domain/task";
+import { createTask, ITask, updateTask } from "../domain/task";
 import * as firebase from "../infra/firebase";
 import projectsRepository from "../infra/projects-repository";
 import * as message from "./message";
@@ -75,7 +75,7 @@ export const actionCreators = {
         const done = isDoneTask(project, task.id);
         const tasks = [...getTasksFromProject(project, done)];
 
-        tasks[findIndex(tasks, { id: task.id })] = task;
+        tasks[findIndex(tasks, { id: task.id })] = updateTask(task);
 
         dispatch(modifyProject(setTasksToProject(project, tasks, done)));
     },
@@ -118,7 +118,7 @@ export const actionCreators = {
 
         let sourceTasks = getTasksFromProject(project, done);
         const destinationTasks = [
-            find(sourceTasks, { id }),
+            updateTask(find(sourceTasks, { id })),
             ...getTasksFromProject(project, !done),
         ];
         sourceTasks = reject(sourceTasks, { id });

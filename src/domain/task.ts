@@ -25,6 +25,10 @@ export function createTask(name: string, description: string): ITask {
     };
 }
 
+export function updateTask(task: ITask): ITask {
+    return { ...task, updatedAt: getUnixTimeStamp() };
+}
+
 export function includeTaskInTasks(id: string, tasks: ITask[]): boolean {
     return !!find(tasks, { id });
 }

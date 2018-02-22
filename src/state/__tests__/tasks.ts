@@ -7,6 +7,8 @@ function getState(store): typeof initialState {
     return store.getState().tasks;
 }
 
+jest.mock("../../domain/utils", () => ({ getUnixTimeStamp: () => 42 }));
+
 test("Add a new project", () => {
     const { store } = createStore();
 
