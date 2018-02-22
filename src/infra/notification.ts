@@ -2,14 +2,17 @@ function isNotificationSupported() {
     return "Notification" in window;
 }
 
-export function permission(): boolean | null {
-    switch ((Notification as any).permission) {
-        case "default": return null;
+function permissionToBoolean(permission: NotificationPermission): boolean | null {
+    switch (permission) {
         case "granted": return true;
         case "denied": return false;
     }
 
-    throw new Error("Invalid permission.");
+    return null;
+}
+
+export function permission(): boolean | null {
+    return permissionToBoolean((Notification as any).permission);
 }
 
 export async function requestPermission(): Promise<boolean | null> {
@@ -17,8 +20,7 @@ export async function requestPermission(): Promise<boolean | null> {
         return null;
     }
 
-    await new Promise((resolve) => Notification.requestPermission(resolve));
-    return permission();
+    return permissionToBoolean(await Notification.requestPermission());
 }
 
 export function notify(message: string): void {
