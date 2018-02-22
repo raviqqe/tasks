@@ -1,7 +1,7 @@
 import * as React from "react";
 
 export interface IProps {
-    onEdit?: (text: string) => void;
+    onEdit: (text: string) => void;
     text: string;
 }
 
@@ -13,28 +13,23 @@ export interface IState {
 export default abstract class InputComponent<P extends IProps = IProps> extends React.Component<P, IState> {
     public state: IState = { editing: false, text: "" };
 
-    protected form: HTMLInputElement;
-
     public componentDidUpdate(_, { editing }: IState) {
-        const { onEdit } = this.props;
-
         if (!editing && this.state.editing) {
-            this.form.focus(); // Do this after rendering.
-
-            // Set an initial value and move a cursor to end.
-            const { text } = this.props;
-            this.form.value = "";
-            this.form.value = text;
-            this.setState({ text });
-        } else if (editing && !this.state.editing && onEdit) {
-            onEdit(this.state.text);
+            this.setState({ text: this.props.text });
+        } else if (editing && !this.state.editing) {
+            this.props.onEdit(this.state.text);
         }
     }
 
     protected getFormProps = () => ({
+        autoFocus: true,
         onBlur: () => this.setState({ editing: false }),
         onChange: ({ target: { value } }) => this.setState({ text: value }),
-        ref: (form) => this.form = form,
+        onFocus: (event) => {
+            event = event as React.FormEvent<HTMLInputElement>;
+            event.target.value = "";
+            event.target.value = this.props.text;
+        },
         value: this.state.text,
     })
 }
