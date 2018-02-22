@@ -187,9 +187,11 @@ export function initializeStore(store: Store<any>): void {
             const getProjects: () => IProjects = () => store.getState().tasks.projects;
             let localProjects = getProjects();
             const remoteProjects = await projectsRepository.getProjects();
+            const newProjects = { ...localProjects, ...remoteProjects };
 
             if (localProjects.hasOwnProperty(defaultProjectName) &&
-                isEqual(localProjects[defaultProjectName], emptyProject)) {
+                isEqual(localProjects[defaultProjectName], emptyProject) &&
+                Object.keys(newProjects).length !== 1) {
                 localProjects = omit(localProjects, defaultProjectName);
             }
 
@@ -197,7 +199,7 @@ export function initializeStore(store: Store<any>): void {
                 projectsRepository.addOrModifyProject(name, localProjects[name]);
             }
 
-            store.dispatch(actionCreators.updateProjects({ ...localProjects, ...remoteProjects }));
+            store.dispatch(actionCreators.updateProjects(newProjects));
 
             projectsRepository.subscribeProjects(
                 (name: string, project: IProject) =>
