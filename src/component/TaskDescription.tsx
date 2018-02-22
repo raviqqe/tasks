@@ -26,7 +26,7 @@ export default class extends InputComponent {
         const { text } = this.props;
 
         return (
-            <div onClick={() => this.setState({ editing: true })}>
+            <div className="TaskDescription" onClick={() => this.setState({ editing: true })}>
                 {text.trim()
                     ? (
                         <Markdown
@@ -42,7 +42,7 @@ export default class extends InputComponent {
                             }}
                         />
                     )
-                    : <div className="TaskDescription-message">No description</div>}
+                    : <div className="message">No description</div>}
             </div>
         );
     }

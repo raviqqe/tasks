@@ -22,11 +22,14 @@ export default class extends InputComponent<IProps> {
             );
         }
 
+        const editable = !!onEdit;
+
         return (
             <div
                 className="TaskName"
+                data-editable={editable}
                 data-highlighted={highlighted}
-                onClick={() => this.setState({ editing: onEdit !== undefined })}
+                onClick={() => this.setState({ editing: editable })}
             >
                 {text}
             </div>

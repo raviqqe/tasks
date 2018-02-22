@@ -1,10 +1,14 @@
 @import "../../style/colors.scss";
 
-.TaskDescription-input {
-	height: 20vh;
-	resize: vertical;
-}
+.TaskDescription {
+	cursor: text;
 
-.TaskDescription-message {
-	color: $grey;
+	> .message {
+		color: $grey;
+	}
+
+	&-input {
+		height: 20vh;
+		resize: vertical;
+	}
 }

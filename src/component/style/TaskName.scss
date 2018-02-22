@@ -3,6 +3,10 @@
 .TaskName {
 	font-size: 1.1em;
 
+	&[data-editable="true"] {
+		cursor: text;
+	}
+
 	&[data-highlighted="true"] {
 		color: $red;
 	}
