@@ -14,7 +14,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-icons": "^2.2.7",
-    "react-markdown": "^3.2.0",
+    "react-markdown": "^3.2.1",
     "react-redux": "^5.0.7",
     "react-scripts-ts": "2.13.0",
     "react-transition-group": "^2.2.1",
@@ -33,8 +33,8 @@
     "match-media-mock": "^0.1.0",
     "node-sass-chokidar": "0.0.3",
     "stylelint": "^8.4.0",
-    "stylelint-config-recommended-scss": "^3.0.0",
-    "stylelint-scss": "^2.3.0",
+    "stylelint-config-recommended-scss": "^3.1.0",
+    "stylelint-scss": "^2.4.0",
     "typescript": "^2.7.2",
     "workbox-cli": "^2.1.2"
   }
