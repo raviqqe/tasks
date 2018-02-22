@@ -2,6 +2,7 @@ import * as React from "react";
 import Markdown = require("react-markdown");
 
 import InputComponent, { IProps as IInputComponentProps } from "./InputComponent";
+
 import "./style/TaskName.css";
 
 interface IProps extends IInputComponentProps {
@@ -10,8 +11,6 @@ interface IProps extends IInputComponentProps {
 
 export default class extends InputComponent<IProps> {
     public render() {
-        const { highlighted, onEdit, text } = this.props;
-
         if (this.state.editing) {
             return (
                 <input
@@ -22,6 +21,7 @@ export default class extends InputComponent<IProps> {
             );
         }
 
+        const { highlighted, onEdit, text } = this.props;
         const editable = !!onEdit;
 
         return (
