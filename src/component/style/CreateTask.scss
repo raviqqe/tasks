@@ -1,6 +1,3 @@
-@import "../../style/colors.scss";
-@import "../../style/margin.scss";
-@import "./Button.scss";
 @import "./Task.scss";
 
 .CreateTask {
@@ -12,20 +9,6 @@
 	> .description {
 		height: 20vh;
 		resize: vertical;
-	}
-
-	> .buttons {
-		@include horizontal-child-margin(0.25em);
-
-		display: flex;
-
-		> * {
-			flex: 1;
-		}
-
-		> .cancel-button {
-			@include Button($grey);
-		}
 	}
 
 	&-new-button-text {

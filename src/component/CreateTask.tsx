@@ -40,10 +40,6 @@ class CreateTask extends React.Component<tasks.IActionCreators, IState> {
                             closeWindow();
                             event.preventDefault();
                         }}
-                        onReset={(event) => {
-                            closeWindow();
-                            event.preventDefault();
-                        }}
                     >
                         <input
                             ref={(input) => this.input = input}
@@ -57,10 +53,7 @@ class CreateTask extends React.Component<tasks.IActionCreators, IState> {
                             value={description}
                             onChange={({ target: { value } }) => this.setState({ description: value })}
                         />
-                        <div className="buttons">
-                            <Button type="submit">Create</Button>
-                            <Button className="cancel-button" type="reset">Cancel</Button>
-                        </div>
+                        <Button type="submit">Create</Button>
                     </form>}
             </ModalWindowButton>
         );
