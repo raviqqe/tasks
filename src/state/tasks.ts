@@ -1,4 +1,4 @@
-import { difference, find, findIndex, omit, reject } from "lodash";
+import { difference, find, findIndex, isEqual, omit, reject } from "lodash";
 import { Store } from "redux";
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
@@ -169,7 +169,13 @@ export const reducer = reducerWithInitialState(initialState)
         (state, currentProjectName) => ({ ...state, currentProjectName }))
     .case(actionCreators.setCurrentTaskId,
         (state, currentTaskId) => ({ ...state, currentTaskId }))
-    .case(actionCreators.updateProjects, (state, projects) => ({ ...state, projects }));
+    .case(actionCreators.updateProjects, ({ currentProjectName, ...rest }, projects) => ({
+        ...rest,
+        currentProjectName: projects.hasOwnProperty(currentProjectName)
+            ? currentProjectName
+            : Object.keys(projects)[0],
+        projects,
+    }));
 
 export const persistent = true;
 
@@ -179,8 +185,13 @@ export function initializeStore(store: Store<any>): void {
 
         if (user) {
             const getProjects: () => IProjects = () => store.getState().tasks.projects;
-            const localProjects = getProjects();
+            let localProjects = getProjects();
             const remoteProjects = await projectsRepository.getProjects();
+
+            if (localProjects.hasOwnProperty(defaultProjectName) &&
+                isEqual(localProjects[defaultProjectName], emptyProject)) {
+                localProjects = omit(localProjects, defaultProjectName);
+            }
 
             for (const name of difference(Object.keys(localProjects), Object.keys(remoteProjects))) {
                 projectsRepository.addOrModifyProject(name, localProjects[name]);
