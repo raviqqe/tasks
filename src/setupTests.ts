@@ -35,3 +35,7 @@ class LocalStorageMock {
         return "granted";
     }
 };
+
+(window.navigator as any).permissions = {
+    query: () => ({}),
+};
