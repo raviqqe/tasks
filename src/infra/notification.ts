@@ -31,3 +31,8 @@ export function notify(message: string): void {
         setTimeout(() => notification.close(), 6000);
     }
 }
+
+export async function onPermissionChange(callback: (permission: boolean | null) => void) {
+    (await (navigator as any).permissions.query({ name: "notifications" })).onchange
+        = () => callback(permission());
+}

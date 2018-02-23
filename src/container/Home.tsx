@@ -85,10 +85,6 @@ class Home extends React.Component<IProps, IState> {
     }
 
     public componentDidMount() {
-        if (this.props.notificationOn === null) {
-            this.props.requestNotificationPermission();
-        }
-
         if (this.props.touchable) {
             this.setState({ listsFixed: true });
         }

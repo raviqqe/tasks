@@ -1,3 +1,4 @@
+import { Store } from "redux";
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 
@@ -5,14 +6,10 @@ import * as notification from "../infra/notification";
 
 const actionCreator = actionCreatorFactory("SETTINGS");
 
-const requestNotificationPermission = actionCreator("REQUEST_NOTIFICATION_PERMISSION");
 const setAlarmVolume = actionCreator<number>("SET_ALARM_VOLUME");
 const setNotificationState = actionCreator<boolean | null>("SET_NOTIFICATION_STATE");
 
 export const actionCreators = {
-    requestNotificationPermission: () => async (dispatch) => {
-        dispatch(setNotificationState(await notification.requestPermission()));
-    },
     setAlarmVolume,
     setNotificationState,
 };
@@ -29,5 +26,16 @@ export type IState = typeof initialState;
 export const reducer = reducerWithInitialState(initialState)
     .case(setAlarmVolume, (state, alarmVolume) => ({ ...state, alarmVolume }))
     .case(setNotificationState, (state, notificationOn) => ({ ...state, notificationOn }));
+
+export async function initializeStore(store: Store<any>): Promise<void> {
+    const setPermission = (permission) => store.dispatch(setNotificationState(permission));
+
+    if (notification.permission() === null) {
+        setPermission(await notification.requestPermission());
+    }
+
+    setPermission(notification.permission());
+    notification.onPermissionChange(setPermission);
+}
 
 export const persistent = true;
