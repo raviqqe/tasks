@@ -10,13 +10,10 @@ const sendMessage = actionCreator<string>("SEND_MESSAGE");
 
 export const actionCreators = {
     clearMessage,
-    sendMessage: (message: string, temporary: boolean = true) => async (dispatch) => {
+    sendMessage: (message: string) => async (dispatch) => {
         dispatch(sendMessage(message));
-
-        if (temporary) {
-            await sleep(5000);
-            dispatch(clearMessage());
-        }
+        await sleep(5000);
+        dispatch(clearMessage());
     },
 };
 

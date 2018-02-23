@@ -27,7 +27,7 @@ test("Clear a message", () => {
 
     expect(getState(store)).toEqual(initialState);
 
-    store.dispatch(actionCreators.sendMessage("foo", false));
+    store.dispatch(actionCreators.sendMessage("foo"));
     expect(getState(store)).toEqual({ message: "foo" });
 
     store.dispatch(actionCreators.clearMessage());
