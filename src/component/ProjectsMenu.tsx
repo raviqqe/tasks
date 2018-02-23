@@ -36,9 +36,9 @@ class ProjectsMenu extends React.Component<IProps, IState> {
                 />
                 <div className="box" data-hidden={!opened}>
                     <div className="projects">
-                        {Object.keys(projects).map((name, index) =>
+                        {Object.keys(projects).sort().map((name) =>
                             <TextButton
-                                key={index}
+                                key={name}
                                 disabled={name === currentProjectName}
                                 onClick={() => {
                                     setCurrentProjectName(name);
