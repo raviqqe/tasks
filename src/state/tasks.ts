@@ -58,10 +58,20 @@ function getProject(getState: () => { tasks: IState }): IProject {
 
 export const actionCreators = {
     addProject: (name: string) => (dispatch) => {
+        if (!name) {
+            dispatch(message.actionCreators.sendMessage("Project names cannot be empty."));
+            return;
+        }
+
         dispatch(addOrModifyProject(name, emptyProject));
         dispatch(setCurrentProjectName(name));
     },
     addTask: (task: ITask) => (dispatch, getState) => {
+        if (!task.name) {
+            dispatch(message.actionCreators.sendMessage("Task names cannot be empty."));
+            return;
+        }
+
         const project = getProject(getState);
 
         dispatch(modifyProject({

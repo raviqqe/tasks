@@ -25,6 +25,13 @@ test("Add a new project", () => {
     });
 });
 
+test("Add a invalid project", () => {
+    const { store } = createStore();
+
+    store.dispatch(actionCreators.addProject(""));
+    expect(getState(store)).toEqual(initialState);
+});
+
 test("Add a new task", () => {
     const { store } = createStore();
 
@@ -38,6 +45,13 @@ test("Add a new task", () => {
     store.dispatch(actionCreators.addTask(barTask));
     expect(getState(store).currentTaskId).toEqual(barTask.id);
     expect(getState(store).projects).toEqual({ default: { doneTasks: [], todoTasks: [barTask, fooTask] } });
+});
+
+test("Add a invalid task", () => {
+    const { store } = createStore();
+
+    store.dispatch(actionCreators.addTask(createTask("", "")));
+    expect(getState(store)).toEqual(initialState);
 });
 
 test("Rename a project", () => {
