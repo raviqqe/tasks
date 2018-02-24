@@ -1,4 +1,5 @@
 import * as React from "react";
+import TextArea from "react-autosize-textarea";
 import Markdown = require("react-markdown");
 
 import InputComponent from "./InputComponent";
@@ -9,7 +10,7 @@ export default class extends InputComponent {
     public render() {
         if (this.state.editing) {
             return (
-                <textarea
+                <TextArea
                     className="TaskDescription-input"
                     onKeyDown={(event: React.KeyboardEvent<{}>) => {
                         if (event.keyCode === 83 && event.ctrlKey ||

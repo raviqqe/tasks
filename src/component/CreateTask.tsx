@@ -1,4 +1,5 @@
 import * as React from "react";
+import TextArea from "react-autosize-textarea";
 import Plus = require("react-icons/lib/md/add");
 import { connect } from "react-redux";
 
@@ -47,11 +48,12 @@ class CreateTask extends React.Component<tasks.IActionCreators, IState> {
                             value={name}
                             onChange={({ target: { value } }) => this.setState({ name: value })}
                         />
-                        <textarea
+                        <TextArea
                             className="description"
                             placeholder="Description"
                             value={description}
-                            onChange={({ target: { value } }) => this.setState({ description: value })}
+                            onChange={({ target: { value } }: any) =>
+                                this.setState({ description: value })}
                         />
                         <Button type="submit">Create</Button>
                     </form>}

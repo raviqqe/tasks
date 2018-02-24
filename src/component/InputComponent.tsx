@@ -24,7 +24,7 @@ export default abstract class InputComponent<P extends IProps = IProps> extends 
     protected getFormProps = () => ({
         autoFocus: true,
         onBlur: () => this.setState({ editing: false }),
-        onChange: ({ target: { value } }) => this.setState({ text: value }),
+        onChange: ({ target: { value } }: any) => this.setState({ text: value }),
         onFocus: (event) => {
             event = event as React.FormEvent<HTMLInputElement>;
             event.target.value = "";
