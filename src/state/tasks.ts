@@ -108,6 +108,7 @@ export const actionCreators = {
 
         dispatch(addOrModifyProject(name, projects[currentProjectName]));
         dispatch(removeProject(currentProjectName));
+        dispatch(setCurrentProjectName(name));
     },
     setCurrentProjectName,
     setCurrentTaskId,
