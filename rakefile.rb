@@ -18,7 +18,7 @@ task :build do
 
   sh 'npx node-sass-chokidar src -o src'
   sh 'npx react-scripts-ts build'
-  sh 'npx workbox generate:sw'
+  sh 'npx workbox generateSW workbox-cli-config.js'
 end
 
 task deploy: %i[deps build] do

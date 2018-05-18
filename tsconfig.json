@@ -2,6 +2,7 @@
 	"compilerOptions": {
 		"jsx": "react",
 		"lib": ["es5", "es6", "es7", "es2017", "dom"],
+		"baseUrl": ".",
 		"rootDir": "src",
 		"target": "es5",
 		"downlevelIteration": true,
