@@ -1,4 +1,4 @@
-import { difference, find, findIndex, isEqual, omit, reject } from "lodash";
+import { difference, find, findIndex, isEqual, omit, reject, size } from "lodash";
 import { Store } from "redux";
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
@@ -30,7 +30,7 @@ function addOrModifyProject(name: string, project: IProject) {
 
 function removeProject(name: string) {
     return (dispatch, getState) => {
-        if (Object.keys(getState().tasks.projects).length === 1) {
+        if (size(getState().tasks.projects) === 1) {
             dispatch(message.actionCreators.sendMessage(
                 "You cannot delete the last project."));
             return;
@@ -198,11 +198,10 @@ export function initializeStore(store: Store<any>): void {
             const getProjects: () => IProjects = () => store.getState().tasks.projects;
             let localProjects = getProjects();
             const remoteProjects = await projectsRepository.getProjects();
-            const newProjects = { ...localProjects, ...remoteProjects };
 
             if (localProjects.hasOwnProperty(defaultProjectName) &&
                 isEqual(localProjects[defaultProjectName], emptyProject) &&
-                Object.keys(newProjects).length !== 1) {
+                size(localProjects) + size(remoteProjects) !== 1) {
                 localProjects = omit(localProjects, defaultProjectName);
             }
 
@@ -210,7 +209,7 @@ export function initializeStore(store: Store<any>): void {
                 projectsRepository.addOrModifyProject(name, localProjects[name]);
             }
 
-            store.dispatch(actionCreators.updateProjects(newProjects));
+            store.dispatch(actionCreators.updateProjects({ ...localProjects, ...remoteProjects }));
 
             projectsRepository.subscribeProjects(
                 (name: string, project: IProject) =>
