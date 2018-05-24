@@ -192,7 +192,7 @@ export const persistent = true;
 
 export function initializeStore(store: Store<any>): void {
     firebase.onAuthStateChanged(async (user) => {
-        // Only `actionCreators.updateProjects()` can be used here to avoid uppdate loop.
+        // Only `actionCreators.updateProjects()` can be used here to avoid update loop.
 
         if (user) {
             const getProjects: () => IProjects = () => store.getState().tasks.projects;
