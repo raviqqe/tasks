@@ -25,8 +25,8 @@ class ProjectsRepository {
         addOrModifyProject: (name: string, project: IProject) => void,
         removeProject: (name: string) => void,
     ): void {
-        this.unsubscribe = this.collection.onSnapshot(({ docChanges }) => {
-            docChanges().forEach(({ doc, type }) => {
+        this.unsubscribe = this.collection.onSnapshot((snapshot) => {
+            snapshot.docChanges().forEach(({ doc, type }) => {
                 switch (type) {
                     case "added":
                     case "modified":
