@@ -1,32 +1,13 @@
+import indexedDB = require("fake-indexeddb");
+import IDBKeyRange = require("fake-indexeddb/lib/FDBKeyRange");
 import matchMediaMock = require("match-media-mock");
 
 const matchMedia = matchMediaMock.create();
 matchMedia.setConfig({ type: "screen", width: 1200 });
 window.matchMedia = matchMedia;
 
-class LocalStorageMock {
-    // https://stackoverflow.com/questions/32911630/how-do-i-deal-with-localstorage-in-jest-tests
-
-    private store: { [key: string]: any } = {};
-
-    public clear() {
-        this.store = {};
-    }
-
-    public getItem(key) {
-        return this.store[key] || null;
-    }
-
-    public setItem(key, value) {
-        this.store[key] = value.toString();
-    }
-
-    public removeItem(key) {
-        delete this.store[key];
-    }
-}
-
-(window as any).localStorage = new LocalStorageMock();
+(window as any).indexedDB = indexedDB;
+(window as any).IDBKeyRange = IDBKeyRange;
 
 (window as any).Notification = class {
     public static permission: NotificationPermission = "granted";
