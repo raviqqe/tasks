@@ -18,7 +18,7 @@
 	box-shadow: none;
 }
 
-@mixin Button($background-color: $red, $shadow-only: false) {
+@mixin Button($background-color: $red) {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -38,40 +38,18 @@
 		width: 0;
 	};
 
-	@include untouchable {
-		@include shadow-transition;
+	@include shadow-transition;
 
-		&:hover {
-			@include shadow-on;
-		}
-
-		&:active {
-			@include shadow-off;
-		}
+	&:hover {
+		@include shadow-on;
 	}
 
+	&:active {
+		@include shadow-off;
+	}
 
 	@include touchable {
-		@if $shadow-only {
-			@include shadow-transition;
-			@include shadow-on;
-
-			&:active {
-				@include shadow-off;
-			}
-		}
-		@else {
-			$dark-background: darken($background-color, 15%);
-			$thickness: 0.3rem;
-
-			box-shadow: 0 $thickness $dark-background;
-			transition: box-shadow $short-duration, transform $short-duration;
-
-			&:active {
-				transform: translateY($thickness);
-				box-shadow: 0 0 $dark-background;
-			}
-		}
+		@include shadow-on;
 	}
 }
 

@@ -17,9 +17,3 @@ $small-width: 768px;
 		@content;
 	}
 }
-
-@mixin untouchable {
-	@media (any-pointer: fine), (-moz-touch-enabled: 0) {
-		@content;
-	}
-}
