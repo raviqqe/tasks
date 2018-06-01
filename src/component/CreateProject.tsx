@@ -4,45 +4,48 @@ import { connect } from "react-redux";
 
 import * as tasks from "../state/tasks";
 import IconedButton from "./IconedButton";
+import ModalWindowButton from "./ModalWindowButton";
 
 import "./style/CreateProject.css";
 
 interface IState {
-    editing: boolean;
     name: string;
 }
 
 class CreateProject extends React.Component<tasks.IActionCreators, IState> {
-    public state = { editing: false, name: "" };
+    public input: HTMLElement;
+    public state: IState = { name: "" };
 
     public render() {
         const { addProject } = this.props;
-        const { editing, name } = this.state;
-
-        if (editing) {
-            return (
-                <form
-                    onSubmit={(event) => {
-                        addProject(name);
-                        this.setState({ editing: false, name: "" });
-                        event.preventDefault();
-                    }}
-                >
-                    <input
-                        autoFocus={true}
-                        onBlur={() => this.setState({ editing: false })}
-                        onChange={({ target: { value } }) => this.setState({ name: value })}
-                        placeholder="Name"
-                        value={name}
-                    />
-                </form>
-            );
-        }
+        const { name } = this.state;
 
         return (
-            <IconedButton icon={<Plus />} onClick={() => this.setState({ editing: true })}>
-                <div className="CreateProject-button-text">new</div>
-            </IconedButton>
+            <ModalWindowButton
+                buttonComponent={({ openWindow }) =>
+                    <IconedButton icon={<Plus />} onClick={openWindow}>
+                        <div className="CreateProject-button-text">new</div>
+                    </IconedButton>}
+                onOpen={() => this.input && this.input.focus()}
+            >
+                {(closeWindow) =>
+                    <form
+                        className="CreateProject"
+                        onSubmit={(event) => {
+                            addProject(name);
+                            this.setState({ name: "" });
+                            closeWindow();
+                            event.preventDefault();
+                        }}
+                    >
+                        <input
+                            onChange={({ target: { value } }) => this.setState({ name: value })}
+                            placeholder="Name"
+                            ref={(input) => this.input = input}
+                            value={name}
+                        />
+                    </form>}
+            </ModalWindowButton>
         );
     }
 }

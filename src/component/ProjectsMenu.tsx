@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import { IProject, IProjects } from "../domain/project";
 import * as tasks from "../state/tasks";
-import CreateProject from "./CreateProject";
 import TextButton from "./TextButton";
 
 import "./style/ProjectsMenu.css";
@@ -48,7 +47,6 @@ class ProjectsMenu extends React.Component<IProps, IState> {
                                 {name}
                             </TextButton>)}
                     </div>
-                    <CreateProject />
                 </div>
             </div>
         );

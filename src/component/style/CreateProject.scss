@@ -1,3 +1,9 @@
-.CreateProject-button-text {
-	margin-right: 0.3em;
+@import "./Task.scss";
+
+.CreateProject {
+	@extend .Task;
+
+	&-button-text {
+		margin-right: 0.3em;
+	}
 }
