@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 
 import { createTask, ITask } from "../domain/task";
 import * as tasks from "../state/tasks";
-import Button from "./Button";
 import IconedButton from "./IconedButton";
 import ModalWindowButton from "./ModalWindowButton";
 
@@ -53,7 +52,7 @@ class CreateTask extends React.Component<tasks.IActionCreators, IState> {
                             onChange={({ target: { value } }: any) =>
                                 this.setState({ description: value })}
                         />
-                        <Button type="submit">Create</Button>
+                        <IconedButton icon={<Plus />} type="submit">add</IconedButton>
                     </form>}
             </ModalWindowButton>
         );
