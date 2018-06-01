@@ -26,7 +26,7 @@ export const reducer = reducerWithInitialState(initialState)
     .case(setPointerAvailable, (state, pointerAvailable) => ({ ...state, pointerAvailable }))
     .case(setTouchable, (state, touchable) => ({ ...state, touchable }));
 
-export function initializeStore(store: Store<any>): void {
+export function initializeStore(store: Store): void {
     onWindowSizeChange((isSmallWindow) => store.dispatch(setIsSmallWindow(isSmallWindow)));
     onTouchabilityChange((touchable: boolean) => store.dispatch(setTouchable(touchable)));
     onPointerChange((pointerAvailable: boolean) =>

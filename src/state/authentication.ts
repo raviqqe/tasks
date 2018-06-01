@@ -28,7 +28,7 @@ export type IState = typeof initialState;
 export const reducer = reducerWithInitialState(initialState)
     .case(actionCreators.setSignInState, (_, signedIn) => ({ signedIn }));
 
-export function initializeStore(store: Store<any>): void {
+export function initializeStore(store: Store): void {
     firebase.onAuthStateChanged((user) => store.dispatch(actionCreators.setSignInState(!!user)));
 }
 

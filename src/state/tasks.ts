@@ -190,7 +190,7 @@ export const reducer = reducerWithInitialState(initialState)
 
 export const persistent = true;
 
-export function initializeStore(store: Store<any>): void {
+export function initializeStore(store: Store): void {
     firebase.onAuthStateChanged(async (user) => {
         // Only `actionCreators.updateProjects()` can be used here to avoid update loop.
 

@@ -12,15 +12,15 @@ import * as tasks from "./tasks";
 import * as timer from "./timer";
 
 interface IDuck {
-    initializeStore?: (store: Store<any>) => void;
+    initializeStore?: (store: Store) => void;
     persistent: boolean;
-    reducer: Reducer<any>;
+    reducer: Reducer;
 }
 
 const ducks: { [name: string]: IDuck }
     = { authentication, environment, message, settings, tasks, timer };
 
-export function createStore(): { persistor: Persistor, store: Store<any> } {
+export function createStore(): { persistor: Persistor, store: Store<any, any> } {
     const store = createReduxStore(
         persistReducer(
             {

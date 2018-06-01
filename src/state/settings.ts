@@ -27,7 +27,7 @@ export const reducer = reducerWithInitialState(initialState)
     .case(setAlarmVolume, (state, alarmVolume) => ({ ...state, alarmVolume }))
     .case(setNotificationState, (state, notificationOn) => ({ ...state, notificationOn }));
 
-export async function initializeStore(store: Store<any>): Promise<void> {
+export async function initializeStore(store: Store): Promise<void> {
     const setPermission = (permission) => store.dispatch(setNotificationState(permission));
 
     if (notification.permission() === null) {
