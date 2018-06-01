@@ -118,7 +118,7 @@ test("Set a current task", () => {
     expect(state.currentTaskId).toBe("foo");
 });
 
-test("Set tasks", async () => {
+test("Set tasks", () => {
     const { store } = createStore();
 
     const fooTask = createTask("foo", "");
