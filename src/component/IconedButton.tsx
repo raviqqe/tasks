@@ -19,8 +19,8 @@ export default class extends React.Component<IProps> {
                 className={className || "IconedButton"}
                 onClick={onClick}
             >
-                {icon}
-                {children}
+                <div className="icon">{icon}</div>
+                <div className="label">{children}</div>
             </Button>
         );
     }

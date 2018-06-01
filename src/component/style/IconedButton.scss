@@ -4,9 +4,14 @@
 @mixin IconedButton($background-color: $red) {
 	@include Button($background-color);
 
-	> *:first-child {
+	> .icon {
 		font-size: 1.5em;
+		line-height: 1em;
 		margin-right: 0.1em;
+	}
+
+	> .label {
+		margin-right: 0.2em;
 	}
 }
 
