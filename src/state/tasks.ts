@@ -68,7 +68,7 @@ export const actionCreators = {
     },
     addTask: (task: ITask) => (dispatch, getState) => {
         if (!task.name) {
-            dispatch(message.actionCreators.sendMessage("Task names cannot be empty."));
+            dispatch(message.actionCreators.sendMessage("Task name cannot be empty."));
             return;
         }
 
