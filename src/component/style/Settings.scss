@@ -56,7 +56,6 @@
 		font-size: 0.9em;
 		display: flex;
 		align-items: center;
-		max-width: 50%;
 
 		> .enable-button {
 			@include Button($yellow-green);
