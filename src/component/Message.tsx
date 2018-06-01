@@ -5,14 +5,12 @@ import * as message from "../state/message";
 
 import "./style/Message.css";
 
-interface IProps extends message.IActionCreators, message.IState { }
-
 // Keep previous messages until they go away from screens.
 interface IState {
     message: string;
 }
 
-class Message extends React.Component<IProps, IState> {
+class Message extends React.Component<message.IState & message.IActionCreators, IState> {
     public state: IState = { message: "" };
 
     public render() {

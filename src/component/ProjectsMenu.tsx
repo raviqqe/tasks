@@ -7,13 +7,11 @@ import TextButton from "./TextButton";
 
 import "./style/ProjectsMenu.css";
 
-interface IProps extends tasks.IActionCreators, tasks.IState { }
-
 interface IState {
     opened: boolean;
 }
 
-class ProjectsMenu extends React.Component<IProps, IState> {
+class ProjectsMenu extends React.Component<tasks.IState & tasks.IActionCreators, IState> {
     public state: IState = { opened: false };
 
     public render() {
