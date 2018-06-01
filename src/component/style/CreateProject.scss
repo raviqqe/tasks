@@ -1,9 +1,9 @@
-@import "./Task.scss";
+@import "../../style/border.scss";
 
 .CreateProject {
-	@extend .Task;
+	@include paper-border;
 
-	&-button-text {
-		margin-right: 0.3em;
-	}
+	background: white;
+	padding: 1em;
+	font-size: 1.2em;
 }

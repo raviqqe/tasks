@@ -1,29 +1,59 @@
 import * as React from "react";
+import Edit = require("react-icons/lib/md/edit");
+import { connect } from "react-redux";
 
-import Button from "./Button";
-import InputComponent, { IProps as IInputComponentProps } from "./InputComponent";
+import * as tasks from "../state/tasks";
+import IconedButton from "./IconedButton";
+import ModalWindowButton from "./ModalWindowButton";
 
 import "./style/RenameProject.css";
 
-export default class extends InputComponent {
+interface IState {
+    name: string;
+}
+
+class RenameProject extends React.Component<tasks.IState & tasks.IActionCreators, IState> {
+    public input: HTMLElement;
+    public state: IState = { name: "" };
+
     public render() {
-        if (this.state.editing) {
-            return (
-                <input
-                    className="RenameProject-input"
-                    onKeyDown={this.onEnterKeyDown}
-                    {...this.getFormProps()}
-                />
-            );
-        }
+        const { currentProjectName, renameProject } = this.props;
+        const { name } = this.state;
 
         return (
-            <Button
-                className="RenameProject-button"
-                onClick={() => this.setState({ editing: true })}
+            <ModalWindowButton
+                buttonComponent={({ openWindow }) =>
+                    <IconedButton className="RenameProject-button" icon={<Edit />} onClick={openWindow}>
+                        rename
+                    </IconedButton>}
+                onOpen={() => {
+                    if (this.input) {
+                        this.input.focus();
+                    }
+
+                    this.setState({ name: currentProjectName });
+                }}
             >
-                Rename
-            </Button>
+                {(closeWindow) =>
+                    <form
+                        className="RenameProject"
+                        onSubmit={(event) => {
+                            renameProject(name);
+                            this.setState({ name: "" });
+                            closeWindow();
+                            event.preventDefault();
+                        }}
+                    >
+                        <input
+                            onChange={({ target: { value } }) => this.setState({ name: value })}
+                            placeholder="Name"
+                            ref={(input) => this.input = input}
+                            value={name}
+                        />
+                    </form>}
+            </ModalWindowButton>
         );
     }
 }
+
+export default connect(({ tasks }) => tasks, tasks.actionCreators)(RenameProject);

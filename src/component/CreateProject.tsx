@@ -23,9 +23,7 @@ class CreateProject extends React.Component<tasks.IActionCreators, IState> {
         return (
             <ModalWindowButton
                 buttonComponent={({ openWindow }) =>
-                    <IconedButton icon={<Plus />} onClick={openWindow}>
-                        <div className="CreateProject-button-text">new</div>
-                    </IconedButton>}
+                    <IconedButton icon={<Plus />} onClick={openWindow}>new</IconedButton>}
                 onOpen={() => this.input && this.input.focus()}
             >
                 {(closeWindow) =>

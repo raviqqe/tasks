@@ -11,6 +11,7 @@ import * as settings from "../state/settings";
 import * as tasks from "../state/tasks";
 import Button from "./Button";
 import CreateProject from "./CreateProject";
+import DeleteProject from "./DeleteProject";
 import Link from "./Link";
 import ModalWindowButton from "./ModalWindowButton";
 import RenameProject from "./RenameProject";
@@ -73,21 +74,21 @@ class Settings extends React.Component<IProps> {
                             />
                         </div>
                     </SettingsItem>
-                    <SettingsItem label="Current Project">
+                    <SettingsItem label="Projects">
                         <div className="Settings-buttons">
                             <CreateProject />
-                            <RenameProject text={currentProjectName} onEdit={renameProject} />
-                            <Button onClick={() => removeProject(currentProjectName)}>Delete</Button>
+                            <RenameProject />
+                            <DeleteProject />
                         </div>
                     </SettingsItem>
                     <SettingsItem label="Remote Sync">
                         <div className="Settings-buttons">
                             {signedIn ?
                                 <Button className="disable-button" onClick={signOut}>
-                                    Disable
+                                    disable
                                 </Button> :
                                 <Button className="enable-button" onClick={signIn}>
-                                    Enable
+                                    enable
                                 </Button>}
                         </div>
                     </SettingsItem>
