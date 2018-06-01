@@ -2,8 +2,8 @@
 	"short_name": "tasks",
 	"name": "tasks",
 	"icons": [{
-		"src": "icon.png",
-		"sizes": "192x192",
+		"src": "icon512.png",
+		"sizes": "512x512",
 		"type": "image/png"
 	}],
 	"start_url": "/",

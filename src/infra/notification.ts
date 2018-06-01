@@ -25,9 +25,7 @@ export async function requestPermission(): Promise<boolean | null> {
 
 export function notify(message: string): void {
     if (isNotificationSupported() && permission()) {
-        const notification = new Notification(
-            message,
-            { icon: require("../images/notification.png") });
+        const notification = new Notification(message, { icon: "/icon128.png" });
         setTimeout(() => notification.close(), 6000);
     }
 }

@@ -3,18 +3,12 @@ task :deps do
 end
 
 task :build do
-  sh %w[inkscape
-        --export-width 16 --export-height 16
-        --export-png public/favicon.png
-        images/icon.svg].join ' '
-  sh %w[inkscape
-        --export-width 192 --export-height 192
-        --export-png public/icon.png
-        images/icon.svg].join ' '
-  sh %w[inkscape
-        --export-width 128 --export-height 128
-        --export-png images/notification.png
-        images/icon.svg].join ' '
+  [16, 128, 512].each do |size|
+    sh %W[inkscape
+          --export-width #{size} --export-height #{size}
+          --export-png public/icon#{size}.png
+          images/icon.svg].join ' '
+  end
 
   sh 'npx node-sass-chokidar src -o src'
   sh 'npx react-scripts-ts build'
