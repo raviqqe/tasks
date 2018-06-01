@@ -2,7 +2,7 @@
 @import "../../style/colors.scss";
 @import "../../style/margin.scss";
 @import "../../style/media.scss";
-@import "./Button.scss";
+@import "./IconedButton.scss";
 
 @mixin notification {
 	font-weight: bold;
@@ -58,11 +58,11 @@
 		align-items: center;
 
 		> .enable-button {
-			@include Button($yellow-green);
+			@include IconedButton($yellow-green);
 		}
 
 		> .disable-button {
-			@include Button($grey);
+			@include IconedButton($grey);
 		}
 
 		@include small-window {

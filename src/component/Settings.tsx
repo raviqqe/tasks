@@ -3,15 +3,17 @@ import "rc-slider/assets/index.css";
 import * as React from "react";
 import GitHub = require("react-icons/lib/go/mark-github");
 import Gear = require("react-icons/lib/md/settings");
+import Sync = require("react-icons/lib/md/sync");
+import NoSync = require("react-icons/lib/md/sync-disabled");
 import { connect } from "react-redux";
 
 import config from "../config";
 import * as authentication from "../state/authentication";
 import * as settings from "../state/settings";
 import * as tasks from "../state/tasks";
-import Button from "./Button";
 import CreateProject from "./CreateProject";
 import DeleteProject from "./DeleteProject";
+import IconedButton from "./IconedButton";
 import Link from "./Link";
 import ModalWindowButton from "./ModalWindowButton";
 import RenameProject from "./RenameProject";
@@ -84,12 +86,20 @@ class Settings extends React.Component<IProps> {
                     <SettingsItem label="Remote Sync">
                         <div className="Settings-buttons">
                             {signedIn ?
-                                <Button className="disable-button" onClick={signOut}>
+                                <IconedButton
+                                    className="disable-button"
+                                    icon={<NoSync />}
+                                    onClick={signOut}
+                                >
                                     disable
-                                </Button> :
-                                <Button className="enable-button" onClick={signIn}>
+                                </IconedButton> :
+                                <IconedButton
+                                    className="enable-button"
+                                    icon={<Sync />}
+                                    onClick={signIn}
+                                >
                                     enable
-                                </Button>}
+                                </IconedButton>}
                         </div>
                     </SettingsItem>
                     <div className="footer">
