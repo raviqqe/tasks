@@ -1,5 +1,6 @@
 @import "../../style/animation.scss";
 @import "../../style/colors.scss";
+@import "../../style/media.scss";
 
 @mixin shadow-transition {
 	transition: box-shadow $instant-duration, transform $instant-duration;
@@ -43,9 +44,12 @@
 		@include shadow-on;
 	}
 
-	&:hover {
-		@include shadow-on;
+	@include untouchable {
+		&:hover {
+			@include shadow-on;
+		}
 	}
+
 
 	&:active {
 		@include shadow-off;
