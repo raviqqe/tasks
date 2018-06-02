@@ -1,6 +1,5 @@
 @import "../../style/animation.scss";
 @import "../../style/colors.scss";
-@import "../../style/media.scss";
 
 @mixin shadow-transition {
 	transition: box-shadow $instant-duration, transform $instant-duration;
@@ -18,7 +17,7 @@
 	box-shadow: none;
 }
 
-@mixin Button($background-color: $red) {
+@mixin Button($background-color: $red, $always-shadowed: false) {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -40,16 +39,16 @@
 
 	@include shadow-transition;
 
+	@if $always-shadowed {
+		@include shadow-on;
+	}
+
 	&:hover {
 		@include shadow-on;
 	}
 
 	&:active {
 		@include shadow-off;
-	}
-
-	@include touchable {
-		@include shadow-on;
 	}
 }
 
