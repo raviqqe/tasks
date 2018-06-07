@@ -49,6 +49,13 @@ class Settings extends React.Component<IProps> {
                         </div>}
             >
                 <div className="Settings">
+                    <SettingsItem label="Projects">
+                        <div className="Settings-buttons">
+                            <CreateProject />
+                            <RenameProject />
+                            <DeleteProject />
+                        </div>
+                    </SettingsItem>
                     <SettingsItem label="Notification">
                         {notificationOn
                             ? <div className="Settings-notification-enabled">enabled</div>
@@ -74,13 +81,6 @@ class Settings extends React.Component<IProps> {
                                 }}
                                 onChange={setAlarmVolume}
                             />
-                        </div>
-                    </SettingsItem>
-                    <SettingsItem label="Projects">
-                        <div className="Settings-buttons">
-                            <CreateProject />
-                            <RenameProject />
-                            <DeleteProject />
                         </div>
                     </SettingsItem>
                     <SettingsItem label="Remote Sync">
