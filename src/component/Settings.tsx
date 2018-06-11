@@ -56,10 +56,24 @@ class Settings extends React.Component<IProps> {
                             <DeleteProject />
                         </div>
                     </SettingsItem>
-                    <SettingsItem label="Notification">
-                        {notificationOn
-                            ? <div className="Settings-notification-enabled">enabled</div>
-                            : <div className="Settings-notification-disabled">disabled</div>}
+                    <SettingsItem label="Remote Sync">
+                        <div className="Settings-buttons">
+                            {signedIn ?
+                                <IconedButton
+                                    className="disable-button"
+                                    icon={<NoSync />}
+                                    onClick={signOut}
+                                >
+                                    disable
+                                </IconedButton> :
+                                <IconedButton
+                                    className="enable-button"
+                                    icon={<Sync />}
+                                    onClick={signIn}
+                                >
+                                    enable
+                                </IconedButton>}
+                        </div>
                     </SettingsItem>
                     <SettingsItem label="Alarm volume">
                         <div className="Settings-volume-slider">
@@ -83,24 +97,10 @@ class Settings extends React.Component<IProps> {
                             />
                         </div>
                     </SettingsItem>
-                    <SettingsItem label="Remote Sync">
-                        <div className="Settings-buttons">
-                            {signedIn ?
-                                <IconedButton
-                                    className="disable-button"
-                                    icon={<NoSync />}
-                                    onClick={signOut}
-                                >
-                                    disable
-                                </IconedButton> :
-                                <IconedButton
-                                    className="enable-button"
-                                    icon={<Sync />}
-                                    onClick={signIn}
-                                >
-                                    enable
-                                </IconedButton>}
-                        </div>
+                    <SettingsItem label="Notification">
+                        {notificationOn
+                            ? <div className="Settings-notification-enabled">enabled</div>
+                            : <div className="Settings-notification-disabled">disabled</div>}
                     </SettingsItem>
                     <div className="footer">
                         <Link href={config.repositoryUrl}>
