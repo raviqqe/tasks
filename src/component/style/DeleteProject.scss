@@ -3,17 +3,17 @@
 @import "./IconedButton.scss";
 
 .DeleteProject {
-	@include paper-border;
-	@include vertical-child-margin(0.5em);
+  @include paper-border;
+  @include vertical-child-margin(0.5em);
 
-	background: white;
-	padding: 1em;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	font-size: 1.2em;
+  background: white;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2em;
 
-	&-button {
-		@include IconedButton($grey);
-	}
+  &-button {
+    @include IconedButton($grey);
+  }
 }

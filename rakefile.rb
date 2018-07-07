@@ -28,6 +28,11 @@ task :test do
   sh 'npx react-scripts-ts test --coverage --env=jsdom'
 end
 
+task :lint do
+  sh 'npx tslint src/**/*.ts{,x}'
+  sh 'npx prettier -l src/**/*.{json,scss,ts{,x}}'
+end
+
 task :clean do
   sh 'git clean -dfx'
 end

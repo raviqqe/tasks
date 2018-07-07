@@ -1,8 +1,8 @@
 import { getUnixTimeStamp, unixTimeStampToString } from "../utils";
 
 test("Get a time stamp", () => {
-    const timeStamp = getUnixTimeStamp();
+  const timeStamp = getUnixTimeStamp();
 
-    expect(timeStamp).toBeGreaterThan(1000000000);
-    expect(timeStamp).toBeLessThan(2000000000);
+  expect(timeStamp).toBeGreaterThan(1000000000);
+  expect(timeStamp).toBeLessThan(2000000000);
 });

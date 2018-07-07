@@ -4,13 +4,15 @@ import MenuBox from "./MenuBox";
 import MenuButton, { IProps as IMenuButtonProps } from "./MenuButton";
 
 interface IProps extends IMenuButtonProps {
-    isSmallWindow: boolean;
+  isSmallWindow: boolean;
 }
 
 export default class extends React.Component<IProps> {
-    public render() {
-        return this.props.isSmallWindow
-            ? <MenuButton {...this.props} />
-            : <MenuBox {...this.props} />;
-    }
+  public render() {
+    return this.props.isSmallWindow ? (
+      <MenuButton {...this.props} />
+    ) : (
+      <MenuBox {...this.props} />
+    );
+  }
 }

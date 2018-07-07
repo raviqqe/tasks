@@ -3,18 +3,18 @@
 @import "../../style/media.scss";
 
 .SmallIconButton {
-	color: $black;
-	font-size: 1.5em;
-	display: flex;
-	transition: color $instant-duration, transform $instant-duration;
-	cursor: pointer;
+  color: $black;
+  font-size: 1.5em;
+  display: flex;
+  transition: color $instant-duration, transform $instant-duration;
+  cursor: pointer;
 
-	&:hover {
-		color: $red;
-		transform: scale(1.5, 1.5);
-	}
+  &:hover {
+    color: $red;
+    transform: scale(1.5, 1.5);
+  }
 
-	@include small-window {
-		color: $grey;
-	}
+  @include small-window {
+    color: $grey;
+  }
 }

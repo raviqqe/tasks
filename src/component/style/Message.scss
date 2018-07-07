@@ -2,29 +2,29 @@
 @import "../../style/colors.scss";
 
 .Message {
-	position: fixed;
-	top: 0;
-	width: 100vw;
-	display: flex;
-	justify-content: center;
-	pointer-events: none;
-	z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1000;
 
-	> .box {
-		@include paper-border;
+  > .box {
+    @include paper-border;
 
-		color: white;
-		cursor: pointer;
-		font-size: 1.2em;
-		background: $yellow;
-		max-width: 100%;
-		padding: 1em 2em;
-		margin: 1em;
-		transition: 0.2s;
-		pointer-events: auto;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2em;
+    background: $yellow;
+    max-width: 100%;
+    padding: 1em 2em;
+    margin: 1em;
+    transition: 0.2s;
+    pointer-events: auto;
 
-		&[data-hidden="true"] {
-			transform: translateY(-200%);
-		}
-	}
+    &[data-hidden="true"] {
+      transform: translateY(-200%);
+    }
+  }
 }

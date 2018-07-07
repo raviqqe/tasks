@@ -13,15 +13,15 @@ import "./index.css";
 const { persistor, store } = createStore();
 
 ReactDOM.render(
-    <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-            <Home />
-            <Message />
-        </PersistGate>
-    </Provider>,
-    document.getElementById(config.rootId) as HTMLElement,
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <Home />
+      <Message />
+    </PersistGate>
+  </Provider>,
+  document.getElementById(config.rootId) as HTMLElement
 );
 
 if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/service-worker.js");
+  navigator.serviceWorker.register("/service-worker.js");
 }

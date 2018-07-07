@@ -3,49 +3,48 @@
 @import "../../style/media.scss";
 
 .Timer {
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-	&[data-rest="true"] {
-		background: white;
-	}
+  &[data-rest="true"] {
+    background: white;
+  }
 
-	.time {
-		color: white;
-		font-size: 10em;
-		display: flex;
-		align-items: flex-end;
+  .time {
+    color: white;
+    font-size: 10em;
+    display: flex;
+    align-items: flex-end;
 
-		@include small-window {
-			font-size: 6em;
-		}
+    @include small-window {
+      font-size: 6em;
+    }
 
+    &[data-rest="true"] {
+      color: $black;
+    }
 
-		&[data-rest="true"] {
-			color: $black;
-		}
+    > .minutes {
+      font-size: 1.5em;
+      margin-right: 0.1em;
+    }
 
-		> .minutes {
-			font-size: 1.5em;
-			margin-right: 0.1em;
-		}
+    > .seconds {
+      padding-bottom: 0.15em;
+    }
+  }
 
-		> .seconds {
-			padding-bottom: 0.15em;
-		}
-	}
+  > .button {
+    @include Button;
 
-	> .button {
-		@include Button;
+    padding: 0.5em 2em;
 
-		padding: 0.5em 2em;
-
-		> svg {
-			font-size: 2.5em;
-		}
-	}
+    > svg {
+      font-size: 2.5em;
+    }
+  }
 }

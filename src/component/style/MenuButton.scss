@@ -3,52 +3,54 @@
 @import "./CircleButton.scss";
 
 .MenuButton-button-container {
-	position: fixed;
-	bottom: 1em;
-	right: 1em;
-	transition: opacity $short-duration, visibility $short-duration;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  transition: opacity $short-duration, visibility $short-duration;
 
-	&[data-hidden="true"] {
-		opacity: 0;
-		visibility: hidden;
-	}
+  &[data-hidden="true"] {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 .MenuButton-button {
-	@include CircleButton($dark-grey);
+  @include CircleButton($dark-grey);
 }
 
 .MenuButton-menu {
-	position: fixed;
-	top: 0;
-	right: 0;
-	width: 100vw;
-	height: 100vh;
-	background: $transparent-black;
-	transition: background $short-duration, visibility $short-duration;
-	z-index: 100;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $transparent-black;
+  transition: background $short-duration, visibility $short-duration;
+  z-index: 100;
 
-	> * {
-		height: 100%;
-		position: fixed;
-		top: 0;
-		right: 0;
-		transition: transform $short-duration;
-		z-index: 200;
-	}
+  > * {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transition: transform $short-duration;
+    z-index: 200;
+  }
 }
 
-.MenuButton-menu-appear.MenuButton-menu-appear-active, .MenuButton-menu-exit {
-	@extend .MenuButton-menu;
+.MenuButton-menu-appear.MenuButton-menu-appear-active,
+.MenuButton-menu-exit {
+  @extend .MenuButton-menu;
 }
 
-.MenuButton-menu-appear, .MenuButton-menu-exit.MenuButton-menu-exit-active {
-	@extend .MenuButton-menu;
+.MenuButton-menu-appear,
+.MenuButton-menu-exit.MenuButton-menu-exit-active {
+  @extend .MenuButton-menu;
 
-	background: transparent;
-	visibility: hidden;
+  background: transparent;
+  visibility: hidden;
 
-	> * {
-		transform: translateX(100%);
-	}
+  > * {
+    transform: translateX(100%);
+  }
 }

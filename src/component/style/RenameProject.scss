@@ -2,13 +2,13 @@
 @import "./IconedButton.scss";
 
 .RenameProject {
-	@include paper-border;
+  @include paper-border;
 
-	background: white;
-	padding: 1em;
-	font-size: 1.2em;
+  background: white;
+  padding: 1em;
+  font-size: 1.2em;
 
-	&-button {
-		@include IconedButton($grey);
-	}
+  &-button {
+    @include IconedButton($grey);
+  }
 }

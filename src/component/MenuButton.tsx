@@ -8,35 +8,35 @@ import ModalButton, { IButtonProps, IContentProps } from "./ModalButton";
 import "./style/MenuButton.css";
 
 export interface IProps extends IMenuBoxProps {
-    hidden?: boolean;
+  hidden?: boolean;
 }
 
 export default class extends React.Component<IProps> {
-    public render() {
-        return (
-            <ModalButton
-                buttonComponent={this.buttonComponent}
-                closed={this.props.hidden}
-                contentComponent={this.contentComponent}
-                transitionClassNames="MenuButton-menu"
-            />
-        );
-    }
+  public render() {
+    return (
+      <ModalButton
+        buttonComponent={this.buttonComponent}
+        closed={this.props.hidden}
+        contentComponent={this.contentComponent}
+        transitionClassNames="MenuButton-menu"
+      />
+    );
+  }
 
-    private buttonComponent = ({ openWindow }: IButtonProps): JSX.Element => (
-        <div className="MenuButton-button-container" data-hidden={this.props.hidden}>
-            <CircleButton
-                className="MenuButton-button"
-                onClick={openWindow}
-            >
-                <Hamburger />
-            </CircleButton>
-        </div>
-    )
+  private buttonComponent = ({ openWindow }: IButtonProps): JSX.Element => (
+    <div
+      className="MenuButton-button-container"
+      data-hidden={this.props.hidden}
+    >
+      <CircleButton className="MenuButton-button" onClick={openWindow}>
+        <Hamburger />
+      </CircleButton>
+    </div>
+  );
 
-    private contentComponent = ({ closeWindow }: IContentProps): JSX.Element => (
-        <div className="MenuButton-menu" onClick={closeWindow} >
-            <MenuBox {...this.props} />
-        </div>
-    )
+  private contentComponent = ({ closeWindow }: IContentProps): JSX.Element => (
+    <div className="MenuButton-menu" onClick={closeWindow}>
+      <MenuBox {...this.props} />
+    </div>
+  );
 }

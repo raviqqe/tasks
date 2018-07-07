@@ -7,13 +7,14 @@ import { createStore } from "../../state";
 import Home from "../Home";
 
 test("Render", () => {
-    const { persistor, store } = createStore();
+  const { persistor, store } = createStore();
 
-    ReactDOM.render(
-        <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
-                <Home />
-            </PersistGate>
-        </Provider>,
-        document.createElement("div"));
+  ReactDOM.render(
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Home />
+      </PersistGate>
+    </Provider>,
+    document.createElement("div")
+  );
 });

@@ -3,8 +3,11 @@ import Pizzicato = require("pizzicato");
 import { sleep } from "./utils";
 
 export async function playAlarm(volume: number): Promise<void> {
-    const sound = new Pizzicato.Sound({ source: "wave", options: { release: 3, volume } });
-    sound.play();
-    await sleep(500);
-    sound.stop();
+  const sound = new Pizzicato.Sound({
+    options: { release: 3, volume },
+    source: "wave"
+  });
+  sound.play();
+  await sleep(500);
+  sound.stop();
 }

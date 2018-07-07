@@ -5,55 +5,56 @@
 @import "./style/media.scss";
 
 @mixin font-without-size {
-	color: $black;
-	font-family: "Noto Sans", sans-serif;
-	line-height: 1.4;
+  color: $black;
+  font-family: "Noto Sans", sans-serif;
+  line-height: 1.4;
 }
 
 @mixin font {
-	@include font-without-size;
+  @include font-without-size;
 
-	font-size: 14px;
+  font-size: 14px;
 }
 
 * {
-	box-sizing: border-box;
-	user-select: none;
+  box-sizing: border-box;
+  user-select: none;
 
-	@include large-window {
-		&::-webkit-scrollbar {
-			width: 0.7rem;
-		}
+  @include large-window {
+    &::-webkit-scrollbar {
+      width: 0.7rem;
+    }
 
-		&::-webkit-scrollbar-thumb {
-			border-radius: 1rem;
-			background: $grey;
-		}
-	}
+    &::-webkit-scrollbar-thumb {
+      border-radius: 1rem;
+      background: $grey;
+    }
+  }
 }
 
 body {
-	@include font;
+  @include font;
 
-	background: $light-green;
-	margin: 0;
-	padding: 0;
+  background: $light-green;
+  margin: 0;
+  padding: 0;
 }
 
-input, textarea {
-	@include font;
+input,
+textarea {
+  @include font;
 
-	border: {
-		style: solid;
-		color: $grey;
-		radius: $paper-border-radius;
-		width: 1px;
-	};
-	outline: none;
-	padding: 0.2em;
-	width: 100%;
+  border: {
+    style: solid;
+    color: $grey;
+    radius: $paper-border-radius;
+    width: 1px;
+  }
+  outline: none;
+  padding: 0.2em;
+  width: 100%;
 
-	&:focus {
-		@include font-without-size;
-	}
+  &:focus {
+    @include font-without-size;
+  }
 }

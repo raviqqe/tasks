@@ -2,19 +2,19 @@
 @import "./Button.scss";
 
 @mixin IconedButton($background-color: $red) {
-	@include Button($background-color);
+  @include Button($background-color);
 
-	> .icon {
-		font-size: 1.5em;
-		line-height: 0;
-		margin-right: 0.1em;
-	}
+  > .icon {
+    font-size: 1.5em;
+    line-height: 0;
+    margin-right: 0.1em;
+  }
 
-	> .label {
-		margin-right: 0.2em;
-	}
+  > .label {
+    margin-right: 0.2em;
+  }
 }
 
 .IconedButton {
-	@include IconedButton;
+  @include IconedButton;
 }

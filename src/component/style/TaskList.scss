@@ -3,33 +3,32 @@
 @import "../../style/media.scss";
 
 .TaskList {
-	overflow-y: auto;
-	height: 100%;
-	padding: 0.5em;
+  overflow-y: auto;
+  height: 100%;
+  padding: 0.5em;
 
-	> * {
-		transition: box-shadow $instant-duration, transform $instant-duration;
-		margin: 0.5em;
-	}
+  > * {
+    transition: box-shadow $instant-duration, transform $instant-duration;
+    margin: 0.5em;
+  }
 
-	@include small-window {
-		// padding for a menu icon.
-		padding-bottom: 5em;
-	}
+  @include small-window {
+    // padding for a menu icon.
+    padding-bottom: 5em;
+  }
 
+  &[data-shadowed="true"] {
+    > * {
+      box-shadow: 0 0.2em 0.2em $transparent-black;
+      transform: translateY(-0.2em);
+    }
+  }
 
-	&[data-shadowed="true"] {
-		> * {
-			box-shadow: 0 0.2em 0.2em $transparent-black;
-			transform: translateY(-0.2em);
-		}
-	}
+  &-message {
+    padding: 1em;
+  }
 
-	&-message {
-		padding: 1em;
-	}
-
-	&-placeholder {
-		visibility: hidden;
-	}
+  &-placeholder {
+    visibility: hidden;
+  }
 }

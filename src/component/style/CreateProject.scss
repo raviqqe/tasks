@@ -1,9 +1,9 @@
 @import "../../style/border.scss";
 
 .CreateProject {
-	@include paper-border;
+  @include paper-border;
 
-	background: white;
-	padding: 1em;
-	font-size: 1.2em;
+  background: white;
+  padding: 1em;
+  font-size: 1.2em;
 }

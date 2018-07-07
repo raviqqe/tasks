@@ -24,96 +24,120 @@ import "./style/Settings.css";
 const grey = "#bcc";
 const green = "#9db634";
 
-interface IProps extends
-    authentication.IActionCreators, authentication.IState,
-    settings.IActionCreators, settings.IState,
-    tasks.IActionCreators, tasks.IState { }
+interface IProps
+  extends authentication.IActionCreators,
+    authentication.IState,
+    settings.IActionCreators,
+    settings.IState,
+    tasks.IActionCreators,
+    tasks.IState {}
 
 class Settings extends React.Component<IProps> {
-    public render() {
-        const {
-            alarmVolume, currentProjectName, notificationOn, removeProject,
-            renameProject, setAlarmVolume, signedIn, signIn, signOut,
-        } = this.props;
+  public render() {
+    const {
+      alarmVolume,
+      currentProjectName,
+      notificationOn,
+      removeProject,
+      renameProject,
+      setAlarmVolume,
+      signedIn,
+      signIn,
+      signOut
+    } = this.props;
 
-        return (
-            <ModalWindowButton
-                buttonComponent={
-                    ({ opened, openWindow }) =>
-                        <div
-                            className="Settings-icon"
-                            data-active={opened}
-                            onClick={openWindow}
-                        >
-                            <Gear />
-                        </div>}
-            >
-                <div className="Settings">
-                    <SettingsItem label="Projects">
-                        <div className="Settings-buttons">
-                            <CreateProject />
-                            <RenameProject />
-                            <DeleteProject />
-                        </div>
-                    </SettingsItem>
-                    <SettingsItem label="Remote Sync">
-                        <div className="Settings-buttons">
-                            {signedIn ?
-                                <IconedButton
-                                    className="disable-button"
-                                    icon={<NoSync />}
-                                    onClick={signOut}
-                                >
-                                    disable
-                                </IconedButton> :
-                                <IconedButton
-                                    className="enable-button"
-                                    icon={<Sync />}
-                                    onClick={signIn}
-                                >
-                                    enable
-                                </IconedButton>}
-                        </div>
-                    </SettingsItem>
-                    <SettingsItem label="Alarm volume">
-                        <div className="Settings-volume-slider">
-                            <Slider
-                                min={0}
-                                max={1}
-                                defaultValue={0.5}
-                                value={alarmVolume}
-                                step={0.125}
-                                marks={{ 0: "0", 0.5: "0.5", 1: "1" }}
-                                railStyle={{ backgroundColor: grey }}
-                                trackStyle={{ backgroundColor: green }}
-                                dotStyle={{ background: grey, borderColor: grey }}
-                                activeDotStyle={{ background: green, borderColor: green }}
-                                handleStyle={{
-                                    background: green,
-                                    borderColor: green,
-                                    boxShadow: "none",
-                                }}
-                                onChange={setAlarmVolume}
-                            />
-                        </div>
-                    </SettingsItem>
-                    <SettingsItem label="Notification">
-                        {notificationOn
-                            ? <div className="Settings-notification-enabled">enabled</div>
-                            : <div className="Settings-notification-disabled">disabled</div>}
-                    </SettingsItem>
-                    <div className="footer">
-                        <Link href={config.repositoryUrl}>
-                            <div className="Settings-github-link"><GitHub /> GitHub</div>
-                        </Link>
-                    </div>
-                </div>
-            </ModalWindowButton>
-        );
-    }
+    return (
+      <ModalWindowButton
+        buttonComponent={({ opened, openWindow }) => (
+          <div
+            className="Settings-icon"
+            data-active={opened}
+            onClick={openWindow}
+          >
+            <Gear />
+          </div>
+        )}
+      >
+        <div className="Settings">
+          <SettingsItem label="Projects">
+            <div className="Settings-buttons">
+              <CreateProject />
+              <RenameProject />
+              <DeleteProject />
+            </div>
+          </SettingsItem>
+          <SettingsItem label="Remote Sync">
+            <div className="Settings-buttons">
+              {signedIn ? (
+                <IconedButton
+                  className="disable-button"
+                  icon={<NoSync />}
+                  onClick={signOut}
+                >
+                  disable
+                </IconedButton>
+              ) : (
+                <IconedButton
+                  className="enable-button"
+                  icon={<Sync />}
+                  onClick={signIn}
+                >
+                  enable
+                </IconedButton>
+              )}
+            </div>
+          </SettingsItem>
+          <SettingsItem label="Alarm volume">
+            <div className="Settings-volume-slider">
+              <Slider
+                min={0}
+                max={1}
+                defaultValue={0.5}
+                value={alarmVolume}
+                step={0.125}
+                marks={{ 0: "0", 0.5: "0.5", 1: "1" }}
+                railStyle={{ backgroundColor: grey }}
+                trackStyle={{ backgroundColor: green }}
+                dotStyle={{ background: grey, borderColor: grey }}
+                activeDotStyle={{ background: green, borderColor: green }}
+                handleStyle={{
+                  background: green,
+                  borderColor: green,
+                  boxShadow: "none"
+                }}
+                onChange={setAlarmVolume}
+              />
+            </div>
+          </SettingsItem>
+          <SettingsItem label="Notification">
+            {notificationOn ? (
+              <div className="Settings-notification-enabled">enabled</div>
+            ) : (
+              <div className="Settings-notification-disabled">disabled</div>
+            )}
+          </SettingsItem>
+          <div className="footer">
+            <Link href={config.repositoryUrl}>
+              <div className="Settings-github-link">
+                <GitHub /> GitHub
+              </div>
+            </Link>
+          </div>
+        </div>
+      </ModalWindowButton>
+    );
+  }
 }
 
 export default connect(
-    ({ authentication, settings, tasks }) => ({ ...authentication, ...settings, ...tasks }),
-    { ...authentication.actionCreators, ...settings.actionCreators, ...tasks.actionCreators },
+  ({ authentication, settings, tasks }) => ({
+    ...authentication,
+    ...settings,
+    ...tasks
+  }),
+  {
+    ...authentication.actionCreators,
+    ...settings.actionCreators,
+    ...tasks.actionCreators
+  }
 )(Settings);

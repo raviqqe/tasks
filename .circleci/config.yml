@@ -4,22 +4,15 @@ jobs:
     docker:
       - image: node
     steps:
-      - run:
-          name: Setup
-          command: |
-            apt -y update --fix-missing
-            apt -y upgrade
-            apt -y install inkscape rake
-            npm install --global codecov
+      - run: |
+          apt -y update --fix-missing
+          apt -y upgrade
+          apt -y install inkscape rake
+          npm install --global codecov
       - checkout
-      - run:
-          name: Dependencies
-          command: rake deps
-      - run:
-          name: Build
-          command: rake build
-      - run:
-          name: Test
-          command: |
-            rake test
-            codecov
+      - run: rake deps
+      - run: rake build
+      - run: rake lint
+      - run: |
+          rake test
+          codecov

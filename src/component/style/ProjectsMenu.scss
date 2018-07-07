@@ -6,68 +6,67 @@
 @import "../../style/shadow.scss";
 
 .ProjectsMenu {
-	> .current-project-name {
-		color: white;
-		cursor: pointer;
-		font-size: 1.5em;
-		padding: 1em;
-		text-align: center;
-		word-wrap: break-word;
-	}
+  > .current-project-name {
+    color: white;
+    cursor: pointer;
+    font-size: 1.5em;
+    padding: 1em;
+    text-align: center;
+    word-wrap: break-word;
+  }
 
-	> .background {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		z-index: 100;
+  > .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
 
-		@include small-window {
-			left: unset;
-			right: 0;
-		}
+    @include small-window {
+      left: unset;
+      right: 0;
+    }
 
+    &[data-hidden="true"] {
+      display: none;
+    }
+  }
 
-		&[data-hidden="true"] {
-			display: none;
-		}
-	}
+  > .box {
+    @include paper-shadow;
+    @include paper-border;
+    @include vertical-child-margin(0.8em);
 
-	> .box {
-		@include paper-shadow;
-		@include paper-border;
-		@include vertical-child-margin(0.8em);
+    $margin: 1em;
 
-		$margin: 1em;
+    background: white;
+    padding: 1.5em 2em;
+    position: fixed;
+    left: $margin;
+    top: $margin;
+    max-width: calc(100vw - 2 * #{$margin});
+    max-height: calc(100vh - 2 * #{$margin});
+    overflow: auto;
+    transform-origin: 0 0;
+    transition: transform $short-duration, opacity $short-duration,
+      visibility $short-duration;
+    z-index: 200;
 
-		background: white;
-		padding: 1.5em 2em;
-		position: fixed;
-		left: $margin;
-		top: $margin;
-		max-width: calc(100vw - 2 * #{$margin});
-		max-height: calc(100vh - 2 * #{$margin});
-		overflow: auto;
-		transform-origin: 0 0;
-		transition: transform $short-duration, opacity $short-duration, visibility $short-duration;
-		z-index: 200;
+    @include small-window {
+      left: unset;
+      right: $margin;
+      transform-origin: 100% 0;
+    }
 
-		@include small-window {
-			left: unset;
-			right: $margin;
-			transform-origin: 100% 0;
-		}
+    &[data-hidden="true"] {
+      transform: scale(0, 0);
+      opacity: 0;
+      visibility: hidden;
+    }
 
-
-		&[data-hidden="true"] {
-			transform: scale(0, 0);
-			opacity: 0;
-			visibility: hidden;
-		}
-
-		> .projects {
-			font-size: 1.2em;
-		}
-	}
+    > .projects {
+      font-size: 1.2em;
+    }
+  }
 }

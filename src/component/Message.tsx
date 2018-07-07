@@ -7,33 +7,35 @@ import "./style/Message.css";
 
 // Keep previous messages until they go away from screens.
 interface IState {
-    message: string;
+  message: string;
 }
 
-class Message extends React.Component<message.IState & message.IActionCreators, IState> {
-    public state: IState = { message: "" };
+class Message extends React.Component<
+  message.IState & message.IActionCreators,
+  IState
+> {
+  public state: IState = { message: "" };
 
-    public render() {
-        const { clearMessage, message } = this.props;
+  public render() {
+    const { clearMessage, message } = this.props;
 
-        return (
-            <div className="Message">
-                <div
-                    className="box"
-                    data-hidden={!message}
-                    onClick={clearMessage}
-                >
-                    {this.state.message}
-                </div>
-            </div>
-        );
+    return (
+      <div className="Message">
+        <div className="box" data-hidden={!message} onClick={clearMessage}>
+          {this.state.message}
+        </div>
+      </div>
+    );
+  }
+
+  public componentWillUpdate({ message }) {
+    if (message && message !== this.state.message) {
+      this.setState({ message });
     }
-
-    public componentWillUpdate({ message }) {
-        if (message && message !== this.state.message) {
-            this.setState({ message });
-        }
-    }
+  }
 }
 
-export default connect(({ message }) => message, message.actionCreators)(Message);
+export default connect(
+  ({ message }) => message,
+  message.actionCreators
+)(Message);

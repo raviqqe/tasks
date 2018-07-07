@@ -1,36 +1,41 @@
 @import "../../style/animation.scss";
 @import "../../style/colors.scss";
 
-@mixin TextButton($color: $grey, $active-color: $black, $active-background-color: $transparent-grey) {
-	font: inherit;
-	display: flex;
-	align-items: center;
-	color: $color;
-	cursor: pointer;
-	padding: 0.5em;
-	border: none;
-	border-radius: 0.2em;
-	white-space: nowrap;
-	background: transparent;
-	transition: background $instant-duration, color $instant-duration;
+@mixin TextButton(
+  $color: $grey,
+  $active-color: $black,
+  $active-background-color: $transparent-grey
+) {
+  font: inherit;
+  display: flex;
+  align-items: center;
+  color: $color;
+  cursor: pointer;
+  padding: 0.5em;
+  border: none;
+  border-radius: 0.2em;
+  white-space: nowrap;
+  background: transparent;
+  transition: background $instant-duration, color $instant-duration;
 
-	&:hover, &:active {
-		background: $active-background-color;
-		color: $active-color;
-	}
+  &:hover,
+  &:active {
+    background: $active-background-color;
+    color: $active-color;
+  }
 
-	> svg {
-		font-size: 1.8em;
-		margin-right: 0.3em;
-	}
+  > svg {
+    font-size: 1.8em;
+    margin-right: 0.3em;
+  }
 }
 
 .TextButton {
-	@include TextButton($grey, $black, transparentize($black, 0.95));
+  @include TextButton($grey, $black, transparentize($black, 0.95));
 
-	&[data-disabled="true"] {
-		@include TextButton($red, $red, transparent);
+  &[data-disabled="true"] {
+    @include TextButton($red, $red, transparent);
 
-		cursor: auto;
-	}
+    cursor: auto;
+  }
 }

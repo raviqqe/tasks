@@ -3,8 +3,12 @@ import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 
 import {
-    isSmallWindow, onPointerChange, onTouchabilityChange, onWindowSizeChange,
-    pointerAvailable, touchable,
+  isSmallWindow,
+  onPointerChange,
+  onTouchabilityChange,
+  onWindowSizeChange,
+  pointerAvailable,
+  touchable
 } from "../infra/media";
 
 const actionCreator = actionCreatorFactory("ENVIRONMENT");
@@ -14,23 +18,34 @@ const setPointerAvailable = actionCreator<boolean>("SET_POINTER_AVAILABLE");
 const setTouchable = actionCreator<boolean>("SET_TOUCHABLE");
 
 export const initialState = {
-    isSmallWindow,
-    pointerAvailable,
-    touchable,
+  isSmallWindow,
+  pointerAvailable,
+  touchable
 };
 
 export type IState = typeof initialState;
 
 export const reducer = reducerWithInitialState(initialState)
-    .case(setIsSmallWindow, (state, isSmallWindow) => ({ ...state, isSmallWindow }))
-    .case(setPointerAvailable, (state, pointerAvailable) => ({ ...state, pointerAvailable }))
-    .case(setTouchable, (state, touchable) => ({ ...state, touchable }));
+  .case(setIsSmallWindow, (state, isSmallWindow) => ({
+    ...state,
+    isSmallWindow
+  }))
+  .case(setPointerAvailable, (state, pointerAvailable) => ({
+    ...state,
+    pointerAvailable
+  }))
+  .case(setTouchable, (state, touchable) => ({ ...state, touchable }));
 
 export function initializeStore(store: Store): void {
-    onWindowSizeChange((isSmallWindow) => store.dispatch(setIsSmallWindow(isSmallWindow)));
-    onTouchabilityChange((touchable: boolean) => store.dispatch(setTouchable(touchable)));
-    onPointerChange((pointerAvailable: boolean) =>
-        store.dispatch(setPointerAvailable(pointerAvailable)));
+  onWindowSizeChange(isSmallWindow =>
+    store.dispatch(setIsSmallWindow(isSmallWindow))
+  );
+  onTouchabilityChange((touchable: boolean) =>
+    store.dispatch(setTouchable(touchable))
+  );
+  onPointerChange((pointerAvailable: boolean) =>
+    store.dispatch(setPointerAvailable(pointerAvailable))
+  );
 }
 
 export const persistent = false;

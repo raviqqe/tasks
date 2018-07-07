@@ -17,109 +17,131 @@ import Timer from "./Timer";
 
 import "./style/Home.css";
 
-interface IProps extends
-    environment.IState,
-    settings.IActionCreators, settings.IState,
-    tasks.IActionCreators, tasks.IState {
-    timer: timer.IState;
+interface IProps
+  extends environment.IState,
+    settings.IActionCreators,
+    settings.IState,
+    tasks.IActionCreators,
+    tasks.IState {
+  timer: timer.IState;
 }
 
 interface IState {
-    done: boolean;
-    listsFixed: boolean;
+  done: boolean;
+  listsFixed: boolean;
 }
 
 class Home extends React.Component<IProps, IState> {
-    public state: IState = { done: false, listsFixed: false };
+  public state: IState = { done: false, listsFixed: false };
 
-    public render() {
-        const {
-            currentProjectName, currentTaskId, isSmallWindow, pointerAvailable,
-            timer, touchable,
-        } = this.props;
-        const currentTask = find(this.currentTasks, { id: currentTaskId });
+  public render() {
+    const {
+      currentProjectName,
+      currentTaskId,
+      isSmallWindow,
+      pointerAvailable,
+      timer,
+      touchable
+    } = this.props;
+    const currentTask = find(this.currentTasks, { id: currentTaskId });
 
-        if (timer.on) {
-            return <Timer currentTask={currentTask} />;
-        }
-
-        const { done, listsFixed } = this.state;
-
-        const sorting = touchable && !listsFixed;
-
-        return (
-            <div className="Home">
-                <div className="content">
-                    <Menu
-                        done={done}
-                        hidden={sorting}
-                        isSmallWindow={isSmallWindow}
-                        makeTaskListSortable={() => this.setState({ listsFixed: false })}
-                        onTasksStateChange={(done) => this.setState({ done })}
-                        pointerAvailable={pointerAvailable}
-                    />
-                    <div className="tasks">
-                        <TaskList
-                            done={done}
-                            tasks={done
-                                ? this.currentProject.doneTasks
-                                : this.currentProject.todoTasks}
-                            fixed={listsFixed}
-                            sorting={sorting}
-                            {...this.props}
-                        />
-                        {!isSmallWindow &&
-                            <div className="current-task">
-                                {currentTask && <Task detailed={true} done={done} {...currentTask} />}
-                            </div>}
-                        {sorting &&
-                            <div className="fix-list-button">
-                                <CircleButton onClick={() => this.setState({ listsFixed: true })}>
-                                    <Save />
-                                </CircleButton>
-                            </div>}
-                    </div>
-                </div>
-            </div>
-        );
+    if (timer.on) {
+      return <Timer currentTask={currentTask} />;
     }
 
-    public componentDidMount() {
-        if (this.props.touchable) {
-            this.setState({ listsFixed: true });
-        }
+    const { done, listsFixed } = this.state;
 
-        this.componentDidUpdate(this.props);
+    const sorting = touchable && !listsFixed;
+
+    return (
+      <div className="Home">
+        <div className="content">
+          <Menu
+            done={done}
+            hidden={sorting}
+            isSmallWindow={isSmallWindow}
+            makeTaskListSortable={() => this.setState({ listsFixed: false })}
+            onTasksStateChange={done => this.setState({ done })}
+            pointerAvailable={pointerAvailable}
+          />
+          <div className="tasks">
+            <TaskList
+              done={done}
+              tasks={
+                done
+                  ? this.currentProject.doneTasks
+                  : this.currentProject.todoTasks
+              }
+              fixed={listsFixed}
+              sorting={sorting}
+              {...this.props}
+            />
+            {!isSmallWindow && (
+              <div className="current-task">
+                {currentTask && (
+                  <Task detailed={true} done={done} {...currentTask} />
+                )}
+              </div>
+            )}
+            {sorting && (
+              <div className="fix-list-button">
+                <CircleButton
+                  onClick={() => this.setState({ listsFixed: true })}
+                >
+                  <Save />
+                </CircleButton>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  public componentDidMount() {
+    if (this.props.touchable) {
+      this.setState({ listsFixed: true });
     }
 
-    public componentDidUpdate(props) {
-        const { currentProjectName, currentTaskId, setCurrentTaskId } = this.props;
+    this.componentDidUpdate(this.props);
+  }
 
-        if (props.currentProjectName !== currentProjectName) {
-            this.setState({ done: false });
-        }
+  public componentDidUpdate(props) {
+    const { currentProjectName, currentTaskId, setCurrentTaskId } = this.props;
 
-        const tasks = this.currentTasks;
-
-        if (tasks.length === 0) {
-            setCurrentTaskId(null);
-        } else if (currentTaskId === null || !includeTaskInTasks(currentTaskId, tasks)) {
-            setCurrentTaskId(tasks[0].id);
-        }
+    if (props.currentProjectName !== currentProjectName) {
+      this.setState({ done: false });
     }
 
-    private get currentProject(): IProject {
-        const { currentProjectName, projects } = this.props;
+    const tasks = this.currentTasks;
 
-        return projects[currentProjectName];
+    if (tasks.length === 0) {
+      setCurrentTaskId(null);
+    } else if (
+      currentTaskId === null ||
+      !includeTaskInTasks(currentTaskId, tasks)
+    ) {
+      setCurrentTaskId(tasks[0].id);
     }
+  }
 
-    private get currentTasks(): ITask[] {
-        return getTasksFromProject(this.currentProject, this.state.done);
-    }
+  private get currentProject(): IProject {
+    const { currentProjectName, projects } = this.props;
+
+    return projects[currentProjectName];
+  }
+
+  private get currentTasks(): ITask[] {
+    return getTasksFromProject(this.currentProject, this.state.done);
+  }
 }
 
 export default connect(
-    ({ environment, settings, tasks, timer }) => ({ ...environment, ...settings, ...tasks, timer }),
-    { ...settings.actionCreators, ...tasks.actionCreators },
+  ({ environment, settings, tasks, timer }) => ({
+    ...environment,
+    ...settings,
+    ...tasks,
+    timer
+  }),
+  { ...settings.actionCreators, ...tasks.actionCreators }
 )(Home);

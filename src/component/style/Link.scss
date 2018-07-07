@@ -1,13 +1,13 @@
 .Link {
-	color: inherit;
-	font-size: inherit;
-	text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
 
-	&:visited {
-		color: inherit;
-	}
+  &:visited {
+    color: inherit;
+  }
 
-	&:hover {
-		text-decoration: underline;
-	}
+  &:hover {
+    text-decoration: underline;
+  }
 }

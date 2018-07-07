@@ -8,39 +8,46 @@ import ModalWindowButton from "./ModalWindowButton";
 
 import "./style/DeleteProject.css";
 
-class DeleteProject extends React.Component<tasks.IState & tasks.IActionCreators> {
-    public render() {
-        const { currentProjectName, removeProject } = this.props;
+class DeleteProject extends React.Component<
+  tasks.IState & tasks.IActionCreators
+> {
+  public render() {
+    const { currentProjectName, removeProject } = this.props;
 
-        return (
-            <ModalWindowButton
-                buttonComponent={({ openWindow }) =>
-                    <IconedButton
-                        className="DeleteProject-button"
-                        icon={<Trash />}
-                        onClick={openWindow}
-                    >
-                        delete
-                    </IconedButton>}
+    return (
+      <ModalWindowButton
+        buttonComponent={({ openWindow }) => (
+          <IconedButton
+            className="DeleteProject-button"
+            icon={<Trash />}
+            onClick={openWindow}
+          >
+            delete
+          </IconedButton>
+        )}
+      >
+        {closeWindow => (
+          <div className="DeleteProject">
+            <div className="message">
+              Are you sure to delete "{currentProjectName}" project?
+            </div>
+            <IconedButton
+              icon={<Trash />}
+              onClick={() => {
+                removeProject(currentProjectName);
+                closeWindow();
+              }}
             >
-                {(closeWindow) =>
-                    <div className="DeleteProject">
-                        <div className="message">
-                            Are you sure to delete "{currentProjectName}" project?
-                        </div>
-                        <IconedButton
-                            icon={<Trash />}
-                            onClick={() => {
-                                removeProject(currentProjectName);
-                                closeWindow();
-                            }}
-                        >
-                            delete
-                        </IconedButton>
-                    </div>}
-            </ModalWindowButton>
-        );
-    }
+              delete
+            </IconedButton>
+          </div>
+        )}
+      </ModalWindowButton>
+    );
+  }
 }
 
-export default connect(({ tasks }) => tasks, tasks.actionCreators)(DeleteProject);
+export default connect(
+  ({ tasks }) => tasks,
+  tasks.actionCreators
+)(DeleteProject);

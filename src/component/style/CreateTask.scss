@@ -1,13 +1,13 @@
 @import "./Task.scss";
 
 .CreateTask {
-	@extend .Task;
+  @extend .Task;
 
-	width: 40em;
-	padding: 1em;
+  width: 40em;
+  padding: 1em;
 
-	> .description {
-		height: 20vh;
-		resize: vertical;
-	}
+  > .description {
+    height: 20vh;
+    resize: vertical;
+  }
 }

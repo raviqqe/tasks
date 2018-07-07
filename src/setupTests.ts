@@ -10,13 +10,13 @@ window.matchMedia = matchMedia;
 (window as any).IDBKeyRange = IDBKeyRange;
 
 (window as any).Notification = class {
-    public static permission: NotificationPermission = "granted";
+  public static permission: NotificationPermission = "granted";
 
-    public static async requestPermission(): Promise<NotificationPermission> {
-        return "granted";
-    }
+  public static async requestPermission(): Promise<NotificationPermission> {
+    return "granted";
+  }
 };
 
 (window.navigator as any).permissions = {
-    query: () => ({}),
+  query: () => ({})
 };

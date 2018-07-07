@@ -1,5 +1,11 @@
 import { mapValues } from "lodash";
-import { applyMiddleware, combineReducers, createStore as createReduxStore, Reducer, Store } from "redux";
+import {
+  applyMiddleware,
+  combineReducers,
+  createStore as createReduxStore,
+  Reducer,
+  Store
+} from "redux";
 import { Persistor, persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
@@ -12,32 +18,43 @@ import * as tasks from "./tasks";
 import * as timer from "./timer";
 
 interface IDuck {
-    initializeStore?: (store: Store) => void;
-    persistent: boolean;
-    reducer: Reducer;
+  initializeStore?: (store: Store) => void;
+  persistent: boolean;
+  reducer: Reducer;
 }
 
-const ducks: { [name: string]: IDuck }
-    = { authentication, environment, message, settings, tasks, timer };
+const ducks: { [name: string]: IDuck } = {
+  authentication,
+  environment,
+  message,
+  settings,
+  tasks,
+  timer
+};
 
-export function createStore(): { persistor: Persistor, store: Store<any, any> } {
-    const store = createReduxStore(
-        persistReducer(
-            {
-                key: "root",
-                storage,
-                whitelist: Object.keys(ducks).filter((name) => ducks[name].persistent),
-            },
-            combineReducers(mapValues(ducks, ({ reducer }) => reducer))),
-        applyMiddleware(thunk));
+export function createStore(): {
+  persistor: Persistor;
+  store: Store<any, any>;
+} {
+  const store = createReduxStore(
+    persistReducer(
+      {
+        key: "root",
+        storage,
+        whitelist: Object.keys(ducks).filter(name => ducks[name].persistent)
+      },
+      combineReducers(mapValues(ducks, ({ reducer }) => reducer))
+    ),
+    applyMiddleware(thunk)
+  );
 
-    for (const name of Object.keys(ducks)) {
-        const { initializeStore } = ducks[name];
+  for (const name of Object.keys(ducks)) {
+    const { initializeStore } = ducks[name];
 
-        if (initializeStore) {
-            initializeStore(store);
-        }
+    if (initializeStore) {
+      initializeStore(store);
     }
+  }
 
-    return { persistor: persistStore(store), store };
+  return { persistor: persistStore(store), store };
 }
