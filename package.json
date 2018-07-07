@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "firebase": "^5.0.4",
+    "firebase": "^5.2.0",
     "lodash": "^4.17.10",
-    "nanoid": "^1.0.3",
+    "nanoid": "^1.0.5",
     "node-waves": "^0.7.6",
     "numeral": "^2.0.6",
     "pizzicato": "^0.6.3",
@@ -18,7 +18,7 @@
     "react-markdown": "^3.3.4",
     "react-redux": "^5.0.7",
     "react-scripts-ts": "^2.16.0",
-    "react-transition-group": "^2.3.1",
+    "react-transition-group": "^2.4.0",
     "redux": "^4.0.0",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
@@ -27,12 +27,12 @@
     "typescript-fsa-reducers": "^0.4.5"
   },
   "devDependencies": {
-    "@types/jest": "^23.1.1",
-    "@types/node": "^10.3.4",
-    "@types/react": "^16.4.0",
+    "@types/jest": "^23.1.4",
+    "@types/node": "^10.5.2",
+    "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
     "fake-indexeddb": "^2.0.4",
-    "firebase-tools": "^3.18.6",
+    "firebase-tools": "^3.19.3",
     "match-media-mock": "^0.1.0",
     "node-sass-chokidar": "^1.3.0",
     "prettier": "^1.13.7",
@@ -42,6 +42,6 @@
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.13.0",
     "typescript": "^2.9.2",
-    "workbox-cli": "^3.3.0"
+    "workbox-cli": "^3.3.1"
   }
 }
