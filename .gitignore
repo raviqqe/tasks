@@ -2,6 +2,7 @@
 *.js
 *.log
 *.png
+.firebase
 build
 coverage
 node_modules
