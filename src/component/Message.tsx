@@ -21,7 +21,11 @@ class Message extends React.Component<
 
     return (
       <div className="Message">
-        <div className="box" data-hidden={!message} onClick={clearMessage}>
+        <div
+          className="box"
+          data-hidden={!message}
+          onClick={() => clearMessage()}
+        >
           {this.state.message}
         </div>
       </div>
