@@ -15,7 +15,9 @@ firebase.initializeApp({
 firebase.firestore().enablePersistence();
 
 export async function signIn(): Promise<void> {
-  await firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  await firebase
+    .auth()
+    .signInWithRedirect(new firebase.auth.GoogleAuthProvider());
 }
 
 export async function signOut(): Promise<void> {
