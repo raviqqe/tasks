@@ -1,6 +1,6 @@
 import { find } from "lodash";
 import * as React from "react";
-import Save = require("react-icons/lib/md/save");
+import { MdSave } from "react-icons/md";
 import { connect } from "react-redux";
 
 import CircleButton from "../component/CircleButton";
@@ -88,7 +88,7 @@ class Home extends React.Component<IProps, IState> {
                 <CircleButton
                   onClick={() => this.setState({ listsFixed: true })}
                 >
-                  <Save />
+                  <MdSave />
                 </CircleButton>
               </div>
             )}

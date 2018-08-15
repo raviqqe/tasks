@@ -1,5 +1,5 @@
 import * as React from "react";
-import Close = require("react-icons/lib/md/close");
+import { MdClose } from "react-icons/md";
 import { connect } from "react-redux";
 
 import * as environment from "../state/environment";
@@ -41,7 +41,7 @@ class ModalWindowButton extends React.Component<IProps> {
         {(isSmallWindow || showCloseButton) && (
           <div className="close-button">
             <CircleButton onClick={closeWindow}>
-              <Close />
+              <MdClose />
             </CircleButton>
           </div>
         )}

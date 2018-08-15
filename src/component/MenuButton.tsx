@@ -1,5 +1,5 @@
 import * as React from "react";
-import Hamburger = require("react-icons/lib/md/menu");
+import { MdMenu } from "react-icons/md";
 
 import CircleButton from "./CircleButton";
 import MenuBox, { IProps as IMenuBoxProps } from "./MenuBox";
@@ -29,7 +29,7 @@ export default class extends React.Component<IProps> {
       data-hidden={this.props.hidden}
     >
       <CircleButton className="MenuButton-button" onClick={openWindow}>
-        <Hamburger />
+        <MdMenu />
       </CircleButton>
     </div>
   );

@@ -1,10 +1,8 @@
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import * as React from "react";
-import GitHub = require("react-icons/lib/go/mark-github");
-import Gear = require("react-icons/lib/md/settings");
-import Sync = require("react-icons/lib/md/sync");
-import NoSync = require("react-icons/lib/md/sync-disabled");
+import { GoMarkGithub } from "react-icons/go";
+import { MdSettings, MdSync, MdSyncDisabled } from "react-icons/md";
 import { connect } from "react-redux";
 
 import config from "../config";
@@ -54,7 +52,7 @@ class Settings extends React.Component<IProps> {
             data-active={opened}
             onClick={openWindow}
           >
-            <Gear />
+            <MdSettings />
           </div>
         )}
       >
@@ -71,7 +69,7 @@ class Settings extends React.Component<IProps> {
               {signedIn ? (
                 <IconedButton
                   className="disable-button"
-                  icon={<NoSync />}
+                  icon={<MdSyncDisabled />}
                   onClick={signOut}
                 >
                   disable
@@ -79,7 +77,7 @@ class Settings extends React.Component<IProps> {
               ) : (
                 <IconedButton
                   className="enable-button"
-                  icon={<Sync />}
+                  icon={<MdSync />}
                   onClick={signIn}
                 >
                   enable
@@ -119,7 +117,7 @@ class Settings extends React.Component<IProps> {
           <div className="footer">
             <Link href={config.repositoryUrl}>
               <div className="Settings-github-link">
-                <GitHub /> GitHub
+                <GoMarkGithub /> GitHub
               </div>
             </Link>
           </div>

@@ -1,5 +1,5 @@
 import * as React from "react";
-import Edit = require("react-icons/lib/md/edit");
+import { MdEdit } from "react-icons/md";
 import { connect } from "react-redux";
 
 import * as tasks from "../state/tasks";
@@ -28,7 +28,7 @@ class RenameProject extends React.Component<
         buttonComponent={({ openWindow }) => (
           <IconedButton
             className="RenameProject-button"
-            icon={<Edit />}
+            icon={<MdEdit />}
             onClick={openWindow}
           >
             rename

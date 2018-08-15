@@ -1,5 +1,5 @@
 import * as React from "react";
-import Trash = require("react-icons/lib/md/delete");
+import { MdDelete } from "react-icons/md";
 import { connect } from "react-redux";
 
 import * as tasks from "../state/tasks";
@@ -19,7 +19,7 @@ class DeleteProject extends React.Component<
         buttonComponent={({ openWindow }) => (
           <IconedButton
             className="DeleteProject-button"
-            icon={<Trash />}
+            icon={<MdDelete />}
             onClick={openWindow}
           >
             delete
@@ -32,7 +32,7 @@ class DeleteProject extends React.Component<
               Are you sure to delete "{currentProjectName}" project?
             </div>
             <IconedButton
-              icon={<Trash />}
+              icon={<MdDelete />}
               onClick={() => {
                 removeProject(currentProjectName);
                 closeWindow();

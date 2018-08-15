@@ -1,9 +1,6 @@
 import numeral = require("numeral");
 import * as React from "react";
-import Clock = require("react-icons/lib/md/access-time");
-import Check = require("react-icons/lib/md/check");
-import Trash = require("react-icons/lib/md/delete");
-import Repeat = require("react-icons/lib/md/replay");
+import { MdAccessTime, MdCheck, MdDelete, MdReplay } from "react-icons/md";
 import { connect } from "react-redux";
 
 import { ITask } from "../domain/task";
@@ -64,7 +61,7 @@ class Task extends React.Component<IProps, IState> {
           <div className="buttons" data-hidden={!this.state.showButtons}>
             {(!done || detailed) && (
               <SmallIconButton onClick={() => toggleTaskState(id)}>
-                {done ? <Repeat /> : <Check />}
+                {done ? <MdReplay /> : <MdCheck />}
               </SmallIconButton>
             )}
             {!done && (
@@ -74,12 +71,12 @@ class Task extends React.Component<IProps, IState> {
                   toggleTimer();
                 }}
               >
-                <Clock />
+                <MdAccessTime />
               </SmallIconButton>
             )}
             {(done || detailed) && (
               <SmallIconButton onClick={() => removeTask(id)}>
-                <Trash />
+                <MdDelete />
               </SmallIconButton>
             )}
           </div>

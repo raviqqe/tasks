@@ -1,6 +1,6 @@
 import * as React from "react";
 import TextArea from "react-autosize-textarea";
-import Plus = require("react-icons/lib/md/add");
+import { MdAdd } from "react-icons/md";
 import { connect } from "react-redux";
 
 import { createTask, ITask } from "../domain/task";
@@ -26,7 +26,7 @@ class CreateTask extends React.Component<tasks.IActionCreators, IState> {
     return (
       <ModalWindowButton
         buttonComponent={({ openWindow }) => (
-          <IconedButton icon={<Plus />} onClick={openWindow}>
+          <IconedButton icon={<MdAdd />} onClick={openWindow}>
             add
           </IconedButton>
         )}
@@ -58,7 +58,7 @@ class CreateTask extends React.Component<tasks.IActionCreators, IState> {
                 this.setState({ description: value })
               }
             />
-            <IconedButton icon={<Plus />} type="submit">
+            <IconedButton icon={<MdAdd />} type="submit">
               add
             </IconedButton>
           </form>

@@ -1,5 +1,5 @@
 import * as React from "react";
-import Plus = require("react-icons/lib/md/add");
+import { MdAdd } from "react-icons/md";
 import { connect } from "react-redux";
 
 import * as tasks from "../state/tasks";
@@ -23,7 +23,7 @@ class CreateProject extends React.Component<tasks.IActionCreators, IState> {
     return (
       <ModalWindowButton
         buttonComponent={({ openWindow }) => (
-          <IconedButton icon={<Plus />} onClick={openWindow}>
+          <IconedButton icon={<MdAdd />} onClick={openWindow}>
             add
           </IconedButton>
         )}

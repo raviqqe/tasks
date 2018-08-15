@@ -1,7 +1,5 @@
 import * as React from "react";
-import Done = require("react-icons/lib/md/check-box");
-import Todo = require("react-icons/lib/md/check-box-outline-blank");
-import Sort = require("react-icons/lib/md/sort");
+import { MdCheckBox, MdCheckBoxOutlineBlank, MdSort } from "react-icons/md";
 
 import CreateTask from "./CreateTask";
 import IconedButton from "./IconedButton";
@@ -40,14 +38,14 @@ export default class extends React.Component<IProps> {
               <div className="states">
                 <TextButton
                   disabled={!done}
-                  icon={<Todo />}
+                  icon={<MdCheckBoxOutlineBlank />}
                   onClick={() => onTasksStateChange(false)}
                 >
                   todo
                 </TextButton>
                 <TextButton
                   disabled={done}
-                  icon={<Done />}
+                  icon={<MdCheckBox />}
                   onClick={() => onTasksStateChange(true)}
                 >
                   done
@@ -57,7 +55,7 @@ export default class extends React.Component<IProps> {
               {!pointerAvailable && (
                 <IconedButton
                   className="sort-button"
-                  icon={<Sort />}
+                  icon={<MdSort />}
                   onClick={makeTaskListSortable}
                 >
                   sort
