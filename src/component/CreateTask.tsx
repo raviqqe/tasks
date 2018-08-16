@@ -51,6 +51,7 @@ class CreateTask extends React.Component<tasks.IActionCreators, IState> {
               }
             />
             <TextArea
+              async={true}
               className="description"
               placeholder="Description"
               value={description}
