@@ -1,11 +1,11 @@
 module.exports = {
-    Sound: class {
-        public play() {
-            return;
-        }
+  Sound: class {
+    public play() {
+      return;
+    }
 
-        public stop() {
-            return;
-        }
-    },
+    public stop() {
+      return;
+    }
+  }
 };

@@ -12,6 +12,7 @@ firebase.initializeApp({
   projectId
 });
 
+firebase.firestore().settings({ timestampsInSnapshots: true });
 firebase.firestore().enablePersistence();
 
 export async function signIn(): Promise<void> {
