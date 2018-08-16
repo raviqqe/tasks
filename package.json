@@ -27,10 +27,13 @@
     "typescript-fsa-reducers": "^0.4.5"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.13",
     "@types/jest": "^23.3.1",
     "@types/node": "^10.7.1",
     "@types/react": "^16.4.11",
     "@types/react-dom": "^16.0.7",
+    "enzyme": "^3.4.2",
+    "enzyme-adapter-react-16": "^1.2.0",
     "fake-indexeddb": "^2.0.4",
     "firebase-tools": "^4.1.1",
     "match-media-mock": "^0.1.0",
