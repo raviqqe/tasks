@@ -115,6 +115,7 @@ export default class extends React.Component<IProps, IState> {
       spentSeconds,
       updatedAt
     } = this.props;
+
     return { createdAt, description, id, name, spentSeconds, updatedAt };
   }
 
