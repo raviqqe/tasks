@@ -3,19 +3,16 @@ import * as React from "react";
 import Button from "./Button";
 import "./style/CircleButton.css";
 
-interface IProps {
+export default ({
+  children,
+  className,
+  onClick
+}: {
+  children?: React.ReactNode;
   className?: string;
   onClick: () => void;
-}
-
-export default class extends React.Component<IProps> {
-  public render() {
-    const { children, className, onClick } = this.props;
-
-    return (
-      <Button className={className || "CircleButton"} onClick={onClick}>
-        {children}
-      </Button>
-    );
-  }
-}
+}) => (
+  <Button className={className || "CircleButton"} onClick={onClick}>
+    {children}
+  </Button>
+);

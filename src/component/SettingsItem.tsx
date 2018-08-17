@@ -2,19 +2,15 @@ import * as React from "react";
 
 import "./style/SettingsItem.css";
 
-interface IProps {
+export default ({
+  children,
+  label
+}: {
+  children: React.ReactNode;
   label: string;
-}
-
-export default class extends React.Component<IProps> {
-  public render() {
-    const { children, label } = this.props;
-
-    return (
-      <div className="SettingsItem">
-        {label}
-        {children}
-      </div>
-    );
-  }
-}
+}) => (
+  <div className="SettingsItem">
+    {label}
+    {children}
+  </div>
+);

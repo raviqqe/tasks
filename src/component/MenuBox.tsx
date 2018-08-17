@@ -16,56 +16,50 @@ export interface IProps {
   pointerAvailable: boolean;
 }
 
-export default class extends React.Component<IProps> {
-  public render() {
-    const {
-      done,
-      pointerAvailable,
-      makeTaskListSortable,
-      onTasksStateChange
-    } = this.props;
-
-    return (
-      <div className="MenuBox" onClick={event => event.stopPropagation()}>
-        <div className="upper">
-          <div className="background" />
-          <ProjectsMenu />
-        </div>
-        <div className="lower">
-          <div className="background" />
-          <div className="content">
-            <div className="main">
-              <div className="states">
-                <TextButton
-                  disabled={!done}
-                  icon={<MdCheckBoxOutlineBlank />}
-                  onClick={() => onTasksStateChange(false)}
-                >
-                  todo
-                </TextButton>
-                <TextButton
-                  disabled={done}
-                  icon={<MdCheckBox />}
-                  onClick={() => onTasksStateChange(true)}
-                >
-                  done
-                </TextButton>
-              </div>
-              {!done && <CreateTask />}
-              {!pointerAvailable && (
-                <IconedButton
-                  className="sort-button"
-                  icon={<MdSort />}
-                  onClick={makeTaskListSortable}
-                >
-                  sort
-                </IconedButton>
-              )}
-            </div>
-            <Settings />
+export default ({
+  done,
+  pointerAvailable,
+  makeTaskListSortable,
+  onTasksStateChange
+}: IProps) => (
+  <div className="MenuBox" onClick={event => event.stopPropagation()}>
+    <div className="upper">
+      <div className="background" />
+      <ProjectsMenu />
+    </div>
+    <div className="lower">
+      <div className="background" />
+      <div className="content">
+        <div className="main">
+          <div className="states">
+            <TextButton
+              disabled={!done}
+              icon={<MdCheckBoxOutlineBlank />}
+              onClick={() => onTasksStateChange(false)}
+            >
+              todo
+            </TextButton>
+            <TextButton
+              disabled={done}
+              icon={<MdCheckBox />}
+              onClick={() => onTasksStateChange(true)}
+            >
+              done
+            </TextButton>
           </div>
+          {!done && <CreateTask />}
+          {!pointerAvailable && (
+            <IconedButton
+              className="sort-button"
+              icon={<MdSort />}
+              onClick={makeTaskListSortable}
+            >
+              sort
+            </IconedButton>
+          )}
         </div>
+        <Settings />
       </div>
-    );
-  }
-}
+    </div>
+  </div>
+);
