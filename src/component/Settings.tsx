@@ -23,14 +23,28 @@ const grey = "#bcc";
 const green = "#9db634";
 
 interface IProps
-  extends authentication.IActionCreators,
-    authentication.IState,
-    settings.IActionCreators,
-    settings.IState,
-    tasks.IActionCreators,
-    tasks.IState {}
+  extends Partial<
+      authentication.IActionCreators &
+        authentication.IState &
+        settings.IActionCreators &
+        settings.IState &
+        tasks.IActionCreators &
+        tasks.IState
+    > {}
 
-class Settings extends React.Component<IProps> {
+@connect(
+  ({ authentication, settings, tasks }) => ({
+    ...authentication,
+    ...settings,
+    ...tasks
+  }),
+  {
+    ...authentication.actionCreators,
+    ...settings.actionCreators,
+    ...tasks.actionCreators
+  }
+)
+export default class extends React.Component<IProps> {
   public render() {
     const {
       alarmVolume,
@@ -126,16 +140,3 @@ class Settings extends React.Component<IProps> {
     );
   }
 }
-
-export default connect(
-  ({ authentication, settings, tasks }) => ({
-    ...authentication,
-    ...settings,
-    ...tasks
-  }),
-  {
-    ...authentication.actionCreators,
-    ...settings.actionCreators,
-    ...tasks.actionCreators
-  }
-)(Settings);

@@ -10,8 +10,12 @@ interface IState {
   message: string;
 }
 
-class Message extends React.Component<
-  message.IState & message.IActionCreators,
+@connect(
+  ({ message }) => message,
+  message.actionCreators
+)
+export default class extends React.Component<
+  Partial<message.IState & message.IActionCreators>,
   IState
 > {
   public state: IState = { message: "" };
@@ -38,8 +42,3 @@ class Message extends React.Component<
     }
   }
 }
-
-export default connect(
-  ({ message }) => message,
-  message.actionCreators
-)(Message);

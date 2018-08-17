@@ -14,9 +14,9 @@ export interface IContentProps {
   opened: boolean;
 }
 
-interface IProps {
-  buttonComponent: (props: IButtonProps) => JSX.Element;
-  buttonProps?: object;
+interface IProps<B> {
+  buttonComponent: (props: B & IButtonProps) => JSX.Element;
+  buttonProps?: B;
   closed?: boolean;
   contentComponent: (props: IContentProps) => JSX.Element;
   contentProps?: object;
@@ -28,7 +28,7 @@ interface IState {
   opened: boolean;
 }
 
-export default class extends React.Component<IProps, IState> {
+export default class<B> extends React.Component<IProps<B>, IState> {
   public state: IState = { opened: false };
   private modal: HTMLElement | null = null;
 
@@ -81,7 +81,7 @@ export default class extends React.Component<IProps, IState> {
     }
   }
 
-  public componentDidUpdate({ closed }: IProps) {
+  public componentDidUpdate({ closed }: IProps<B>) {
     if (!closed && this.props.closed) {
       this.setState({ opened: false });
     }

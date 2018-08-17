@@ -14,8 +14,10 @@ import TaskName from "./TaskName";
 
 import "./style/Task.css";
 
-interface IProps extends ITask, tasks.IActionCreators, timer.IActionCreators {
-  detailed: boolean;
+interface IProps
+  extends ITask,
+    Partial<tasks.IActionCreators & timer.IActionCreators> {
+  detailed?: boolean;
   done: boolean;
   highlighted?: boolean;
 }
@@ -24,7 +26,11 @@ interface IState {
   showButtons: boolean;
 }
 
-class Task extends React.Component<IProps, IState> {
+@connect(
+  null,
+  { ...tasks.actionCreators, ...timer.actionCreators }
+)
+export default class extends React.Component<IProps, IState> {
   public state: IState = { showButtons: false };
 
   public render() {
@@ -120,8 +126,3 @@ class Task extends React.Component<IProps, IState> {
       : `${numeral(minutes / 60).format("0[.]0")} hours`;
   }
 }
-
-export default connect(
-  null,
-  { ...tasks.actionCreators, ...timer.actionCreators }
-)(Task);

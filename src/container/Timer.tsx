@@ -14,7 +14,8 @@ import "./style/Timer.css";
 const workSeconds = 25 * 60;
 const restSeconds = 5 * 60;
 
-interface IProps extends tasks.IActionCreators, timer.IActionCreators {
+interface IProps
+  extends Partial<tasks.IActionCreators & timer.IActionCreators> {
   currentTask: ITask;
 }
 
@@ -23,7 +24,11 @@ interface IState {
   seconds: number;
 }
 
-class Timer extends React.Component<IProps, IState> {
+@connect(
+  null,
+  { ...tasks.actionCreators, ...timer.actionCreators }
+)
+export default class extends React.Component<IProps, IState> {
   public state: IState = { rest: false, seconds: workSeconds };
   private timer: NodeJS.Timer;
 
@@ -86,8 +91,3 @@ class Timer extends React.Component<IProps, IState> {
     });
   };
 }
-
-export default connect(
-  null,
-  { ...tasks.actionCreators, ...timer.actionCreators }
-)(Timer);

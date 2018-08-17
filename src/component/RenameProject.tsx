@@ -12,8 +12,12 @@ interface IState {
   name: string;
 }
 
-class RenameProject extends React.Component<
-  tasks.IState & tasks.IActionCreators,
+@connect(
+  ({ tasks }) => tasks,
+  tasks.actionCreators
+)
+export default class extends React.Component<
+  Partial<tasks.IState & tasks.IActionCreators>,
   IState
 > {
   public input: HTMLElement;
@@ -66,8 +70,3 @@ class RenameProject extends React.Component<
     );
   }
 }
-
-export default connect(
-  ({ tasks }) => tasks,
-  tasks.actionCreators
-)(RenameProject);

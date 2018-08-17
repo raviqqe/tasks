@@ -31,7 +31,16 @@ interface IState {
   listsFixed: boolean;
 }
 
-class Home extends React.Component<IProps, IState> {
+@connect(
+  ({ environment, settings, tasks, timer }) => ({
+    ...environment,
+    ...settings,
+    ...tasks,
+    timer
+  }),
+  { ...settings.actionCreators, ...tasks.actionCreators }
+)
+export default class extends React.Component<Partial<IProps>, IState> {
   public state: IState = { done: false, listsFixed: false };
 
   public render() {
@@ -74,7 +83,7 @@ class Home extends React.Component<IProps, IState> {
               }
               fixed={listsFixed}
               sorting={sorting}
-              {...this.props}
+              {...this.props as IProps}
             />
             {!isSmallWindow && (
               <div className="current-task">
@@ -135,13 +144,3 @@ class Home extends React.Component<IProps, IState> {
     return getTasksFromProject(this.currentProject, this.state.done);
   }
 }
-
-export default connect(
-  ({ environment, settings, tasks, timer }) => ({
-    ...environment,
-    ...settings,
-    ...tasks,
-    timer
-  }),
-  { ...settings.actionCreators, ...tasks.actionCreators }
-)(Home);

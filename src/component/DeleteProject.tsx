@@ -8,8 +8,12 @@ import ModalWindowButton from "./ModalWindowButton";
 
 import "./style/DeleteProject.css";
 
-class DeleteProject extends React.Component<
-  tasks.IState & tasks.IActionCreators
+@connect(
+  ({ tasks }) => tasks,
+  tasks.actionCreators
+)
+export default class extends React.Component<
+  Partial<tasks.IState & tasks.IActionCreators>
 > {
   public render() {
     const { currentProjectName, removeProject } = this.props;
@@ -46,8 +50,3 @@ class DeleteProject extends React.Component<
     );
   }
 }
-
-export default connect(
-  ({ tasks }) => tasks,
-  tasks.actionCreators
-)(DeleteProject);

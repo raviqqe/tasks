@@ -8,14 +8,15 @@ import ModalButton, { IButtonProps, IContentProps } from "./ModalButton";
 
 import "./style/ModalWindowButton.css";
 
-interface IProps extends environment.IState {
-  buttonComponent: (props: IButtonProps) => JSX.Element;
-  buttonProps?: object;
+interface IProps<B> extends Partial<environment.IState> {
+  buttonComponent: (props: B & IButtonProps) => JSX.Element;
+  buttonProps?: B;
   onOpen?: () => void;
   showCloseButton?: boolean;
 }
 
-class ModalWindowButton extends React.Component<IProps> {
+@connect(({ environment }) => environment)
+export default class<B> extends React.Component<IProps<B>> {
   public render() {
     const { buttonComponent, buttonProps, onOpen } = this.props;
 
@@ -54,5 +55,3 @@ class ModalWindowButton extends React.Component<IProps> {
     );
   };
 }
-
-export default connect(({ environment }) => environment)(ModalWindowButton);

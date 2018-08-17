@@ -11,8 +11,12 @@ interface IState {
   opened: boolean;
 }
 
-class ProjectsMenu extends React.Component<
-  tasks.IState & tasks.IActionCreators,
+@connect(
+  ({ tasks }) => tasks,
+  tasks.actionCreators
+)
+export default class extends React.Component<
+  Partial<tasks.IState & tasks.IActionCreators>,
   IState
 > {
   public state: IState = { opened: false };
@@ -56,8 +60,3 @@ class ProjectsMenu extends React.Component<
     );
   }
 }
-
-export default connect(
-  ({ tasks }) => tasks,
-  tasks.actionCreators
-)(ProjectsMenu);

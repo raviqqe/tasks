@@ -15,7 +15,14 @@ interface IState {
   name: string;
 }
 
-class CreateTask extends React.Component<tasks.IActionCreators, IState> {
+@connect(
+  null,
+  tasks.actionCreators
+)
+export default class extends React.Component<
+  Partial<tasks.IActionCreators>,
+  IState
+> {
   public input: HTMLElement;
   public state: IState = { description: "", name: "" };
 
@@ -68,8 +75,3 @@ class CreateTask extends React.Component<tasks.IActionCreators, IState> {
     );
   }
 }
-
-export default connect(
-  null,
-  tasks.actionCreators
-)(CreateTask);
