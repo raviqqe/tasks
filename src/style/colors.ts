@@ -1,0 +1,10 @@
+export const black = "#414f4f";
+export const darkGrey = "dimgrey";
+export const grey = "#7f969c";
+export const lightGreen = "#adc9b2";
+export const lightGrey = "#bcc";
+export const red = "#b56a55";
+export const transparentBlack = "rgba(0, 0, 0, 0.5)";
+export const transparentGrey = "rgba(0, 0, 0, 0.05)";
+export const yellow = "goldenrod";
+export const yellowGreen = "#9db634";

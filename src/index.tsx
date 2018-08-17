@@ -7,8 +7,7 @@ import Message from "./component/Message";
 import config from "./config";
 import Home from "./container/Home";
 import { createStore } from "./state";
-
-import "./index.css";
+import "./style";
 
 const { persistor, store } = createStore();
 

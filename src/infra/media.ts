@@ -1,8 +1,8 @@
-const widthQuery = matchMedia("(max-width: 768px)");
-const touchabilityQuery = matchMedia(
-  "(pointer: coarse), (-moz-touch-enabled: 1)"
-);
-const pointerQuery = matchMedia("(any-pointer: fine)");
+import { mouseAvailableQuery, windowSmallQuery } from "../style/media";
+
+const widthQuery = matchMedia(windowSmallQuery);
+const touchabilityQuery = matchMedia(`not all and ${mouseAvailableQuery}`);
+const pointerQuery = matchMedia(mouseAvailableQuery);
 
 export const isSmallWindow: boolean = !!widthQuery.matches;
 export const touchable: boolean = !!touchabilityQuery.matches;
