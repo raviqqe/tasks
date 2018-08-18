@@ -11,7 +11,7 @@ interface IProps {
   currentTaskId: string | null;
   done: boolean;
   fixed?: boolean;
-  isSmallWindow: boolean;
+  windowSmall: boolean;
   tasks: ITask[];
   setTasks: (tasks: ITask[]) => void;
   sorting?: boolean;
@@ -25,7 +25,7 @@ export default class extends React.Component<IProps> {
     const {
       currentTaskId,
       done,
-      isSmallWindow,
+      windowSmall,
       tasks,
       setTasks,
       sorting
@@ -43,7 +43,7 @@ export default class extends React.Component<IProps> {
       >
         {tasks.map(
           task =>
-            isSmallWindow ? (
+            windowSmall ? (
               <ModalWindowButton
                 key={task.id}
                 buttonComponent={this.ClickableTask}

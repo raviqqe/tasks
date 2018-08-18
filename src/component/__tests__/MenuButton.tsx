@@ -8,7 +8,7 @@ test("Shallow mount", () => {
     <MenuButton
       done={false}
       makeTaskListSortable={() => undefined}
-      onTasksStateChange={() => undefined}
+      changeTasksState={() => undefined}
       pointerAvailable={true}
     />
   );

@@ -4,12 +4,12 @@ const widthQuery = matchMedia(windowSmallQuery);
 const touchabilityQuery = matchMedia(`not all and ${mouseAvailableQuery}`);
 const pointerQuery = matchMedia(mouseAvailableQuery);
 
-export const isSmallWindow: boolean = !!widthQuery.matches;
+export const windowSmall: boolean = !!widthQuery.matches;
 export const touchable: boolean = !!touchabilityQuery.matches;
 export const pointerAvailable: boolean = !!pointerQuery.matches;
 
 export function onWindowSizeChange(
-  callback: (isSmallWindow: boolean) => void
+  callback: (windowSmall: boolean) => void
 ): void {
   widthQuery.addListener(({ matches }) => callback(!!matches));
 }

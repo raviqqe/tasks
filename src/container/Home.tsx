@@ -47,7 +47,7 @@ export default class extends React.Component<Partial<IProps>, IState> {
     const {
       currentProjectName,
       currentTaskId,
-      isSmallWindow,
+      windowSmall,
       pointerAvailable,
       timer,
       touchable
@@ -68,9 +68,9 @@ export default class extends React.Component<Partial<IProps>, IState> {
           <Menu
             done={done}
             hidden={sorting}
-            isSmallWindow={isSmallWindow}
+            windowSmall={windowSmall}
             makeTaskListSortable={() => this.setState({ listsFixed: false })}
-            onTasksStateChange={done => this.setState({ done })}
+            changeTasksState={done => this.setState({ done })}
             pointerAvailable={pointerAvailable}
           />
           <div className="tasks">
@@ -85,7 +85,7 @@ export default class extends React.Component<Partial<IProps>, IState> {
               sorting={sorting}
               {...this.props as IProps}
             />
-            {!isSmallWindow && (
+            {!windowSmall && (
               <div className="current-task">
                 {currentTask && (
                   <Task detailed={true} done={done} {...currentTask} />

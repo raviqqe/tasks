@@ -3,32 +3,32 @@ import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 
 import {
-  isSmallWindow,
   onPointerChange,
   onTouchabilityChange,
   onWindowSizeChange,
   pointerAvailable,
-  touchable
+  touchable,
+  windowSmall
 } from "../infra/media";
 
 const actionCreator = actionCreatorFactory("ENVIRONMENT");
 
-const setIsSmallWindow = actionCreator<boolean>("SET_IS_SMALL_WINDOW");
+const setWindowSmall = actionCreator<boolean>("SET_WINDOW_SMALL");
 const setPointerAvailable = actionCreator<boolean>("SET_POINTER_AVAILABLE");
 const setTouchable = actionCreator<boolean>("SET_TOUCHABLE");
 
 export const initialState = {
-  isSmallWindow,
   pointerAvailable,
-  touchable
+  touchable,
+  windowSmall
 };
 
 export type IState = typeof initialState;
 
 export const reducer = reducerWithInitialState(initialState)
-  .case(setIsSmallWindow, (state, isSmallWindow) => ({
+  .case(setWindowSmall, (state, windowSmall) => ({
     ...state,
-    isSmallWindow
+    windowSmall
   }))
   .case(setPointerAvailable, (state, pointerAvailable) => ({
     ...state,
@@ -37,8 +37,8 @@ export const reducer = reducerWithInitialState(initialState)
   .case(setTouchable, (state, touchable) => ({ ...state, touchable }));
 
 export function initializeStore(store: Store): void {
-  onWindowSizeChange(isSmallWindow =>
-    store.dispatch(setIsSmallWindow(isSmallWindow))
+  onWindowSizeChange(windowSmall =>
+    store.dispatch(setWindowSmall(windowSmall))
   );
   onTouchabilityChange((touchable: boolean) =>
     store.dispatch(setTouchable(touchable))

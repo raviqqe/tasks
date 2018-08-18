@@ -7,9 +7,9 @@ test("Shallow mount", () => {
   shallow(
     <Menu
       done={false}
-      isSmallWindow={false}
+      windowSmall={false}
       makeTaskListSortable={() => undefined}
-      onTasksStateChange={() => undefined}
+      changeTasksState={() => undefined}
       pointerAvailable={true}
     />
   );

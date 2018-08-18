@@ -35,11 +35,11 @@ export default class<B> extends React.Component<IProps<B>> {
     closeWindow,
     opened
   }: IContentProps): JSX.Element => {
-    const { children, isSmallWindow, onOpen, showCloseButton } = this.props;
+    const { children, windowSmall, onOpen, showCloseButton } = this.props;
 
     return (
       <div className="ModalWindowButton" onClick={closeWindow}>
-        {(isSmallWindow || showCloseButton) && (
+        {(windowSmall || showCloseButton) && (
           <div className="close-button">
             <CircleButton onClick={closeWindow}>
               <MdClose />

@@ -12,7 +12,7 @@ import "./style/MenuBox.css";
 export interface IProps {
   done: boolean;
   makeTaskListSortable: () => void;
-  onTasksStateChange: (done: boolean) => void;
+  changeTasksState: (done: boolean) => void;
   pointerAvailable: boolean;
 }
 
@@ -20,7 +20,7 @@ export default ({
   done,
   pointerAvailable,
   makeTaskListSortable,
-  onTasksStateChange
+  changeTasksState
 }: IProps) => (
   <div className="MenuBox" onClick={event => event.stopPropagation()}>
     <div className="upper">
@@ -35,14 +35,14 @@ export default ({
             <TextButton
               disabled={!done}
               icon={<MdCheckBoxOutlineBlank />}
-              onClick={() => onTasksStateChange(false)}
+              onClick={() => changeTasksState(false)}
             >
               todo
             </TextButton>
             <TextButton
               disabled={done}
               icon={<MdCheckBox />}
-              onClick={() => onTasksStateChange(true)}
+              onClick={() => changeTasksState(true)}
             >
               done
             </TextButton>

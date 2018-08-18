@@ -8,7 +8,7 @@ test("Shallow mount", () => {
     <TaskList
       currentTaskId={null}
       done={false}
-      isSmallWindow={false}
+      windowSmall={false}
       tasks={[]}
       setTasks={() => undefined}
     />
