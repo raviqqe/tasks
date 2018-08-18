@@ -6,7 +6,7 @@ export default ({
   children,
   label
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   label: string;
 }) => (
   <div className="SettingsItem">
