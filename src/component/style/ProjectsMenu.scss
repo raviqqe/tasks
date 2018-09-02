@@ -42,7 +42,7 @@
 
     background: white;
     padding: 1.5em 2em;
-    position: fixed;
+    position: absolute;
     left: $margin;
     top: $margin;
     max-width: calc(100vw - 2 * #{$margin});
