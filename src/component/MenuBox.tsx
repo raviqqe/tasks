@@ -1,14 +1,90 @@
 import * as React from "react";
 import { MdCheckBox, MdCheckBoxOutlineBlank, MdSort } from "react-icons/md";
+import styled, { css } from "styled-components";
 
-import { grey } from "../style/colors";
+import { grey, red } from "../style/colors";
+import { verticalMargin } from "../style/margin";
+import { windowSmallQuery } from "../style/media";
 import CreateTask from "./CreateTask";
 import IconedButton from "./IconedButton";
 import ProjectsMenu from "./ProjectsMenu";
 import Settings from "./Settings";
 import TextButton from "./TextButton";
 
-import "./style/MenuBox.css";
+const background = css`
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+  right: 0;
+
+  @media ${windowSmallQuery} {
+    left: 0;
+    right: unset;
+  }
+`;
+
+const column = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  > * {
+    flex-shrink: 0;
+  }
+`;
+
+const MenuBox = styled.div`
+  ${column};
+  width: 12em;
+  max-width: 100%;
+  height: 100%;
+`;
+
+const UpperBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+`;
+
+const UpperBackground = styled.div`
+  ${background};
+  background: ${red};
+  bottom: 0;
+`;
+
+const LowerBox = styled.div`
+  flex: 1;
+  display: flex;
+  position: relative;
+`;
+
+const LowerBackground = styled.div`
+  ${background};
+  background: white;
+  top: 0;
+`;
+
+const Content = styled.div`
+  ${column};
+  ${verticalMargin("2em")};
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 1.5em;
+`;
+
+const Main = styled.div`
+  ${column};
+  ${verticalMargin("2em")};
+  align-items: center;
+  width: 100%;
+`;
+
+const States = styled.div`
+  ${column};
+`;
 
 export interface IProps {
   done: boolean;
@@ -23,16 +99,16 @@ export default ({
   makeTaskListSortable,
   changeTasksState
 }: IProps) => (
-  <div className="MenuBox" onClick={event => event.stopPropagation()}>
-    <div className="upper">
-      <div className="background" />
+  <MenuBox onClick={event => event.stopPropagation()}>
+    <UpperBox>
+      <UpperBackground />
       <ProjectsMenu />
-    </div>
-    <div className="lower">
-      <div className="background" />
-      <div className="content">
-        <div className="main">
-          <div className="states">
+    </UpperBox>
+    <LowerBox>
+      <LowerBackground />
+      <Content>
+        <Main>
+          <States>
             <TextButton
               disabled={!done}
               icon={<MdCheckBoxOutlineBlank />}
@@ -47,7 +123,7 @@ export default ({
             >
               done
             </TextButton>
-          </div>
+          </States>
           {!done && <CreateTask />}
           {!pointerAvailable && (
             <IconedButton
@@ -58,9 +134,9 @@ export default ({
               sort
             </IconedButton>
           )}
-        </div>
+        </Main>
         <Settings />
-      </div>
-    </div>
-  </div>
+      </Content>
+    </LowerBox>
+  </MenuBox>
 );
