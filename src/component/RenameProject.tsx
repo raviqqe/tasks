@@ -1,13 +1,20 @@
 import * as React from "react";
 import { MdEdit } from "react-icons/md";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
 import * as tasks from "../state/tasks";
+import { paperBorder } from "../style/border";
 import { grey } from "../style/colors";
 import IconedButton from "./IconedButton";
 import ModalWindowButton from "./ModalWindowButton";
 
-import "./style/RenameProject.css";
+const Form = styled.form`
+  ${paperBorder};
+  background: white;
+  padding: 1em;
+  font-size: 1.2em;
+`;
 
 interface IState {
   name: string;
@@ -48,8 +55,7 @@ export default class extends React.Component<
         }}
       >
         {closeWindow => (
-          <form
-            className="RenameProject"
+          <Form
             onSubmit={event => {
               renameProject(name);
               this.setState({ name: "" });
@@ -65,7 +71,7 @@ export default class extends React.Component<
               ref={this.input}
               value={name}
             />
-          </form>
+          </Form>
         )}
       </ModalWindowButton>
     );
