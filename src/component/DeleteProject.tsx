@@ -1,13 +1,25 @@
 import * as React from "react";
 import { MdDelete } from "react-icons/md";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
 import * as tasks from "../state/tasks";
+import { paperBorder } from "../style/border";
 import { grey } from "../style/colors";
+import { verticalMargin } from "../style/margin";
 import IconedButton from "./IconedButton";
 import ModalWindowButton from "./ModalWindowButton";
 
-import "./style/DeleteProject.css";
+const DeleteProject = styled.div`
+  ${paperBorder};
+  ${verticalMargin("1em")};
+  background: white;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2em;
+`;
 
 @connect(
   ({ tasks }) => tasks,
@@ -32,10 +44,8 @@ export default class extends React.Component<
         )}
       >
         {closeWindow => (
-          <div className="DeleteProject">
-            <div className="message">
-              Are you sure to delete "{currentProjectName}" project?
-            </div>
+          <DeleteProject>
+            <div>Are you sure to delete "{currentProjectName}" project?</div>
             <IconedButton
               icon={<MdDelete />}
               onClick={() => {
@@ -45,7 +55,7 @@ export default class extends React.Component<
             >
               delete
             </IconedButton>
-          </div>
+          </DeleteProject>
         )}
       </ModalWindowButton>
     );
