@@ -1,6 +1,19 @@
 import * as React from "react";
+import styled from "styled-components";
 
-import "./style/Link.css";
+const Link = styled.a`
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 
 export default ({
   children,
@@ -9,7 +22,7 @@ export default ({
   children?: React.ReactNode;
   href: string;
 }) => (
-  <a className="Link" href={href} onClick={event => event.stopPropagation()}>
+  <Link href={href} onClick={event => event.stopPropagation()}>
     {children}
-  </a>
+  </Link>
 );
