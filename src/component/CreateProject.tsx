@@ -1,12 +1,19 @@
 import * as React from "react";
 import { MdAdd } from "react-icons/md";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
 import * as tasks from "../state/tasks";
+import { paperBorder } from "../style/border";
 import IconedButton from "./IconedButton";
 import ModalWindowButton from "./ModalWindowButton";
 
-import "./style/CreateProject.css";
+const Form = styled.form`
+  ${paperBorder};
+  background: white;
+  padding: 1em;
+  font-size: 1.2em;
+`;
 
 interface IState {
   name: string;
@@ -37,8 +44,7 @@ export default class extends React.Component<
         onOpen={() => this.input && this.input.focus()}
       >
         {closeWindow => (
-          <form
-            className="CreateProject"
+          <Form
             onSubmit={event => {
               addProject(name);
               this.setState({ name: "" });
@@ -54,7 +60,7 @@ export default class extends React.Component<
               ref={input => (this.input = input)}
               value={name}
             />
-          </form>
+          </Form>
         )}
       </ModalWindowButton>
     );
