@@ -27,7 +27,7 @@ export default class extends React.Component<
   Partial<tasks.IActionCreators>,
   IState
 > {
-  public input: HTMLElement;
+  public input: React.RefObject<HTMLInputElement> = React.createRef();
   public state: IState = { name: "" };
 
   public render() {
@@ -41,7 +41,7 @@ export default class extends React.Component<
             add
           </IconedButton>
         )}
-        onOpen={() => this.input && this.input.focus()}
+        onOpen={() => this.input.current && this.input.current.focus()}
       >
         {closeWindow => (
           <Form
@@ -57,7 +57,7 @@ export default class extends React.Component<
                 this.setState({ name: value })
               }
               placeholder="Name"
-              ref={input => (this.input = input)}
+              ref={this.input}
               value={name}
             />
           </Form>
