@@ -1,6 +1,5 @@
-import waves = require("node-waves");
-import "node-waves/dist/waves.css";
 import * as React from "react";
+import Ink from "react-ink";
 import styled, { css } from "styled-components";
 
 import { instantDuration } from "../style/animation";
@@ -71,18 +70,8 @@ export default class extends React.Component<IProps> {
         {...props}
       >
         {children}
+        <Ink />
       </Button>
     );
-  }
-
-  public componentDidMount() {
-    this.componentDidUpdate();
-  }
-
-  public componentDidUpdate() {
-    if (this.button) {
-      waves.attach(this.button, ["waves-light"]);
-      waves.init();
-    }
   }
 }
