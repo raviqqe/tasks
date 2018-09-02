@@ -2,6 +2,7 @@ import { find } from "lodash";
 import * as React from "react";
 import { MdSave } from "react-icons/md";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
 import CircleButton from "../component/CircleButton";
 import Menu from "../component/Menu";
@@ -15,7 +16,39 @@ import * as tasks from "../state/tasks";
 import * as timer from "../state/timer";
 import Timer from "./Timer";
 
-import "./style/Home.css";
+const Home = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+`;
+
+const Content = styled.div`
+  display: flex;
+  width: 100%;
+  max-width: 100em;
+`;
+
+const Tasks = styled.div`
+  display: flex;
+  flex: 1;
+
+  > * {
+    flex: 1;
+  }
+`;
+
+const CurrentTask = styled.div`
+  overflow-y: auto;
+  padding: 1em;
+`;
+
+const FixListButton = styled(CircleButton)`
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+`;
 
 interface IProps
   extends environment.IState,
@@ -63,8 +96,8 @@ export default class extends React.Component<Partial<IProps>, IState> {
     const sorting = touchable && !listsFixed;
 
     return (
-      <div className="Home">
-        <div className="content">
+      <Home>
+        <Content>
           <Menu
             done={done}
             hidden={sorting}
@@ -73,7 +106,7 @@ export default class extends React.Component<Partial<IProps>, IState> {
             changeTasksState={done => this.setState({ done })}
             pointerAvailable={pointerAvailable}
           />
-          <div className="tasks">
+          <Tasks>
             <TaskList
               done={done}
               tasks={
@@ -86,24 +119,22 @@ export default class extends React.Component<Partial<IProps>, IState> {
               {...this.props as IProps}
             />
             {!windowSmall && (
-              <div className="current-task">
+              <CurrentTask>
                 {currentTask && (
                   <Task detailed={true} done={done} {...currentTask} />
                 )}
-              </div>
+              </CurrentTask>
             )}
             {sorting && (
-              <div className="fix-list-button">
-                <CircleButton
-                  onClick={() => this.setState({ listsFixed: true })}
-                >
-                  <MdSave />
-                </CircleButton>
-              </div>
+              <FixListButton
+                onClick={() => this.setState({ listsFixed: true })}
+              >
+                <MdSave />
+              </FixListButton>
             )}
-          </div>
-        </div>
-      </div>
+          </Tasks>
+        </Content>
+      </Home>
     );
   }
 
