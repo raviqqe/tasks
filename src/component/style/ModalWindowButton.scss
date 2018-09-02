@@ -33,13 +33,13 @@
 
   > .close-button {
     position: fixed;
-    top: 1em;
-    right: 1em;
+    top: 1rem;
+    right: 1rem;
     z-index: 200;
 
     @include small-window {
       top: auto;
-      bottom: 1em;
+      bottom: 1rem;
     }
   }
 

@@ -46,8 +46,8 @@ const CurrentTask = styled.div`
 
 const FixListButton = styled(CircleButton)`
   position: fixed;
-  bottom: 1em;
-  right: 1em;
+  bottom: 1rem;
+  right: 1rem;
 `;
 
 interface IProps
