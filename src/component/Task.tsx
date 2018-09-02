@@ -88,7 +88,7 @@ export default class extends React.Component<IProps, IState> {
           </div>
         </div>
         {detailed && (
-          <React.Fragment>
+          <>
             <TaskDescription
               text={description}
               onEdit={description => modifyTask({ ...this.task, description })}
@@ -100,7 +100,7 @@ export default class extends React.Component<IProps, IState> {
             <SubInformation>
               Updated on: {unixTimeStampToString(updatedAt)}
             </SubInformation>
-          </React.Fragment>
+          </>
         )}
       </div>
     );

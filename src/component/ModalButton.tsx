@@ -47,7 +47,7 @@ export default class<B> extends React.Component<IProps<B>, IState> {
     const opened = !closed && this.state.opened;
 
     return (
-      <React.Fragment>
+      <>
         <Button
           opened={opened}
           openWindow={() => this.setState({ opened: true })}
@@ -71,7 +71,7 @@ export default class<B> extends React.Component<IProps<B>, IState> {
             </CSSTransition>,
             this.modal
           )}
-      </React.Fragment>
+      </>
     );
   }
 
