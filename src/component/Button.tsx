@@ -31,6 +31,8 @@ const Button = styled.button<IButtonProps>`
   border: none;
   border-radius: 0.5rem;
   transition: box-shadow ${instantDuration}, transform ${instantDuration};
+  cursor: pointer;
+  position: relative; // for react-ink
 
   ${({ alwaysShadowed }) => (alwaysShadowed ? shadowOn : "")};
 
