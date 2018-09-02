@@ -1,17 +1,29 @@
 import * as React from "react";
-import TextArea from "react-autosize-textarea";
+import AutosizedTextArea from "react-autosize-textarea";
 import Markdown = require("react-markdown");
+import styled from "styled-components";
 
+import { grey } from "../style/colors";
 import InputComponent from "./InputComponent";
 
-import "./style/TaskDescription.css";
+const Description = styled.div`
+  cursor: text;
+`;
+
+const Message = styled.div`
+  color: ${grey};
+`;
+
+const TextArea = styled(AutosizedTextArea as any)`
+  height: 20vh;
+  resize: vertical;
+`;
 
 export default class extends InputComponent {
   public render() {
     if (this.state.editing) {
       return (
         <TextArea
-          className="TaskDescription-input"
           onKeyDown={(event: React.KeyboardEvent<{}>) => {
             if (
               (event.keyCode === 83 && event.ctrlKey) ||
@@ -29,10 +41,7 @@ export default class extends InputComponent {
     const { text } = this.props;
 
     return (
-      <div
-        className="TaskDescription"
-        onClick={() => this.setState({ editing: true })}
-      >
+      <Description onClick={() => this.setState({ editing: true })}>
         {text.trim() ? (
           <Markdown
             source={text}
@@ -45,9 +54,9 @@ export default class extends InputComponent {
             }}
           />
         ) : (
-          <div className="message">No description</div>
+          <Message>No description</Message>
         )}
-      </div>
+      </Description>
     );
   }
 }
