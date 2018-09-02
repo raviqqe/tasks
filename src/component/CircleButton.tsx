@@ -1,18 +1,24 @@
 import * as React from "react";
+import styled from "styled-components";
 
 import Button from "./Button";
-import "./style/CircleButton.css";
+
+const CircleButton = styled(Button)`
+  font-size: 2em;
+  width: 1.8em;
+  height: 1.8em;
+  padding: 0;
+  border-radius: 1.8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default ({
   children,
-  className,
-  onClick
+  ...props
 }: {
+  backgroundColor?: string;
   children?: React.ReactNode;
-  className?: string;
   onClick: () => void;
-}) => (
-  <Button className={className || "CircleButton"} onClick={onClick}>
-    {children}
-  </Button>
-);
+}) => <CircleButton {...props}>{children}</CircleButton>;

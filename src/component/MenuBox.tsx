@@ -1,6 +1,7 @@
 import * as React from "react";
 import { MdCheckBox, MdCheckBoxOutlineBlank, MdSort } from "react-icons/md";
 
+import { grey } from "../style/colors";
 import CreateTask from "./CreateTask";
 import IconedButton from "./IconedButton";
 import ProjectsMenu from "./ProjectsMenu";
@@ -50,7 +51,7 @@ export default ({
           {!done && <CreateTask />}
           {!pointerAvailable && (
             <IconedButton
-              className="sort-button"
+              backgroundColor={grey}
               icon={<MdSort />}
               onClick={makeTaskListSortable}
             >

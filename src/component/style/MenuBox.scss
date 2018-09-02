@@ -1,8 +1,6 @@
 @import "../../style/colors.scss";
 @import "../../style/margin.scss";
 @import "../../style/media.scss";
-@import "./IconedButton.scss";
-@import "./TextButton.scss";
 
 @mixin background {
   width: 100vw;
@@ -78,10 +76,6 @@
 
         > .states {
           @include column;
-        }
-
-        > .sort-button {
-          @include IconedButton($grey);
         }
       }
     }

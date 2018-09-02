@@ -5,6 +5,7 @@ import CircleButton from "./CircleButton";
 import MenuBox, { IProps as IMenuBoxProps } from "./MenuBox";
 import ModalButton, { IButtonProps, IContentProps } from "./ModalButton";
 
+import { darkGrey } from "../style/colors";
 import "./style/MenuButton.css";
 
 export interface IProps extends IMenuBoxProps {
@@ -28,7 +29,7 @@ export default class extends React.Component<IProps> {
       className="MenuButton-button-container"
       data-hidden={this.props.hidden}
     >
-      <CircleButton className="MenuButton-button" onClick={openWindow}>
+      <CircleButton backgroundColor={darkGrey} onClick={openWindow}>
         <MdMenu />
       </CircleButton>
     </div>

@@ -2,6 +2,7 @@ import numeral = require("numeral");
 import * as React from "react";
 import { MdCropSquare } from "react-icons/md";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
 import Button from "../component/Button";
 import { ITask } from "../domain/task";
@@ -13,6 +14,14 @@ import "./style/Timer.css";
 
 const workSeconds = 25 * 60;
 const restSeconds = 5 * 60;
+
+const TimerButton = styled(Button)`
+  padding: 0.5em 2em;
+
+  > svg {
+    font-size: 2.5em;
+  }
+`;
 
 interface IProps
   extends Partial<tasks.IActionCreators & timer.IActionCreators> {
@@ -66,8 +75,7 @@ export default class extends React.Component<IProps, IState> {
           <div className="minutes">{Math.floor(seconds / 60)}</div>
           <div className="seconds">{numeral(seconds % 60).format("00")}</div>
         </div>
-        <Button
-          className="button"
+        <TimerButton
           onClick={() => {
             if (!rest) {
               this.saveSpentTime();
@@ -77,7 +85,7 @@ export default class extends React.Component<IProps, IState> {
           }}
         >
           <MdCropSquare />
-        </Button>
+        </TimerButton>
       </div>
     );
   }

@@ -2,7 +2,6 @@
 @import "../../style/colors.scss";
 @import "../../style/margin.scss";
 @import "../../style/media.scss";
-@import "./IconedButton.scss";
 
 @mixin notification {
   font-weight: bold;
@@ -56,14 +55,6 @@
     font-size: 0.9em;
     display: flex;
     align-items: center;
-
-    > .enable-button {
-      @include IconedButton($yellow-green);
-    }
-
-    > .disable-button {
-      @include IconedButton($grey);
-    }
 
     @include small-window {
       @include vertical-child-margin(0.25em);

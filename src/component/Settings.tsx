@@ -9,6 +9,7 @@ import config from "../config";
 import * as authentication from "../state/authentication";
 import * as settings from "../state/settings";
 import * as tasks from "../state/tasks";
+import { grey, yellowGreen } from "../style/colors";
 import CreateProject from "./CreateProject";
 import DeleteProject from "./DeleteProject";
 import IconedButton from "./IconedButton";
@@ -18,9 +19,6 @@ import RenameProject from "./RenameProject";
 import SettingsItem from "./SettingsItem";
 
 import "./style/Settings.css";
-
-const grey = "#bcc";
-const green = "#9db634";
 
 interface IProps
   extends Partial<
@@ -82,7 +80,7 @@ export default class extends React.Component<IProps> {
             <div className="Settings-buttons">
               {signedIn ? (
                 <IconedButton
-                  className="disable-button"
+                  backgroundColor={grey}
                   icon={<MdSyncDisabled />}
                   onClick={signOut}
                 >
@@ -90,7 +88,7 @@ export default class extends React.Component<IProps> {
                 </IconedButton>
               ) : (
                 <IconedButton
-                  className="enable-button"
+                  backgroundColor={yellowGreen}
                   icon={<MdSync />}
                   onClick={signIn}
                 >
@@ -109,12 +107,15 @@ export default class extends React.Component<IProps> {
                 step={0.125}
                 marks={{ 0: "0", 0.5: "0.5", 1: "1" }}
                 railStyle={{ backgroundColor: grey }}
-                trackStyle={{ backgroundColor: green }}
+                trackStyle={{ backgroundColor: yellowGreen }}
                 dotStyle={{ background: grey, borderColor: grey }}
-                activeDotStyle={{ background: green, borderColor: green }}
+                activeDotStyle={{
+                  background: yellowGreen,
+                  borderColor: yellowGreen
+                }}
                 handleStyle={{
-                  background: green,
-                  borderColor: green,
+                  background: yellowGreen,
+                  borderColor: yellowGreen,
                   boxShadow: "none"
                 }}
                 onChange={setAlarmVolume}

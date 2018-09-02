@@ -3,6 +3,7 @@ import { MdEdit } from "react-icons/md";
 import { connect } from "react-redux";
 
 import * as tasks from "../state/tasks";
+import { grey } from "../style/colors";
 import IconedButton from "./IconedButton";
 import ModalWindowButton from "./ModalWindowButton";
 
@@ -31,7 +32,7 @@ export default class extends React.Component<
       <ModalWindowButton
         buttonComponent={({ openWindow }) => (
           <IconedButton
-            className="RenameProject-button"
+            backgroundColor={grey}
             icon={<MdEdit />}
             onClick={openWindow}
           >

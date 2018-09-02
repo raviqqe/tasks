@@ -1,6 +1,5 @@
 @import "../../style/animation.scss";
 @import "../../style/colors.scss";
-@import "./CircleButton.scss";
 
 .MenuButton-button-container {
   position: fixed;
@@ -12,10 +11,6 @@
     opacity: 0;
     visibility: hidden;
   }
-}
-
-.MenuButton-button {
-  @include CircleButton($dark-grey);
 }
 
 .MenuButton-menu {

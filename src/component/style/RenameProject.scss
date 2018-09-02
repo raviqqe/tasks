@@ -1,5 +1,4 @@
 @import "../../style/border.scss";
-@import "./IconedButton.scss";
 
 .RenameProject {
   @include paper-border;
@@ -7,8 +6,4 @@
   background: white;
   padding: 1em;
   font-size: 1.2em;
-
-  &-button {
-    @include IconedButton($grey);
-  }
 }
