@@ -1,11 +1,41 @@
 import * as React from "react";
 import sortable = require("sortablejs");
+import styled, { css } from "styled-components";
 
 import { ITask } from "../domain/task";
+import { instantDuration } from "../style/animation";
+import { windowSmallQuery } from "../style/media";
 import ModalWindowButton from "./ModalWindowButton";
 import Task from "./Task";
 
-import "./style/TaskList.css";
+const List = styled.div<{ shadowed: boolean }>`
+  overflow-y: auto;
+  height: 100%;
+  padding: 0.5em;
+
+  > * {
+    transition: box-shadow ${instantDuration}, transform ${instantDuration};
+    margin: 0.5em;
+  }
+
+  @media ${windowSmallQuery} {
+    padding-bottom: 5em;
+  }
+
+  > * {
+    ${({ shadowed }) =>
+      !shadowed
+        ? css``
+        : css`
+            box-shadow: 0 0.2em 0.2em $transparent-black;
+            transform: translateY(-0.2em);
+          `};
+  }
+`;
+
+const Message = styled.div`
+  padding: 1em;
+`;
 
 interface IProps {
   currentTaskId: string | null;
@@ -32,14 +62,13 @@ export default class extends React.Component<IProps> {
     } = this.props;
 
     if (tasks.length === 0) {
-      return <div className="TaskList-message">There is no task.</div>;
+      return <Message>There is no task.</Message>;
     }
 
     return (
-      <div
-        ref={container => (this.container = container)}
-        className="TaskList"
-        data-shadowed={sorting}
+      <List
+        innerRef={container => (this.container = container)}
+        shadowed={sorting}
       >
         {tasks.map(
           task =>
@@ -60,7 +89,7 @@ export default class extends React.Component<IProps> {
               />
             )
         )}
-      </div>
+      </List>
     );
   }
 
@@ -72,7 +101,6 @@ export default class extends React.Component<IProps> {
     if (this.container && !this.sortable) {
       this.sortable = sortable.create(this.container, {
         animation: 200,
-        ghostClass: "TaskList-placeholder",
         onSort: ({ oldIndex, newIndex }) => {
           const tasks = [...this.props.tasks];
           tasks.splice(newIndex, 0, tasks.splice(oldIndex, 1)[0]);

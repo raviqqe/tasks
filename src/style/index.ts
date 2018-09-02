@@ -58,4 +58,8 @@ injectGlobal`
       ${fontWithoutSize};
     }
   }
+
+  .sortable-ghost {
+    visibility: hidden;
+  }
 `;
