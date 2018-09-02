@@ -9,11 +9,41 @@ import { ITask } from "../domain/task";
 import * as notification from "../infra/notification";
 import * as tasks from "../state/tasks";
 import * as timer from "../state/timer";
-
-import "./style/Timer.css";
+import { black } from "../style/colors";
+import { windowSmallQuery } from "../style/media";
 
 const workSeconds = 25 * 60;
 const restSeconds = 5 * 60;
+
+const Timer = styled.div<{ rest: boolean }>`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: ${({ rest }) => (rest ? "white" : "none")};
+`;
+
+const Time = styled.div<{ rest: boolean }>`
+  color: ${({ rest }) => (rest ? black : "white")};
+  font-size: 10em;
+  display: flex;
+  align-items: flex-end;
+
+  @media ${windowSmallQuery} {
+    font-size: 6em;
+  }
+`;
+
+const Minutes = styled.div`
+  font-size: 1.5em;
+  margin-right: 0.1em;
+`;
+
+const Seconds = styled.div`
+  padding-bottom: 0.15em;
+`;
 
 const TimerButton = styled(Button)`
   padding: 0.5em 2em;
@@ -70,11 +100,11 @@ export default class extends React.Component<IProps, IState> {
     const { rest, seconds } = this.state;
 
     return (
-      <div className="Timer" data-rest={rest}>
-        <div className="time" data-rest={rest}>
-          <div className="minutes">{Math.floor(seconds / 60)}</div>
-          <div className="seconds">{numeral(seconds % 60).format("00")}</div>
-        </div>
+      <Timer rest={rest}>
+        <Time rest={rest}>
+          <Minutes>{Math.floor(seconds / 60)}</Minutes>
+          <Seconds>{numeral(seconds % 60).format("00")}</Seconds>
+        </Time>
         <TimerButton
           onClick={() => {
             if (!rest) {
@@ -86,7 +116,7 @@ export default class extends React.Component<IProps, IState> {
         >
           <MdCropSquare />
         </TimerButton>
-      </div>
+      </Timer>
     );
   }
 
