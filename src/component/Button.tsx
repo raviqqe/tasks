@@ -47,31 +47,23 @@ const Button = styled.button<IButtonProps>`
 `;
 
 interface IProps extends IButtonProps {
+  children?: React.ReactNode;
   onClick?: () => void;
   type?: string;
 }
 
-export default class extends React.Component<IProps> {
-  private button: HTMLButtonElement;
+export default ({ children, onClick, ...props }: IProps) => (
+  <Button
+    onClick={event => {
+      if (onClick) {
+        onClick();
+      }
 
-  public render() {
-    const { children, onClick, ...props } = this.props;
-
-    return (
-      <Button
-        innerRef={button => (this.button = button)}
-        onClick={
-          onClick &&
-          (event => {
-            onClick();
-            event.stopPropagation();
-          })
-        }
-        {...props}
-      >
-        {children}
-        <Ink />
-      </Button>
-    );
-  }
-}
+      event.stopPropagation();
+    }}
+    {...props}
+  >
+    {children}
+    <Ink />
+  </Button>
+);
