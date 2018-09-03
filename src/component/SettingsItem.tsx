@@ -1,6 +1,15 @@
 import * as React from "react";
+import styled from "styled-components";
 
-import "./style/SettingsItem.css";
+import { lightGrey } from "../style/colors";
+
+const SettingsItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em;
+  border-bottom: 1px solid ${lightGrey};
+`;
 
 export default ({
   children,
@@ -9,8 +18,8 @@ export default ({
   children?: React.ReactNode;
   label: string;
 }) => (
-  <div className="SettingsItem">
+  <SettingsItem>
     {label}
     {children}
-  </div>
+  </SettingsItem>
 );
