@@ -2,8 +2,6 @@ import { actionCreators, initialState, reducer } from "../timer";
 
 import * as audio from "../../infra/audio";
 
-jest.mock("../../infra/audio", () => ({ playAlarm: () => undefined }));
-
 test("Play an alarm", () => {
   const spy = jest.spyOn(audio, "playAlarm");
 
