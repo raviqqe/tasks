@@ -1,14 +1,28 @@
 import * as React from "react";
-import TextArea from "react-autosize-textarea";
+import AutosizedTextArea from "react-autosize-textarea";
 import { MdAdd } from "react-icons/md";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
 import { createTask, ITask } from "../domain/task";
 import * as tasks from "../state/tasks";
+import { paperBorder } from "../style/border";
+import { verticalMargin } from "../style/margin";
 import IconedButton from "./IconedButton";
 import ModalWindowButton from "./ModalWindowButton";
 
-import "./style/CreateTask.css";
+const Form = styled.form`
+  ${paperBorder};
+  ${verticalMargin("0.6em")};
+  background: white;
+  width: 40em;
+  padding: 1em;
+`;
+
+const TextArea = styled(AutosizedTextArea as any)`
+  height: 20vh;
+  resize: vertical;
+`;
 
 interface IState {
   description: string;
@@ -40,8 +54,7 @@ export default class extends React.Component<
         onOpen={() => this.input.current && this.input.current.focus()}
       >
         {closeWindow => (
-          <form
-            className="CreateTask"
+          <Form
             onSubmit={event => {
               addTask(createTask(name, description));
               this.setState({ description: "", name: "" });
@@ -59,7 +72,6 @@ export default class extends React.Component<
             />
             <TextArea
               async={true}
-              className="description"
               placeholder="Description"
               value={description}
               onChange={({ target: { value } }: any) =>
@@ -69,7 +81,7 @@ export default class extends React.Component<
             <IconedButton icon={<MdAdd />} type="submit">
               add
             </IconedButton>
-          </form>
+          </Form>
         )}
       </ModalWindowButton>
     );
