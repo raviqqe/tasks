@@ -2,17 +2,54 @@ import numeral = require("numeral");
 import * as React from "react";
 import { MdAccessTime, MdCheck, MdDelete, MdReplay } from "react-icons/md";
 import { connect } from "react-redux";
+import styled, { css } from "styled-components";
 
 import { ITask } from "../domain/task";
 import { unixTimeStampToString } from "../domain/utils";
 import * as tasks from "../state/tasks";
 import * as timer from "../state/timer";
+import { instantDuration } from "../style/animation";
+import { paperBorder } from "../style/border";
+import { horizontalMargin, verticalMargin } from "../style/margin";
+import { windowSmallQuery } from "../style/media";
 import SmallIconButton from "./SmallIconButton";
 import SubInformation from "./SubInformation";
 import TaskDescription from "./TaskDescription";
 import TaskName from "./TaskName";
 
-import "./style/Task.css";
+const Task = styled.div`
+  ${paperBorder};
+  ${verticalMargin("0.6em")};
+  background: white;
+  padding: 0.5em 0.7em;
+`;
+
+const Header = styled.div`
+  ${horizontalMargin("1em")};
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+`;
+
+const Buttons = styled.div<{ covert: boolean }>`
+  ${horizontalMargin("0.2em")};
+  display: flex;
+  align-items: center;
+  transition: ${instantDuration};
+
+  ${({ covert }) =>
+    covert
+      ? css`
+          opacity: 0;
+          visibility: hidden;
+
+          @media ${windowSmallQuery} {
+            opacity: 1;
+            visibility: visible;
+          }
+        `
+      : css``};
+`;
 
 interface IProps
   extends ITask,
@@ -52,19 +89,18 @@ export default class extends React.Component<IProps, IState> {
     } = this.props;
 
     return (
-      <div
-        className="Task"
+      <Task
         onClick={detailed ? undefined : () => setCurrentTaskId(id)}
         onMouseOver={() => this.setState({ showButtons: true })}
         onMouseOut={() => this.setState({ showButtons: false })}
       >
-        <div className="header">
+        <Header>
           <TaskName
             highlighted={highlighted}
             onEdit={detailed && (name => modifyTask({ ...this.task, name }))}
             text={name}
           />
-          <div className="buttons" data-hidden={!this.state.showButtons}>
+          <Buttons covert={!this.state.showButtons}>
             {(!done || detailed) && (
               <SmallIconButton onClick={() => toggleTaskState(id)}>
                 {done ? <MdReplay /> : <MdCheck />}
@@ -85,8 +121,8 @@ export default class extends React.Component<IProps, IState> {
                 <MdDelete />
               </SmallIconButton>
             )}
-          </div>
-        </div>
+          </Buttons>
+        </Header>
         {detailed && (
           <>
             <TaskDescription
@@ -102,7 +138,7 @@ export default class extends React.Component<IProps, IState> {
             </SubInformation>
           </>
         )}
-      </div>
+      </Task>
     );
   }
 
