@@ -16,7 +16,7 @@ const Message = styled.div`
   z-index: 1000;
 `;
 
-const Box = styled.div<{ shown: boolean }>`
+const Box = styled.div<{ covert: boolean }>`
   ${paperBorder};
   color: white;
   cursor: pointer;
@@ -27,7 +27,7 @@ const Box = styled.div<{ shown: boolean }>`
   margin: 1em;
   transition: transform 0.2s;
   pointer-events: auto;
-  transform: translateY(${({ shown }) => (shown ? "0px" : "-200%")});
+  transform: translateY(${({ covert }) => (covert ? "-200%" : "0%")});
 `;
 
 // Keep previous messages until they go away from screens.
@@ -50,7 +50,7 @@ export default class extends React.Component<
 
     return (
       <Message>
-        <Box shown={!!message} onClick={() => clearMessage()}>
+        <Box covert={!message} onClick={() => clearMessage()}>
           {this.state.message}
         </Box>
       </Message>

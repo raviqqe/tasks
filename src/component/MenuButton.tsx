@@ -10,19 +10,19 @@ import CircleButton from "./CircleButton";
 import MenuBox, { IProps as IMenuBoxProps } from "./MenuBox";
 import ModalButton, { IButtonProps, IContentProps } from "./StyledModalButton";
 
-const MenuButton = styled(CircleButton)<{ shown: boolean }>`
+const MenuButton = styled(CircleButton)<{ covert: boolean }>`
   position: fixed;
   bottom: 1rem;
   right: 1rem;
   transition: ${shortDuration};
 
-  ${({ shown }) =>
-    shown
-      ? css``
-      : css`
+  ${({ covert }) =>
+    covert
+      ? css`
           opacity: 0;
           visibility: hidden;
-        `};
+        `
+      : css``};
 `;
 
 const Menu = transition.div`
@@ -75,7 +75,7 @@ export default class extends React.Component<IProps> {
     <MenuButton
       backgroundColor={darkGrey}
       onClick={openWindow}
-      shown={!this.props.hidden}
+      covert={this.props.hidden}
     >
       <MdMenu />
     </MenuButton>
