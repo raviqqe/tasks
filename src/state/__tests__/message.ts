@@ -2,13 +2,13 @@ import { createStore } from "..";
 import { sleep } from "../../infra/utils";
 import { actionCreators, initialState, reducer } from "../message";
 
+jest.setTimeout(10000);
+
 function getState(store): typeof initialState {
   return store.getState().message;
 }
 
 test("Send a message", async () => {
-  jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
-
   const { store } = createStore();
 
   expect(getState(store)).toEqual(initialState);
