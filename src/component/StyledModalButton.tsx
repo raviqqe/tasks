@@ -4,6 +4,7 @@ import * as ReactDOM from "react-dom";
 import config from "../config";
 
 export interface IButtonProps {
+  opened: boolean;
   openWindow: () => void;
 }
 
@@ -35,7 +36,10 @@ export default class extends React.Component<IProps, IState> {
 
     return (
       <>
-        <Button openWindow={() => this.setState({ opened: true })} />
+        <Button
+          opened={opened}
+          openWindow={() => this.setState({ opened: true })}
+        />
         {!!this.modal &&
           ReactDOM.createPortal(
             <Content

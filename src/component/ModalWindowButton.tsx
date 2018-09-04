@@ -1,33 +1,90 @@
 import * as React from "react";
 import { MdClose } from "react-icons/md";
 import { connect } from "react-redux";
+import styled from "styled-components";
+import transition from "styled-transition-group";
 
+import config from "../config";
 import * as environment from "../state/environment";
+import { longDuration } from "../style/animation";
+import { paperBorder } from "../style/border";
+import { transparentBlack } from "../style/colors";
+import { windowSmallQuery } from "../style/media";
 import CircleButton from "./CircleButton";
-import ModalButton, { IButtonProps, IContentProps } from "./ModalButton";
+import ModalButton, { IButtonProps, IContentProps } from "./StyledModalButton";
 
-import "./style/ModalWindowButton.css";
+const CloseButton = styled(CircleButton)`
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 200;
 
-interface IProps<B> extends Partial<environment.IState> {
-  buttonComponent: (props: B & IButtonProps) => JSX.Element;
-  buttonProps?: B;
+  @media ${windowSmallQuery} {
+    top: auto;
+    bottom: 1rem;
+  }
+`;
+
+const Modal = transition.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  @media ${windowSmallQuery} {
+    left: auto;
+    right: 0;
+  }
+
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  padding: 1em;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ${transparentBlack};
+  visibility: visible;
+  transition: background ${longDuration}, visibility ${longDuration};
+
+  > * {
+    transition: transform ${longDuration};
+  }
+
+  &:appear,
+  &:exit {
+    visibility: hidden;
+    background: transparent;
+
+    > * {
+      transform: translateY(calc(-100vh - 100%));
+    }
+  }
+`;
+
+const Window = styled.div`
+  ${paperBorder};
+  background: white;
+  display: flex;
+  max-width: 100%;
+  margin: auto;
+`;
+
+interface IProps extends Partial<environment.IState> {
+  buttonComponent: (props: IButtonProps) => JSX.Element;
   onOpen?: () => void;
   showCloseButton?: boolean;
 }
 
 @connect(({ environment }) => environment)
-export default class<B> extends React.Component<IProps<B>> {
+export default class extends React.Component<IProps> {
   public render() {
-    const { buttonComponent, buttonProps, onOpen } = this.props;
+    const { buttonComponent } = this.props;
 
     return (
-      <ModalButton
-        buttonComponent={buttonComponent}
-        buttonProps={buttonProps}
-        contentComponent={this.contentComponent}
-        onOpen={onOpen}
-        transitionClassNames="ModalWindowButton"
-      />
+      <ModalButton buttonComponent={buttonComponent}>
+        {this.contentComponent}
+      </ModalButton>
     );
   }
 
@@ -38,20 +95,24 @@ export default class<B> extends React.Component<IProps<B>> {
     const { children, windowSmall, onOpen, showCloseButton } = this.props;
 
     return (
-      <div className="ModalWindowButton" onClick={closeWindow}>
+      <Modal
+        appear={true}
+        in={opened}
+        onClick={closeWindow}
+        onEntered={() => setTimeout(onOpen, config.maxAnimationDelayMs)}
+        timeout={{ enter: 0, exit: config.maxAnimationDelayMs }}
+      >
         {(windowSmall || showCloseButton) && (
-          <div className="close-button">
-            <CircleButton onClick={closeWindow}>
-              <MdClose />
-            </CircleButton>
-          </div>
+          <CloseButton onClick={closeWindow}>
+            <MdClose />
+          </CloseButton>
         )}
-        <div className="window" onClick={event => event.stopPropagation()}>
+        <Window onClick={event => event.stopPropagation()}>
           {typeof children === "function"
             ? (children as (close: () => void) => JSX.Element)(closeWindow)
             : children}
-        </div>
-      </div>
+        </Window>
+      </Modal>
     );
   };
 }
