@@ -5,7 +5,7 @@ import { PersistGate } from "redux-persist/integration/react";
 
 import Message from "./component/Message";
 import config from "./config";
-import Home from "./container/Home";
+import Home from "./containers/Home";
 import { createStore } from "./state";
 import "./style";
 
