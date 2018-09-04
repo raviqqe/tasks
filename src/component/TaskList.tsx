@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 
 import { ITask } from "../domain/task";
 import { instantDuration } from "../style/animation";
-import { windowSmallQuery } from "../style/media";
+import { withWindowSmall } from "../style/media";
 import ModalWindowButton from "./ModalWindowButton";
 import Task from "./Task";
 
@@ -13,16 +13,13 @@ const List = styled.div<{ shadowed: boolean }>`
   height: 100%;
   padding: 0.5em;
 
+  ${withWindowSmall(css`
+    padding-bottom: 5em;
+  `)};
+
   > * {
     transition: box-shadow ${instantDuration}, transform ${instantDuration};
     margin: 0.5em;
-  }
-
-  @media ${windowSmallQuery} {
-    padding-bottom: 5em;
-  }
-
-  > * {
     ${({ shadowed }) =>
       !shadowed
         ? css``

@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 
 import { grey, red } from "../style/colors";
 import { verticalMargin } from "../style/margin";
-import { windowSmallQuery } from "../style/media";
+import { withWindowSmall } from "../style/media";
 import CreateTask from "./CreateTask";
 import IconedButton from "./IconedButton";
 import ProjectsMenu from "./ProjectsMenu";
@@ -18,10 +18,10 @@ const background = css`
   z-index: -1;
   right: 0;
 
-  @media ${windowSmallQuery} {
+  ${withWindowSmall(css`
     left: 0;
     right: unset;
-  }
+  `)};
 `;
 
 const column = css`

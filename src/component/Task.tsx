@@ -11,7 +11,7 @@ import * as timer from "../state/timer";
 import { instantDuration } from "../style/animation";
 import { paperBorder } from "../style/border";
 import { horizontalMargin, verticalMargin } from "../style/margin";
-import { windowSmallQuery } from "../style/media";
+import { withWindowSmall } from "../style/media";
 import SmallIconButton from "./SmallIconButton";
 import SubInformation from "./SubInformation";
 import TaskDescription from "./TaskDescription";
@@ -43,10 +43,10 @@ const Buttons = styled.div<{ covert: boolean }>`
           opacity: 0;
           visibility: hidden;
 
-          @media ${windowSmallQuery} {
+          ${withWindowSmall(css`
             opacity: 1;
             visibility: visible;
-          }
+          `)};
         `
       : css``};
 `;

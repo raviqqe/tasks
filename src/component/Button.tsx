@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 
 import { instantDuration } from "../style/animation";
 import { red, transparentBlack } from "../style/colors";
-import { mouseAvailableQuery } from "../style/media";
+import { withMouseAvailable } from "../style/media";
 
 const shadowSize = "0.15rem";
 
@@ -36,11 +36,11 @@ const Button = styled.button<IButtonProps>`
 
   ${({ alwaysShadowed }) => (alwaysShadowed ? shadowOn : "")};
 
-  @media ${mouseAvailableQuery} {
+  ${withMouseAvailable(css`
     &:hover {
       ${shadowOn};
     }
-  }
+  `)};
 
   &:active {
     transform: translateY(0);

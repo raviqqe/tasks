@@ -4,7 +4,7 @@ import * as React from "react";
 import { GoMarkGithub } from "react-icons/go";
 import { MdSettings, MdSync, MdSyncDisabled } from "react-icons/md";
 import { connect } from "react-redux";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import config from "../config";
 import * as authentication from "../state/authentication";
@@ -13,7 +13,7 @@ import * as tasks from "../state/tasks";
 import { shortDuration } from "../style/animation";
 import { grey, lightGrey, yellowGreen } from "../style/colors";
 import { horizontalMargin, verticalMargin } from "../style/margin";
-import { windowSmallQuery } from "../style/media";
+import { withWindowSmall } from "../style/media";
 import CreateProject from "./CreateProject";
 import DeleteProject from "./DeleteProject";
 import IconedButton from "./IconedButton";
@@ -46,11 +46,11 @@ const Buttons = styled.div`
   display: flex;
   align-items: center;
 
-  @media ${windowSmallQuery} {
+  ${withWindowSmall(css`
     ${verticalMargin("0.5em")};
     flex-direction: column;
     align-items: stretch;
-  }
+  `)};
 `;
 
 const VolumeSlider = styled.div`
@@ -85,9 +85,9 @@ const Footer = styled.div`
     margin: 0 0.6em;
   }
 
-  @media ${windowSmallQuery} {
+  ${withWindowSmall(css`
     justify-content: flex-start;
-  }
+  `)};
 `;
 
 const GitHubLink = styled.div`

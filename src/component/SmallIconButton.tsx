@@ -1,9 +1,9 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { instantDuration } from "../style/animation";
 import { black, grey, red } from "../style/colors";
-import { windowSmallQuery } from "../style/media";
+import { withWindowSmall } from "../style/media";
 
 const Button = styled.div`
   color: ${black};
@@ -17,9 +17,9 @@ const Button = styled.div`
     transform: scale(1.5, 1.5);
   }
 
-  @media ${windowSmallQuery} {
+  ${withWindowSmall(css`
     color: ${grey};
-  }
+  `)};
 `;
 
 export default ({

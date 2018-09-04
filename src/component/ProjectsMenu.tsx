@@ -8,7 +8,7 @@ import { shortDuration } from "../style/animation";
 import { paperBorder } from "../style/border";
 import { transparentBlack } from "../style/colors";
 import { verticalMargin } from "../style/margin";
-import { windowSmallQuery } from "../style/media";
+import { withWindowSmall } from "../style/media";
 import TextButton from "./TextButton";
 
 const CurrentProject = styled.div`
@@ -27,13 +27,12 @@ const Background = styled.div<{ covert: boolean }>`
   width: 100vw;
   height: 100vh;
   z-index: 100;
+  display: ${({ covert }) => (covert ? "none" : "unset")};
 
-  @media ${windowSmallQuery} {
+  ${withWindowSmall(css`
     left: unset;
     right: 0;
-  }
-
-  display: ${({ covert }) => (covert ? "none" : "unset")};
+  `)};
 `;
 
 const boxMargin = "1em";
@@ -54,11 +53,11 @@ const Box = styled.div<{ covert: boolean }>`
   z-index: 200;
   box-shadow: 0.2rem 0.2rem 1rem ${transparentBlack};
 
-  @media ${windowSmallQuery} {
+  ${withWindowSmall(css`
     left: unset;
     right: ${boxMargin};
     transform-origin: 100% 0;
-  }
+  `)};
 
   ${({ covert }) =>
     covert

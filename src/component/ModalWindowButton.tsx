@@ -1,7 +1,7 @@
 import * as React from "react";
 import { MdClose } from "react-icons/md";
 import { connect } from "react-redux";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import transition from "styled-transition-group";
 
 import config from "../config";
@@ -9,7 +9,7 @@ import * as environment from "../state/environment";
 import { longDuration } from "../style/animation";
 import { paperBorder } from "../style/border";
 import { transparentBlack } from "../style/colors";
-import { windowSmallQuery } from "../style/media";
+import { withWindowSmall } from "../style/media";
 import CircleButton from "./CircleButton";
 import ModalButton, { IButtonProps, IContentProps } from "./ModalButton";
 
@@ -19,10 +19,10 @@ const CloseButton = styled(CircleButton)`
   right: 1rem;
   z-index: 200;
 
-  @media ${windowSmallQuery} {
+  ${withWindowSmall(css`
     top: auto;
     bottom: 1rem;
-  }
+  `)};
 `;
 
 const Modal = transition.div`
@@ -30,10 +30,10 @@ const Modal = transition.div`
   top: 0;
   left: 0;
 
-  @media ${windowSmallQuery} {
+  ${withWindowSmall(css`
     left: auto;
     right: 0;
-  }
+  `)};
 
   z-index: 100;
   width: 100vw;
