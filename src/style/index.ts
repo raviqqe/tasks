@@ -1,11 +1,7 @@
 import { css, injectGlobal } from "styled-components";
 
 import { black, grey, lightGreen } from "./colors";
-import { windowSmallQuery } from "./media";
-
-export const sharpBorderRadius = css`
-  border-radius: 0.2rem;
-`;
+import { withWindowBig } from "./media";
 
 const fontWithoutSize = css`
   color: ${black};
@@ -26,7 +22,7 @@ injectGlobal`
     box-sizing: border-box;
     user-select: none;
 
-    @media not all and ${windowSmallQuery} {
+    ${withWindowBig(css`
       &::-webkit-scrollbar {
         width: 0.7rem;
       }
@@ -35,7 +31,7 @@ injectGlobal`
         border-radius: 1rem;
         background: ${grey};
       }
-    }
+    `)}
   }
 
   body {
@@ -48,7 +44,7 @@ injectGlobal`
   input,
   textarea {
     border: 1px solid ${grey};
-    ${sharpBorderRadius};
+    border-radius: 0.2rem;
     outline: none;
     padding: 0.2em;
     width: 100%;

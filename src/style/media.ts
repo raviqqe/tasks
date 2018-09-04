@@ -13,6 +13,16 @@ export function withWindowSmall(
   `;
 }
 
+export function withWindowBig(
+  values: InterpolationValue[]
+): InterpolationValue[] {
+  return css`
+    @media not all and ${windowSmallQuery} {
+      ${values};
+    }
+  `;
+}
+
 export function withMouseAvailable(
   values: InterpolationValue[]
 ): InterpolationValue[] {
