@@ -1,6 +1,7 @@
 module.exports = {
   globDirectory: "build/",
+  globIgnores: ["../workbox-cli-config.js"],
   globPatterns: ["**/*.{json,png,html,js,css}"],
-  swDest: "build/service-worker.js",
-  globIgnores: ["../workbox-cli-config.js"]
+  maximumFileSizeToCacheInBytes: 8 * 1024 * 1024,
+  swDest: "build/service-worker.js"
 };
