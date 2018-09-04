@@ -1,10 +1,10 @@
 import * as React from "react";
-import AutosizedTextArea from "react-autosize-textarea";
 import Markdown = require("react-markdown");
 import styled from "styled-components";
 
 import { grey } from "../style/colors";
 import InputComponent from "./InputComponent";
+import OriginalTextArea from "./TextArea";
 
 const Description = styled.div`
   cursor: text;
@@ -14,7 +14,7 @@ const Message = styled.div`
   color: ${grey};
 `;
 
-const TextArea = styled(AutosizedTextArea as any)`
+const TextArea = styled(OriginalTextArea)`
   height: 20vh;
   resize: vertical;
 `;

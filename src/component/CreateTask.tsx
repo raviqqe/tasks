@@ -1,5 +1,4 @@
 import * as React from "react";
-import AutosizedTextArea from "react-autosize-textarea";
 import { MdAdd } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -10,6 +9,7 @@ import { normalBorder } from "../style/borders";
 import { verticalMargin } from "../style/margin";
 import IconedButton from "./IconedButton";
 import ModalWindowButton from "./ModalWindowButton";
+import OriginalTextArea from "./TextArea";
 
 const Form = styled.form`
   ${normalBorder};
@@ -19,7 +19,7 @@ const Form = styled.form`
   padding: 1em;
 `;
 
-const TextArea = styled(AutosizedTextArea as any)`
+const TextArea = styled(OriginalTextArea)`
   height: 20vh;
   resize: vertical;
 `;
@@ -71,7 +71,6 @@ export default class extends React.Component<
               }
             />
             <TextArea
-              async={true}
               placeholder="Description"
               value={description}
               onChange={({ target: { value } }: any) =>
