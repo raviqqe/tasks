@@ -4,13 +4,13 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import * as tasks from "../state/tasks";
-import { paperBorder } from "../style/border";
+import { normalBorder } from "../style/border";
 import { grey } from "../style/colors";
 import IconedButton from "./IconedButton";
 import ModalWindowButton from "./ModalWindowButton";
 
 const Form = styled.form`
-  ${paperBorder};
+  ${normalBorder};
   background: white;
   padding: 1em;
   font-size: 1.2em;

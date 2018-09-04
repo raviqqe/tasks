@@ -4,14 +4,14 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import * as tasks from "../state/tasks";
-import { paperBorder } from "../style/border";
+import { normalBorder } from "../style/border";
 import { grey } from "../style/colors";
 import { verticalMargin } from "../style/margin";
 import IconedButton from "./IconedButton";
 import ModalWindowButton from "./ModalWindowButton";
 
 const DeleteProject = styled.div`
-  ${paperBorder};
+  ${normalBorder};
   ${verticalMargin("1em")};
   background: white;
   padding: 1em;

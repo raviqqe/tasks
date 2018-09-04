@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 import { IProject, IProjects } from "../domain/project";
 import * as tasks from "../state/tasks";
 import { shortDuration } from "../style/animation";
-import { paperBorder } from "../style/border";
+import { normalBorder } from "../style/border";
 import { transparentBlack } from "../style/colors";
 import { verticalMargin } from "../style/margin";
 import { withWindowSmall } from "../style/media";
@@ -38,7 +38,7 @@ const Background = styled.div<{ covert: boolean }>`
 const boxMargin = "1em";
 
 const Box = styled.div<{ covert: boolean }>`
-  ${paperBorder};
+  ${normalBorder};
   ${verticalMargin("1.6em")};
   background: white;
   padding: 1.5em 2em;

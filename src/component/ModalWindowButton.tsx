@@ -7,7 +7,7 @@ import transition from "styled-transition-group";
 import config from "../config";
 import * as environment from "../state/environment";
 import { longDuration } from "../style/animation";
-import { paperBorder } from "../style/border";
+import { normalBorder } from "../style/border";
 import { transparentBlack } from "../style/colors";
 import { withWindowSmall } from "../style/media";
 import CircleButton from "./CircleButton";
@@ -63,7 +63,7 @@ const Modal = transition.div`
 `;
 
 const Window = styled.div`
-  ${paperBorder};
+  ${normalBorder};
   background: white;
   display: flex;
   max-width: 100%;

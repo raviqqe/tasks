@@ -9,7 +9,7 @@ import { unixTimeStampToString } from "../domain/utils";
 import * as tasks from "../state/tasks";
 import * as timer from "../state/timer";
 import { instantDuration } from "../style/animation";
-import { paperBorder } from "../style/border";
+import { normalBorder } from "../style/border";
 import { horizontalMargin, verticalMargin } from "../style/margin";
 import { withWindowSmall } from "../style/media";
 import SmallIconButton from "./SmallIconButton";
@@ -18,7 +18,7 @@ import TaskDescription from "./TaskDescription";
 import TaskName from "./TaskName";
 
 const Task = styled.div`
-  ${paperBorder};
+  ${normalBorder};
   ${verticalMargin("0.6em")};
   background: white;
   padding: 0.5em 0.7em;

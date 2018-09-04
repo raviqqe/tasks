@@ -1,5 +1,5 @@
 import { css } from "styled-components";
 
-export const paperBorder = css`
+export const normalBorder = css`
   border-radius: 0.2rem;
 `;

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import * as message from "../state/message";
-import { paperBorder } from "../style/border";
+import { normalBorder } from "../style/border";
 import { yellow } from "../style/colors";
 
 const Message = styled.div`
@@ -17,7 +17,7 @@ const Message = styled.div`
 `;
 
 const Box = styled.div<{ covert: boolean }>`
-  ${paperBorder};
+  ${normalBorder};
   color: white;
   cursor: pointer;
   font-size: 1.2em;
