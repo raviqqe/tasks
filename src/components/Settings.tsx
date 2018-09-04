@@ -12,7 +12,7 @@ import * as settings from "../state/settings";
 import * as tasks from "../state/tasks";
 import { shortDuration } from "../style/animation";
 import { grey, lightGrey, yellowGreen } from "../style/colors";
-import { horizontalMargin, verticalMargin } from "../style/margin";
+import { verticalMargin } from "../style/margin";
 import { withWindowSmall } from "../style/media";
 import CreateProject from "./CreateProject";
 import DeleteProject from "./DeleteProject";
@@ -41,10 +41,13 @@ const Icon = styled.div<{ active: boolean }>`
 `;
 
 const Buttons = styled.div`
-  ${horizontalMargin("1em")};
   font-size: 0.9em;
   display: flex;
   align-items: center;
+
+  > * {
+    margin: 0 0.25em;
+  }
 
   ${withWindowSmall(css`
     ${verticalMargin("0.5em")};
