@@ -6,6 +6,7 @@ import styled from "styled-components";
 import * as tasks from "../state/tasks";
 import { normalBorder } from "../style/borders";
 import IconedButton from "./IconedButton";
+import Input from "./Input";
 import ModalWindowButton from "./ModalWindowButton";
 
 const Form = styled.form`
@@ -52,12 +53,12 @@ export default class extends React.Component<
               event.preventDefault();
             }}
           >
-            <input
+            <Input
+              innerRef={this.input}
               onChange={({ target: { value } }) =>
                 this.setState({ name: value })
               }
               placeholder="Name"
-              ref={this.input}
               value={name}
             />
           </Form>

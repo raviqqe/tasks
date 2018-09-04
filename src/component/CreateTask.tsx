@@ -8,6 +8,7 @@ import * as tasks from "../state/tasks";
 import { normalBorder } from "../style/borders";
 import { verticalMargin } from "../style/margin";
 import IconedButton from "./IconedButton";
+import Input from "./Input";
 import ModalWindowButton from "./ModalWindowButton";
 import OriginalTextArea from "./TextArea";
 
@@ -62,8 +63,8 @@ export default class extends React.Component<
               event.preventDefault();
             }}
           >
-            <input
-              ref={this.input}
+            <Input
+              innerRef={this.input}
               placeholder="Name"
               value={name}
               onChange={({ target: { value } }) =>
