@@ -8,7 +8,7 @@ import { shortDuration } from "../style/animation";
 import { darkGrey, transparentBlack } from "../style/colors";
 import CircleButton from "./CircleButton";
 import MenuBox, { IProps as IMenuBoxProps } from "./MenuBox";
-import ModalButton, { IButtonProps, IContentProps } from "./StyledModalButton";
+import ModalButton, { IButtonProps, IContentProps } from "./ModalButton";
 
 const MenuButton = styled(CircleButton)<{ covert: boolean }>`
   position: fixed;

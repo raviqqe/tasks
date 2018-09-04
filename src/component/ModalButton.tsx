@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { CSSTransition } from "react-transition-group";
 
 import config from "../config";
 
@@ -14,81 +13,64 @@ export interface IContentProps {
   opened: boolean;
 }
 
-interface IProps<B> {
-  buttonComponent: (props: B & IButtonProps) => JSX.Element;
-  buttonProps?: B;
+interface IProps {
+  buttonComponent: (props: IButtonProps) => JSX.Element;
+  children: (props: IContentProps) => JSX.Element;
   closed?: boolean;
-  contentComponent: (props: IContentProps) => JSX.Element;
-  contentProps?: object;
-  onOpen?: () => void;
-  transitionClassNames?: string | CSSTransition.CSSTransitionClassNames;
 }
 
 interface IState {
   opened: boolean;
 }
 
-export default class<B> extends React.Component<IProps<B>, IState> {
+export default class extends React.Component<IProps, IState> {
   public state: IState = { opened: false };
-  private modal: HTMLElement | null = null;
+  private modal: HTMLDivElement | null = null;
 
   public render() {
-    const {
-      buttonComponent,
-      buttonProps,
-      closed,
-      contentComponent,
-      contentProps,
-      onOpen,
-      transitionClassNames
-    } = this.props;
+    const { buttonComponent, children } = this.props;
+    const { opened } = this.state;
+
     const Button = buttonComponent;
-    const Content = contentComponent;
-    const opened = !closed && this.state.opened;
+    const Content = children;
 
     return (
       <>
         <Button
           opened={opened}
           openWindow={() => this.setState({ opened: true })}
-          {...buttonProps || {}}
         />
         {!!this.modal &&
           ReactDOM.createPortal(
-            <CSSTransition
-              appear={true}
-              classNames={transitionClassNames}
-              in={opened}
-              timeout={config.maxAnimationDelayMs}
-              onEntered={onOpen}
-              onExited={this.removeElement}
-            >
-              <Content
-                closeWindow={() => this.setState({ opened: false })}
-                opened={opened}
-                {...contentProps || {}}
-              />
-            </CSSTransition>,
+            <Content
+              closeWindow={() => this.setState({ opened: false })}
+              opened={opened}
+            />,
             this.modal
           )}
       </>
     );
   }
 
-  public componentWillUpdate(_, { opened }: IState) {
-    if (!this.state.opened && opened) {
-      this.createElement();
-    }
-  }
-
-  public componentDidUpdate({ closed }: IProps<B>) {
-    if (!closed && this.props.closed) {
-      this.setState({ opened: false });
-    }
+  public componeneDidMount() {
+    this.setState({ opened: !this.props.closed });
   }
 
   public componentWillUnmount() {
     this.removeElement();
+  }
+
+  public componentDidUpdate({ closed }: IProps, { opened }: IState) {
+    if (!opened && this.state.opened) {
+      this.createElement();
+      this.forceUpdate();
+    } else if (opened && !this.state.opened) {
+      setTimeout(() => this.removeElement(), config.maxAnimationDelayMs);
+    }
+
+    if (!closed && this.props.closed) {
+      this.setState({ opened: false });
+    }
   }
 
   private createElement = (): void => {

@@ -11,7 +11,7 @@ import { paperBorder } from "../style/border";
 import { transparentBlack } from "../style/colors";
 import { windowSmallQuery } from "../style/media";
 import CircleButton from "./CircleButton";
-import ModalButton, { IButtonProps, IContentProps } from "./StyledModalButton";
+import ModalButton, { IButtonProps, IContentProps } from "./ModalButton";
 
 const CloseButton = styled(CircleButton)`
   position: fixed;
