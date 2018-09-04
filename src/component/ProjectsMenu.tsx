@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 import { IProject, IProjects } from "../domain/project";
 import * as tasks from "../state/tasks";
 import { shortDuration } from "../style/animation";
-import { normalBorder } from "../style/border";
+import { normalBorder } from "../style/borders";
 import { transparentBlack } from "../style/colors";
 import { verticalMargin } from "../style/margin";
 import { withWindowSmall } from "../style/media";

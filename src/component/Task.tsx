@@ -9,7 +9,7 @@ import { unixTimeStampToString } from "../domain/utils";
 import * as tasks from "../state/tasks";
 import * as timer from "../state/timer";
 import { instantDuration } from "../style/animation";
-import { normalBorder } from "../style/border";
+import { normalBorder } from "../style/borders";
 import { horizontalMargin, verticalMargin } from "../style/margin";
 import { withWindowSmall } from "../style/media";
 import SmallIconButton from "./SmallIconButton";

@@ -7,7 +7,7 @@ import transition from "styled-transition-group";
 import config from "../config";
 import * as environment from "../state/environment";
 import { longDuration } from "../style/animation";
-import { normalBorder } from "../style/border";
+import { normalBorder } from "../style/borders";
 import { transparentBlack } from "../style/colors";
 import { withWindowSmall } from "../style/media";
 import CircleButton from "./CircleButton";

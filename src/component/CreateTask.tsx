@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 import { createTask, ITask } from "../domain/task";
 import * as tasks from "../state/tasks";
-import { normalBorder } from "../style/border";
+import { normalBorder } from "../style/borders";
 import { verticalMargin } from "../style/margin";
 import IconedButton from "./IconedButton";
 import ModalWindowButton from "./ModalWindowButton";

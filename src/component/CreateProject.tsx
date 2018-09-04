@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import * as tasks from "../state/tasks";
-import { normalBorder } from "../style/border";
+import { normalBorder } from "../style/borders";
 import IconedButton from "./IconedButton";
 import ModalWindowButton from "./ModalWindowButton";
 

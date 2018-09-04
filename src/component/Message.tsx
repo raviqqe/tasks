@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import * as message from "../state/message";
-import { normalBorder } from "../style/border";
+import { normalBorder } from "../style/borders";
 import { yellow } from "../style/colors";
 
 const Message = styled.div`
