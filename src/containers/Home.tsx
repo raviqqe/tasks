@@ -4,10 +4,10 @@ import { MdSave } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-import CircleButton from "../component/CircleButton";
-import Menu from "../component/Menu";
-import Task from "../component/Task";
-import TaskList from "../component/TaskList";
+import CircleButton from "../components/CircleButton";
+import Menu from "../components/Menu";
+import Task from "../components/Task";
+import TaskList from "../components/TaskList";
 import { getTasksFromProject, IProject, IProjects } from "../domain/project";
 import { includeTaskInTasks, ITask } from "../domain/task";
 import * as environment from "../state/environment";

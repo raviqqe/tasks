@@ -4,7 +4,7 @@ import { IoIosSquare } from "react-icons/io";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-import Button from "../component/Button";
+import Button from "../components/Button";
 import { ITask } from "../domain/task";
 import * as notification from "../infra/notification";
 import * as tasks from "../state/tasks";

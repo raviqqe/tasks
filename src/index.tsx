@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
-import Message from "./component/Message";
+import Message from "./components/Message";
 import config from "./config";
 import Home from "./containers/Home";
 import { createStore } from "./state";
