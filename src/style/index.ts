@@ -3,17 +3,6 @@ import { css, injectGlobal } from "styled-components";
 import { black, grey, lightGreen } from "./colors";
 import { withWindowBig } from "./media";
 
-const fontWithoutSize = css`
-  color: ${black};
-  font-family: "Noto Sans", sans-serif;
-  line-height: 1.4;
-`;
-
-const font = css`
-  ${fontWithoutSize};
-  font-size: 14px;
-`;
-
 // tslint:disable no-unused-expression
 injectGlobal`
   @import url("https://fonts.googleapis.com/css?family=Noto+Sans");
@@ -38,21 +27,10 @@ injectGlobal`
     background: ${lightGreen};
     margin: 0;
     padding: 0;
-    ${font};
-  }
-
-  input,
-  textarea {
-    border: 1px solid ${grey};
-    border-radius: 0.2rem;
-    outline: none;
-    padding: 0.2em;
-    width: 100%;
-    ${font};
-
-    &:focus {
-      ${fontWithoutSize};
-    }
+    color: ${black};
+    font-family: "Noto Sans", sans-serif;
+    line-height: 1.4;
+    font-size: 14px;
   }
 
   .sortable-ghost {
