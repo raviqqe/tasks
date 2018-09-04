@@ -3,8 +3,7 @@ import { MdMenu } from "react-icons/md";
 import styled, { css } from "styled-components";
 import transition from "styled-transition-group";
 
-import config from "../config";
-import { shortDuration } from "../style/animation";
+import { maxDurationMs, shortDuration } from "../style/animation";
 import { darkGrey, transparentBlack } from "../style/colors";
 import CircleButton from "./CircleButton";
 import MenuBox, { IProps as IMenuBoxProps } from "./MenuBox";
@@ -88,7 +87,7 @@ export default class extends React.Component<IProps> {
     <Menu
       appear={true}
       in={opened}
-      timeout={{ enter: 0, exit: config.maxAnimationDelayMs }}
+      timeout={{ enter: 0, exit: maxDurationMs }}
       onClick={closeWindow}
     >
       <MenuBox {...this.props} />

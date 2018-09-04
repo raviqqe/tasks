@@ -2,6 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 import config from "../config";
+import { maxDurationMs } from "../style/animation";
 
 export interface IButtonProps {
   opened: boolean;
@@ -65,7 +66,7 @@ export default class extends React.Component<IProps, IState> {
       this.createElement();
       this.forceUpdate();
     } else if (opened && !this.state.opened) {
-      setTimeout(() => this.removeElement(), config.maxAnimationDelayMs);
+      setTimeout(() => this.removeElement(), maxDurationMs);
     }
 
     if (!closed && this.props.closed) {

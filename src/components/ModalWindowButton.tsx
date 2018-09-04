@@ -4,9 +4,8 @@ import { connect } from "react-redux";
 import styled, { css } from "styled-components";
 import transition from "styled-transition-group";
 
-import config from "../config";
 import * as environment from "../state/environment";
-import { longDuration } from "../style/animation";
+import { longDuration, maxDurationMs } from "../style/animation";
 import { normalBorder } from "../style/borders";
 import { transparentBlack } from "../style/colors";
 import { withWindowSmall } from "../style/media";
@@ -99,8 +98,8 @@ export default class extends React.Component<IProps> {
         appear={true}
         in={opened}
         onClick={closeWindow}
-        onEntered={() => setTimeout(onOpen, config.maxAnimationDelayMs)}
-        timeout={{ enter: 0, exit: config.maxAnimationDelayMs }}
+        onEntered={() => setTimeout(onOpen, maxDurationMs)}
+        timeout={{ enter: 0, exit: maxDurationMs }}
       >
         {(windowSmall || showCloseButton) && (
           <CloseButton onClick={closeWindow}>
