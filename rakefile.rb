@@ -10,7 +10,6 @@ task :build do
           images/icon.svg].join ' '
   end
 
-  sh 'npx node-sass-chokidar src -o src'
   sh 'npx react-scripts-ts build'
   sh 'npx workbox generateSW workbox-cli-config.js'
 end
@@ -20,7 +19,6 @@ task deploy: %i[deps build] do
 end
 
 task :run do
-  sh 'npx node-sass-chokidar src -o src --watch --recursive &'
   sh 'npx react-scripts-ts start'
 end
 
@@ -30,7 +28,7 @@ end
 
 task :lint do
   sh 'npx tslint src/**/*.ts{,x}'
-  sh 'npx prettier -l src/**/*.{json,scss,ts{,x}}'
+  sh 'npx prettier -l src/**/*.{json,ts{,x}}'
 end
 
 task :clean do
