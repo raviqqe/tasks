@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 
 import { ITask } from "../domain/task";
 import { instantDuration } from "../style/animation";
+import { transparentBlack } from "../style/colors";
 import { withWindowSmall } from "../style/media";
 import ModalWindowButton from "./ModalWindowButton";
 import Task from "./Task";
@@ -24,7 +25,7 @@ const List = styled.div<{ shadowed: boolean }>`
       !shadowed
         ? css``
         : css`
-            box-shadow: 0 0.2em 0.2em $transparent-black;
+            box-shadow: 0 0.2em 0.2em ${transparentBlack};
             transform: translateY(-0.2em);
           `};
   }

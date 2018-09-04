@@ -21,4 +21,8 @@ export default ({
   backgroundColor?: string;
   children?: React.ReactNode;
   onClick: () => void;
-}) => <CircleButton {...props}>{children}</CircleButton>;
+}) => (
+  <CircleButton alwaysShadowed={true} {...props}>
+    {children}
+  </CircleButton>
+);
