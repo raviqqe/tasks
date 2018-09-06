@@ -4,6 +4,7 @@ import {
   findIndex,
   isEqual,
   omit,
+  omitBy,
   reject,
   size
 } from "lodash";
@@ -34,6 +35,18 @@ const originalRemoveProject = actionCreator<string>("REMOVE_PROJECT");
 const setCurrentProjectName = actionCreator<string>("SET_CURRENT_PROJECT_NAME");
 const setCurrentTaskId = actionCreator<string>("SET_CURRENT_TASK_ID");
 
+function getProject(getState: () => { tasks: IState }): IProject {
+  const { currentProjectName, projects } = getState().tasks;
+
+  return projects[currentProjectName];
+}
+
+function getNumberOfUnarchivedProjects(
+  getState: () => { tasks: IState }
+): number {
+  return size(omitBy(getState().tasks.projects, ({ archived }) => archived));
+}
+
 function addOrModifyProject(name: string, project: IProject) {
   return (dispatch, getState) => {
     dispatch(originalAddOrModifyProject({ name, project }));
@@ -46,7 +59,7 @@ function addOrModifyProject(name: string, project: IProject) {
 
 function removeProject(name: string) {
   return (dispatch, getState) => {
-    if (size(getState().tasks.projects) === 1) {
+    if (getNumberOfUnarchivedProjects(getState) === 1) {
       dispatch(
         message.actionCreators.sendMessage(
           "You cannot delete the last project."
@@ -67,12 +80,6 @@ function modifyProject(project: IProject) {
   return (dispatch, getState) => {
     dispatch(addOrModifyProject(getState().tasks.currentProjectName, project));
   };
-}
-
-function getProject(getState: () => { tasks: IState }): IProject {
-  const { currentProjectName, projects } = getState().tasks;
-
-  return projects[currentProjectName];
 }
 
 export const actionCreators = {
@@ -154,6 +161,21 @@ export const actionCreators = {
         setTasksToProject(project, tasks, isDoneTask(project, tasks[0].id))
       )
     );
+  },
+  toggleProjectState: () => (dispatch, getState) => {
+    if (getNumberOfUnarchivedProjects(getState) === 1) {
+      dispatch(
+        message.actionCreators.sendMessage(
+          "You cannot archive the last project."
+        )
+      );
+      return;
+    }
+
+    const { archived, ...rest } = getProject(getState);
+
+    dispatch(modifyProject({ archived: !archived, ...rest }));
+    dispatch(setCurrentProjectName(Object.keys(getState().tasks.projects)[0]));
   },
   toggleTaskState: (id: string) => (dispatch, getState) => {
     const project = getProject(getState);

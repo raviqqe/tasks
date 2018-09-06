@@ -14,6 +14,7 @@ import { shortDuration } from "../style/animation";
 import { grey, lightGrey, yellowGreen } from "../style/colors";
 import { verticalMargin } from "../style/margin";
 import { withWindowSmall } from "../style/media";
+import ArchiveProject from "./ArchiveProject";
 import CreateProject from "./CreateProject";
 import DeleteProject from "./DeleteProject";
 import IconedButton from "./IconedButton";
@@ -152,6 +153,7 @@ export default class extends React.Component<IProps> {
             <Buttons>
               <CreateProject />
               <RenameProject />
+              <ArchiveProject />
               <DeleteProject />
             </Buttons>
           </SettingsItem>

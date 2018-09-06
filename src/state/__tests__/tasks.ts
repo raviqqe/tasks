@@ -1,10 +1,16 @@
 import { createStore } from "..";
-import { emptyProject } from "../../domain/project";
+import { emptyProject, IProject } from "../../domain/project";
 import { createTask } from "../../domain/task";
 import { actionCreators, initialState, reducer } from "../tasks";
 
 function getState(store): typeof initialState {
   return store.getState().tasks;
+}
+
+function getProject(store): IProject {
+  const { currentProjectName, projects } = getState(store);
+
+  return projects[currentProjectName];
 }
 
 jest.mock("../../domain/utils", () => ({ getUnixTimeStamp: () => 42 }));
@@ -189,4 +195,27 @@ test("Toggle a task's state", () => {
     doneTasks: [],
     todoTasks: [fooTask]
   });
+});
+
+test("Toggle a project's state", () => {
+  const { store } = createStore();
+
+  store.dispatch(actionCreators.addProject("foo"));
+
+  expect(getProject(store).archived).toBeFalsy();
+
+  store.dispatch(actionCreators.toggleProjectState());
+
+  expect(getProject(store).archived).toBeFalsy();
+  expect(getState(store).projects.foo.archived).toBeTruthy();
+});
+
+test("Don't archive the last project", () => {
+  const { store } = createStore();
+
+  expect(getProject(store).archived).toBeFalsy();
+
+  store.dispatch(actionCreators.toggleProjectState());
+
+  expect(getProject(store).archived).toBeFalsy();
 });
