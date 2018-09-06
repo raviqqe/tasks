@@ -163,7 +163,12 @@ export const actionCreators = {
     );
   },
   toggleProjectState: (name: string) => (dispatch, getState) => {
-    if (getNumberOfUnarchivedProjects(getState) === 1) {
+    const { currentProjectName, projects }: IState = getState().tasks;
+
+    if (
+      getNumberOfUnarchivedProjects(getState) === 1 &&
+      name === currentProjectName
+    ) {
       dispatch(
         message.actionCreators.sendMessage(
           "You cannot archive the last project."
@@ -172,7 +177,6 @@ export const actionCreators = {
       return;
     }
 
-    const { currentProjectName, projects }: IState = getState().tasks;
     const { archived, ...rest } = projects[name];
 
     dispatch(addOrModifyProject(name, { archived: !archived, ...rest }));
