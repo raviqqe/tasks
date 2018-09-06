@@ -22,6 +22,7 @@ import Link from "./Link";
 import ModalWindowButton from "./ModalWindowButton";
 import RenameProject from "./RenameProject";
 import SettingsItem from "./SettingsItem";
+import UnarchiveProject from "./UnarchiveProject";
 
 const Settings = styled.div`
   ${verticalMargin("2em")};
@@ -149,12 +150,17 @@ export default class extends React.Component<IProps> {
         )}
       >
         <Settings>
-          <SettingsItem label="Projects">
+          <SettingsItem label="Current Project">
             <Buttons>
               <CreateProject />
               <RenameProject />
               <ArchiveProject />
               <DeleteProject />
+            </Buttons>
+          </SettingsItem>
+          <SettingsItem label="Archived Projects">
+            <Buttons>
+              <UnarchiveProject />
             </Buttons>
           </SettingsItem>
           <SettingsItem label="Remote Sync">
