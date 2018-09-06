@@ -35,7 +35,7 @@ const originalRemoveProject = actionCreator<string>("REMOVE_PROJECT");
 const setCurrentProjectName = actionCreator<string>("SET_CURRENT_PROJECT_NAME");
 const setCurrentTaskId = actionCreator<string>("SET_CURRENT_TASK_ID");
 
-function getProject(getState: () => { tasks: IState }): IProject {
+function getCurrentProject(getState: () => { tasks: IState }): IProject {
   const { currentProjectName, projects } = getState().tasks;
 
   return projects[currentProjectName];
@@ -76,7 +76,7 @@ function removeProject(name: string) {
   };
 }
 
-function modifyProject(project: IProject) {
+function modifyCurrentProject(project: IProject) {
   return (dispatch, getState) => {
     dispatch(addOrModifyProject(getState().tasks.currentProjectName, project));
   };
@@ -102,10 +102,10 @@ export const actionCreators = {
       return;
     }
 
-    const project = getProject(getState);
+    const project = getCurrentProject(getState);
 
     dispatch(
-      modifyProject({
+      modifyCurrentProject({
         ...project,
         todoTasks: [task, ...project.todoTasks]
       })
@@ -113,21 +113,21 @@ export const actionCreators = {
     dispatch(setCurrentTaskId(task.id));
   },
   modifyTask: (task: ITask) => (dispatch, getState) => {
-    const project = getProject(getState);
+    const project = getCurrentProject(getState);
     const done = isDoneTask(project, task.id);
     const tasks = [...getTasksFromProject(project, done)];
 
     tasks[findIndex(tasks, { id: task.id })] = updateTask(task);
 
-    dispatch(modifyProject(setTasksToProject(project, tasks, done)));
+    dispatch(modifyCurrentProject(setTasksToProject(project, tasks, done)));
   },
   removeProject,
   removeTask: (id: string) => (dispatch, getState) => {
-    const project = getProject(getState);
+    const project = getCurrentProject(getState);
     const done = isDoneTask(project, id);
 
     dispatch(
-      modifyProject(
+      modifyCurrentProject(
         setTasksToProject(
           project,
           reject(getTasksFromProject(project, done), { id }),
@@ -136,7 +136,7 @@ export const actionCreators = {
       )
     );
   },
-  renameProject: (name: string) => (dispatch, getState) => {
+  renameCurrentProject: (name: string) => (dispatch, getState) => {
     const { currentProjectName, projects } = getState().tasks;
 
     if (name === currentProjectName) {
@@ -154,10 +154,10 @@ export const actionCreators = {
       return;
     }
 
-    const project = getProject(getState);
+    const project = getCurrentProject(getState);
 
     dispatch(
-      modifyProject(
+      modifyCurrentProject(
         setTasksToProject(project, tasks, isDoneTask(project, tasks[0].id))
       )
     );
@@ -172,13 +172,13 @@ export const actionCreators = {
       return;
     }
 
-    const { archived, ...rest } = getProject(getState);
+    const { archived, ...rest } = getCurrentProject(getState);
 
-    dispatch(modifyProject({ archived: !archived, ...rest }));
+    dispatch(modifyCurrentProject({ archived: !archived, ...rest }));
     dispatch(setCurrentProjectName(Object.keys(getState().tasks.projects)[0]));
   },
   toggleTaskState: (id: string) => (dispatch, getState) => {
-    const project = getProject(getState);
+    const project = getCurrentProject(getState);
     const done = isDoneTask(project, id);
 
     let sourceTasks = getTasksFromProject(project, done);
@@ -189,7 +189,7 @@ export const actionCreators = {
     sourceTasks = reject(sourceTasks, { id });
 
     dispatch(
-      modifyProject({
+      modifyCurrentProject({
         archived: project.archived,
         doneTasks: done ? sourceTasks : destinationTasks,
         todoTasks: done ? destinationTasks : sourceTasks

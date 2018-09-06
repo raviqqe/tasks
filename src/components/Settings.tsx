@@ -133,7 +133,7 @@ export default class extends React.Component<IProps> {
       currentProjectName,
       notificationOn,
       removeProject,
-      renameProject,
+      renameCurrentProject,
       setAlarmVolume,
       signedIn,
       signIn,

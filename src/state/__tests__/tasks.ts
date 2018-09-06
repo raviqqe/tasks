@@ -70,7 +70,7 @@ test("Add a invalid task", () => {
 test("Rename a project", () => {
   const { store } = createStore();
 
-  store.dispatch(actionCreators.renameProject("foo"));
+  store.dispatch(actionCreators.renameCurrentProject("foo"));
   expect(getState(store).projects).toEqual({ foo: emptyProject });
 });
 

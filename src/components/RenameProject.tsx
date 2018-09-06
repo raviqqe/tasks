@@ -33,7 +33,7 @@ export default class extends React.Component<
   public state: IState = { name: "" };
 
   public render() {
-    const { currentProjectName, renameProject } = this.props;
+    const { currentProjectName, renameCurrentProject } = this.props;
     const { name } = this.state;
 
     return (
@@ -58,7 +58,7 @@ export default class extends React.Component<
         {closeWindow => (
           <Form
             onSubmit={event => {
-              renameProject(name);
+              renameCurrentProject(name);
               this.setState({ name: "" });
               closeWindow();
               event.preventDefault();
