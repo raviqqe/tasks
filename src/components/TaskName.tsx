@@ -3,11 +3,12 @@ import Markdown = require("react-markdown");
 import styled from "styled-components";
 
 import { black, red } from "../style/colors";
+import Input from "./Input";
 import InputComponent, {
   IProps as IInputComponentProps
 } from "./InputComponent";
 
-const Input = styled.input`
+const NameInput = styled(Input)`
   font-size: 1.1em;
 `;
 
@@ -24,7 +25,9 @@ interface IProps extends IInputComponentProps {
 export default class extends InputComponent<IProps> {
   public render() {
     if (this.state.editing) {
-      return <Input onKeyDown={this.onEnterKeyDown} {...this.getFormProps()} />;
+      return (
+        <NameInput onKeyDown={this.onEnterKeyDown} {...this.getFormProps()} />
+      );
     }
 
     const { highlighted, onEdit, text } = this.props;
