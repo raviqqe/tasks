@@ -1,5 +1,5 @@
 import * as React from "react";
-import { MdDelete } from "react-icons/md";
+import { MdArchive } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
@@ -36,7 +36,7 @@ export default class extends React.Component<
         buttonComponent={({ openWindow }) => (
           <IconedButton
             backgroundColor={grey}
-            icon={<MdDelete />}
+            icon={<MdArchive />}
             onClick={openWindow}
           >
             archive
@@ -47,7 +47,7 @@ export default class extends React.Component<
           <ArchiveProject>
             <div>Are you sure to archive "{currentProjectName}" project?</div>
             <IconedButton
-              icon={<MdDelete />}
+              icon={<MdArchive />}
               onClick={() => {
                 toggleProjectState();
                 closeWindow();
