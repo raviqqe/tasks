@@ -1,6 +1,7 @@
 import { includeTaskInTasks, ITask } from "./task";
 
 export interface IProject {
+  archived: boolean;
   doneTasks: ITask[];
   todoTasks: ITask[];
 }
@@ -9,7 +10,11 @@ export interface IProjects {
   [name: string]: IProject;
 }
 
-export const emptyProject: IProject = { doneTasks: [], todoTasks: [] };
+export const emptyProject: IProject = {
+  archived: false,
+  doneTasks: [],
+  todoTasks: []
+};
 
 function booleanToTaskState(done: boolean): "todoTasks" | "doneTasks" {
   return done ? "doneTasks" : "todoTasks";

@@ -1,3 +1,4 @@
+import { pickBy } from "lodash";
 import * as React from "react";
 import { connect } from "react-redux";
 import styled, { css } from "styled-components";
@@ -88,7 +89,8 @@ export default class extends React.Component<
   public state: IState = { opened: false };
 
   public render() {
-    const { currentProjectName, projects, setCurrentProjectName } = this.props;
+    const { currentProjectName, setCurrentProjectName } = this.props;
+    const projects = pickBy(this.props.projects, ({ archived }) => !archived);
     const { opened } = this.state;
 
     return (

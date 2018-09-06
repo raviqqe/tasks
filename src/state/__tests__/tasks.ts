@@ -44,13 +44,13 @@ test("Add a new task", () => {
   store.dispatch(actionCreators.addTask(fooTask));
   expect(getState(store).currentTaskId).toEqual(fooTask.id);
   expect(getState(store).projects).toEqual({
-    default: { doneTasks: [], todoTasks: [fooTask] }
+    default: { archived: false, doneTasks: [], todoTasks: [fooTask] }
   });
 
   store.dispatch(actionCreators.addTask(barTask));
   expect(getState(store).currentTaskId).toEqual(barTask.id);
   expect(getState(store).projects).toEqual({
-    default: { doneTasks: [], todoTasks: [barTask, fooTask] }
+    default: { archived: false, doneTasks: [], todoTasks: [barTask, fooTask] }
   });
 });
 
@@ -77,6 +77,7 @@ test("Modify a task", () => {
   store.dispatch(actionCreators.addTask(barTask));
   store.dispatch(actionCreators.addTask(fooTask));
   expect(getState(store).projects.default).toEqual({
+    archived: false,
     doneTasks: [],
     todoTasks: [fooTask, barTask]
   });
@@ -85,6 +86,7 @@ test("Modify a task", () => {
 
   store.dispatch(actionCreators.modifyTask(newFooTask));
   expect(getState(store).projects.default).toEqual({
+    archived: false,
     doneTasks: [],
     todoTasks: [newFooTask, barTask]
   });
@@ -119,12 +121,14 @@ test("Remove a task", () => {
   store.dispatch(actionCreators.addTask(barTask));
   store.dispatch(actionCreators.addTask(fooTask));
   expect(getState(store).projects.default).toEqual({
+    archived: false,
     doneTasks: [],
     todoTasks: [fooTask, barTask]
   });
 
   store.dispatch(actionCreators.removeTask(fooTask.id));
   expect(getState(store).projects.default).toEqual({
+    archived: false,
     doneTasks: [],
     todoTasks: [barTask]
   });
@@ -153,12 +157,14 @@ test("Set tasks", () => {
   store.dispatch(actionCreators.addTask(barTask));
   store.dispatch(actionCreators.addTask(fooTask));
   expect(getState(store).projects.default).toEqual({
+    archived: false,
     doneTasks: [],
     todoTasks: [fooTask, barTask]
   });
 
   store.dispatch(actionCreators.setTasks([barTask, fooTask]));
   expect(getState(store).projects.default).toEqual({
+    archived: false,
     doneTasks: [],
     todoTasks: [barTask, fooTask]
   });
@@ -172,12 +178,14 @@ test("Toggle a task's state", () => {
   store.dispatch(actionCreators.addTask(fooTask));
   store.dispatch(actionCreators.toggleTaskState(fooTask.id));
   expect(getState(store).projects.default).toEqual({
+    archived: false,
     doneTasks: [fooTask],
     todoTasks: []
   });
 
   store.dispatch(actionCreators.toggleTaskState(fooTask.id));
   expect(getState(store).projects.default).toEqual({
+    archived: false,
     doneTasks: [],
     todoTasks: [fooTask]
   });
