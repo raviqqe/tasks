@@ -162,7 +162,7 @@ export const actionCreators = {
       )
     );
   },
-  toggleProjectState: () => (dispatch, getState) => {
+  toggleProjectState: (name: string) => (dispatch, getState) => {
     if (getNumberOfUnarchivedProjects(getState) === 1) {
       dispatch(
         message.actionCreators.sendMessage(
@@ -172,10 +172,16 @@ export const actionCreators = {
       return;
     }
 
-    const { archived, ...rest } = getCurrentProject(getState);
+    const { currentProjectName, projects }: IState = getState().tasks;
+    const { archived, ...rest } = projects[name];
 
-    dispatch(modifyCurrentProject({ archived: !archived, ...rest }));
-    dispatch(setCurrentProjectName(Object.keys(getState().tasks.projects)[0]));
+    dispatch(addOrModifyProject(name, { archived: !archived, ...rest }));
+
+    if (name === currentProjectName) {
+      dispatch(
+        setCurrentProjectName(Object.keys(getState().tasks.projects)[0])
+      );
+    }
   },
   toggleTaskState: (id: string) => (dispatch, getState) => {
     const project = getCurrentProject(getState);

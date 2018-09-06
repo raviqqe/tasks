@@ -49,7 +49,7 @@ export default class extends React.Component<
             <IconedButton
               icon={<MdArchive />}
               onClick={() => {
-                toggleProjectState();
+                toggleProjectState(currentProjectName);
                 closeWindow();
               }}
             >

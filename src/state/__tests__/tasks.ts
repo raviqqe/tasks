@@ -204,7 +204,9 @@ test("Toggle a project's state", () => {
 
   expect(getProject(store).archived).toBeFalsy();
 
-  store.dispatch(actionCreators.toggleProjectState());
+  store.dispatch(
+    actionCreators.toggleProjectState(getState(store).currentProjectName)
+  );
 
   expect(getProject(store).archived).toBeFalsy();
   expect(getState(store).projects.foo.archived).toBeTruthy();
@@ -215,7 +217,9 @@ test("Don't archive the last project", () => {
 
   expect(getProject(store).archived).toBeFalsy();
 
-  store.dispatch(actionCreators.toggleProjectState());
+  store.dispatch(
+    actionCreators.toggleProjectState(getState(store).currentProjectName)
+  );
 
   expect(getProject(store).archived).toBeFalsy();
 });
