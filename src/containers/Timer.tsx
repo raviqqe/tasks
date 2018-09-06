@@ -1,6 +1,6 @@
 import numeral = require("numeral");
 import * as React from "react";
-import { IoIosSquare } from "react-icons/io";
+import { MdStop } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
@@ -114,7 +114,7 @@ export default class extends React.Component<IProps, IState> {
             this.props.toggleTimer();
           }}
         >
-          <IoIosSquare />
+          <MdStop />
         </TimerButton>
       </Timer>
     );
