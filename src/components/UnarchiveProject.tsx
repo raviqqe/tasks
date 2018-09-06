@@ -39,7 +39,7 @@ export default class extends React.Component<
   Partial<tasks.IState & tasks.IActionCreators>
 > {
   public render() {
-    const { currentProjectName, toggleProjectState } = this.props;
+    const { currentProjectName, unarchiveProject } = this.props;
     const projects = pickBy(this.props.projects, ({ archived }) => archived);
 
     return (
@@ -62,7 +62,7 @@ export default class extends React.Component<
                     <div>{name}</div>
                     <SmallIconButton
                       onClick={() => {
-                        toggleProjectState(name);
+                        unarchiveProject(name);
                         closeWindow();
                       }}
                     >

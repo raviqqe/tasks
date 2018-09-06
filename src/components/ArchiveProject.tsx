@@ -29,7 +29,7 @@ export default class extends React.Component<
   Partial<tasks.IState & tasks.IActionCreators>
 > {
   public render() {
-    const { currentProjectName, toggleProjectState } = this.props;
+    const { archiveProject, currentProjectName } = this.props;
 
     return (
       <ModalWindowButton
@@ -49,7 +49,7 @@ export default class extends React.Component<
             <IconedButton
               icon={<MdArchive />}
               onClick={() => {
-                toggleProjectState(currentProjectName);
+                archiveProject(currentProjectName);
                 closeWindow();
               }}
             >

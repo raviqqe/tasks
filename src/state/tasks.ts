@@ -32,6 +32,7 @@ const originalAddOrModifyProject = actionCreator<{
   project: IProject;
 }>("ADD_OR_MODIFY_PROJECT");
 const originalRemoveProject = actionCreator<string>("REMOVE_PROJECT");
+const originalUpdateProjects = actionCreator<IProjects>("UPDATE_PROJECTS");
 const setCurrentProjectName = actionCreator<string>("SET_CURRENT_PROJECT_NAME");
 const setCurrentTaskId = actionCreator<string>("SET_CURRENT_TASK_ID");
 
@@ -69,6 +70,7 @@ function removeProject(name: string) {
     }
 
     dispatch(originalRemoveProject(name));
+    dispatch(renewCurrentProjectName());
 
     if (getState().authentication.signedIn) {
       projectsRepository.removeProject(name);
@@ -79,6 +81,21 @@ function removeProject(name: string) {
 function modifyCurrentProject(project: IProject) {
   return (dispatch, getState) => {
     dispatch(addOrModifyProject(getState().tasks.currentProjectName, project));
+  };
+}
+
+function renewCurrentProjectName(): (dispatch, getState) => void {
+  return (dispatch, getState) => {
+    const { currentProjectName, projects }: IState = getState().tasks;
+    const currentProject = projects[currentProjectName];
+
+    if (!currentProject || currentProject.archived) {
+      dispatch(
+        setCurrentProjectName(
+          Object.keys(omitBy(projects, ({ archived }) => archived))[0]
+        )
+      );
+    }
   };
 }
 
@@ -111,6 +128,24 @@ export const actionCreators = {
       })
     );
     dispatch(setCurrentTaskId(task.id));
+  },
+  archiveProject: (name: string) => (dispatch, getState) => {
+    if (getNumberOfUnarchivedProjects(getState) === 1) {
+      dispatch(
+        message.actionCreators.sendMessage(
+          "You cannot archive the last project."
+        )
+      );
+      return;
+    }
+
+    dispatch(
+      addOrModifyProject(name, {
+        ...getState().tasks.projects[name],
+        archived: true
+      })
+    );
+    dispatch(renewCurrentProjectName());
   },
   modifyTask: (task: ITask) => (dispatch, getState) => {
     const project = getCurrentProject(getState);
@@ -162,31 +197,6 @@ export const actionCreators = {
       )
     );
   },
-  toggleProjectState: (name: string) => (dispatch, getState) => {
-    const { currentProjectName, projects }: IState = getState().tasks;
-
-    if (
-      getNumberOfUnarchivedProjects(getState) === 1 &&
-      name === currentProjectName
-    ) {
-      dispatch(
-        message.actionCreators.sendMessage(
-          "You cannot archive the last project."
-        )
-      );
-      return;
-    }
-
-    const { archived, ...rest } = projects[name];
-
-    dispatch(addOrModifyProject(name, { archived: !archived, ...rest }));
-
-    if (name === currentProjectName) {
-      dispatch(
-        setCurrentProjectName(Object.keys(getState().tasks.projects)[0])
-      );
-    }
-  },
   toggleTaskState: (id: string) => (dispatch, getState) => {
     const project = getCurrentProject(getState);
     const done = isDoneTask(project, id);
@@ -206,7 +216,19 @@ export const actionCreators = {
       })
     );
   },
-  updateProjects: actionCreator<IProjects>("UPDATE_PROJECTS")
+  unarchiveProject: (name: string) => (dispatch, getState) => {
+    dispatch(
+      addOrModifyProject(name, {
+        ...getState().tasks.projects[name],
+        archived: false
+      })
+    );
+    dispatch(setCurrentProjectName(name));
+  },
+  updateProjects: (projects: IProjects): any => (dispatch, getState) => {
+    dispatch(originalUpdateProjects(projects));
+    dispatch(renewCurrentProjectName());
+  }
 };
 
 export type IActionCreators = typeof actionCreators;
@@ -233,21 +255,10 @@ export const reducer = reducerWithInitialState(initialState)
       ...rest
     })
   )
-  .case(
-    originalRemoveProject,
-    ({ currentProjectName, projects, ...rest }, name) => {
-      const newProjects = omit(projects, name);
-
-      return {
-        currentProjectName:
-          name === currentProjectName
-            ? Object.keys(newProjects)[0]
-            : currentProjectName,
-        projects: newProjects,
-        ...rest
-      };
-    }
-  )
+  .case(originalRemoveProject, ({ projects, ...rest }, name) => ({
+    projects: omit(projects, name),
+    ...rest
+  }))
   .case(actionCreators.setCurrentProjectName, (state, currentProjectName) => ({
     ...state,
     currentProjectName
@@ -256,16 +267,10 @@ export const reducer = reducerWithInitialState(initialState)
     ...state,
     currentTaskId
   }))
-  .case(
-    actionCreators.updateProjects,
-    ({ currentProjectName, ...rest }, projects) => ({
-      ...rest,
-      currentProjectName: projects.hasOwnProperty(currentProjectName)
-        ? currentProjectName
-        : Object.keys(projects)[0],
-      projects
-    })
-  );
+  .case(originalUpdateProjects, (state, projects) => ({
+    ...state,
+    projects
+  }));
 
 export const persistent = true;
 
