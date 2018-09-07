@@ -1,14 +1,13 @@
 {
-	"extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
-	"rules": {
-		"jsx-no-lambda": false,
-		"jsx-no-multiline-js": false,
-		"max-classes-per-file": false,
-		"no-console": false,
-		"no-shadowed-variable": false,
-		"no-var-requires": false
-	},
-	"linterOptions": {
-		"exclude": ["node_modules/**/*.ts"]
-	}
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "rules": {
+    "jsx-no-lambda": false,
+    "jsx-no-multiline-js": false,
+    "max-classes-per-file": false,
+    "no-shadowed-variable": false,
+    "no-var-requires": false
+  },
+  "linterOptions": {
+    "exclude": ["node_modules/**/*.ts"]
+  }
 }
