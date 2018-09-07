@@ -210,7 +210,7 @@ export const actionCreators = {
 
     dispatch(
       modifyCurrentProject({
-        archived: project.archived,
+        archived: !!project.archived,
         doneTasks: done ? sourceTasks : destinationTasks,
         todoTasks: done ? destinationTasks : sourceTasks
       })
