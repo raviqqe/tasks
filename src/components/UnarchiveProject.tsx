@@ -39,7 +39,7 @@ export default class extends React.Component<
   Partial<tasks.IState & tasks.IActionCreators>
 > {
   public render() {
-    const { currentProjectName, unarchiveProject } = this.props;
+    const { unarchiveProject } = this.props;
     const projects = pickBy(this.props.projects, ({ archived }) => archived);
 
     return (

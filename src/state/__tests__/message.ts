@@ -1,6 +1,6 @@
 import { createStore } from "..";
 import { sleep } from "../../infra/utils";
-import { actionCreators, initialState, reducer } from "../message";
+import { actionCreators, initialState } from "../message";
 
 jest.setTimeout(10000);
 

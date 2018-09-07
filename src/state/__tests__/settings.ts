@@ -1,10 +1,4 @@
-import { createStore } from "..";
-import { sleep } from "../../infra/utils";
 import { actionCreators, initialState, reducer } from "../settings";
-
-function getState(store): typeof initialState {
-  return store.getState().settings;
-}
 
 test("Set alarm volume", () => {
   expect(initialState.alarmVolume).toBe(0.5);

@@ -3,7 +3,6 @@ import * as React from "react";
 import { connect } from "react-redux";
 import styled, { css } from "styled-components";
 
-import { IProject, IProjects } from "../domain/project";
 import * as tasks from "../state/tasks";
 import { shortDuration } from "../style/animation";
 import { normalBorder } from "../style/borders";

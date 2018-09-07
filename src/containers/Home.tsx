@@ -8,7 +8,7 @@ import CircleButton from "../components/CircleButton";
 import Menu from "../components/Menu";
 import Task from "../components/Task";
 import TaskList from "../components/TaskList";
-import { getTasksFromProject, IProject, IProjects } from "../domain/project";
+import { getTasksFromProject, IProject } from "../domain/project";
 import { includeTaskInTasks, ITask } from "../domain/task";
 import * as environment from "../state/environment";
 import * as settings from "../state/settings";
@@ -78,7 +78,6 @@ export default class extends React.Component<Partial<IProps>, IState> {
 
   public render() {
     const {
-      currentProjectName,
       currentTaskId,
       windowSmall,
       pointerAvailable,

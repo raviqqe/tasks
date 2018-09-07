@@ -131,10 +131,7 @@ export default class extends React.Component<IProps> {
   public render() {
     const {
       alarmVolume,
-      currentProjectName,
       notificationOn,
-      removeProject,
-      renameCurrentProject,
       setAlarmVolume,
       signedIn,
       signIn,

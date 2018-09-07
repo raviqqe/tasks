@@ -20,7 +20,7 @@ import {
   isDoneTask,
   setTasksToProject
 } from "../domain/project";
-import { createTask, ITask, updateTask } from "../domain/task";
+import { ITask, updateTask } from "../domain/task";
 import * as firebase from "../infra/firebase";
 import projectsRepository from "../infra/projects-repository";
 import * as message from "./message";

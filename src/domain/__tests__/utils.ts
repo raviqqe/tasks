@@ -1,4 +1,4 @@
-import { getUnixTimeStamp, unixTimeStampToString } from "../utils";
+import { getUnixTimeStamp } from "../utils";
 
 test("Get a time stamp", () => {
   const timeStamp = getUnixTimeStamp();

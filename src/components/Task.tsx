@@ -82,7 +82,6 @@ export default class extends React.Component<IProps, IState> {
       name,
       removeTask,
       setCurrentTaskId,
-      spentSeconds,
       toggleTaskState,
       toggleTimer,
       updatedAt
@@ -129,7 +128,7 @@ export default class extends React.Component<IProps, IState> {
               text={description}
               onEdit={description => modifyTask({ ...this.task, description })}
             />
-            <SubInformation>Spent for: {this.spentSeconds}</SubInformation>
+            <SubInformation>Spent for: {this.spentTime}</SubInformation>
             <SubInformation>
               Created on: {unixTimeStampToString(createdAt)}
             </SubInformation>
@@ -155,7 +154,7 @@ export default class extends React.Component<IProps, IState> {
     return { createdAt, description, id, name, spentSeconds, updatedAt };
   }
 
-  private get spentSeconds(): string {
+  private get spentTime(): string {
     const minutes: number = this.props.spentSeconds / 60;
 
     return minutes < 60

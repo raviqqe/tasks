@@ -8,6 +8,6 @@
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
-    "newLine": "LF"
+    "noUnusedLocals": true
   }
 }

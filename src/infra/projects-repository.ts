@@ -1,7 +1,7 @@
 import * as firebase from "firebase/app";
 import "firebase/firestore";
 
-import { emptyProject, IProject, IProjects } from "../domain/project";
+import { IProject, IProjects } from "../domain/project";
 
 class ProjectsRepository {
   private unsubscribe: (() => void) | null = null;

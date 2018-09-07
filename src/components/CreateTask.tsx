@@ -3,7 +3,7 @@ import { MdAdd } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-import { createTask, ITask } from "../domain/task";
+import { createTask } from "../domain/task";
 import * as tasks from "../state/tasks";
 import { normalBorder } from "../style/borders";
 import { verticalMargin } from "../style/margin";

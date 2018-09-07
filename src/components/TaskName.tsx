@@ -1,5 +1,4 @@
 import * as React from "react";
-import Markdown = require("react-markdown");
 import styled from "styled-components";
 
 import { black, red } from "../style/colors";

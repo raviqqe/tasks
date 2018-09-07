@@ -50,14 +50,7 @@ export default class extends React.Component<IProps> {
   private container: HTMLElement;
 
   public render() {
-    const {
-      currentTaskId,
-      done,
-      windowSmall,
-      tasks,
-      setTasks,
-      sorting
-    } = this.props;
+    const { currentTaskId, done, windowSmall, tasks, sorting } = this.props;
 
     if (tasks.length === 0) {
       return <Message>There is no task.</Message>;
@@ -97,20 +90,22 @@ export default class extends React.Component<IProps> {
   }
 
   public componentDidUpdate() {
+    const { fixed, setTasks } = this.props;
+
     if (this.container && !this.sortable) {
       this.sortable = sortable.create(this.container, {
         animation: 200,
         onSort: ({ oldIndex, newIndex }) => {
           const tasks = [...this.props.tasks];
           tasks.splice(newIndex, 0, tasks.splice(oldIndex, 1)[0]);
-          this.props.setTasks(tasks);
+          setTasks(tasks);
         },
         scroll: true
       });
     }
 
     if (this.sortable) {
-      this.sortable.option("disabled", this.props.fixed);
+      this.sortable.option("disabled", fixed);
     }
   }
 
