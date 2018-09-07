@@ -27,3 +27,19 @@ test("Render", () => {
     </Provider>
   );
 });
+
+test("Make task lists fixed when devices get touchable", () => {
+  const { store } = createStore();
+
+  const element = shallow(
+    <Provider store={store}>
+      <Home />
+    </Provider>
+  )
+    .dive({ context: { store } })
+    .dive();
+
+  expect(element.state("listsFixed")).toBeFalsy();
+  element.setProps({ touchable: true });
+  expect(element.state("listsFixed")).toBeTruthy();
+});

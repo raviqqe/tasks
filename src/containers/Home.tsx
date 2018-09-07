@@ -147,7 +147,16 @@ export default class extends React.Component<Partial<IProps>, IState> {
   }
 
   public componentDidUpdate(props) {
-    const { currentProjectName, currentTaskId, setCurrentTaskId } = this.props;
+    const {
+      currentProjectName,
+      currentTaskId,
+      setCurrentTaskId,
+      touchable
+    } = this.props;
+
+    if (!props.touchable && touchable) {
+      this.setState({ listsFixed: true });
+    }
 
     if (props.currentProjectName !== currentProjectName) {
       this.setState({ done: false });
