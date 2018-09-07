@@ -27,7 +27,7 @@ import UnarchiveProject from "./UnarchiveProject";
 const Settings = styled.div`
   ${verticalMargin("2em")};
   font-size: 1.2em;
-  width: 50em;
+  width: 60em;
   max-width: 100%;
   padding: 8vh 8vw;
 `;
