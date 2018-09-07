@@ -85,6 +85,12 @@ export default class extends React.Component<Partial<IProps>, IState> {
       timer,
       touchable
     } = this.props;
+
+    if (!this.currentProject) {
+      return null;
+    }
+
+    const { doneTasks, todoTasks } = this.currentProject;
     const currentTask = find(this.currentTasks, { id: currentTaskId });
 
     if (timer.on) {
@@ -109,11 +115,7 @@ export default class extends React.Component<Partial<IProps>, IState> {
           <Tasks>
             <TaskList
               done={done}
-              tasks={
-                done
-                  ? this.currentProject.doneTasks
-                  : this.currentProject.todoTasks
-              }
+              tasks={done ? doneTasks : todoTasks}
               fixed={listsFixed}
               sorting={sorting}
               {...this.props as IProps}
@@ -174,13 +176,17 @@ export default class extends React.Component<Partial<IProps>, IState> {
     }
   }
 
-  private get currentProject(): IProject {
+  private get currentProject(): IProject | null {
     const { currentProjectName, projects } = this.props;
 
-    return projects[currentProjectName];
+    return projects[currentProjectName] || null;
   }
 
   private get currentTasks(): ITask[] {
+    if (!this.currentProject) {
+      return [];
+    }
+
     return getTasksFromProject(this.currentProject, this.state.done);
   }
 }

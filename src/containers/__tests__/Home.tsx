@@ -43,3 +43,17 @@ test("Make task lists fixed when devices get touchable", () => {
   element.setProps({ touchable: true });
   expect(element.state("listsFixed")).toBeTruthy();
 });
+
+test("Render with an invalid current project name", () => {
+  const { store } = createStore();
+
+  const element = shallow(
+    <Provider store={store}>
+      <Home />
+    </Provider>
+  )
+    .dive({ context: { store } })
+    .dive();
+
+  element.setProps({ currentProjectName: undefined });
+});
