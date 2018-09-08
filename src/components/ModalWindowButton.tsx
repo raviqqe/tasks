@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, ComponentType } from "react";
 import { MdClose } from "react-icons/md";
 import { connect } from "react-redux";
 import styled, { css } from "styled-components";
@@ -70,7 +70,7 @@ const Window = styled.div`
 `;
 
 interface IProps extends Partial<environment.IState> {
-  buttonComponent: (props: IButtonProps) => JSX.Element;
+  buttonComponent: ComponentType<IButtonProps>;
   onOpen?: () => void;
   showCloseButton?: boolean;
 }

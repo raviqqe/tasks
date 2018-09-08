@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, ComponentType } from "react";
 import ReactDOM from "react-dom";
 
 import config from "../config";
@@ -15,7 +15,7 @@ export interface IContentProps {
 }
 
 interface IProps {
-  buttonComponent: (props: IButtonProps) => JSX.Element;
+  buttonComponent: ComponentType<IButtonProps>;
   children: (props: IContentProps) => JSX.Element;
   closed?: boolean;
 }
