@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { HTMLProps } from "react";
 import AutosizedTextArea from "react-autosize-textarea";
 import styled from "styled-components";
 
@@ -16,7 +16,7 @@ const TextArea = styled(AutosizedTextArea as any)`
 
 export default (
   props: Pick<
-    React.HTMLProps<HTMLTextAreaElement>,
-    Exclude<keyof React.HTMLProps<HTMLTextAreaElement>, "ref">
+    HTMLProps<HTMLTextAreaElement>,
+    Exclude<keyof HTMLProps<HTMLTextAreaElement>, "ref">
   >
 ) => <TextArea async={true} {...props} />;

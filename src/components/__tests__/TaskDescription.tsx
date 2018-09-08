@@ -29,7 +29,7 @@ test("Input text", () => {
   expect(result).toBe("foo");
 });
 
-test("Normalize text", () => {
+test("Normalize invisible markdown", () => {
   let result: string = "";
 
   const wrapper = mount(
@@ -44,4 +44,20 @@ test("Normalize text", () => {
   wrapper.setProps({ text: result });
 
   expect(result).toBe("");
+});
+
+test("Normalize names", () => {
+  let result: string = "";
+
+  const wrapper = mount(
+    <TaskDescription onEdit={(text: string) => (result = text)} text="foo" />
+  );
+
+  expect(result).toBe("");
+
+  wrapper.simulate("click");
+  wrapper.find("textarea").simulate("change", { target: { value: "  bar " } });
+  wrapper.find("textarea").simulate("blur");
+
+  expect(result).toBe("bar");
 });

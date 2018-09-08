@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { ChangeEvent, EventHandler, HTMLProps, RefObject } from "react";
 import styled from "styled-components";
 
 import { black, grey } from "../style/colors";
@@ -13,12 +13,23 @@ const Input = styled.input`
   width: 100%;
 `;
 
-export default (
-  props: Pick<
-    React.HTMLProps<HTMLInputElement>,
-    Exclude<keyof React.HTMLProps<HTMLInputElement>, "ref" | "onChange">
-  > & {
-    innerRef?: React.RefObject<HTMLInputElement>;
-    onChange?: React.EventHandler<React.ChangeEvent<HTMLInputElement>>;
-  }
-) => <Input {...props} />;
+export default ({
+  onChange,
+  ...props
+}: Pick<
+  HTMLProps<HTMLInputElement>,
+  Exclude<keyof HTMLProps<HTMLInputElement>, "ref" | "onChange">
+> & {
+  innerRef?: RefObject<HTMLInputElement>;
+  onChange?: EventHandler<ChangeEvent<HTMLInputElement>>;
+}) => (
+  <Input
+    {...props}
+    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+      if (onChange) {
+        event.target.value = event.target.value.trim();
+        onChange(event);
+      }
+    }}
+  />
+);
