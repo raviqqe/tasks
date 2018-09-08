@@ -1,4 +1,5 @@
-import React, { Component, KeyboardEvent } from "react";
+import $ from "jquery";
+import React, { Component, createRef, KeyboardEvent, RefObject } from "react";
 import Markdown = require("react-markdown");
 import styled from "styled-components";
 
@@ -21,6 +22,8 @@ const TextArea = styled(OriginalTextArea)`
 
 export default withInputState(
   class extends Component<IProps & IInternalProps> {
+    private ref: RefObject<HTMLDivElement> = createRef();
+
     public render() {
       const { editing, inputProps, stopEditing } = this.props;
 
@@ -44,12 +47,12 @@ export default withInputState(
       const { startEditing, text } = this.props;
 
       return (
-        <Description onClick={startEditing}>
+        <Description innerRef={this.ref} onClick={startEditing}>
           {text.trim() ? (
             <Markdown
               source={text}
               renderers={{
-                Link: ({ href, title, children }) => (
+                Link: ({ href, children }) => (
                   <a href={href} onClick={event => event.stopPropagation()}>
                     {children}
                   </a>
@@ -61,6 +64,17 @@ export default withInputState(
           )}
         </Description>
       );
+    }
+
+    public componentDidUpdate() {
+      if (
+        this.ref.current &&
+        !$(this.ref.current)
+          .text()
+          .trim()
+      ) {
+        this.props.onEdit("");
+      }
     }
   }
 );
