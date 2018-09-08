@@ -22,37 +22,37 @@ interface IProps extends IInputStateProps, IInternalProps {
   highlighted?: boolean;
 }
 
-export default withInputState(
-  class extends Component<IProps> {
-    public render() {
-      const { editing, inputProps, stopEditing } = this.props;
+class TaskName extends Component<IProps> {
+  public render() {
+    const { editing, inputProps, stopEditing } = this.props;
 
-      if (editing) {
-        return (
-          <NameInput
-            onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => {
-              if (event.keyCode === 13) {
-                stopEditing();
-                event.preventDefault();
-              }
-            }}
-            {...inputProps}
-          />
-        );
-      }
-
-      const { highlighted, onEdit, startEditing, text } = this.props;
-      const editable = !!onEdit;
-
+    if (editing) {
       return (
-        <Name
-          editable={editable}
-          highlighted={highlighted}
-          onClick={() => editable && startEditing()}
-        >
-          {text}
-        </Name>
+        <NameInput
+          onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => {
+            if (event.keyCode === 13) {
+              stopEditing();
+              event.preventDefault();
+            }
+          }}
+          {...inputProps}
+        />
       );
     }
+
+    const { highlighted, onEdit, startEditing, text } = this.props;
+    const editable = !!onEdit;
+
+    return (
+      <Name
+        editable={editable}
+        highlighted={highlighted}
+        onClick={() => editable && startEditing()}
+      >
+        {text}
+      </Name>
+    );
   }
-);
+}
+
+export default withInputState(TaskName);
