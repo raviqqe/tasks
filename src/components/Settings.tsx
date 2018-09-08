@@ -1,6 +1,6 @@
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
-import * as React from "react";
+import React, { Component } from "react";
 import { GoMarkGithub } from "react-icons/go";
 import { MdSettings, MdSync, MdSyncDisabled } from "react-icons/md";
 import { connect } from "react-redux";
@@ -127,7 +127,7 @@ interface IProps
     ...tasks.actionCreators
   }
 )
-export default class extends React.Component<IProps> {
+export default class extends Component<IProps> {
   public render() {
     const {
       alarmVolume,

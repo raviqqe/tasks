@@ -1,5 +1,5 @@
 import numeral = require("numeral");
-import * as React from "react";
+import React, { Component } from "react";
 import { MdStop } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -67,7 +67,7 @@ interface IState {
   null,
   { ...tasks.actionCreators, ...timer.actionCreators }
 )
-export default class extends React.Component<IProps, IState> {
+export default class extends Component<IProps, IState> {
   public state: IState = { rest: false, seconds: workSeconds };
   private timer: NodeJS.Timer;
 

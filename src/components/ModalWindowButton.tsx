@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { Component } from "react";
 import { MdClose } from "react-icons/md";
 import { connect } from "react-redux";
 import styled, { css } from "styled-components";
@@ -76,7 +76,7 @@ interface IProps extends Partial<environment.IState> {
 }
 
 @connect(({ environment }) => environment)
-export default class extends React.Component<IProps> {
+export default class extends Component<IProps> {
   public render() {
     const { buttonComponent } = this.props;
 

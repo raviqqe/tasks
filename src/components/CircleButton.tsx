@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 import Button from "./Button";
@@ -19,7 +19,7 @@ export default ({
   ...props
 }: {
   backgroundColor?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
   onClick: () => void;
 }) => (
   <CircleButton alwaysShadowed={true} {...props}>

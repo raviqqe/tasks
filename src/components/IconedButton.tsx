@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 import Button from "./Button";
@@ -18,7 +18,7 @@ export default ({
   icon,
   ...props
 }: {
-  children?: React.ReactNode;
+  children?: ReactNode;
   icon: JSX.Element;
   backgroundColor?: string;
   onClick?: () => void;

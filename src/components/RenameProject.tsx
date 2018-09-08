@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { Component, createRef, RefObject } from "react";
 import { MdEdit } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -25,11 +25,11 @@ interface IState {
   ({ tasks }) => tasks,
   tasks.actionCreators
 )
-export default class extends React.Component<
+export default class extends Component<
   Partial<tasks.IState & tasks.IActionCreators>,
   IState
 > {
-  public input: React.RefObject<HTMLInputElement> = React.createRef();
+  public input: RefObject<HTMLInputElement> = createRef();
   public state: IState = { name: "" };
 
   public render() {

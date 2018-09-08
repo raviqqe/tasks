@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { ReactNode } from "react";
 import styled, { css } from "styled-components";
 
 import { instantDuration } from "../style/animation";
@@ -45,7 +45,7 @@ export default ({
   icon,
   ...props
 }: {
-  children?: React.ReactNode;
+  children?: ReactNode;
   disabled?: boolean;
   icon?: JSX.Element;
   onClick: () => void;

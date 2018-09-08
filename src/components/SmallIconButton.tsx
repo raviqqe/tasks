@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { ReactNode } from "react";
 import styled, { css } from "styled-components";
 
 import { instantDuration } from "../style/animation";
@@ -26,7 +26,7 @@ export default ({
   children,
   onClick
 }: {
-  children?: React.ReactNode;
+  children?: ReactNode;
   onClick: () => void;
 }) => (
   <Button

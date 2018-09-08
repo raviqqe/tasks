@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 const Link = styled.a`
@@ -15,13 +15,7 @@ const Link = styled.a`
   }
 `;
 
-export default ({
-  children,
-  href
-}: {
-  children?: React.ReactNode;
-  href: string;
-}) => (
+export default ({ children, href }: { children?: ReactNode; href: string }) => (
   <Link href={href} onClick={event => event.stopPropagation()}>
     {children}
   </Link>

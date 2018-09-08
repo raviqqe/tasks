@@ -1,5 +1,5 @@
 import { pickBy } from "lodash";
-import * as React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled, { css } from "styled-components";
 
@@ -81,7 +81,7 @@ interface IState {
   ({ tasks }) => tasks,
   tasks.actionCreators
 )
-export default class extends React.Component<
+export default class extends Component<
   Partial<tasks.IState & tasks.IActionCreators>,
   IState
 > {

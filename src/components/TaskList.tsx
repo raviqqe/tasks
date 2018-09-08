@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { Component } from "react";
 import sortable = require("sortablejs");
 import styled, { css } from "styled-components";
 
@@ -45,7 +45,7 @@ interface IProps {
   sorting?: boolean;
 }
 
-export default class extends React.Component<IProps> {
+export default class extends Component<IProps> {
   private sortable;
   private container: HTMLElement;
 

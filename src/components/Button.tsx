@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { ReactNode } from "react";
 import Ink from "react-ink";
 import styled, { css } from "styled-components";
 
@@ -49,7 +49,7 @@ const Button = styled.button<IButtonProps>`
 `;
 
 interface IProps extends IButtonProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   onClick?: () => void;
   type?: string;
 }

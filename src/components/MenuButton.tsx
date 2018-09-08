@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { Component } from "react";
 import { MdMenu } from "react-icons/md";
 import styled, { css } from "styled-components";
 import transition from "styled-transition-group";
@@ -58,7 +58,7 @@ export interface IProps extends IMenuBoxProps {
   hidden?: boolean;
 }
 
-export default class extends React.Component<IProps> {
+export default class extends Component<IProps> {
   public render() {
     return (
       <ModalButton

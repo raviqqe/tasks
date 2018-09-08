@@ -1,5 +1,5 @@
 import { find } from "lodash";
-import * as React from "react";
+import React, { Component } from "react";
 import { MdSave } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -73,7 +73,7 @@ interface IState {
   }),
   { ...settings.actionCreators, ...tasks.actionCreators }
 )
-export default class extends React.Component<Partial<IProps>, IState> {
+export default class extends Component<Partial<IProps>, IState> {
   public state: IState = { done: false, listsFixed: false };
 
   public render() {

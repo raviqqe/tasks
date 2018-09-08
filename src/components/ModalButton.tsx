@@ -1,5 +1,5 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
 
 import config from "../config";
 import { maxDurationMs } from "../style/animation";
@@ -24,7 +24,7 @@ interface IState {
   opened: boolean;
 }
 
-export default class extends React.Component<IProps, IState> {
+export default class extends Component<IProps, IState> {
   public state: IState = { opened: false };
   private modal: HTMLDivElement | null = null;
 

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
@@ -39,7 +39,7 @@ interface IState {
   ({ message }) => message,
   message.actionCreators
 )
-export default class extends React.Component<
+export default class extends Component<
   Partial<message.IState & message.IActionCreators>,
   IState
 > {

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 import { lightGrey } from "../style/colors";
@@ -15,7 +15,7 @@ export default ({
   children,
   label
 }: {
-  children?: React.ReactNode;
+  children?: ReactNode;
   label: string;
 }) => (
   <SettingsItem>

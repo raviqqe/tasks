@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { MdCheckBox, MdCheckBoxOutlineBlank, MdSort } from "react-icons/md";
 import styled, { css } from "styled-components";
 

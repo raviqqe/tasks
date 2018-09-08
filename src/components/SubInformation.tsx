@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 import { grey } from "../style/colors";
@@ -8,6 +8,6 @@ const SubInformation = styled.div`
   color: ${grey};
 `;
 
-export default ({ children }: { children?: React.ReactNode }) => (
+export default ({ children }: { children?: ReactNode }) => (
   <SubInformation>{children}</SubInformation>
 );

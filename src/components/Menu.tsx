@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 import MenuBox from "./MenuBox";
 import MenuButton, { IProps } from "./MenuButton";

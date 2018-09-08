@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { Component } from "react";
 import { MdDelete } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -25,7 +25,7 @@ const DeleteProject = styled.div`
   ({ tasks }) => tasks,
   tasks.actionCreators
 )
-export default class extends React.Component<
+export default class extends Component<
   Partial<tasks.IState & tasks.IActionCreators>
 > {
   public render() {
