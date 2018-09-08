@@ -3,13 +3,7 @@ task :deps do
 end
 
 task :build do
-  [16, 128, 512].each do |size|
-    sh %W[inkscape
-          --export-width #{size} --export-height #{size}
-          --export-png public/icon#{size}.png
-          images/icon.svg].join ' '
-  end
-
+  sh 'tools/build-images.sh'
   sh 'npx react-scripts-ts build'
   sh 'npx workbox generateSW workbox-cli-config.js'
 end
