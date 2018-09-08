@@ -1,10 +1,10 @@
-import * as React from "react";
+import React, { Component, KeyboardEvent } from "react";
 import Markdown = require("react-markdown");
 import styled from "styled-components";
 
 import { grey } from "../style/colors";
-import InputComponent from "./InputComponent";
 import OriginalTextArea from "./TextArea";
+import withInputState, { IInternalProps, IProps } from "./with-input-state";
 
 const Description = styled.div`
   cursor: text;
@@ -19,44 +19,48 @@ const TextArea = styled(OriginalTextArea)`
   resize: vertical;
 `;
 
-export default class extends InputComponent {
-  public render() {
-    if (this.state.editing) {
+export default withInputState(
+  class extends Component<IProps & IInternalProps> {
+    public render() {
+      const { editing, inputProps, stopEditing } = this.props;
+
+      if (editing) {
+        return (
+          <TextArea
+            onKeyDown={(event: KeyboardEvent<HTMLTextAreaElement>) => {
+              if (
+                (event.keyCode === 83 && event.ctrlKey) ||
+                (event.keyCode === 13 && event.shiftKey)
+              ) {
+                stopEditing();
+                event.preventDefault();
+              }
+            }}
+            {...inputProps}
+          />
+        );
+      }
+
+      const { startEditing, text } = this.props;
+
       return (
-        <TextArea
-          onKeyDown={(event: React.KeyboardEvent<{}>) => {
-            if (
-              (event.keyCode === 83 && event.ctrlKey) ||
-              (event.keyCode === 13 && event.shiftKey)
-            ) {
-              this.setState({ editing: false });
-              event.preventDefault();
-            }
-          }}
-          {...this.getFormProps()}
-        />
+        <Description onClick={startEditing}>
+          {text.trim() ? (
+            <Markdown
+              source={text}
+              renderers={{
+                Link: ({ href, title, children }) => (
+                  <a href={href} onClick={event => event.stopPropagation()}>
+                    {children}
+                  </a>
+                )
+              }}
+            />
+          ) : (
+            <Message>No description</Message>
+          )}
+        </Description>
       );
     }
-
-    const { text } = this.props;
-
-    return (
-      <Description onClick={() => this.setState({ editing: true })}>
-        {text.trim() ? (
-          <Markdown
-            source={text}
-            renderers={{
-              Link: ({ href, title, children }) => (
-                <a href={href} onClick={event => event.stopPropagation()}>
-                  {children}
-                </a>
-              )
-            }}
-          />
-        ) : (
-          <Message>No description</Message>
-        )}
-      </Description>
-    );
   }
-}
+);
