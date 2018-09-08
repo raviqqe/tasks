@@ -5,7 +5,7 @@ import React, {
   ComponentType
 } from "react";
 
-type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
+import { Omit } from "../utils";
 
 interface IInputProps {
   autoFocus: true;

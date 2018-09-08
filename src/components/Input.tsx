@@ -2,6 +2,7 @@ import React, { ChangeEvent, EventHandler, HTMLProps, RefObject } from "react";
 import styled from "styled-components";
 
 import { black, grey } from "../style/colors";
+import { Omit } from "../utils";
 
 const Input = styled.input`
   border-radius: 0.2rem;
@@ -16,10 +17,7 @@ const Input = styled.input`
 export default ({
   onChange,
   ...props
-}: Pick<
-  HTMLProps<HTMLInputElement>,
-  Exclude<keyof HTMLProps<HTMLInputElement>, "ref" | "onChange">
-> & {
+}: Omit<HTMLProps<HTMLInputElement>, "ref" | "onChange"> & {
   innerRef?: RefObject<HTMLInputElement>;
   onChange?: EventHandler<ChangeEvent<HTMLInputElement>>;
 }) => (

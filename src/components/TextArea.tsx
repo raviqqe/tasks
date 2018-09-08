@@ -3,6 +3,7 @@ import AutosizedTextArea from "react-autosize-textarea";
 import styled from "styled-components";
 
 import { black, grey } from "../style/colors";
+import { Omit } from "../utils";
 
 const TextArea = styled(AutosizedTextArea as any)`
   border: 1px solid ${grey};
@@ -14,9 +15,6 @@ const TextArea = styled(AutosizedTextArea as any)`
   font: inherit;
 `;
 
-export default (
-  props: Pick<
-    HTMLProps<HTMLTextAreaElement>,
-    Exclude<keyof HTMLProps<HTMLTextAreaElement>, "ref">
-  >
-) => <TextArea async={true} {...props} />;
+export default (props: Omit<HTMLProps<HTMLTextAreaElement>, "ref">) => (
+  <TextArea async={true} {...props} />
+);
