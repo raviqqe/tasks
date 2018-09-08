@@ -7,12 +7,12 @@ jobs:
       - run: |
           apt -y update --fix-missing
           apt -y upgrade
-          apt -y install inkscape rake
+          apt -y install inkscape
           npm install --global codecov
       - checkout
-      - run: rake deps
-      - run: rake build
-      - run: rake lint
+      - run: npm install
+      - run: npm run build
+      - run: npm run lint
       - run: |
-          rake test
+          npm run test --runInBand
           codecov
