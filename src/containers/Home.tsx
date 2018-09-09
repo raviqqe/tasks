@@ -26,13 +26,14 @@ const Home = styled.div`
 
 const Content = styled.div`
   display: flex;
-  width: 100%;
-  max-width: 100em;
+  max-width: 100%;
 `;
 
 const Tasks = styled.div`
   display: flex;
   flex: 1;
+  width: 100vw;
+  max-width: 90em;
 
   > * {
     flex: 1;
