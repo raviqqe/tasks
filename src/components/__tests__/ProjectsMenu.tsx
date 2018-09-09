@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 import { createStore } from "../../state";
+import { actionCreators } from "../../state/tasks";
 import ProjectsMenu from "../ProjectsMenu";
 
 test("Shallow mount", () => {
@@ -26,4 +27,18 @@ test("Mount", () => {
       </PersistGate>
     </Provider>
   );
+});
+
+test("List projects in case insensitive order", () => {
+  const { store } = createStore();
+
+  const wrapper = mount(
+    <Provider store={store}>
+      <ProjectsMenu />
+    </Provider>
+  );
+
+  store.dispatch(actionCreators.addProject("X"));
+
+  expect(wrapper.text()).toBe("XdefaultX");
 });

@@ -104,7 +104,9 @@ export default class extends Component<
         <Box covert={!opened}>
           <Projects>
             {Object.keys(projects)
-              .sort()
+              .sort((x: string, y: string) =>
+                x.toLowerCase().localeCompare(y.toLowerCase())
+              )
               .map(name => (
                 <TextButton
                   key={name}
