@@ -58,7 +58,7 @@ export default class extends Component<
         {closeWindow => (
           <Form
             onSubmit={event => {
-              renameCurrentProject(name);
+              renameCurrentProject(name.trim());
               this.setState({ name: "" });
               closeWindow();
               event.preventDefault();

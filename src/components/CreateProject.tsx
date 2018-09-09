@@ -44,7 +44,7 @@ export default class extends Component<Partial<tasks.IActionCreators>, IState> {
         {closeWindow => (
           <Form
             onSubmit={event => {
-              addProject(name);
+              addProject(name.trim());
               this.setState({ name: "" });
               closeWindow();
               event.preventDefault();
