@@ -59,15 +59,15 @@ const Buttons = styled.div`
 `;
 
 const VolumeSlider = styled.div`
-  width: 15em;
   max-width: 50%;
-  padding-bottom: 0.5em;
-  padding-right: 0.5em;
+  padding: 0 0.5em 0.5em;
+  width: 15em;
 `;
 
 const Notification = styled.div<{ on: boolean }>`
-  font-weight: bold;
   color: ${({ on }) => (on ? yellowGreen : grey)};
+  font-weight: bold;
+  padding: 0 0.5em;
 `;
 
 const Footer = styled.div`
