@@ -61,7 +61,7 @@ const Buttons = styled.div`
 const VolumeSlider = styled.div`
   width: 15em;
   max-width: 50%;
-  padding-bottom: 1.5em;
+  padding-bottom: 0.5em;
   padding-right: 0.5em;
 `;
 
@@ -189,7 +189,7 @@ export default class extends Component<IProps> {
                 defaultValue={0.5}
                 value={alarmVolume}
                 step={0.125}
-                marks={{ 0: "0", 0.5: "0.5", 1: "1" }}
+                marks={{ 0: "", 0.25: "", 0.5: "", 0.75: "", 1: "" }}
                 railStyle={{ backgroundColor: grey }}
                 trackStyle={{ backgroundColor: yellowGreen }}
                 dotStyle={{ background: grey, borderColor: grey }}
