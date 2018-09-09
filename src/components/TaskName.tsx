@@ -3,6 +3,7 @@ import { mapProps } from "recompose";
 import styled from "styled-components";
 
 import { black, red } from "../style/colors";
+import { Omit } from "../utils";
 import Input from "./Input";
 import withInputState, {
   IInternalProps,
@@ -58,7 +59,12 @@ class TaskName extends Component<IProps> {
   }
 }
 
-export default mapProps(({ onEdit, ...props }: IOuterProps) => ({
-  ...props,
-  onEdit: (text: string) => onEdit(text.trim())
-}))(withInputState(TaskName));
+export default mapProps(
+  ({
+    onEdit,
+    ...props
+  }: Omit<IOuterProps, "onEdit"> & { onEdit?: IOuterProps["onEdit"] }) => ({
+    ...props,
+    onEdit: onEdit && ((text: string) => onEdit(text.trim()))
+  })
+)(withInputState(TaskName));

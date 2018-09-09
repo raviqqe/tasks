@@ -38,3 +38,10 @@ test("Normalize names", () => {
 
   expect(result).toBe("bar");
 });
+
+test("Allow missing onEdit callbacks", () => {
+  const wrapper = mount(<TaskName text="foo" />);
+
+  wrapper.simulate("click");
+  expect(wrapper.find("input")).toHaveLength(0);
+});
