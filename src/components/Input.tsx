@@ -14,20 +14,9 @@ const Input = styled.input`
   width: 100%;
 `;
 
-export default ({
-  onChange,
-  ...props
-}: Omit<HTMLProps<HTMLInputElement>, "ref" | "onChange"> & {
-  innerRef?: RefObject<HTMLInputElement>;
-  onChange?: EventHandler<ChangeEvent<HTMLInputElement>>;
-}) => (
-  <Input
-    {...props}
-    onChange={(event: ChangeEvent<HTMLInputElement>) => {
-      if (onChange) {
-        event.target.value = event.target.value.trim();
-        onChange(event);
-      }
-    }}
-  />
-);
+export default (
+  props: Omit<HTMLProps<HTMLInputElement>, "ref" | "onChange"> & {
+    innerRef?: RefObject<HTMLInputElement>;
+    onChange?: EventHandler<ChangeEvent<HTMLInputElement>>;
+  }
+) => <Input {...props} />;

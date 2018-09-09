@@ -26,7 +26,7 @@ test("Input text", () => {
   expect(result).toBe("foo");
 });
 
-test("Normalize text", () => {
+test("Don't normalize text", () => {
   let result: string = "";
 
   const wrapper = mount(
@@ -42,5 +42,5 @@ test("Normalize text", () => {
 
   wrapper.simulate("change", { target: { value: "  bar " } });
 
-  expect(result).toBe("bar");
+  expect(result).toBe("  bar ");
 });

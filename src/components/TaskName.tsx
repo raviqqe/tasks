@@ -1,4 +1,5 @@
 import React, { Component, KeyboardEvent } from "react";
+import { mapProps } from "recompose";
 import styled from "styled-components";
 
 import { black, red } from "../style/colors";
@@ -18,9 +19,11 @@ const Name = styled.div<{ editable: boolean; highlighted: boolean }>`
   color: ${({ highlighted }) => (highlighted ? red : black)};
 `;
 
-interface IProps extends IInputStateProps, IInternalProps {
+interface IOuterProps extends IInputStateProps {
   highlighted?: boolean;
 }
+
+interface IProps extends IInternalProps, IOuterProps {}
 
 class TaskName extends Component<IProps> {
   public render() {
@@ -55,4 +58,7 @@ class TaskName extends Component<IProps> {
   }
 }
 
-export default withInputState(TaskName);
+export default mapProps(({ onEdit, ...props }: IOuterProps) => ({
+  ...props,
+  onEdit: (text: string) => onEdit(text.trim())
+}))(withInputState(TaskName));

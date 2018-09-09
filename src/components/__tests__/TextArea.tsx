@@ -25,3 +25,22 @@ test("Input text", () => {
 
   expect(result).toBe("foo");
 });
+
+test("Don't normalize text", () => {
+  let result: string = "";
+
+  const wrapper = mount(
+    <TextArea
+      onChange={({ target: { value } }: ChangeEvent<HTMLTextAreaElement>) =>
+        (result = value)
+      }
+      value=""
+    />
+  );
+
+  expect(result).toBe("");
+
+  wrapper.simulate("change", { target: { value: "  bar " } });
+
+  expect(result).toBe("  bar ");
+});
