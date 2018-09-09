@@ -2,22 +2,20 @@ import React, {
   ChangeEvent,
   Component,
   ComponentClass,
-  ComponentType
+  ComponentType,
+  HTMLProps
 } from "react";
 
 import { Omit } from "../utils";
 
-interface IInputProps {
-  autoFocus: true;
-  onBlur: () => void;
-  onChange: (event) => void;
-  onFocus: (event) => void;
-  value: string;
-}
+type InputProps = Pick<
+  HTMLProps<HTMLInputElement | HTMLTextAreaElement>,
+  "autoFocus" | "onBlur" | "onChange" | "onFocus" | "value"
+>;
 
 export interface IInternalProps {
   editing: boolean;
-  inputProps: IInputProps;
+  inputProps: InputProps;
   startEditing: () => void;
   stopEditing: () => void;
 }
@@ -62,13 +60,17 @@ export default <P extends IInternalProps>(
       }
     }
 
-    private get inputProps(): IInputProps {
+    private get inputProps(): InputProps {
       return {
         autoFocus: true,
         onBlur: () => this.setState({ editing: false }),
-        onChange: ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
+        onChange: ({
+          target: { value }
+        }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
           this.setState({ text: value }),
-        onFocus: (event: ChangeEvent<HTMLInputElement>) => {
+        onFocus: (
+          event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+        ) => {
           event.target.value = "";
           event.target.value = this.props.text;
         },
