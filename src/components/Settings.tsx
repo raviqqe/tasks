@@ -65,16 +65,9 @@ const VolumeSlider = styled.div`
   padding-right: 0.5em;
 `;
 
-const Notification = styled.div`
+const Notification = styled.div<{ on: boolean }>`
   font-weight: bold;
-`;
-
-const NotificationEnabled = styled(Notification)`
-  color: ${yellowGreen};
-`;
-
-const NotificationDisabled = styled(Notification)`
-  color: ${grey};
+  color: ${({ on }) => (on ? yellowGreen : grey)};
 `;
 
 const Footer = styled.div`
@@ -207,11 +200,9 @@ export default class extends Component<IProps> {
             </VolumeSlider>
           </SettingsItem>
           <SettingsItem label="Notification">
-            {notificationOn ? (
-              <NotificationEnabled>enabled</NotificationEnabled>
-            ) : (
-              <NotificationDisabled>disabled</NotificationDisabled>
-            )}
+            <Notification on={notificationOn}>
+              {notificationOn ? "On" : "Off"}
+            </Notification>
           </SettingsItem>
           <Footer>
             <Link href={config.repositoryUrl}>
