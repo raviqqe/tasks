@@ -4,6 +4,7 @@ import { MdAccessTime, MdCheck, MdDelete, MdReplay } from "react-icons/md";
 import { connect } from "react-redux";
 import styled, { css } from "styled-components";
 
+import { secondsToPomodoros } from "../domain/pomodoro-timer";
 import { ITask } from "../domain/task";
 import { unixTimeStampToString } from "../domain/utils";
 import * as tasks from "../state/tasks";
@@ -82,6 +83,7 @@ export default class extends Component<IProps, IState> {
       name,
       removeTask,
       setCurrentTaskId,
+      spentSeconds,
       toggleTaskState,
       toggleTimer,
       updatedAt
@@ -128,7 +130,11 @@ export default class extends Component<IProps, IState> {
               text={description}
               onEdit={description => modifyTask({ ...this.task, description })}
             />
-            <SubInformation>Spent for: {this.spentTime}</SubInformation>
+            <SubInformation>
+              Spent for:{" "}
+              {numeral(secondsToPomodoros(spentSeconds)).format("0[.]0")}{" "}
+              pomodoros
+            </SubInformation>
             <SubInformation>
               Created on: {unixTimeStampToString(createdAt)}
             </SubInformation>
@@ -152,13 +158,5 @@ export default class extends Component<IProps, IState> {
     } = this.props;
 
     return { createdAt, description, id, name, spentSeconds, updatedAt };
-  }
-
-  private get spentTime(): string {
-    const minutes: number = this.props.spentSeconds / 60;
-
-    return minutes < 60
-      ? `${numeral(minutes).format("0")} mins`
-      : `${numeral(minutes / 60).format("0[.]0")} hours`;
   }
 }
