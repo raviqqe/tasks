@@ -61,16 +61,7 @@ class TaskDescription extends Component<IProps & IInternalProps> {
     return (
       <Description innerRef={this.ref} onClick={startEditing}>
         {text.trim() ? (
-          <Markdown
-            source={text}
-            renderers={{
-              Link: ({ href, children }) => (
-                <a href={href} onClick={event => event.stopPropagation()}>
-                  {children}
-                </a>
-              )
-            }}
-          />
+          <Markdown source={text} />
         ) : (
           <Message>No description</Message>
         )}
