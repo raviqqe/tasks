@@ -1,11 +1,14 @@
 import { actionCreators, initialState, reducer } from "../timer";
 
+import { createStore } from "..";
 import * as audio from "../../infra/audio";
 
 test("Play an alarm", () => {
   const spy = jest.spyOn(audio, "playAlarm");
 
-  actionCreators.playAlarm()({}, () => ({ settings: { alarmVolume: 0.5 } }));
+  const { store } = createStore();
+
+  store.dispatch(actionCreators.playAlarm());
 
   expect(spy).toHaveBeenCalled();
 });

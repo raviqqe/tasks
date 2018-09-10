@@ -1,14 +1,9 @@
 import { mapValues } from "lodash";
-import {
-  applyMiddleware,
-  combineReducers,
-  createStore as createReduxStore,
-  Reducer,
-  Store
-} from "redux";
+import { applyMiddleware, combineReducers, Reducer } from "redux";
+import * as redux from "redux";
 import { Persistor, persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import thunk from "redux-thunk";
+import thunk, * as reduxThunk from "redux-thunk";
 
 import * as authentication from "./authentication";
 import * as environment from "./environment";
@@ -48,11 +43,15 @@ export interface IGlobalState {
   timer: timer.IState;
 }
 
+export type Store = redux.Store<IGlobalState, any>;
+
+export type ThunkAction = reduxThunk.ThunkAction<any, IGlobalState, void, any>;
+
 export function createStore(): {
   persistor: Persistor;
-  store: Store<IGlobalState, any>;
+  store: Store;
 } {
-  const store = createReduxStore<IGlobalState, any, any, any>(
+  const store = redux.createStore<IGlobalState, any, any, any>(
     persistReducer(
       {
         key: "root",

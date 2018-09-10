@@ -8,10 +8,10 @@ import {
   reject,
   size
 } from "lodash";
-import { Store } from "redux";
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 
+import { IGlobalState, Store, ThunkAction } from ".";
 import {
   emptyProject,
   getTasksFromProject,
@@ -36,19 +36,17 @@ const originalUpdateProjects = actionCreator<IProjects>("UPDATE_PROJECTS");
 const setCurrentProjectName = actionCreator<string>("SET_CURRENT_PROJECT_NAME");
 const setCurrentTaskId = actionCreator<string>("SET_CURRENT_TASK_ID");
 
-function getCurrentProject(getState: () => { tasks: IState }): IProject {
+function getCurrentProject(getState: () => IGlobalState): IProject {
   const { currentProjectName, projects } = getState().tasks;
 
   return projects[currentProjectName];
 }
 
-function getNumberOfUnarchivedProjects(
-  getState: () => { tasks: IState }
-): number {
+function getNumberOfUnarchivedProjects(getState: () => IGlobalState): number {
   return size(omitBy(getState().tasks.projects, ({ archived }) => archived));
 }
 
-function addOrModifyProject(name: string, project: IProject) {
+function addOrModifyProject(name: string, project: IProject): ThunkAction {
   return (dispatch, getState) => {
     dispatch(originalAddOrModifyProject({ name, project }));
 
@@ -58,7 +56,7 @@ function addOrModifyProject(name: string, project: IProject) {
   };
 }
 
-function removeProject(name: string) {
+function removeProject(name: string): ThunkAction {
   return (dispatch, getState) => {
     if (getNumberOfUnarchivedProjects(getState) === 1) {
       dispatch(
@@ -78,13 +76,13 @@ function removeProject(name: string) {
   };
 }
 
-function modifyCurrentProject(project: IProject) {
+function modifyCurrentProject(project: IProject): ThunkAction {
   return (dispatch, getState) => {
     dispatch(addOrModifyProject(getState().tasks.currentProjectName, project));
   };
 }
 
-function renewCurrentProjectName(): (dispatch, getState) => void {
+function renewCurrentProjectName(): ThunkAction {
   return (dispatch, getState) => {
     const { currentProjectName, projects }: IState = getState().tasks;
     const currentProject = projects[currentProjectName];
@@ -111,7 +109,7 @@ export const actionCreators = {
     dispatch(addOrModifyProject(name, emptyProject));
     dispatch(setCurrentProjectName(name));
   },
-  addTask: (task: ITask) => (dispatch, getState) => {
+  addTask: (task: ITask): ThunkAction => (dispatch, getState) => {
     if (!task.name) {
       dispatch(
         message.actionCreators.sendMessage("Task name cannot be empty.")
@@ -129,7 +127,7 @@ export const actionCreators = {
     );
     dispatch(setCurrentTaskId(task.id));
   },
-  archiveProject: (name: string) => (dispatch, getState) => {
+  archiveProject: (name: string): ThunkAction => (dispatch, getState) => {
     if (getNumberOfUnarchivedProjects(getState) === 1) {
       dispatch(
         message.actionCreators.sendMessage(
@@ -147,7 +145,7 @@ export const actionCreators = {
     );
     dispatch(renewCurrentProjectName());
   },
-  modifyTask: (task: ITask) => (dispatch, getState) => {
+  modifyTask: (task: ITask): ThunkAction => (dispatch, getState) => {
     const project = getCurrentProject(getState);
     const done = isDoneTask(project, task.id);
     const tasks = [...getTasksFromProject(project, done)];
@@ -157,7 +155,7 @@ export const actionCreators = {
     dispatch(modifyCurrentProject(setTasksToProject(project, tasks, done)));
   },
   removeProject,
-  removeTask: (id: string) => (dispatch, getState) => {
+  removeTask: (id: string): ThunkAction => (dispatch, getState) => {
     const project = getCurrentProject(getState);
     const done = isDoneTask(project, id);
 
@@ -171,7 +169,7 @@ export const actionCreators = {
       )
     );
   },
-  renameCurrentProject: (name: string) => (dispatch, getState) => {
+  renameCurrentProject: (name: string): ThunkAction => (dispatch, getState) => {
     const { currentProjectName, projects } = getState().tasks;
 
     if (name === currentProjectName) {
@@ -184,7 +182,7 @@ export const actionCreators = {
   },
   setCurrentProjectName,
   setCurrentTaskId,
-  setTasks: (tasks: ITask[]) => (dispatch, getState) => {
+  setTasks: (tasks: ITask[]): ThunkAction => (dispatch, getState) => {
     if (tasks.length === 0) {
       return;
     }
@@ -197,7 +195,7 @@ export const actionCreators = {
       )
     );
   },
-  toggleTaskState: (id: string) => (dispatch, getState) => {
+  toggleTaskState: (id: string): ThunkAction => (dispatch, getState) => {
     const project = getCurrentProject(getState);
     const done = isDoneTask(project, id);
 
@@ -216,7 +214,7 @@ export const actionCreators = {
       })
     );
   },
-  unarchiveProject: (name: string) => (dispatch, getState) => {
+  unarchiveProject: (name: string): ThunkAction => (dispatch, getState) => {
     dispatch(
       addOrModifyProject(name, {
         ...getState().tasks.projects[name],
@@ -225,7 +223,10 @@ export const actionCreators = {
     );
     dispatch(setCurrentProjectName(name));
   },
-  updateProjects: (projects: IProjects): any => (dispatch, getState) => {
+  updateProjects: (projects: IProjects): ThunkAction => (
+    dispatch,
+    getState
+  ) => {
     dispatch(originalUpdateProjects(projects));
     dispatch(renewCurrentProjectName());
   }

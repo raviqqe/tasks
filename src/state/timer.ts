@@ -1,12 +1,13 @@
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 
+import { ThunkAction } from ".";
 import * as audio from "../infra/audio";
 
 const actionCreator = actionCreatorFactory("TIMER");
 
 export const actionCreators = {
-  playAlarm: () => (_, getState) =>
+  playAlarm: (): ThunkAction => (_, getState) =>
     audio.playAlarm(getState().settings.alarmVolume),
   toggleTimer: actionCreator("TOGGLE_TIMER")
 };
