@@ -36,8 +36,8 @@ const column = css`
 
 const MenuBox = styled.div`
   ${column};
-  min-width: 12em;
-  width: 15vw;
+  min-width: 10em;
+  width: 17vw;
   max-width: 15em;
   height: 100%;
 `;

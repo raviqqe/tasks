@@ -27,8 +27,8 @@ import UnarchiveProject from "./UnarchiveProject";
 
 const Window = styled.div`
   ${verticalMargin("2em")};
-  font-size: 1.2em;
-  width: 60em;
+  font-size: 1.1em;
+  width: 55em;
   max-width: 100%;
   padding: 8vmin 10vmin;
 

@@ -30,7 +30,7 @@ injectGlobal`
     color: ${black};
     font-family: "Noto Sans", sans-serif;
     line-height: 1.4;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .sortable-ghost {
