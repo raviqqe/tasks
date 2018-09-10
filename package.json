@@ -5,7 +5,7 @@
     "build:service-worker": "workbox generateSW workbox-cli-config.js",
     "clean": "git clean -dfx",
     "deploy": "npm run build && firebase deploy",
-    "lint": "tslint src/**/*.ts{,x} && prettier -l src/**/*.{json,ts{,x}}",
+    "lint": "tslint src/**/*.ts{,x} && prettier -l *.json src/**/*.{json,ts{,x}}",
     "start": "react-scripts-ts start",
     "test": "react-scripts-ts test --coverage --env=jsdom"
   },
