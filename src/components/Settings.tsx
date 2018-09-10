@@ -29,7 +29,11 @@ const Settings = styled.div`
   font-size: 1.2em;
   width: 60em;
   max-width: 100%;
-  padding: 8vh 8vw;
+  padding: 8vmin 10vmin;
+
+  ${withWindowSmall(css`
+    padding: 7vmin;
+  `)};
 `;
 
 const Icon = styled.div<{ active: boolean }>`
