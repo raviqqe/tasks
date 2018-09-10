@@ -2,7 +2,7 @@ import $ from "jquery";
 import React, { Component, createRef, KeyboardEvent, RefObject } from "react";
 import Markdown = require("react-markdown");
 import { mapProps } from "recompose";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { grey } from "../style/colors";
 import OriginalTextArea from "./TextArea";
@@ -10,6 +10,18 @@ import withInputState, { IInternalProps, IProps } from "./with-input-state";
 
 const Description = styled.div`
   cursor: text;
+
+  ${[1, 2, 3, 4, 5, 6].map(
+    level => css`
+      h${level} {
+        font-size: 1em;
+
+        &::before {
+          content: "${"#".repeat(level)} ";
+        }
+      }
+    `
+  )};
 `;
 
 const Message = styled.div`
