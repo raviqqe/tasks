@@ -34,7 +34,7 @@ const originalAddOrModifyProject = actionCreator<{
 const originalRemoveProject = actionCreator<string>("REMOVE_PROJECT");
 const originalUpdateProjects = actionCreator<IProjects>("UPDATE_PROJECTS");
 const setCurrentProjectName = actionCreator<string>("SET_CURRENT_PROJECT_NAME");
-const setCurrentTaskId = actionCreator<string>("SET_CURRENT_TASK_ID");
+const setCurrentTaskId = actionCreator<string | null>("SET_CURRENT_TASK_ID");
 
 function getCurrentProject(getState: () => IGlobalState): IProject {
   const { currentProjectName, projects } = getState().tasks;

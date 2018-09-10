@@ -191,7 +191,7 @@ class Settings extends Component<IProps> {
             </VolumeSlider>
           </SettingsItem>
           <SettingsItem label="Notification">
-            <Notification on={notificationOn}>
+            <Notification on={!!notificationOn}>
               {notificationOn ? "On" : "Off"}
             </Notification>
           </SettingsItem>

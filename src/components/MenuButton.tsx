@@ -74,7 +74,7 @@ export default class extends Component<IProps> {
     <MenuButton
       backgroundColor={darkGrey}
       onClick={openWindow}
-      covert={this.props.hidden}
+      covert={!!this.props.hidden}
     >
       <MdMenu />
     </MenuButton>

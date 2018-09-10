@@ -4,5 +4,7 @@ import React from "react";
 import ModalButton from "../ModalButton";
 
 test("Shallow mount", () => {
-  shallow(<ModalButton buttonComponent={() => null}>{() => null}</ModalButton>);
+  shallow(
+    <ModalButton buttonComponent={() => null}>{() => <div />}</ModalButton>
+  );
 });

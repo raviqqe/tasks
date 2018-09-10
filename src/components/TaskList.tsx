@@ -59,7 +59,7 @@ export default class extends Component<IProps> {
     return (
       <List
         innerRef={container => (this.container = container)}
-        shadowed={sorting}
+        shadowed={!!sorting}
       >
         {tasks.map(
           task =>

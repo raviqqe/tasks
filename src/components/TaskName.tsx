@@ -50,7 +50,7 @@ class TaskName extends Component<IProps> {
     return (
       <Name
         editable={editable}
-        highlighted={highlighted}
+        highlighted={!!highlighted}
         onClick={() => editable && startEditing()}
       >
         {text}

@@ -77,7 +77,10 @@ export default class extends Component<IProps, IState> {
   private createElement = (): void => {
     if (!this.modal) {
       this.modal = document.createElement("div");
-      document.getElementById(config.rootId).appendChild(this.modal);
+
+      (document.getElementById(config.rootId) as HTMLDivElement).appendChild(
+        this.modal
+      );
     }
   };
 

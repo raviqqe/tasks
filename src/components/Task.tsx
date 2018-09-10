@@ -92,7 +92,9 @@ class Task extends Component<IProps, IState> {
         <Header>
           <TaskName
             highlighted={highlighted}
-            onEdit={detailed && (name => modifyTask({ ...this.task, name }))}
+            onEdit={
+              detailed ? name => modifyTask({ ...this.task, name }) : undefined
+            }
             text={name}
           />
           <Buttons covert={!this.state.showButtons}>

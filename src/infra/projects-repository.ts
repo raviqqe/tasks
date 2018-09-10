@@ -52,7 +52,7 @@ class ProjectsRepository {
     return firebase
       .firestore()
       .collection("users")
-      .doc(firebase.auth().currentUser.uid)
+      .doc((firebase.auth().currentUser as firebase.User).uid)
       .collection("projects");
   }
 }
