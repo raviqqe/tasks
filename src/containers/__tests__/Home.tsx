@@ -31,7 +31,7 @@ test("Render", () => {
 test("Make task lists fixed when devices get touchable", () => {
   const { store } = createStore();
 
-  const element = shallow(
+  const wrapper = shallow(
     <Provider store={store}>
       <Home />
     </Provider>
@@ -39,9 +39,9 @@ test("Make task lists fixed when devices get touchable", () => {
     .dive({ context: { store } })
     .dive();
 
-  expect(element.state("listsFixed")).toBeFalsy();
-  element.setProps({ touchable: true });
-  expect(element.state("listsFixed")).toBeTruthy();
+  expect(wrapper.state("listsFixed")).toBeFalsy();
+  wrapper.setProps({ touchable: true });
+  expect(wrapper.state("listsFixed")).toBeTruthy();
 });
 
 test("Render with an invalid current project name", () => {

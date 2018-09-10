@@ -16,18 +16,18 @@ const Input = withInputState(
 test("Input text", () => {
   let result: string = "";
 
-  const element = mount(
+  const wrapper = mount(
     <Input onEdit={(text: string) => (result = text)} text="" />
   );
 
-  element.setState({ editing: true });
-  expect(element.state("editing")).toBeTruthy();
+  wrapper.setState({ editing: true });
+  expect(wrapper.state("editing")).toBeTruthy();
 
-  element.find("input").simulate("change", { target: { value: "foo" } });
+  wrapper.find("input").simulate("change", { target: { value: "foo" } });
   expect(result).toBe("");
 
-  element.find("input").simulate("blur");
-  expect(element.state("editing")).toBeFalsy();
+  wrapper.find("input").simulate("blur");
+  expect(wrapper.state("editing")).toBeFalsy();
 
   expect(result).toBe("foo");
 });
