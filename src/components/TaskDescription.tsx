@@ -4,7 +4,7 @@ import Markdown = require("react-markdown");
 import { mapProps } from "recompose";
 import styled, { css } from "styled-components";
 
-import { grey } from "../style/colors";
+import { grey, red } from "../style/colors";
 import OriginalTextArea from "./TextArea";
 import withInputState, { IInternalProps, IProps } from "./with-input-state";
 
@@ -22,6 +22,14 @@ const Description = styled.div`
       }
     `
   )};
+
+  a {
+    color: ${red};
+
+    &:visited {
+      color: ${red};
+    }
+  }
 `;
 
 const Message = styled.div`
