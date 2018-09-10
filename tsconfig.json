@@ -7,6 +7,7 @@
     "jsx": "react",
     "lib": ["es5", "es6", "es7", "es2017", "dom"],
     "noUnusedLocals": true,
+    "resolveJsonModule": true,
     "rootDir": "src",
     "strictNullChecks": true,
     "target": "es5"

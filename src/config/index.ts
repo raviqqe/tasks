@@ -1,4 +1,6 @@
+import config from "./config.json";
+
 export default {
-  ...require("./config.json"),
+  ...config,
   rootId: "root"
 };
