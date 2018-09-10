@@ -50,9 +50,9 @@ export interface IGlobalState {
 
 export function createStore(): {
   persistor: Persistor;
-  store: Store<any, any>;
+  store: Store<IGlobalState, any>;
 } {
-  const store = createReduxStore(
+  const store = createReduxStore<IGlobalState, any, any, any>(
     persistReducer(
       {
         key: "root",

@@ -3,12 +3,8 @@ import { emptyProject, IProject } from "../../domain/project";
 import { createTask } from "../../domain/task";
 import { actionCreators, initialState, reducer } from "../tasks";
 
-function getState(store): typeof initialState {
-  return store.getState().tasks;
-}
-
 function getProject(store): IProject {
-  const { currentProjectName, projects } = getState(store);
+  const { currentProjectName, projects } = store.getState().tasks;
 
   return projects[currentProjectName];
 }
@@ -19,15 +15,15 @@ test("Add a new project", () => {
   const { store } = createStore();
 
   store.dispatch(actionCreators.addProject("foo"));
-  expect(getState(store).currentProjectName).toBe("foo");
-  expect(getState(store).projects).toEqual({
+  expect(store.getState().tasks.currentProjectName).toBe("foo");
+  expect(store.getState().tasks.projects).toEqual({
     ...initialState.projects,
     foo: emptyProject
   });
 
   store.dispatch(actionCreators.addProject("bar"));
-  expect(getState(store).currentProjectName).toBe("bar");
-  expect(getState(store).projects).toEqual({
+  expect(store.getState().tasks.currentProjectName).toBe("bar");
+  expect(store.getState().tasks.projects).toEqual({
     ...initialState.projects,
     bar: emptyProject,
     foo: emptyProject
@@ -38,7 +34,7 @@ test("Add a invalid project", () => {
   const { store } = createStore();
 
   store.dispatch(actionCreators.addProject(""));
-  expect(getState(store)).toEqual(initialState);
+  expect(store.getState().tasks).toEqual(initialState);
 });
 
 test("Add a new task", () => {
@@ -48,14 +44,14 @@ test("Add a new task", () => {
   const barTask = createTask("bar", "");
 
   store.dispatch(actionCreators.addTask(fooTask));
-  expect(getState(store).currentTaskId).toEqual(fooTask.id);
-  expect(getState(store).projects).toEqual({
+  expect(store.getState().tasks.currentTaskId).toEqual(fooTask.id);
+  expect(store.getState().tasks.projects).toEqual({
     default: { archived: false, doneTasks: [], todoTasks: [fooTask] }
   });
 
   store.dispatch(actionCreators.addTask(barTask));
-  expect(getState(store).currentTaskId).toEqual(barTask.id);
-  expect(getState(store).projects).toEqual({
+  expect(store.getState().tasks.currentTaskId).toEqual(barTask.id);
+  expect(store.getState().tasks.projects).toEqual({
     default: { archived: false, doneTasks: [], todoTasks: [barTask, fooTask] }
   });
 });
@@ -64,14 +60,14 @@ test("Add a invalid task", () => {
   const { store } = createStore();
 
   store.dispatch(actionCreators.addTask(createTask("", "")));
-  expect(getState(store)).toEqual(initialState);
+  expect(store.getState().tasks).toEqual(initialState);
 });
 
 test("Rename a project", () => {
   const { store } = createStore();
 
   store.dispatch(actionCreators.renameCurrentProject("foo"));
-  expect(getState(store).projects).toEqual({ foo: emptyProject });
+  expect(store.getState().tasks.projects).toEqual({ foo: emptyProject });
 });
 
 test("Modify a task", () => {
@@ -82,7 +78,7 @@ test("Modify a task", () => {
 
   store.dispatch(actionCreators.addTask(barTask));
   store.dispatch(actionCreators.addTask(fooTask));
-  expect(getState(store).projects.default).toEqual({
+  expect(store.getState().tasks.projects.default).toEqual({
     archived: false,
     doneTasks: [],
     todoTasks: [fooTask, barTask]
@@ -91,7 +87,7 @@ test("Modify a task", () => {
   const newFooTask = { ...fooTask, name: "baz" };
 
   store.dispatch(actionCreators.modifyTask(newFooTask));
-  expect(getState(store).projects.default).toEqual({
+  expect(store.getState().tasks.projects.default).toEqual({
     archived: false,
     doneTasks: [],
     todoTasks: [newFooTask, barTask]
@@ -101,19 +97,19 @@ test("Modify a task", () => {
 test("Remove a project", () => {
   const { store } = createStore();
 
-  expect(getState(store)).toEqual(initialState);
+  expect(store.getState().tasks).toEqual(initialState);
 
   store.dispatch(actionCreators.removeProject("default"));
-  expect(getState(store).projects).toEqual(initialState.projects);
-  expect(getState(store).currentProjectName).toBe(
+  expect(store.getState().tasks.projects).toEqual(initialState.projects);
+  expect(store.getState().tasks.currentProjectName).toBe(
     initialState.currentProjectName
   );
 
   store.dispatch(actionCreators.addProject("foo"));
 
   store.dispatch(actionCreators.removeProject("foo"));
-  expect(getState(store).projects).toEqual(initialState.projects);
-  expect(getState(store).currentProjectName).toBe(
+  expect(store.getState().tasks.projects).toEqual(initialState.projects);
+  expect(store.getState().tasks.currentProjectName).toBe(
     initialState.currentProjectName
   );
 });
@@ -126,14 +122,14 @@ test("Remove a task", () => {
 
   store.dispatch(actionCreators.addTask(barTask));
   store.dispatch(actionCreators.addTask(fooTask));
-  expect(getState(store).projects.default).toEqual({
+  expect(store.getState().tasks.projects.default).toEqual({
     archived: false,
     doneTasks: [],
     todoTasks: [fooTask, barTask]
   });
 
   store.dispatch(actionCreators.removeTask(fooTask.id));
-  expect(getState(store).projects.default).toEqual({
+  expect(store.getState().tasks.projects.default).toEqual({
     archived: false,
     doneTasks: [],
     todoTasks: [barTask]
@@ -162,14 +158,14 @@ test("Set tasks", () => {
 
   store.dispatch(actionCreators.addTask(barTask));
   store.dispatch(actionCreators.addTask(fooTask));
-  expect(getState(store).projects.default).toEqual({
+  expect(store.getState().tasks.projects.default).toEqual({
     archived: false,
     doneTasks: [],
     todoTasks: [fooTask, barTask]
   });
 
   store.dispatch(actionCreators.setTasks([barTask, fooTask]));
-  expect(getState(store).projects.default).toEqual({
+  expect(store.getState().tasks.projects.default).toEqual({
     archived: false,
     doneTasks: [],
     todoTasks: [barTask, fooTask]
@@ -183,14 +179,14 @@ test("Toggle a task's state", () => {
 
   store.dispatch(actionCreators.addTask(fooTask));
   store.dispatch(actionCreators.toggleTaskState(fooTask.id));
-  expect(getState(store).projects.default).toEqual({
+  expect(store.getState().tasks.projects.default).toEqual({
     archived: false,
     doneTasks: [fooTask],
     todoTasks: []
   });
 
   store.dispatch(actionCreators.toggleTaskState(fooTask.id));
-  expect(getState(store).projects.default).toEqual({
+  expect(store.getState().tasks.projects.default).toEqual({
     archived: false,
     doneTasks: [],
     todoTasks: [fooTask]
@@ -207,12 +203,12 @@ test("Toggle a project's state", () => {
   store.dispatch(actionCreators.archiveProject("foo"));
 
   expect(getProject(store).archived).toBeFalsy();
-  expect(getState(store).projects.foo.archived).toBeTruthy();
+  expect(store.getState().tasks.projects.foo.archived).toBeTruthy();
 
   store.dispatch(actionCreators.unarchiveProject("foo"));
 
   expect(getProject(store).archived).toBeFalsy();
-  expect(getState(store).projects.foo.archived).toBeFalsy();
+  expect(store.getState().tasks.projects.foo.archived).toBeFalsy();
 });
 
 test("Don't archive the last project", () => {
@@ -221,7 +217,7 @@ test("Don't archive the last project", () => {
   expect(getProject(store).archived).toBeFalsy();
 
   store.dispatch(
-    actionCreators.archiveProject(getState(store).currentProjectName)
+    actionCreators.archiveProject(store.getState().tasks.currentProjectName)
   );
 
   expect(getProject(store).archived).toBeFalsy();
