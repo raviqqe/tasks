@@ -10,13 +10,14 @@ import Task from "../components/Task";
 import TaskList from "../components/TaskList";
 import { getTasksFromProject, IProject } from "../domain/project";
 import { includeTaskInTasks, ITask } from "../domain/task";
+import { IGlobalState } from "../state";
 import * as environment from "../state/environment";
 import * as settings from "../state/settings";
 import * as tasks from "../state/tasks";
 import * as timer from "../state/timer";
 import Timer from "./Timer";
 
-const Home = styled.div`
+const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 100vw;
@@ -65,16 +66,7 @@ interface IState {
   listsFixed: boolean;
 }
 
-@connect(
-  ({ environment, settings, tasks, timer }) => ({
-    ...environment,
-    ...settings,
-    ...tasks,
-    timer
-  }),
-  { ...settings.actionCreators, ...tasks.actionCreators }
-)
-export default class extends Component<Partial<IProps>, IState> {
+class Home extends Component<IProps, IState> {
   public state: IState = { done: false, listsFixed: false };
 
   public render() {
@@ -102,7 +94,7 @@ export default class extends Component<Partial<IProps>, IState> {
     const sorting = touchable && !listsFixed;
 
     return (
-      <Home>
+      <Wrapper>
         <Content>
           <Menu
             done={done}
@@ -136,7 +128,7 @@ export default class extends Component<Partial<IProps>, IState> {
             )}
           </Tasks>
         </Content>
-      </Home>
+      </Wrapper>
     );
   }
 
@@ -190,3 +182,13 @@ export default class extends Component<Partial<IProps>, IState> {
     return getTasksFromProject(this.currentProject, this.state.done);
   }
 }
+
+export default connect(
+  ({ environment, settings, tasks, timer }: IGlobalState) => ({
+    ...environment,
+    ...settings,
+    ...tasks,
+    timer
+  }),
+  { ...settings.actionCreators, ...tasks.actionCreators }
+)(Home);

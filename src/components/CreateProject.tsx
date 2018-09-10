@@ -20,11 +20,7 @@ interface IState {
   name: string;
 }
 
-@connect(
-  null,
-  tasks.actionCreators
-)
-export default class extends Component<Partial<tasks.IActionCreators>, IState> {
+class CreateProject extends Component<tasks.IActionCreators, IState> {
   public input: RefObject<HTMLInputElement> = createRef();
   public state: IState = { name: "" };
 
@@ -64,3 +60,8 @@ export default class extends Component<Partial<tasks.IActionCreators>, IState> {
     );
   }
 }
+
+export default connect(
+  null,
+  tasks.actionCreators
+)(CreateProject);

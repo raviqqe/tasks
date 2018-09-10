@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import styled, { css } from "styled-components";
 
 import config from "../config";
+import { IGlobalState } from "../state";
 import * as authentication from "../state/authentication";
 import * as settings from "../state/settings";
 import * as tasks from "../state/tasks";
@@ -24,7 +25,7 @@ import RenameProject from "./RenameProject";
 import SettingsItem from "./SettingsItem";
 import UnarchiveProject from "./UnarchiveProject";
 
-const Settings = styled.div`
+const Window = styled.div`
   ${verticalMargin("2em")};
   font-size: 1.2em;
   width: 60em;
@@ -103,28 +104,14 @@ const GitHubLink = styled.div`
 `;
 
 interface IProps
-  extends Partial<
-      authentication.IActionCreators &
-        authentication.IState &
-        settings.IActionCreators &
-        settings.IState &
-        tasks.IActionCreators &
-        tasks.IState
-    > {}
+  extends authentication.IActionCreators,
+    authentication.IState,
+    settings.IActionCreators,
+    settings.IState,
+    tasks.IActionCreators,
+    tasks.IState {}
 
-@connect(
-  ({ authentication, settings, tasks }) => ({
-    ...authentication,
-    ...settings,
-    ...tasks
-  }),
-  {
-    ...authentication.actionCreators,
-    ...settings.actionCreators,
-    ...tasks.actionCreators
-  }
-)
-export default class extends Component<IProps> {
+class Settings extends Component<IProps> {
   public render() {
     const {
       alarmVolume,
@@ -143,7 +130,7 @@ export default class extends Component<IProps> {
           </Icon>
         )}
       >
-        <Settings>
+        <Window>
           <SettingsItem label="Current Project">
             <Buttons>
               <CreateProject />
@@ -215,8 +202,21 @@ export default class extends Component<IProps> {
               </GitHubLink>
             </Link>
           </Footer>
-        </Settings>
+        </Window>
       </ModalWindowButton>
     );
   }
 }
+
+export default connect(
+  ({ authentication, settings, tasks }: IGlobalState) => ({
+    ...authentication,
+    ...settings,
+    ...tasks
+  }),
+  {
+    ...authentication.actionCreators,
+    ...settings.actionCreators,
+    ...tasks.actionCreators
+  }
+)(Settings);

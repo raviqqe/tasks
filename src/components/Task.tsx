@@ -18,7 +18,7 @@ import SubInformation from "./SubInformation";
 import TaskDescription from "./TaskDescription";
 import TaskName from "./TaskName";
 
-const Task = styled.div`
+const Content = styled.div`
   ${normalBorder};
   ${verticalMargin("0.6em")};
   background: white;
@@ -52,9 +52,7 @@ const Buttons = styled.div<{ covert: boolean }>`
       : css``};
 `;
 
-interface IProps
-  extends ITask,
-    Partial<tasks.IActionCreators & timer.IActionCreators> {
+interface IProps extends ITask, tasks.IActionCreators, timer.IActionCreators {
   detailed?: boolean;
   done: boolean;
   highlighted?: boolean;
@@ -64,11 +62,7 @@ interface IState {
   showButtons: boolean;
 }
 
-@connect(
-  null,
-  { ...tasks.actionCreators, ...timer.actionCreators }
-)
-export default class extends Component<IProps, IState> {
+class Task extends Component<IProps, IState> {
   public state: IState = { showButtons: false };
 
   public render() {
@@ -90,7 +84,7 @@ export default class extends Component<IProps, IState> {
     } = this.props;
 
     return (
-      <Task
+      <Content
         onClick={detailed ? undefined : () => setCurrentTaskId(id)}
         onMouseOver={() => this.setState({ showButtons: true })}
         onMouseOut={() => this.setState({ showButtons: false })}
@@ -143,7 +137,7 @@ export default class extends Component<IProps, IState> {
             </SubInformation>
           </>
         )}
-      </Task>
+      </Content>
     );
   }
 
@@ -160,3 +154,8 @@ export default class extends Component<IProps, IState> {
     return { createdAt, description, id, name, spentSeconds, updatedAt };
   }
 }
+
+export default connect(
+  null,
+  { ...tasks.actionCreators, ...timer.actionCreators }
+)(Task);

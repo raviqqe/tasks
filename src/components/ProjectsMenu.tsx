@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled, { css } from "styled-components";
 
+import { IGlobalState } from "../state";
 import * as tasks from "../state/tasks";
 import { shortDuration } from "../style/animation";
 import { normalBorder } from "../style/borders";
@@ -77,12 +78,8 @@ interface IState {
   opened: boolean;
 }
 
-@connect(
-  ({ tasks }) => tasks,
-  tasks.actionCreators
-)
-export default class extends Component<
-  Partial<tasks.IState & tasks.IActionCreators>,
+class ProjectsMenu extends Component<
+  tasks.IState & tasks.IActionCreators,
   IState
 > {
   public state: IState = { opened: false };
@@ -125,3 +122,8 @@ export default class extends Component<
     );
   }
 }
+
+export default connect(
+  ({ tasks }: IGlobalState) => tasks,
+  tasks.actionCreators
+)(ProjectsMenu);

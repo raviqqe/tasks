@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
+import { IGlobalState } from "../state";
 import * as message from "../state/message";
 import { normalBorder } from "../style/borders";
 import { yellow } from "../style/colors";
 
-const Message = styled.div`
+const Wrapper = styled.div`
   position: fixed;
   top: 0;
   width: 100vw;
@@ -35,12 +36,8 @@ interface IState {
   message: string;
 }
 
-@connect(
-  ({ message }) => message,
-  message.actionCreators
-)
-export default class extends Component<
-  Partial<message.IState & message.IActionCreators>,
+class Message extends Component<
+  message.IState & message.IActionCreators,
   IState
 > {
   public state: IState = { message: "" };
@@ -49,11 +46,11 @@ export default class extends Component<
     const { clearMessage, message } = this.props;
 
     return (
-      <Message>
+      <Wrapper>
         <Box covert={!message} onClick={() => clearMessage()}>
           {this.state.message}
         </Box>
-      </Message>
+      </Wrapper>
     );
   }
 
@@ -63,3 +60,8 @@ export default class extends Component<
     }
   }
 }
+
+export default connect(
+  ({ message }: IGlobalState) => message,
+  message.actionCreators
+)(Message);

@@ -4,6 +4,7 @@ import { MdUnarchive } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
+import { IGlobalState } from "../state";
 import * as tasks from "../state/tasks";
 import { normalBorder } from "../style/borders";
 import { grey } from "../style/colors";
@@ -31,12 +32,8 @@ const Message = styled.div`
   color: ${grey};
 `;
 
-@connect(
-  ({ tasks }) => tasks,
-  tasks.actionCreators
-)
-export default class extends Component<
-  Partial<tasks.IState & tasks.IActionCreators>
+class UnarchivedProject extends Component<
+  tasks.IState & tasks.IActionCreators
 > {
   public render() {
     const { unarchiveProject } = this.props;
@@ -77,3 +74,8 @@ export default class extends Component<
     );
   }
 }
+
+export default connect(
+  ({ tasks }: IGlobalState) => tasks,
+  tasks.actionCreators
+)(UnarchivedProject);

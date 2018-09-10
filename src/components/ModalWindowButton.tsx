@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import styled, { css } from "styled-components";
 import transition from "styled-transition-group";
 
+import { IGlobalState } from "../state";
 import * as environment from "../state/environment";
 import { longDuration, maxDurationMs } from "../style/animation";
 import { normalBorder } from "../style/borders";
@@ -69,14 +70,13 @@ const Window = styled.div`
   margin: auto;
 `;
 
-interface IProps extends Partial<environment.IState> {
+interface IProps extends environment.IState {
   buttonComponent: ComponentType<IButtonProps>;
   onOpen?: () => void;
   showCloseButton?: boolean;
 }
 
-@connect(({ environment }) => environment)
-export default class extends Component<IProps> {
+class ModalWindowButton extends Component<IProps> {
   public render() {
     const { buttonComponent } = this.props;
 
@@ -115,3 +115,7 @@ export default class extends Component<IProps> {
     );
   };
 }
+
+export default connect(({ environment }: IGlobalState) => environment)(
+  ModalWindowButton
+);

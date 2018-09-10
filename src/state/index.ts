@@ -23,7 +23,14 @@ interface IDuck {
   reducer: Reducer;
 }
 
-const ducks: { [name: string]: IDuck } = {
+const ducks: {
+  authentication: IDuck;
+  environment: IDuck;
+  message: IDuck;
+  settings: IDuck;
+  tasks: IDuck;
+  timer: IDuck;
+} = {
   authentication,
   environment,
   message,
@@ -31,6 +38,15 @@ const ducks: { [name: string]: IDuck } = {
   tasks,
   timer
 };
+
+export interface IGlobalState {
+  authentication: authentication.IState;
+  environment: environment.IState;
+  message: message.IState;
+  settings: settings.IState;
+  tasks: tasks.IState;
+  timer: timer.IState;
+}
 
 export function createStore(): {
   persistor: Persistor;

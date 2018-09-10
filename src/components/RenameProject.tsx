@@ -3,6 +3,7 @@ import { MdEdit } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
+import { IGlobalState } from "../state";
 import * as tasks from "../state/tasks";
 import { normalBorder } from "../style/borders";
 import { grey } from "../style/colors";
@@ -21,12 +22,8 @@ interface IState {
   name: string;
 }
 
-@connect(
-  ({ tasks }) => tasks,
-  tasks.actionCreators
-)
-export default class extends Component<
-  Partial<tasks.IState & tasks.IActionCreators>,
+class RenameProject extends Component<
+  tasks.IState & tasks.IActionCreators,
   IState
 > {
   public input: RefObject<HTMLInputElement> = createRef();
@@ -78,3 +75,8 @@ export default class extends Component<
     );
   }
 }
+
+export default connect(
+  ({ tasks }: IGlobalState) => tasks,
+  tasks.actionCreators
+)(RenameProject);

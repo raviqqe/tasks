@@ -15,7 +15,7 @@ import { windowSmallQuery } from "../style/media";
 const workSeconds = 25 * 60;
 const restSeconds = 5 * 60;
 
-const Timer = styled.div<{ rest: boolean }>`
+const Wrapper = styled.div<{ rest: boolean }>`
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -53,8 +53,7 @@ const TimerButton = styled(Button)`
   }
 `;
 
-interface IProps
-  extends Partial<tasks.IActionCreators & timer.IActionCreators> {
+interface IProps extends tasks.IActionCreators, timer.IActionCreators {
   currentTask: ITask;
 }
 
@@ -63,11 +62,7 @@ interface IState {
   seconds: number;
 }
 
-@connect(
-  null,
-  { ...tasks.actionCreators, ...timer.actionCreators }
-)
-export default class extends Component<IProps, IState> {
+class Timer extends Component<IProps, IState> {
   public state: IState = { rest: false, seconds: workSeconds };
   private timer: NodeJS.Timer;
 
@@ -100,7 +95,7 @@ export default class extends Component<IProps, IState> {
     const { rest, seconds } = this.state;
 
     return (
-      <Timer rest={rest}>
+      <Wrapper rest={rest}>
         <Time rest={rest}>
           <Minutes>{Math.floor(seconds / 60)}</Minutes>
           <Seconds>{numeral(seconds % 60).format("00")}</Seconds>
@@ -116,7 +111,7 @@ export default class extends Component<IProps, IState> {
         >
           <MdStop />
         </TimerButton>
-      </Timer>
+      </Wrapper>
     );
   }
 
@@ -129,3 +124,8 @@ export default class extends Component<IProps, IState> {
     });
   };
 }
+
+export default connect(
+  null,
+  { ...tasks.actionCreators, ...timer.actionCreators }
+)(Timer);
