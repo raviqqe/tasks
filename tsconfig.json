@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
     "jsx": "react",
     "lib": ["es5", "es6", "es7", "es2017", "dom"],
-    "baseUrl": ".",
+    "noUnusedLocals": true,
     "rootDir": "src",
-    "target": "es5",
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "esModuleInterop": true,
-    "noUnusedLocals": true
+    "target": "es5"
   }
 }
