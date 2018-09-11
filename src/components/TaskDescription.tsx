@@ -30,6 +30,21 @@ const Description = styled.div`
       color: ${red};
     }
   }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  table,
+  td,
+  th {
+    border: 1px solid ${grey};
+  }
+
+  td,
+  th {
+    padding: 0.4em 0.6em;
+  }
 `;
 
 const Message = styled.div`
