@@ -18,7 +18,7 @@ ReactDOM.render(
       <Message />
     </PersistGate>
   </Provider>,
-  document.getElementById(config.rootId) as HTMLElement
+  document.getElementById(config.rootId)
 );
 
 if ("serviceWorker" in navigator) {

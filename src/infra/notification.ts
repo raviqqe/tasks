@@ -16,7 +16,7 @@ function permissionToBoolean(
 }
 
 export function permission(): boolean | null {
-  return permissionToBoolean((Notification as any).permission);
+  return permissionToBoolean(Notification.permission);
 }
 
 export async function requestPermission(): Promise<boolean | null> {
