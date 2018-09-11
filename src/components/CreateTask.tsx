@@ -1,4 +1,4 @@
-import React, { Component, createRef, RefObject } from "react";
+import React, { Component, createRef, KeyboardEvent, RefObject } from "react";
 import { MdAdd } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -47,35 +47,47 @@ class CreateTask extends Component<tasks.IActionCreators, IState> {
         )}
         onOpen={() => this.input.current && this.input.current.focus()}
       >
-        {closeWindow => (
-          <Form
-            onSubmit={event => {
-              addTask(createTask(name, description));
-              this.setState({ description: "", name: "" });
-              closeWindow();
-              event.preventDefault();
-            }}
-          >
-            <Input
-              innerRef={this.input}
-              placeholder="Name"
-              value={name}
-              onChange={({ target: { value } }) =>
-                this.setState({ name: value })
-              }
-            />
-            <TextArea
-              placeholder="Description"
-              value={description}
-              onChange={({ target: { value } }: any) =>
-                this.setState({ description: value })
-              }
-            />
-            <IconedButton icon={<MdAdd />} type="submit">
-              add
-            </IconedButton>
-          </Form>
-        )}
+        {closeWindow => {
+          const submit = (): void => {
+            addTask(createTask(name, description));
+            this.setState({ description: "", name: "" });
+            closeWindow();
+          };
+
+          return (
+            <Form
+              onSubmit={event => {
+                submit();
+                event.preventDefault();
+              }}
+            >
+              <Input
+                innerRef={this.input}
+                placeholder="Name"
+                value={name}
+                onChange={({ target: { value } }) =>
+                  this.setState({ name: value })
+                }
+              />
+              <TextArea
+                placeholder="Description"
+                value={description}
+                onChange={({ target: { value } }: any) =>
+                  this.setState({ description: value })
+                }
+                onKeyDown={(event: KeyboardEvent<HTMLTextAreaElement>) => {
+                  if (event.keyCode === 13 && event.shiftKey) {
+                    submit();
+                    event.preventDefault();
+                  }
+                }}
+              />
+              <IconedButton icon={<MdAdd />} type="submit">
+                add
+              </IconedButton>
+            </Form>
+          );
+        }}
       </ModalWindowButton>
     );
   }
