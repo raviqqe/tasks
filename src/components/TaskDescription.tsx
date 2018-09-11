@@ -51,10 +51,7 @@ class TaskDescription extends Component<IProps & IInternalProps> {
       return (
         <TextArea
           onKeyDown={(event: KeyboardEvent<HTMLTextAreaElement>) => {
-            if (
-              (event.keyCode === 83 && event.ctrlKey) ||
-              (event.keyCode === 13 && event.shiftKey)
-            ) {
+            if (event.keyCode === 13 && event.shiftKey) {
               stopEditing();
               event.preventDefault();
             }
