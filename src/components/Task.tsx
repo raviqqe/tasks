@@ -2,6 +2,7 @@ import numeral = require("numeral");
 import React, { Component } from "react";
 import { MdAccessTime, MdCheck, MdDelete, MdReplay } from "react-icons/md";
 import { connect } from "react-redux";
+import { mapProps } from "recompose";
 import styled, { css } from "styled-components";
 
 import { secondsToPomodoros } from "../domain/pomodoro-timer";
@@ -9,7 +10,7 @@ import { ITask } from "../domain/task";
 import { unixTimeStampToString } from "../domain/utils";
 import * as tasks from "../state/tasks";
 import * as timer from "../state/timer";
-import { instantDuration } from "../style/animation";
+import { delayForUX, instantDuration } from "../style/animation";
 import { normalBorder } from "../style/borders";
 import { horizontalMargin, verticalMargin } from "../style/margin";
 import { withWindowSmall } from "../style/media";
@@ -160,4 +161,10 @@ class Task extends Component<IProps, IState> {
 export default connect(
   null,
   { ...tasks.actionCreators, ...timer.actionCreators }
-)(Task);
+)(
+  mapProps(({ removeTask, toggleTaskState, ...props }: IProps) => ({
+    removeTask: (id: string) => delayForUX(() => removeTask(id)),
+    toggleTaskState: (id: string) => delayForUX(() => toggleTaskState(id)),
+    ...props
+  }))(Task)
+);
