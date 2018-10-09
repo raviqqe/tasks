@@ -98,7 +98,7 @@ class ModalWindowButton extends Component<IProps> {
         appear={true}
         in={opened}
         onClick={closeWindow}
-        onEntered={() => setTimeout(onOpen, maxDurationMs)}
+        onEntered={onOpen && (() => setTimeout(onOpen, maxDurationMs))}
         timeout={{ enter: 0, exit: maxDurationMs }}
       >
         {(windowSmall || showCloseButton) && (

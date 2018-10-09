@@ -13,7 +13,10 @@ firebase.initializeApp({
 });
 
 firebase.firestore().settings({ timestampsInSnapshots: true });
-firebase.firestore().enablePersistence();
+
+if (window.localStorage) {
+  firebase.firestore().enablePersistence();
+}
 
 export async function signIn(): Promise<void> {
   await firebase

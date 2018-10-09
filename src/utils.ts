@@ -6,7 +6,7 @@ export function createRootElement(): HTMLDivElement {
   const root = document.createElement("div");
 
   root.id = config.rootId;
-  document.documentElement.appendChild(root);
+  (document.documentElement as HTMLElement).appendChild(root);
 
   return root;
 }
