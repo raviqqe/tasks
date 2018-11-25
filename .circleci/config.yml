@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: node
+      - image: node:10
     steps:
       - run: |
           apt -y update --fix-missing
