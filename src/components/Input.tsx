@@ -1,4 +1,10 @@
-import React, { ChangeEvent, EventHandler, HTMLProps, RefObject } from "react";
+import React, {
+  ChangeEvent,
+  EventHandler,
+  forwardRef,
+  HTMLProps,
+  RefObject
+} from "react";
 import styled from "styled-components";
 
 import { black, grey } from "../style/colors";
@@ -14,9 +20,11 @@ const Input = styled.input`
   width: 100%;
 `;
 
-export default (
-  props: Omit<HTMLProps<HTMLInputElement>, "ref" | "onChange"> & {
-    innerRef?: RefObject<HTMLInputElement>;
-    onChange?: EventHandler<ChangeEvent<HTMLInputElement>>;
-  }
-) => <Input {...props} />;
+export default forwardRef(
+  (
+    props: Omit<HTMLProps<HTMLInputElement>, "onChange"> & {
+      onChange?: EventHandler<ChangeEvent<HTMLInputElement>>;
+    },
+    ref: RefObject<HTMLInputElement>
+  ) => <Input ref={ref} {...props} />
+);

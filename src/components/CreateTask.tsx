@@ -62,7 +62,7 @@ class CreateTask extends Component<tasks.IActionCreators, IState> {
               }}
             >
               <Input
-                innerRef={this.input}
+                ref={this.input}
                 placeholder="Name"
                 value={name}
                 onChange={({ target: { value } }) =>

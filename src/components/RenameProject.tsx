@@ -66,7 +66,7 @@ class RenameProject extends Component<
                 this.setState({ name: value })
               }
               placeholder="Name"
-              innerRef={this.input}
+              ref={this.input}
               value={name}
             />
           </Form>

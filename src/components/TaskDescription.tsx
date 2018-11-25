@@ -79,7 +79,7 @@ class TaskDescription extends Component<IProps & IInternalProps> {
     const { startEditing, text } = this.props;
 
     return (
-      <Description innerRef={this.ref} onClick={startEditing}>
+      <Description ref={this.ref} onClick={startEditing}>
         {text.trim() ? (
           <Markdown source={text} />
         ) : (

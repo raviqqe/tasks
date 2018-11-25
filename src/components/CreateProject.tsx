@@ -47,7 +47,7 @@ class CreateProject extends Component<tasks.IActionCreators, IState> {
             }}
           >
             <Input
-              innerRef={this.input}
+              ref={this.input}
               onChange={({ target: { value } }) =>
                 this.setState({ name: value })
               }
