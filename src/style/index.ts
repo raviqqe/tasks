@@ -1,10 +1,10 @@
-import { css, injectGlobal } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 
 import { black, grey, lightGreen } from "./colors";
 import { withWindowBig } from "./media";
 
 // tslint:disable no-unused-expression
-injectGlobal`
+export const GlobalStyle = createGlobalStyle`
   @import url("https://fonts.googleapis.com/css?family=Noto+Sans");
 
   * {

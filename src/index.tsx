@@ -7,7 +7,7 @@ import Message from "./components/Message";
 import config from "./config";
 import Home from "./containers/Home";
 import { createStore } from "./state";
-import "./style";
+import { GlobalStyle } from "./style";
 
 const { persistor, store } = createStore();
 
@@ -16,6 +16,7 @@ ReactDOM.render(
     <PersistGate loading={null} persistor={persistor}>
       <Home />
       <Message />
+      <GlobalStyle />
     </PersistGate>
   </Provider>,
   document.getElementById(config.rootId)
