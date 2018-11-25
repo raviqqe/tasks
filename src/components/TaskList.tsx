@@ -61,25 +61,24 @@ export default class extends Component<IProps> {
         ref={container => (this.container = container)}
         shadowed={!!sorting}
       >
-        {tasks.map(
-          task =>
-            windowSmall ? (
-              <ModalWindowButton
-                key={task.id}
-                buttonComponent={props => (
-                  <this.ClickableTask done={done} task={task} {...props} />
-                )}
-              >
-                <Task detailed={true} done={done} {...task} />
-              </ModalWindowButton>
-            ) : (
-              <Task
-                key={task.id}
-                done={done}
-                highlighted={task.id === currentTaskId}
-                {...task}
-              />
-            )
+        {tasks.map(task =>
+          windowSmall ? (
+            <ModalWindowButton
+              key={task.id}
+              buttonComponent={props => (
+                <this.ClickableTask done={done} task={task} {...props} />
+              )}
+            >
+              <Task detailed={true} done={done} {...task} />
+            </ModalWindowButton>
+          ) : (
+            <Task
+              key={task.id}
+              done={done}
+              highlighted={task.id === currentTaskId}
+              {...task}
+            />
+          )
         )}
       </List>
     );
