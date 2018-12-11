@@ -2,7 +2,6 @@ import React, {
   ChangeEvent,
   Component,
   ComponentClass,
-  ComponentType,
   HTMLProps
 } from "react";
 
@@ -31,7 +30,7 @@ export interface IState {
 }
 
 export default <P extends IInternalProps>(
-  Child: ComponentType<P>
+  Child: ComponentClass<P>
 ): ComponentClass<Omit<P, keyof IInternalProps> & IProps> =>
   class extends Component<Omit<P, keyof IInternalProps> & IProps, IState> {
     public state: IState = { editing: false, text: "" };
@@ -41,7 +40,7 @@ export default <P extends IInternalProps>(
 
       return (
         <Child
-          {...this.props}
+          {...(this.props as unknown) as P}
           editing={editing}
           inputProps={this.inputProps}
           startEditing={() => this.setState({ editing: true })}

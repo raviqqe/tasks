@@ -9,14 +9,14 @@ const actionCreator = actionCreatorFactory("AUTHENTICATION");
 
 export const actionCreators = {
   setSignInState: actionCreator<boolean>("SET_SIGN_IN_STATE"),
-  signIn: () => async dispatch => {
+  signIn: (): any => async (dispatch): Promise<void> => {
     try {
       await firebase.signIn();
     } catch (error) {
       dispatch(message.actionCreators.sendMessage("Failed to sign in."));
     }
   },
-  signOut: () => firebase.signOut
+  signOut: (): any => firebase.signOut
 };
 
 export type IActionCreators = typeof actionCreators;

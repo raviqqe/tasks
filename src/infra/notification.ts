@@ -37,7 +37,7 @@ export function notify(message: string): void {
 export async function onPermissionChange(
   callback: (permission: boolean | null) => void
 ) {
-  (await (navigator as any).permissions.query(
-    { name: "notifications" }
-  )).onchange = () => callback(permission());
+  (await (navigator as any).permissions.query({
+    name: "notifications"
+  })).onchange = () => callback(permission());
 }

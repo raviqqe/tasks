@@ -10,7 +10,7 @@ const sendMessage = actionCreator<string>("SEND_MESSAGE");
 
 export const actionCreators = {
   clearMessage,
-  sendMessage: (message: string) => async dispatch => {
+  sendMessage: (message: string): any => async (dispatch): Promise<void> => {
     dispatch(sendMessage(message));
     await sleep(5000);
     dispatch(clearMessage());
