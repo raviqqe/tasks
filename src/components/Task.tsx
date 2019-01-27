@@ -115,7 +115,12 @@ class Task extends Component<IProps, IState> {
               </SmallIconButton>
             )}
             {(done || detailed) && (
-              <SmallIconButton onClick={() => removeTask(id)}>
+              <SmallIconButton
+                onClick={() =>
+                  confirm(`Are you sure to delete the task of "${name}"?`) &&
+                  removeTask(id)
+                }
+              >
                 <MdDelete />
               </SmallIconButton>
             )}
