@@ -12,8 +12,6 @@ firebase.initializeApp({
   projectId
 });
 
-firebase.firestore().settings({ timestampsInSnapshots: true });
-
 if (window.localStorage) {
   firebase.firestore().enablePersistence();
 }
