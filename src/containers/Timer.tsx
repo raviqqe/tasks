@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 import Button from "../components/Button";
 import { ITask } from "../domain/task";
-import * as notification from "../infra/notification";
+import * as notification from "../drivers/notification";
 import * as tasks from "../state/tasks";
 import * as timer from "../state/timer";
 import { black } from "../style/colors";

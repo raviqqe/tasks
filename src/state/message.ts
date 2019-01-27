@@ -1,7 +1,7 @@
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 
-import { sleep } from "../infra/utils";
+import { sleep } from "../drivers/utils";
 
 const actionCreator = actionCreatorFactory("MESSAGE");
 

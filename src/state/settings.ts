@@ -2,7 +2,7 @@ import { Store } from "redux";
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 
-import * as notification from "../infra/notification";
+import * as notification from "../drivers/notification";
 
 const actionCreator = actionCreatorFactory("SETTINGS");
 

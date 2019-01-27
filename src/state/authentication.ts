@@ -2,7 +2,7 @@ import { Store } from "redux";
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 
-import * as firebase from "../infra/firebase";
+import * as firebase from "../drivers/firebase";
 import * as message from "./message";
 
 const actionCreator = actionCreatorFactory("AUTHENTICATION");

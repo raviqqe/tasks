@@ -9,7 +9,7 @@ import {
   pointerAvailable,
   touchable,
   windowSmall
-} from "../infra/media";
+} from "../drivers/media";
 
 const actionCreator = actionCreatorFactory("ENVIRONMENT");
 

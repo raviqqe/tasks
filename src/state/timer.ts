@@ -2,7 +2,7 @@ import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 
 import { ThunkAction } from ".";
-import * as audio from "../infra/audio";
+import * as audio from "../drivers/audio";
 
 const actionCreator = actionCreatorFactory("TIMER");
 

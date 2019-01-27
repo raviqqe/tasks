@@ -21,8 +21,8 @@ import {
   setTasksToProject
 } from "../domain/project";
 import { ITask, updateTask } from "../domain/task";
-import * as firebase from "../infra/firebase";
-import projectsRepository from "../infra/projects-repository";
+import * as firebase from "../drivers/firebase";
+import projectsRepository from "../drivers/projects-repository";
 import * as message from "./message";
 
 const actionCreator = actionCreatorFactory("TASKS");

@@ -1,5 +1,5 @@
 import { createStore } from "..";
-import { sleep } from "../../infra/utils";
+import { sleep } from "../../drivers/utils";
 import { actionCreators, initialState } from "../message";
 
 test("Send a message", async () => {

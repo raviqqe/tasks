@@ -1,7 +1,7 @@
 import { actionCreators, initialState, reducer } from "../timer";
 
 import { createStore } from "..";
-import * as audio from "../../infra/audio";
+import * as audio from "../../drivers/audio";
 
 test("Play an alarm", () => {
   const spy = jest.spyOn(audio, "playAlarm");
