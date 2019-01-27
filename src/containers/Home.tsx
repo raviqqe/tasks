@@ -83,9 +83,12 @@ class Home extends Component<IProps, IState> {
     }
 
     const { doneTasks, todoTasks } = this.currentProject;
-    const currentTask = find(this.currentTasks, { id: currentTaskId });
+    const currentTask = find(
+      this.currentTasks,
+      ({ id }) => id === currentTaskId
+    );
 
-    if (timer.on) {
+    if (currentTask && timer.on) {
       return <Timer currentTask={currentTask} />;
     }
 

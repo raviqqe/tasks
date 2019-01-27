@@ -95,6 +95,10 @@ export default class extends Component<IProps> {
       this.sortable = sortable.create(this.container, {
         animation: 200,
         onSort: ({ oldIndex, newIndex }) => {
+          if (typeof oldIndex !== "number" || typeof newIndex !== "number") {
+            return;
+          }
+
           const tasks = [...this.props.tasks];
           tasks.splice(newIndex, 0, tasks.splice(oldIndex, 1)[0]);
           setTasks(tasks);

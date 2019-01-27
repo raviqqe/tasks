@@ -201,7 +201,7 @@ export const actionCreators = {
 
     let sourceTasks = getTasksFromProject(project, done);
     const destinationTasks = [
-      updateTask(find(sourceTasks, { id })),
+      updateTask(find(sourceTasks, { id }) as ITask),
       ...getTasksFromProject(project, !done)
     ];
     sourceTasks = reject(sourceTasks, { id });

@@ -1,5 +1,4 @@
-import { mapValues } from "lodash";
-import { applyMiddleware, combineReducers, Reducer } from "redux";
+import { Action, applyMiddleware, combineReducers, Reducer } from "redux";
 import * as redux from "redux";
 import { Persistor, persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
@@ -45,20 +44,32 @@ export interface IGlobalState {
 
 export type Store = redux.Store<IGlobalState, any>;
 
-export type ThunkAction = reduxThunk.ThunkAction<any, IGlobalState, void, any>;
+export type ThunkAction = reduxThunk.ThunkAction<
+  any,
+  IGlobalState,
+  void,
+  Action
+>;
 
 export function createStore(): {
   persistor: Persistor;
   store: Store;
 } {
-  const store = redux.createStore<IGlobalState, any, any, any>(
+  const store = redux.createStore(
     persistReducer(
       {
         key: "root",
         storage,
         whitelist: Object.keys(ducks).filter(name => ducks[name].persistent)
       },
-      combineReducers(mapValues(ducks, ({ reducer }) => reducer))
+      combineReducers({
+        authentication: authentication.reducer,
+        environment: environment.reducer,
+        message: message.reducer,
+        settings: settings.reducer,
+        tasks: tasks.reducer,
+        timer: timer.reducer
+      })
     ),
     applyMiddleware(thunk)
   );
