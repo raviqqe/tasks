@@ -1,12 +1,11 @@
 import $ from "jquery";
-import React, { Component, createRef, KeyboardEvent, RefObject } from "react";
+import React, { KeyboardEvent, RefObject, useEffect, useRef } from "react";
 import Markdown = require("react-markdown");
-import { mapProps } from "recompose";
 import styled, { css } from "styled-components";
 
 import { grey, red } from "../style/colors";
 import OriginalTextArea from "./TextArea";
-import withInputState, { IInternalProps, IProps } from "./with-input-state";
+import { useInputState } from "./utilities";
 
 const Description = styled.div`
   cursor: text;
@@ -56,52 +55,47 @@ const TextArea = styled(OriginalTextArea)`
   resize: vertical;
 `;
 
-class TaskDescription extends Component<IProps & IInternalProps> {
-  private ref: RefObject<HTMLDivElement> = createRef();
+interface IProps {
+  children: string;
+  onEdit: (description: string) => void;
+}
 
-  public render() {
-    const { editing, inputProps, stopEditing } = this.props;
+export default ({ children, onEdit }: IProps) => {
+  const { editing, setEditing, inputProps } = useInputState(children, onEdit);
+  const ref: RefObject<HTMLDivElement> = useRef(null);
 
-    if (editing) {
-      return (
-        <TextArea
-          onKeyDown={(event: KeyboardEvent<HTMLTextAreaElement>) => {
-            if (event.keyCode === 13 && event.shiftKey) {
-              stopEditing();
-              event.preventDefault();
-            }
-          }}
-          {...inputProps}
-        />
-      );
-    }
-
-    const { startEditing, text } = this.props;
-
-    return (
-      <Description ref={this.ref} onClick={startEditing}>
-        {text.trim() ? (
-          <Markdown source={text} />
-        ) : (
-          <Message>No description</Message>
-        )}
-      </Description>
-    );
-  }
-
-  public componentDidUpdate() {
+  useEffect(() => {
     if (
-      this.ref.current &&
-      !$(this.ref.current)
+      ref.current &&
+      !$(ref.current)
         .text()
         .trim()
     ) {
-      this.props.onEdit("");
+      onEdit("");
     }
-  }
-}
+  });
 
-export default mapProps(({ onEdit, ...props }: IProps) => ({
-  ...props,
-  onEdit: (text: string) => onEdit(text.trim())
-}))(withInputState(TaskDescription));
+  if (editing) {
+    return (
+      <TextArea
+        onKeyDown={(event: KeyboardEvent<HTMLTextAreaElement>) => {
+          if (event.keyCode === 13 && event.shiftKey) {
+            setEditing(false);
+            event.preventDefault();
+          }
+        }}
+        {...inputProps}
+      />
+    );
+  }
+
+  return (
+    <Description ref={ref} onClick={() => setEditing(true)}>
+      {children.trim() ? (
+        <Markdown source={children} />
+      ) : (
+        <Message>No description</Message>
+      )}
+    </Description>
+  );
+};

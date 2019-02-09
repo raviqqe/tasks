@@ -1,4 +1,4 @@
-import React, { Component, createRef, RefObject } from "react";
+import React, { RefObject, useRef, useState } from "react";
 import { MdAdd } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -16,50 +16,39 @@ const Form = styled.form`
   font-size: 1.2em;
 `;
 
-interface IState {
-  name: string;
-}
+const CreateProject = ({ addProject }: tasks.IActionCreators) => {
+  const input: RefObject<HTMLInputElement> = useRef(null);
+  const [name, setName] = useState("");
 
-class CreateProject extends Component<tasks.IActionCreators, IState> {
-  public input: RefObject<HTMLInputElement> = createRef();
-  public state: IState = { name: "" };
-
-  public render() {
-    const { addProject } = this.props;
-    const { name } = this.state;
-
-    return (
-      <ModalWindowButton
-        buttonComponent={({ openWindow }) => (
-          <IconedButton icon={<MdAdd />} onClick={openWindow}>
-            add
-          </IconedButton>
-        )}
-        onOpen={() => this.input.current && this.input.current.focus()}
-      >
-        {closeWindow => (
-          <Form
-            onSubmit={event => {
-              addProject(name.trim());
-              this.setState({ name: "" });
-              closeWindow();
-              event.preventDefault();
-            }}
-          >
-            <Input
-              ref={this.input}
-              onChange={({ target: { value } }) =>
-                this.setState({ name: value })
-              }
-              placeholder="Name"
-              value={name}
-            />
-          </Form>
-        )}
-      </ModalWindowButton>
-    );
-  }
-}
+  return (
+    <ModalWindowButton
+      buttonComponent={({ openWindow }) => (
+        <IconedButton icon={<MdAdd />} onClick={openWindow}>
+          add
+        </IconedButton>
+      )}
+      onOpen={() => input.current && input.current.focus()}
+    >
+      {closeWindow => (
+        <Form
+          onSubmit={event => {
+            addProject(name.trim());
+            setName("");
+            closeWindow();
+            event.preventDefault();
+          }}
+        >
+          <Input
+            ref={input}
+            onChange={({ target: { value } }) => setName(value)}
+            placeholder="Name"
+            value={name}
+          />
+        </Form>
+      )}
+    </ModalWindowButton>
+  );
+};
 
 export default connect(
   null,

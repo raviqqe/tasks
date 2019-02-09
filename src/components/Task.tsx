@@ -1,5 +1,5 @@
 import numeral = require("numeral");
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { MdAccessTime, MdCheck, MdDelete, MdReplay } from "react-icons/md";
 import { connect } from "react-redux";
 import { mapProps } from "recompose";
@@ -59,109 +59,96 @@ interface IProps extends ITask, tasks.IActionCreators, timer.IActionCreators {
   highlighted?: boolean;
 }
 
-interface IState {
-  showButtons: boolean;
-}
+const Task = ({
+  createdAt,
+  detailed,
+  description,
+  done,
+  id,
+  highlighted,
+  modifyTask,
+  name,
+  removeTask,
+  setCurrentTaskId,
+  spentSeconds,
+  toggleTaskState,
+  toggleTimer,
+  updatedAt
+}: IProps) => {
+  const task: ITask = {
+    createdAt,
+    description,
+    id,
+    name,
+    spentSeconds,
+    updatedAt
+  };
+  const [buttonsShown, showButtons] = useState(false);
 
-class Task extends Component<IProps, IState> {
-  public state: IState = { showButtons: false };
-
-  public render() {
-    const {
-      createdAt,
-      detailed,
-      description,
-      done,
-      id,
-      highlighted,
-      modifyTask,
-      name,
-      removeTask,
-      setCurrentTaskId,
-      spentSeconds,
-      toggleTaskState,
-      toggleTimer,
-      updatedAt
-    } = this.props;
-
-    return (
-      <Content
-        onClick={detailed ? undefined : () => setCurrentTaskId(id)}
-        onMouseOver={() => this.setState({ showButtons: true })}
-        onMouseOut={() => this.setState({ showButtons: false })}
-      >
-        <Header>
-          <TaskName
-            highlighted={highlighted}
-            onEdit={
-              detailed ? name => modifyTask({ ...this.task, name }) : undefined
-            }
-            text={name}
-          />
-          <Buttons covert={!this.state.showButtons}>
-            {(!done || detailed) && (
-              <SmallIconButton onClick={() => toggleTaskState(id)}>
-                {done ? <MdReplay /> : <MdCheck />}
-              </SmallIconButton>
-            )}
-            {!done && (
-              <SmallIconButton
-                onClick={() => {
-                  setCurrentTaskId(id);
-                  toggleTimer();
-                }}
-              >
-                <MdAccessTime />
-              </SmallIconButton>
-            )}
-            {(done || detailed) && (
-              <SmallIconButton
-                onClick={() =>
-                  confirm(`Are you sure to delete the task of "${name}"?`) &&
-                  removeTask(id)
-                }
-              >
-                <MdDelete />
-              </SmallIconButton>
-            )}
-          </Buttons>
-        </Header>
-        {detailed && (
-          <>
-            <TaskDescription
-              text={description}
-              onEdit={description => modifyTask({ ...this.task, description })}
-            />
-            <SubInformation>
-              Spent for:{" "}
-              {numeral(secondsToPomodoros(spentSeconds)).format("0[.]0")}{" "}
-              pomodoros
-            </SubInformation>
-            <SubInformation>
-              Created on: {unixTimeStampToString(createdAt)}
-            </SubInformation>
-            <SubInformation>
-              Updated on: {unixTimeStampToString(updatedAt)}
-            </SubInformation>
-          </>
-        )}
-      </Content>
-    );
-  }
-
-  private get task(): ITask {
-    const {
-      createdAt,
-      description,
-      id,
-      name,
-      spentSeconds,
-      updatedAt
-    } = this.props;
-
-    return { createdAt, description, id, name, spentSeconds, updatedAt };
-  }
-}
+  return (
+    <Content
+      onClick={detailed ? undefined : () => setCurrentTaskId(id)}
+      onMouseOver={() => showButtons(true)}
+      onMouseOut={() => showButtons(false)}
+    >
+      <Header>
+        <TaskName
+          highlighted={highlighted}
+          onEdit={detailed ? name => modifyTask({ ...task, name }) : undefined}
+        >
+          {name}
+        </TaskName>
+        <Buttons covert={!buttonsShown}>
+          {(!done || detailed) && (
+            <SmallIconButton onClick={() => toggleTaskState(id)}>
+              {done ? <MdReplay /> : <MdCheck />}
+            </SmallIconButton>
+          )}
+          {!done && (
+            <SmallIconButton
+              onClick={() => {
+                setCurrentTaskId(id);
+                toggleTimer();
+              }}
+            >
+              <MdAccessTime />
+            </SmallIconButton>
+          )}
+          {(done || detailed) && (
+            <SmallIconButton
+              onClick={() =>
+                confirm(`Are you sure to delete the task of "${name}"?`) &&
+                removeTask(id)
+              }
+            >
+              <MdDelete />
+            </SmallIconButton>
+          )}
+        </Buttons>
+      </Header>
+      {detailed && (
+        <>
+          <TaskDescription
+            onEdit={description => modifyTask({ ...task, description })}
+          >
+            {description}
+          </TaskDescription>
+          <SubInformation>
+            Spent for:{" "}
+            {numeral(secondsToPomodoros(spentSeconds)).format("0[.]0")}{" "}
+            pomodoros
+          </SubInformation>
+          <SubInformation>
+            Created on: {unixTimeStampToString(createdAt)}
+          </SubInformation>
+          <SubInformation>
+            Updated on: {unixTimeStampToString(updatedAt)}
+          </SubInformation>
+        </>
+      )}
+    </Content>
+  );
+};
 
 export default connect(
   null,

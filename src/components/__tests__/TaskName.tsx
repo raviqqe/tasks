@@ -4,14 +4,14 @@ import React from "react";
 import TaskName from "../TaskName";
 
 test("Shallow mount", () => {
-  shallow(<TaskName text="foo" onEdit={() => undefined} />);
+  shallow(<TaskName onEdit={() => undefined}>foo</TaskName>);
 });
 
 test("Input text", () => {
   let result: string = "";
 
   const wrapper = mount(
-    <TaskName onEdit={(text: string) => (result = text)} text="foo" />
+    <TaskName onEdit={(text: string) => (result = text)}>foo</TaskName>
   );
 
   expect(result).toBe("");
@@ -27,7 +27,7 @@ test("Normalize names", () => {
   let result: string = "";
 
   const wrapper = mount(
-    <TaskName onEdit={(text: string) => (result = text)} text="foo" />
+    <TaskName onEdit={(text: string) => (result = text)}>foo</TaskName>
   );
 
   expect(result).toBe("");
@@ -40,7 +40,7 @@ test("Normalize names", () => {
 });
 
 test("Allow missing onEdit callbacks", () => {
-  const wrapper = mount(<TaskName text="foo" />);
+  const wrapper = mount(<TaskName>foo</TaskName>);
 
   wrapper.simulate("click");
   expect(wrapper.find("input")).toHaveLength(0);

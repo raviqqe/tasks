@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
@@ -31,35 +31,27 @@ const Box = styled.div<{ covert: boolean }>`
   transform: translateY(${({ covert }) => (covert ? "-200%" : "0%")});
 `;
 
-// Keep previous messages until they go away from screens.
-interface IState {
-  message: string;
-}
+const Message = ({
+  clearMessage,
+  message
+}: message.IState & message.IActionCreators) => {
+  // Keep previous messages until they go away from screens.
+  const [previousMessage, setMessage] = useState("");
 
-class Message extends Component<
-  message.IState & message.IActionCreators,
-  IState
-> {
-  public state: IState = { message: "" };
-
-  public render() {
-    const { clearMessage, message } = this.props;
-
-    return (
-      <Wrapper>
-        <Box covert={!message} onClick={() => clearMessage()}>
-          {this.state.message}
-        </Box>
-      </Wrapper>
-    );
-  }
-
-  public componentWillUpdate({ message }) {
-    if (message && message !== this.state.message) {
-      this.setState({ message });
+  useEffect(() => {
+    if (message && message !== previousMessage) {
+      setMessage(message);
     }
-  }
-}
+  }, [message]);
+
+  return (
+    <Wrapper>
+      <Box covert={!message} onClick={() => clearMessage()}>
+        {previousMessage}
+      </Box>
+    </Wrapper>
+  );
+};
 
 export default connect(
   ({ message }: IGlobalState) => message,

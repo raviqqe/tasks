@@ -4,11 +4,13 @@ import React from "react";
 import TaskDescription from "../TaskDescription";
 
 test("Shallow mount", () => {
-  shallow(<TaskDescription text="foo" onEdit={() => undefined} />);
+  shallow(<TaskDescription onEdit={() => undefined}>foo</TaskDescription>);
 });
 
 test("Show a message when the description is empty", () => {
-  const wrapper = mount(<TaskDescription onEdit={() => undefined} text="" />);
+  const wrapper = mount(
+    <TaskDescription onEdit={() => undefined}>{""}</TaskDescription>
+  );
 
   expect(wrapper.text()).toBe("No description");
 });
@@ -17,7 +19,9 @@ test("Input text", () => {
   let result: string = "";
 
   const wrapper = mount(
-    <TaskDescription onEdit={(text: string) => (result = text)} text="" />
+    <TaskDescription onEdit={(text: string) => (result = text)}>
+      {""}
+    </TaskDescription>
   );
 
   expect(result).toBe("");
@@ -30,27 +34,28 @@ test("Input text", () => {
 });
 
 test("Normalize invisible markdown", () => {
-  let result: string = "";
+  let result: string = "foo";
 
   const wrapper = mount(
-    <TaskDescription onEdit={(text: string) => (result = text)} text="" />
+    <TaskDescription onEdit={(text: string) => (result = text)}>
+      {"``"}
+    </TaskDescription>
   );
 
-  expect(result).toBe("");
+  expect(result).toBe("foo");
 
-  wrapper.simulate("click");
-  wrapper.find("textarea").simulate("change", { target: { value: "``" } });
-  wrapper.find("textarea").simulate("blur");
-  wrapper.setProps({ text: result });
+  wrapper.setProps({});
 
   expect(result).toBe("");
 });
 
-test("Normalize names", () => {
+test("Normalize descriptions", () => {
   let result: string = "";
 
   const wrapper = mount(
-    <TaskDescription onEdit={(text: string) => (result = text)} text="foo" />
+    <TaskDescription onEdit={(text: string) => (result = text)}>
+      foo
+    </TaskDescription>
   );
 
   expect(result).toBe("");

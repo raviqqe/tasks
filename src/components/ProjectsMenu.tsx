@@ -1,5 +1,5 @@
 import { pickBy } from "lodash";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import styled, { css } from "styled-components";
 
@@ -74,54 +74,42 @@ const Projects = styled.div`
   font-size: 1.2em;
 `;
 
-interface IState {
-  opened: boolean;
-}
+const ProjectsMenu = ({
+  projects,
+  currentProjectName,
+  setCurrentProjectName
+}: tasks.IState & tasks.IActionCreators) => {
+  const [opened, setOpened] = useState(false);
 
-class ProjectsMenu extends Component<
-  tasks.IState & tasks.IActionCreators,
-  IState
-> {
-  public state: IState = { opened: false };
-
-  public render() {
-    const { currentProjectName, setCurrentProjectName } = this.props;
-    const projects = pickBy(this.props.projects, ({ archived }) => !archived);
-    const { opened } = this.state;
-
-    return (
-      <div>
-        <CurrentProject onClick={() => this.setState({ opened: !opened })}>
-          {currentProjectName}
-        </CurrentProject>
-        <Background
-          covert={!opened}
-          onClick={() => this.setState({ opened: false })}
-        />
-        <Box covert={!opened}>
-          <Projects>
-            {Object.keys(projects)
-              .sort((x: string, y: string) =>
-                x.toLowerCase().localeCompare(y.toLowerCase())
-              )
-              .map(name => (
-                <TextButton
-                  key={name}
-                  disabled={name === currentProjectName}
-                  onClick={() => {
-                    setCurrentProjectName(name);
-                    this.setState({ opened: false });
-                  }}
-                >
-                  {name}
-                </TextButton>
-              ))}
-          </Projects>
-        </Box>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <CurrentProject onClick={() => setOpened(!opened)}>
+        {currentProjectName}
+      </CurrentProject>
+      <Background covert={!opened} onClick={() => setOpened(false)} />
+      <Box covert={!opened}>
+        <Projects>
+          {Object.keys(pickBy(projects, ({ archived }) => !archived))
+            .sort((x: string, y: string) =>
+              x.toLowerCase().localeCompare(y.toLowerCase())
+            )
+            .map(name => (
+              <TextButton
+                key={name}
+                disabled={name === currentProjectName}
+                onClick={() => {
+                  setCurrentProjectName(name);
+                  setOpened(false);
+                }}
+              >
+                {name}
+              </TextButton>
+            ))}
+        </Projects>
+      </Box>
+    </div>
+  );
+};
 
 export default connect(
   ({ tasks }: IGlobalState) => tasks,

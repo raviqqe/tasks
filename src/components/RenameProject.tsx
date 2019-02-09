@@ -1,4 +1,4 @@
-import React, { Component, createRef, RefObject } from "react";
+import React, { RefObject, useRef, useState } from "react";
 import { MdEdit } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -18,63 +18,52 @@ const Form = styled.form`
   font-size: 1.2em;
 `;
 
-interface IState {
-  name: string;
-}
+const RenameProject = ({
+  currentProjectName,
+  renameCurrentProject
+}: tasks.IState & tasks.IActionCreators) => {
+  const [name, setName] = useState("");
+  const input: RefObject<HTMLInputElement> = useRef(null);
 
-class RenameProject extends Component<
-  tasks.IState & tasks.IActionCreators,
-  IState
-> {
-  public input: RefObject<HTMLInputElement> = createRef();
-  public state: IState = { name: "" };
+  return (
+    <ModalWindowButton
+      buttonComponent={({ openWindow }) => (
+        <IconedButton
+          backgroundColor={grey}
+          icon={<MdEdit />}
+          onClick={openWindow}
+        >
+          rename
+        </IconedButton>
+      )}
+      onOpen={() => {
+        if (input.current) {
+          input.current.focus();
+        }
 
-  public render() {
-    const { currentProjectName, renameCurrentProject } = this.props;
-    const { name } = this.state;
-
-    return (
-      <ModalWindowButton
-        buttonComponent={({ openWindow }) => (
-          <IconedButton
-            backgroundColor={grey}
-            icon={<MdEdit />}
-            onClick={openWindow}
-          >
-            rename
-          </IconedButton>
-        )}
-        onOpen={() => {
-          if (this.input.current) {
-            this.input.current.focus();
-          }
-
-          this.setState({ name: currentProjectName });
-        }}
-      >
-        {closeWindow => (
-          <Form
-            onSubmit={event => {
-              renameCurrentProject(name.trim());
-              this.setState({ name: "" });
-              closeWindow();
-              event.preventDefault();
-            }}
-          >
-            <Input
-              onChange={({ target: { value } }) =>
-                this.setState({ name: value })
-              }
-              placeholder="Name"
-              ref={this.input}
-              value={name}
-            />
-          </Form>
-        )}
-      </ModalWindowButton>
-    );
-  }
-}
+        setName(currentProjectName);
+      }}
+    >
+      {closeWindow => (
+        <Form
+          onSubmit={event => {
+            renameCurrentProject(name.trim());
+            setName("");
+            closeWindow();
+            event.preventDefault();
+          }}
+        >
+          <Input
+            onChange={({ target: { value } }) => setName(value)}
+            placeholder="Name"
+            ref={input}
+            value={name}
+          />
+        </Form>
+      )}
+    </ModalWindowButton>
+  );
+};
 
 export default connect(
   ({ tasks }: IGlobalState) => tasks,

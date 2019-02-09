@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { MdMenu } from "react-icons/md";
 import styled, { css } from "styled-components";
 import transition from "styled-transition-group";
@@ -58,39 +58,29 @@ export interface IProps extends IMenuBoxProps {
   hidden?: boolean;
 }
 
-export default class extends Component<IProps> {
-  public render() {
-    return (
-      <ModalButton
-        buttonComponent={this.buttonComponent}
-        closed={this.props.hidden}
+// TODO: Memoize internal components?
+export default ({ hidden, ...menuBoxProps }: IProps) => (
+  <ModalButton
+    buttonComponent={({ openWindow }: IButtonProps): JSX.Element => (
+      <MenuButton
+        backgroundColor={darkGrey}
+        onClick={openWindow}
+        covert={!!hidden}
       >
-        {this.contentComponent}
-      </ModalButton>
-    );
-  }
-
-  private buttonComponent = ({ openWindow }: IButtonProps): JSX.Element => (
-    <MenuButton
-      backgroundColor={darkGrey}
-      onClick={openWindow}
-      covert={!!this.props.hidden}
-    >
-      <MdMenu />
-    </MenuButton>
-  );
-
-  private contentComponent = ({
-    closeWindow,
-    opened
-  }: IContentProps): JSX.Element => (
-    <Menu
-      appear={true}
-      in={opened}
-      timeout={{ enter: 0, exit: maxDurationMs }}
-      onClick={closeWindow}
-    >
-      <MenuBox {...this.props} />
-    </Menu>
-  );
-}
+        <MdMenu />
+      </MenuButton>
+    )}
+    closed={hidden}
+  >
+    {({ closeWindow, opened }: IContentProps): JSX.Element => (
+      <Menu
+        appear={true}
+        in={opened}
+        timeout={{ enter: 0, exit: maxDurationMs }}
+        onClick={closeWindow}
+      >
+        <MenuBox {...menuBoxProps} />
+      </Menu>
+    )}
+  </ModalButton>
+);

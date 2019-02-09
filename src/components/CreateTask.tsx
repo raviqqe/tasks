@@ -1,4 +1,4 @@
-import React, { Component, createRef, KeyboardEvent, RefObject } from "react";
+import React, { KeyboardEvent, RefObject, useRef, useState } from "react";
 import { MdAdd } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -25,73 +25,61 @@ const TextArea = styled(OriginalTextArea)`
   resize: vertical;
 `;
 
-interface IState {
-  description: string;
-  name: string;
-}
+const CreateTask = ({ addTask }: tasks.IActionCreators) => {
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const input: RefObject<HTMLInputElement> = useRef(null);
 
-class CreateTask extends Component<tasks.IActionCreators, IState> {
-  public input: RefObject<HTMLInputElement> = createRef();
-  public state: IState = { description: "", name: "" };
+  return (
+    <ModalWindowButton
+      buttonComponent={({ openWindow }) => (
+        <IconedButton icon={<MdAdd />} onClick={openWindow}>
+          add
+        </IconedButton>
+      )}
+      onOpen={() => input.current && input.current.focus()}
+    >
+      {closeWindow => {
+        const submit = (): void => {
+          addTask(createTask(name, description));
+          setName("");
+          setDescription("");
+          closeWindow();
+        };
 
-  public render() {
-    const { addTask } = this.props;
-    const { description, name } = this.state;
-
-    return (
-      <ModalWindowButton
-        buttonComponent={({ openWindow }) => (
-          <IconedButton icon={<MdAdd />} onClick={openWindow}>
-            add
-          </IconedButton>
-        )}
-        onOpen={() => this.input.current && this.input.current.focus()}
-      >
-        {closeWindow => {
-          const submit = (): void => {
-            addTask(createTask(name, description));
-            this.setState({ description: "", name: "" });
-            closeWindow();
-          };
-
-          return (
-            <Form
-              onSubmit={event => {
-                submit();
-                event.preventDefault();
+        return (
+          <Form
+            onSubmit={event => {
+              submit();
+              event.preventDefault();
+            }}
+          >
+            <Input
+              ref={input}
+              placeholder="Name"
+              value={name}
+              onChange={({ target: { value } }) => setName(value)}
+            />
+            <TextArea
+              placeholder="Description"
+              value={description}
+              onChange={({ target: { value } }) => setDescription(value)}
+              onKeyDown={(event: KeyboardEvent<HTMLTextAreaElement>) => {
+                if (event.keyCode === 13 && event.shiftKey) {
+                  submit();
+                  event.preventDefault();
+                }
               }}
-            >
-              <Input
-                ref={this.input}
-                placeholder="Name"
-                value={name}
-                onChange={({ target: { value } }) =>
-                  this.setState({ name: value })
-                }
-              />
-              <TextArea
-                placeholder="Description"
-                value={description}
-                onChange={({ target: { value } }: any) =>
-                  this.setState({ description: value })
-                }
-                onKeyDown={(event: KeyboardEvent<HTMLTextAreaElement>) => {
-                  if (event.keyCode === 13 && event.shiftKey) {
-                    submit();
-                    event.preventDefault();
-                  }
-                }}
-              />
-              <IconedButton icon={<MdAdd />} type="submit">
-                add
-              </IconedButton>
-            </Form>
-          );
-        }}
-      </ModalWindowButton>
-    );
-  }
-}
+            />
+            <IconedButton icon={<MdAdd />} type="submit">
+              add
+            </IconedButton>
+          </Form>
+        );
+      }}
+    </ModalWindowButton>
+  );
+};
 
 export default connect(
   null,

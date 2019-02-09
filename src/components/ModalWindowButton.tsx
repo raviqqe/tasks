@@ -1,4 +1,4 @@
-import React, { Component, ComponentType } from "react";
+import React, { ComponentType, ReactNode } from "react";
 import { MdClose } from "react-icons/md";
 import { connect } from "react-redux";
 import styled, { css } from "styled-components";
@@ -74,26 +74,19 @@ interface IProps extends environment.IState {
   buttonComponent: ComponentType<IButtonProps>;
   onOpen?: () => void;
   showCloseButton?: boolean;
+  children?: ReactNode;
 }
 
-class ModalWindowButton extends Component<IProps> {
-  public render() {
-    const { buttonComponent } = this.props;
-
-    return (
-      <ModalButton buttonComponent={buttonComponent}>
-        {this.contentComponent}
-      </ModalButton>
-    );
-  }
-
-  private contentComponent = ({
-    closeWindow,
-    opened
-  }: IContentProps): JSX.Element => {
-    const { children, windowSmall, onOpen, showCloseButton } = this.props;
-
-    return (
+// TODO: Memoize internal components?
+const ModalWindowButton = ({
+  buttonComponent,
+  children,
+  windowSmall,
+  onOpen,
+  showCloseButton
+}: IProps) => (
+  <ModalButton buttonComponent={buttonComponent}>
+    {({ closeWindow, opened }: IContentProps): JSX.Element => (
       <Modal
         appear={true}
         in={opened}
@@ -112,9 +105,9 @@ class ModalWindowButton extends Component<IProps> {
             : children}
         </Window>
       </Modal>
-    );
-  };
-}
+    )}
+  </ModalButton>
+);
 
 export default connect(({ environment }: IGlobalState) => environment)(
   ModalWindowButton
