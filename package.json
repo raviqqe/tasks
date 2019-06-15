@@ -46,7 +46,7 @@
     "@types/node": "^10.12.24",
     "@types/numeral": "0.0.25",
     "@types/react": "^16.8.2",
-    "@types/react-dom": "^16.8.0",
+    "@types/react-dom": "^16.8.4",
     "@types/react-redux": "^7.0.1",
     "@types/recompose": "^0.30.3",
     "@types/sortablejs": "^1.7.2",
