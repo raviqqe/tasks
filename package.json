@@ -19,7 +19,7 @@
     "pizzicato": "^0.6.4",
     "rc-slider": "^8.6.5",
     "react": "^16.8.1",
-    "react-autosize-textarea": "^6.0.0",
+    "react-autosize-textarea": "^7.0.0",
     "react-dom": "^16.8.1",
     "react-icons": "^3.3.0",
     "react-ink": "^6.4.0",
