@@ -51,7 +51,7 @@
     "@types/recompose": "^0.30.3",
     "@types/sortablejs": "^1.7.2",
     "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.9.1",
+    "enzyme-adapter-react-16": "^1.14.0",
     "fake-indexeddb": "^2.0.5",
     "firebase-tools": "^7.0.0",
     "match-media-mock": "^0.1.1",
