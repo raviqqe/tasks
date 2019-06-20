@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.17",
-    "@types/jest": "^23.3.14",
+    "@types/jest": "^24.0.15",
     "@types/jquery": "^3.3.29",
     "@types/lodash": "^4.14.134",
     "@types/nanoid": "^1.2.0",
