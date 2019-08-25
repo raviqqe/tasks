@@ -36,15 +36,11 @@ test("Input text", () => {
 test("Normalize invisible markdown", () => {
   let result: string = "foo";
 
-  const wrapper = mount(
+  mount(
     <TaskDescription onEdit={(text: string) => (result = text)}>
       {"``"}
     </TaskDescription>
   );
-
-  expect(result).toBe("foo");
-
-  wrapper.setProps({});
 
   expect(result).toBe("");
 });
