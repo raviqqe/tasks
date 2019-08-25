@@ -55,7 +55,7 @@
     "fake-indexeddb": "^2.0.5",
     "firebase-tools": "^7.0.0",
     "match-media-mock": "^0.1.1",
-    "prettier": "^1.16.4",
+    "prettier": "^1.18.2",
     "tslint": "^5.17.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.3.3",

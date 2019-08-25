@@ -1,21 +1,15 @@
-import numeral = require("numeral");
 import React, { useState } from "react";
-import { MdAccessTime, MdCheck, MdDelete, MdReplay } from "react-icons/md";
+import { MdCheck, MdDelete, MdReplay } from "react-icons/md";
 import { connect } from "react-redux";
 import { mapProps } from "recompose";
 import styled, { css } from "styled-components";
-
-import { secondsToPomodoros } from "../domain/pomodoro-timer";
 import { ITask } from "../domain/task";
-import { unixTimeStampToString } from "../domain/utils";
 import * as tasks from "../state/tasks";
-import * as timer from "../state/timer";
 import { delayForUX, instantDuration } from "../style/animation";
 import { normalBorder } from "../style/borders";
 import { horizontalMargin, verticalMargin } from "../style/margin";
 import { withWindowSmall } from "../style/media";
 import SmallIconButton from "./SmallIconButton";
-import SubInformation from "./SubInformation";
 import TaskDescription from "./TaskDescription";
 import TaskName from "./TaskName";
 
@@ -53,7 +47,7 @@ const Buttons = styled.div<{ covert: boolean }>`
       : css``};
 `;
 
-interface IProps extends ITask, tasks.IActionCreators, timer.IActionCreators {
+interface IProps extends ITask, tasks.IActionCreators {
   detailed?: boolean;
   done: boolean;
   highlighted?: boolean;
@@ -72,7 +66,6 @@ const Task = ({
   setCurrentTaskId,
   spentSeconds,
   toggleTaskState,
-  toggleTimer,
   updatedAt
 }: IProps) => {
   const task: ITask = {
@@ -104,16 +97,6 @@ const Task = ({
               {done ? <MdReplay /> : <MdCheck />}
             </SmallIconButton>
           )}
-          {!done && (
-            <SmallIconButton
-              onClick={() => {
-                setCurrentTaskId(id);
-                toggleTimer();
-              }}
-            >
-              <MdAccessTime />
-            </SmallIconButton>
-          )}
           {(done || detailed) && (
             <SmallIconButton
               onClick={() =>
@@ -133,17 +116,6 @@ const Task = ({
           >
             {description}
           </TaskDescription>
-          <SubInformation>
-            Spent for:{" "}
-            {numeral(secondsToPomodoros(spentSeconds)).format("0[.]0")}{" "}
-            pomodoros
-          </SubInformation>
-          <SubInformation>
-            Created on: {unixTimeStampToString(createdAt)}
-          </SubInformation>
-          <SubInformation>
-            Updated on: {unixTimeStampToString(updatedAt)}
-          </SubInformation>
         </>
       )}
     </Content>
@@ -152,7 +124,7 @@ const Task = ({
 
 export default connect(
   null,
-  { ...tasks.actionCreators, ...timer.actionCreators }
+  tasks.actionCreators
 )(
   mapProps(({ removeTask, toggleTaskState, ...props }: IProps) => ({
     removeTask: (id: string) => delayForUX(() => removeTask(id)),

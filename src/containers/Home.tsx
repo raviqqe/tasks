@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { MdSave } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
-
 import CircleButton from "../components/CircleButton";
 import Menu from "../components/Menu";
 import Task from "../components/Task";
@@ -14,8 +13,6 @@ import { IGlobalState } from "../state";
 import * as environment from "../state/environment";
 import * as settings from "../state/settings";
 import * as tasks from "../state/tasks";
-import * as timer from "../state/timer";
-import Timer from "./Timer";
 
 const Wrapper = styled.div`
   display: flex;
@@ -57,9 +54,7 @@ interface IProps
     settings.IActionCreators,
     settings.IState,
     tasks.IActionCreators,
-    tasks.IState {
-  timer: timer.IState;
-}
+    tasks.IState {}
 
 interface IState {
   done: boolean;
@@ -74,7 +69,6 @@ class Home extends Component<IProps, IState> {
       currentTaskId,
       windowSmall,
       pointerAvailable,
-      timer,
       touchable
     } = this.props;
 
@@ -87,10 +81,6 @@ class Home extends Component<IProps, IState> {
       this.currentTasks,
       ({ id }) => id === currentTaskId
     );
-
-    if (currentTask && timer.on) {
-      return <Timer currentTask={currentTask} />;
-    }
 
     const { done, listsFixed } = this.state;
 
@@ -113,7 +103,7 @@ class Home extends Component<IProps, IState> {
               tasks={done ? doneTasks : todoTasks}
               fixed={listsFixed}
               sorting={sorting}
-              {...this.props as IProps}
+              {...(this.props as IProps)}
             />
             {!windowSmall && (
               <CurrentTask>
@@ -187,11 +177,10 @@ class Home extends Component<IProps, IState> {
 }
 
 export default connect(
-  ({ environment, settings, tasks, timer }: IGlobalState) => ({
+  ({ environment, settings, tasks }: IGlobalState) => ({
     ...environment,
     ...settings,
-    ...tasks,
-    timer
+    ...tasks
   }),
   { ...settings.actionCreators, ...tasks.actionCreators }
 )(Home);

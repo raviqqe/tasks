@@ -2,7 +2,6 @@ import { mount, shallow } from "enzyme";
 import React from "react";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-
 import { ITask } from "../../domain/task";
 import { createStore } from "../../state";
 import Task from "../Task";

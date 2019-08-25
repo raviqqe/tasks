@@ -3,13 +3,11 @@ import * as redux from "redux";
 import { Persistor, persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunk, * as reduxThunk from "redux-thunk";
-
 import * as authentication from "./authentication";
 import * as environment from "./environment";
 import * as message from "./message";
 import * as settings from "./settings";
 import * as tasks from "./tasks";
-import * as timer from "./timer";
 
 interface IDuck {
   initializeStore?: (store: Store) => void;
@@ -23,14 +21,12 @@ const ducks: {
   message: IDuck;
   settings: IDuck;
   tasks: IDuck;
-  timer: IDuck;
 } = {
   authentication,
   environment,
   message,
   settings,
-  tasks,
-  timer
+  tasks
 };
 
 export interface IGlobalState {
@@ -39,7 +35,6 @@ export interface IGlobalState {
   message: message.IState;
   settings: settings.IState;
   tasks: tasks.IState;
-  timer: timer.IState;
 }
 
 export type Store = redux.Store<IGlobalState, any>;
@@ -67,8 +62,7 @@ export function createStore(): {
         environment: environment.reducer,
         message: message.reducer,
         settings: settings.reducer,
-        tasks: tasks.reducer,
-        timer: timer.reducer
+        tasks: tasks.reducer
       })
     ),
     applyMiddleware(thunk)
