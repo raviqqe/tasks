@@ -45,9 +45,9 @@
     "@types/nanoid": "^2.0.0",
     "@types/node": "^12.0.8",
     "@types/numeral": "0.0.25",
-    "@types/react": "^16.8.2",
-    "@types/react-dom": "^16.8.0",
-    "@types/react-redux": "^7.0.1",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-redux": "^7.1.2",
     "@types/recompose": "^0.30.3",
     "@types/sortablejs": "^1.7.2",
     "enzyme": "^3.10.0",
@@ -58,7 +58,7 @@
     "prettier": "^1.18.2",
     "tslint": "^5.17.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.3.3",
+    "typescript": "^3.5.3",
     "workbox-cli": "^3.6.3"
   }
 }
