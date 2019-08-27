@@ -1,8 +1,7 @@
 {
   "scripts": {
-    "build": "npm run build:images && react-scripts build && npm run build:service-worker",
+    "build": "npm run build:images && react-scripts build",
     "build:images": "tools/build-images.sh",
-    "build:service-worker": "workbox generateSW workbox-cli-config.js",
     "clean": "git clean -dfx",
     "deploy": "npm run build && firebase deploy",
     "lint": "tslint src/**/*.ts{,x} && prettier -l *.json src/**/*.{json,ts{,x}}",
@@ -44,7 +43,6 @@
     "@types/match-media-mock": "^0.1.5",
     "@types/nanoid": "^2.0.0",
     "@types/node": "^12.0.8",
-    "@types/numeral": "0.0.26",
     "@types/rc-slider": "^8.6.5",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
@@ -61,8 +59,7 @@
     "tslint": "^5.17.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.0.0",
-    "typescript": "^3.5.3",
-    "workbox-cli": "^4.3.1"
+    "typescript": "^3.5.3"
   },
   "browserslist": {
     "production": [
