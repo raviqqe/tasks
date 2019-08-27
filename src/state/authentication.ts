@@ -1,7 +1,7 @@
 import { Store } from "redux";
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
-
+import { ThunkAction } from ".";
 import * as firebase from "../drivers/firebase";
 import * as message from "./message";
 
@@ -9,7 +9,7 @@ const actionCreator = actionCreatorFactory("AUTHENTICATION");
 
 export const actionCreators = {
   setSignInState: actionCreator<boolean>("SET_SIGN_IN_STATE"),
-  signIn: (): any => async (dispatch): Promise<void> => {
+  signIn: (): ThunkAction => async (dispatch): Promise<void> => {
     try {
       await firebase.signIn();
     } catch (error) {

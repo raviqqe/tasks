@@ -27,7 +27,7 @@ export async function signOut(): Promise<void> {
 }
 
 export function onAuthStateChanged(
-  callback: (user: firebase.User) => void
+  callback: (user: firebase.User | null) => void
 ): void {
   firebase.auth().onAuthStateChanged(callback);
 }

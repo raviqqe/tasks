@@ -1,6 +1,6 @@
 import $ from "jquery";
 import React, { KeyboardEvent, RefObject, useEffect, useRef } from "react";
-import Markdown = require("react-markdown");
+import Markdown from "react-markdown";
 import styled, { css } from "styled-components";
 
 import { grey, red } from "../style/colors";

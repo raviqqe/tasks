@@ -15,8 +15,9 @@ const ArchiveProject = ({
     backgroundColor={grey}
     icon={<MdArchive />}
     onClick={() =>
-      confirm(`Are you sure to archive "${currentProjectName}" project?`) &&
-      archiveProject(currentProjectName)
+      window.confirm(
+        `Are you sure to archive "${currentProjectName}" project?`
+      ) && archiveProject(currentProjectName)
     }
   >
     archive

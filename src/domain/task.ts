@@ -1,5 +1,5 @@
 import { find } from "lodash";
-import nanoid = require("nanoid");
+import nanoid from "nanoid";
 
 import { getUnixTimeStamp } from "./utils";
 

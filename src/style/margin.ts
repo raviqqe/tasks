@@ -1,6 +1,6 @@
-import { css, InterpolationValue } from "styled-components";
+import { css, SimpleInterpolation } from "styled-components";
 
-export function horizontalMargin(margin: string): InterpolationValue[] {
+export function horizontalMargin(margin: string): SimpleInterpolation {
   return css`
     > * {
       margin-left: 0;
@@ -13,7 +13,7 @@ export function horizontalMargin(margin: string): InterpolationValue[] {
   `;
 }
 
-export function verticalMargin(margin: string): InterpolationValue[] {
+export function verticalMargin(margin: string): SimpleInterpolation {
   return css`
     > * {
       margin-top: 0;

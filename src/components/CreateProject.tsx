@@ -1,8 +1,7 @@
-import React, { RefObject, useRef, useState } from "react";
+import React, { ChangeEvent, RefObject, useRef, useState } from "react";
 import { MdAdd } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
-
 import * as tasks from "../state/tasks";
 import { normalBorder } from "../style/borders";
 import IconedButton from "./IconedButton";
@@ -29,7 +28,7 @@ const CreateProject = ({ addProject }: tasks.IActionCreators) => {
       )}
       onOpen={() => input.current && input.current.focus()}
     >
-      {closeWindow => (
+      {(closeWindow: () => void) => (
         <Form
           onSubmit={event => {
             addProject(name.trim());
@@ -40,7 +39,9 @@ const CreateProject = ({ addProject }: tasks.IActionCreators) => {
         >
           <Input
             ref={input}
-            onChange={({ target: { value } }) => setName(value)}
+            onChange={({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
+              setName(value)
+            }
             placeholder="Name"
             value={name}
           />

@@ -1,8 +1,8 @@
 import React from "react";
 import { MdMenu } from "react-icons/md";
 import styled, { css } from "styled-components";
+// @ts-ignore
 import transition from "styled-transition-group";
-
 import { maxDurationMs, shortDuration } from "../style/animation";
 import { darkGrey, transparentBlack } from "../style/colors";
 import CircleButton from "./CircleButton";

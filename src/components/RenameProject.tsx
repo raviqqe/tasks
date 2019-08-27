@@ -1,8 +1,7 @@
-import React, { RefObject, useRef, useState } from "react";
+import React, { ChangeEvent, RefObject, useRef, useState } from "react";
 import { MdEdit } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
-
 import { IGlobalState } from "../state";
 import * as tasks from "../state/tasks";
 import { normalBorder } from "../style/borders";
@@ -44,7 +43,7 @@ const RenameProject = ({
         setName(currentProjectName);
       }}
     >
-      {closeWindow => (
+      {(closeWindow: () => void) => (
         <Form
           onSubmit={event => {
             renameCurrentProject(name.trim());
@@ -54,7 +53,9 @@ const RenameProject = ({
           }}
         >
           <Input
-            onChange={({ target: { value } }) => setName(value)}
+            onChange={({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
+              setName(value)
+            }
             placeholder="Name"
             ref={input}
             value={name}

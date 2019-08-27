@@ -15,6 +15,14 @@ interface IDuck {
   reducer: Reducer;
 }
 
+const duckNames: [
+  "authentication",
+  "environment",
+  "message",
+  "settings",
+  "tasks"
+] = ["authentication", "environment", "message", "settings", "tasks"];
+
 const ducks: {
   authentication: IDuck;
   environment: IDuck;
@@ -55,7 +63,7 @@ export function createStore(): {
       {
         key: "root",
         storage,
-        whitelist: Object.keys(ducks).filter(name => ducks[name].persistent)
+        whitelist: duckNames.filter(name => ducks[name].persistent)
       },
       combineReducers({
         authentication: authentication.reducer,
@@ -68,7 +76,7 @@ export function createStore(): {
     applyMiddleware(thunk)
   );
 
-  for (const name of Object.keys(ducks)) {
+  for (const name of duckNames) {
     const { initializeStore } = ducks[name];
 
     if (initializeStore) {

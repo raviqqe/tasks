@@ -133,7 +133,7 @@ class Home extends Component<IProps, IState> {
     this.componentDidUpdate(this.props);
   }
 
-  public componentDidUpdate(props) {
+  public componentDidUpdate(props: IProps) {
     const {
       currentProjectName,
       currentTaskId,

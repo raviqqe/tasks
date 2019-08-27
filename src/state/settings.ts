@@ -33,7 +33,7 @@ export const reducer = reducerWithInitialState(initialState)
   }));
 
 export async function initializeStore(store: Store): Promise<void> {
-  const setPermission = permission =>
+  const setPermission = (permission: boolean | null) =>
     store.dispatch(setNotificationState(permission));
 
   if (notification.permission() === null) {

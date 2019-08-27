@@ -1,6 +1,6 @@
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
-
+import { ThunkAction } from ".";
 import { sleep } from "../drivers/utils";
 
 const actionCreator = actionCreatorFactory("MESSAGE");
@@ -10,7 +10,9 @@ const sendMessage = actionCreator<string>("SEND_MESSAGE");
 
 export const actionCreators = {
   clearMessage,
-  sendMessage: (message: string): any => async (dispatch): Promise<void> => {
+  sendMessage: (message: string): ThunkAction => async (
+    dispatch
+  ): Promise<void> => {
     dispatch(sendMessage(message));
     await sleep(5000);
     dispatch(clearMessage());

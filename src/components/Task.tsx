@@ -99,10 +99,15 @@ const Task = ({
           )}
           {(done || detailed) && (
             <SmallIconButton
-              onClick={() =>
-                confirm(`Are you sure to delete the task of "${name}"?`) &&
-                removeTask(id)
-              }
+              onClick={() => {
+                if (
+                  window.confirm(
+                    `Are you sure to delete the task of "${name}"?`
+                  )
+                ) {
+                  removeTask(id);
+                }
+              }}
             >
               <MdDelete />
             </SmallIconButton>

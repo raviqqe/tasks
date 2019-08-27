@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import sortable = require("sortablejs");
+import Sortable from "sortablejs";
 import styled, { css } from "styled-components";
-
 import { ITask } from "../domain/task";
 import { instantDuration } from "../style/animation";
 import { transparentBlack } from "../style/colors";
@@ -46,8 +45,8 @@ interface IProps {
 }
 
 export default class extends Component<IProps> {
-  private sortable;
-  private container: HTMLElement;
+  private sortable: Sortable | null = null;
+  private container: HTMLDivElement | null = null;
 
   public render() {
     const { currentTaskId, done, windowSmall, tasks, sorting } = this.props;
@@ -92,7 +91,7 @@ export default class extends Component<IProps> {
     const { fixed, setTasks } = this.props;
 
     if (this.container && !this.sortable) {
-      this.sortable = sortable.create(this.container, {
+      this.sortable = Sortable.create(this.container, {
         animation: 200,
         onSort: ({ oldIndex, newIndex }) => {
           if (typeof oldIndex !== "number" || typeof newIndex !== "number") {
@@ -112,7 +111,15 @@ export default class extends Component<IProps> {
     }
   }
 
-  private ClickableTask = ({ done, openWindow, task }) => {
+  private ClickableTask = ({
+    done,
+    openWindow,
+    task
+  }: {
+    done: boolean;
+    openWindow: () => void;
+    task: ITask;
+  }) => {
     return (
       <div onClick={openWindow}>
         <Task done={done} {...task} />

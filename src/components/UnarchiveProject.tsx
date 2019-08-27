@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { MdUnarchive } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
-
 import { IGlobalState } from "../state";
 import * as tasks from "../state/tasks";
 import { normalBorder } from "../style/borders";
@@ -47,7 +46,7 @@ class UnarchivedProject extends Component<
           </IconedButton>
         )}
       >
-        {closeWindow => (
+        {(closeWindow: () => void) => (
           <List>
             {isEmpty(projects) ? (
               <Message>No archived projects</Message>

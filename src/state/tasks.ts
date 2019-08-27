@@ -10,7 +10,6 @@ import {
 } from "lodash";
 import actionCreatorFactory from "typescript-fsa";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
-
 import { IGlobalState, Store, ThunkAction } from ".";
 import {
   emptyProject,
@@ -98,7 +97,7 @@ function renewCurrentProjectName(): ThunkAction {
 }
 
 export const actionCreators = {
-  addProject: (name: string) => dispatch => {
+  addProject: (name: string): ThunkAction => dispatch => {
     if (!name) {
       dispatch(
         message.actionCreators.sendMessage("Project names cannot be empty.")

@@ -15,8 +15,9 @@ const DeleteProject = ({
     backgroundColor={grey}
     icon={<MdDelete />}
     onClick={() =>
-      confirm(`Are you sure to delete "${currentProjectName}" project?`) &&
-      removeProject(currentProjectName)
+      window.confirm(
+        `Are you sure to delete "${currentProjectName}" project?`
+      ) && removeProject(currentProjectName)
     }
   >
     delete

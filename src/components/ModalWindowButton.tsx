@@ -2,8 +2,8 @@ import React, { ComponentType, ReactNode } from "react";
 import { MdClose } from "react-icons/md";
 import { connect } from "react-redux";
 import styled, { css } from "styled-components";
+// @ts-ignore
 import transition from "styled-transition-group";
-
 import { IGlobalState } from "../state";
 import * as environment from "../state/environment";
 import { longDuration, maxDurationMs } from "../style/animation";

@@ -22,7 +22,7 @@ export default ({
   icon: JSX.Element;
   backgroundColor?: string;
   onClick?: () => void;
-  type?: string;
+  type?: "button" | "submit" | "reset";
 }) => (
   <Button {...props}>
     <Icon>{icon}</Icon>

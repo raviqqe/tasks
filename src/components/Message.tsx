@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-
 import { IGlobalState } from "../state";
 import * as message from "../state/message";
 import { normalBorder } from "../style/borders";
@@ -42,7 +41,7 @@ const Message = ({
     if (message && message !== previousMessage) {
       setMessage(message);
     }
-  }, [message]);
+  }, [message, previousMessage]);
 
   return (
     <Wrapper>

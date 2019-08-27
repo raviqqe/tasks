@@ -51,7 +51,7 @@ const Button = styled.button<IButtonProps>`
 interface IProps extends IButtonProps {
   children?: ReactNode;
   onClick?: () => void;
-  type?: string;
+  type?: "button" | "submit" | "reset";
 }
 
 export default ({ children, onClick, ...props }: IProps) => (

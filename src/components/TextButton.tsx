@@ -1,12 +1,9 @@
 import React, { ReactNode } from "react";
 import styled, { css } from "styled-components";
-
 import { instantDuration } from "../style/animation";
 import { black, grey, red, transparentGrey } from "../style/colors";
 
-const TextButton = styled.button<{
-  disabled?: boolean;
-}>`
+const TextButton = styled.button<{ disabled?: boolean }>`
   font: inherit;
   display: flex;
   align-items: center;

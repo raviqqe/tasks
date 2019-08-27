@@ -1,8 +1,13 @@
-import React, { KeyboardEvent, RefObject, useRef, useState } from "react";
+import React, {
+  ChangeEvent,
+  KeyboardEvent,
+  RefObject,
+  useRef,
+  useState
+} from "react";
 import { MdAdd } from "react-icons/md";
 import { connect } from "react-redux";
 import styled from "styled-components";
-
 import { createTask } from "../domain/task";
 import * as tasks from "../state/tasks";
 import { normalBorder } from "../style/borders";
@@ -39,7 +44,7 @@ const CreateTask = ({ addTask }: tasks.IActionCreators) => {
       )}
       onOpen={() => input.current && input.current.focus()}
     >
-      {closeWindow => {
+      {(closeWindow: () => void) => {
         const submit = (): void => {
           addTask(createTask(name, description));
           setName("");
@@ -58,12 +63,16 @@ const CreateTask = ({ addTask }: tasks.IActionCreators) => {
               ref={input}
               placeholder="Name"
               value={name}
-              onChange={({ target: { value } }) => setName(value)}
+              onChange={({
+                target: { value }
+              }: ChangeEvent<HTMLInputElement>) => setName(value)}
             />
             <TextArea
               placeholder="Description"
               value={description}
-              onChange={({ target: { value } }) => setDescription(value)}
+              onChange={({
+                target: { value }
+              }: ChangeEvent<HTMLTextAreaElement>) => setDescription(value)}
               onKeyDown={(event: KeyboardEvent<HTMLTextAreaElement>) => {
                 if (event.keyCode === 13 && event.shiftKey) {
                   submit();
