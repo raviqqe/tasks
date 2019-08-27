@@ -6,7 +6,6 @@ import thunk, * as reduxThunk from "redux-thunk";
 import * as authentication from "./authentication";
 import * as environment from "./environment";
 import * as message from "./message";
-import * as settings from "./settings";
 import * as tasks from "./tasks";
 
 interface IDuck {
@@ -15,25 +14,22 @@ interface IDuck {
   reducer: Reducer;
 }
 
-const duckNames: [
+const duckNames: ["authentication", "environment", "message", "tasks"] = [
   "authentication",
   "environment",
   "message",
-  "settings",
   "tasks"
-] = ["authentication", "environment", "message", "settings", "tasks"];
+];
 
 const ducks: {
   authentication: IDuck;
   environment: IDuck;
   message: IDuck;
-  settings: IDuck;
   tasks: IDuck;
 } = {
   authentication,
   environment,
   message,
-  settings,
   tasks
 };
 
@@ -41,7 +37,6 @@ export interface IGlobalState {
   authentication: authentication.IState;
   environment: environment.IState;
   message: message.IState;
-  settings: settings.IState;
   tasks: tasks.IState;
 }
 
@@ -69,7 +64,6 @@ export function createStore(): {
         authentication: authentication.reducer,
         environment: environment.reducer,
         message: message.reducer,
-        settings: settings.reducer,
         tasks: tasks.reducer
       })
     ),

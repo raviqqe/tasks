@@ -1,15 +1,12 @@
-import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import React, { Component } from "react";
 import { GoMarkGithub } from "react-icons/go";
 import { MdSettings, MdSync, MdSyncDisabled } from "react-icons/md";
 import { connect } from "react-redux";
 import styled, { css } from "styled-components";
-
 import config from "../config";
 import { IGlobalState } from "../state";
 import * as authentication from "../state/authentication";
-import * as settings from "../state/settings";
 import * as tasks from "../state/tasks";
 import { shortDuration } from "../style/animation";
 import { grey, lightGrey, yellowGreen } from "../style/colors";
@@ -63,18 +60,6 @@ const Buttons = styled.div`
   `)};
 `;
 
-const VolumeSlider = styled.div`
-  max-width: 50%;
-  padding: 0 0.5em 0.5em;
-  width: 15em;
-`;
-
-const Notification = styled.div<{ on: boolean }>`
-  color: ${({ on }) => (on ? yellowGreen : grey)};
-  font-weight: bold;
-  padding: 0 0.5em;
-`;
-
 const Footer = styled.div`
   font-size: 0.95em;
   border-top: 1px solid ${lightGrey};
@@ -106,21 +91,12 @@ const GitHubLink = styled.div`
 interface IProps
   extends authentication.IActionCreators,
     authentication.IState,
-    settings.IActionCreators,
-    settings.IState,
     tasks.IActionCreators,
     tasks.IState {}
 
 class Settings extends Component<IProps> {
   public render() {
-    const {
-      alarmVolume,
-      notificationOn,
-      setAlarmVolume,
-      signedIn,
-      signIn,
-      signOut
-    } = this.props;
+    const { signedIn, signIn, signOut } = this.props;
 
     return (
       <ModalWindowButton
@@ -165,36 +141,6 @@ class Settings extends Component<IProps> {
               )}
             </Buttons>
           </SettingsItem>
-          <SettingsItem label="Alarm volume">
-            <VolumeSlider>
-              <Slider
-                min={0}
-                max={1}
-                defaultValue={0.5}
-                value={alarmVolume}
-                step={0.125}
-                marks={{ 0: "", 0.25: "", 0.5: "", 0.75: "", 1: "" }}
-                railStyle={{ backgroundColor: grey }}
-                trackStyle={{ backgroundColor: yellowGreen }}
-                dotStyle={{ background: grey, borderColor: grey }}
-                activeDotStyle={{
-                  background: yellowGreen,
-                  borderColor: yellowGreen
-                }}
-                handleStyle={{
-                  background: yellowGreen,
-                  borderColor: yellowGreen,
-                  boxShadow: "none"
-                }}
-                onChange={setAlarmVolume}
-              />
-            </VolumeSlider>
-          </SettingsItem>
-          <SettingsItem label="Notification">
-            <Notification on={!!notificationOn}>
-              {notificationOn ? "On" : "Off"}
-            </Notification>
-          </SettingsItem>
           <Footer>
             <Link href={config.repositoryUrl}>
               <GitHubLink>
@@ -209,14 +155,12 @@ class Settings extends Component<IProps> {
 }
 
 export default connect(
-  ({ authentication, settings, tasks }: IGlobalState) => ({
+  ({ authentication, tasks }: IGlobalState) => ({
     ...authentication,
-    ...settings,
     ...tasks
   }),
   {
     ...authentication.actionCreators,
-    ...settings.actionCreators,
     ...tasks.actionCreators
   }
 )(Settings);

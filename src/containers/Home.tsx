@@ -11,7 +11,6 @@ import { getTasksFromProject, IProject } from "../domain/project";
 import { includeTaskInTasks, ITask } from "../domain/task";
 import { IGlobalState } from "../state";
 import * as environment from "../state/environment";
-import * as settings from "../state/settings";
 import * as tasks from "../state/tasks";
 
 const Wrapper = styled.div`
@@ -51,8 +50,6 @@ const FixListButton = styled(CircleButton)`
 
 interface IProps
   extends environment.IState,
-    settings.IActionCreators,
-    settings.IState,
     tasks.IActionCreators,
     tasks.IState {}
 
@@ -177,10 +174,6 @@ class Home extends Component<IProps, IState> {
 }
 
 export default connect(
-  ({ environment, settings, tasks }: IGlobalState) => ({
-    ...environment,
-    ...settings,
-    ...tasks
-  }),
-  { ...settings.actionCreators, ...tasks.actionCreators }
+  ({ environment, tasks }: IGlobalState) => ({ ...environment, ...tasks }),
+  tasks.actionCreators
 )(Home);
