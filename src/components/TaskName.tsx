@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 import { black, red } from "../style/colors";
 import Input from "./Input";
 import { useInputState } from "./utilities";
