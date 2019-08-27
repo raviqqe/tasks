@@ -62,7 +62,7 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.0.0",
     "typescript": "^3.5.3",
-    "workbox-cli": "^3.6.3"
+    "workbox-cli": "^4.3.1"
   },
   "browserslist": {
     "production": [
