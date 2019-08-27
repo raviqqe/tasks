@@ -1,18 +1,42 @@
 version: 2
+workflows:
+  version: 2
+  all:
+    jobs:
+      - build
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - build
 jobs:
   build:
     docker:
-      - image: node:10
+      - image: node
     steps:
       - run: |
           apt -y update --fix-missing
           apt -y upgrade
           apt -y install inkscape
-          npm install --global codecov
       - checkout
       - run: npm install
       - run: npm run build
       - run: npm run lint
       - run: |
-          npm run test -- --runInBand
-          codecov
+          npm run test
+          npx codecov
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build
+            - node_modules
+  deploy:
+    docker:
+      - image: node
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run: npm run --silent deploy -- --token $FIREBASE_TOKEN
