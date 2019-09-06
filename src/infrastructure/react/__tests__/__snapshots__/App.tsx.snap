@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders after a user signs in 1`] = `
+<div>
+  <div
+    class="sc-kpOJdX RJnix"
+  >
+    <div
+      class="sc-chPdSV hCBDrf"
+    >
+      <div
+        class="css-0"
+      >
+        <div
+          class="css-b0t2tw"
+        />
+        <div
+          class="css-fz02ge"
+        />
+        <div
+          class="css-1xlchjq"
+        />
+      </div>
+    </div>
+    <div
+      class="sc-dxgOiQ dCNDNW"
+    >
+      <div
+        class="sc-iwsKbI kNsanL"
+      >
+        <textarea
+          async=""
+          class="sc-gZMcBi meTUk sc-htoDjs dUPfGM"
+          placeholder="Write in Markdown ..."
+          rows="1"
+        />
+        <button
+          aria-label="Create"
+          class="sc-bdVaJa sc-gzVnrw hbYNXN"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="sc-ckVGcZ jPrxRC"
+      />
+    </div>
+    <div
+      class="sc-jKJlTe bzwHak"
+    >
+      <button
+        class="sc-bdVaJa sc-gzVnrw fsRgZr"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders after a user signs out 1`] = `
+<div>
+  <div
+    class="sc-htpNat gyfPDF"
+  >
+    <div
+      class="sc-bxivhb bnCmgF"
+    >
+      <span
+        class="sc-ifAKCX hrWLvt"
+      >
+        Self
+      </span>
+      <span
+        class="sc-EHOje blkkiu"
+      >
+        Talk
+      </span>
+    </div>
+    <button
+      class="sc-bdVaJa sc-bwzfXH cqtuLn"
+    >
+      Sign in
+    </button>
+    <a
+      class="sc-bZQynM zHicg"
+      href=""
+      target="_blank"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 16 16"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`renders before a user signs in 1`] = `
+<div>
+  <div
+    class="sc-eNQAEJ jEaFIf"
+  >
+    <div
+      class="css-0"
+    >
+      <div
+        class="css-b0t2tw"
+      />
+      <div
+        class="css-fz02ge"
+      />
+      <div
+        class="css-1xlchjq"
+      />
+    </div>
+  </div>
+</div>
+`;

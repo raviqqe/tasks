@@ -1,0 +1,18 @@
+import "firebase/auth";
+import "firebase/firestore";
+import * as firebase from "firebase/app";
+
+export class FirebaseInitializer {
+  constructor(projectId: string, apiKey: string) {
+    firebase.initializeApp({
+      apiKey,
+      authDomain: `${projectId}.firebaseapp.com`,
+      projectId,
+      storageBucket: `${projectId}.appspot.com`
+    });
+  }
+
+  public async initialize() {
+    await firebase.firestore().enablePersistence();
+  }
+}

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<button
+  className="sc-bdVaJa btZbqx"
+>
+  foo
+</button>
+`;
+
+exports[`renders as a secondary button 1`] = `
+<button
+  className="sc-bdVaJa fbvySC"
+>
+  foo
+</button>
+`;
