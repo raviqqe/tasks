@@ -1,9 +1,9 @@
 {
   "firebase": {
     "apiKey": "AIzaSyCp_dI0Z2ZfyhlFkvdoH7uvXshwlG6wTTw",
-    "projectId": "self-talk-3097a"
+    "projectId": "tasks-3097a"
   },
-  "repositoryURL": "https://github.com/raviqqe/self-talk",
+  "repositoryURL": "https://github.com/raviqqe/tasks",
   "sentry": {
     "dsn": "https://878ba13a7fdd4b4ea5d6c319a0fd8e7b@sentry.io/1457458"
   }
