@@ -4,7 +4,7 @@ import React from "react";
 import styled from "styled-components";
 import { observer } from "mobx-react";
 import { AuthenticationStore } from "../mobx/authentication-store";
-import { DocumentsStore } from "../mobx/documents-store";
+import { TasksStore } from "../mobx/tasks-store";
 import { IProps as ILandingProps, Landing } from "./Landing";
 import { Home, IProps as IHomeProps } from "./Home";
 
@@ -16,16 +16,16 @@ const LoaderContainer = styled.div`
   width: 100vw;
 `;
 
-interface IProps extends Omit<IHomeProps, "documents">, ILandingProps {
+interface IProps extends Omit<IHomeProps, "tasks">, ILandingProps {
   authenticationStore: AuthenticationStore;
-  documentsStore: DocumentsStore;
+  tasksStore: TasksStore;
   initialize: () => Promise<void>;
 }
 
 export const App = observer(
   ({
     authenticationStore: { signedIn },
-    documentsStore: { documents },
+    tasksStore: { tasks },
     initialize,
     repositoryURL,
     signIn,
@@ -39,7 +39,7 @@ export const App = observer(
         <PulseLoader color="white" />
       </LoaderContainer>
     ) : signedIn ? (
-      <Home {...props} documents={documents} signOut={signOut} />
+      <Home {...props} tasks={tasks} signOut={signOut} />
     ) : (
       <Landing repositoryURL={repositoryURL} signIn={signIn} />
     );

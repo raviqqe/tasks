@@ -2,63 +2,17 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-jzJRlG jtFhUU"
+  className="sc-iwsKbI kwevda"
 >
   <div
-    className="sc-gqjmRU gQLfsQ"
+    className="sc-bZQynM eSqhjR"
   >
     <div
-      className="sc-jTzLTM hnUgga"
+      className="sc-htoDjs kTFXze"
     />
   </div>
   <div
-    className="sc-cSHVUG bhmkpW"
-  >
-    <div
-      className="sc-ifAKCX hAoVjF"
-    >
-      <textarea
-        async={true}
-        className="sc-EHOje ggueGO sc-htpNat gsNViM"
-        onChange={[Function]}
-        onDrop={[Function]}
-        onKeyDown={[Function]}
-        onPaste={[Function]}
-        placeholder="Write in Markdown ..."
-        rows={1}
-        value=""
-      />
-      <button
-        aria-label="Create"
-        className="sc-bdVaJa sc-bwzfXH fYkRwl"
-        onClick={[Function]}
-      >
-        <svg
-          fill="currentColor"
-          height="1em"
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
-          />
-        </svg>
-      </button>
-    </div>
-    <div
-      className="sc-kAzzGY dLsBNe"
-    />
-  </div>
-  <div
-    className="sc-chPdSV XJZzt"
+    className="sc-gZMcBi gUHsZz"
   >
     <button
       className="sc-bdVaJa sc-bwzfXH davee"
@@ -80,6 +34,30 @@ exports[`renders 1`] = `
       >
         <path
           d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </button>
+    <button
+      aria-label="Create"
+      className="sc-bdVaJa sc-bwzfXH fYkRwl"
+      onClick={[Function]}
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
         />
       </svg>
     </button>

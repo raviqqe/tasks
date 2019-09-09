@@ -1,32 +1,32 @@
 import "firebase/firestore";
 import * as firebase from "firebase/app";
 import { last } from "lodash";
-import { IDocument } from "../../domain/document";
-import { IDocumentRepository } from "../../application/document-repository";
+import { ITask } from "../../domain/task";
+import { ITaskRepository } from "../../application/task-repository";
 
-export class FirebaseDocumentRepository implements IDocumentRepository {
-  public async create(document: IDocument): Promise<void> {
+export class FirebaseTaskRepository implements ITaskRepository {
+  public async create(task: ITask): Promise<void> {
     await this.collection()
-      .doc(document.id)
+      .doc(task.id)
       .set({
-        ...document,
+        ...task,
         createdAt: Math.floor(Date.now() / 1000) // Unix timestamp
       });
   }
 
-  public async delete(documentID: string): Promise<void> {
+  public async delete(taskID: string): Promise<void> {
     await this.collection()
-      .doc(documentID)
+      .doc(taskID)
       .delete();
   }
 
-  public async *list(limit: number): AsyncIterator<IDocument[], void> {
+  public async *list(limit: number): AsyncIterator<ITask[], void> {
     let result = await this.query()
       .limit(limit)
       .get();
 
     while (result.docs.length > 0) {
-      yield result.docs.map(snapshot => snapshot.data() as IDocument);
+      yield result.docs.map(snapshot => snapshot.data() as ITask);
 
       result = await this.query()
         .startAfter(last(result.docs))
@@ -35,10 +35,10 @@ export class FirebaseDocumentRepository implements IDocumentRepository {
     }
   }
 
-  public async update(document: IDocument): Promise<void> {
+  public async update(task: ITask): Promise<void> {
     await this.collection()
-      .doc(document.id)
-      .update(document);
+      .doc(task.id)
+      .update(task);
   }
 
   private query(): firebase.firestore.Query {
@@ -54,8 +54,8 @@ export class FirebaseDocumentRepository implements IDocumentRepository {
 
     return firebase
       .firestore()
-      .collection("users")
+      .collection("version/1/users")
       .doc(user.uid)
-      .collection("documents");
+      .collection("tasks");
   }
 }

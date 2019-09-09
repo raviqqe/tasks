@@ -1,24 +1,22 @@
 import { AlertMessagePresenter } from "./infrastructure/alert-message-presenter";
 import { ApplicationInitializer } from "./application/application-initializer";
 import { BuiltinConfirmationController } from "./infrastructure/builtin-confirmation-controller";
-import { DocumentCreator } from "./application/document-creator";
-import { DocumentDeleter } from "./application/document-deleter";
-import { DocumentLister } from "./application/document-lister";
-import { DocumentUpdater } from "./application/document-updater";
+import { TaskCreator } from "./application/task-creator";
+import { TaskDeleter } from "./application/task-deleter";
+import { TaskLister } from "./application/task-lister";
+import { TaskUpdater } from "./application/task-updater";
 import { FirebaseAuthenticationController } from "./infrastructure/firebase/firebase-authentication-controller";
-import { FirebaseDocumentRepository } from "./infrastructure/firebase/firebase-document-repository";
+import { FirebaseTaskRepository } from "./infrastructure/firebase/firebase-task-repository";
 import { FirebaseInitializer } from "./infrastructure/firebase/firebase-initializer";
-import { FirebaseStorageFileRepository } from "./infrastructure/firebase/firebase-storage-file-repository";
 import { InfrastructureInitializer } from "./infrastructure/infrastructure-initializer";
 import { ReactRenderer } from "./infrastructure/react";
 import { SentryErrorReporter } from "./infrastructure/sentry-error-reporter";
 import { AuthenticationStore } from "./infrastructure/mobx/authentication-store";
 import { MobxAuthenticationPresenter } from "./infrastructure/mobx/mobx-authentication-presenter";
-import { DocumentsStore } from "./infrastructure/mobx/documents-store";
-import { MobxDocumentPresenter } from "./infrastructure/mobx/mobx-document-presenter";
+import { TasksStore } from "./infrastructure/mobx/tasks-store";
+import { MobxTaskPresenter } from "./infrastructure/mobx/mobx-task-presenter";
 import { SignInManager } from "./application/sign-in-manager";
 import { SignOutManager } from "./application/sign-out-manager";
-import { TextFileInserter } from "./application/text-file-inserter";
 import configuration from "./configuration.json";
 
 // Instantiate this at the very beginning to initialize Firebase's default app.
@@ -40,11 +38,11 @@ async function main() {
     authenticationStore
   );
   const authenticationController = new FirebaseAuthenticationController();
-  const documentRepository = new FirebaseDocumentRepository();
+  const taskRepository = new FirebaseTaskRepository();
   const messagePresenter = new AlertMessagePresenter();
   const confirmationController = new BuiltinConfirmationController();
-  const documentsStore = new DocumentsStore();
-  const documentPresenter = new MobxDocumentPresenter(documentsStore);
+  const tasksStore = new TasksStore();
+  const taskPresenter = new MobxTaskPresenter(tasksStore);
 
   new ReactRenderer(
     new ApplicationInitializer(
@@ -52,27 +50,18 @@ async function main() {
       authenticationPresenter,
       new InfrastructureInitializer(firebaseInitializer)
     ),
-    new DocumentCreator(
-      documentRepository,
-      documentPresenter,
-      messagePresenter
-    ),
-    new DocumentLister(documentRepository, documentPresenter),
-    new DocumentUpdater(
-      new DocumentDeleter(
-        documentRepository,
-        documentPresenter,
-        confirmationController
-      ),
-      documentRepository,
-      documentPresenter,
+    new TaskCreator(taskRepository, taskPresenter, messagePresenter),
+    new TaskLister(taskRepository, taskPresenter),
+    new TaskUpdater(
+      new TaskDeleter(taskRepository, taskPresenter, confirmationController),
+      taskRepository,
+      taskPresenter,
       messagePresenter
     ),
     new SignInManager(authenticationController),
     new SignOutManager(authenticationController, authenticationPresenter),
-    new TextFileInserter(new FirebaseStorageFileRepository()),
     authenticationStore,
-    documentsStore,
+    tasksStore,
     configuration.repositoryURL
   ).render(element);
 

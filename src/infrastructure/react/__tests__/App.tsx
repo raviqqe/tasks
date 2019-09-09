@@ -2,21 +2,20 @@ import { render } from "@testing-library/react";
 import React from "react";
 import { App } from "../App";
 import { AuthenticationStore } from "../../mobx/authentication-store";
-import { DocumentsStore } from "../../mobx/documents-store";
+import { TasksStore } from "../../mobx/tasks-store";
 
 it("renders before a user signs in", async () => {
   const result = render(
     <App
       authenticationStore={new AuthenticationStore()}
-      documentsStore={new DocumentsStore()}
-      createDocument={async () => {}}
+      tasksStore={new TasksStore()}
+      createTask={async () => {}}
       initialize={async () => {}}
-      insertFiles={async () => ""}
-      listDocuments={async () => {}}
-      listMoreDocuments={async () => {}}
+      listTasks={async () => {}}
+      listMoreTasks={async () => {}}
       signIn={() => {}}
       signOut={() => {}}
-      updateDocument={async () => {}}
+      updateTask={async () => {}}
       repositoryURL=""
     />
   );
@@ -31,15 +30,14 @@ it("renders after a user signs in", async () => {
   const result = render(
     <App
       authenticationStore={authenticationStore}
-      documentsStore={new DocumentsStore()}
-      createDocument={async () => {}}
+      tasksStore={new TasksStore()}
+      createTask={async () => {}}
       initialize={async () => {}}
-      insertFiles={async () => ""}
-      listDocuments={async () => {}}
-      listMoreDocuments={async () => {}}
+      listTasks={async () => {}}
+      listMoreTasks={async () => {}}
       signIn={() => {}}
       signOut={() => {}}
-      updateDocument={async () => {}}
+      updateTask={async () => {}}
       repositoryURL=""
     />
   );
@@ -54,15 +52,14 @@ it("renders after a user signs out", async () => {
   const result = render(
     <App
       authenticationStore={authenticationStore}
-      documentsStore={new DocumentsStore()}
-      createDocument={async () => {}}
+      tasksStore={new TasksStore()}
+      createTask={async () => {}}
       initialize={async () => {}}
-      insertFiles={async () => ""}
-      listDocuments={async () => {}}
-      listMoreDocuments={async () => {}}
+      listTasks={async () => {}}
+      listMoreTasks={async () => {}}
       signIn={() => {}}
       signOut={() => {}}
-      updateDocument={async () => {}}
+      updateTask={async () => {}}
       repositoryURL=""
     />
   );

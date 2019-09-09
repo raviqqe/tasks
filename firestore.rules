@@ -1,7 +1,15 @@
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /users/{userId}/documents/{documentId} {
+    match /users/{userId}/projects/{projectName} {
       allow read, write: if request.auth.uid == userId;
+    }
+    match /version/1/users/{userId} {
+      match /projects/{projectId} {
+        allow read, write: if request.auth.uid == userId;
+      }
+      match /tasks/{taskId} {
+        allow read, write: if request.auth.uid == userId;
+      }
     }
   }
 }

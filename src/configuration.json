@@ -1,10 +1,10 @@
 {
   "firebase": {
-    "apiKey": "AIzaSyCp_dI0Z2ZfyhlFkvdoH7uvXshwlG6wTTw",
-    "projectId": "tasks-3097a"
+    "apiKey": "AIzaSyA8sZm_Uf6XII864y9-dT_GgVDb891hLmQ",
+    "projectId": "tasks-3e65d"
   },
   "repositoryURL": "https://github.com/raviqqe/tasks",
   "sentry": {
-    "dsn": "https://878ba13a7fdd4b4ea5d6c319a0fd8e7b@sentry.io/1457458"
+    "dsn": "https://634f6fc8761f48f89b7a9bed383217c8@sentry.io/1554249"
   }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { CreateDocument } from "./CreateDocument";
-import { Documents, IProps as IDocumentsProps } from "./Documents";
+import { CreateTask } from "./CreateTask";
+import { Tasks, IProps as ITasksProps } from "./Tasks";
 import { SignOut } from "./SignOut";
 
 const Container = styled.div`
@@ -17,62 +17,39 @@ const Container = styled.div`
   }
 `;
 
-const CreateDocumentContainer = styled.div`
-  position: relative;
+const ButtonsContainer = styled.div`
+  position: fixed;
+  top: 0.5rem;
+  right: 0.5rem;
 
-  * {
-    z-index: 1;
+  > * {
+    margin-bottom: 0.5rem;
   }
 `;
 
-const CreateDocumentBackground = styled.div`
-  background: darkkhaki;
-  position: absolute;
-  top: 0;
-  left: -100vw;
-  width: 200vw;
-  height: 100%;
-  box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.3);
-  z-index: 0;
-`;
-
-const SignOutContainer = styled.div`
-  position: fixed;
-  top: 0.5em;
-  right: 0.5em;
-`;
-
-export interface IProps extends IDocumentsProps {
-  createDocument: (text: string) => Promise<void>;
+export interface IProps extends ITasksProps {
+  createTask: (text: string) => Promise<void>;
   signOut: () => void;
 }
 
 export const Home = ({
-  createDocument,
-  documents,
-  insertFiles,
-  listDocuments,
-  listMoreDocuments,
+  createTask,
+  tasks,
+  listTasks,
+  listMoreTasks,
   signOut,
-  updateDocument
+  updateTask
 }: IProps) => (
   <Container>
-    <Documents
-      documents={documents}
-      insertFiles={insertFiles}
-      listDocuments={listDocuments}
-      listMoreDocuments={listMoreDocuments}
-      updateDocument={updateDocument}
+    <Tasks
+      tasks={tasks}
+      listTasks={listTasks}
+      listMoreTasks={listMoreTasks}
+      updateTask={updateTask}
     />
-    <CreateDocumentContainer>
-      <CreateDocument
-        createDocument={createDocument}
-        insertFiles={insertFiles}
-      />
-      <CreateDocumentBackground />
-    </CreateDocumentContainer>
-    <SignOutContainer>
+    <ButtonsContainer>
       <SignOut signOut={signOut} />
-    </SignOutContainer>
+      <CreateTask createTask={createTask} />
+    </ButtonsContainer>
   </Container>
 );

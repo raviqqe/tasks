@@ -2,23 +2,21 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-iwsKbI JzTPu"
+  className="sc-ifAKCX imvZnA"
 >
   <div
-    className="sc-gqjmRU cbhwjO"
+    className="sc-bZQynM bPyAes"
   >
     <div
-      className="sc-VigVT heImIo sc-htoDjs jykURL"
+      className="sc-gzVnrw kFsTLF sc-bwzfXH BmIVb"
     >
       <div
-        className="sc-bwzfXH jdcGic"
+        className="sc-htpNat KtFsv"
       >
-        <p>
-          text
-        </p>
+        name
       </div>
       <div
-        className="sc-dnqmqq kiGCsA"
+        className="sc-bxivhb BYutN"
       >
         <div
           aria-label="Edit"
@@ -50,9 +48,19 @@ exports[`renders 1`] = `
 </div>
 `;
 
-exports[`renders with documents not loaded yet 1`] = `
+exports[`renders with no tasks 1`] = `
 <div
-  className="sc-gZMcBi ilLSlI"
+  className="sc-ifAKCX imvZnA"
+>
+  <div
+    className="sc-bZQynM bPyAes"
+  />
+</div>
+`;
+
+exports[`renders with tasks not loaded yet 1`] = `
+<div
+  className="sc-EHOje hJuYqK"
 >
   <div
     className="css-0"
@@ -67,15 +75,5 @@ exports[`renders with documents not loaded yet 1`] = `
       className="css-1xlchjq"
     />
   </div>
-</div>
-`;
-
-exports[`renders with no documents 1`] = `
-<div
-  className="sc-iwsKbI JzTPu"
->
-  <div
-    className="sc-gqjmRU cbhwjO"
-  />
 </div>
 `;
