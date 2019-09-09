@@ -6,7 +6,7 @@
     "build": "npm run build:icons && CI=false react-scripts build",
     "build:icons": "tools/build-images.sh",
     "deploy": "npx firebase deploy",
-    "lint": "npx cspell src/**/* public/**/* && npx eslint 'src/**/*.ts{,x}'",
+    "lint": "npx cspell src/**/* 'public/**/*.{html,json}' && npx eslint 'src/**/*.ts{,x}'",
     "start": "react-scripts start",
     "test": "react-scripts test --coverage --watchAll=false"
   },
