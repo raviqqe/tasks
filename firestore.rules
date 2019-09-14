@@ -6,9 +6,14 @@ service cloud.firestore {
     match /version/1/users/{userId} {
       match /projects/{projectId} {
         allow read, write: if request.auth.uid == userId;
-      }
-      match /tasks/{taskId} {
-        allow read, write: if request.auth.uid == userId;
+
+        match /todoTasks/{taskId} {
+          allow read, write: if request.auth.uid == userId;
+        }
+
+        match /doneTasks/{taskId} {
+          allow read, write: if request.auth.uid == userId;
+        }
       }
     }
   }

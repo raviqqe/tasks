@@ -1,18 +1,18 @@
 import UUID from "pure-uuid";
 import { formatTask, validateTask } from "../domain/task";
 import { formatErrorMessage } from "../domain/error";
-import { ITaskRepository } from "./task-repository";
-import { ITaskPresenter } from "./task-presenter";
+import { ITodoTaskRepository } from "./todo-task-repository";
+import { ITodoTaskPresenter } from "./todo-task-presenter";
 import { IMessagePresenter } from "./message-presenter";
 
-export class TaskCreator {
+export class TodoTaskCreator {
   constructor(
-    private readonly taskRepository: ITaskRepository,
-    private readonly taskPresenter: ITaskPresenter,
+    private readonly todoTaskRepository: ITodoTaskRepository,
+    private readonly todoTaskPresenter: ITodoTaskPresenter,
     private readonly messagePresenter: IMessagePresenter
   ) {}
 
-  public async create(name: string): Promise<void> {
+  public async create(projectID: string, name: string): Promise<void> {
     const task = formatTask({ id: new UUID(4).format(), name });
 
     try {
@@ -22,7 +22,7 @@ export class TaskCreator {
       return;
     }
 
-    await this.taskRepository.create(formatTask(task));
-    this.taskPresenter.presentNewTask(task);
+    await this.todoTaskRepository.create(projectID, task);
+    this.todoTaskPresenter.presentNewTask(task);
   }
 }

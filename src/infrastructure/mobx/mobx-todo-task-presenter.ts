@@ -1,27 +1,23 @@
-import { ITaskPresenter } from "../../application/task-presenter";
+import { ITodoTaskPresenter } from "../../application/todo-task-presenter";
 import { ITask } from "../../domain/task";
 import { TasksStore } from "./tasks-store";
 
-export class MobxTaskPresenter implements ITaskPresenter {
+export class MobxTodoTaskPresenter implements ITodoTaskPresenter {
   constructor(private readonly store: TasksStore) {}
 
   public presentTasks(tasks: ITask[]): void {
-    this.store.setTasks(tasks);
-  }
-
-  public presentMoreTasks(tasks: ITask[]): void {
-    this.store.appendTasks(tasks);
+    this.store.setTodoTasks(tasks);
   }
 
   public presentNewTask(task: ITask): void {
-    this.store.prependTask(task);
+    this.store.prependTodoTask(task);
   }
 
   public presentUpdatedTask(task: ITask): void {
-    this.store.updateTask(task);
+    this.store.updateTodoTask(task);
   }
 
   public presentDeletedTask(taskID: string): void {
-    this.store.deleteTask(taskID);
+    this.store.deleteTodoTask(taskID);
   }
 }

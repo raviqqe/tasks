@@ -2,8 +2,13 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-iwsKbI kwevda"
+  className="sc-gZMcBi gKUbAZ"
 >
+  <div
+    className="sc-iwsKbI bSFAlp"
+  >
+    
+  </div>
   <div
     className="sc-bZQynM eSqhjR"
   >
@@ -12,7 +17,7 @@ exports[`renders 1`] = `
     />
   </div>
   <div
-    className="sc-gZMcBi gUHsZz"
+    className="sc-gqjmRU PWsaL"
   >
     <button
       className="sc-bdVaJa sc-bwzfXH davee"

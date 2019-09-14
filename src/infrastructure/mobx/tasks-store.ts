@@ -2,48 +2,40 @@ import { action, observable } from "mobx";
 import { ITask } from "../../domain/task";
 
 export class TasksStore {
-  @observable public tasks: ITask[] | null = null;
+  @observable public todoTasks: ITask[] | null = null;
+  @observable public doneTasks: ITask[] | null = null;
 
   @action
-  public setTasks(tasks: ITask[]): void {
-    this.tasks = tasks;
+  public setTodoTasks(tasks: ITask[]): void {
+    this.todoTasks = tasks;
   }
 
   @action
-  public appendTasks(tasks: ITask[]): void {
-    if (!this.tasks) {
-      throw new Error("tasks not loaded");
+  public prependTodoTask(task: ITask): void {
+    if (!this.todoTasks) {
+      throw new Error("todo tasks not loaded");
     }
 
-    this.tasks = [...this.tasks, ...tasks];
+    this.todoTasks = [task, ...this.todoTasks];
   }
 
   @action
-  public prependTask(task: ITask): void {
-    if (!this.tasks) {
-      throw new Error("tasks not loaded");
+  public updateTodoTask(updatedTask: ITask): void {
+    if (!this.todoTasks) {
+      throw new Error("todo tasks not loaded");
     }
 
-    this.tasks = [task, ...this.tasks];
-  }
-
-  @action
-  public updateTask(updatedTask: ITask): void {
-    if (!this.tasks) {
-      throw new Error("tasks not loaded");
-    }
-
-    this.tasks = this.tasks.map(task =>
+    this.todoTasks = this.todoTasks.map(task =>
       task.id === updatedTask.id ? updatedTask : task
     );
   }
 
   @action
-  public deleteTask(taskID: string): void {
-    if (!this.tasks) {
-      throw new Error("tasks not loaded");
+  public deleteTodoTask(taskID: string): void {
+    if (!this.todoTasks) {
+      throw new Error("todo tasks not loaded");
     }
 
-    this.tasks = this.tasks.filter(task => task.id !== taskID);
+    this.todoTasks = this.todoTasks.filter(task => task.id !== taskID);
   }
 }

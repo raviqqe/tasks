@@ -1,6 +1,5 @@
 import "firebase/firestore";
 import * as firebase from "firebase/app";
-import { last } from "lodash";
 import { ITask } from "../../domain/task";
 import { ITaskRepository } from "../../application/task-repository";
 
@@ -14,35 +13,16 @@ export class FirebaseTaskRepository implements ITaskRepository {
       });
   }
 
-  public async delete(taskID: string): Promise<void> {
-    await this.collection()
-      .doc(taskID)
-      .delete();
-  }
-
-  public async *list(limit: number): AsyncIterator<ITask[], void> {
-    let result = await this.query()
-      .limit(limit)
-      .get();
-
-    while (result.docs.length > 0) {
-      yield result.docs.map(snapshot => snapshot.data() as ITask);
-
-      result = await this.query()
-        .startAfter(last(result.docs))
-        .limit(limit)
-        .get();
-    }
+  public async find(id: string): Promise<ITask> {
+    return (await this.collection()
+      .doc(id)
+      .get()).data() as ITask;
   }
 
   public async update(task: ITask): Promise<void> {
     await this.collection()
       .doc(task.id)
       .update(task);
-  }
-
-  private query(): firebase.firestore.Query {
-    return this.collection().orderBy("createdAt", "desc");
   }
 
   private collection(): firebase.firestore.CollectionReference {

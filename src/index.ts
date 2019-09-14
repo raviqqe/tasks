@@ -5,8 +5,10 @@ import { TaskCreator } from "./application/task-creator";
 import { TaskDeleter } from "./application/task-deleter";
 import { TaskLister } from "./application/task-lister";
 import { TaskUpdater } from "./application/task-updater";
+import { ProjectCreator } from "./application/project-creator";
 import { FirebaseAuthenticationController } from "./infrastructure/firebase/firebase-authentication-controller";
 import { FirebaseTaskRepository } from "./infrastructure/firebase/firebase-task-repository";
+import { FirebaseProjectRepository } from "./infrastructure/firebase/firebase-project-repository";
 import { FirebaseInitializer } from "./infrastructure/firebase/firebase-initializer";
 import { InfrastructureInitializer } from "./infrastructure/infrastructure-initializer";
 import { ReactRenderer } from "./infrastructure/react";
@@ -15,6 +17,8 @@ import { AuthenticationStore } from "./infrastructure/mobx/authentication-store"
 import { MobxAuthenticationPresenter } from "./infrastructure/mobx/mobx-authentication-presenter";
 import { TasksStore } from "./infrastructure/mobx/tasks-store";
 import { MobxTaskPresenter } from "./infrastructure/mobx/mobx-task-presenter";
+import { ProjectsStore } from "./infrastructure/mobx/projects-store";
+import { MobxProjectPresenter } from "./infrastructure/mobx/mobx-project-presenter";
 import { SignInManager } from "./application/sign-in-manager";
 import { SignOutManager } from "./application/sign-out-manager";
 import configuration from "./configuration.json";
@@ -43,12 +47,23 @@ async function main() {
   const confirmationController = new BuiltinConfirmationController();
   const tasksStore = new TasksStore();
   const taskPresenter = new MobxTaskPresenter(tasksStore);
+  const projectRepository = new FirebaseProjectRepository();
+  const projectsStore = new ProjectsStore();
+  const projectPresenter = new MobxProjectPresenter(projectsStore);
+  const projectCreator = new ProjectCreator(
+    projectRepository,
+    projectPresenter,
+    messagePresenter
+  );
 
   new ReactRenderer(
     new ApplicationInitializer(
       authenticationController,
       authenticationPresenter,
-      new InfrastructureInitializer(firebaseInitializer)
+      new InfrastructureInitializer(firebaseInitializer),
+      projectCreator,
+      projectRepository,
+      projectPresenter
     ),
     new TaskCreator(taskRepository, taskPresenter, messagePresenter),
     new TaskLister(taskRepository, taskPresenter),
@@ -61,6 +76,7 @@ async function main() {
     new SignInManager(authenticationController),
     new SignOutManager(authenticationController, authenticationPresenter),
     authenticationStore,
+    projectsStore,
     tasksStore,
     configuration.repositoryURL
   ).render(element);

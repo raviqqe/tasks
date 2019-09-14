@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { CreateTask } from "./CreateTask";
-import { Tasks, IProps as ITasksProps } from "./Tasks";
+import {
+  CreateTodoTask,
+  IProps as ICreateTodoTaskProps
+} from "./CreateTodoTask";
+import { TodoTasks, IProps as ITodoTasksProps } from "./TodoTasks";
+import { Project, IProps as IProjectProps } from "./Project";
 import { SignOut } from "./SignOut";
 
 const Container = styled.div`
@@ -27,29 +31,32 @@ const ButtonsContainer = styled.div`
   }
 `;
 
-export interface IProps extends ITasksProps {
-  createTask: (text: string) => Promise<void>;
+export interface IProps
+  extends ICreateTodoTaskProps,
+    IProjectProps,
+    ITodoTasksProps {
   signOut: () => void;
 }
 
 export const Home = ({
-  createTask,
-  tasks,
-  listTasks,
-  listMoreTasks,
+  createTodoTask,
+  currentProject,
+  listTodoTasks,
+  projects,
   signOut,
-  updateTask
+  todoTasks,
+  updateTodoTask
 }: IProps) => (
   <Container>
-    <Tasks
-      tasks={tasks}
-      listTasks={listTasks}
-      listMoreTasks={listMoreTasks}
-      updateTask={updateTask}
+    <Project currentProject={currentProject} projects={projects} />
+    <TodoTasks
+      todoTasks={todoTasks}
+      listTodoTasks={listTodoTasks}
+      updateTodoTask={updateTodoTask}
     />
     <ButtonsContainer>
       <SignOut signOut={signOut} />
-      <CreateTask createTask={createTask} />
+      <CreateTodoTask createTodoTask={createTodoTask} />
     </ButtonsContainer>
   </Container>
 );

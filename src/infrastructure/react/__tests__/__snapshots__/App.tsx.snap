@@ -3,8 +3,11 @@
 exports[`renders after a user signs in 1`] = `
 <div>
   <div
-    class="sc-jzJRlG jtFhUU"
+    class="sc-cSHVUG epAANN"
   >
+    <div
+      class="sc-jzJRlG colbDy"
+    />
     <div
       class="sc-VigVT fsJODT"
     >
@@ -23,7 +26,7 @@ exports[`renders after a user signs in 1`] = `
       </div>
     </div>
     <div
-      class="sc-cSHVUG edANTC"
+      class="sc-kAzzGY eCuKDl"
     >
       <button
         class="sc-bdVaJa sc-gzVnrw fsRgZr"
@@ -116,7 +119,7 @@ exports[`renders after a user signs out 1`] = `
 exports[`renders before a user signs in 1`] = `
 <div>
   <div
-    class="sc-kAzzGY cEjlVR"
+    class="sc-chPdSV vbngr"
   >
     <div
       class="css-0"

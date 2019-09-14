@@ -2,11 +2,11 @@ import { MdAdd } from "react-icons/md";
 import React from "react";
 import { CircleButton } from "./CircleButton";
 
-interface IProps {
-  createTask: (name: string) => Promise<void>;
+export interface IProps {
+  createTodoTask: (name: string) => Promise<void>;
 }
 
-export const CreateTask = ({ createTask }: IProps) => {
+export const CreateTodoTask = ({ createTodoTask }: IProps) => {
   return (
     <CircleButton
       aria-label="Create"
@@ -17,7 +17,7 @@ export const CreateTask = ({ createTask }: IProps) => {
           return;
         }
 
-        await createTask(name);
+        await createTodoTask(name);
       }}
     >
       <MdAdd />

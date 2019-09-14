@@ -10,10 +10,12 @@ it("renders", () => {
     create(
       <Home
         createTask={async () => {}}
-        tasks={[]}
-        listTasks={async () => {}}
+        currentProject={{ id: "", name: "", taskIDs: [] }}
         listMoreTasks={async () => {}}
+        listTasks={async () => {}}
         signOut={async () => undefined}
+        projects={[]}
+        tasks={[]}
         updateTask={async () => {}}
       />
     ).toJSON()

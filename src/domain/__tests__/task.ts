@@ -1,4 +1,4 @@
-import { ITask, formatTask, validateTask } from "../task";
+import { formatTask, validateTask } from "../task";
 
 describe("formatTask", () => {
   it("removes extra spaces in a name", () => {
@@ -10,7 +10,11 @@ describe("formatTask", () => {
 });
 
 describe("validateTask", () => {
-  it("validates names", () => {
-    expect(() => validateTask({ name: "" } as ITask)).toThrowError();
+  it("throws an error with an unformatted name", () => {
+    expect(() => validateTask({ id: "", name: " foo" })).toThrowError();
+  });
+
+  it("throws an error with an empty name", () => {
+    expect(() => validateTask({ id: "", name: "" })).toThrowError();
   });
 });

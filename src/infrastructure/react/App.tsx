@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { observer } from "mobx-react";
 import { AuthenticationStore } from "../mobx/authentication-store";
 import { TasksStore } from "../mobx/tasks-store";
+import { ProjectsStore } from "../mobx/projects-store";
 import { IProps as ILandingProps, Landing } from "./Landing";
 import { Home, IProps as IHomeProps } from "./Home";
 
@@ -16,8 +17,11 @@ const LoaderContainer = styled.div`
   width: 100vw;
 `;
 
-interface IProps extends Omit<IHomeProps, "tasks">, ILandingProps {
+interface IProps
+  extends Omit<IHomeProps, "currentProject" | "projects" | "tasks">,
+    ILandingProps {
   authenticationStore: AuthenticationStore;
+  projectsStore: ProjectsStore;
   tasksStore: TasksStore;
   initialize: () => Promise<void>;
 }
@@ -25,7 +29,8 @@ interface IProps extends Omit<IHomeProps, "tasks">, ILandingProps {
 export const App = observer(
   ({
     authenticationStore: { signedIn },
-    tasksStore: { tasks },
+    projectsStore: { currentProject, projects },
+    tasksStore: { todoTasks },
     initialize,
     repositoryURL,
     signIn,
@@ -34,14 +39,20 @@ export const App = observer(
   }: IProps) => {
     useAsync(initialize, []);
 
-    return signedIn === null ? (
+    return signedIn && currentProject && projects ? (
+      <Home
+        {...props}
+        currentProject={currentProject}
+        projects={projects}
+        todoTasks={todoTasks}
+        signOut={signOut}
+      />
+    ) : signedIn === false ? (
+      <Landing repositoryURL={repositoryURL} signIn={signIn} />
+    ) : (
       <LoaderContainer>
         <PulseLoader color="white" />
       </LoaderContainer>
-    ) : signedIn ? (
-      <Home {...props} tasks={tasks} signOut={signOut} />
-    ) : (
-      <Landing repositoryURL={repositoryURL} signIn={signIn} />
     );
   }
 );
