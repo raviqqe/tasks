@@ -1,36 +1,19 @@
 import { ProjectCreator } from "../project-creator";
-import { IProjectRepository } from "../project-repository";
-import { IProjectPresenter } from "../project-presenter";
-import { IMessagePresenter } from "../message-presenter";
-import { CurrentProjectSwitcher } from "../current-project-switcher";
+import { MockManager } from "../test/mock-manager";
 
-let currentProjectSwitcher: jest.Mocked<CurrentProjectSwitcher>;
-let projectRepository: jest.Mocked<IProjectRepository>;
-let projectPresenter: jest.Mocked<IProjectPresenter>;
-let messagePresenter: jest.Mocked<IMessagePresenter>;
+let mockManager: MockManager;
 let projectCreator: ProjectCreator;
 
 beforeEach(() => {
-  currentProjectSwitcher = ({ switch: jest.fn() } as unknown) as jest.Mocked<
-    CurrentProjectSwitcher
-  >;
-  projectRepository = {
-    create: jest.fn(),
-    list: jest.fn(async () => [{ archived: false, id: "", name: "foo" }]),
-    listArchived: jest.fn(),
-    update: jest.fn()
-  };
-  projectPresenter = {
-    presentArchivedProjects: jest.fn(),
-    presentCurrentProject: jest.fn(),
-    presentProjects: jest.fn()
-  };
-  messagePresenter = { present: jest.fn() };
+  mockManager = new MockManager();
+  mockManager.projectRepository.list.mockResolvedValue([
+    { archived: false, id: "", name: "foo" }
+  ]);
   projectCreator = new ProjectCreator(
-    currentProjectSwitcher,
-    projectRepository,
-    projectPresenter,
-    messagePresenter
+    mockManager.currentProjectSwitcher,
+    mockManager.projectRepository,
+    mockManager.projectPresenter,
+    mockManager.messagePresenter
   );
 });
 
@@ -38,19 +21,25 @@ it("creates and persists a project", async () => {
   await projectCreator.create("foo");
 
   const project = { archived: false, id: expect.any(String), name: "foo" };
-  expect(projectRepository.create.mock.calls).toEqual([[project]]);
-  expect(currentProjectSwitcher.switch.mock.calls).toEqual([[project]]);
-  expect(projectPresenter.presentProjects.mock.calls).toEqual([[[project]]]);
+  expect(mockManager.projectRepository.create.mock.calls).toEqual([[project]]);
+  expect(mockManager.currentProjectSwitcher.switch.mock.calls).toEqual([
+    [project]
+  ]);
+  expect(mockManager.projectPresenter.presentProjects.mock.calls).toEqual([
+    [[project]]
+  ]);
 });
 
 it("formats a project before creation", async () => {
   await projectCreator.create("\tfoo ");
-  expect(projectRepository.create.mock.calls[0][0].name).toBe("foo");
+  expect(mockManager.projectRepository.create.mock.calls[0][0].name).toBe(
+    "foo"
+  );
 });
 
 it("validates a project before creation", async () => {
   await projectCreator.create("");
-  expect(messagePresenter.present.mock.calls).toEqual([
+  expect(mockManager.messagePresenter.present.mock.calls).toEqual([
     ["Project name cannot be empty!"]
   ]);
 });

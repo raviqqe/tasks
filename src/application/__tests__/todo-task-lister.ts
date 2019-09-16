@@ -1,37 +1,30 @@
-import { TodoTaskLister } from "../todo-task-lister";
-import { ITodoTaskRepository } from "../todo-task-repository";
-import { ITodoTaskPresenter } from "../todo-task-presenter";
 import { ITask } from "../../domain/task";
+import { TodoTaskLister } from "../todo-task-lister";
+import { MockManager } from "../test/mock-manager";
 
 const dummyTask: ITask = { id: "", name: "" };
 
-let todoTaskRepository: jest.Mocked<ITodoTaskRepository>;
-let todoTaskPresenter: jest.Mocked<ITodoTaskPresenter>;
+let mockManager: MockManager;
 let taskLister: TodoTaskLister;
 
 beforeEach(() => {
-  todoTaskRepository = {
-    create: jest.fn(),
-    delete: jest.fn(),
-    list: jest.fn(async (_: string) => [dummyTask]),
-    update: jest.fn()
-  };
-  todoTaskPresenter = ({
-    presentMoreTasks: jest.fn(),
-    presentTasks: jest.fn()
-  } as unknown) as jest.Mocked<ITodoTaskPresenter>;
-  taskLister = new TodoTaskLister(todoTaskRepository, todoTaskPresenter);
+  mockManager = new MockManager();
+  taskLister = new TodoTaskLister(
+    mockManager.todoTaskRepository,
+    mockManager.todoTaskPresenter
+  );
 });
 
 it("lists tasks", async () => {
+  mockManager.todoTaskRepository.list.mockResolvedValue([dummyTask]);
   await taskLister.list("");
-  expect(todoTaskPresenter.presentTasks.mock.calls).toEqual([
+  expect(mockManager.todoTaskPresenter.presentTasks.mock.calls).toEqual([
     [[{ id: "", name: "" }]]
   ]);
 });
 
 it("lists no tasks", async () => {
-  todoTaskRepository.list = jest.fn(async (_: string) => []);
+  mockManager.todoTaskRepository.list.mockResolvedValue([]);
   await taskLister.list("");
-  expect(todoTaskPresenter.presentTasks.mock.calls).toEqual([[[]]]);
+  expect(mockManager.todoTaskPresenter.presentTasks.mock.calls).toEqual([[[]]]);
 });

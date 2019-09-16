@@ -13,7 +13,8 @@ beforeEach(() => {
   currentProjectSwitcher = new CurrentProjectSwitcher(
     mockManager.currentProjectRepository,
     mockManager.projectPresenter,
-    mockManager.todoTaskLister
+    mockManager.todoTaskLister,
+    mockManager.doneTaskLister
   );
 });
 
@@ -27,4 +28,5 @@ it("switches a currrent project", async () => {
     [dummyProject.id]
   ]);
   expect(mockManager.todoTaskLister.list).toBeCalledTimes(1);
+  expect(mockManager.doneTaskLister.list).toBeCalledTimes(1);
 });
