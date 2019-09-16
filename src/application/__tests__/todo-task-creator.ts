@@ -35,4 +35,6 @@ it("validates a task before creation", async () => {
   expect(mockManager.messagePresenter.present.mock.calls).toEqual([
     ["Task name cannot be empty!"]
   ]);
+  expect(mockManager.todoTaskRepository.create).not.toBeCalled();
+  expect(mockManager.todoTaskPresenter.presentNewTask).not.toBeCalled();
 });

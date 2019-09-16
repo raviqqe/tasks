@@ -13,9 +13,9 @@ export class TodoTaskCompleter {
   ) {}
 
   public async markDone(projectID: string, task: ITask) {
-    await this.todoTaskPresenter.presentDeletedTask(task.id);
+    this.todoTaskPresenter.presentDeletedTask(task.id);
     await this.todoTaskRepository.delete(projectID, task.id);
-    await this.doneTaskPresenter.presentNewTask(task);
+    this.doneTaskPresenter.presentNewTask(task);
     await this.doneTaskRepository.create(projectID, task);
   }
 }

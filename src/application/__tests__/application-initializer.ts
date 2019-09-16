@@ -74,6 +74,6 @@ it("does not present any project if a user is not signed in", async () => {
 
   await applicationInitializer.initialize();
 
-  expect(mockManager.projectPresenter.presentCurrentProject).toBeCalledTimes(0);
-  expect(mockManager.projectPresenter.presentProjects).toBeCalledTimes(0);
+  expect(mockManager.projectPresenter.presentCurrentProject).not.toBeCalled();
+  expect(mockManager.projectPresenter.presentProjects).not.toBeCalled();
 });
