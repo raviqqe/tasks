@@ -29,7 +29,7 @@ beforeEach(() => {
 it("creates and persists a task", async () => {
   await taskCreator.create("", "foo");
   expect(todoTaskRepository.create.mock.calls).toEqual([
-    [{ id: expect.any(String), name: "foo" }]
+    ["", { id: expect.any(String), name: "foo" }]
   ]);
   expect(todoTaskPresenter.presentNewTask.mock.calls).toEqual([
     [{ id: expect.any(String), name: "foo" }]

@@ -4,6 +4,7 @@ import { IInfrastructureInitializer } from "./infrastructure-initializer";
 import { ProjectCreator } from "./project-creator";
 import { IProjectRepository } from "./project-repository";
 import { IProjectPresenter } from "./project-presenter";
+import { ICurrentProjectRepository } from "./current-project-repository";
 
 export class ApplicationInitializer {
   constructor(
@@ -12,7 +13,8 @@ export class ApplicationInitializer {
     private readonly infrastructureInitializer: IInfrastructureInitializer,
     private readonly projectCreator: ProjectCreator,
     private readonly projectRepository: IProjectRepository,
-    private readonly projectPresenter: IProjectPresenter
+    private readonly projectPresenter: IProjectPresenter,
+    private readonly currentProjectRepository: ICurrentProjectRepository
   ) {}
 
   public async initialize(): Promise<void> {
@@ -28,9 +30,13 @@ export class ApplicationInitializer {
 
     if (projects.length === 0) {
       await this.projectCreator.create("default");
-    } else {
-      this.projectPresenter.presentCurrentProject(projects[0]);
-      this.projectPresenter.presentProjects(projects);
+      return;
     }
+
+    const currentProjectID = await this.currentProjectRepository.get();
+    this.projectPresenter.presentCurrentProject(
+      projects.find(project => project.id === currentProjectID) || projects[0]
+    );
+    this.projectPresenter.presentProjects(projects);
   }
 }

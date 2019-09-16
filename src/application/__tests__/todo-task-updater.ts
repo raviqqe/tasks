@@ -4,7 +4,7 @@ import { ITodoTaskRepository } from "../todo-task-repository";
 import { ITodoTaskPresenter } from "../todo-task-presenter";
 import { IMessagePresenter } from "../message-presenter";
 
-const dummyTask: taskModule.ITask = { id: "id", name: "name" };
+const dummyTask: taskModule.ITask = { id: "id", name: "foo" };
 
 let todoTaskRepository: jest.Mocked<ITodoTaskRepository>;
 let todoTaskPresenter: jest.Mocked<ITodoTaskPresenter>;
@@ -33,9 +33,9 @@ beforeEach(() => {
 afterEach(() => jest.restoreAllMocks());
 
 it("updates and persists a task", async () => {
-  await taskUpdater.update("", dummyTask);
+  await taskUpdater.update("", { ...dummyTask, name: "bar" });
   expect(todoTaskRepository.update.mock.calls).toEqual([
-    [{ ...dummyTask, name: "bar" }]
+    ["", { ...dummyTask, name: "bar" }]
   ]);
   expect(todoTaskPresenter.presentUpdatedTask.mock.calls).toEqual([
     [{ ...dummyTask, name: "bar" }]
@@ -45,7 +45,7 @@ it("updates and persists a task", async () => {
 it("formats a task before update", async () => {
   await taskUpdater.update("", dummyTask);
   expect(todoTaskRepository.update.mock.calls).toEqual([
-    [{ ...dummyTask, name: "foo" }]
+    ["", { ...dummyTask, name: "foo" }]
   ]);
 });
 

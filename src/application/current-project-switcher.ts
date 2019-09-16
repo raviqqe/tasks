@@ -11,7 +11,7 @@ export class CurrentProjectSwitcher {
   ) {}
 
   public async switch(project: IProject): Promise<void> {
-    await this.projectPresenter.presentCurrentProject(project);
+    this.projectPresenter.presentCurrentProject(project);
     await this.currentProjectRepository.set(project.id);
     await this.todoTaskLister.list(project.id);
   }

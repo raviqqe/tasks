@@ -2,20 +2,24 @@ import { formatProject, validateProject } from "../project";
 
 describe("formatProject", () => {
   it("removes extra spaces in a name", () => {
-    expect(formatProject({ id: "", name: " foo\n" })).toEqual({
+    expect(formatProject({ archived: false, id: "", name: " foo\n" })).toEqual({
+      archived: false,
       id: "",
-      name: "foo",
-      tasks: []
+      name: "foo"
     });
   });
 });
 
 describe("validateProject", () => {
-  it("invalidates an unformatted name", () => {
-    expect(() => validateProject({ id: "", name: " foo" })).toThrowError();
+  it("throws an error with an unformatted name", () => {
+    expect(() =>
+      validateProject({ archived: false, id: "", name: " foo" })
+    ).toThrowError();
   });
 
-  it("invalidates an empty name", () => {
-    expect(() => validateProject({ id: "", name: "" })).toThrowError();
+  it("throws an error with an empty name", () => {
+    expect(() =>
+      validateProject({ archived: false, id: "", name: "" })
+    ).toThrowError();
   });
 });

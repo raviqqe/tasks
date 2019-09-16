@@ -29,7 +29,7 @@ it("renders after a user signs in", async () => {
   const authenticationStore = new AuthenticationStore();
   authenticationStore.setSignedIn(true);
   const projectsStore = new ProjectsStore();
-  projectsStore.setCurrentProject({ id: "", name: "", taskIDs: [] });
+  projectsStore.setCurrentProject({ id: "", name: "" });
   projectsStore.setProjects([]);
 
   const result = render(

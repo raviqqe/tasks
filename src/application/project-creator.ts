@@ -16,7 +16,8 @@ export class ProjectCreator {
 
   public async create(name: string): Promise<void> {
     const project: IProject = formatProject({
-      id: new UUID(4).toString(),
+      archived: false,
+      id: new UUID(4).format(),
       name
     });
 

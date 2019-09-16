@@ -10,7 +10,7 @@ it("renders", () => {
     create(
       <Home
         createTask={async () => {}}
-        currentProject={{ id: "", name: "", taskIDs: [] }}
+        currentProject={{ archived: false, id: "", name: "" }}
         listMoreTasks={async () => {}}
         listTasks={async () => {}}
         signOut={async () => undefined}

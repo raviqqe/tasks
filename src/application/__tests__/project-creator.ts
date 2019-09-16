@@ -16,10 +16,12 @@ beforeEach(() => {
   >;
   projectRepository = {
     create: jest.fn(),
-    list: jest.fn(async () => [{ id: "", name: "foo", taskIDs: [] }]),
+    list: jest.fn(async () => [{ archived: false, id: "", name: "foo" }]),
+    listArchived: jest.fn(),
     update: jest.fn()
   };
   projectPresenter = {
+    presentArchivedProjects: jest.fn(),
     presentCurrentProject: jest.fn(),
     presentProjects: jest.fn()
   };
@@ -35,11 +37,9 @@ beforeEach(() => {
 it("creates and persists a project", async () => {
   await projectCreator.create("foo");
 
-  const project = { id: expect.any(String), name: "foo", taskIDs: [] };
+  const project = { archived: false, id: expect.any(String), name: "foo" };
   expect(projectRepository.create.mock.calls).toEqual([[project]]);
-  expect(projectPresenter.presentCurrentProject.mock.calls).toEqual([
-    [project]
-  ]);
+  expect(currentProjectSwitcher.switch.mock.calls).toEqual([[project]]);
   expect(projectPresenter.presentProjects.mock.calls).toEqual([[[project]]]);
 });
 
