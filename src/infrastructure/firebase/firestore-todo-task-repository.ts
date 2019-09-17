@@ -8,6 +8,11 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
     await this.tasksCollection(projectID)
       .doc(task.id)
       .set(task);
+
+    await this.order(projectID).set([
+      task.id,
+      ...(await this.getOrder(projectID))
+    ]);
   }
 
   public async delete(projectID: string, taskID: string): Promise<void> {
@@ -23,15 +28,21 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
         .map(task => [task.id, task])
     );
 
-    return ((await this.order(projectID).get()).data() as string[]).map(
-      id => tasks[id]
-    );
+    return (await this.getOrder(projectID)).map(id => tasks[id]);
+  }
+
+  public async reorder(projectID: string, taskIDs: string[]): Promise<void> {
+    await this.order(projectID).set(taskIDs);
   }
 
   public async update(projectID: string, task: ITask): Promise<void> {
     await this.tasksCollection(projectID)
       .doc(task.id)
       .update(task);
+  }
+
+  private async getOrder(projectID: string): Promise<string[]> {
+    return (await this.order(projectID).get()).data() as string[];
   }
 
   private tasksCollection(

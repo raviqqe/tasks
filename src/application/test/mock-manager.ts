@@ -81,6 +81,7 @@ export class MockManager {
     create: jest.fn(),
     delete: jest.fn(),
     list: jest.fn(),
+    reorder: jest.fn(),
     update: jest.fn()
   };
 
