@@ -12,4 +12,8 @@ export class MobxProjectPresenter implements IProjectPresenter {
   public presentProjects(projects: IProject[]): void {
     this.store.setProjects(projects);
   }
+
+  public presentArchivedProjects(projects: IProject[]): void {
+    this.store.setArchivedProjects(projects);
+  }
 }

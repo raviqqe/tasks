@@ -18,5 +18,11 @@
     "strict": true,
     "target": "es5"
   },
-  "include": ["src/domain", "src/application"]
+  "include": [
+    "src/domain",
+    "src/application",
+    "src/infrastructure/firebase",
+    "src/infrastructure/mobx",
+    "src/infrastructure/*.ts"
+  ]
 }

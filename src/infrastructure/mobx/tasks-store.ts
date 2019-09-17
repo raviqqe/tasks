@@ -38,4 +38,18 @@ export class TasksStore {
 
     this.todoTasks = this.todoTasks.filter(task => task.id !== taskID);
   }
+
+  @action
+  public setDoneTasks(tasks: ITask[]): void {
+    this.doneTasks = tasks;
+  }
+
+  @action
+  public prependDoneTask(task: ITask): void {
+    if (!this.doneTasks) {
+      throw new Error("done tasks not loaded");
+    }
+
+    this.doneTasks = [task, ...this.doneTasks];
+  }
 }
