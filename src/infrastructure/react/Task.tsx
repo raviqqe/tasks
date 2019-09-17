@@ -25,27 +25,29 @@ const ButtonContainer = styled.div`
 
 interface IProps {
   task: ITask;
-  updateTask: (task: ITask, text: string) => Promise<void>;
+  updateTask?: (task: ITask) => Promise<void>;
 }
 
 export const Task = ({ task, updateTask, ...restProps }: IProps) => (
   <Container {...restProps}>
     <Name>{task.name}</Name>
-    <ButtonContainer>
-      <IconButton
-        aria-label="Edit"
-        onClick={async () => {
-          const name = window.prompt("New task name?", task.name);
+    {updateTask && (
+      <ButtonContainer>
+        <IconButton
+          aria-label="Edit"
+          onClick={async () => {
+            const name = window.prompt("New task name?", task.name);
 
-          if (!name) {
-            return;
-          }
+            if (!name) {
+              return;
+            }
 
-          await updateTask(task, name);
-        }}
-      >
-        <MdEdit />
-      </IconButton>
-    </ButtonContainer>
+            await updateTask({ ...task, name });
+          }}
+        >
+          <MdEdit />
+        </IconButton>
+      </ButtonContainer>
+    )}
   </Container>
 );

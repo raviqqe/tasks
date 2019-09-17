@@ -9,14 +9,12 @@ it("renders", () => {
   expect(
     create(
       <Home
-        createTask={async () => {}}
+        createTodoTask={async () => {}}
         currentProject={{ archived: false, id: "", name: "" }}
-        listMoreTasks={async () => {}}
-        listTasks={async () => {}}
         signOut={async () => undefined}
         projects={[]}
-        tasks={[]}
-        updateTask={async () => {}}
+        todoTasks={[]}
+        updateTodoTask={async () => {}}
       />
     ).toJSON()
   ).toMatchSnapshot();

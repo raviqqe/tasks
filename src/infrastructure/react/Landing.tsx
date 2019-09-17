@@ -50,8 +50,8 @@ export interface IProps {
 export const Landing = ({ repositoryURL, signIn }: IProps) => (
   <Container>
     <Title>
-      <White>Self</White>
-      <Red>Talk</Red>
+      <White>Be</White>
+      <Red>Done</Red>
     </Title>
     <SignIn signIn={signIn} />
     <GitHubLink href={repositoryURL} target="_blank">

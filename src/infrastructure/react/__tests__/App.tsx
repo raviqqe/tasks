@@ -11,13 +11,11 @@ it("renders before a user signs in", async () => {
       authenticationStore={new AuthenticationStore()}
       projectsStore={new ProjectsStore()}
       tasksStore={new TasksStore()}
-      createTask={async () => {}}
+      createTodoTask={async () => {}}
       initialize={async () => {}}
-      listTasks={async () => {}}
-      listMoreTasks={async () => {}}
       signIn={() => {}}
       signOut={() => {}}
-      updateTask={async () => {}}
+      updateTodoTask={async () => {}}
       repositoryURL=""
     />
   );
@@ -29,7 +27,7 @@ it("renders after a user signs in", async () => {
   const authenticationStore = new AuthenticationStore();
   authenticationStore.setSignedIn(true);
   const projectsStore = new ProjectsStore();
-  projectsStore.setCurrentProject({ id: "", name: "" });
+  projectsStore.setCurrentProject({ archived: false, id: "", name: "" });
   projectsStore.setProjects([]);
 
   const result = render(
@@ -37,13 +35,11 @@ it("renders after a user signs in", async () => {
       authenticationStore={authenticationStore}
       projectsStore={projectsStore}
       tasksStore={new TasksStore()}
-      createTask={async () => {}}
+      createTodoTask={async () => {}}
       initialize={async () => {}}
-      listTasks={async () => {}}
-      listMoreTasks={async () => {}}
       signIn={() => {}}
       signOut={() => {}}
-      updateTask={async () => {}}
+      updateTodoTask={async () => {}}
       repositoryURL=""
     />
   );
@@ -60,13 +56,11 @@ it("renders after a user signs out", async () => {
       authenticationStore={authenticationStore}
       projectsStore={new ProjectsStore()}
       tasksStore={new TasksStore()}
-      createTask={async () => {}}
+      createTodoTask={async () => {}}
       initialize={async () => {}}
-      listTasks={async () => {}}
-      listMoreTasks={async () => {}}
       signIn={() => {}}
       signOut={() => {}}
-      updateTask={async () => {}}
+      updateTodoTask={async () => {}}
       repositoryURL=""
     />
   );

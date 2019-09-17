@@ -19,6 +19,7 @@ beforeEach(() => {
     mockManager.projectCreator,
     mockManager.projectRepository,
     mockManager.projectPresenter,
+    mockManager.currentProjectSwitcher,
     mockManager.currentProjectRepository
   );
 });
@@ -40,9 +41,9 @@ it("presents sign-in state", async () => {
 it("presents an initial project", async () => {
   await applicationInitializer.initialize();
 
-  expect(mockManager.projectPresenter.presentCurrentProject.mock.calls).toEqual(
-    [[dummyProject]]
-  );
+  expect(mockManager.currentProjectSwitcher.switch.mock.calls).toEqual([
+    [dummyProject]
+  ]);
   expect(mockManager.projectPresenter.presentProjects.mock.calls).toEqual([
     [[dummyProject]]
   ]);
@@ -53,9 +54,9 @@ it("presents an initial project even if no current project ID is set", async () 
 
   await applicationInitializer.initialize();
 
-  expect(mockManager.projectPresenter.presentCurrentProject.mock.calls).toEqual(
-    [[dummyProject]]
-  );
+  expect(mockManager.currentProjectSwitcher.switch.mock.calls).toEqual([
+    [dummyProject]
+  ]);
   expect(mockManager.projectPresenter.presentProjects.mock.calls).toEqual([
     [[dummyProject]]
   ]);
@@ -74,6 +75,6 @@ it("does not present any project if a user is not signed in", async () => {
 
   await applicationInitializer.initialize();
 
-  expect(mockManager.projectPresenter.presentCurrentProject).not.toBeCalled();
+  expect(mockManager.currentProjectSwitcher.switch).not.toBeCalled();
   expect(mockManager.projectPresenter.presentProjects).not.toBeCalled();
 });

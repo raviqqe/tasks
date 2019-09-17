@@ -5,6 +5,7 @@ import { ProjectCreator } from "./project-creator";
 import { IProjectRepository } from "./project-repository";
 import { IProjectPresenter } from "./project-presenter";
 import { ICurrentProjectRepository } from "./current-project-repository";
+import { CurrentProjectSwitcher } from "./current-project-switcher";
 
 export class ApplicationInitializer {
   constructor(
@@ -14,6 +15,7 @@ export class ApplicationInitializer {
     private readonly projectCreator: ProjectCreator,
     private readonly projectRepository: IProjectRepository,
     private readonly projectPresenter: IProjectPresenter,
+    private readonly currentProjectSwitcher: CurrentProjectSwitcher,
     private readonly currentProjectRepository: ICurrentProjectRepository
   ) {}
 
@@ -34,7 +36,7 @@ export class ApplicationInitializer {
     }
 
     const currentProjectID = await this.currentProjectRepository.get();
-    this.projectPresenter.presentCurrentProject(
+    await this.currentProjectSwitcher.switch(
       projects.find(project => project.id === currentProjectID) || projects[0]
     );
     this.projectPresenter.presentProjects(projects);

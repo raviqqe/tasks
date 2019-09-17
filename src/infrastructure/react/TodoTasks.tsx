@@ -1,5 +1,4 @@
 import { PulseLoader } from "react-spinners";
-import { useAsync } from "react-use";
 import React from "react";
 import styled from "styled-components";
 import { ITask } from "../../domain/task";
@@ -29,18 +28,11 @@ const StyledTask = styled(Task)`
 
 export interface IProps {
   todoTasks: ITask[] | null;
-  listTodoTasks: () => Promise<void>;
   updateTodoTask: (task: ITask) => Promise<void>;
 }
 
-export const TodoTasks = ({
-  todoTasks,
-  listTodoTasks,
-  updateTodoTask
-}: IProps) => {
-  useAsync(listTodoTasks, []);
-
-  return todoTasks ? (
+export const TodoTasks = ({ todoTasks, updateTodoTask }: IProps) =>
+  todoTasks ? (
     <Container>
       <Tasks>
         {todoTasks.map((task: ITask) => (
@@ -53,4 +45,3 @@ export const TodoTasks = ({
       <PulseLoader color="white" />
     </LoaderContainer>
   );
-};

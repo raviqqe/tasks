@@ -1,9 +1,9 @@
 import { create } from "react-test-renderer";
 import React from "react";
-import { CreateTask } from "../CreateTask";
+import { CreateTodoTask } from "../CreateTodoTask";
 
 it("renders", () => {
   expect(
-    create(<CreateTask createTask={async () => undefined} />).toJSON()
+    create(<CreateTodoTask createTodoTask={async () => {}} />).toJSON()
   ).toMatchSnapshot();
 });

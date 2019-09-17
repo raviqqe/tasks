@@ -18,7 +18,7 @@ const LoaderContainer = styled.div`
 `;
 
 interface IProps
-  extends Omit<IHomeProps, "currentProject" | "projects" | "tasks">,
+  extends Omit<IHomeProps, "currentProject" | "projects" | "todoTasks">,
     ILandingProps {
   authenticationStore: AuthenticationStore;
   projectsStore: ProjectsStore;

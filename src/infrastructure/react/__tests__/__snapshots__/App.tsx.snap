@@ -79,12 +79,12 @@ exports[`renders after a user signs out 1`] = `
       <span
         class="sc-ifAKCX hrWLvt"
       >
-        Self
+        Be
       </span>
       <span
         class="sc-EHOje blkkiu"
       >
-        Talk
+        Done
       </span>
     </div>
     <button

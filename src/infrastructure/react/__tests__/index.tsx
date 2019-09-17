@@ -1,7 +1,6 @@
 import { ApplicationInitializer } from "../../../application/application-initializer";
-import { TaskCreator } from "../../../application/task-creator";
-import { TaskLister } from "../../../application/task-lister";
-import { TaskUpdater } from "../../../application/task-updater";
+import { TodoTaskCreator } from "../../../application/todo-task-creator";
+import { TodoTaskUpdater } from "../../../application/todo-task-updater";
 import { SignInManager } from "../../../application/sign-in-manager";
 import { SignOutManager } from "../../../application/sign-out-manager";
 import { AuthenticationStore } from "../../mobx/authentication-store";
@@ -12,9 +11,8 @@ import { ReactRenderer } from "..";
 it("renders", () => {
   new ReactRenderer(
     {} as ApplicationInitializer,
-    {} as TaskCreator,
-    {} as TaskLister,
-    {} as TaskUpdater,
+    {} as TodoTaskCreator,
+    {} as TodoTaskUpdater,
     {} as SignInManager,
     {} as SignOutManager,
     new AuthenticationStore(),

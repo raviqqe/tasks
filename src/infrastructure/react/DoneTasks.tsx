@@ -29,30 +29,28 @@ const StyledTask = styled(Task)`
 `;
 
 export interface IProps {
-  tasks: ITask[] | null;
-  listTasks: () => Promise<void>;
-  listMoreTasks: () => Promise<void>;
-  updateTask: (task: ITask, text: string) => Promise<void>;
+  doneTasks: ITask[] | null;
+  listDoneTasks: () => Promise<void>;
+  listMoreDoneTasks: () => Promise<void>;
 }
 
 export const Tasks = ({
-  tasks,
-  listTasks,
-  listMoreTasks,
-  updateTask
+  doneTasks,
+  listDoneTasks,
+  listMoreDoneTasks
 }: IProps) => {
-  useAsync(listTasks, []);
+  useAsync(listDoneTasks, []);
 
-  return tasks ? (
+  return doneTasks ? (
     <Container>
       <StyledInfiniteScroller
         hasMore={true}
-        loadMore={listMoreTasks}
+        loadMore={listMoreDoneTasks}
         threshold={512}
         useWindow={false}
       >
-        {tasks.map((task: ITask) => (
-          <StyledTask key={task.id} task={task} updateTask={updateTask} />
+        {doneTasks.map((task: ITask) => (
+          <StyledTask key={task.id} task={task} />
         ))}
       </StyledInfiniteScroller>
     </Container>

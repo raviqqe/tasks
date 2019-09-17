@@ -2,7 +2,6 @@ import { render } from "react-dom";
 import React from "react";
 import { ApplicationInitializer } from "../../application/application-initializer";
 import { TodoTaskCreator } from "../../application/todo-task-creator";
-import { TodoTaskLister } from "../../application/todo-task-lister";
 import { TodoTaskUpdater } from "../../application/todo-task-updater";
 import { ITask } from "../../domain/task";
 import { SignInManager } from "../../application/sign-in-manager";
@@ -17,7 +16,6 @@ export class ReactRenderer {
   constructor(
     private readonly applicationInitializer: ApplicationInitializer,
     private readonly todoTaskCreator: TodoTaskCreator,
-    private readonly todoTaskLister: TodoTaskLister,
     private readonly todoTaskUpdater: TodoTaskUpdater,
     private readonly signInManager: SignInManager,
     private readonly signOutManager: SignOutManager,
@@ -33,19 +31,27 @@ export class ReactRenderer {
         <App
           authenticationStore={this.authenticationStore}
           projectsStore={this.projectsStore}
-          tasksStore={this.todoTasksStore}
-          createTodoTask={(text: string) => this.todoTaskCreator.create(text)}
+          tasksStore={this.tasksStore}
+          createTodoTask={async (name: string) => {
+            if (this.projectsStore.currentProject) {
+              await this.todoTaskCreator.create(
+                this.projectsStore.currentProject.id,
+                name
+              );
+            }
+          }}
           initialize={() => this.applicationInitializer.initialize()}
-          listTodoTasks={() => this.todoTaskLister.list()}
           repositoryURL={this.repositoryURL}
           signIn={() => this.signInManager.signIn()}
           signOut={() => this.signOutManager.signOut()}
-          updateTodoTask={(task: ITask) =>
-            this.todoTaskUpdater.update(
-              this.projectsStore.currentProject.id,
-              task
-            )
-          }
+          updateTodoTask={async (task: ITask) => {
+            if (this.projectsStore.currentProject) {
+              await this.todoTaskUpdater.update(
+                this.projectsStore.currentProject.id,
+                task
+              );
+            }
+          }}
         />
         <GlobalStyle />
       </>,
