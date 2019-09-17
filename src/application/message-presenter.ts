@@ -1,3 +1,3 @@
 export interface IMessagePresenter {
-  present(message: string): Promise<void>;
+  present(message: string): void;
 }

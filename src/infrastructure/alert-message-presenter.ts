@@ -1,5 +1,7 @@
-export class AlertMessagePresenter {
-  public async present(message: string): Promise<void> {
+import { IMessagePresenter } from "../application/message-presenter";
+
+export class AlertMessagePresenter implements IMessagePresenter {
+  public present(message: string): void {
     alert(message);
   }
 }
