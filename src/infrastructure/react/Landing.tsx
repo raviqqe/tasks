@@ -28,7 +28,7 @@ const White = styled.span`
 `;
 
 const Red = styled.span`
-  color: salmon;
+  color: indianred;
 `;
 
 const GitHubLink = styled.a`

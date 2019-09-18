@@ -7,20 +7,17 @@ import { boxShadow } from "./style";
 
 const Container = styled.div`
   ${boxShadow};
+  display: flex;
+  justify-content: space-between
+  align-items: center;
   background: white;
-  padding: 1em;
-  padding-right: 2.1em;
+  padding: 0.8em;
   border-radius: 0.5em;
-  position: relative;
 `;
 
-const Name = styled.div``;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  position: absolute;
-  top: 0.4em;
-  right: 0.4em;
+const Name = styled.div`
+  word-break: break-word;
+  margin-right: 0.5ex;
 `;
 
 interface IProps {
@@ -32,22 +29,20 @@ export const Task = ({ task, updateTask, ...restProps }: IProps) => (
   <Container {...restProps}>
     <Name>{task.name}</Name>
     {updateTask && (
-      <ButtonContainer>
-        <IconButton
-          aria-label="Edit"
-          onClick={async () => {
-            const name = window.prompt("New task name?", task.name);
+      <IconButton
+        aria-label="Edit"
+        onClick={async () => {
+          const name = window.prompt("New task name?", task.name);
 
-            if (!name) {
-              return;
-            }
+          if (!name) {
+            return;
+          }
 
-            await updateTask({ ...task, name });
-          }}
-        >
-          <MdEdit />
-        </IconButton>
-      </ButtonContainer>
+          await updateTask({ ...task, name });
+        }}
+      >
+        <MdEdit />
+      </IconButton>
     )}
   </Container>
 );
