@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { IProject } from "../../domain/project";
 import { boxShadow } from "./style";
 import { SignOut, IProps as ISignOutProps } from "./SignOut";
+import { Project, IProps as IProjectProps } from "./Project";
 
 const Container = styled.div`
   ${boxShadow}
@@ -13,12 +13,6 @@ const Container = styled.div`
   flex-shrink: 0;
   background-color: indianred;
   width: 100%;
-`;
-
-const Project = styled.div`
-  color: white;
-  font-size: 2rem;
-  padding: 0.5em;
 `;
 
 const SignOutContainer = styled.div`
@@ -33,14 +27,11 @@ const StyledSignOut = styled(SignOut)`
   font-size: 1.75rem;
 `;
 
-export interface IProps extends ISignOutProps {
-  currentProject: IProject;
-  projects: IProject[];
-}
+export interface IProps extends IProjectProps, ISignOutProps {}
 
-export const TopBar = ({ currentProject: { name }, signOut }: IProps) => (
+export const TopBar = ({ currentProject, projects, signOut }: IProps) => (
   <Container>
-    <Project>{name}</Project>
+    <Project currentProject={currentProject} projects={projects} />
     <SignOutContainer>
       <StyledSignOut signOut={signOut} />
     </SignOutContainer>
