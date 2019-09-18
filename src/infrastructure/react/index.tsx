@@ -3,6 +3,7 @@ import React from "react";
 import { ApplicationInitializer } from "../../application/application-initializer";
 import { TodoTaskCreator } from "../../application/todo-task-creator";
 import { TodoTaskUpdater } from "../../application/todo-task-updater";
+import { TodoTaskCompleter } from "../../application/todo-task-completer";
 import { ITask } from "../../domain/task";
 import { SignInManager } from "../../application/sign-in-manager";
 import { SignOutManager } from "../../application/sign-out-manager";
@@ -17,6 +18,7 @@ export class ReactRenderer {
     private readonly applicationInitializer: ApplicationInitializer,
     private readonly todoTaskCreator: TodoTaskCreator,
     private readonly todoTaskUpdater: TodoTaskUpdater,
+    private readonly todoTaskCompleter: TodoTaskCompleter,
     private readonly signInManager: SignInManager,
     private readonly signOutManager: SignOutManager,
     private readonly authenticationStore: AuthenticationStore,
@@ -37,6 +39,14 @@ export class ReactRenderer {
               await this.todoTaskCreator.create(
                 this.projectsStore.currentProject.id,
                 name
+              );
+            }
+          }}
+          completeTodoTask={async (task: ITask) => {
+            if (this.projectsStore.currentProject) {
+              await this.todoTaskCompleter.complete(
+                this.projectsStore.currentProject.id,
+                task
               );
             }
           }}

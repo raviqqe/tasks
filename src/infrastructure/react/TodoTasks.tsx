@@ -30,16 +30,26 @@ const StyledTask = styled(Task)`
 `;
 
 export interface IProps {
+  completeTodoTask: (task: ITask) => Promise<void>;
   todoTasks: ITask[] | null;
   updateTodoTask: (task: ITask) => Promise<void>;
 }
 
-export const TodoTasks = ({ todoTasks, updateTodoTask }: IProps) =>
+export const TodoTasks = ({
+  completeTodoTask,
+  todoTasks,
+  updateTodoTask
+}: IProps) =>
   todoTasks ? (
     <Container>
       <Tasks>
         {todoTasks.map((task: ITask) => (
-          <StyledTask key={task.id} task={task} updateTask={updateTodoTask} />
+          <StyledTask
+            completeTask={completeTodoTask}
+            key={task.id}
+            task={task}
+            updateTask={updateTodoTask}
+          />
         ))}
       </Tasks>
     </Container>

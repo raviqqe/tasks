@@ -1,4 +1,4 @@
-import { MdEdit } from "react-icons/md";
+import { MdCheck, MdEdit } from "react-icons/md";
 import React from "react";
 import styled from "styled-components";
 import { ITask } from "../../domain/task";
@@ -20,29 +20,51 @@ const Name = styled.div`
   margin-right: 0.5ex;
 `;
 
+const ButtonsContainer = styled.div`
+  display: flex;
+  align-items: center;
+
+  > *:not(:first-child) {
+    margin-left: 0.25rem;
+  }
+`;
+
 interface IProps {
+  completeTask?: (task: ITask) => Promise<void>;
   task: ITask;
   updateTask?: (task: ITask) => Promise<void>;
 }
 
-export const Task = ({ task, updateTask, ...restProps }: IProps) => (
+export const Task = ({
+  completeTask,
+  task,
+  updateTask,
+  ...restProps
+}: IProps) => (
   <Container {...restProps}>
     <Name>{task.name}</Name>
-    {updateTask && (
-      <IconButton
-        aria-label="Edit"
-        onClick={async () => {
-          const name = window.prompt("New task name?", task.name);
+    <ButtonsContainer>
+      {completeTask && (
+        <IconButton aria-label="Done" onClick={() => completeTask(task)}>
+          <MdCheck />
+        </IconButton>
+      )}
+      {updateTask && (
+        <IconButton
+          aria-label="Edit"
+          onClick={async () => {
+            const name = window.prompt("New task name?", task.name);
 
-          if (!name) {
-            return;
-          }
+            if (!name) {
+              return;
+            }
 
-          await updateTask({ ...task, name });
-        }}
-      >
-        <MdEdit />
-      </IconButton>
-    )}
+            await updateTask({ ...task, name });
+          }}
+        >
+          <MdEdit />
+        </IconButton>
+      )}
+    </ButtonsContainer>
   </Container>
 );

@@ -25,6 +25,7 @@ import { CurrentProjectSwitcher } from "./application/current-project-switcher";
 import { LocalForageCurrentProjectRepository } from "./infrastructure/local-forage-current-project-repository";
 import { DoneTaskLister } from "./application/done-task-lister";
 import { MobxDoneTaskPresenter } from "./infrastructure/mobx/mobx-done-task-presenter";
+import { TodoTaskCompleter } from "./application/todo-task-completer";
 
 // Instantiate this at the very beginning to initialize Firebase's default app.
 const firebaseInitializer = new FirebaseInitializer(
@@ -96,6 +97,12 @@ async function main() {
       todoTaskRepository,
       todoTaskPresenter,
       messagePresenter
+    ),
+    new TodoTaskCompleter(
+      todoTaskRepository,
+      doneTaskRepository,
+      todoTaskPresenter,
+      doneTaskPresenter
     ),
     new SignInManager(authenticationController),
     new SignOutManager(authenticationController, authenticationPresenter),

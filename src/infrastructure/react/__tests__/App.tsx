@@ -11,6 +11,7 @@ it("renders before a user signs in", async () => {
       authenticationStore={new AuthenticationStore()}
       projectsStore={new ProjectsStore()}
       tasksStore={new TasksStore()}
+      completeTodoTask={async () => {}}
       createTodoTask={async () => {}}
       initialize={async () => {}}
       signIn={() => {}}
@@ -35,6 +36,7 @@ it("renders after a user signs in", async () => {
       authenticationStore={authenticationStore}
       projectsStore={projectsStore}
       tasksStore={new TasksStore()}
+      completeTodoTask={async () => {}}
       createTodoTask={async () => {}}
       initialize={async () => {}}
       signIn={() => {}}
@@ -56,6 +58,7 @@ it("renders after a user signs out", async () => {
       authenticationStore={authenticationStore}
       projectsStore={new ProjectsStore()}
       tasksStore={new TasksStore()}
+      completeTodoTask={async () => {}}
       createTodoTask={async () => {}}
       initialize={async () => {}}
       signIn={() => {}}

@@ -18,6 +18,10 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
     await this.tasksCollection(projectID)
       .doc(taskID)
       .delete();
+
+    await this.order(projectID).set({
+      order: (await this.getOrder(projectID)).filter(id => id !== taskID)
+    });
   }
 
   public async list(projectID: string): Promise<ITask[]> {

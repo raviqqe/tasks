@@ -35,6 +35,7 @@ export interface IProps
     ITodoTasksProps {}
 
 export const Home = ({
+  completeTodoTask,
   createTodoTask,
   currentProject,
   projects,
@@ -48,7 +49,11 @@ export const Home = ({
       projects={projects}
       signOut={signOut}
     />
-    <TodoTasks todoTasks={todoTasks} updateTodoTask={updateTodoTask} />
+    <TodoTasks
+      completeTodoTask={completeTodoTask}
+      todoTasks={todoTasks}
+      updateTodoTask={updateTodoTask}
+    />
     <ButtonsContainer>
       <CreateTodoTask createTodoTask={createTodoTask} />
     </ButtonsContainer>

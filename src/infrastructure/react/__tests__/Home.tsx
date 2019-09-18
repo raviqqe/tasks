@@ -9,6 +9,7 @@ it("renders", () => {
   expect(
     create(
       <Home
+        completeTodoTask={async () => {}}
         createTodoTask={async () => {}}
         currentProject={{ archived: false, id: "", name: "" }}
         signOut={async () => undefined}
