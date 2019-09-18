@@ -1,5 +1,5 @@
 import "firebase/firestore";
-import * as firebase from "firebase/app";
+import firebase from "firebase/app";
 import { IProject } from "../../domain/project";
 import { IProjectRepository } from "../../application/project-repository";
 
@@ -12,15 +12,15 @@ export class FirestoreProjectRepository implements IProjectRepository {
 
   public async list(): Promise<IProject[]> {
     return (await this.collection()
-      .orderBy("name")
       .where("archived", "==", false)
+      .orderBy("name")
       .get()).docs.map(snapshot => snapshot.data() as IProject);
   }
 
   public async listArchived(): Promise<IProject[]> {
     return (await this.collection()
-      .orderBy("name")
       .where("archived", "==", true)
+      .orderBy("name")
       .get()).docs.map(snapshot => snapshot.data() as IProject);
   }
 

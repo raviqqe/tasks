@@ -9,10 +9,9 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
       .doc(task.id)
       .set(task);
 
-    await this.order(projectID).set([
-      task.id,
-      ...(await this.getOrder(projectID))
-    ]);
+    await this.order(projectID).set({
+      order: [task.id, ...(await this.getOrder(projectID))]
+    });
   }
 
   public async delete(projectID: string, taskID: string): Promise<void> {
@@ -42,7 +41,8 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
   }
 
   private async getOrder(projectID: string): Promise<string[]> {
-    return (await this.order(projectID).get()).data() as string[];
+    const data = (await this.order(projectID).get()).data();
+    return data ? data.order : [];
   }
 
   private tasksCollection(

@@ -12,22 +12,22 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 85ex;
+  width: 70ex;
   max-width: 100%;
   margin: auto;
 
-  > :first-child {
+  > :last-child {
     flex: 1;
   }
 `;
 
 const ButtonsContainer = styled.div`
   position: fixed;
-  top: 0.5rem;
+  bottom: 0.5rem;
   right: 0.5rem;
 
   > * {
-    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
   }
 `;
 

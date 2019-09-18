@@ -24,7 +24,7 @@ export class ProjectCreator {
     try {
       validateProject(project);
     } catch (error) {
-      await this.messagePresenter.present(formatErrorMessage(error));
+      this.messagePresenter.present(formatErrorMessage(error));
       return;
     }
 
