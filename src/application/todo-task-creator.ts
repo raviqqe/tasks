@@ -18,11 +18,11 @@ export class TodoTaskCreator {
     try {
       validateTask(task);
     } catch (error) {
-      await this.messagePresenter.present(formatErrorMessage(error));
+      this.messagePresenter.present(formatErrorMessage(error));
       return;
     }
 
-    await this.todoTaskRepository.create(projectID, task);
     this.todoTaskPresenter.presentNewTask(task);
+    await this.todoTaskRepository.create(projectID, task);
   }
 }

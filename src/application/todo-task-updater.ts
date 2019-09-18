@@ -17,11 +17,11 @@ export class TodoTaskUpdater {
     try {
       validateTask(task);
     } catch (error) {
-      await this.messagePresenter.present(formatErrorMessage(error));
+      this.messagePresenter.present(formatErrorMessage(error));
       return;
     }
 
-    await this.todoTaskRepository.update(projectID, task);
     this.todoTaskPresenter.presentUpdatedTask(task);
+    await this.todoTaskRepository.update(projectID, task);
   }
 }
