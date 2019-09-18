@@ -3,10 +3,13 @@ import React from "react";
 import styled from "styled-components";
 import { ITask } from "../../domain/task";
 import { Task } from "./Task";
+import { buttonMargin } from "./style";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  width: 70ex;
+  max-width: 100%;
   overflow: auto;
 `;
 
@@ -19,7 +22,7 @@ const LoaderContainer = styled.div`
 const Tasks = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1em 0.5em;
+  padding: 1em 0.5em ${buttonMargin};
 `;
 
 const StyledTask = styled(Task)`

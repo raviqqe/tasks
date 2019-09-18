@@ -3,22 +3,16 @@ import styled from "styled-components";
 import { IProject } from "../../domain/project";
 import { boxShadow } from "./style";
 
-const Background = styled.div`
-  ${boxShadow}
-  position: absolute;
-  background-color: indianred;
-  width: 200vw;
-  height: 100%;
-  z-index: -1;
-  top: 0;
-`;
-
 const Container = styled.div`
-  position: relative;
+  ${boxShadow}
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 2rem;
+  background-color: indianred;
   color: white;
-  font-size: 2em;
+  width: 100%;
   padding: 0.5em;
 `;
 
@@ -27,9 +21,6 @@ export interface IProps {
   projects: IProject[];
 }
 
-export const Project = ({ currentProject: { name } }: IProps) => (
-  <Container>
-    <Background />
-    {name}
-  </Container>
+export const TopBar = ({ currentProject: { name } }: IProps) => (
+  <Container>{name}</Container>
 );

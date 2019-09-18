@@ -5,15 +5,14 @@ import {
   IProps as ICreateTodoTaskProps
 } from "./CreateTodoTask";
 import { TodoTasks, IProps as ITodoTasksProps } from "./TodoTasks";
-import { Project, IProps as IProjectProps } from "./Project";
+import { TopBar, IProps as ITopBarProps } from "./TopBar";
 import { SignOut } from "./SignOut";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 100vh;
-  width: 70ex;
-  max-width: 100%;
   margin: auto;
 
   > :last-child {
@@ -33,7 +32,7 @@ const ButtonsContainer = styled.div`
 
 export interface IProps
   extends ICreateTodoTaskProps,
-    IProjectProps,
+    ITopBarProps,
     ITodoTasksProps {
   signOut: () => void;
 }
@@ -47,7 +46,7 @@ export const Home = ({
   updateTodoTask
 }: IProps) => (
   <Container>
-    <Project currentProject={currentProject} projects={projects} />
+    <TopBar currentProject={currentProject} projects={projects} />
     <TodoTasks todoTasks={todoTasks} updateTodoTask={updateTodoTask} />
     <ButtonsContainer>
       <SignOut signOut={signOut} />
