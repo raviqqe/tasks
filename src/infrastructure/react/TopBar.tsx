@@ -22,18 +22,13 @@ const SignOutContainer = styled.div`
   transform: translateY(-50%);
 `;
 
-const StyledSignOut = styled(SignOut)`
-  color: white;
-  font-size: 1.75rem;
-`;
-
 export interface IProps extends IProjectProps, ISignOutProps {}
 
 export const TopBar = ({ currentProject, projects, signOut }: IProps) => (
   <Container>
     <Project currentProject={currentProject} projects={projects} />
     <SignOutContainer>
-      <StyledSignOut signOut={signOut} />
+      <SignOut signOut={signOut} />
     </SignOutContainer>
   </Container>
 );

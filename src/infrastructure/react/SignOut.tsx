@@ -1,13 +1,19 @@
 import { MdExitToApp } from "react-icons/md";
 import React from "react";
+import styled from "styled-components";
 import { IconButton } from "./IconButton";
+
+const StyledIconButton = styled(IconButton)`
+  color: white;
+  font-size: 1.6rem;
+`;
 
 export interface IProps {
   signOut: () => void;
 }
 
-export const SignOut = ({ signOut, ...restProps }: IProps) => (
-  <IconButton onClick={signOut} {...restProps}>
+export const SignOut = ({ signOut }: IProps) => (
+  <StyledIconButton onClick={signOut}>
     <MdExitToApp />
-  </IconButton>
+  </StyledIconButton>
 );

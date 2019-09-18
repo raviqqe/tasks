@@ -4,7 +4,7 @@ import { IProject } from "../../domain/project";
 
 const Container = styled.div`
   color: white;
-  font-size: 2rem;
+  font-size: 1.7rem;
   padding: 0.5em;
 `;
 
