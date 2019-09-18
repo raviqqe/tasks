@@ -13,13 +13,13 @@ exports[`renders 1`] = `
       Be
     </span>
     <span
-      className="sc-EHOje blkkiu"
+      className="sc-EHOje jBaNnX"
     >
       Done
     </span>
   </div>
   <button
-    className="sc-bdVaJa sc-bwzfXH cqtuLn"
+    className="sc-bdVaJa sc-bwzfXH kKIOiM"
     onClick={[Function]}
   >
     Sign in

@@ -2,46 +2,42 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-ifAKCX imvZnA"
+  className="sc-bxivhb eUjZmj"
 >
   <div
-    className="sc-bZQynM bPyAes"
+    className="sc-EHOje gjkuHV"
   >
     <div
-      className="sc-gzVnrw kFsTLF sc-bwzfXH BmIVb"
+      className="sc-bZQynM bQKmTw sc-bwzfXH pBzTh"
     >
       <div
-        className="sc-htpNat KtFsv"
+        className="sc-htpNat dMKdNv"
       >
         name
       </div>
       <div
-        className="sc-bxivhb BYutN"
+        aria-label="Edit"
+        className="sc-bdVaJa hHGyAi"
+        onClick={[Function]}
       >
-        <div
-          aria-label="Edit"
-          className="sc-bdVaJa hHGyAi"
-          onClick={[Function]}
-        >
-          <svg
-            fill="currentColor"
-            height="1em"
-            stroke="currentColor"
-            strokeWidth="0"
-            style={
-              Object {
-                "color": undefined,
-              }
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
             }
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
-            />
-          </svg>
-        </div>
+          }
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+          />
+        </svg>
       </div>
     </div>
   </div>
@@ -50,17 +46,17 @@ exports[`renders 1`] = `
 
 exports[`renders with no tasks 1`] = `
 <div
-  className="sc-ifAKCX imvZnA"
+  className="sc-bxivhb eUjZmj"
 >
   <div
-    className="sc-bZQynM bPyAes"
+    className="sc-EHOje gjkuHV"
   />
 </div>
 `;
 
 exports[`renders with tasks not loaded yet 1`] = `
 <div
-  className="sc-EHOje hJuYqK"
+  className="sc-ifAKCX dLTBno"
 >
   <div
     className="css-0"
