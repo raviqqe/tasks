@@ -6,7 +6,6 @@ import {
 } from "./CreateTodoTask";
 import { TodoTasks, IProps as ITodoTasksProps } from "./TodoTasks";
 import { TopBar, IProps as ITopBarProps } from "./TopBar";
-import { SignOut } from "./SignOut";
 
 const Container = styled.div`
   display: flex;
@@ -33,9 +32,7 @@ const ButtonsContainer = styled.div`
 export interface IProps
   extends ICreateTodoTaskProps,
     ITopBarProps,
-    ITodoTasksProps {
-  signOut: () => void;
-}
+    ITodoTasksProps {}
 
 export const Home = ({
   createTodoTask,
@@ -46,10 +43,13 @@ export const Home = ({
   updateTodoTask
 }: IProps) => (
   <Container>
-    <TopBar currentProject={currentProject} projects={projects} />
+    <TopBar
+      currentProject={currentProject}
+      projects={projects}
+      signOut={signOut}
+    />
     <TodoTasks todoTasks={todoTasks} updateTodoTask={updateTodoTask} />
     <ButtonsContainer>
-      <SignOut signOut={signOut} />
       <CreateTodoTask createTodoTask={createTodoTask} />
     </ButtonsContainer>
   </Container>
