@@ -28,12 +28,15 @@ module.exports = {
     ],
     "@typescript-eslint/no-var-requires": "error",
     "@typescript-eslint/prefer-readonly": "error",
+    "arrow-body-style": "error",
     "import/no-cycle": "error",
     "import/no-default-export": "error",
     "import/no-unused-modules": "error",
     "import/order": "error",
+    "no-else-return": "error",
     "no-return-await": "error",
     "no-unused-vars": "off",
+    "no-useless-return": "error",
     "sort-keys": "error"
   },
   env: {

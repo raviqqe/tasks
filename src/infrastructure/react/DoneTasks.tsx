@@ -32,8 +32,8 @@ export interface IProps {
   listMoreDoneTasks: () => Promise<void>;
 }
 
-export const DoneTasks = ({ doneTasks, listMoreDoneTasks }: IProps) => {
-  return doneTasks ? (
+export const DoneTasks = ({ doneTasks, listMoreDoneTasks }: IProps) =>
+  doneTasks ? (
     <Container>
       <StyledInfiniteScroller
         hasMore={true}
@@ -51,4 +51,3 @@ export const DoneTasks = ({ doneTasks, listMoreDoneTasks }: IProps) => {
       <PulseLoader color="white" />
     </LoaderContainer>
   );
-};
