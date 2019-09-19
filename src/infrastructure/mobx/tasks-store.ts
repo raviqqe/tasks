@@ -45,6 +45,15 @@ export class TasksStore {
   }
 
   @action
+  public appendDoneTasks(tasks: ITask[]): void {
+    if (!this.doneTasks) {
+      throw new Error("done tasks not loaded");
+    }
+
+    this.doneTasks = [...this.doneTasks, ...tasks];
+  }
+
+  @action
   public prependDoneTask(task: ITask): void {
     if (!this.doneTasks) {
       throw new Error("done tasks not loaded");

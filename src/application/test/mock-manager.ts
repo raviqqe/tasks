@@ -44,6 +44,7 @@ export class MockManager {
   } as unknown) as jest.Mocked<DoneTaskLister>;
 
   public doneTaskPresenter: jest.Mocked<IDoneTaskPresenter> = {
+    presentMoreTasks: jest.fn(),
     presentNewTask: jest.fn(),
     presentTasks: jest.fn()
   };
