@@ -67,7 +67,7 @@ it("creates a default project if none is found", async () => {
 
   await applicationInitializer.initialize();
 
-  expect(mockManager.projectCreator.create.mock.calls).toEqual([["default"]]);
+  expect(mockManager.projectCreator.create.mock.calls).toEqual([["main"]]);
 });
 
 it("does not present any project if a user is not signed in", async () => {

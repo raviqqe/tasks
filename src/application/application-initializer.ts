@@ -31,7 +31,7 @@ export class ApplicationInitializer {
     const projects = await this.projectRepository.list();
 
     if (projects.length === 0) {
-      await this.projectCreator.create("default");
+      await this.projectCreator.create("main");
       return;
     }
 
