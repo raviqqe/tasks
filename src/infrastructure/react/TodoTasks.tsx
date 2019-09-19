@@ -23,10 +23,10 @@ const Tasks = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1em 0.5em ${buttonMargin};
-`;
 
-const StyledTask = styled(Task)`
-  margin: 0.5em;
+  > * {
+    margin: 0.5em;
+  }
 `;
 
 export interface IProps {
@@ -44,7 +44,7 @@ export const TodoTasks = ({
     <Container>
       <Tasks>
         {todoTasks.map((task: ITask) => (
-          <StyledTask
+          <Task
             completeTask={completeTodoTask}
             key={task.id}
             task={task}
