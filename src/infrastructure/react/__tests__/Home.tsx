@@ -12,8 +12,10 @@ it("renders", () => {
         completeTodoTask={async () => {}}
         createTodoTask={async () => {}}
         currentProject={{ archived: false, id: "", name: "" }}
-        signOut={async () => undefined}
+        doneTasks={[]}
+        listMoreDoneTasks={async () => {}}
         projects={[]}
+        signOut={async () => undefined}
         todoTasks={[]}
         updateTodoTask={async () => {}}
       />

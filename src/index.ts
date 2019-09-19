@@ -104,6 +104,7 @@ async function main() {
       todoTaskPresenter,
       doneTaskPresenter
     ),
+    doneTaskLister,
     new SignInManager(authenticationController),
     new SignOutManager(authenticationController, authenticationPresenter),
     authenticationStore,

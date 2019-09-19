@@ -1,6 +1,5 @@
 import { PulseLoader } from "react-spinners";
 import InfiniteScroller from "react-infinite-scroller";
-import { useAsync } from "react-use";
 import React from "react";
 import styled from "styled-components";
 import { ITask } from "../../domain/task";
@@ -30,17 +29,10 @@ const StyledTask = styled(Task)`
 
 export interface IProps {
   doneTasks: ITask[] | null;
-  listDoneTasks: () => Promise<void>;
   listMoreDoneTasks: () => Promise<void>;
 }
 
-export const Tasks = ({
-  doneTasks,
-  listDoneTasks,
-  listMoreDoneTasks
-}: IProps) => {
-  useAsync(listDoneTasks, []);
-
+export const DoneTasks = ({ doneTasks, listMoreDoneTasks }: IProps) => {
   return doneTasks ? (
     <Container>
       <StyledInfiniteScroller

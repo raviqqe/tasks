@@ -2,6 +2,7 @@ import { ApplicationInitializer } from "../../../application/application-initial
 import { TodoTaskCreator } from "../../../application/todo-task-creator";
 import { TodoTaskUpdater } from "../../../application/todo-task-updater";
 import { TodoTaskCompleter } from "../../../application/todo-task-completer";
+import { DoneTaskLister } from "../../../application/done-task-lister";
 import { SignInManager } from "../../../application/sign-in-manager";
 import { SignOutManager } from "../../../application/sign-out-manager";
 import { AuthenticationStore } from "../../mobx/authentication-store";
@@ -15,6 +16,7 @@ it("renders", () => {
     {} as TodoTaskCreator,
     {} as TodoTaskUpdater,
     {} as TodoTaskCompleter,
+    {} as DoneTaskLister,
     {} as SignInManager,
     {} as SignOutManager,
     new AuthenticationStore(),

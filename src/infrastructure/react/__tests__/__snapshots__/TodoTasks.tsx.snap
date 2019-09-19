@@ -2,7 +2,7 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-ifAKCX ifBFaq"
+  className="sc-ifAKCX imvZnA"
 >
   <div
     className="sc-bZQynM iSIhSj"
@@ -74,7 +74,7 @@ exports[`renders 1`] = `
 
 exports[`renders with no tasks 1`] = `
 <div
-  className="sc-ifAKCX ifBFaq"
+  className="sc-ifAKCX imvZnA"
 >
   <div
     className="sc-bZQynM iSIhSj"

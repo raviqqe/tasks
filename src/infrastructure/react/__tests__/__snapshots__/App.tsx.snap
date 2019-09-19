@@ -3,19 +3,19 @@
 exports[`renders after a user signs in 1`] = `
 <div>
   <div
-    class="sc-chPdSV czgybv"
+    class="sc-dxgOiQ gxXLYg"
   >
     <div
-      class="sc-cSHVUG fUIuFt"
+      class="sc-kGXeez btTrnJ"
     >
       <div
-        class="sc-jzJRlG eVPtiG"
+        class="sc-kgoBCf jRsqsz"
       />
       <div
-        class="sc-kAzzGY egndBJ"
+        class="sc-kpOJdX iLMhPQ"
       >
         <div
-          class="sc-fjdhpX fzeenh sc-htoDjs eCTZgG"
+          class="sc-chPdSV gnDUEB sc-htoDjs eCTZgG"
         >
           <svg
             fill="currentColor"
@@ -34,25 +34,47 @@ exports[`renders after a user signs in 1`] = `
       </div>
     </div>
     <div
-      class="sc-VigVT fsJODT"
+      class="sc-ckVGcZ ldJjqm"
     >
       <div
-        class="css-0"
+        class="sc-VigVT fsJODT"
       >
         <div
-          class="css-b0t2tw"
-        />
-        <div
-          class="css-fz02ge"
-        />
-        <div
-          class="css-1xlchjq"
-        />
+          class="css-0"
+        >
+          <div
+            class="css-b0t2tw"
+          />
+          <div
+            class="css-fz02ge"
+          />
+          <div
+            class="css-1xlchjq"
+          />
+        </div>
       </div>
     </div>
     <div
-      class="sc-kgoBCf fQdHQZ"
+      class="sc-jKJlTe cMlMUn"
     >
+      <button
+        aria-label="Toggle Tasks"
+        class="sc-bdVaJa sc-gzVnrw fsRgZr"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 448 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V86c0-3.3 2.7-6 6-6h340c3.3 0 6 2.7 6 6v340c0 3.3-2.7 6-6 6z"
+          />
+        </svg>
+      </button>
       <button
         aria-label="Create"
         class="sc-bdVaJa sc-gzVnrw fmAWTv"
@@ -127,7 +149,7 @@ exports[`renders after a user signs out 1`] = `
 exports[`renders before a user signs in 1`] = `
 <div>
   <div
-    class="sc-kGXeez jADrXF"
+    class="sc-eNQAEJ jEaFIf"
   >
     <div
       class="css-0"

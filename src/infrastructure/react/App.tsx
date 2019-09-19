@@ -18,7 +18,10 @@ const LoaderContainer = styled.div`
 `;
 
 interface IProps
-  extends Omit<IHomeProps, "currentProject" | "projects" | "todoTasks">,
+  extends Omit<
+      IHomeProps,
+      "currentProject" | "doneTasks" | "projects" | "todoTasks"
+    >,
     ILandingProps {
   authenticationStore: AuthenticationStore;
   projectsStore: ProjectsStore;
@@ -30,7 +33,7 @@ export const App = observer(
   ({
     authenticationStore: { signedIn },
     projectsStore: { currentProject, projects },
-    tasksStore: { todoTasks },
+    tasksStore: { doneTasks, todoTasks },
     initialize,
     repositoryURL,
     signIn,
@@ -43,6 +46,7 @@ export const App = observer(
       <Home
         {...props}
         currentProject={currentProject}
+        doneTasks={doneTasks}
         projects={projects}
         todoTasks={todoTasks}
         signOut={signOut}

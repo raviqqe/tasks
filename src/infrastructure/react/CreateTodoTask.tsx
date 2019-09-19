@@ -6,21 +6,19 @@ export interface IProps {
   createTodoTask: (name: string) => Promise<void>;
 }
 
-export const CreateTodoTask = ({ createTodoTask }: IProps) => {
-  return (
-    <CircleButton
-      aria-label="Create"
-      onClick={async () => {
-        const name = window.prompt("Task name?");
+export const CreateTodoTask = ({ createTodoTask }: IProps) => (
+  <CircleButton
+    aria-label="Create"
+    onClick={async () => {
+      const name = window.prompt("Task name?");
 
-        if (!name) {
-          return;
-        }
+      if (!name) {
+        return;
+      }
 
-        await createTodoTask(name);
-      }}
-    >
-      <MdAdd />
-    </CircleButton>
-  );
-};
+      await createTodoTask(name);
+    }}
+  >
+    <MdAdd />
+  </CircleButton>
+);

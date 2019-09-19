@@ -8,8 +8,6 @@ import { buttonMargin } from "./style";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 70ex;
-  max-width: 100%;
   overflow: auto;
 `;
 
