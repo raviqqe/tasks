@@ -2,13 +2,13 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-bxivhb eUjZmj"
+  className="sc-ifAKCX ifBFaq"
 >
   <div
-    className="sc-EHOje gjkuHV"
+    className="sc-bZQynM iSIhSj"
   >
     <div
-      className="sc-bZQynM bQKmTw sc-bwzfXH pBzTh"
+      className="sc-bwzfXH pBzTh"
     >
       <div
         className="sc-htpNat dMKdNv"
@@ -16,28 +16,56 @@ exports[`renders 1`] = `
         name
       </div>
       <div
-        aria-label="Edit"
-        className="sc-bdVaJa hHGyAi"
-        onClick={[Function]}
+        className="sc-bxivhb hVytPz"
       >
-        <svg
-          fill="currentColor"
-          height="1em"
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          aria-label="Done"
+          className="sc-bdVaJa hHGyAi"
+          onClick={[Function]}
         >
-          <path
-            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
-          />
-        </svg>
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+            />
+          </svg>
+        </div>
+        <div
+          aria-label="Edit"
+          className="sc-bdVaJa hHGyAi"
+          onClick={[Function]}
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   </div>
@@ -46,17 +74,17 @@ exports[`renders 1`] = `
 
 exports[`renders with no tasks 1`] = `
 <div
-  className="sc-bxivhb eUjZmj"
+  className="sc-ifAKCX ifBFaq"
 >
   <div
-    className="sc-EHOje gjkuHV"
+    className="sc-bZQynM iSIhSj"
   />
 </div>
 `;
 
 exports[`renders with tasks not loaded yet 1`] = `
 <div
-  className="sc-ifAKCX dLTBno"
+  className="sc-EHOje hJuYqK"
 >
   <div
     className="css-0"
