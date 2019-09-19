@@ -1,5 +1,6 @@
 import "firebase/firestore";
 import firebase from "firebase/app";
+import { isEqual } from "lodash";
 import { ITask } from "../../domain/task";
 import { ITodoTaskRepository } from "../../application/todo-task-repository";
 
@@ -42,8 +43,11 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
         .filter((task): task is ITask => !!task),
       ...tasks.filter(task => !taskIDSet.has(task.id))
     ];
+    const restoredTaskIDs: string[] = restoredTasks.map(task => task.id);
 
-    await this.reorder(projectID, restoredTasks.map(task => task.id));
+    if (!isEqual(taskIDs, restoredTaskIDs)) {
+      await this.reorder(projectID, restoredTaskIDs);
+    }
 
     return restoredTasks;
   }
