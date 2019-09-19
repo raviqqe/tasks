@@ -77,7 +77,7 @@ exports[`renders after a user signs in 1`] = `
       </button>
       <button
         aria-label="Create"
-        class="sc-bdVaJa sc-gzVnrw fmAWTv"
+        class="sc-bdVaJa sc-eNQAEJ jxwoMb sc-gzVnrw fmAWTv"
       >
         <svg
           fill="currentColor"
@@ -149,7 +149,7 @@ exports[`renders after a user signs out 1`] = `
 exports[`renders before a user signs in 1`] = `
 <div>
   <div
-    class="sc-eNQAEJ jEaFIf"
+    class="sc-hMqMXs kjVbIn"
   >
     <div
       class="css-0"
