@@ -9,9 +9,10 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
       .doc(task.id)
       .set(task);
 
-    await this.order(projectID).set({
-      order: [task.id, ...(await this.getOrder(projectID))]
-    });
+    await this.reorder(projectID, [
+      task.id,
+      ...(await this.getOrder(projectID))
+    ]);
   }
 
   public async delete(projectID: string, taskID: string): Promise<void> {
@@ -19,23 +20,36 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
       .doc(taskID)
       .delete();
 
-    await this.order(projectID).set({
-      order: (await this.getOrder(projectID)).filter(id => id !== taskID)
-    });
+    await this.reorder(
+      projectID,
+      (await this.getOrder(projectID)).filter(id => id !== taskID)
+    );
   }
 
   public async list(projectID: string): Promise<ITask[]> {
-    const tasks: Record<string, ITask> = Object.fromEntries(
-      (await this.tasksCollection(projectID).get()).docs
-        .map(snapshot => snapshot.data() as ITask)
-        .map(task => [task.id, task])
+    const tasks: ITask[] = (await this.tasksCollection(
+      projectID
+    ).get()).docs.map(snapshot => snapshot.data() as ITask);
+    const taskMap: Map<string, ITask> = new Map(
+      tasks.map(task => [task.id, task])
     );
+    const taskIDs: string[] = await this.getOrder(projectID);
+    const taskIDSet = new Set<string>(taskIDs);
 
-    return (await this.getOrder(projectID)).map(id => tasks[id]);
+    const restoredTasks: ITask[] = [
+      ...taskIDs
+        .map(id => taskMap.get(id))
+        .filter((task): task is ITask => !!task),
+      ...tasks.filter(task => !taskIDSet.has(task.id))
+    ];
+
+    await this.reorder(projectID, restoredTasks.map(task => task.id));
+
+    return restoredTasks;
   }
 
   public async reorder(projectID: string, taskIDs: string[]): Promise<void> {
-    await this.order(projectID).set(taskIDs);
+    await this.order(projectID).set({ order: taskIDs });
   }
 
   public async update(projectID: string, task: ITask): Promise<void> {
