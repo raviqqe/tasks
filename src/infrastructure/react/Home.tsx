@@ -39,6 +39,10 @@ const ButtonsContainer = styled.div`
   }
 `;
 
+const StyledCreateTodoTask = styled(CreateTodoTask)<{ tasksDone: boolean }>`
+  visibility: ${({ tasksDone }) => (tasksDone ? "hidden" : "visible")};
+`;
+
 export interface IProps
   extends ICreateTodoTaskProps,
     ITopBarProps,
@@ -81,7 +85,10 @@ export const Home = ({
       </TasksContainer>
       <ButtonsContainer>
         <ToggleTasks setTasksDone={setTasksDone} tasksDone={tasksDone} />
-        <CreateTodoTask createTodoTask={createTodoTask} />
+        <StyledCreateTodoTask
+          createTodoTask={createTodoTask}
+          tasksDone={tasksDone}
+        />
       </ButtonsContainer>
     </Container>
   );

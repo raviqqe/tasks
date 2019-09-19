@@ -6,7 +6,7 @@ export interface IProps {
   createTodoTask: (name: string) => Promise<void>;
 }
 
-export const CreateTodoTask = ({ createTodoTask }: IProps) => (
+export const CreateTodoTask = ({ createTodoTask, ...restProps }: IProps) => (
   <CircleButton
     aria-label="Create"
     onClick={async () => {
@@ -18,6 +18,7 @@ export const CreateTodoTask = ({ createTodoTask }: IProps) => (
 
       await createTodoTask(name);
     }}
+    {...restProps}
   >
     <MdAdd />
   </CircleButton>
