@@ -12,6 +12,7 @@ const Container = styled.div`
 
 const Name = styled.div`
   cursor: pointer;
+  word-break: break-word;
 `;
 
 const Background = styled.div`
