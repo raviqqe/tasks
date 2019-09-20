@@ -10,7 +10,9 @@ const Container = styled.div`
   padding: 0.5em;
 `;
 
-const Name = styled.div``;
+const Name = styled.div`
+  cursor: pointer;
+`;
 
 const Background = styled.div`
   position: fixed;
@@ -52,7 +54,7 @@ export const Project = ({
               await createProject(name);
             }}
             projects={projects}
-            switchCurrentProject={project => {
+            switchCurrentProject={async (project: IProject) => {
               setProjectsShown(false);
               await switchCurrentProject(project);
             }}

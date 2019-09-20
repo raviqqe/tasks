@@ -36,7 +36,9 @@ const ProjectsContainer = styled.div`
   }
 `;
 
-const Project = styled.div``;
+const Project = styled.div`
+  cursor: pointer;
+`;
 
 export interface IProps extends ICreateProjectProps {
   projects: IProject[];
