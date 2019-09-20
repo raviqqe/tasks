@@ -2,8 +2,13 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-bdVaJa hqwmVs"
+  className="sc-EHOje bMVyjk"
 >
-  name
+  <div
+    className="sc-bZQynM bOrPFB"
+    onClick={[Function]}
+  >
+    name
+  </div>
 </div>
 `;
