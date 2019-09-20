@@ -2,23 +2,23 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-dxgOiQ gxXLYg"
+  className="sc-kpOJdX fSPTWJ"
 >
   <div
-    className="sc-kGXeez btTrnJ"
+    className="sc-kgoBCf eVxzaa"
   >
     <div
-      className="sc-cSHVUG dHYHls"
+      className="sc-cSHVUG jKkqwH"
     >
       <div
-        className="sc-kAzzGY gUMQSg"
+        className="sc-kAzzGY HDJvN"
         onClick={[Function]}
       >
         
       </div>
     </div>
     <div
-      className="sc-kpOJdX iLMhPQ"
+      className="sc-kGXeez SaYzv"
     >
       <div
         className="sc-VigVT gcSnAG sc-htpNat hXdTJJ"
@@ -46,7 +46,7 @@ exports[`renders 1`] = `
     </div>
   </div>
   <div
-    className="sc-ckVGcZ ldJjqm"
+    className="sc-dxgOiQ kXtFdf"
   >
     <div
       className="sc-bZQynM eSqhjR"
@@ -57,7 +57,7 @@ exports[`renders 1`] = `
     </div>
   </div>
   <div
-    className="sc-jKJlTe cMlMUn"
+    className="sc-ckVGcZ jsYwBS"
   >
     <button
       aria-label="Toggle Tasks"
@@ -85,7 +85,7 @@ exports[`renders 1`] = `
     </button>
     <button
       aria-label="Create"
-      className="sc-bdVaJa sc-eNQAEJ jxwoMb sc-bwzfXH bJgusQ"
+      className="sc-bdVaJa sc-jKJlTe CETdD sc-bwzfXH bJgusQ"
       onClick={[Function]}
     >
       <svg

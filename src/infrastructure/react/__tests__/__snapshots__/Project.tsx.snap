@@ -2,10 +2,10 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-EHOje bMVyjk"
+  className="sc-EHOje euhvFg"
 >
   <div
-    className="sc-bZQynM IAXmQ"
+    className="sc-bZQynM iSBCtp"
     onClick={[Function]}
   >
     name

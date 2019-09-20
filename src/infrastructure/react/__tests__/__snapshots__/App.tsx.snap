@@ -3,20 +3,20 @@
 exports[`renders after a user signs in 1`] = `
 <div>
   <div
-    class="sc-kkGfuU hKAwIS"
+    class="sc-kEYyzF gyzjQb"
   >
     <div
-      class="sc-hMqMXs jIdvDK"
+      class="sc-eNQAEJ cVAccN"
     >
       <div
-        class="sc-dxgOiQ inFwWy"
+        class="sc-dxgOiQ kRKgwW"
       >
         <div
-          class="sc-ckVGcZ knpIAd"
+          class="sc-ckVGcZ heBbzr"
         />
       </div>
       <div
-        class="sc-kEYyzF dOUwMV"
+        class="sc-hMqMXs ibbATM"
       >
         <div
           class="sc-chPdSV gnDUEB sc-htoDjs eCTZgG"
@@ -38,7 +38,7 @@ exports[`renders after a user signs in 1`] = `
       </div>
     </div>
     <div
-      class="sc-iAyFgw dnuZJF"
+      class="sc-kkGfuU gbYUBu"
     >
       <div
         class="sc-VigVT fsJODT"
@@ -59,7 +59,7 @@ exports[`renders after a user signs in 1`] = `
       </div>
     </div>
     <div
-      class="sc-hSdWYo hKhARL"
+      class="sc-iAyFgw evdMlT"
     >
       <button
         aria-label="Toggle Tasks"
@@ -81,7 +81,7 @@ exports[`renders after a user signs in 1`] = `
       </button>
       <button
         aria-label="Create"
-        class="sc-bdVaJa sc-eHgmQL bDchdt sc-gzVnrw fmAWTv"
+        class="sc-bdVaJa sc-hSdWYo dFBgoH sc-gzVnrw fmAWTv"
       >
         <svg
           fill="currentColor"
@@ -153,7 +153,7 @@ exports[`renders after a user signs out 1`] = `
 exports[`renders before a user signs in 1`] = `
 <div>
   <div
-    class="sc-cvbbAY jBSHjT"
+    class="sc-eHgmQL bgTvrV"
   >
     <div
       class="css-0"
