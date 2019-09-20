@@ -51,6 +51,7 @@ export interface IProps
 
 export const Home = ({
   completeTodoTask,
+  createProject,
   createTodoTask,
   currentProject,
   doneTasks,
@@ -65,6 +66,7 @@ export const Home = ({
   return (
     <Container>
       <TopBar
+        createProject={createProject}
         currentProject={currentProject}
         projects={projects}
         signOut={signOut}

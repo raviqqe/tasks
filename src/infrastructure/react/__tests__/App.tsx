@@ -10,6 +10,7 @@ it("renders before a user signs in", async () => {
     <App
       authenticationStore={new AuthenticationStore()}
       completeTodoTask={async () => {}}
+      createProject={async () => {}}
       createTodoTask={async () => {}}
       initialize={async () => {}}
       listMoreDoneTasks={async () => {}}
@@ -36,6 +37,7 @@ it("renders after a user signs in", async () => {
     <App
       authenticationStore={authenticationStore}
       completeTodoTask={async () => {}}
+      createProject={async () => {}}
       createTodoTask={async () => {}}
       initialize={async () => {}}
       listMoreDoneTasks={async () => {}}
@@ -59,6 +61,7 @@ it("renders after a user signs out", async () => {
     <App
       authenticationStore={authenticationStore}
       completeTodoTask={async () => {}}
+      createProject={async () => {}}
       createTodoTask={async () => {}}
       initialize={async () => {}}
       listMoreDoneTasks={async () => {}}

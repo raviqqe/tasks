@@ -105,6 +105,7 @@ async function main() {
       doneTaskPresenter
     ),
     doneTaskLister,
+    projectCreator,
     new SignInManager(authenticationController),
     new SignOutManager(authenticationController, authenticationPresenter),
     authenticationStore,

@@ -5,6 +5,7 @@ import { TodoTaskCreator } from "../../application/todo-task-creator";
 import { TodoTaskUpdater } from "../../application/todo-task-updater";
 import { TodoTaskCompleter } from "../../application/todo-task-completer";
 import { DoneTaskLister } from "../../application/done-task-lister";
+import { ProjectCreator } from "../../application/project-creator";
 import { ITask } from "../../domain/task";
 import { SignInManager } from "../../application/sign-in-manager";
 import { SignOutManager } from "../../application/sign-out-manager";
@@ -21,6 +22,7 @@ export class ReactRenderer {
     private readonly todoTaskUpdater: TodoTaskUpdater,
     private readonly todoTaskCompleter: TodoTaskCompleter,
     private readonly doneTaskLister: DoneTaskLister,
+    private readonly projectCreator: ProjectCreator,
     private readonly signInManager: SignInManager,
     private readonly signOutManager: SignOutManager,
     private readonly authenticationStore: AuthenticationStore,
@@ -34,6 +36,7 @@ export class ReactRenderer {
       <>
         <App
           authenticationStore={this.authenticationStore}
+          createProject={(name: string) => this.projectCreator.create(name)}
           projectsStore={this.projectsStore}
           tasksStore={this.tasksStore}
           createTodoTask={async (name: string) => {

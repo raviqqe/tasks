@@ -6,6 +6,7 @@ it("renders", () => {
   expect(
     create(
       <Project
+        createProject={async () => {}}
         currentProject={{ archived: false, id: "id", name: "name" }}
         projects={[]}
       />

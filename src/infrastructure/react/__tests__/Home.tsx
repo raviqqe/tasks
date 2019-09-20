@@ -10,6 +10,7 @@ it("renders", () => {
     create(
       <Home
         completeTodoTask={async () => {}}
+        createProject={async () => {}}
         createTodoTask={async () => {}}
         currentProject={{ archived: false, id: "", name: "" }}
         doneTasks={[]}
