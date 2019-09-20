@@ -4,7 +4,6 @@ import { IProject } from "../../domain/project";
 import { Projects, IProps as IProjectsProps } from "./Projects";
 
 const Container = styled.div`
-  position: relative;
   color: white;
   font-size: 1.7rem;
   padding: 0.5em;
@@ -15,20 +14,19 @@ const Name = styled.div`
   word-break: break-word;
 `;
 
-const Background = styled.div`
+const ProjectsContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-`;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-const StyledProjects = styled(Projects)`
-  position: absolute;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  max-height: calc(100vh - 2rem);
+  > * {
+    margin: 1rem;
+  }
 `;
 
 export interface IProps extends IProjectsProps {
@@ -47,9 +45,8 @@ export const Project = ({
     <Container>
       <Name onClick={() => setProjectsShown(true)}>{name}</Name>
       {projectsShown && (
-        <>
-          <Background onClick={() => setProjectsShown(false)} />
-          <StyledProjects
+        <ProjectsContainer onClick={() => setProjectsShown(false)}>
+          <Projects
             createProject={async (name: string) => {
               setProjectsShown(false);
               await createProject(name);
@@ -60,7 +57,7 @@ export const Project = ({
               await switchCurrentProject(project);
             }}
           />
-        </>
+        </ProjectsContainer>
       )}
     </Container>
   );

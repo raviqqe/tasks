@@ -10,6 +10,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   pointer-events: none;
+  overflow: hidden;
 
   > * {
     pointer-events: auto;
@@ -38,6 +39,7 @@ const ProjectsContainer = styled.div`
 
 const Project = styled.div`
   cursor: pointer;
+  word-break: break-word;
 `;
 
 export interface IProps extends ICreateProjectProps {

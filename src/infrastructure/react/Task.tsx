@@ -24,7 +24,7 @@ const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
 
-  > *:not(:first-child) {
+  > :not(:first-child) {
     margin-left: 0.25rem;
   }
 `;
