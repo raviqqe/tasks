@@ -40,13 +40,21 @@ const Project = styled.div``;
 
 export interface IProps extends ICreateProjectProps {
   projects: IProject[];
+  switchCurrentProject: (project: IProject) => Promise<void>;
 }
 
-export const Projects = ({ createProject, projects, ...restProps }: IProps) => (
+export const Projects = ({
+  createProject,
+  projects,
+  switchCurrentProject,
+  ...restProps
+}: IProps) => (
   <Container {...restProps}>
     <ProjectsContainer>
       {projects.map(project => (
-        <Project key={project.id}>{project.name}</Project>
+        <Project key={project.id} onClick={() => switchCurrentProject(project)}>
+          {project.name}
+        </Project>
       ))}
     </ProjectsContainer>
     <CreateProject createProject={createProject} />

@@ -28,13 +28,15 @@ export const TopBar = ({
   createProject,
   currentProject,
   projects,
-  signOut
+  signOut,
+  switchCurrentProject
 }: IProps) => (
   <Container>
     <Project
       createProject={createProject}
       currentProject={currentProject}
       projects={projects}
+      switchCurrentProject={switchCurrentProject}
     />
     <SignOutContainer>
       <SignOut signOut={signOut} />

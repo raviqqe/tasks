@@ -106,6 +106,7 @@ async function main() {
     ),
     doneTaskLister,
     projectCreator,
+    currentProjectSwitcher,
     new SignInManager(authenticationController),
     new SignOutManager(authenticationController, authenticationPresenter),
     authenticationStore,

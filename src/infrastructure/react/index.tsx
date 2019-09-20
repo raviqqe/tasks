@@ -6,6 +6,7 @@ import { TodoTaskUpdater } from "../../application/todo-task-updater";
 import { TodoTaskCompleter } from "../../application/todo-task-completer";
 import { DoneTaskLister } from "../../application/done-task-lister";
 import { ProjectCreator } from "../../application/project-creator";
+import { CurrentProjectSwitcher } from "../../application/current-project-switcher";
 import { ITask } from "../../domain/task";
 import { SignInManager } from "../../application/sign-in-manager";
 import { SignOutManager } from "../../application/sign-out-manager";
@@ -23,6 +24,7 @@ export class ReactRenderer {
     private readonly todoTaskCompleter: TodoTaskCompleter,
     private readonly doneTaskLister: DoneTaskLister,
     private readonly projectCreator: ProjectCreator,
+    private readonly currentProjectSwitcher: CurrentProjectSwitcher,
     private readonly signInManager: SignInManager,
     private readonly signOutManager: SignOutManager,
     private readonly authenticationStore: AuthenticationStore,
@@ -60,6 +62,9 @@ export class ReactRenderer {
           repositoryURL={this.repositoryURL}
           signIn={() => this.signInManager.signIn()}
           signOut={() => this.signOutManager.signOut()}
+          switchCurrentProject={project =>
+            this.currentProjectSwitcher.switch(project)
+          }
           updateTodoTask={async (task: ITask) => {
             if (this.projectsStore.currentProject) {
               await this.todoTaskUpdater.update(

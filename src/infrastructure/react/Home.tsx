@@ -58,6 +58,7 @@ export const Home = ({
   listMoreDoneTasks,
   projects,
   signOut,
+  switchCurrentProject,
   todoTasks,
   updateTodoTask
 }: IProps) => {
@@ -70,6 +71,7 @@ export const Home = ({
         currentProject={currentProject}
         projects={projects}
         signOut={signOut}
+        switchCurrentProject={switchCurrentProject}
       />
       <TasksContainer>
         {tasksDone ? (

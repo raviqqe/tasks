@@ -35,7 +35,8 @@ export interface IProps extends IProjectsProps {
 export const Project = ({
   createProject,
   currentProject: { name },
-  projects
+  projects,
+  switchCurrentProject
 }: IProps) => {
   const [projectsShown, setProjectsShown] = useState(false);
 
@@ -51,6 +52,10 @@ export const Project = ({
               await createProject(name);
             }}
             projects={projects}
+            switchCurrentProject={project => {
+              setProjectsShown(false);
+              await switchCurrentProject(project);
+            }}
           />
         </>
       )}
