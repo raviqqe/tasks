@@ -25,6 +25,7 @@ const StyledProjects = styled(Projects)`
   top: 1rem;
   left: 50%;
   transform: translateX(-50%);
+  max-height: calc(100vh - 2rem);
 `;
 
 export interface IProps extends IProjectsProps {
@@ -44,7 +45,13 @@ export const Project = ({
       {projectsShown && (
         <>
           <Background onClick={() => setProjectsShown(false)} />
-          <StyledProjects createProject={createProject} projects={projects} />
+          <StyledProjects
+            createProject={async (name: string) => {
+              setProjectsShown(false);
+              await createProject(name);
+            }}
+            projects={projects}
+          />
         </>
       )}
     </Container>

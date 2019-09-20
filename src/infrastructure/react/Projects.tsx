@@ -9,6 +9,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  pointer-events: none;
+
+  > * {
+    pointer-events: auto;
+  }
 
   > :last-child {
     transform: translateY(-50%);
@@ -24,6 +29,7 @@ const ProjectsContainer = styled.div`
   background-color: white;
   border-radius: 0.5rem;
   padding: 1rem 1.5rem 2.25rem;
+  overflow: auto;
 
   > :not(:first-child) {
     margin-top: 0.5em;
