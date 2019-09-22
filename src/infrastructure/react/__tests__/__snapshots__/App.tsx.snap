@@ -63,7 +63,7 @@ exports[`renders after a user signs in 1`] = `
     >
       <button
         aria-label="Toggle Tasks"
-        class="sc-bdVaJa sc-gzVnrw fsRgZr"
+        class="sc-bdVaJa sc-gzVnrw gSohIB"
       >
         <svg
           fill="currentColor"
