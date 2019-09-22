@@ -13,6 +13,10 @@ export class MobxTodoTaskPresenter implements ITodoTaskPresenter {
     this.store.prependTodoTask(task);
   }
 
+  public presentReorderedTasks(taskIDs: string[]): void {
+    this.store.reorderTodoTasks(taskIDs);
+  }
+
   public presentUpdatedTask(task: ITask): void {
     this.store.updateTodoTask(task);
   }

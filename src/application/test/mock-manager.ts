@@ -89,6 +89,7 @@ export class MockManager {
   public todoTaskPresenter: jest.Mocked<ITodoTaskPresenter> = {
     presentDeletedTask: jest.fn(),
     presentNewTask: jest.fn(),
+    presentReorderedTasks: jest.fn(),
     presentTasks: jest.fn(),
     presentUpdatedTask: jest.fn()
   };

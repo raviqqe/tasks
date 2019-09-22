@@ -20,6 +20,18 @@ export class TasksStore {
   }
 
   @action
+  public reorderTodoTasks(taskIDs: string[]): void {
+    if (!this.todoTasks) {
+      throw new Error("todo tasks not loaded");
+    }
+
+    const taskMap = new Map<string, ITask>(
+      this.todoTasks.map(task => [task.id, task])
+    );
+    this.todoTasks = taskIDs.map(id => taskMap.get(id) as ITask);
+  }
+
+  @action
   public updateTodoTask(updatedTask: ITask): void {
     if (!this.todoTasks) {
       throw new Error("todo tasks not loaded");

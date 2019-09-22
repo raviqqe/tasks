@@ -7,6 +7,7 @@ it("renders", () => {
     create(
       <TodoTasks
         completeTodoTask={async () => {}}
+        reorderTodoTasks={async () => {}}
         todoTasks={[{ id: "id", name: "name" }]}
         updateTodoTask={async () => {}}
       />
@@ -19,6 +20,7 @@ it("renders with no tasks", () => {
     create(
       <TodoTasks
         completeTodoTask={async () => {}}
+        reorderTodoTasks={async () => {}}
         todoTasks={[]}
         updateTodoTask={async () => {}}
       />
@@ -31,6 +33,7 @@ it("renders with tasks not loaded yet", () => {
     create(
       <TodoTasks
         completeTodoTask={async () => {}}
+        reorderTodoTasks={async () => {}}
         todoTasks={null}
         updateTodoTask={async () => {}}
       />

@@ -9,6 +9,7 @@ it("renders", () => {
         createProject={async () => {}}
         currentProject={{ archived: false, id: "id", name: "name" }}
         projects={[]}
+        switchCurrentProject={async () => {}}
       />
     ).toJSON()
   ).toMatchSnapshot();

@@ -57,6 +57,7 @@ export const Home = ({
   doneTasks,
   listMoreDoneTasks,
   projects,
+  reorderTodoTasks,
   signOut,
   switchCurrentProject,
   todoTasks,
@@ -82,6 +83,7 @@ export const Home = ({
         ) : (
           <TodoTasks
             completeTodoTask={completeTodoTask}
+            reorderTodoTasks={reorderTodoTasks}
             todoTasks={todoTasks}
             updateTodoTask={updateTodoTask}
           />

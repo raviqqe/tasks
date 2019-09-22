@@ -1,9 +1,6 @@
-import { cleanup } from "@testing-library/react";
 import { create } from "react-test-renderer";
 import React from "react";
 import { Home } from "../Home";
-
-afterEach(cleanup);
 
 it("renders", () => {
   expect(
@@ -16,7 +13,9 @@ it("renders", () => {
         doneTasks={[]}
         listMoreDoneTasks={async () => {}}
         projects={[]}
+        reorderTodoTasks={async () => {}}
         signOut={async () => undefined}
+        switchCurrentProject={async () => {}}
         todoTasks={[]}
         updateTodoTask={async () => {}}
       />

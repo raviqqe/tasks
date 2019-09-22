@@ -4,6 +4,7 @@ import { ApplicationInitializer } from "../../application/application-initialize
 import { TodoTaskCreator } from "../../application/todo-task-creator";
 import { TodoTaskUpdater } from "../../application/todo-task-updater";
 import { TodoTaskCompleter } from "../../application/todo-task-completer";
+import { TodoTaskReorderer } from "../../application/todo-task-reorderer";
 import { DoneTaskLister } from "../../application/done-task-lister";
 import { ProjectCreator } from "../../application/project-creator";
 import { CurrentProjectSwitcher } from "../../application/current-project-switcher";
@@ -22,6 +23,7 @@ export class ReactRenderer {
     private readonly todoTaskCreator: TodoTaskCreator,
     private readonly todoTaskUpdater: TodoTaskUpdater,
     private readonly todoTaskCompleter: TodoTaskCompleter,
+    private readonly todoTaskReorderer: TodoTaskReorderer,
     private readonly doneTaskLister: DoneTaskLister,
     private readonly projectCreator: ProjectCreator,
     private readonly currentProjectSwitcher: CurrentProjectSwitcher,
@@ -59,6 +61,14 @@ export class ReactRenderer {
           }}
           initialize={() => this.applicationInitializer.initialize()}
           listMoreDoneTasks={() => this.doneTaskLister.listMore()}
+          reorderTodoTasks={async taskIDs => {
+            if (this.projectsStore.currentProject) {
+              await this.todoTaskReorderer.reorder(
+                this.projectsStore.currentProject.id,
+                taskIDs
+              );
+            }
+          }}
           repositoryURL={this.repositoryURL}
           signIn={() => this.signInManager.signIn()}
           signOut={() => this.signOutManager.signOut()}

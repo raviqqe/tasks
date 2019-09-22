@@ -15,9 +15,11 @@ it("renders before a user signs in", async () => {
       initialize={async () => {}}
       listMoreDoneTasks={async () => {}}
       projectsStore={new ProjectsStore()}
+      reorderTodoTasks={async () => {}}
       repositoryURL=""
       signIn={() => {}}
       signOut={() => {}}
+      switchCurrentProject={async () => {}}
       tasksStore={new TasksStore()}
       updateTodoTask={async () => {}}
     />
@@ -42,9 +44,11 @@ it("renders after a user signs in", async () => {
       initialize={async () => {}}
       listMoreDoneTasks={async () => {}}
       projectsStore={projectsStore}
+      reorderTodoTasks={async () => {}}
       repositoryURL=""
       signIn={() => {}}
       signOut={() => {}}
+      switchCurrentProject={async () => {}}
       tasksStore={new TasksStore()}
       updateTodoTask={async () => {}}
     />
@@ -66,9 +70,11 @@ it("renders after a user signs out", async () => {
       initialize={async () => {}}
       listMoreDoneTasks={async () => {}}
       projectsStore={new ProjectsStore()}
+      reorderTodoTasks={async () => {}}
       repositoryURL=""
       signIn={() => {}}
       signOut={() => {}}
+      switchCurrentProject={async () => {}}
       tasksStore={new TasksStore()}
       updateTodoTask={async () => {}}
     />

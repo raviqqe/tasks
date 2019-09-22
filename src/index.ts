@@ -26,6 +26,7 @@ import { LocalForageCurrentProjectRepository } from "./infrastructure/local-fora
 import { DoneTaskLister } from "./application/done-task-lister";
 import { MobxDoneTaskPresenter } from "./infrastructure/mobx/mobx-done-task-presenter";
 import { TodoTaskCompleter } from "./application/todo-task-completer";
+import { TodoTaskReorderer } from "./application/todo-task-reorderer";
 
 // Instantiate this at the very beginning to initialize Firebase's default app.
 const firebaseInitializer = new FirebaseInitializer(
@@ -104,6 +105,7 @@ async function main() {
       todoTaskPresenter,
       doneTaskPresenter
     ),
+    new TodoTaskReorderer(todoTaskRepository, todoTaskPresenter),
     doneTaskLister,
     projectCreator,
     currentProjectSwitcher,
