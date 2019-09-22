@@ -48,8 +48,8 @@ export const App = observer(
         currentProject={currentProject}
         doneTasks={doneTasks}
         projects={projects}
-        todoTasks={todoTasks}
         signOut={signOut}
+        todoTasks={todoTasks}
       />
     ) : signedIn === false ? (
       <Landing repositoryURL={repositoryURL} signIn={signIn} />

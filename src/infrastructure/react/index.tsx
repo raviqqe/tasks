@@ -40,17 +40,6 @@ export class ReactRenderer {
       <>
         <App
           authenticationStore={this.authenticationStore}
-          createProject={(name: string) => this.projectCreator.create(name)}
-          projectsStore={this.projectsStore}
-          tasksStore={this.tasksStore}
-          createTodoTask={async (name: string) => {
-            if (this.projectsStore.currentProject) {
-              await this.todoTaskCreator.create(
-                this.projectsStore.currentProject.id,
-                name
-              );
-            }
-          }}
           completeTodoTask={async (task: ITask) => {
             if (this.projectsStore.currentProject) {
               await this.todoTaskCompleter.complete(
@@ -59,8 +48,18 @@ export class ReactRenderer {
               );
             }
           }}
+          createProject={(name: string) => this.projectCreator.create(name)}
+          createTodoTask={async (name: string) => {
+            if (this.projectsStore.currentProject) {
+              await this.todoTaskCreator.create(
+                this.projectsStore.currentProject.id,
+                name
+              );
+            }
+          }}
           initialize={() => this.applicationInitializer.initialize()}
           listMoreDoneTasks={() => this.doneTaskLister.listMore()}
+          projectsStore={this.projectsStore}
           reorderTodoTasks={async taskIDs => {
             if (this.projectsStore.currentProject) {
               await this.todoTaskReorderer.reorder(
@@ -75,6 +74,7 @@ export class ReactRenderer {
           switchCurrentProject={project =>
             this.currentProjectSwitcher.switch(project)
           }
+          tasksStore={this.tasksStore}
           updateTodoTask={async (task: ITask) => {
             if (this.projectsStore.currentProject) {
               await this.todoTaskUpdater.update(
