@@ -11,7 +11,7 @@ interface IProps
 
 export const Button: FC<IProps> = styled.button<{ secondary?: boolean }>`
   ${boxShadow};
-  background: ${({ secondary }) => (secondary ? "darkgrey" : "indianred")}
+  background: ${({ secondary }) => (secondary ? "grey" : "indianred")}
   display: flex;
   justify-content: center;
   align-items: center;
