@@ -72,7 +72,12 @@ export const Projects = ({
       <HideProjects hideProjects={hideProjects} />
     </HideProjectsContainer>
     <CreateProjectContainer>
-      <CreateProject createProject={createProject} />
+      <CreateProject
+        createProject={async project => {
+          hideProjects();
+          await createProject(project);
+        }}
+      />
     </CreateProjectContainer>
   </Container>
 );
