@@ -1,11 +1,11 @@
 import { create } from "react-test-renderer";
 import React from "react";
-import { Project } from "../Project";
+import { CurrentProject } from "../CurrentProject";
 
 it("renders", () => {
   expect(
     create(
-      <Project
+      <CurrentProject
         currentProject={{ archived: false, id: "", name: "" }}
         showProjects={() => {}}
       />

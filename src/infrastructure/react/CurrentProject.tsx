@@ -18,7 +18,10 @@ export interface IProps {
   showProjects: () => void;
 }
 
-export const Project = ({ currentProject: { name }, showProjects }: IProps) => (
+export const CurrentProject = ({
+  currentProject: { name },
+  showProjects
+}: IProps) => (
   <Container>
     <Name onClick={showProjects}>{name}</Name>
   </Container>

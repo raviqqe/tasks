@@ -2,7 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { boxShadow } from "./style";
 import { SignOut, IProps as ISignOutProps } from "./SignOut";
-import { Project, IProps as IProjectProps } from "./Project";
+import {
+  CurrentProject,
+  IProps as ICurrentProjectProps
+} from "./CurrentProject";
 
 const Container = styled.div`
   ${boxShadow}
@@ -22,11 +25,14 @@ const SignOutContainer = styled.div`
   transform: translateY(-50%);
 `;
 
-export interface IProps extends IProjectProps, ISignOutProps {}
+export interface IProps extends ICurrentProjectProps, ISignOutProps {}
 
 export const TopBar = ({ currentProject, showProjects, signOut }: IProps) => (
   <Container>
-    <Project currentProject={currentProject} showProjects={showProjects} />
+    <CurrentProject
+      currentProject={currentProject}
+      showProjects={showProjects}
+    />
     <SignOutContainer>
       <SignOut signOut={signOut} />
     </SignOutContainer>
