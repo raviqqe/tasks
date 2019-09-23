@@ -1,6 +1,6 @@
 import { PulseLoader } from "react-spinners";
 import { useAsync } from "react-use";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { observer } from "mobx-react";
 import { AuthenticationStore } from "../mobx/authentication-store";
@@ -8,6 +8,7 @@ import { TasksStore } from "../mobx/tasks-store";
 import { ProjectsStore } from "../mobx/projects-store";
 import { IProps as ILandingProps, Landing } from "./Landing";
 import { Home, IProps as IHomeProps } from "./Home";
+import { Projects, IProps as IProjectsProps } from "./Projects";
 
 const LoaderContainer = styled.div`
   display: flex;
@@ -20,8 +21,9 @@ const LoaderContainer = styled.div`
 interface IProps
   extends Omit<
       IHomeProps,
-      "currentProject" | "doneTasks" | "projects" | "todoTasks"
+      "currentProject" | "doneTasks" | "showProjects" | "todoTasks"
     >,
+    Omit<IProjectsProps, "currentProject" | "hideProjects" | "projects">,
     ILandingProps {
   authenticationStore: AuthenticationStore;
   projectsStore: ProjectsStore;
@@ -32,24 +34,35 @@ interface IProps
 export const App = observer(
   ({
     authenticationStore: { signedIn },
+    createProject,
     projectsStore: { currentProject, projects },
     tasksStore: { doneTasks, todoTasks },
     initialize,
     repositoryURL,
     signIn,
     signOut,
+    switchCurrentProject,
     ...props
   }: IProps) => {
     useAsync(initialize, []);
+    const [projectsShown, setProjectsShown] = useState(false);
 
-    return signedIn && currentProject && projects ? (
+    return signedIn && !projectsShown && currentProject ? (
       <Home
         {...props}
         currentProject={currentProject}
         doneTasks={doneTasks}
-        projects={projects}
+        showProjects={() => setProjectsShown(true)}
         signOut={signOut}
         todoTasks={todoTasks}
+      />
+    ) : signedIn && projectsShown && currentProject && projects ? (
+      <Projects
+        createProject={createProject}
+        currentProject={currentProject}
+        hideProjects={() => setProjectsShown(false)}
+        projects={projects}
+        switchCurrentProject={switchCurrentProject}
       />
     ) : signedIn === false ? (
       <Landing repositoryURL={repositoryURL} signIn={signIn} />

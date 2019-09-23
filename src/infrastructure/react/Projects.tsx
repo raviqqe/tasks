@@ -2,35 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import { IProject } from "../../domain/project";
 import { CreateProject, IProps as ICreateProjectProps } from "./CreateProject";
-import { boxShadow } from "./style";
+import { HideProjects, IProps as IHideProjectsProps } from "./HideProjects";
 
 const Container = styled.div`
-  font-size: 1rem;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  pointer-events: none;
-  overflow: hidden;
-
-  > * {
-    pointer-events: auto;
-  }
-
-  > :last-child {
-    transform: translateY(-50%);
-  }
+  height: 100vh;
+  overflow: auto;
 `;
 
 const ProjectsContainer = styled.div`
-  ${boxShadow}
-  color: black;
   font-size: 1.25rem;
   display: flex;
   flex-direction: column;
-  background-color: white;
-  border-radius: 0.5rem;
-  padding: 1rem 1.5rem 2.25rem;
-  overflow: auto;
+  padding: 1rem 1.5rem;
+  max-width: 50ex;
 
   > :not(:first-child) {
     margin-top: 0.5em;
@@ -42,25 +30,49 @@ const Project = styled.div`
   word-break: break-word;
 `;
 
-export interface IProps extends ICreateProjectProps {
+const HideProjectsContainer = styled.div`
+  position: fixed;
+  right: 0.5rem;
+  top: 0.5rem;
+`;
+
+const CreateProjectContainer = styled.div`
+  position: fixed;
+  right: 0.5rem;
+  bottom: 0.5rem;
+`;
+
+export interface IProps extends ICreateProjectProps, IHideProjectsProps {
+  currentProject: IProject;
   projects: IProject[];
   switchCurrentProject: (project: IProject) => Promise<void>;
 }
 
 export const Projects = ({
   createProject,
+  hideProjects,
   projects,
-  switchCurrentProject,
-  ...restProps
+  switchCurrentProject
 }: IProps) => (
-  <Container {...restProps}>
+  <Container>
     <ProjectsContainer>
       {projects.map(project => (
-        <Project key={project.id} onClick={() => switchCurrentProject(project)}>
+        <Project
+          key={project.id}
+          onClick={async () => {
+            hideProjects();
+            await switchCurrentProject(project);
+          }}
+        >
           {project.name}
         </Project>
       ))}
     </ProjectsContainer>
-    <CreateProject createProject={createProject} />
+    <HideProjectsContainer>
+      <HideProjects hideProjects={hideProjects} />
+    </HideProjectsContainer>
+    <CreateProjectContainer>
+      <CreateProject createProject={createProject} />
+    </CreateProjectContainer>
   </Container>
 );

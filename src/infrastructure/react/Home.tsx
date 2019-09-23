@@ -15,10 +15,6 @@ const Container = styled.div`
   align-items: center;
   height: 100vh;
   margin: auto;
-
-  > :last-child {
-    flex: 1;
-  }
 `;
 
 const TasksContainer = styled.div`
@@ -26,7 +22,12 @@ const TasksContainer = styled.div`
   flex-direction: column;
   width: 70ex;
   max-width: 100%;
+  flex: 1;
   overflow: hidden;
+
+  > * {
+    flex: 1;
+  }
 `;
 
 const ButtonsContainer = styled.div`
@@ -51,15 +52,13 @@ export interface IProps
 
 export const Home = ({
   completeTodoTask,
-  createProject,
   createTodoTask,
   currentProject,
   doneTasks,
   listMoreDoneTasks,
-  projects,
   reorderTodoTasks,
   signOut,
-  switchCurrentProject,
+  showProjects,
   todoTasks,
   updateTodoTask
 }: IProps) => {
@@ -68,11 +67,9 @@ export const Home = ({
   return (
     <Container>
       <TopBar
-        createProject={createProject}
         currentProject={currentProject}
-        projects={projects}
+        showProjects={showProjects}
         signOut={signOut}
-        switchCurrentProject={switchCurrentProject}
       />
       <TasksContainer>
         {tasksDone ? (

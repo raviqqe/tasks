@@ -6,10 +6,8 @@ it("renders", () => {
   expect(
     create(
       <Project
-        createProject={async () => {}}
-        currentProject={{ archived: false, id: "id", name: "name" }}
-        projects={[]}
-        switchCurrentProject={async () => {}}
+        currentProject={{ archived: false, id: "", name: "" }}
+        showProjects={() => {}}
       />
     ).toJSON()
   ).toMatchSnapshot();

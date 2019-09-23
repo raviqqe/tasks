@@ -7,15 +7,13 @@ it("renders", () => {
     create(
       <Home
         completeTodoTask={async () => {}}
-        createProject={async () => {}}
         createTodoTask={async () => {}}
         currentProject={{ archived: false, id: "", name: "" }}
         doneTasks={[]}
         listMoreDoneTasks={async () => {}}
-        projects={[]}
         reorderTodoTasks={async () => {}}
-        signOut={async () => undefined}
-        switchCurrentProject={async () => {}}
+        showProjects={() => {}}
+        signOut={async () => {}}
         todoTasks={[]}
         updateTodoTask={async () => {}}
       />
