@@ -75,7 +75,7 @@ export interface IProps
   projects: IProject[];
 }
 
-export const Projects = ({
+export const ProjectMenu = ({
   archivedProjects,
   archiveProject,
   createProject,

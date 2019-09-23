@@ -8,7 +8,7 @@ import { TasksStore } from "../mobx/tasks-store";
 import { ProjectsStore } from "../mobx/projects-store";
 import { IProps as ILandingProps, Landing } from "./Landing";
 import { Home, IProps as IHomeProps } from "./Home";
-import { Projects, IProps as IProjectsProps } from "./Projects";
+import { ProjectMenu, IProps as IProjectMenuProps } from "./ProjectMenu";
 
 const LoaderContainer = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ interface IProps
       "currentProject" | "doneTasks" | "showProjects" | "todoTasks"
     >,
     Omit<
-      IProjectsProps,
+      IProjectMenuProps,
       "archivedProjects" | "currentProject" | "hideProjects" | "projects"
     >,
     ILandingProps {
@@ -66,7 +66,7 @@ export const App = observer(
       currentProject &&
       projects &&
       archivedProjects ? (
-      <Projects
+      <ProjectMenu
         archiveProject={archiveProject}
         archivedProjects={archivedProjects}
         createProject={createProject}
