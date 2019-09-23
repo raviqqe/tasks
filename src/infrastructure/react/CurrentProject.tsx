@@ -6,9 +6,6 @@ const Container = styled.div`
   color: white;
   font-size: 1.7rem;
   padding: 0.5em;
-`;
-
-const Name = styled.div`
   cursor: pointer;
   word-break: break-word;
 `;
@@ -21,8 +18,4 @@ export interface IProps {
 export const CurrentProject = ({
   currentProject: { name },
   showProjects
-}: IProps) => (
-  <Container>
-    <Name onClick={showProjects}>{name}</Name>
-  </Container>
-);
+}: IProps) => <Container onClick={showProjects}>{name}</Container>;
