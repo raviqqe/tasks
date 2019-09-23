@@ -15,7 +15,7 @@ const Name = styled.div`
   word-break: break-word;
   margin-right: 0.5ex;
   flex: 1;
-  cursor: pointer;
+  cursor: ${props => (props.onClick ? "pointer" : "auto")};
 `;
 
 const ButtonsContainer = styled.div`
@@ -41,7 +41,9 @@ export const Project = ({
   unarchiveProject
 }: IProps) => (
   <Container>
-    <Name onClick={() => switchCurrentProject && switchCurrentProject(project)}>
+    <Name
+      onClick={switchCurrentProject && (() => switchCurrentProject(project))}
+    >
       {project.name}
     </Name>
     <ButtonsContainer>
