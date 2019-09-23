@@ -22,6 +22,7 @@ it("renders before a user signs in", async () => {
       signOut={() => {}}
       switchCurrentProject={async () => {}}
       tasksStore={new TasksStore()}
+      unarchiveProject={async () => {}}
       updateTodoTask={async () => {}}
     />
   );
@@ -52,6 +53,7 @@ it("renders after a user signs in", async () => {
       signOut={() => {}}
       switchCurrentProject={async () => {}}
       tasksStore={new TasksStore()}
+      unarchiveProject={async () => {}}
       updateTodoTask={async () => {}}
     />
   );
@@ -79,6 +81,7 @@ it("renders after a user signs out", async () => {
       signOut={() => {}}
       switchCurrentProject={async () => {}}
       tasksStore={new TasksStore()}
+      unarchiveProject={async () => {}}
       updateTodoTask={async () => {}}
     />
   );

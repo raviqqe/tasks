@@ -28,6 +28,7 @@ import { MobxDoneTaskPresenter } from "./infrastructure/mobx/mobx-done-task-pres
 import { TodoTaskCompleter } from "./application/todo-task-completer";
 import { TodoTaskReorderer } from "./application/todo-task-reorderer";
 import { ProjectArchiver } from "./application/project-archiver";
+import { ProjectUnarchiver } from "./application/project-unarchiver";
 
 // Instantiate this at the very beginning to initialize Firebase's default app.
 const firebaseInitializer = new FirebaseInitializer(
@@ -114,6 +115,11 @@ async function main() {
       projectRepository,
       projectPresenter,
       messagePresenter
+    ),
+    new ProjectUnarchiver(
+      currentProjectSwitcher,
+      projectRepository,
+      projectPresenter
     ),
     currentProjectSwitcher,
     new SignInManager(authenticationController),

@@ -15,6 +15,7 @@ import { AuthenticationStore } from "../mobx/authentication-store";
 import { ProjectsStore } from "../mobx/projects-store";
 import { TasksStore } from "../mobx/tasks-store";
 import { ProjectArchiver } from "../../application/project-archiver";
+import { ProjectUnarchiver } from "../../application/project-unarchiver";
 import { GlobalStyle } from "./style";
 import { App } from "./App";
 
@@ -28,6 +29,7 @@ export class ReactRenderer {
     private readonly doneTaskLister: DoneTaskLister,
     private readonly projectCreator: ProjectCreator,
     private readonly projectArchiver: ProjectArchiver,
+    private readonly projectUnarchiver: ProjectUnarchiver,
     private readonly currentProjectSwitcher: CurrentProjectSwitcher,
     private readonly signInManager: SignInManager,
     private readonly signOutManager: SignOutManager,
@@ -78,6 +80,9 @@ export class ReactRenderer {
             this.currentProjectSwitcher.switch(project)
           }
           tasksStore={this.tasksStore}
+          unarchiveProject={project =>
+            this.projectUnarchiver.unarchive(project)
+          }
           updateTodoTask={async (task: ITask) => {
             if (this.projectsStore.currentProject) {
               await this.todoTaskUpdater.update(

@@ -23,7 +23,10 @@ interface IProps
       IHomeProps,
       "currentProject" | "doneTasks" | "showProjects" | "todoTasks"
     >,
-    Omit<IProjectsProps, "currentProject" | "hideProjects" | "projects">,
+    Omit<
+      IProjectsProps,
+      "archivedProjects" | "currentProject" | "hideProjects" | "projects"
+    >,
     ILandingProps {
   authenticationStore: AuthenticationStore;
   projectsStore: ProjectsStore;
@@ -36,13 +39,14 @@ export const App = observer(
     archiveProject,
     authenticationStore: { signedIn },
     createProject,
-    projectsStore: { currentProject, projects },
+    projectsStore: { archivedProjects, currentProject, projects },
     tasksStore: { doneTasks, todoTasks },
     initialize,
     repositoryURL,
     signIn,
     signOut,
     switchCurrentProject,
+    unarchiveProject,
     ...props
   }: IProps) => {
     useAsync(initialize, []);
@@ -57,13 +61,19 @@ export const App = observer(
         signOut={signOut}
         todoTasks={todoTasks}
       />
-    ) : signedIn && projectsShown && currentProject && projects ? (
+    ) : signedIn &&
+      projectsShown &&
+      currentProject &&
+      projects &&
+      archivedProjects ? (
       <Projects
         archiveProject={archiveProject}
+        archivedProjects={archivedProjects}
         createProject={createProject}
         hideProjects={() => setProjectsShown(false)}
         projects={projects}
         switchCurrentProject={switchCurrentProject}
+        unarchiveProject={unarchiveProject}
       />
     ) : signedIn === false ? (
       <Landing repositoryURL={repositoryURL} signIn={signIn} />
