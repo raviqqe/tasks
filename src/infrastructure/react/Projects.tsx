@@ -56,12 +56,19 @@ export interface IProps
     IHideProjectsProps,
     Omit<
       IProjectProps,
-      "archiveProject" | "project" | "switchCurrentProject" | "unarchiveProject"
+      | "archiveProject"
+      | "currentProject"
+      | "project"
+      | "switchCurrentProject"
+      | "unarchiveProject"
     >,
     Required<
       Pick<
         IProjectProps,
-        "archiveProject" | "switchCurrentProject" | "unarchiveProject"
+        | "archiveProject"
+        | "currentProject"
+        | "switchCurrentProject"
+        | "unarchiveProject"
       >
     > {
   archivedProjects: IProject[];
@@ -72,6 +79,7 @@ export const Projects = ({
   archivedProjects,
   archiveProject,
   createProject,
+  currentProject,
   hideProjects,
   projects,
   switchCurrentProject,
@@ -97,6 +105,7 @@ export const Projects = ({
             {projects.map(project => (
               <Project
                 archiveProject={archiveProject}
+                currentProject={currentProject}
                 key={project.id}
                 project={project}
                 switchCurrentProject={async () => {

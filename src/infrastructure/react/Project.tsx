@@ -11,11 +11,12 @@ const Container = styled.div`
   font-size: 1.25em;
 `;
 
-const Name = styled.div`
+const Name = styled.div<{ highlighted: boolean }>`
   word-break: break-word;
   margin-right: 0.5ex;
   flex: 1;
-  cursor: ${props => (props.onClick ? "pointer" : "auto")};
+  cursor: ${({ onClick }) => (onClick ? "pointer" : "auto")};
+  color: ${({ highlighted }) => (highlighted ? "indianred" : "black")};
 `;
 
 const ButtonsContainer = styled.div`
@@ -29,6 +30,7 @@ const ButtonsContainer = styled.div`
 
 export interface IProps {
   archiveProject?: (project: IProject) => Promise<void>;
+  currentProject?: IProject;
   project: IProject;
   switchCurrentProject?: (project: IProject) => Promise<void>;
   unarchiveProject?: (project: IProject) => Promise<void>;
@@ -36,12 +38,14 @@ export interface IProps {
 
 export const Project = ({
   archiveProject,
+  currentProject,
   project,
   switchCurrentProject,
   unarchiveProject
 }: IProps) => (
   <Container>
     <Name
+      highlighted={!!currentProject && project.id === currentProject.id}
       onClick={switchCurrentProject && (() => switchCurrentProject(project))}
     >
       {project.name}

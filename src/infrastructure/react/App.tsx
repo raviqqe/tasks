@@ -70,6 +70,7 @@ export const App = observer(
         archiveProject={archiveProject}
         archivedProjects={archivedProjects}
         createProject={createProject}
+        currentProject={currentProject}
         hideProjects={() => setProjectsShown(false)}
         projects={projects}
         switchCurrentProject={switchCurrentProject}
