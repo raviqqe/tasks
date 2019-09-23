@@ -5,7 +5,7 @@ import { CreateProject, IProps as ICreateProjectProps } from "./CreateProject";
 import { HideProjects, IProps as IHideProjectsProps } from "./HideProjects";
 import { Project, IProps as IProjectProps } from "./Project";
 import { boxShadow } from "./style";
-import { ShowArchivedProjects } from "./ShowArchivedProjects";
+import { ToggleProjects } from "./ToggleProjects";
 
 const Container = styled.div`
   background-color: lightgrey;
@@ -45,6 +45,10 @@ const LowerButtonsContainer = styled.div`
   position: fixed;
   right: 0.5rem;
   bottom: 0.5rem;
+
+  > * {
+    margin-top: 0.5rem;
+  }
 `;
 
 export interface IProps
@@ -73,12 +77,12 @@ export const Projects = ({
   switchCurrentProject,
   unarchiveProject
 }: IProps) => {
-  const [archivedProjectsShown, setArchivedProjectsShown] = useState(false);
+  const [projectsArchived, setProjectsArchived] = useState(false);
 
   return (
     <Container>
       <ScrollContainer>
-        {archivedProjectsShown ? (
+        {projectsArchived ? (
           <ProjectsContainer>
             {archivedProjects.map(project => (
               <Project
@@ -108,8 +112,9 @@ export const Projects = ({
         <HideProjects hideProjects={hideProjects} />
       </UpperButtonsContainer>
       <LowerButtonsContainer>
-        <ShowArchivedProjects
-          showArchivedProjects={() => setArchivedProjectsShown(true)}
+        <ToggleProjects
+          projectsArchived={projectsArchived}
+          setProjectsArchived={setProjectsArchived}
         />
         <CreateProject
           createProject={async project => {
