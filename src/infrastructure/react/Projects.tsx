@@ -4,6 +4,7 @@ import { IProject } from "../../domain/project";
 import { CreateProject, IProps as ICreateProjectProps } from "./CreateProject";
 import { HideProjects, IProps as IHideProjectsProps } from "./HideProjects";
 import { Project, IProps as IProjectProps } from "./Project";
+import { boxShadow } from "./style";
 
 const Container = styled.div`
   background-color: lightgrey;
@@ -19,6 +20,7 @@ const ScrollContainer = styled.div`
 `;
 
 const ProjectsContainer = styled.div`
+  ${boxShadow}
   display: flex;
   flex-direction: column;
   margin: 1.5rem;
