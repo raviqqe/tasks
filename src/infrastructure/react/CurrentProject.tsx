@@ -1,21 +1,25 @@
 import React from "react";
 import styled from "styled-components";
+import { PulseLoader } from "react-spinners";
 import { IProject } from "../../domain/project";
 
 const Container = styled.div`
+  display: flex;
+  align-items: center;
   color: white;
-  font-size: 1.7rem;
-  padding: 0.5em;
+  font-size: 1.6rem;
   cursor: pointer;
   word-break: break-word;
+  height: 4rem;
 `;
 
 export interface IProps {
-  currentProject: IProject;
+  currentProject: IProject | null;
   showProjects: () => void;
 }
 
-export const CurrentProject = ({
-  currentProject: { name },
-  showProjects
-}: IProps) => <Container onClick={showProjects}>{name}</Container>;
+export const CurrentProject = ({ currentProject, showProjects }: IProps) => (
+  <Container onClick={showProjects}>
+    {currentProject ? currentProject.name : <PulseLoader color="white" />}
+  </Container>
+);

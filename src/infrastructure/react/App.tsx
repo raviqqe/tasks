@@ -52,7 +52,7 @@ export const App = observer(
     useAsync(initialize, []);
     const [projectsShown, setProjectsShown] = useState(false);
 
-    return signedIn && !projectsShown && currentProject ? (
+    return signedIn && !projectsShown ? (
       <Home
         {...props}
         currentProject={currentProject}
