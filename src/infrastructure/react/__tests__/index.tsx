@@ -11,6 +11,7 @@ import { CurrentProjectSwitcher } from "../../../application/current-project-swi
 import { AuthenticationStore } from "../../mobx/authentication-store";
 import { ProjectsStore } from "../../mobx/projects-store";
 import { TasksStore } from "../../mobx/tasks-store";
+import { ProjectArchiver } from "../../../application/project-archiver";
 import { ReactRenderer } from "..";
 
 it("renders", () => {
@@ -22,6 +23,7 @@ it("renders", () => {
     {} as TodoTaskReorderer,
     {} as DoneTaskLister,
     {} as ProjectCreator,
+    {} as ProjectArchiver,
     {} as CurrentProjectSwitcher,
     {} as SignInManager,
     {} as SignOutManager,

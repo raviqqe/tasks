@@ -8,6 +8,7 @@ import { TasksStore } from "../../mobx/tasks-store";
 it("renders before a user signs in", async () => {
   const result = render(
     <App
+      archiveProject={async () => {}}
       authenticationStore={new AuthenticationStore()}
       completeTodoTask={async () => {}}
       createProject={async () => {}}
@@ -37,6 +38,7 @@ it("renders after a user signs in", async () => {
 
   const result = render(
     <App
+      archiveProject={async () => {}}
       authenticationStore={authenticationStore}
       completeTodoTask={async () => {}}
       createProject={async () => {}}
@@ -63,6 +65,7 @@ it("renders after a user signs out", async () => {
 
   const result = render(
     <App
+      archiveProject={async () => {}}
       authenticationStore={authenticationStore}
       completeTodoTask={async () => {}}
       createProject={async () => {}}

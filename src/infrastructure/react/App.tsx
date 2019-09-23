@@ -33,6 +33,7 @@ interface IProps
 
 export const App = observer(
   ({
+    archiveProject,
     authenticationStore: { signedIn },
     createProject,
     projectsStore: { currentProject, projects },
@@ -58,8 +59,8 @@ export const App = observer(
       />
     ) : signedIn && projectsShown && currentProject && projects ? (
       <Projects
+        archiveProject={archiveProject}
         createProject={createProject}
-        currentProject={currentProject}
         hideProjects={() => setProjectsShown(false)}
         projects={projects}
         switchCurrentProject={switchCurrentProject}

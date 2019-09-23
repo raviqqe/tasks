@@ -3,31 +3,33 @@ import styled from "styled-components";
 import { IProject } from "../../domain/project";
 import { CreateProject, IProps as ICreateProjectProps } from "./CreateProject";
 import { HideProjects, IProps as IHideProjectsProps } from "./HideProjects";
+import { Project, IProps as IProjectProps } from "./Project";
 
 const Container = styled.div`
-  background-color: white;
+  background-color: lightgrey;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   height: 100vh;
+`;
+
+const ScrollContainer = styled.div`
   overflow: auto;
 `;
 
 const ProjectsContainer = styled.div`
-  font-size: 1.25rem;
   display: flex;
   flex-direction: column;
-  padding: 1rem 1.5rem;
+  margin: 1.5rem;
   max-width: 50ex;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
 
   > :not(:first-child) {
-    margin-top: 0.5em;
+    margin-top: 0.75rem;
   }
-`;
-
-const Project = styled.div`
-  cursor: pointer;
-  word-break: break-word;
 `;
 
 const HideProjectsContainer = styled.div`
@@ -42,32 +44,36 @@ const CreateProjectContainer = styled.div`
   bottom: 0.5rem;
 `;
 
-export interface IProps extends ICreateProjectProps, IHideProjectsProps {
-  currentProject: IProject;
+export interface IProps
+  extends ICreateProjectProps,
+    IHideProjectsProps,
+    Omit<IProjectProps, "project"> {
   projects: IProject[];
-  switchCurrentProject: (project: IProject) => Promise<void>;
 }
 
 export const Projects = ({
+  archiveProject,
   createProject,
   hideProjects,
   projects,
   switchCurrentProject
 }: IProps) => (
   <Container>
-    <ProjectsContainer>
-      {projects.map(project => (
-        <Project
-          key={project.id}
-          onClick={async () => {
-            hideProjects();
-            await switchCurrentProject(project);
-          }}
-        >
-          {project.name}
-        </Project>
-      ))}
-    </ProjectsContainer>
+    <ScrollContainer>
+      <ProjectsContainer>
+        {projects.map(project => (
+          <Project
+            archiveProject={archiveProject}
+            key={project.id}
+            project={project}
+            switchCurrentProject={async () => {
+              hideProjects();
+              await switchCurrentProject(project);
+            }}
+          />
+        ))}
+      </ProjectsContainer>
+    </ScrollContainer>
     <HideProjectsContainer>
       <HideProjects hideProjects={hideProjects} />
     </HideProjectsContainer>
