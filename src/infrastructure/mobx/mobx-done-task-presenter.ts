@@ -5,7 +5,7 @@ import { TasksStore } from "./tasks-store";
 export class MobxDoneTaskPresenter implements IDoneTaskPresenter {
   constructor(private readonly store: TasksStore) {}
 
-  public async presentTasks(tasks: ITask[]): Promise<void> {
+  public async presentTasks(tasks: ITask[] | null): Promise<void> {
     this.store.setDoneTasks(tasks);
   }
 

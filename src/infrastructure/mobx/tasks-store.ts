@@ -6,7 +6,7 @@ export class TasksStore {
   @observable public doneTasks: ITask[] | null = null;
 
   @action
-  public setTodoTasks(tasks: ITask[]): void {
+  public setTodoTasks(tasks: ITask[] | null): void {
     this.todoTasks = tasks;
   }
 
@@ -52,7 +52,7 @@ export class TasksStore {
   }
 
   @action
-  public setDoneTasks(tasks: ITask[]): void {
+  public setDoneTasks(tasks: ITask[] | null): void {
     this.doneTasks = tasks;
   }
 

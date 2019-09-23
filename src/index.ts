@@ -71,7 +71,9 @@ async function main() {
     currentProjectRepository,
     projectPresenter,
     todoTaskLister,
-    doneTaskLister
+    doneTaskLister,
+    todoTaskPresenter,
+    doneTaskPresenter
   );
   const projectCreator = new ProjectCreator(
     currentProjectSwitcher,

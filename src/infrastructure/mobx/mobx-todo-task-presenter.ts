@@ -5,7 +5,7 @@ import { TasksStore } from "./tasks-store";
 export class MobxTodoTaskPresenter implements ITodoTaskPresenter {
   constructor(private readonly store: TasksStore) {}
 
-  public presentTasks(tasks: ITask[]): void {
+  public presentTasks(tasks: ITask[] | null): void {
     this.store.setTodoTasks(tasks);
   }
 
