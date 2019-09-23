@@ -13,6 +13,7 @@ import { CurrentProjectSwitcher } from "../current-project-switcher";
 import { DoneTaskLister } from "../done-task-lister";
 import { ITodoTaskPresenter } from "../todo-task-presenter";
 import { ITodoTaskRepository } from "../todo-task-repository";
+import { IConfirmationController } from "../confirmation-controller";
 
 export class MockManager {
   public authenticationController: jest.Mocked<IAuthenticationController> = {
@@ -23,6 +24,10 @@ export class MockManager {
 
   public authenticationPresenter: jest.Mocked<IAuthenticationPresenter> = {
     presentSignedIn: jest.fn()
+  };
+
+  public confirmationController: jest.Mocked<IConfirmationController> = {
+    confirm: jest.fn()
   };
 
   public currentProjectRepository: jest.Mocked<ICurrentProjectRepository> = {

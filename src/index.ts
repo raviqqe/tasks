@@ -29,6 +29,7 @@ import { TodoTaskCompleter } from "./application/todo-task-completer";
 import { TodoTaskReorderer } from "./application/todo-task-reorderer";
 import { ProjectArchiver } from "./application/project-archiver";
 import { ProjectUnarchiver } from "./application/project-unarchiver";
+import { BuiltinConfirmationController } from "./infrastructure/builtin-confirmation-controller";
 
 // Instantiate this at the very beginning to initialize Firebase's default app.
 const firebaseInitializer = new FirebaseInitializer(
@@ -50,6 +51,7 @@ async function main() {
   );
   const authenticationController = new FirebaseAuthenticationController();
   const messagePresenter = new AlertMessagePresenter();
+  const confirmationController = new BuiltinConfirmationController();
   const tasksStore = new TasksStore();
   const todoTaskRepository = new FirestoreTodoTaskRepository();
   const doneTaskRepository = new FirestoreDoneTaskRepository();
@@ -116,7 +118,8 @@ async function main() {
       currentProjectSwitcher,
       projectRepository,
       projectPresenter,
-      messagePresenter
+      messagePresenter,
+      confirmationController
     ),
     new ProjectUnarchiver(
       currentProjectSwitcher,

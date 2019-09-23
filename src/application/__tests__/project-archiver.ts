@@ -7,11 +7,13 @@ let projectArchiver: ProjectArchiver;
 
 beforeEach(() => {
   mockManager = new MockManager();
+  mockManager.confirmationController.confirm.mockResolvedValue(true);
   projectArchiver = new ProjectArchiver(
     mockManager.currentProjectSwitcher,
     mockManager.projectRepository,
     mockManager.projectPresenter,
-    mockManager.messagePresenter
+    mockManager.messagePresenter,
+    mockManager.confirmationController
   );
 });
 
@@ -53,5 +55,14 @@ it("does not archive the last project", async () => {
 
   expect(mockManager.messagePresenter.present).toBeCalledTimes(1);
   expect(mockManager.currentProjectSwitcher.switch).not.toBeCalled();
+  expect(mockManager.projectRepository.update).not.toBeCalled();
+});
+
+it("does not archive any project if it is not confirmed", async () => {
+  mockManager.confirmationController.confirm.mockResolvedValue(false);
+  mockManager.projectRepository.list.mockResolvedValue([{}, {}] as IProject[]);
+
+  await projectArchiver.archive({ archived: false, id: "", name: "" });
+
   expect(mockManager.projectRepository.update).not.toBeCalled();
 });
