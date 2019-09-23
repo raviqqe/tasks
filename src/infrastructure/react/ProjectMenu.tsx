@@ -51,6 +51,13 @@ const LowerButtonsContainer = styled.div`
   }
 `;
 
+const StyledCreateProject = styled(CreateProject)<{
+  projectsArchived: boolean;
+}>`
+  visibility: ${({ projectsArchived }) =>
+    projectsArchived ? "hidden" : "visible"};
+`;
+
 export interface IProps
   extends ICreateProjectProps,
     IHideProjectsProps,
@@ -125,11 +132,12 @@ export const ProjectMenu = ({
           projectsArchived={projectsArchived}
           setProjectsArchived={setProjectsArchived}
         />
-        <CreateProject
-          createProject={async project => {
+        <StyledCreateProject
+          createProject={async (name: string): Promise<void> => {
             hideProjects();
-            await createProject(project);
+            await createProject(name);
           }}
+          projectsArchived={projectsArchived}
         />
       </LowerButtonsContainer>
     </Container>

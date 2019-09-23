@@ -6,7 +6,7 @@ export interface IProps {
   createProject: (name: string) => Promise<void>;
 }
 
-export const CreateProject = ({ createProject }: IProps) => (
+export const CreateProject = ({ createProject, ...restProps }: IProps) => (
   <CircleButton
     aria-label="Create Project"
     onClick={async () => {
@@ -18,6 +18,7 @@ export const CreateProject = ({ createProject }: IProps) => (
 
       await createProject(name);
     }}
+    {...restProps}
   >
     <MdAdd />
   </CircleButton>
