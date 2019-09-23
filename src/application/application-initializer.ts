@@ -40,5 +40,8 @@ export class ApplicationInitializer {
       projects.find(project => project.id === currentProjectID) || projects[0]
     );
     this.projectPresenter.presentProjects(projects);
+    this.projectPresenter.presentArchivedProjects(
+      await this.projectRepository.listArchived()
+    );
   }
 }

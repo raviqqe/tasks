@@ -12,6 +12,7 @@ beforeEach(() => {
   mockManager.authenticationController.isSignedIn.mockResolvedValue(true);
   mockManager.currentProjectRepository.get.mockResolvedValue(dummyProject.id);
   mockManager.projectRepository.list.mockResolvedValue([dummyProject]);
+  mockManager.projectRepository.listArchived.mockResolvedValue([]);
   applicationInitializer = new ApplicationInitializer(
     mockManager.authenticationController,
     mockManager.authenticationPresenter,
@@ -47,6 +48,14 @@ it("presents an initial project", async () => {
   expect(mockManager.projectPresenter.presentProjects.mock.calls).toEqual([
     [[dummyProject]]
   ]);
+});
+
+it("presents archived projects", async () => {
+  await applicationInitializer.initialize();
+
+  expect(
+    mockManager.projectPresenter.presentArchivedProjects.mock.calls
+  ).toEqual([[[]]]);
 });
 
 it("presents an initial project even if no current project ID is set", async () => {
