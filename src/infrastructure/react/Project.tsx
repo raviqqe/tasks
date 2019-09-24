@@ -13,7 +13,7 @@ const Container = styled.div`
 
 const Name = styled.div<{ highlighted: boolean }>`
   word-break: break-word;
-  margin-right: 0.5ex;
+  margin-right: 1ex;
   flex: 1;
   cursor: ${({ onClick }) => (onClick ? "pointer" : "auto")};
   color: ${({ highlighted }) => (highlighted ? "indianred" : "black")};
