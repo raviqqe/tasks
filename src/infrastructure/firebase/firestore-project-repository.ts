@@ -10,6 +10,12 @@ export class FirestoreProjectRepository implements IProjectRepository {
       .set(project);
   }
 
+  public async delete(projectID: string): Promise<void> {
+    await this.collection()
+      .doc(projectID)
+      .delete();
+  }
+
   public async list(): Promise<IProject[]> {
     return (await this.collection()
       .where("archived", "==", false)

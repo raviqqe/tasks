@@ -13,6 +13,7 @@ it("renders before a user signs in", async () => {
       completeTodoTask={async () => {}}
       createProject={async () => {}}
       createTodoTask={async () => {}}
+      deleteProject={async () => {}}
       initialize={async () => {}}
       listMoreDoneTasks={async () => {}}
       projectsStore={new ProjectsStore()}
@@ -44,6 +45,7 @@ it("renders after a user signs in", async () => {
       completeTodoTask={async () => {}}
       createProject={async () => {}}
       createTodoTask={async () => {}}
+      deleteProject={async () => {}}
       initialize={async () => {}}
       listMoreDoneTasks={async () => {}}
       projectsStore={projectsStore}
@@ -72,6 +74,7 @@ it("renders after a user signs out", async () => {
       completeTodoTask={async () => {}}
       createProject={async () => {}}
       createTodoTask={async () => {}}
+      deleteProject={async () => {}}
       initialize={async () => {}}
       listMoreDoneTasks={async () => {}}
       projectsStore={new ProjectsStore()}

@@ -1,5 +1,5 @@
 import React from "react";
-import { MdArchive, MdUnarchive } from "react-icons/md";
+import { MdArchive, MdUnarchive, MdDelete } from "react-icons/md";
 import styled from "styled-components";
 import { IProject } from "../../domain/project";
 import { IconButton } from "./IconButton";
@@ -31,6 +31,7 @@ const ButtonsContainer = styled.div`
 export interface IProps {
   archiveProject?: (project: IProject) => Promise<void>;
   currentProject?: IProject;
+  deleteProject?: (project: IProject) => Promise<void>;
   project: IProject;
   switchCurrentProject?: (project: IProject) => Promise<void>;
   unarchiveProject?: (project: IProject) => Promise<void>;
@@ -39,6 +40,7 @@ export interface IProps {
 export const Project = ({
   archiveProject,
   currentProject,
+  deleteProject,
   project,
   switchCurrentProject,
   unarchiveProject
@@ -65,6 +67,14 @@ export const Project = ({
           onClick={() => unarchiveProject(project)}
         >
           <MdUnarchive />
+        </IconButton>
+      )}
+      {deleteProject && (
+        <IconButton
+          aria-label="Delete Project"
+          onClick={() => deleteProject(project)}
+        >
+          <MdDelete />
         </IconButton>
       )}
     </ButtonsContainer>

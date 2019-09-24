@@ -13,6 +13,7 @@ import { ProjectsStore } from "../../mobx/projects-store";
 import { TasksStore } from "../../mobx/tasks-store";
 import { ProjectArchiver } from "../../../application/project-archiver";
 import { ProjectUnarchiver } from "../../../application/project-unarchiver";
+import { ProjectDeleter } from "../../../application/project-deleter";
 import { ReactRenderer } from "..";
 
 it("renders", () => {
@@ -26,6 +27,7 @@ it("renders", () => {
     {} as ProjectCreator,
     {} as ProjectArchiver,
     {} as ProjectUnarchiver,
+    {} as ProjectDeleter,
     {} as CurrentProjectSwitcher,
     {} as SignInManager,
     {} as SignOutManager,

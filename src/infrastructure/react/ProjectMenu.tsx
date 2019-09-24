@@ -65,6 +65,7 @@ export interface IProps
       IProjectProps,
       | "archiveProject"
       | "currentProject"
+      | "deleteProject"
       | "project"
       | "switchCurrentProject"
       | "unarchiveProject"
@@ -74,6 +75,7 @@ export interface IProps
         IProjectProps,
         | "archiveProject"
         | "currentProject"
+        | "deleteProject"
         | "switchCurrentProject"
         | "unarchiveProject"
       >
@@ -87,6 +89,7 @@ export const ProjectMenu = ({
   archiveProject,
   createProject,
   currentProject,
+  deleteProject,
   hideProjects,
   projects,
   switchCurrentProject,
@@ -101,6 +104,7 @@ export const ProjectMenu = ({
           <ProjectsContainer>
             {archivedProjects.map(project => (
               <Project
+                deleteProject={deleteProject}
                 key={project.id}
                 project={project}
                 unarchiveProject={unarchiveProject}

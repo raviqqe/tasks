@@ -29,6 +29,16 @@ export class MobxProjectPresenter implements IProjectPresenter {
     this.presentArchivedProjects([project, ...this.store.archivedProjects]);
   }
 
+  public presentDeletedProject(projectID: string): void {
+    if (!this.store.archivedProjects) {
+      throw new Error("projects not loaded");
+    }
+
+    this.presentArchivedProjects(
+      this.store.archivedProjects.filter(project => project.id !== projectID)
+    );
+  }
+
   public presentUnarchivedProject(project: IProject): void {
     if (!this.store.projects || !this.store.archivedProjects) {
       throw new Error("projects not loaded");

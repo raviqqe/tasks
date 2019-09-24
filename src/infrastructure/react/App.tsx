@@ -39,6 +39,7 @@ export const App = observer(
     archiveProject,
     authenticationStore: { signedIn },
     createProject,
+    deleteProject,
     projectsStore: { archivedProjects, currentProject, projects },
     tasksStore: { doneTasks, todoTasks },
     initialize,
@@ -71,6 +72,7 @@ export const App = observer(
         archivedProjects={archivedProjects}
         createProject={createProject}
         currentProject={currentProject}
+        deleteProject={deleteProject}
         hideProjects={() => setProjectsShown(false)}
         projects={projects}
         switchCurrentProject={switchCurrentProject}

@@ -16,6 +16,7 @@ import { ProjectsStore } from "../mobx/projects-store";
 import { TasksStore } from "../mobx/tasks-store";
 import { ProjectArchiver } from "../../application/project-archiver";
 import { ProjectUnarchiver } from "../../application/project-unarchiver";
+import { ProjectDeleter } from "../../application/project-deleter";
 import { GlobalStyle } from "./style";
 import { App } from "./App";
 
@@ -30,6 +31,7 @@ export class ReactRenderer {
     private readonly projectCreator: ProjectCreator,
     private readonly projectArchiver: ProjectArchiver,
     private readonly projectUnarchiver: ProjectUnarchiver,
+    private readonly projectDeleter: ProjectDeleter,
     private readonly currentProjectSwitcher: CurrentProjectSwitcher,
     private readonly signInManager: SignInManager,
     private readonly signOutManager: SignOutManager,
@@ -62,6 +64,7 @@ export class ReactRenderer {
               );
             }
           }}
+          deleteProject={project => this.projectDeleter.delete(project)}
           initialize={() => this.applicationInitializer.initialize()}
           listMoreDoneTasks={() => this.doneTaskLister.listMore()}
           projectsStore={this.projectsStore}

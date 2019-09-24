@@ -30,6 +30,7 @@ import { TodoTaskReorderer } from "./application/todo-task-reorderer";
 import { ProjectArchiver } from "./application/project-archiver";
 import { ProjectUnarchiver } from "./application/project-unarchiver";
 import { BuiltinConfirmationController } from "./infrastructure/builtin-confirmation-controller";
+import { ProjectDeleter } from "./application/project-deleter";
 
 // Instantiate this at the very beginning to initialize Firebase's default app.
 const firebaseInitializer = new FirebaseInitializer(
@@ -125,6 +126,11 @@ async function main() {
       currentProjectSwitcher,
       projectRepository,
       projectPresenter
+    ),
+    new ProjectDeleter(
+      projectRepository,
+      projectPresenter,
+      confirmationController
     ),
     currentProjectSwitcher,
     new SignInManager(authenticationController),
