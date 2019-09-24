@@ -29,9 +29,9 @@ it("unarchives a project", async () => {
   expect(mockManager.currentProjectSwitcher.switch.mock.calls).toEqual([
     [{ ...projectToUnarchive, archived: false }]
   ]);
-  expect(mockManager.projectPresenter.presentProjects.mock.calls).toEqual([
-    [[{ ...projectToUnarchive, archived: false }]]
-  ]);
+  expect(
+    mockManager.projectPresenter.presentUnarchivedProject.mock.calls
+  ).toEqual([[{ ...projectToUnarchive, archived: false }]]);
 });
 
 it("does not unarchive any project not archived", async () => {

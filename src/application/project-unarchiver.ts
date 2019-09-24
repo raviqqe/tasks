@@ -17,11 +17,8 @@ export class ProjectUnarchiver {
 
     project = { ...project, archived: false };
 
-    await this.projectRepository.update(project);
+    this.projectPresenter.presentUnarchivedProject(project);
     await this.currentProjectSwitcher.switch(project);
-    this.projectPresenter.presentProjects(await this.projectRepository.list());
-    this.projectPresenter.presentArchivedProjects(
-      await this.projectRepository.listArchived()
-    );
+    await this.projectRepository.update(project);
   }
 }

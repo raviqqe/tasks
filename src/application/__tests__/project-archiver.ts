@@ -35,9 +35,9 @@ it("archives a project", async () => {
   expect(mockManager.currentProjectSwitcher.switch.mock.calls).toEqual([
     [remainingProject]
   ]);
-  expect(mockManager.projectPresenter.presentProjects.mock.calls).toEqual([
-    [[remainingProject]]
-  ]);
+  expect(
+    mockManager.projectPresenter.presentArchivedProject.mock.calls
+  ).toEqual([[{ ...projectToArchive, archived: true }]]);
 });
 
 it("does not archive any project archived already", async () => {

@@ -31,14 +31,12 @@ export class ProjectArchiver {
       return;
     }
 
-    await this.projectRepository.update({ ...project, archived: true });
+    project = { ...project, archived: true };
 
-    const projects = await this.projectRepository.list();
-
-    await this.currentProjectSwitcher.switch(projects[0]);
-    this.projectPresenter.presentProjects(projects);
-    this.projectPresenter.presentArchivedProjects(
-      await this.projectRepository.listArchived()
+    this.projectPresenter.presentArchivedProject(project);
+    await this.projectRepository.update(project);
+    await this.currentProjectSwitcher.switch(
+      (await this.projectRepository.list())[0]
     );
   }
 }

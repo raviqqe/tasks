@@ -67,9 +67,11 @@ export class MockManager {
   } as unknown) as jest.Mocked<ProjectCreator>;
 
   public projectPresenter: jest.Mocked<IProjectPresenter> = {
+    presentArchivedProject: jest.fn(),
     presentArchivedProjects: jest.fn(),
     presentCurrentProject: jest.fn(),
-    presentProjects: jest.fn()
+    presentProjects: jest.fn(),
+    presentUnarchivedProject: jest.fn()
   };
 
   public projectRepository: jest.Mocked<IProjectRepository> = {
