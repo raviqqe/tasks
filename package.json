@@ -43,7 +43,7 @@
     "@types/styled-components": "^4.1.18",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
-    "cspell": "^4.0.28",
+    "cspell": "^4.0.30",
     "eslint": "^6.4.0",
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-import": "^2.18.2",
