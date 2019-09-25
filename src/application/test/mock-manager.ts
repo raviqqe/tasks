@@ -14,6 +14,7 @@ import { DoneTaskLister } from "../done-task-lister";
 import { ITodoTaskPresenter } from "../todo-task-presenter";
 import { ITodoTaskRepository } from "../todo-task-repository";
 import { IConfirmationController } from "../confirmation-controller";
+import { OldDataMigrator } from "../old-data-migrator";
 
 export class MockManager {
   public authenticationController: jest.Mocked<IAuthenticationController> = {
@@ -61,6 +62,10 @@ export class MockManager {
   public messagePresenter: jest.Mocked<IMessagePresenter> = {
     present: jest.fn()
   };
+
+  public oldDataMigrator: jest.Mocked<OldDataMigrator> = ({
+    migrate: jest.fn()
+  } as unknown) as jest.Mocked<OldDataMigrator>;
 
   public projectCreator: jest.Mocked<ProjectCreator> = ({
     create: jest.fn()

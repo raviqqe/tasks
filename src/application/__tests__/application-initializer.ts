@@ -21,7 +21,8 @@ beforeEach(() => {
     mockManager.projectRepository,
     mockManager.projectPresenter,
     mockManager.currentProjectSwitcher,
-    mockManager.currentProjectRepository
+    mockManager.currentProjectRepository,
+    mockManager.oldDataMigrator
   );
 });
 

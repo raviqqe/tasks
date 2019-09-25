@@ -6,6 +6,7 @@ import { IProjectRepository } from "./project-repository";
 import { IProjectPresenter } from "./project-presenter";
 import { ICurrentProjectRepository } from "./current-project-repository";
 import { CurrentProjectSwitcher } from "./current-project-switcher";
+import { OldDataMigrator } from "./old-data-migrator";
 
 export class ApplicationInitializer {
   constructor(
@@ -16,7 +17,8 @@ export class ApplicationInitializer {
     private readonly projectRepository: IProjectRepository,
     private readonly projectPresenter: IProjectPresenter,
     private readonly currentProjectSwitcher: CurrentProjectSwitcher,
-    private readonly currentProjectRepository: ICurrentProjectRepository
+    private readonly currentProjectRepository: ICurrentProjectRepository,
+    private readonly oldDataMigrator: OldDataMigrator
   ) {}
 
   public async initialize(): Promise<void> {
@@ -43,5 +45,8 @@ export class ApplicationInitializer {
     this.projectPresenter.presentArchivedProjects(
       await this.projectRepository.listArchived()
     );
+
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    this.oldDataMigrator.migrate();
   }
 }
