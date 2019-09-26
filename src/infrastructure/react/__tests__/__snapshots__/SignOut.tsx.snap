@@ -2,7 +2,7 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-bwzfXH fBENwa sc-bdVaJa hHGyAi"
+  className="sc-bdVaJa hHGyAi sc-bwzfXH fBENwa"
   onClick={[Function]}
 >
   <svg
