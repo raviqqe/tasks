@@ -10,18 +10,43 @@ export class MobxTodoTaskPresenter implements ITodoTaskPresenter {
   }
 
   public presentNewTask(task: ITask): void {
-    this.store.prependTodoTask(task);
+    if (!this.store.todoTasks) {
+      throw new Error("todo tasks not loaded");
+    }
+
+    this.store.setTodoTasks([task, ...this.store.todoTasks]);
   }
 
   public presentReorderedTasks(taskIDs: string[]): void {
-    this.store.reorderTodoTasks(taskIDs);
+    if (!this.store.todoTasks) {
+      throw new Error("todo tasks not loaded");
+    }
+
+    const taskMap = new Map<string, ITask>(
+      this.store.todoTasks.map(task => [task.id, task])
+    );
+    this.store.setTodoTasks(taskIDs.map(id => taskMap.get(id) as ITask));
   }
 
-  public presentUpdatedTask(task: ITask): void {
-    this.store.updateTodoTask(task);
+  public presentUpdatedTask(updatedTask: ITask): void {
+    if (!this.store.todoTasks) {
+      throw new Error("todo tasks not loaded");
+    }
+
+    this.store.setTodoTasks(
+      this.store.todoTasks.map(task =>
+        task.id === updatedTask.id ? updatedTask : task
+      )
+    );
   }
 
   public presentDeletedTask(taskID: string): void {
-    this.store.deleteTodoTask(taskID);
+    if (!this.store.todoTasks) {
+      throw new Error("todo tasks not loaded");
+    }
+
+    this.store.setTodoTasks(
+      this.store.todoTasks.filter(task => task.id !== taskID)
+    );
   }
 }

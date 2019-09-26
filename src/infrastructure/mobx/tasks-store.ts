@@ -11,66 +11,7 @@ export class TasksStore {
   }
 
   @action
-  public prependTodoTask(task: ITask): void {
-    if (!this.todoTasks) {
-      throw new Error("todo tasks not loaded");
-    }
-
-    this.todoTasks = [task, ...this.todoTasks];
-  }
-
-  @action
-  public reorderTodoTasks(taskIDs: string[]): void {
-    if (!this.todoTasks) {
-      throw new Error("todo tasks not loaded");
-    }
-
-    const taskMap = new Map<string, ITask>(
-      this.todoTasks.map(task => [task.id, task])
-    );
-    this.todoTasks = taskIDs.map(id => taskMap.get(id) as ITask);
-  }
-
-  @action
-  public updateTodoTask(updatedTask: ITask): void {
-    if (!this.todoTasks) {
-      throw new Error("todo tasks not loaded");
-    }
-
-    this.todoTasks = this.todoTasks.map(task =>
-      task.id === updatedTask.id ? updatedTask : task
-    );
-  }
-
-  @action
-  public deleteTodoTask(taskID: string): void {
-    if (!this.todoTasks) {
-      throw new Error("todo tasks not loaded");
-    }
-
-    this.todoTasks = this.todoTasks.filter(task => task.id !== taskID);
-  }
-
-  @action
   public setDoneTasks(tasks: ITask[] | null): void {
     this.doneTasks = tasks;
-  }
-
-  @action
-  public appendDoneTasks(tasks: ITask[]): void {
-    if (!this.doneTasks) {
-      throw new Error("done tasks not loaded");
-    }
-
-    this.doneTasks = [...this.doneTasks, ...tasks];
-  }
-
-  @action
-  public prependDoneTask(task: ITask): void {
-    if (!this.doneTasks) {
-      throw new Error("done tasks not loaded");
-    }
-
-    this.doneTasks = [task, ...this.doneTasks];
   }
 }

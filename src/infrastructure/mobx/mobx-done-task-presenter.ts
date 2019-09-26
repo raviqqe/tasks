@@ -5,15 +5,23 @@ import { TasksStore } from "./tasks-store";
 export class MobxDoneTaskPresenter implements IDoneTaskPresenter {
   constructor(private readonly store: TasksStore) {}
 
-  public async presentTasks(tasks: ITask[] | null): Promise<void> {
+  public presentTasks(tasks: ITask[] | null): void {
     this.store.setDoneTasks(tasks);
   }
 
-  public async presentMoreTasks(tasks: ITask[]): Promise<void> {
-    this.store.appendDoneTasks(tasks);
+  public presentMoreTasks(tasks: ITask[]): void {
+    if (!this.store.doneTasks) {
+      throw new Error("done tasks not loaded");
+    }
+
+    this.store.setDoneTasks([...this.store.doneTasks, ...tasks]);
   }
 
   public presentNewTask(task: ITask): void {
-    this.store.prependDoneTask(task);
+    if (!this.store.doneTasks) {
+      throw new Error("done tasks not loaded");
+    }
+
+    this.store.setDoneTasks([task, ...this.store.doneTasks]);
   }
 }
