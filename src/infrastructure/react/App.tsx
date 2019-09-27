@@ -76,10 +76,7 @@ export const App = observer(
         hideProjects={() => setProjectsShown(false)}
         projects={projects}
         switchCurrentProject={switchCurrentProject}
-        unarchiveProject={async project => {
-          await unarchiveProject(project);
-          setProjectsShown(false);
-        }}
+        unarchiveProject={unarchiveProject}
       />
     ) : signedIn === false ? (
       <Landing repositoryURL={repositoryURL} signIn={signIn} />

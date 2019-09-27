@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { IProject } from "../../domain/project";
 import { CreateProject, IProps as ICreateProjectProps } from "./CreateProject";
-import { HideProjects, IProps as IHideProjectsProps } from "./HideProjects";
 import { Project, IProps as IProjectProps } from "./Project";
 import { boxShadow } from "./style";
 import { ToggleProjects } from "./ToggleProjects";
@@ -39,12 +38,6 @@ const Message = styled.div`
   color: grey;
 `;
 
-const UpperButtonsContainer = styled.div`
-  position: fixed;
-  right: 0.5rem;
-  top: 0.5rem;
-`;
-
 const LowerButtonsContainer = styled.div`
   position: fixed;
   right: 0.5rem;
@@ -64,7 +57,6 @@ const StyledCreateProject = styled(CreateProject)<{
 
 export interface IProps
   extends ICreateProjectProps,
-    IHideProjectsProps,
     Omit<
       IProjectProps,
       | "archiveProject"
@@ -85,6 +77,7 @@ export interface IProps
       >
     > {
   archivedProjects: IProject[];
+  hideProjects: () => void;
   projects: IProject[];
 }
 
@@ -114,7 +107,10 @@ export const ProjectMenu = ({
                   deleteProject={deleteProject}
                   key={project.id}
                   project={project}
-                  unarchiveProject={unarchiveProject}
+                  unarchiveProject={async project => {
+                    await unarchiveProject(project);
+                    hideProjects();
+                  }}
                 />
               ))
             )}
@@ -136,9 +132,6 @@ export const ProjectMenu = ({
           </ProjectsContainer>
         )}
       </ScrollContainer>
-      <UpperButtonsContainer>
-        <HideProjects hideProjects={hideProjects} />
-      </UpperButtonsContainer>
       <LowerButtonsContainer>
         <ToggleProjects
           projectsArchived={projectsArchived}
