@@ -35,6 +35,10 @@ const ProjectsContainer = styled.div`
   }
 `;
 
+const Message = styled.div`
+  color: grey;
+`;
+
 const UpperButtonsContainer = styled.div`
   position: fixed;
   right: 0.5rem;
@@ -102,14 +106,18 @@ export const ProjectMenu = ({
       <ScrollContainer>
         {projectsArchived ? (
           <ProjectsContainer>
-            {archivedProjects.map(project => (
-              <Project
-                deleteProject={deleteProject}
-                key={project.id}
-                project={project}
-                unarchiveProject={unarchiveProject}
-              />
-            ))}
+            {archivedProjects.length === 0 ? (
+              <Message>No archived projects</Message>
+            ) : (
+              archivedProjects.map(project => (
+                <Project
+                  deleteProject={deleteProject}
+                  key={project.id}
+                  project={project}
+                  unarchiveProject={unarchiveProject}
+                />
+              ))
+            )}
           </ProjectsContainer>
         ) : (
           <ProjectsContainer>
