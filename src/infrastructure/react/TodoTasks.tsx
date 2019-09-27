@@ -46,7 +46,6 @@ export const TodoTasks = ({
   todoTasks ? (
     <Container>
       <Tasks
-        distance={4}
         onSortEnd={async ({ oldIndex, newIndex }) => {
           const taskIDs = todoTasks.map(task => task.id);
           taskIDs.splice(newIndex, 0, taskIDs.splice(oldIndex, 1)[0]);
