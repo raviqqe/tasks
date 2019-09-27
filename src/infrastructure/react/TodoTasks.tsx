@@ -52,10 +52,12 @@ export const TodoTasks = ({
           taskIDs.splice(newIndex, 0, taskIDs.splice(oldIndex, 1)[0]);
           await reorderTodoTasks(taskIDs);
         }}
+        useDragHandle={true}
       >
         {todoTasks.map((task: ITask, index: number) => (
           <SortableTask
             completeTask={completeTodoTask}
+            dragHandleEnabled={true}
             index={index}
             key={task.id}
             task={task}

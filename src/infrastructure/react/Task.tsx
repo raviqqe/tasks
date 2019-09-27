@@ -1,6 +1,7 @@
-import { MdCheck, MdEdit } from "react-icons/md";
+import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md";
 import React from "react";
 import styled from "styled-components";
+import { SortableHandle } from "react-sortable-hoc";
 import { ITask } from "../../domain/task";
 import { IconButton } from "./IconButton";
 import { boxShadow } from "./style";
@@ -29,14 +30,22 @@ const ButtonsContainer = styled.div`
   }
 `;
 
+const DragHandle = SortableHandle(() => (
+  <IconButton onClick={() => {}}>
+    <MdDragHandle />
+  </IconButton>
+));
+
 interface IProps {
   completeTask?: (task: ITask) => Promise<void>;
+  dragHandleEnabled?: boolean;
   task: ITask;
   updateTask?: (task: ITask) => Promise<void>;
 }
 
 export const Task = ({
   completeTask,
+  dragHandleEnabled,
   task,
   updateTask,
   ...restProps
@@ -65,6 +74,7 @@ export const Task = ({
           <MdEdit />
         </IconButton>
       )}
+      {dragHandleEnabled && <DragHandle />}
     </ButtonsContainer>
   </Container>
 );
