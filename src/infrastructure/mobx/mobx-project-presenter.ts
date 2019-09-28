@@ -51,8 +51,10 @@ export class MobxProjectPresenter implements IProjectPresenter {
   }
 
   public presentUpdatedProject(updatedProject: IProject): void {
-    if (!this.store.projects) {
+    if (!this.store.currentProject || !this.store.projects) {
       throw new Error("projects not loaded");
+    } else if (this.store.currentProject.id === updatedProject.id) {
+      this.store.setCurrentProject(updatedProject);
     }
 
     this.presentProjects(
