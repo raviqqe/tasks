@@ -1,5 +1,5 @@
 import "firebase/auth";
-import * as firebase from "firebase/app";
+import firebase from "firebase/app";
 import { IAuthenticationController } from "../../application/authentication-controller";
 import { sleep } from "../../domain/utilities";
 
