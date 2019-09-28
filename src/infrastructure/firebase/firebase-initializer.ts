@@ -13,6 +13,6 @@ export class FirebaseInitializer {
   }
 
   public async initialize() {
-    await firebase.firestore().enablePersistence();
+    await firebase.firestore().enablePersistence({ synchronizeTabs: true });
   }
 }
