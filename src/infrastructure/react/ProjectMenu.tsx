@@ -57,25 +57,7 @@ const StyledCreateProject = styled(CreateProject)<{
 
 export interface IProps
   extends ICreateProjectProps,
-    Omit<
-      IProjectProps,
-      | "archiveProject"
-      | "currentProject"
-      | "deleteProject"
-      | "project"
-      | "switchCurrentProject"
-      | "unarchiveProject"
-    >,
-    Required<
-      Pick<
-        IProjectProps,
-        | "archiveProject"
-        | "currentProject"
-        | "deleteProject"
-        | "switchCurrentProject"
-        | "unarchiveProject"
-      >
-    > {
+    Required<Omit<IProjectProps, "project">> {
   archivedProjects: IProject[];
   hideProjects: () => void;
   projects: IProject[];
@@ -90,7 +72,8 @@ export const ProjectMenu = ({
   hideProjects,
   projects,
   switchCurrentProject,
-  unarchiveProject
+  unarchiveProject,
+  updateProject
 }: IProps) => {
   const [projectsArchived, setProjectsArchived] = useState(false);
 
@@ -127,6 +110,7 @@ export const ProjectMenu = ({
                   hideProjects();
                   await switchCurrentProject(project);
                 }}
+                updateProject={updateProject}
               />
             ))}
           </ProjectsContainer>

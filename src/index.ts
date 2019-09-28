@@ -33,6 +33,7 @@ import { BuiltinConfirmationController } from "./infrastructure/builtin-confirma
 import { ProjectDeleter } from "./application/project-deleter";
 import { FirestoreOldProjectRepository } from "./infrastructure/firebase/firestore-old-project-repository";
 import { OldDataMigrator } from "./application/old-data-migrator";
+import { ProjectUpdater } from "./application/project-updater";
 
 // Instantiate this at the very beginning to initialize Firebase's default app.
 const firebaseInitializer = new FirebaseInitializer(
@@ -140,6 +141,7 @@ async function main() {
       projectPresenter,
       confirmationController
     ),
+    new ProjectUpdater(projectRepository, projectPresenter, messagePresenter),
     currentProjectSwitcher,
     new SignInManager(authenticationController),
     new SignOutManager(authenticationController, authenticationPresenter),

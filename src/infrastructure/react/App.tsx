@@ -18,7 +18,7 @@ const LoaderContainer = styled.div`
   width: 100vw;
 `;
 
-interface IProps
+export interface IProps
   extends Omit<
       IHomeProps,
       "currentProject" | "doneTasks" | "showProjects" | "todoTasks"
@@ -48,6 +48,7 @@ export const App = observer(
     signOut,
     switchCurrentProject,
     unarchiveProject,
+    updateProject,
     ...props
   }: IProps) => {
     useAsync(initialize, []);
@@ -77,6 +78,7 @@ export const App = observer(
         projects={projects}
         switchCurrentProject={switchCurrentProject}
         unarchiveProject={unarchiveProject}
+        updateProject={updateProject}
       />
     ) : signedIn === false ? (
       <Landing repositoryURL={repositoryURL} signIn={signIn} />

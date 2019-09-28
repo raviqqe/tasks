@@ -7,4 +7,5 @@ export interface IProjectPresenter {
   presentArchivedProject(project: IProject): void;
   presentDeletedProject(projectID: string): void;
   presentUnarchivedProject(project: IProject): void;
+  presentUpdatedProject(project: IProject): void;
 }

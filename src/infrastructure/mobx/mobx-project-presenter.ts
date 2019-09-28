@@ -49,4 +49,16 @@ export class MobxProjectPresenter implements IProjectPresenter {
       this.store.archivedProjects.filter(({ id }) => id !== project.id)
     );
   }
+
+  public presentUpdatedProject(updatedProject: IProject): void {
+    if (!this.store.projects) {
+      throw new Error("projects not loaded");
+    }
+
+    this.presentProjects(
+      this.store.projects.map(project =>
+        project.id === updatedProject.id ? updatedProject : project
+      )
+    );
+  }
 }

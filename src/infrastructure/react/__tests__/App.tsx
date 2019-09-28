@@ -1,30 +1,38 @@
 import { render } from "@testing-library/react";
 import React from "react";
-import { App } from "../App";
+import { App, IProps } from "../App";
 import { AuthenticationStore } from "../../mobx/authentication-store";
 import { ProjectsStore } from "../../mobx/projects-store";
 import { TasksStore } from "../../mobx/tasks-store";
 
+const nonStoreProps: Omit<
+  IProps,
+  "authenticationStore" | "projectsStore" | "tasksStore"
+> = {
+  archiveProject: async () => {},
+  completeTodoTask: async () => {},
+  createProject: async () => {},
+  createTodoTask: async () => {},
+  deleteProject: async () => {},
+  initialize: async () => {},
+  listMoreDoneTasks: async () => {},
+  reorderTodoTasks: async () => {},
+  repositoryURL: "",
+  signIn: () => {},
+  signOut: () => {},
+  switchCurrentProject: async () => {},
+  unarchiveProject: async () => {},
+  updateProject: async () => {},
+  updateTodoTask: async () => {}
+};
+
 it("renders before a user signs in", async () => {
   const result = render(
     <App
-      archiveProject={async () => {}}
+      {...nonStoreProps}
       authenticationStore={new AuthenticationStore()}
-      completeTodoTask={async () => {}}
-      createProject={async () => {}}
-      createTodoTask={async () => {}}
-      deleteProject={async () => {}}
-      initialize={async () => {}}
-      listMoreDoneTasks={async () => {}}
       projectsStore={new ProjectsStore()}
-      reorderTodoTasks={async () => {}}
-      repositoryURL=""
-      signIn={() => {}}
-      signOut={() => {}}
-      switchCurrentProject={async () => {}}
       tasksStore={new TasksStore()}
-      unarchiveProject={async () => {}}
-      updateTodoTask={async () => {}}
     />
   );
 
@@ -40,23 +48,10 @@ it("renders after a user signs in", async () => {
 
   const result = render(
     <App
-      archiveProject={async () => {}}
+      {...nonStoreProps}
       authenticationStore={authenticationStore}
-      completeTodoTask={async () => {}}
-      createProject={async () => {}}
-      createTodoTask={async () => {}}
-      deleteProject={async () => {}}
-      initialize={async () => {}}
-      listMoreDoneTasks={async () => {}}
       projectsStore={projectsStore}
-      reorderTodoTasks={async () => {}}
-      repositoryURL=""
-      signIn={() => {}}
-      signOut={() => {}}
-      switchCurrentProject={async () => {}}
       tasksStore={new TasksStore()}
-      unarchiveProject={async () => {}}
-      updateTodoTask={async () => {}}
     />
   );
 
@@ -69,23 +64,10 @@ it("renders after a user signs out", async () => {
 
   const result = render(
     <App
-      archiveProject={async () => {}}
+      {...nonStoreProps}
       authenticationStore={authenticationStore}
-      completeTodoTask={async () => {}}
-      createProject={async () => {}}
-      createTodoTask={async () => {}}
-      deleteProject={async () => {}}
-      initialize={async () => {}}
-      listMoreDoneTasks={async () => {}}
       projectsStore={new ProjectsStore()}
-      reorderTodoTasks={async () => {}}
-      repositoryURL=""
-      signIn={() => {}}
-      signOut={() => {}}
-      switchCurrentProject={async () => {}}
       tasksStore={new TasksStore()}
-      unarchiveProject={async () => {}}
-      updateTodoTask={async () => {}}
     />
   );
 

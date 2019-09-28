@@ -15,6 +15,7 @@ it("renders", () => {
         projects={[]}
         switchCurrentProject={async () => {}}
         unarchiveProject={async () => {}}
+        updateProject={async () => {}}
       />
     ).toJSON()
   ).toMatchSnapshot();

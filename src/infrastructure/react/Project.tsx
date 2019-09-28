@@ -1,5 +1,5 @@
 import React from "react";
-import { MdArchive, MdUnarchive, MdDelete } from "react-icons/md";
+import { MdArchive, MdUnarchive, MdDelete, MdEdit } from "react-icons/md";
 import styled from "styled-components";
 import { IProject } from "../../domain/project";
 import { IconButton } from "./IconButton";
@@ -35,6 +35,7 @@ export interface IProps {
   project: IProject;
   switchCurrentProject?: (project: IProject) => Promise<void>;
   unarchiveProject?: (project: IProject) => Promise<void>;
+  updateProject?: (project: IProject) => Promise<void>;
 }
 
 export const Project = ({
@@ -43,7 +44,8 @@ export const Project = ({
   deleteProject,
   project,
   switchCurrentProject,
-  unarchiveProject
+  unarchiveProject,
+  updateProject
 }: IProps) => (
   <Container>
     <Name
@@ -53,6 +55,22 @@ export const Project = ({
       {project.name}
     </Name>
     <ButtonsContainer>
+      {updateProject && (
+        <IconButton
+          aria-label="Update Project"
+          onClick={async () => {
+            const name = window.prompt("New project name?", project.name);
+
+            if (!name) {
+              return;
+            }
+
+            await updateProject({ ...project, name });
+          }}
+        >
+          <MdEdit />
+        </IconButton>
+      )}
       {archiveProject && (
         <IconButton
           aria-label="Archive Project"
