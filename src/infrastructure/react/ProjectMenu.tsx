@@ -106,7 +106,7 @@ export const ProjectMenu = ({
                 currentProject={currentProject}
                 key={project.id}
                 project={project}
-                switchCurrentProject={async () => {
+                switchCurrentProject={async project => {
                   hideProjects();
                   await switchCurrentProject(project);
                 }}
