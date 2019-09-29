@@ -11,11 +11,11 @@ export class MobxProjectPresenter implements IProjectPresenter {
   }
 
   public presentProjects(projects: IProject[]): void {
-    this.store.setProjects(sortBy(projects, "name"));
+    this.store.setProjects(this.sortProjects(projects));
   }
 
   public presentArchivedProjects(projects: IProject[]): void {
-    this.store.setArchivedProjects(sortBy(projects, "name"));
+    this.store.setArchivedProjects(this.sortProjects(projects));
   }
 
   public presentArchivedProject(project: IProject): void {
@@ -62,5 +62,9 @@ export class MobxProjectPresenter implements IProjectPresenter {
         project.id === updatedProject.id ? updatedProject : project
       )
     );
+  }
+
+  private sortProjects(projects: IProject[]): IProject[] {
+    return sortBy(projects, project => project.name.toLowerCase());
   }
 }
