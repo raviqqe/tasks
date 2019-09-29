@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { PulseLoader } from "react-spinners";
 import styled from "styled-components";
 import { IProject } from "../../domain/project";
 import { CreateProject, IProps as ICreateProjectProps } from "./CreateProject";
@@ -57,10 +58,11 @@ const StyledCreateProject = styled(CreateProject)<{
 
 export interface IProps
   extends ICreateProjectProps,
-    Required<Omit<IProjectProps, "project">> {
-  archivedProjects: IProject[];
+    Required<Omit<IProjectProps, "currentProject" | "project">> {
+  archivedProjects: IProject[] | null;
+  currentProject: IProject | null;
   hideProjects: () => void;
-  projects: IProject[];
+  projects: IProject[] | null;
 }
 
 export const ProjectMenu = ({
@@ -82,9 +84,9 @@ export const ProjectMenu = ({
     if (ref.current) {
       ref.current.scrollIntoView({ block: "center" });
     }
-  }, [ref]);
+  });
 
-  return (
+  return currentProject && archivedProjects && projects ? (
     <Container>
       <ScrollContainer>
         {projectsArchived ? (
@@ -137,6 +139,10 @@ export const ProjectMenu = ({
           projectsArchived={projectsArchived}
         />
       </LowerButtonsContainer>
+    </Container>
+  ) : (
+    <Container>
+      <PulseLoader color="white" />
     </Container>
   );
 };

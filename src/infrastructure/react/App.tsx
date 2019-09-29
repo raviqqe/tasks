@@ -63,11 +63,7 @@ export const App = observer(
         signOut={signOut}
         todoTasks={todoTasks}
       />
-    ) : signedIn &&
-      projectsShown &&
-      currentProject &&
-      projects &&
-      archivedProjects ? (
+    ) : signedIn ? (
       <ProjectMenu
         archiveProject={archiveProject}
         archivedProjects={archivedProjects}
