@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { IProject } from "../../domain/project";
 import { CreateProject, IProps as ICreateProjectProps } from "./CreateProject";
@@ -76,6 +76,13 @@ export const ProjectMenu = ({
   updateProject
 }: IProps) => {
   const [projectsArchived, setProjectsArchived] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ block: "center" });
+    }
+  }, [ref]);
 
   return (
     <Container>
@@ -106,6 +113,7 @@ export const ProjectMenu = ({
                 currentProject={currentProject}
                 key={project.id}
                 project={project}
+                ref={project.id === currentProject.id ? ref : null}
                 switchCurrentProject={async project => {
                   hideProjects();
                   await switchCurrentProject(project);

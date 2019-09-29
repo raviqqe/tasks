@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef, Ref } from "react";
 import { MdArchive, MdUnarchive, MdDelete, MdEdit } from "react-icons/md";
 import styled from "styled-components";
 import { IProject } from "../../domain/project";
@@ -38,16 +38,19 @@ export interface IProps {
   updateProject?: (project: IProject) => Promise<void>;
 }
 
-export const Project = ({
-  archiveProject,
-  currentProject,
-  deleteProject,
-  project,
-  switchCurrentProject,
-  unarchiveProject,
-  updateProject
-}: IProps) => (
-  <Container>
+const ProjectWithRef = (
+  {
+    archiveProject,
+    currentProject,
+    deleteProject,
+    project,
+    switchCurrentProject,
+    unarchiveProject,
+    updateProject
+  }: IProps,
+  ref: Ref<HTMLDivElement>
+) => (
+  <Container ref={ref}>
     <Name
       highlighted={!!currentProject && project.id === currentProject.id}
       onClick={switchCurrentProject && (() => switchCurrentProject(project))}
@@ -98,3 +101,5 @@ export const Project = ({
     </ButtonsContainer>
   </Container>
 );
+
+export const Project = forwardRef(ProjectWithRef);
