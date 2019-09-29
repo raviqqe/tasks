@@ -19,14 +19,12 @@ export class FirestoreProjectRepository implements IProjectRepository {
   public async list(): Promise<IProject[]> {
     return (await this.collection()
       .where("archived", "==", false)
-      .orderBy("name")
       .get()).docs.map(snapshot => snapshot.data() as IProject);
   }
 
   public async listArchived(): Promise<IProject[]> {
     return (await this.collection()
       .where("archived", "==", true)
-      .orderBy("name")
       .get()).docs.map(snapshot => snapshot.data() as IProject);
   }
 
