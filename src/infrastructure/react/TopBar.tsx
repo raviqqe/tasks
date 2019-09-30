@@ -6,6 +6,7 @@ import {
   CurrentProject,
   IProps as ICurrentProjectProps
 } from "./CurrentProject";
+import { red } from "./style/colors";
 
 const Container = styled.div`
   ${boxShadow}
@@ -14,7 +15,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  background-color: indianred;
+  background-color: ${red};
   width: 100%;
 `;
 

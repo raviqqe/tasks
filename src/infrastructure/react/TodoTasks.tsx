@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { ITask } from "../../domain/task";
 import { Task } from "./Task";
 import { buttonMargin } from "./style";
+import { white } from "./style/colors";
 
 const Container = styled.div`
   display: flex;
@@ -67,6 +68,6 @@ export const TodoTasks = ({
     </Container>
   ) : (
     <LoaderContainer>
-      <PulseLoader color="white" />
+      <PulseLoader color={white} />
     </LoaderContainer>
   );

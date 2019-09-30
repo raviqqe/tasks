@@ -5,13 +5,14 @@ import { SortableHandle } from "react-sortable-hoc";
 import { ITask } from "../../domain/task";
 import { IconButton } from "./IconButton";
 import { boxShadow } from "./style";
+import { white } from "./style/colors";
 
 const Container = styled.div`
   ${boxShadow};
   display: flex;
   justify-content: space-between
   align-items: center;
-  background: white;
+  background: ${white};
   padding: 0.8em;
   border-radius: 0.5em;
 `;

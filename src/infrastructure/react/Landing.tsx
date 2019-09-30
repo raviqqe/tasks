@@ -2,6 +2,7 @@ import { GoMarkGithub } from "react-icons/go";
 import React from "react";
 import styled from "styled-components";
 import { SignIn } from "./SignIn";
+import { black, red, white } from "./style/colors";
 
 const Container = styled.div`
   height: 100vh;
@@ -24,17 +25,17 @@ const Title = styled.div`
 `;
 
 const White = styled.span`
-  color: white;
+  color: ${white};
 `;
 
 const Red = styled.span`
-  color: indianred;
+  color: ${red};
 `;
 
 const GitHubLink = styled.a`
   font-size: 2.5rem;
   margin: 1.5rem;
-  color: #222;
+  color: ${black};
   display: block;
   position: fixed;
   bottom: 0em;

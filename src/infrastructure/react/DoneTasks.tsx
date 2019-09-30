@@ -4,6 +4,7 @@ import React from "react";
 import styled from "styled-components";
 import { ITask } from "../../domain/task";
 import { Task } from "./Task";
+import { white } from "./style/colors";
 
 const Container = styled.div`
   display: flex;
@@ -48,6 +49,6 @@ export const DoneTasks = ({ doneTasks, listMoreDoneTasks }: IProps) =>
     </Container>
   ) : (
     <LoaderContainer>
-      <PulseLoader color="white" />
+      <PulseLoader color={white} />
     </LoaderContainer>
   );

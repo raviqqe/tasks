@@ -9,6 +9,7 @@ import { ProjectsStore } from "../mobx/projects-store";
 import { IProps as ILandingProps, Landing } from "./Landing";
 import { Home, IProps as IHomeProps } from "./Home";
 import { ProjectMenu, IProps as IProjectMenuProps } from "./ProjectMenu";
+import { white } from "./style/colors";
 
 const LoaderContainer = styled.div`
   display: flex;
@@ -80,7 +81,7 @@ export const App = observer(
       <Landing repositoryURL={repositoryURL} signIn={signIn} />
     ) : (
       <LoaderContainer>
-        <PulseLoader color="white" />
+        <PulseLoader color={white} />
       </LoaderContainer>
     );
   }

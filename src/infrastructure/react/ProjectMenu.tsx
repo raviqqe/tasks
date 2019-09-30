@@ -6,9 +6,10 @@ import { CreateProject, IProps as ICreateProjectProps } from "./CreateProject";
 import { Project, IProps as IProjectProps } from "./Project";
 import { boxShadow } from "./style";
 import { ToggleProjects } from "./ToggleProjects";
+import { grey, white, lightGrey } from "./style/colors";
 
 const Container = styled.div`
-  background-color: lightgrey;
+  background-color: ${lightGrey};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,7 +27,7 @@ const ProjectsContainer = styled.div`
   flex-direction: column;
   margin: 1.5rem;
   max-width: 50ex;
-  background-color: white;
+  background-color: ${white};
   border-radius: 0.5rem;
   padding: 1rem 1.5rem;
 
@@ -36,7 +37,7 @@ const ProjectsContainer = styled.div`
 `;
 
 const Message = styled.div`
-  color: grey;
+  color: ${grey};
 `;
 
 const LowerButtonsContainer = styled.div`
@@ -142,7 +143,7 @@ export const ProjectMenu = ({
     </Container>
   ) : (
     <Container>
-      <PulseLoader color="white" />
+      <PulseLoader color={white} />
     </Container>
   );
 };

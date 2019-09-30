@@ -3,6 +3,7 @@ import { MdArchive, MdUnarchive, MdDelete, MdEdit } from "react-icons/md";
 import styled from "styled-components";
 import { IProject } from "../../domain/project";
 import { IconButton } from "./IconButton";
+import { black, red } from "./style/colors";
 
 const Container = styled.div`
   display: flex;
@@ -16,7 +17,7 @@ const Name = styled.div<{ highlighted: boolean }>`
   margin-right: 1em;
   flex: 1;
   cursor: ${({ onClick }) => (onClick ? "pointer" : "auto")};
-  color: ${({ highlighted }) => (highlighted ? "indianred" : "black")};
+  color: ${({ highlighted }) => (highlighted ? red : black)};
 `;
 
 const ButtonsContainer = styled.div`
