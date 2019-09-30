@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { PulseLoader } from "react-spinners";
 import { IProject } from "../../domain/project";
 import { white } from "./style/colors";
+import { Loader } from "./Loader";
 
 const Container = styled.div`
   display: flex;
@@ -21,6 +21,6 @@ export interface IProps {
 
 export const CurrentProject = ({ currentProject, showProjects }: IProps) => (
   <Container onClick={showProjects}>
-    {currentProject ? currentProject.name : <PulseLoader color={white} />}
+    {currentProject ? currentProject.name : <Loader />}
   </Container>
 );

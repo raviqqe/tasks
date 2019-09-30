@@ -1,11 +1,10 @@
-import { PulseLoader } from "react-spinners";
 import React from "react";
 import { SortableContainer, SortableElement } from "react-sortable-hoc";
 import styled from "styled-components";
 import { ITask } from "../../domain/task";
 import { Task } from "./Task";
+import { Loader } from "./Loader";
 import { buttonMargin } from "./style";
-import { white } from "./style/colors";
 
 const Container = styled.div`
   display: flex;
@@ -68,6 +67,6 @@ export const TodoTasks = ({
     </Container>
   ) : (
     <LoaderContainer>
-      <PulseLoader color={white} />
+      <Loader />
     </LoaderContainer>
   );

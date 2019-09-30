@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import { PulseLoader } from "react-spinners";
 import styled from "styled-components";
 import { IProject } from "../../domain/project";
 import { CreateProject, IProps as ICreateProjectProps } from "./CreateProject";
@@ -7,6 +6,7 @@ import { Project, IProps as IProjectProps } from "./Project";
 import { boxShadow } from "./style";
 import { ToggleProjects } from "./ToggleProjects";
 import { grey, white, lightGrey } from "./style/colors";
+import { Loader } from "./Loader";
 
 const Container = styled.div`
   background-color: ${lightGrey};
@@ -143,7 +143,7 @@ export const ProjectMenu = ({
     </Container>
   ) : (
     <Container>
-      <PulseLoader color={white} />
+      <Loader />
     </Container>
   );
 };
