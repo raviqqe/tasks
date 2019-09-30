@@ -47,7 +47,9 @@ export class ReactRenderer {
     render(
       <>
         <App
-          archiveProject={project => this.projectArchiver.archive(project)}
+          archiveProject={(project, currentProjectID) =>
+            this.projectArchiver.archive(project, currentProjectID)
+          }
           authenticationStore={this.authenticationStore}
           completeTodoTask={async (task: ITask) => {
             if (this.projectsStore.currentProject) {

@@ -15,7 +15,10 @@ export class ProjectArchiver {
     private readonly confirmationController: IConfirmationController
   ) {}
 
-  public async archive(project: IProject) {
+  public async archive(
+    project: IProject,
+    currentProjectID: string
+  ): Promise<void> {
     if (project.archived) {
       throw new Error("project archived already");
     } else if ((await this.projectRepository.list()).length === 1) {
@@ -35,8 +38,11 @@ export class ProjectArchiver {
 
     this.projectPresenter.presentArchivedProject(project);
     await this.projectRepository.update(project);
-    await this.currentProjectSwitcher.switch(
-      (await this.projectRepository.list())[0]
-    );
+
+    if (project.id === currentProjectID) {
+      await this.currentProjectSwitcher.switch(
+        (await this.projectRepository.list())[0]
+      );
+    }
   }
 }

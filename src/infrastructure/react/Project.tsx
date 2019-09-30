@@ -30,7 +30,10 @@ const ButtonsContainer = styled.div`
 `;
 
 export interface IProps {
-  archiveProject?: (project: IProject) => Promise<void>;
+  archiveProject?: (
+    project: IProject,
+    currentProjectId: string
+  ) => Promise<void>;
   currentProject?: IProject;
   deleteProject?: (project: IProject) => Promise<void>;
   project: IProject;
@@ -78,7 +81,11 @@ const ProjectWithRef = (
       {archiveProject && (
         <IconButton
           aria-label="Archive Project"
-          onClick={() => archiveProject(project)}
+          onClick={async () => {
+            if (currentProject) {
+              await archiveProject(project, currentProject.id);
+            }
+          }}
         >
           <MdArchive />
         </IconButton>
