@@ -36,7 +36,7 @@
     "@types/lodash": "^4.14.141",
     "@types/node": "^12.7.8",
     "@types/prettier": "^1.18.2",
-    "@types/react": "^16.9.3",
+    "@types/react": "^16.9.4",
     "@types/react-dom": "^16.9.1",
     "@types/react-infinite-scroller": "^1.2.1",
     "@types/react-test-renderer": "^16.9.0",
