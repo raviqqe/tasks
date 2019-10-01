@@ -1,4 +1,4 @@
-import { IProject } from "../domain/project";
+import { IProject, sortProjects } from "../domain/project";
 import { formatErrorMessage } from "../domain/error";
 import { IProjectRepository } from "./project-repository";
 import { IProjectPresenter } from "./project-presenter";
@@ -41,7 +41,7 @@ export class ProjectArchiver {
 
     if (project.id === currentProjectID) {
       await this.currentProjectSwitcher.switch(
-        (await this.projectRepository.list())[0]
+        sortProjects(await this.projectRepository.list())[0]
       );
     }
   }

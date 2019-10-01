@@ -1,4 +1,4 @@
-import { sortBy } from "lodash";
+import { sortProjects } from "../../domain/project";
 import { IProjectPresenter } from "../../application/project-presenter";
 import { IProject } from "../../domain/project";
 import { ProjectsStore } from "./projects-store";
@@ -11,11 +11,11 @@ export class MobxProjectPresenter implements IProjectPresenter {
   }
 
   public presentProjects(projects: IProject[]): void {
-    this.store.setProjects(this.sortProjects(projects));
+    this.store.setProjects(sortProjects(projects));
   }
 
   public presentArchivedProjects(projects: IProject[]): void {
-    this.store.setArchivedProjects(this.sortProjects(projects));
+    this.store.setArchivedProjects(sortProjects(projects));
   }
 
   public presentArchivedProject(project: IProject): void {
@@ -62,9 +62,5 @@ export class MobxProjectPresenter implements IProjectPresenter {
         project.id === updatedProject.id ? updatedProject : project
       )
     );
-  }
-
-  private sortProjects(projects: IProject[]): IProject[] {
-    return sortBy(projects, project => project.name.toLowerCase());
   }
 }

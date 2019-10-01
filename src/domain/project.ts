@@ -1,3 +1,5 @@
+import { sortBy } from "lodash";
+
 export interface IProject {
   id: string;
   name: string;
@@ -17,4 +19,8 @@ export function validateProject(project: IProject): void {
   } else if (!project.name) {
     throw new Error("project name cannot be empty");
   }
+}
+
+export function sortProjects(projects: IProject[]): IProject[] {
+  return sortBy(projects, project => project.name.toLowerCase());
 }

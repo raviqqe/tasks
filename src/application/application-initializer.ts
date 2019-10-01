@@ -1,3 +1,4 @@
+import { sortProjects } from "../domain/project";
 import { IAuthenticationController } from "./authentication-controller";
 import { IAuthenticationPresenter } from "./authentication-presenter";
 import { IInfrastructureInitializer } from "./infrastructure-initializer";
@@ -39,7 +40,8 @@ export class ApplicationInitializer {
 
     const currentProjectID = await this.currentProjectRepository.get();
     await this.currentProjectSwitcher.switch(
-      projects.find(project => project.id === currentProjectID) || projects[0]
+      projects.find(project => project.id === currentProjectID) ||
+        sortProjects(projects)[0]
     );
     this.projectPresenter.presentProjects(projects);
     this.projectPresenter.presentArchivedProjects(
