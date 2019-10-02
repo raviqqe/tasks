@@ -16,6 +16,6 @@ export const ToggleProjects = ({
     onClick={() => setProjectsArchived(!projectsArchived)}
     secondary
   >
-    {projectsArchived ? <MdUnarchive /> : <MdArchive />}
+    {projectsArchived ? <MdArchive /> : <MdUnarchive />}
   </CircleButton>
 );

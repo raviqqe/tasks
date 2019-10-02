@@ -3,10 +3,18 @@ import { create } from "react-test-renderer";
 import React from "react";
 import { ToggleProjects } from "../ToggleProjects";
 
-it("renders", () => {
+it("renders with projects unarchived", () => {
   expect(
     create(
       <ToggleProjects projectsArchived={false} setProjectsArchived={() => {}} />
+    ).toJSON()
+  ).toMatchSnapshot();
+});
+
+it("renders with projects archived", () => {
+  expect(
+    create(
+      <ToggleProjects projectsArchived={true} setProjectsArchived={() => {}} />
     ).toJSON()
   ).toMatchSnapshot();
 });
