@@ -1,5 +1,3 @@
-import { sortBy } from "lodash";
-
 export interface IProject {
   id: string;
   name: string;
@@ -22,5 +20,7 @@ export function validateProject(project: IProject): void {
 }
 
 export function sortProjects(projects: IProject[]): IProject[] {
-  return sortBy(projects, project => project.name.toLowerCase());
+  return projects.sort((project, anotherProject) =>
+    project.name.localeCompare(anotherProject.name)
+  );
 }
