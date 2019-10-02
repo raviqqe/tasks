@@ -65,8 +65,8 @@ export const App = observer(
       />
     ) : signedIn ? (
       <ProjectMenu
-        archiveProject={archiveProject}
         archivedProjects={archivedProjects}
+        archiveProject={archiveProject}
         createProject={createProject}
         currentProject={currentProject}
         deleteProject={deleteProject}

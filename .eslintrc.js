@@ -33,6 +33,7 @@ module.exports = {
     "import/no-default-export": "error",
     "import/no-unused-modules": "error",
     "import/order": "error",
+    "no-duplicate-imports": "error",
     "no-else-return": "error",
     "no-return-await": "error",
     "no-unused-vars": "off",
