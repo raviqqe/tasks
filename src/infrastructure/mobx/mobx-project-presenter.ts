@@ -1,6 +1,6 @@
-import { sortProjects } from "../../domain/project";
+import { sortProjects, IProject } from "../../domain/project";
 import { IProjectPresenter } from "../../application/project-presenter";
-import { IProject } from "../../domain/project";
+
 import { ProjectsStore } from "./projects-store";
 
 export class MobxProjectPresenter implements IProjectPresenter {

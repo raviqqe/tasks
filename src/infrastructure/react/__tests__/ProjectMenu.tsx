@@ -6,8 +6,8 @@ it("renders", () => {
   expect(
     create(
       <ProjectMenu
-        archiveProject={async () => {}}
         archivedProjects={[]}
+        archiveProject={async () => {}}
         createProject={async () => {}}
         currentProject={{ archived: false, id: "", name: "" }}
         deleteProject={async () => {}}
