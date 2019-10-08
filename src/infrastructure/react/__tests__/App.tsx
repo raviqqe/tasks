@@ -5,7 +5,7 @@ import { AuthenticationStore } from "../../mobx/authentication-store";
 import { ProjectsStore } from "../../mobx/projects-store";
 import { TasksStore } from "../../mobx/tasks-store";
 
-const nonStoreProps: Omit<
+const commonProps: Omit<
   IProps,
   "authenticationStore" | "projectsStore" | "tasksStore"
 > = {
@@ -29,7 +29,7 @@ const nonStoreProps: Omit<
 it("renders before a user signs in", async () => {
   const result = render(
     <App
-      {...nonStoreProps}
+      {...commonProps}
       authenticationStore={new AuthenticationStore()}
       projectsStore={new ProjectsStore()}
       tasksStore={new TasksStore()}
@@ -48,7 +48,7 @@ it("renders after a user signs in", async () => {
 
   const result = render(
     <App
-      {...nonStoreProps}
+      {...commonProps}
       authenticationStore={authenticationStore}
       projectsStore={projectsStore}
       tasksStore={new TasksStore()}
@@ -64,7 +64,7 @@ it("renders after a user signs out", async () => {
 
   const result = render(
     <App
-      {...nonStoreProps}
+      {...commonProps}
       authenticationStore={authenticationStore}
       projectsStore={new ProjectsStore()}
       tasksStore={new TasksStore()}
