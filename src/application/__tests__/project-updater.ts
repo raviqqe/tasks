@@ -22,9 +22,9 @@ it("updates and persists a project", async () => {
   expect(mockManager.projectRepository.update.mock.calls).toEqual([
     [dummyProject]
   ]);
-  expect(mockManager.projectPresenter.presentUpdatedProject.mock.calls).toEqual(
-    [[dummyProject]]
-  );
+  expect(
+    mockManager.projectPresenter.presentUpdatedProject.mock.calls
+  ).toEqual([[dummyProject]]);
 });
 
 it("formats a project before update", async () => {

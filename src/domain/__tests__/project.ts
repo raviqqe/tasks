@@ -39,6 +39,9 @@ describe("sortProjects", () => {
         { ...dummyProject, name: "B" },
         { ...dummyProject, name: "a" }
       ])
-    ).toEqual([{ ...dummyProject, name: "a" }, { ...dummyProject, name: "B" }]);
+    ).toEqual([
+      { ...dummyProject, name: "a" },
+      { ...dummyProject, name: "B" }
+    ]);
   });
 });
