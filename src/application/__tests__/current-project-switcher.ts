@@ -23,9 +23,9 @@ beforeEach(() => {
 it("switches a currrent project", async () => {
   await currentProjectSwitcher.switch(dummyProject);
 
-  expect(mockManager.projectPresenter.presentCurrentProject.mock.calls).toEqual(
-    [[dummyProject]]
-  );
+  expect(
+    mockManager.projectPresenter.presentCurrentProject.mock.calls
+  ).toEqual([[dummyProject]]);
   expect(mockManager.currentProjectRepository.set.mock.calls).toEqual([
     [dummyProject.id]
   ]);

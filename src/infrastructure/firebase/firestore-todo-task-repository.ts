@@ -28,9 +28,9 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
   }
 
   public async list(projectID: string): Promise<ITask[]> {
-    const tasks: ITask[] = (await this.tasksCollection(
-      projectID
-    ).get()).docs.map(snapshot => snapshot.data() as ITask);
+    const tasks: ITask[] = (
+      await this.tasksCollection(projectID).get()
+    ).docs.map(snapshot => snapshot.data() as ITask);
     const taskMap: Map<string, ITask> = new Map(
       tasks.map(task => [task.id, task])
     );
