@@ -25,7 +25,7 @@ jobs:
       - run: npm run build
       - run: npm run lint
       - run: |
-          npm run test
+          npm run test -- --maxWorkers 2
           npx codecov
       - persist_to_workspace:
           root: .
