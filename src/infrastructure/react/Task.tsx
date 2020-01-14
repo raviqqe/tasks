@@ -10,7 +10,7 @@ import { white } from "./style/colors";
 const Container = styled.div`
   ${boxShadow};
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
   align-items: center;
   background: ${white};
   padding: 0.8em;
