@@ -4,7 +4,7 @@ import { red, grey, white } from "./style/colors";
 
 export const Button = styled.button<{ secondary?: boolean }>`
   ${boxShadow};
-  background: ${({ secondary }) => (secondary ? grey : red)}
+  background: ${({ secondary }) => (secondary ? grey : red)};
   display: flex;
   justify-content: center;
   align-items: center;

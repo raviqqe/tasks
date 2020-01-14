@@ -57,7 +57,7 @@ exports[`renders 1`] = `
   >
     <button
       aria-label="Toggle Tasks"
-      className="sc-AykKC sc-AykKD hOyoKn"
+      className="sc-AykKC sc-AykKD ckEQXK"
       onClick={[Function]}
     >
       <svg
@@ -81,7 +81,7 @@ exports[`renders 1`] = `
     </button>
     <button
       aria-label="Create"
-      className="sc-AykKC sc-AykKD ggMymK sc-fzXfMw iWTmiT"
+      className="sc-AykKC sc-AykKD eoJpuV sc-fzXfMw iWTmiT"
       onClick={[Function]}
     >
       <svg

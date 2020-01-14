@@ -59,7 +59,7 @@ exports[`renders after a user signs in 1`] = `
     >
       <button
         aria-label="Toggle Tasks"
-        class="sc-AykKC sc-AykKJ fTGQwR"
+        class="sc-AykKC sc-AykKJ hnABqo"
       >
         <svg
           fill="currentColor"
@@ -77,7 +77,7 @@ exports[`renders after a user signs in 1`] = `
       </button>
       <button
         aria-label="Create"
-        class="sc-AykKC sc-AykKJ fGACfw sc-fzXfMC cnPXgr"
+        class="sc-AykKC sc-AykKJ klXfMT sc-fzXfMC cnPXgr"
       >
         <svg
           fill="currentColor"
@@ -118,7 +118,7 @@ exports[`renders after a user signs out 1`] = `
       </span>
     </div>
     <button
-      class="sc-AykKC sc-AykKD iPTquC"
+      class="sc-AykKC sc-AykKD jBVXWx"
     >
       Sign in
     </button>
