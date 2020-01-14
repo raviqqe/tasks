@@ -3,7 +3,7 @@
 exports[`renders 1`] = `
 <button
   aria-label="Create"
-  className="sc-bdVaJa sc-bwzfXH bJgusQ"
+  className="sc-AykKC sc-AykKD ggMymK"
   onClick={[Function]}
 >
   <svg
