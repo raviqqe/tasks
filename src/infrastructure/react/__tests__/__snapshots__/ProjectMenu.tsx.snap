@@ -2,21 +2,21 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-AykKI fqZTbk"
+  className="sc-AxheI hYSuan"
 >
   <div
-    className="sc-AykKJ jNGRFD"
+    className="sc-Axmtr ifPSVC"
   >
     <div
-      className="sc-AykKK eTZoLT"
+      className="sc-AxmLO jKBIbg"
     />
   </div>
   <div
-    className="sc-fzXfLP eYXeVw"
+    className="sc-fzoLsD eQPIhV"
   >
     <button
       aria-label="Toggle Projects"
-      className="sc-AykKC sc-AykKD ckEQXK"
+      className="sc-AxjAm sc-AxirZ boreDh"
       onClick={[Function]}
     >
       <svg
@@ -40,7 +40,7 @@ exports[`renders 1`] = `
     </button>
     <button
       aria-label="Create Project"
-      className="sc-AykKC sc-AykKD eoJpuV sc-fzXfLQ hHINjI"
+      className="sc-AxjAm sc-AxirZ hrKBZi sc-fzpans dVaExM"
       onClick={[Function]}
     >
       <svg
