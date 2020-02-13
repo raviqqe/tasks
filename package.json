@@ -17,7 +17,7 @@
     "localforage": "^1.7.3",
     "lodash": "^4.17.15",
     "mobx": "^5.15.4",
-    "mobx-react": "^6.1.7",
+    "mobx-react": "^6.1.8",
     "prettier": "^1.19.1",
     "pure-uuid": "^1.6.0",
     "react": "^16.12.0",
