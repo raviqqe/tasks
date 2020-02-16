@@ -12,7 +12,7 @@ export class TodoTaskCreator {
     private readonly messagePresenter: IMessagePresenter
   ) {}
 
-  public async create(projectID: string, name: string): Promise<void> {
+  public async create(projectId: string, name: string): Promise<void> {
     const task = formatTask({ id: new UUID(4).format(), name });
 
     try {
@@ -23,6 +23,6 @@ export class TodoTaskCreator {
     }
 
     this.todoTaskPresenter.presentNewTask(task);
-    await this.todoTaskRepository.create(projectID, task);
+    await this.todoTaskRepository.create(projectId, task);
   }
 }

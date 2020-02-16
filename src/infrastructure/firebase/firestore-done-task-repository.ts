@@ -7,8 +7,8 @@ import { IDoneTaskRepository } from "../../application/done-task-repository";
 const BATCH_SIZE: number = 20;
 
 export class FirestoreDoneTaskRepository implements IDoneTaskRepository {
-  public async create(projectID: string, task: ITask): Promise<void> {
-    await this.collection(projectID)
+  public async create(projectId: string, task: ITask): Promise<void> {
+    await this.collection(projectId)
       .doc(task.id)
       .set({
         ...task,
@@ -16,27 +16,27 @@ export class FirestoreDoneTaskRepository implements IDoneTaskRepository {
       });
   }
 
-  public async *list(projectID: string): AsyncIterator<ITask[], void> {
-    let result = await this.query(projectID)
+  public async *list(projectId: string): AsyncIterator<ITask[], void> {
+    let result = await this.query(projectId)
       .limit(BATCH_SIZE)
       .get();
 
     while (result.docs.length > 0) {
       yield result.docs.map(snapshot => snapshot.data() as ITask);
 
-      result = await this.query(projectID)
+      result = await this.query(projectId)
         .startAfter(last(result.docs))
         .limit(BATCH_SIZE)
         .get();
     }
   }
 
-  private query(projectID: string): firebase.firestore.Query {
-    return this.collection(projectID).orderBy("createdAt", "desc");
+  private query(projectId: string): firebase.firestore.Query {
+    return this.collection(projectId).orderBy("createdAt", "desc");
   }
 
   private collection(
-    projectID: string
+    projectId: string
   ): firebase.firestore.CollectionReference {
     const user = firebase.auth().currentUser;
 
@@ -49,7 +49,7 @@ export class FirestoreDoneTaskRepository implements IDoneTaskRepository {
       .collection("version/1/users")
       .doc(user.uid)
       .collection("projects")
-      .doc(projectID)
+      .doc(projectId)
       .collection("doneTasks");
   }
 }

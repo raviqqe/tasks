@@ -2,7 +2,7 @@ import { IProject } from "../../domain/project";
 import { CurrentProjectSwitcher } from "../current-project-switcher";
 import { MockManager } from "../test/mock-manager";
 
-const dummyProject: IProject = { archived: false, id: "projectID", name: "" };
+const dummyProject: IProject = { archived: false, id: "projectId", name: "" };
 
 let mockManager: MockManager;
 let currentProjectSwitcher: CurrentProjectSwitcher;

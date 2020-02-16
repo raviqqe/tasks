@@ -32,7 +32,7 @@ const SortableTask = SortableElement(Task);
 
 export interface IProps {
   completeTodoTask: (task: ITask) => Promise<void>;
-  reorderTodoTasks: (taskIDs: string[]) => Promise<void>;
+  reorderTodoTasks: (taskIds: string[]) => Promise<void>;
   todoTasks: ITask[] | null;
   updateTodoTask: (task: ITask) => Promise<void>;
 }
@@ -47,9 +47,9 @@ export const TodoTasks = ({
     <Container>
       <Tasks
         onSortEnd={async ({ oldIndex, newIndex }) => {
-          const taskIDs = todoTasks.map(task => task.id);
-          taskIDs.splice(newIndex, 0, taskIDs.splice(oldIndex, 1)[0]);
-          await reorderTodoTasks(taskIDs);
+          const taskIds = todoTasks.map(task => task.id);
+          taskIds.splice(newIndex, 0, taskIds.splice(oldIndex, 1)[0]);
+          await reorderTodoTasks(taskIds);
         }}
         useDragHandle={true}
       >

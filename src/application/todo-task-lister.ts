@@ -7,9 +7,9 @@ export class TodoTaskLister {
     private readonly todoTaskPresenter: ITodoTaskPresenter
   ) {}
 
-  public async list(projectID: string): Promise<void> {
+  public async list(projectId: string): Promise<void> {
     this.todoTaskPresenter.presentTasks(
-      await this.todoTaskRepository.list(projectID)
+      await this.todoTaskRepository.list(projectId)
     );
   }
 }
