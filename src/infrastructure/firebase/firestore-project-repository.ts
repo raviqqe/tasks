@@ -10,9 +10,9 @@ export class FirestoreProjectRepository implements IProjectRepository {
       .set(project);
   }
 
-  public async delete(projectID: string): Promise<void> {
+  public async delete(projectId: string): Promise<void> {
     await this.collection()
-      .doc(projectID)
+      .doc(projectId)
       .delete();
   }
 

@@ -7,8 +7,8 @@ export class TodoTaskReorderer {
     private readonly todoTaskPresenter: ITodoTaskPresenter
   ) {}
 
-  public async reorder(projectID: string, taskIDs: string[]): Promise<void> {
-    this.todoTaskPresenter.presentReorderedTasks(taskIDs);
-    await this.todoTaskRepository.reorder(projectID, taskIDs);
+  public async reorder(projectId: string, taskIds: string[]): Promise<void> {
+    this.todoTaskPresenter.presentReorderedTasks(taskIds);
+    await this.todoTaskRepository.reorder(projectId, taskIds);
   }
 }

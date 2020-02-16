@@ -11,7 +11,7 @@ export class TodoTaskUpdater {
     private readonly messagePresenter: IMessagePresenter
   ) {}
 
-  public async update(projectID: string, task: ITask): Promise<void> {
+  public async update(projectId: string, task: ITask): Promise<void> {
     task = formatTask(task);
 
     try {
@@ -22,6 +22,6 @@ export class TodoTaskUpdater {
     }
 
     this.todoTaskPresenter.presentUpdatedTask(task);
-    await this.todoTaskRepository.update(projectID, task);
+    await this.todoTaskRepository.update(projectId, task);
   }
 }

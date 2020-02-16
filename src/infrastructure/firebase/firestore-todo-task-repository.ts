@@ -5,81 +5,81 @@ import { ITask } from "../../domain/task";
 import { ITodoTaskRepository } from "../../application/todo-task-repository";
 
 export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
-  public async create(projectID: string, task: ITask): Promise<void> {
-    await this.tasksCollection(projectID)
+  public async create(projectId: string, task: ITask): Promise<void> {
+    await this.tasksCollection(projectId)
       .doc(task.id)
       .set(task);
 
-    await this.reorder(projectID, [
+    await this.reorder(projectId, [
       task.id,
-      ...(await this.getOrder(projectID))
+      ...(await this.getOrder(projectId))
     ]);
   }
 
-  public async delete(projectID: string, taskID: string): Promise<void> {
-    await this.tasksCollection(projectID)
-      .doc(taskID)
+  public async delete(projectId: string, taskId: string): Promise<void> {
+    await this.tasksCollection(projectId)
+      .doc(taskId)
       .delete();
 
     await this.reorder(
-      projectID,
-      (await this.getOrder(projectID)).filter(id => id !== taskID)
+      projectId,
+      (await this.getOrder(projectId)).filter(id => id !== taskId)
     );
   }
 
-  public async list(projectID: string): Promise<ITask[]> {
+  public async list(projectId: string): Promise<ITask[]> {
     const tasks: ITask[] = (
-      await this.tasksCollection(projectID).get()
+      await this.tasksCollection(projectId).get()
     ).docs.map(snapshot => snapshot.data() as ITask);
     const taskMap: Map<string, ITask> = new Map(
       tasks.map(task => [task.id, task])
     );
-    const taskIDs: string[] = await this.getOrder(projectID);
-    const taskIDSet = new Set<string>(taskIDs);
+    const taskIds: string[] = await this.getOrder(projectId);
+    const taskIdSet = new Set<string>(taskIds);
 
     const restoredTasks: ITask[] = [
-      ...tasks.filter(task => !taskIDSet.has(task.id)),
-      ...taskIDs
+      ...tasks.filter(task => !taskIdSet.has(task.id)),
+      ...taskIds
         .map(id => taskMap.get(id))
         .filter((task): task is ITask => !!task)
     ];
     const restoredTaskIDs: string[] = restoredTasks.map(task => task.id);
 
-    if (!isEqual(taskIDs, restoredTaskIDs)) {
-      await this.reorder(projectID, restoredTaskIDs);
+    if (!isEqual(taskIds, restoredTaskIDs)) {
+      await this.reorder(projectId, restoredTaskIDs);
     }
 
     return restoredTasks;
   }
 
-  public async reorder(projectID: string, taskIDs: string[]): Promise<void> {
-    await this.order(projectID).set({ order: taskIDs });
+  public async reorder(projectId: string, taskIds: string[]): Promise<void> {
+    await this.order(projectId).set({ order: taskIds });
   }
 
-  public async update(projectID: string, task: ITask): Promise<void> {
-    await this.tasksCollection(projectID)
+  public async update(projectId: string, task: ITask): Promise<void> {
+    await this.tasksCollection(projectId)
       .doc(task.id)
       .update(task);
   }
 
-  private async getOrder(projectID: string): Promise<string[]> {
-    const data = (await this.order(projectID).get()).data();
+  private async getOrder(projectId: string): Promise<string[]> {
+    const data = (await this.order(projectId).get()).data();
     return data ? data.order : [];
   }
 
   private tasksCollection(
-    projectID: string
+    projectId: string
   ): firebase.firestore.CollectionReference {
-    return this.project(projectID).collection("todoTasks");
+    return this.project(projectId).collection("todoTasks");
   }
 
-  private order(projectID: string): firebase.firestore.DocumentReference {
-    return this.project(projectID)
+  private order(projectId: string): firebase.firestore.DocumentReference {
+    return this.project(projectId)
       .collection("todoTaskOrders")
       .doc("default");
   }
 
-  private project(projectID: string): firebase.firestore.DocumentReference {
+  private project(projectId: string): firebase.firestore.DocumentReference {
     const user = firebase.auth().currentUser;
 
     if (!user) {
@@ -91,6 +91,6 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
       .collection("version/1/users")
       .doc(user.uid)
       .collection("projects")
-      .doc(projectID);
+      .doc(projectId);
   }
 }

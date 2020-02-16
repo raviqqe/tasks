@@ -12,8 +12,8 @@ export class DoneTaskLister {
     private readonly doneTaskPresenter: IDoneTaskPresenter
   ) {}
 
-  public async list(projectID: string): Promise<void> {
-    this.iterator = this.doneTaskRepository.list(projectID, defaultLimit);
+  public async list(projectId: string): Promise<void> {
+    this.iterator = this.doneTaskRepository.list(projectId, defaultLimit);
     this.doneTaskPresenter.presentTasks(
       (await this.iterator.next()).value || []
     );

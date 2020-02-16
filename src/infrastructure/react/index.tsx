@@ -123,9 +123,9 @@ export class ReactRenderer {
           deleteProject={project => this.projectDeleter.delete(project)}
           initialize={() => this.applicationInitializer.initialize()}
           listMoreDoneTasks={() => this.doneTaskLister.listMore()}
-          reorderTodoTasks={async taskIDs => {
+          reorderTodoTasks={async taskIds => {
             if (currentProject) {
-              await this.todoTaskReorderer.reorder(currentProject.id, taskIDs);
+              await this.todoTaskReorderer.reorder(currentProject.id, taskIds);
             }
           }}
           repositoryURL={this.repositoryURL}
