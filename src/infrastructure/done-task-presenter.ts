@@ -22,8 +22,8 @@ export class DoneTaskPresenter implements IDoneTaskPresenter {
     this.renderTasks(this.tasks && [task, ...this.tasks]);
   }
 
-  private renderTasks(tasks: ITask[] | null | undefined): void {
-    this.tasks = tasks || null;
+  private renderTasks(tasks: ITask[] | null): void {
+    this.tasks = tasks;
 
     this.renderer?.renderDoneTasks(this.tasks);
   }
