@@ -11,18 +11,43 @@ import { CurrentProjectSwitcher } from "../../application/current-project-switch
 import { ITask } from "../../domain/task";
 import { SignInManager } from "../../application/sign-in-manager";
 import { SignOutManager } from "../../application/sign-out-manager";
-import { AuthenticationStore } from "../mobx/authentication-store";
-import { ProjectsStore } from "../mobx/projects-store";
-import { TasksStore } from "../mobx/tasks-store";
 import { ProjectArchiver } from "../../application/project-archiver";
 import { ProjectUnarchiver } from "../../application/project-unarchiver";
 import { ProjectDeleter } from "../../application/project-deleter";
 import { ProjectUpdater } from "../../application/project-updater";
+import { IProject } from "../../domain/project";
+import { IRenderer } from "../renderer";
 import { GlobalStyle } from "./style";
-import { App } from "./App";
+import { App, IProps as IAppProps } from "./App";
+
+interface IPresenter {
+  setRenderer(renderer: IRenderer): void;
+}
+
+interface IProps
+  extends Pick<
+    IAppProps,
+    | "archivedProjects"
+    | "currentProject"
+    | "doneTasks"
+    | "projects"
+    | "signedIn"
+    | "todoTasks"
+  > {}
 
 export class ReactRenderer {
+  private props: IProps = {
+    archivedProjects: null,
+    currentProject: null,
+    doneTasks: null,
+    projects: null,
+    signedIn: null,
+    todoTasks: null
+  };
+
   constructor(
+    private readonly element: HTMLElement,
+    presenters: IPresenter[],
     private readonly applicationInitializer: ApplicationInitializer,
     private readonly todoTaskCreator: TodoTaskCreator,
     private readonly todoTaskUpdater: TodoTaskUpdater,
@@ -37,47 +62,70 @@ export class ReactRenderer {
     private readonly currentProjectSwitcher: CurrentProjectSwitcher,
     private readonly signInManager: SignInManager,
     private readonly signOutManager: SignOutManager,
-    private readonly authenticationStore: AuthenticationStore,
-    private readonly projectsStore: ProjectsStore,
-    private readonly tasksStore: TasksStore,
     private readonly repositoryURL: string
-  ) {}
+  ) {
+    for (const presenter of presenters) {
+      presenter.setRenderer(this);
+    }
+  }
 
-  public render(element: HTMLElement): void {
+  public render(): void {
+    this.renderProps({});
+  }
+
+  public renderArchivedProjects(archivedProjects: IProject[] | null): void {
+    this.renderProps({ archivedProjects });
+  }
+
+  public renderCurrentProject(currentProject: IProject): void {
+    this.renderProps({ currentProject });
+  }
+
+  public renderDoneTasks(doneTasks: ITask[] | null): void {
+    this.renderProps({ doneTasks });
+  }
+
+  public renderProjects(projects: IProject[] | null): void {
+    this.renderProps({ projects });
+  }
+
+  public renderSignedIn(signedIn: boolean): void {
+    this.renderProps({ signedIn });
+  }
+
+  public renderTodoTasks(todoTasks: ITask[] | null): void {
+    this.renderProps({ todoTasks });
+  }
+
+  private renderProps(props: Partial<IProps>): void {
+    this.props = { ...this.props, ...props };
+
+    const { currentProject } = this.props;
+
     render(
       <>
         <App
+          {...this.props}
           archiveProject={(project, currentProjectID) =>
             this.projectArchiver.archive(project, currentProjectID)
           }
-          authenticationStore={this.authenticationStore}
           completeTodoTask={async (task: ITask) => {
-            if (this.projectsStore.currentProject) {
-              await this.todoTaskCompleter.complete(
-                this.projectsStore.currentProject.id,
-                task
-              );
+            if (currentProject) {
+              await this.todoTaskCompleter.complete(currentProject.id, task);
             }
           }}
           createProject={(name: string) => this.projectCreator.create(name)}
           createTodoTask={async (name: string) => {
-            if (this.projectsStore.currentProject) {
-              await this.todoTaskCreator.create(
-                this.projectsStore.currentProject.id,
-                name
-              );
+            if (currentProject) {
+              await this.todoTaskCreator.create(currentProject.id, name);
             }
           }}
           deleteProject={project => this.projectDeleter.delete(project)}
           initialize={() => this.applicationInitializer.initialize()}
           listMoreDoneTasks={() => this.doneTaskLister.listMore()}
-          projectsStore={this.projectsStore}
           reorderTodoTasks={async taskIDs => {
-            if (this.projectsStore.currentProject) {
-              await this.todoTaskReorderer.reorder(
-                this.projectsStore.currentProject.id,
-                taskIDs
-              );
+            if (currentProject) {
+              await this.todoTaskReorderer.reorder(currentProject.id, taskIDs);
             }
           }}
           repositoryURL={this.repositoryURL}
@@ -86,23 +134,19 @@ export class ReactRenderer {
           switchCurrentProject={project =>
             this.currentProjectSwitcher.switch(project)
           }
-          tasksStore={this.tasksStore}
           unarchiveProject={project =>
             this.projectUnarchiver.unarchive(project)
           }
           updateProject={project => this.projectUpdater.update(project)}
           updateTodoTask={async (task: ITask) => {
-            if (this.projectsStore.currentProject) {
-              await this.todoTaskUpdater.update(
-                this.projectsStore.currentProject.id,
-                task
-              );
+            if (currentProject) {
+              await this.todoTaskUpdater.update(currentProject.id, task);
             }
           }}
         />
         <GlobalStyle />
       </>,
-      element
+      this.element
     );
   }
 }

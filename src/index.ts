@@ -12,19 +12,16 @@ import { FirebaseInitializer } from "./infrastructure/firebase/firebase-initiali
 import { InfrastructureInitializer } from "./infrastructure/infrastructure-initializer";
 import { ReactRenderer } from "./infrastructure/react";
 import { SentryErrorReporter } from "./infrastructure/sentry-error-reporter";
-import { AuthenticationStore } from "./infrastructure/mobx/authentication-store";
-import { MobxAuthenticationPresenter } from "./infrastructure/mobx/mobx-authentication-presenter";
-import { TasksStore } from "./infrastructure/mobx/tasks-store";
-import { MobxTodoTaskPresenter } from "./infrastructure/mobx/mobx-todo-task-presenter";
-import { ProjectsStore } from "./infrastructure/mobx/projects-store";
-import { MobxProjectPresenter } from "./infrastructure/mobx/mobx-project-presenter";
+import { AuthenticationPresenter } from "./infrastructure/authentication-presenter";
+import { TodoTaskPresenter } from "./infrastructure/todo-task-presenter";
+import { ProjectPresenter } from "./infrastructure/project-presenter";
 import { SignInManager } from "./application/sign-in-manager";
 import { SignOutManager } from "./application/sign-out-manager";
 import configuration from "./configuration.json";
 import { CurrentProjectSwitcher } from "./application/current-project-switcher";
 import { LocalForageCurrentProjectRepository } from "./infrastructure/local-forage-current-project-repository";
 import { DoneTaskLister } from "./application/done-task-lister";
-import { MobxDoneTaskPresenter } from "./infrastructure/mobx/mobx-done-task-presenter";
+import { DoneTaskPresenter } from "./infrastructure/done-task-presenter";
 import { TodoTaskCompleter } from "./application/todo-task-completer";
 import { TodoTaskReorderer } from "./application/todo-task-reorderer";
 import { ProjectArchiver } from "./application/project-archiver";
@@ -49,18 +46,14 @@ async function main() {
     throw new Error("no root element");
   }
 
-  const authenticationStore = new AuthenticationStore();
-  const authenticationPresenter = new MobxAuthenticationPresenter(
-    authenticationStore
-  );
+  const authenticationPresenter = new AuthenticationPresenter();
   const authenticationController = new FirebaseAuthenticationController();
   const messagePresenter = new AlertMessagePresenter();
   const confirmationController = new BuiltinConfirmationController();
-  const tasksStore = new TasksStore();
   const todoTaskRepository = new FirestoreTodoTaskRepository();
   const doneTaskRepository = new FirestoreDoneTaskRepository();
-  const todoTaskPresenter = new MobxTodoTaskPresenter(tasksStore);
-  const doneTaskPresenter = new MobxDoneTaskPresenter(tasksStore);
+  const todoTaskPresenter = new TodoTaskPresenter();
+  const doneTaskPresenter = new DoneTaskPresenter();
   const todoTaskLister = new TodoTaskLister(
     todoTaskRepository,
     todoTaskPresenter
@@ -70,8 +63,7 @@ async function main() {
     doneTaskPresenter
   );
   const projectRepository = new FirestoreProjectRepository();
-  const projectsStore = new ProjectsStore();
-  const projectPresenter = new MobxProjectPresenter(projectsStore);
+  const projectPresenter = new ProjectPresenter();
   const currentProjectRepository = new LocalForageCurrentProjectRepository();
   const currentProjectSwitcher = new CurrentProjectSwitcher(
     currentProjectRepository,
@@ -89,6 +81,13 @@ async function main() {
   );
 
   new ReactRenderer(
+    element,
+    [
+      authenticationPresenter,
+      doneTaskPresenter,
+      projectPresenter,
+      todoTaskPresenter
+    ],
     new ApplicationInitializer(
       authenticationController,
       authenticationPresenter,
@@ -145,15 +144,8 @@ async function main() {
     currentProjectSwitcher,
     new SignInManager(authenticationController),
     new SignOutManager(authenticationController, authenticationPresenter),
-    authenticationStore,
-    projectsStore,
-    tasksStore,
     configuration.repositoryURL
-  ).render(element);
-
-  // Disable default behavior on drop events.
-  window.ondragover = (event: DragEvent) => event.preventDefault();
-  window.ondrop = (event: DragEvent) => event.preventDefault();
+  ).render();
 
   await navigator.serviceWorker.register("/service-worker.js");
 }
