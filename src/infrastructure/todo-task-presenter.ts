@@ -20,10 +20,10 @@ export class TodoTaskPresenter implements ITodoTaskPresenter {
 
   public presentReorderedTasks(taskIds: string[]): void {
     if (this.tasks) {
-      const taskMap = new Map<string, ITask>(
+      const taskMap = Object.fromEntries(
         this.tasks.map(task => [task.id, task])
       );
-      this.renderTasks(taskIds.map(id => taskMap.get(id) as ITask));
+      this.renderTasks(taskIds.map(id => taskMap[id]));
     }
   }
 

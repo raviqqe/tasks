@@ -31,17 +31,13 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
     const tasks: ITask[] = (
       await this.tasksCollection(projectId).get()
     ).docs.map(snapshot => snapshot.data() as ITask);
-    const taskMap: Map<string, ITask> = new Map(
-      tasks.map(task => [task.id, task])
-    );
+    const taskMap = Object.fromEntries(tasks.map(task => [task.id, task]));
     const taskIds: string[] = await this.getOrder(projectId);
     const taskIdSet = new Set<string>(taskIds);
 
     const restoredTasks: ITask[] = [
       ...tasks.filter(task => !taskIdSet.has(task.id)),
-      ...taskIds
-        .map(id => taskMap.get(id))
-        .filter((task): task is ITask => !!task)
+      ...taskIds.map(id => taskMap[id])
     ];
     const restoredTaskIDs: string[] = restoredTasks.map(task => task.id);
 
