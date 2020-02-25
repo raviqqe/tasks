@@ -29,8 +29,6 @@ import { ProjectArchiver } from "./application/project-archiver";
 import { ProjectUnarchiver } from "./application/project-unarchiver";
 import { BuiltinConfirmationController } from "./infrastructure/builtin-confirmation-controller";
 import { ProjectDeleter } from "./application/project-deleter";
-import { FirestoreOldProjectRepository } from "./infrastructure/firebase/firestore-old-project-repository";
-import { OldDataMigrator } from "./application/old-data-migrator";
 import { ProjectUpdater } from "./application/project-updater";
 
 // Instantiate this at the very beginning to initialize Firebase's default app.
@@ -101,13 +99,7 @@ async function main() {
       projectRepository,
       projectPresenter,
       currentProjectSwitcher,
-      currentProjectRepository,
-      new OldDataMigrator(
-        new FirestoreOldProjectRepository(),
-        projectRepository,
-        todoTaskRepository,
-        doneTaskRepository
-      )
+      currentProjectRepository
     ),
     new TodoTaskCreator(
       todoTaskRepository,
