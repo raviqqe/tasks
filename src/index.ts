@@ -1,6 +1,7 @@
 import { AlertMessagePresenter } from "./infrastructure/alert-message-presenter";
 import { ApplicationInitializer } from "./application/application-initializer";
 import { TodoTaskCreator } from "./application/todo-task-creator";
+import { TodoTaskDeleter } from "./application/todo-task-deleter";
 import { TodoTaskLister } from "./application/todo-task-lister";
 import { TodoTaskUpdater } from "./application/todo-task-updater";
 import { ProjectCreator } from "./application/project-creator";
@@ -54,6 +55,10 @@ async function main() {
   const doneTaskRepository = new FirestoreDoneTaskRepository();
   const todoTaskPresenter = new TodoTaskPresenter();
   const doneTaskPresenter = new DoneTaskPresenter();
+  const todoTaskDeleter = new TodoTaskDeleter(
+    todoTaskRepository,
+    todoTaskPresenter
+  );
   const todoTaskLister = new TodoTaskLister(
     todoTaskRepository,
     todoTaskPresenter
@@ -110,14 +115,14 @@ async function main() {
       messagePresenter
     ),
     new TodoTaskUpdater(
+      todoTaskDeleter,
       todoTaskRepository,
       todoTaskPresenter,
       messagePresenter
     ),
     new TodoTaskCompleter(
-      todoTaskRepository,
+      todoTaskDeleter,
       doneTaskRepository,
-      todoTaskPresenter,
       doneTaskPresenter
     ),
     new TodoTaskReorderer(todoTaskRepository, todoTaskPresenter),

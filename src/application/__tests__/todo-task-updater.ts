@@ -10,6 +10,7 @@ let taskUpdater: TodoTaskUpdater;
 beforeEach(() => {
   mockManager = new MockManager();
   taskUpdater = new TodoTaskUpdater(
+    mockManager.todoTaskDeleter,
     mockManager.todoTaskRepository,
     mockManager.todoTaskPresenter,
     mockManager.messagePresenter
@@ -33,9 +34,7 @@ it("formats a task before update", async () => {
   ]);
 });
 
-it("does not update any tasks with empty names", async () => {
+it("deletes a task if its name is empty", async () => {
   await taskUpdater.update("", { ...dummyTask, name: "" });
-  expect(mockManager.messagePresenter.present).toBeCalledTimes(1);
-  expect(mockManager.todoTaskRepository.update).not.toBeCalled();
-  expect(mockManager.todoTaskPresenter.presentUpdatedTask).not.toBeCalled();
+  expect(mockManager.todoTaskDeleter.delete.mock.calls).toEqual([["", "id"]]);
 });
