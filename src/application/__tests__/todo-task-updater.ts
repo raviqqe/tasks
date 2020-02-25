@@ -14,7 +14,6 @@ beforeEach(() => {
     mockManager.todoTaskDeleter,
     mockManager.todoTaskRepository,
     mockManager.todoTaskPresenter,
-    mockManager.messagePresenter,
     mockManager.confirmationController
   );
 });

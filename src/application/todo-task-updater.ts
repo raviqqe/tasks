@@ -1,9 +1,7 @@
 import { ITask, formatTask, validateTask } from "../domain/task";
-import { formatErrorMessage } from "../domain/error";
 import { IConfirmationController } from "./confirmation-controller";
 import { TodoTaskDeleter } from "./todo-task-deleter";
 import { ITodoTaskPresenter } from "./todo-task-presenter";
-import { IMessagePresenter } from "./message-presenter";
 import { ITodoTaskRepository } from "./todo-task-repository";
 
 export class TodoTaskUpdater {
@@ -11,7 +9,6 @@ export class TodoTaskUpdater {
     private readonly todoTaskDeleter: TodoTaskDeleter,
     private readonly todoTaskRepository: ITodoTaskRepository,
     private readonly todoTaskPresenter: ITodoTaskPresenter,
-    private readonly messagePresenter: IMessagePresenter,
     private readonly confirmationController: IConfirmationController
   ) {}
 
@@ -28,12 +25,7 @@ export class TodoTaskUpdater {
       return;
     }
 
-    try {
-      validateTask(task);
-    } catch (error) {
-      this.messagePresenter.present(formatErrorMessage(error));
-      return;
-    }
+    validateTask(task);
 
     this.todoTaskPresenter.presentUpdatedTask(task);
     await this.todoTaskRepository.update(projectId, task);
