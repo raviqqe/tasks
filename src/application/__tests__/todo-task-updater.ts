@@ -9,10 +9,12 @@ let taskUpdater: TodoTaskUpdater;
 
 beforeEach(() => {
   mockManager = new MockManager();
+  mockManager.confirmationController.confirm.mockResolvedValue(true);
   taskUpdater = new TodoTaskUpdater(
+    mockManager.todoTaskDeleter,
     mockManager.todoTaskRepository,
     mockManager.todoTaskPresenter,
-    mockManager.messagePresenter
+    mockManager.confirmationController
   );
 });
 
@@ -33,9 +35,13 @@ it("formats a task before update", async () => {
   ]);
 });
 
-it("does not update any tasks with empty names", async () => {
+it("deletes a task if its name is empty", async () => {
   await taskUpdater.update("", { ...dummyTask, name: "" });
-  expect(mockManager.messagePresenter.present).toBeCalledTimes(1);
-  expect(mockManager.todoTaskRepository.update).not.toBeCalled();
-  expect(mockManager.todoTaskPresenter.presentUpdatedTask).not.toBeCalled();
+  expect(mockManager.todoTaskDeleter.delete.mock.calls).toEqual([["", "id"]]);
+});
+
+it("does not delete any tasks if it is not confirmed", async () => {
+  mockManager.confirmationController.confirm.mockResolvedValue(false);
+  await taskUpdater.update("", { ...dummyTask, name: "" });
+  expect(mockManager.todoTaskDeleter.delete).not.toBeCalled();
 });

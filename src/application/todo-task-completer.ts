@@ -1,20 +1,17 @@
 import { ITask } from "../domain/task";
-import { ITodoTaskRepository } from "./todo-task-repository";
 import { IDoneTaskRepository } from "./done-task-repository";
-import { ITodoTaskPresenter } from "./todo-task-presenter";
 import { IDoneTaskPresenter } from "./done-task-presenter";
+import { TodoTaskDeleter } from "./todo-task-deleter";
 
 export class TodoTaskCompleter {
   constructor(
-    private readonly todoTaskRepository: ITodoTaskRepository,
+    private readonly todoTaskDeleter: TodoTaskDeleter,
     private readonly doneTaskRepository: IDoneTaskRepository,
-    private readonly todoTaskPresenter: ITodoTaskPresenter,
     private readonly doneTaskPresenter: IDoneTaskPresenter
   ) {}
 
-  public async complete(projectId: string, task: ITask) {
-    this.todoTaskPresenter.presentDeletedTask(task.id);
-    await this.todoTaskRepository.delete(projectId, task.id);
+  public async complete(projectId: string, task: ITask): Promise<void> {
+    await this.todoTaskDeleter.delete(projectId, task.id);
     this.doneTaskPresenter.presentNewTask(task);
     await this.doneTaskRepository.create(projectId, task);
   }

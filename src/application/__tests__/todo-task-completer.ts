@@ -10,9 +10,8 @@ let taskCompleter: TodoTaskCompleter;
 beforeEach(() => {
   mockManager = new MockManager();
   taskCompleter = new TodoTaskCompleter(
-    mockManager.todoTaskRepository,
+    mockManager.todoTaskDeleter,
     mockManager.doneTaskRepository,
-    mockManager.todoTaskPresenter,
     mockManager.doneTaskPresenter
   );
 });
@@ -20,10 +19,7 @@ beforeEach(() => {
 it("completes and persists a task", async () => {
   await taskCompleter.complete("", dummyTask);
 
-  expect(mockManager.todoTaskRepository.delete.mock.calls).toEqual([["", ""]]);
-  expect(mockManager.todoTaskPresenter.presentDeletedTask.mock.calls).toEqual([
-    [""]
-  ]);
+  expect(mockManager.todoTaskDeleter.delete.mock.calls).toEqual([["", ""]]);
   expect(mockManager.doneTaskRepository.create.mock.calls).toEqual([
     ["", dummyTask]
   ]);

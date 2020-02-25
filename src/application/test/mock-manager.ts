@@ -1,5 +1,6 @@
 import { IProjectPresenter } from "../project-presenter";
 import { ICurrentProjectRepository } from "../current-project-repository";
+import { TodoTaskDeleter } from "../todo-task-deleter";
 import { TodoTaskLister } from "../todo-task-lister";
 import { IInfrastructureInitializer } from "../infrastructure-initializer";
 import { IAuthenticationController } from "../authentication-controller";
@@ -94,6 +95,10 @@ export class MockManager {
     listArchived: jest.fn(),
     update: jest.fn()
   };
+
+  public todoTaskDeleter: jest.Mocked<TodoTaskDeleter> = ({
+    delete: jest.fn()
+  } as unknown) as jest.Mocked<TodoTaskDeleter>;
 
   public todoTaskLister: jest.Mocked<TodoTaskLister> = ({
     list: jest.fn()
