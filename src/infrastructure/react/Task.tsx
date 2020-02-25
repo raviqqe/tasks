@@ -62,15 +62,12 @@ export const Task = ({
       {updateTask && (
         <IconButton
           aria-label="Edit"
-          onClick={async () => {
-            const name = window.prompt("New task name?", task.name);
-
-            if (!name) {
-              return;
-            }
-
-            await updateTask({ ...task, name });
-          }}
+          onClick={() =>
+            updateTask({
+              ...task,
+              name: window.prompt("New task name?", task.name) || ""
+            })
+          }
         >
           <MdEdit />
         </IconButton>
