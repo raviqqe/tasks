@@ -1,5 +1,6 @@
 import { ITask, formatTask, validateTask } from "../domain/task";
 import { formatErrorMessage } from "../domain/error";
+import { IConfirmationController } from "./confirmation-controller";
 import { TodoTaskDeleter } from "./todo-task-deleter";
 import { ITodoTaskPresenter } from "./todo-task-presenter";
 import { IMessagePresenter } from "./message-presenter";
@@ -10,14 +11,20 @@ export class TodoTaskUpdater {
     private readonly todoTaskDeleter: TodoTaskDeleter,
     private readonly todoTaskRepository: ITodoTaskRepository,
     private readonly todoTaskPresenter: ITodoTaskPresenter,
-    private readonly messagePresenter: IMessagePresenter
+    private readonly messagePresenter: IMessagePresenter,
+    private readonly confirmationController: IConfirmationController
   ) {}
 
   public async update(projectId: string, task: ITask): Promise<void> {
     task = formatTask(task);
 
-    if (task.name === "") {
+    if (
+      !task.name &&
+      (await this.confirmationController.confirm(`Delete the task?`))
+    ) {
       await this.todoTaskDeleter.delete(projectId, task.id);
+      return;
+    } else if (!task.name) {
       return;
     }
 

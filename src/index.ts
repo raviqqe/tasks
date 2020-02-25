@@ -118,7 +118,8 @@ async function main() {
       todoTaskDeleter,
       todoTaskRepository,
       todoTaskPresenter,
-      messagePresenter
+      messagePresenter,
+      confirmationController
     ),
     new TodoTaskCompleter(
       todoTaskDeleter,
