@@ -37,7 +37,7 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
 
     const restoredTasks: ITask[] = [
       ...tasks.filter(task => !taskIdSet.has(task.id)),
-      ...taskIds.map(id => taskMap[id])
+      ...taskIds.map(id => taskMap[id]).filter(task => !!task)
     ];
     const restoredTaskIDs: string[] = restoredTasks.map(task => task.id);
 
