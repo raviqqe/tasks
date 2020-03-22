@@ -7,7 +7,7 @@ let projectCreator: ProjectCreator;
 beforeEach(() => {
   mockManager = new MockManager();
   mockManager.projectRepository.list.mockResolvedValue([
-    { archived: false, id: "", name: "foo" }
+    { archived: false, id: "", name: "foo" },
   ]);
   projectCreator = new ProjectCreator(
     mockManager.currentProjectSwitcher,
@@ -23,10 +23,10 @@ it("creates and persists a project", async () => {
   const project = { archived: false, id: expect.any(String), name: "foo" };
   expect(mockManager.projectRepository.create.mock.calls).toEqual([[project]]);
   expect(mockManager.currentProjectSwitcher.switch.mock.calls).toEqual([
-    [project]
+    [project],
   ]);
   expect(mockManager.projectPresenter.presentProjects.mock.calls).toEqual([
-    [[project]]
+    [[project]],
   ]);
 });
 
@@ -40,6 +40,6 @@ it("formats a project before creation", async () => {
 it("validates a project before creation", async () => {
   await projectCreator.create("");
   expect(mockManager.messagePresenter.present.mock.calls).toEqual([
-    ["Project name cannot be empty!"]
+    ["Project name cannot be empty!"],
   ]);
 });

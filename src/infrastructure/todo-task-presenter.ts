@@ -21,20 +21,22 @@ export class TodoTaskPresenter implements ITodoTaskPresenter {
   public presentReorderedTasks(taskIds: string[]): void {
     if (this.tasks) {
       const taskMap = Object.fromEntries(
-        this.tasks.map(task => [task.id, task])
+        this.tasks.map((task) => [task.id, task])
       );
-      this.renderTasks(taskIds.map(id => taskMap[id]));
+      this.renderTasks(taskIds.map((id) => taskMap[id]));
     }
   }
 
   public presentUpdatedTask(updatedTask: ITask): void {
     this.renderTasks(
-      this.tasks?.map(task => (task.id === updatedTask.id ? updatedTask : task))
+      this.tasks?.map((task) =>
+        task.id === updatedTask.id ? updatedTask : task
+      )
     );
   }
 
   public presentDeletedTask(taskId: string): void {
-    this.renderTasks(this.tasks?.filter(task => task.id !== taskId));
+    this.renderTasks(this.tasks?.filter((task) => task.id !== taskId));
   }
 
   private renderTasks(tasks: ITask[] | null | undefined): void {

@@ -41,13 +41,13 @@ export const TodoTasks = ({
   completeTodoTask,
   reorderTodoTasks,
   todoTasks,
-  updateTodoTask
+  updateTodoTask,
 }: IProps) =>
   todoTasks ? (
     <Container>
       <Tasks
         onSortEnd={async ({ oldIndex, newIndex }) => {
-          const taskIds = todoTasks.map(task => task.id);
+          const taskIds = todoTasks.map((task) => task.id);
           taskIds.splice(newIndex, 0, taskIds.splice(oldIndex, 1)[0]);
           await reorderTodoTasks(taskIds);
         }}

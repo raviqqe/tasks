@@ -65,7 +65,7 @@ export const Task = ({
           onClick={() =>
             updateTask({
               ...task,
-              name: window.prompt("New task name?", task.name) || ""
+              name: window.prompt("New task name?", task.name) || "",
             })
           }
         >

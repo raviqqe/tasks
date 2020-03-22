@@ -33,7 +33,7 @@ export class ProjectPresenter implements IProjectPresenter {
 
   public presentDeletedProject(projectId: string): void {
     this.renderArchivedProjects(
-      this.archivedProjects?.filter(project => project.id !== projectId)
+      this.archivedProjects?.filter((project) => project.id !== projectId)
     );
   }
 
@@ -50,7 +50,7 @@ export class ProjectPresenter implements IProjectPresenter {
     }
 
     this.renderProjects(
-      this.projects?.map(project =>
+      this.projects?.map((project) =>
         project.id === updatedProject.id ? updatedProject : project
       )
     );

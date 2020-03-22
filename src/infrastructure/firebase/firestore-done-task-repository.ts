@@ -12,17 +12,15 @@ export class FirestoreDoneTaskRepository implements IDoneTaskRepository {
       .doc(task.id)
       .set({
         ...task,
-        createdAt: Math.floor(Date.now() / 1000) // Unix timestamp
+        createdAt: Math.floor(Date.now() / 1000), // Unix timestamp
       });
   }
 
   public async *list(projectId: string): AsyncIterator<ITask[], void> {
-    let result = await this.query(projectId)
-      .limit(BATCH_SIZE)
-      .get();
+    let result = await this.query(projectId).limit(BATCH_SIZE).get();
 
     while (result.docs.length > 0) {
-      yield result.docs.map(snapshot => snapshot.data() as ITask);
+      yield result.docs.map((snapshot) => snapshot.data() as ITask);
 
       result = await this.query(projectId)
         .startAfter(last(result.docs))

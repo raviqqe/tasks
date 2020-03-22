@@ -50,7 +50,7 @@ const ProjectWithRef = (
     project,
     switchCurrentProject,
     unarchiveProject,
-    updateProject
+    updateProject,
   }: IProps,
   ref: Ref<HTMLDivElement>
 ) => (

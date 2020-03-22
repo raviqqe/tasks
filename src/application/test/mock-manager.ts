@@ -20,51 +20,51 @@ export class MockManager {
   public authenticationController: jest.Mocked<IAuthenticationController> = {
     isSignedIn: jest.fn(),
     signIn: jest.fn(),
-    signOut: jest.fn()
+    signOut: jest.fn(),
   };
 
   public authenticationPresenter: jest.Mocked<IAuthenticationPresenter> = {
-    presentSignedIn: jest.fn()
+    presentSignedIn: jest.fn(),
   };
 
   public confirmationController: jest.Mocked<IConfirmationController> = {
-    confirm: jest.fn()
+    confirm: jest.fn(),
   };
 
   public currentProjectRepository: jest.Mocked<ICurrentProjectRepository> = {
     get: jest.fn(),
-    set: jest.fn()
+    set: jest.fn(),
   };
 
   public currentProjectSwitcher: jest.Mocked<CurrentProjectSwitcher> = ({
-    switch: jest.fn()
+    switch: jest.fn(),
   } as unknown) as jest.Mocked<CurrentProjectSwitcher>;
 
   public doneTaskRepository: jest.Mocked<IDoneTaskRepository> = {
     create: jest.fn(),
-    list: jest.fn()
+    list: jest.fn(),
   };
 
   public doneTaskLister: jest.Mocked<DoneTaskLister> = ({
-    list: jest.fn()
+    list: jest.fn(),
   } as unknown) as jest.Mocked<DoneTaskLister>;
 
   public doneTaskPresenter: jest.Mocked<IDoneTaskPresenter> = {
     presentMoreTasks: jest.fn(),
     presentNewTask: jest.fn(),
-    presentTasks: jest.fn()
+    presentTasks: jest.fn(),
   };
 
   public infrastructureInitializer: jest.Mocked<IInfrastructureInitializer> = {
-    initialize: jest.fn()
+    initialize: jest.fn(),
   };
 
   public messagePresenter: jest.Mocked<IMessagePresenter> = {
-    present: jest.fn()
+    present: jest.fn(),
   };
 
   public projectCreator: jest.Mocked<ProjectCreator> = ({
-    create: jest.fn()
+    create: jest.fn(),
   } as unknown) as jest.Mocked<ProjectCreator>;
 
   public projectPresenter: jest.Mocked<IProjectPresenter> = {
@@ -74,7 +74,7 @@ export class MockManager {
     presentDeletedProject: jest.fn(),
     presentProjects: jest.fn(),
     presentUnarchivedProject: jest.fn(),
-    presentUpdatedProject: jest.fn()
+    presentUpdatedProject: jest.fn(),
   };
 
   public projectRepository: jest.Mocked<IProjectRepository> = {
@@ -82,15 +82,15 @@ export class MockManager {
     delete: jest.fn(),
     list: jest.fn(),
     listArchived: jest.fn(),
-    update: jest.fn()
+    update: jest.fn(),
   };
 
   public todoTaskDeleter: jest.Mocked<TodoTaskDeleter> = ({
-    delete: jest.fn()
+    delete: jest.fn(),
   } as unknown) as jest.Mocked<TodoTaskDeleter>;
 
   public todoTaskLister: jest.Mocked<TodoTaskLister> = ({
-    list: jest.fn()
+    list: jest.fn(),
   } as unknown) as jest.Mocked<TodoTaskLister>;
 
   public todoTaskRepository: jest.Mocked<ITodoTaskRepository> = {
@@ -98,7 +98,7 @@ export class MockManager {
     delete: jest.fn(),
     list: jest.fn(),
     reorder: jest.fn(),
-    update: jest.fn()
+    update: jest.fn(),
   };
 
   public todoTaskPresenter: jest.Mocked<ITodoTaskPresenter> = {
@@ -106,6 +106,6 @@ export class MockManager {
     presentNewTask: jest.fn(),
     presentReorderedTasks: jest.fn(),
     presentTasks: jest.fn(),
-    presentUpdatedTask: jest.fn()
+    presentUpdatedTask: jest.fn(),
   };
 }

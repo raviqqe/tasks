@@ -38,7 +38,7 @@ export class ApplicationInitializer {
 
     const currentProjectID = await this.currentProjectRepository.get();
     await this.currentProjectSwitcher.switch(
-      projects.find(project => project.id === currentProjectID) ||
+      projects.find((project) => project.id === currentProjectID) ||
         sortProjects(projects)[0]
     );
     this.projectPresenter.presentProjects(projects);

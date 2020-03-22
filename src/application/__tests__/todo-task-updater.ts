@@ -21,17 +21,17 @@ beforeEach(() => {
 it("updates and persists a task", async () => {
   await taskUpdater.update("", { ...dummyTask, name: "bar" });
   expect(mockManager.todoTaskRepository.update.mock.calls).toEqual([
-    ["", { ...dummyTask, name: "bar" }]
+    ["", { ...dummyTask, name: "bar" }],
   ]);
   expect(mockManager.todoTaskPresenter.presentUpdatedTask.mock.calls).toEqual([
-    [{ ...dummyTask, name: "bar" }]
+    [{ ...dummyTask, name: "bar" }],
   ]);
 });
 
 it("formats a task before update", async () => {
   await taskUpdater.update("", { ...dummyTask, name: " bar" });
   expect(mockManager.todoTaskRepository.update.mock.calls).toEqual([
-    ["", { ...dummyTask, name: "bar" }]
+    ["", { ...dummyTask, name: "bar" }],
   ]);
 });
 

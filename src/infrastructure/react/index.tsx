@@ -42,7 +42,7 @@ export class ReactRenderer {
     doneTasks: null,
     projects: null,
     signedIn: null,
-    todoTasks: null
+    todoTasks: null,
   };
 
   constructor(
@@ -120,10 +120,10 @@ export class ReactRenderer {
               await this.todoTaskCreator.create(currentProject.id, name);
             }
           }}
-          deleteProject={project => this.projectDeleter.delete(project)}
+          deleteProject={(project) => this.projectDeleter.delete(project)}
           initialize={() => this.applicationInitializer.initialize()}
           listMoreDoneTasks={() => this.doneTaskLister.listMore()}
-          reorderTodoTasks={async taskIds => {
+          reorderTodoTasks={async (taskIds) => {
             if (currentProject) {
               await this.todoTaskReorderer.reorder(currentProject.id, taskIds);
             }
@@ -131,13 +131,13 @@ export class ReactRenderer {
           repositoryURL={this.repositoryURL}
           signIn={() => this.signInManager.signIn()}
           signOut={() => this.signOutManager.signOut()}
-          switchCurrentProject={project =>
+          switchCurrentProject={(project) =>
             this.currentProjectSwitcher.switch(project)
           }
-          unarchiveProject={project =>
+          unarchiveProject={(project) =>
             this.projectUnarchiver.unarchive(project)
           }
-          updateProject={project => this.projectUpdater.update(project)}
+          updateProject={(project) => this.projectUpdater.update(project)}
           updateTodoTask={async (task: ITask) => {
             if (currentProject) {
               await this.todoTaskUpdater.update(currentProject.id, task);

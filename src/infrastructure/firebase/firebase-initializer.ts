@@ -8,7 +8,7 @@ export class FirebaseInitializer {
       apiKey,
       authDomain: `${projectId}.firebaseapp.com`,
       projectId,
-      storageBucket: `${projectId}.appspot.com`
+      storageBucket: `${projectId}.appspot.com`,
     });
   }
 

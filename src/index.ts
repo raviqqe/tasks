@@ -89,7 +89,7 @@ async function main() {
       authenticationPresenter,
       doneTaskPresenter,
       projectPresenter,
-      todoTaskPresenter
+      todoTaskPresenter,
     ],
     new ApplicationInitializer(
       authenticationController,
@@ -147,4 +147,4 @@ async function main() {
   await navigator.serviceWorker.register("/service-worker.js");
 }
 
-main().catch(error => errorReporter.report(error));
+main().catch((error) => errorReporter.report(error));

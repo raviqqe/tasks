@@ -23,7 +23,7 @@ const props: IProps = {
   todoTasks: null,
   unarchiveProject: async () => {},
   updateProject: async () => {},
-  updateTodoTask: async () => {}
+  updateTodoTask: async () => {},
 };
 
 it("renders before a user signs in", async () => {

@@ -16,10 +16,10 @@ beforeEach(() => {
 it("creates and persists a task", async () => {
   await taskCreator.create("", "foo");
   expect(mockManager.todoTaskRepository.create.mock.calls).toEqual([
-    ["", { id: expect.any(String), name: "foo" }]
+    ["", { id: expect.any(String), name: "foo" }],
   ]);
   expect(mockManager.todoTaskPresenter.presentNewTask.mock.calls).toEqual([
-    [{ id: expect.any(String), name: "foo" }]
+    [{ id: expect.any(String), name: "foo" }],
   ]);
 });
 
@@ -33,7 +33,7 @@ it("formats a task before creation", async () => {
 it("validates a task before creation", async () => {
   await taskCreator.create("", "");
   expect(mockManager.messagePresenter.present.mock.calls).toEqual([
-    ["Task name cannot be empty!"]
+    ["Task name cannot be empty!"],
   ]);
   expect(mockManager.todoTaskRepository.create).not.toBeCalled();
   expect(mockManager.todoTaskPresenter.presentNewTask).not.toBeCalled();
