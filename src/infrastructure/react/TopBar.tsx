@@ -4,7 +4,7 @@ import { boxShadow } from "./style";
 import { SignOut, IProps as ISignOutProps } from "./SignOut";
 import {
   CurrentProject,
-  IProps as ICurrentProjectProps
+  IProps as ICurrentProjectProps,
 } from "./CurrentProject";
 import { red } from "./style/colors";
 

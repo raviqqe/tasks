@@ -9,7 +9,7 @@ let doneTaskLister: DoneTaskLister;
 
 beforeEach(() => {
   mockManager = new MockManager();
-  mockManager.doneTaskRepository.list.mockImplementation(async function*(
+  mockManager.doneTaskRepository.list.mockImplementation(async function* (
     _: string,
     __: number
   ) {});
@@ -20,7 +20,7 @@ beforeEach(() => {
 });
 
 it("lists tasks", async () => {
-  mockManager.doneTaskRepository.list.mockImplementation(async function*(
+  mockManager.doneTaskRepository.list.mockImplementation(async function* (
     _: string,
     __: number
   ) {
@@ -30,7 +30,7 @@ it("lists tasks", async () => {
   await doneTaskLister.list("");
 
   expect(mockManager.doneTaskPresenter.presentTasks.mock.calls).toEqual([
-    [[dummyTask]]
+    [[dummyTask]],
   ]);
 });
 
@@ -41,7 +41,7 @@ it("lists no tasks", async () => {
 });
 
 it("lists more tasks", async () => {
-  mockManager.doneTaskRepository.list.mockImplementation(async function*(
+  mockManager.doneTaskRepository.list.mockImplementation(async function* (
     _: string,
     __: number
   ) {
@@ -53,7 +53,7 @@ it("lists more tasks", async () => {
   await doneTaskLister.listMore();
 
   expect(mockManager.doneTaskPresenter.presentMoreTasks.mock.calls).toEqual([
-    [[dummyTask]]
+    [[dummyTask]],
   ]);
 });
 

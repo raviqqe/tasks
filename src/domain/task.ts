@@ -6,7 +6,7 @@ export interface ITask {
 export function formatTask(task: ITask): ITask {
   return {
     ...task,
-    name: task.name.trim()
+    name: task.name.trim(),
   };
 }
 

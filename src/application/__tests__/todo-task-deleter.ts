@@ -16,6 +16,6 @@ it("deletes a task if its name is empty", async () => {
   await taskDeleter.delete("", "");
   expect(mockManager.todoTaskRepository.delete.mock.calls).toEqual([["", ""]]);
   expect(mockManager.todoTaskPresenter.presentDeletedTask.mock.calls).toEqual([
-    [""]
+    [""],
   ]);
 });

@@ -7,7 +7,7 @@ export interface IProject {
 export function formatProject(project: IProject): IProject {
   return {
     ...project,
-    name: project.name.trim()
+    name: project.name.trim(),
   };
 }
 

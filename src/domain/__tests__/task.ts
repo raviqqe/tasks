@@ -4,7 +4,7 @@ describe("formatTask", () => {
   it("removes extra spaces in a name", () => {
     expect(formatTask({ id: "", name: " foo\n" })).toEqual({
       id: "",
-      name: "foo"
+      name: "foo",
     });
   });
 });

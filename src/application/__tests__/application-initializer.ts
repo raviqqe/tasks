@@ -43,10 +43,10 @@ it("presents an initial project", async () => {
   await applicationInitializer.initialize();
 
   expect(mockManager.currentProjectSwitcher.switch.mock.calls).toEqual([
-    [dummyProject]
+    [dummyProject],
   ]);
   expect(mockManager.projectPresenter.presentProjects.mock.calls).toEqual([
-    [[dummyProject]]
+    [[dummyProject]],
   ]);
 });
 
@@ -64,10 +64,10 @@ it("presents an initial project even if no current project ID is set", async () 
   await applicationInitializer.initialize();
 
   expect(mockManager.currentProjectSwitcher.switch.mock.calls).toEqual([
-    [dummyProject]
+    [dummyProject],
   ]);
   expect(mockManager.projectPresenter.presentProjects.mock.calls).toEqual([
-    [[dummyProject]]
+    [[dummyProject]],
   ]);
 });
 

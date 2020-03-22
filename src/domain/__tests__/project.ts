@@ -2,7 +2,7 @@ import {
   formatProject,
   validateProject,
   sortProjects,
-  IProject
+  IProject,
 } from "../project";
 
 const dummyProject: IProject = { archived: false, id: "", name: "" };
@@ -11,7 +11,7 @@ describe("formatProject", () => {
   it("removes extra spaces in a name", () => {
     expect(formatProject({ ...dummyProject, name: " foo\n" })).toEqual({
       ...dummyProject,
-      name: "foo"
+      name: "foo",
     });
   });
 });
@@ -37,11 +37,11 @@ describe("sortProjects", () => {
     expect(
       sortProjects([
         { ...dummyProject, name: "B" },
-        { ...dummyProject, name: "a" }
+        { ...dummyProject, name: "a" },
       ])
     ).toEqual([
       { ...dummyProject, name: "a" },
-      { ...dummyProject, name: "B" }
+      { ...dummyProject, name: "B" },
     ]);
   });
 });

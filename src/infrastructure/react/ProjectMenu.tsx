@@ -76,7 +76,7 @@ export const ProjectMenu = ({
   projects,
   switchCurrentProject,
   unarchiveProject,
-  updateProject
+  updateProject,
 }: IProps) => {
   const [projectsArchived, setProjectsArchived] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -95,12 +95,12 @@ export const ProjectMenu = ({
             {archivedProjects.length === 0 ? (
               <Message>No archived projects</Message>
             ) : (
-              archivedProjects.map(project => (
+              archivedProjects.map((project) => (
                 <Project
                   deleteProject={deleteProject}
                   key={project.id}
                   project={project}
-                  unarchiveProject={async project => {
+                  unarchiveProject={async (project) => {
                     await unarchiveProject(project);
                     hideProjects();
                   }}
@@ -110,14 +110,14 @@ export const ProjectMenu = ({
           </ProjectsContainer>
         ) : (
           <ProjectsContainer>
-            {projects.map(project => (
+            {projects.map((project) => (
               <Project
                 archiveProject={archiveProject}
                 currentProject={currentProject}
                 key={project.id}
                 project={project}
                 ref={project.id === currentProject.id ? ref : null}
-                switchCurrentProject={async project => {
+                switchCurrentProject={async (project) => {
                   hideProjects();
                   await switchCurrentProject(project);
                 }}

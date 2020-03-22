@@ -22,14 +22,14 @@ it("archives a project", async () => {
 
   mockManager.projectRepository.list.mockResolvedValueOnce([
     projectToArchive,
-    {} as IProject
+    {} as IProject,
   ]);
   mockManager.projectRepository.list.mockResolvedValueOnce([{} as IProject]);
 
   await projectArchiver.archive(projectToArchive, "anotherProject");
 
   expect(mockManager.projectRepository.update.mock.calls).toEqual([
-    [{ ...projectToArchive, archived: true }]
+    [{ ...projectToArchive, archived: true }],
   ]);
   expect(
     mockManager.projectPresenter.presentArchivedProject.mock.calls
@@ -68,19 +68,19 @@ it("switches a current project on archival", async () => {
   const remainingProject: IProject = {
     archived: false,
     id: "anotherProject",
-    name: ""
+    name: "",
   };
 
   mockManager.projectRepository.list.mockResolvedValueOnce([
     projectToArchive,
-    remainingProject
+    remainingProject,
   ]);
   mockManager.projectRepository.list.mockResolvedValueOnce([remainingProject]);
 
   await projectArchiver.archive(projectToArchive, "");
 
   expect(mockManager.currentProjectSwitcher.switch.mock.calls).toEqual([
-    [remainingProject]
+    [remainingProject],
   ]);
 });
 
@@ -89,12 +89,12 @@ it("does not switch any current projects if they are not archived", async () => 
   const remainingProject: IProject = {
     archived: false,
     id: "anotherProject",
-    name: ""
+    name: "",
   };
 
   mockManager.projectRepository.list.mockResolvedValueOnce([
     projectToArchive,
-    remainingProject
+    remainingProject,
   ]);
   mockManager.projectRepository.list.mockResolvedValueOnce([remainingProject]);
 

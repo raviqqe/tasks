@@ -19,7 +19,7 @@ it("lists tasks", async () => {
   mockManager.todoTaskRepository.list.mockResolvedValue([dummyTask]);
   await taskLister.list("");
   expect(mockManager.todoTaskPresenter.presentTasks.mock.calls).toEqual([
-    [[dummyTask]]
+    [[dummyTask]],
   ]);
 });
 

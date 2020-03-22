@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import {
   CreateTodoTask,
-  IProps as ICreateTodoTaskProps
+  IProps as ICreateTodoTaskProps,
 } from "./CreateTodoTask";
 import { TodoTasks, IProps as ITodoTasksProps } from "./TodoTasks";
 import { DoneTasks, IProps as IDoneTasksProps } from "./DoneTasks";
@@ -60,7 +60,7 @@ export const Home = ({
   signOut,
   showProjects,
   todoTasks,
-  updateTodoTask
+  updateTodoTask,
 }: IProps) => {
   const [tasksDone, setTasksDone] = useState(false);
 

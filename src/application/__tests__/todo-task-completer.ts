@@ -21,9 +21,9 @@ it("completes and persists a task", async () => {
 
   expect(mockManager.todoTaskDeleter.delete.mock.calls).toEqual([["", ""]]);
   expect(mockManager.doneTaskRepository.create.mock.calls).toEqual([
-    ["", dummyTask]
+    ["", dummyTask],
   ]);
   expect(mockManager.doneTaskPresenter.presentNewTask.mock.calls).toEqual([
-    [dummyTask]
+    [dummyTask],
   ]);
 });

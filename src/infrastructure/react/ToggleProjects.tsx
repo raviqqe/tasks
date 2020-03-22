@@ -9,7 +9,7 @@ export interface IProps {
 
 export const ToggleProjects = ({
   projectsArchived,
-  setProjectsArchived
+  setProjectsArchived,
 }: IProps) => (
   <CircleButton
     aria-label="Toggle Projects"

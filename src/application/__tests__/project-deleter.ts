@@ -21,7 +21,7 @@ it("deletes a project", async () => {
   await projectDeleter.delete(project);
 
   expect(mockManager.projectRepository.delete.mock.calls).toEqual([
-    [project.id]
+    [project.id],
   ]);
   expect(
     mockManager.projectPresenter.presentDeletedProject.mock.calls

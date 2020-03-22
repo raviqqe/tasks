@@ -18,16 +18,16 @@ it("unarchives a project", async () => {
   const projectToUnarchive: IProject = { archived: true, id: "0", name: "" };
 
   mockManager.projectRepository.list.mockResolvedValue([
-    { ...projectToUnarchive, archived: false }
+    { ...projectToUnarchive, archived: false },
   ]);
 
   await projectUnarchiver.unarchive(projectToUnarchive);
 
   expect(mockManager.projectRepository.update.mock.calls).toEqual([
-    [{ ...projectToUnarchive, archived: false }]
+    [{ ...projectToUnarchive, archived: false }],
   ]);
   expect(mockManager.currentProjectSwitcher.switch.mock.calls).toEqual([
-    [{ ...projectToUnarchive, archived: false }]
+    [{ ...projectToUnarchive, archived: false }],
   ]);
   expect(
     mockManager.projectPresenter.presentUnarchivedProject.mock.calls

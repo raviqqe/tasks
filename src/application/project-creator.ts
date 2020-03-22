@@ -18,7 +18,7 @@ export class ProjectCreator {
     const project: IProject = formatProject({
       archived: false,
       id: new UUID(4).format(),
-      name
+      name,
     });
 
     try {
