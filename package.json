@@ -16,7 +16,7 @@
     "firebase": "^7.12.0",
     "localforage": "^1.7.3",
     "lodash": "^4.17.15",
-    "prettier": "^2.0.1",
+    "prettier": "^2.0.2",
     "pure-uuid": "^1.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
