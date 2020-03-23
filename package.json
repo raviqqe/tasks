@@ -39,7 +39,7 @@
     "@types/react-infinite-scroller": "^1.2.1",
     "@types/react-test-renderer": "^16.9.2",
     "@types/styled-components": "^5.0.1",
-    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
     "cspell": "^4.0.55",
     "eslint": "^6.8.0",
