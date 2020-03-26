@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "npm run build:icons && CI=false react-scripts build",
-    "build:icons": "tools/build-images.sh",
+    "build:icons": "inkscape --export-width 512 --export-height 512 --export-png public/icon.png public/icon.svg",
     "deploy": "npx firebase deploy",
     "lint": "npx cspell src/**/* 'public/**/*.{html,json}' && npx eslint 'src/**/*.ts{,x}'",
     "start": "react-scripts start",
