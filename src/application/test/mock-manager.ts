@@ -36,18 +36,24 @@ export class MockManager {
     set: jest.fn(),
   };
 
-  public currentProjectSwitcher: jest.Mocked<CurrentProjectSwitcher> = ({
-    switch: jest.fn(),
-  } as unknown) as jest.Mocked<CurrentProjectSwitcher>;
+  public currentProjectSwitcher: jest.Mocked<CurrentProjectSwitcher> =
+    ({
+      switch: jest.fn(),
+    } as
+      unknown) as
+    jest.Mocked<CurrentProjectSwitcher>;
 
   public doneTaskRepository: jest.Mocked<IDoneTaskRepository> = {
     create: jest.fn(),
     list: jest.fn(),
   };
 
-  public doneTaskLister: jest.Mocked<DoneTaskLister> = ({
-    list: jest.fn(),
-  } as unknown) as jest.Mocked<DoneTaskLister>;
+  public doneTaskLister: jest.Mocked<DoneTaskLister> =
+    ({
+      list: jest.fn(),
+    } as
+      unknown) as
+    jest.Mocked<DoneTaskLister>;
 
   public doneTaskPresenter: jest.Mocked<IDoneTaskPresenter> = {
     presentMoreTasks: jest.fn(),
@@ -63,9 +69,12 @@ export class MockManager {
     present: jest.fn(),
   };
 
-  public projectCreator: jest.Mocked<ProjectCreator> = ({
-    create: jest.fn(),
-  } as unknown) as jest.Mocked<ProjectCreator>;
+  public projectCreator: jest.Mocked<ProjectCreator> =
+    ({
+      create: jest.fn(),
+    } as
+      unknown) as
+    jest.Mocked<ProjectCreator>;
 
   public projectPresenter: jest.Mocked<IProjectPresenter> = {
     presentArchivedProject: jest.fn(),
@@ -85,13 +94,19 @@ export class MockManager {
     update: jest.fn(),
   };
 
-  public todoTaskDeleter: jest.Mocked<TodoTaskDeleter> = ({
-    delete: jest.fn(),
-  } as unknown) as jest.Mocked<TodoTaskDeleter>;
+  public todoTaskDeleter: jest.Mocked<TodoTaskDeleter> =
+    ({
+      delete: jest.fn(),
+    } as
+      unknown) as
+    jest.Mocked<TodoTaskDeleter>;
 
-  public todoTaskLister: jest.Mocked<TodoTaskLister> = ({
-    list: jest.fn(),
-  } as unknown) as jest.Mocked<TodoTaskLister>;
+  public todoTaskLister: jest.Mocked<TodoTaskLister> =
+    ({
+      list: jest.fn(),
+    } as
+      unknown) as
+    jest.Mocked<TodoTaskLister>;
 
   public todoTaskRepository: jest.Mocked<ITodoTaskRepository> = {
     create: jest.fn(),
