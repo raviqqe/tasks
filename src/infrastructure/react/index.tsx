@@ -1,24 +1,24 @@
-import { render } from "react-dom";
 import React from "react";
+import { render } from "react-dom";
 import { ApplicationInitializer } from "../../application/application-initializer";
-import { TodoTaskCreator } from "../../application/todo-task-creator";
-import { TodoTaskUpdater } from "../../application/todo-task-updater";
-import { TodoTaskCompleter } from "../../application/todo-task-completer";
-import { TodoTaskReorderer } from "../../application/todo-task-reorderer";
-import { DoneTaskLister } from "../../application/done-task-lister";
-import { ProjectCreator } from "../../application/project-creator";
 import { CurrentProjectSwitcher } from "../../application/current-project-switcher";
-import { ITask } from "../../domain/task";
+import { DoneTaskLister } from "../../application/done-task-lister";
+import { ProjectArchiver } from "../../application/project-archiver";
+import { ProjectCreator } from "../../application/project-creator";
+import { ProjectDeleter } from "../../application/project-deleter";
+import { ProjectUnarchiver } from "../../application/project-unarchiver";
+import { ProjectUpdater } from "../../application/project-updater";
 import { SignInManager } from "../../application/sign-in-manager";
 import { SignOutManager } from "../../application/sign-out-manager";
-import { ProjectArchiver } from "../../application/project-archiver";
-import { ProjectUnarchiver } from "../../application/project-unarchiver";
-import { ProjectDeleter } from "../../application/project-deleter";
-import { ProjectUpdater } from "../../application/project-updater";
+import { TodoTaskCompleter } from "../../application/todo-task-completer";
+import { TodoTaskCreator } from "../../application/todo-task-creator";
+import { TodoTaskReorderer } from "../../application/todo-task-reorderer";
+import { TodoTaskUpdater } from "../../application/todo-task-updater";
 import { IProject } from "../../domain/project";
+import { ITask } from "../../domain/task";
 import { IRenderer } from "../renderer";
-import { GlobalStyle } from "./style";
 import { App, IProps as IAppProps } from "./App";
+import { GlobalStyle } from "./style";
 
 interface IPresenter {
   setRenderer(renderer: IRenderer): void;

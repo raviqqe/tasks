@@ -1,5 +1,5 @@
-import { sortProjects, IProject } from "../domain/project";
 import { IProjectPresenter } from "../application/project-presenter";
+import { sortProjects, IProject } from "../domain/project";
 import { IRenderer } from "./renderer";
 
 export class ProjectPresenter implements IProjectPresenter {

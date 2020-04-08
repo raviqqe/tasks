@@ -1,8 +1,8 @@
 import "firebase/firestore";
 import firebase from "firebase/app";
 import { last } from "lodash";
-import { ITask } from "../../domain/task";
 import { IDoneTaskRepository } from "../../application/done-task-repository";
+import { ITask } from "../../domain/task";
 
 const BATCH_SIZE: number = 20;
 

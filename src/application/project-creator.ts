@@ -1,10 +1,10 @@
 import UUID from "pure-uuid";
-import { IProject, formatProject, validateProject } from "../domain/project";
 import { formatErrorMessage } from "../domain/error";
+import { IProject, formatProject, validateProject } from "../domain/project";
+import { CurrentProjectSwitcher } from "./current-project-switcher";
+import { IMessagePresenter } from "./message-presenter";
 import { IProjectPresenter } from "./project-presenter";
 import { IProjectRepository } from "./project-repository";
-import { IMessagePresenter } from "./message-presenter";
-import { CurrentProjectSwitcher } from "./current-project-switcher";
 
 export class ProjectCreator {
   constructor(

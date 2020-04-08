@@ -1,7 +1,7 @@
 import { IProject } from "../domain/project";
-import { IProjectRepository } from "./project-repository";
-import { IProjectPresenter } from "./project-presenter";
 import { IConfirmationController } from "./confirmation-controller";
+import { IProjectPresenter } from "./project-presenter";
+import { IProjectRepository } from "./project-repository";
 
 export class ProjectDeleter {
   constructor(

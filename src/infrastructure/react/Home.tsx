@@ -4,10 +4,10 @@ import {
   CreateTodoTask,
   IProps as ICreateTodoTaskProps,
 } from "./CreateTodoTask";
-import { TodoTasks, IProps as ITodoTasksProps } from "./TodoTasks";
 import { DoneTasks, IProps as IDoneTasksProps } from "./DoneTasks";
-import { TopBar, IProps as ITopBarProps } from "./TopBar";
+import { TodoTasks, IProps as ITodoTasksProps } from "./TodoTasks";
 import { ToggleTasks } from "./ToggleTasks";
+import { TopBar, IProps as ITopBarProps } from "./TopBar";
 
 const Container = styled.div`
   display: flex;

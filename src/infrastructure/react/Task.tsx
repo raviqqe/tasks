@@ -1,7 +1,7 @@
-import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md";
 import React from "react";
-import styled from "styled-components";
+import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md";
 import { SortableHandle } from "react-sortable-hoc";
+import styled from "styled-components";
 import { ITask } from "../../domain/task";
 import { IconButton } from "./IconButton";
 import { boxShadow } from "./style";

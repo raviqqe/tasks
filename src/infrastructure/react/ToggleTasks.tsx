@@ -1,5 +1,5 @@
-import { FaRegCheckSquare, FaRegSquare } from "react-icons/fa";
 import React from "react";
+import { FaRegCheckSquare, FaRegSquare } from "react-icons/fa";
 import { CircleButton } from "./CircleButton";
 
 export interface IProps {

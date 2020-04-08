@@ -1,9 +1,9 @@
-import InfiniteScroller from "react-infinite-scroller";
 import React from "react";
+import InfiniteScroller from "react-infinite-scroller";
 import styled from "styled-components";
 import { ITask } from "../../domain/task";
-import { Task } from "./Task";
 import { Loader } from "./Loader";
+import { Task } from "./Task";
 
 const Container = styled.div`
   display: flex;

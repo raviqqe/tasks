@@ -1,20 +1,20 @@
-import { IProjectPresenter } from "../project-presenter";
-import { ICurrentProjectRepository } from "../current-project-repository";
-import { TodoTaskDeleter } from "../todo-task-deleter";
-import { TodoTaskLister } from "../todo-task-lister";
-import { IInfrastructureInitializer } from "../infrastructure-initializer";
 import { IAuthenticationController } from "../authentication-controller";
 import { IAuthenticationPresenter } from "../authentication-presenter";
-import { IProjectRepository } from "../project-repository";
-import { ProjectCreator } from "../project-creator";
-import { IDoneTaskRepository } from "../done-task-repository";
-import { IDoneTaskPresenter } from "../done-task-presenter";
-import { IMessagePresenter } from "../message-presenter";
+import { IConfirmationController } from "../confirmation-controller";
+import { ICurrentProjectRepository } from "../current-project-repository";
 import { CurrentProjectSwitcher } from "../current-project-switcher";
 import { DoneTaskLister } from "../done-task-lister";
+import { IDoneTaskPresenter } from "../done-task-presenter";
+import { IDoneTaskRepository } from "../done-task-repository";
+import { IInfrastructureInitializer } from "../infrastructure-initializer";
+import { IMessagePresenter } from "../message-presenter";
+import { ProjectCreator } from "../project-creator";
+import { IProjectPresenter } from "../project-presenter";
+import { IProjectRepository } from "../project-repository";
+import { TodoTaskDeleter } from "../todo-task-deleter";
+import { TodoTaskLister } from "../todo-task-lister";
 import { ITodoTaskPresenter } from "../todo-task-presenter";
 import { ITodoTaskRepository } from "../todo-task-repository";
-import { IConfirmationController } from "../confirmation-controller";
 
 export class MockManager {
   public authenticationController: jest.Mocked<IAuthenticationController> = {

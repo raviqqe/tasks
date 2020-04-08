@@ -1,8 +1,8 @@
 import "firebase/firestore";
 import firebase from "firebase/app";
 import { isEqual } from "lodash";
-import { ITask } from "../../domain/task";
 import { ITodoTaskRepository } from "../../application/todo-task-repository";
+import { ITask } from "../../domain/task";
 
 export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
   public async create(projectId: string, task: ITask): Promise<void> {

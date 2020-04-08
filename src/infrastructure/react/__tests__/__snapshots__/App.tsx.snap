@@ -3,19 +3,19 @@
 exports[`renders after a user signs in 1`] = `
 <div>
   <div
-    class="sc-fznxsB cBXHBU"
+    class="sc-fzqBZW kSdvLV"
   >
     <div
-      class="sc-fzoXzr kzxZBJ"
+      class="sc-fznZeY bOoRCy"
     >
       <div
-        class="sc-fzoLag bGfpfn"
+        class="sc-fznyAO dfjfdX"
       />
       <div
-        class="sc-fzpjYC fqhYhX"
+        class="sc-fzokOt WeGtM"
       >
         <div
-          class="sc-AxmLO kdCyCx sc-fzoyAV fdPtxs"
+          class="sc-AxiKw dXaLsK sc-fznKkj iScMOl"
         >
           <svg
             fill="currentColor"
@@ -34,10 +34,10 @@ exports[`renders after a user signs in 1`] = `
       </div>
     </div>
     <div
-      class="sc-fznJRM hMbfqd"
+      class="sc-fzqNJr nXcWV"
     >
       <div
-        class="sc-fznyAO ddFYFH"
+        class="sc-fzpans ciBlfK"
       >
         <div
           class="css-0"
@@ -55,11 +55,11 @@ exports[`renders after a user signs in 1`] = `
       </div>
     </div>
     <div
-      class="sc-fznWqX dWaYKp"
+      class="sc-fzoyAV blzOds"
     >
       <button
         aria-label="Toggle Tasks"
-        class="sc-AxjAm sc-Axmtr XcSnD"
+        class="sc-AxjAm sc-AxirZ boreDh"
       >
         <svg
           fill="currentColor"
@@ -77,7 +77,7 @@ exports[`renders after a user signs in 1`] = `
       </button>
       <button
         aria-label="Create"
-        class="sc-AxjAm sc-Axmtr jrxdOU sc-fzoiQi lcrNYO"
+        class="sc-AxjAm sc-AxirZ hrKBZi sc-fzoLag iFvJWl"
       >
         <svg
           fill="currentColor"
@@ -101,29 +101,29 @@ exports[`renders after a user signs in 1`] = `
 exports[`renders after a user signs out 1`] = `
 <div>
   <div
-    class="sc-AxiKw lgKAvH"
+    class="sc-fzpjYC ha-dxXX"
   >
     <div
-      class="sc-AxhCb eiDjsk"
+      class="sc-fznxsB bSZKIH"
     >
       <span
-        class="sc-AxhUy djJDyD"
+        class="sc-fznJRM fjCgHJ"
       >
         Be
       </span>
       <span
-        class="sc-AxgMl cDGBMw"
+        class="sc-fznWqX Mwoxb"
       >
         Done
       </span>
     </div>
     <button
-      class="sc-AxjAm sc-AxirZ hjexjw"
+      class="sc-AxjAm sc-fzoXzr lHIdL"
     >
       Sign in
     </button>
     <a
-      class="sc-AxheI fSlMcm"
+      class="sc-fzoiQi iOKIbx"
       href=""
       target="_blank"
     >

@@ -1,10 +1,10 @@
 import { IProject } from "../domain/project";
 import { ICurrentProjectRepository } from "./current-project-repository";
+import { DoneTaskLister } from "./done-task-lister";
+import { IDoneTaskPresenter } from "./done-task-presenter";
 import { IProjectPresenter } from "./project-presenter";
 import { TodoTaskLister } from "./todo-task-lister";
-import { DoneTaskLister } from "./done-task-lister";
 import { ITodoTaskPresenter } from "./todo-task-presenter";
-import { IDoneTaskPresenter } from "./done-task-presenter";
 
 export class CurrentProjectSwitcher {
   constructor(

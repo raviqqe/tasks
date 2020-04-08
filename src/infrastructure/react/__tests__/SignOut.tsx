@@ -1,5 +1,5 @@
-import { create } from "react-test-renderer";
 import React from "react";
+import { create } from "react-test-renderer";
 import { SignOut } from "../SignOut";
 
 it("renders", () => {

@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { boxShadow } from "./style";
-import { SignOut, IProps as ISignOutProps } from "./SignOut";
 import {
   CurrentProject,
   IProps as ICurrentProjectProps,
 } from "./CurrentProject";
+import { SignOut, IProps as ISignOutProps } from "./SignOut";
+import { boxShadow } from "./style";
 import { red } from "./style/colors";
 
 const Container = styled.div`
