@@ -1,5 +1,5 @@
-import { TodoTaskReorderer } from "../todo-task-reorderer";
 import { MockManager } from "../test/mock-manager";
+import { TodoTaskReorderer } from "../todo-task-reorderer";
 
 let mockManager: MockManager;
 let taskReorderer: TodoTaskReorderer;

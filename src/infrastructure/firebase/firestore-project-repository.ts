@@ -1,7 +1,7 @@
 import "firebase/firestore";
 import firebase from "firebase/app";
-import { IProject } from "../../domain/project";
 import { IProjectRepository } from "../../application/project-repository";
+import { IProject } from "../../domain/project";
 
 export class FirestoreProjectRepository implements IProjectRepository {
   public async create(project: IProject): Promise<void> {

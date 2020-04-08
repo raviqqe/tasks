@@ -1,8 +1,8 @@
-import { IProject, validateProject, formatProject } from "../domain/project";
 import { formatErrorMessage } from "../domain/error";
-import { IProjectRepository } from "./project-repository";
-import { IProjectPresenter } from "./project-presenter";
+import { IProject, validateProject, formatProject } from "../domain/project";
 import { IMessagePresenter } from "./message-presenter";
+import { IProjectPresenter } from "./project-presenter";
+import { IProjectRepository } from "./project-repository";
 
 export class ProjectUpdater {
   constructor(

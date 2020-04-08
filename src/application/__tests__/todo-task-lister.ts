@@ -1,6 +1,6 @@
 import { ITask } from "../../domain/task";
-import { TodoTaskLister } from "../todo-task-lister";
 import { MockManager } from "../test/mock-manager";
+import { TodoTaskLister } from "../todo-task-lister";
 
 const dummyTask: ITask = { id: "", name: "" };
 

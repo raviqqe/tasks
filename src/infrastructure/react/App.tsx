@@ -1,10 +1,10 @@
-import { useAsync } from "react-use";
 import React, { useState } from "react";
+import { useAsync } from "react-use";
 import styled from "styled-components";
-import { IProps as ILandingProps, Landing } from "./Landing";
 import { Home, IProps as IHomeProps } from "./Home";
-import { ProjectMenu, IProps as IProjectMenuProps } from "./ProjectMenu";
+import { IProps as ILandingProps, Landing } from "./Landing";
 import { Loader } from "./Loader";
+import { ProjectMenu, IProps as IProjectMenuProps } from "./ProjectMenu";
 
 const LoaderContainer = styled.div`
   display: flex;

@@ -1,5 +1,5 @@
-import { create } from "react-test-renderer";
 import React from "react";
+import { create } from "react-test-renderer";
 import { CircleButton } from "../CircleButton";
 
 it("renders", () => {

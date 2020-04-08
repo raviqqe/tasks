@@ -1,10 +1,10 @@
-import { IProject, sortProjects } from "../domain/project";
 import { formatErrorMessage } from "../domain/error";
-import { IProjectRepository } from "./project-repository";
-import { IProjectPresenter } from "./project-presenter";
-import { IMessagePresenter } from "./message-presenter";
-import { CurrentProjectSwitcher } from "./current-project-switcher";
+import { IProject, sortProjects } from "../domain/project";
 import { IConfirmationController } from "./confirmation-controller";
+import { CurrentProjectSwitcher } from "./current-project-switcher";
+import { IMessagePresenter } from "./message-presenter";
+import { IProjectPresenter } from "./project-presenter";
+import { IProjectRepository } from "./project-repository";
 
 export class ProjectArchiver {
   constructor(

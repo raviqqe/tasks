@@ -1,9 +1,9 @@
 import UUID from "pure-uuid";
-import { formatTask, validateTask } from "../domain/task";
 import { formatErrorMessage } from "../domain/error";
-import { ITodoTaskRepository } from "./todo-task-repository";
-import { ITodoTaskPresenter } from "./todo-task-presenter";
+import { formatTask, validateTask } from "../domain/task";
 import { IMessagePresenter } from "./message-presenter";
+import { ITodoTaskPresenter } from "./todo-task-presenter";
+import { ITodoTaskRepository } from "./todo-task-repository";
 
 export class TodoTaskCreator {
   constructor(

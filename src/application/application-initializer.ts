@@ -1,12 +1,12 @@
 import { sortProjects } from "../domain/project";
 import { IAuthenticationController } from "./authentication-controller";
 import { IAuthenticationPresenter } from "./authentication-presenter";
-import { IInfrastructureInitializer } from "./infrastructure-initializer";
-import { ProjectCreator } from "./project-creator";
-import { IProjectRepository } from "./project-repository";
-import { IProjectPresenter } from "./project-presenter";
 import { ICurrentProjectRepository } from "./current-project-repository";
 import { CurrentProjectSwitcher } from "./current-project-switcher";
+import { IInfrastructureInitializer } from "./infrastructure-initializer";
+import { ProjectCreator } from "./project-creator";
+import { IProjectPresenter } from "./project-presenter";
+import { IProjectRepository } from "./project-repository";
 
 export class ApplicationInitializer {
   constructor(

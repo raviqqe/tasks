@@ -1,5 +1,5 @@
-import { DoneTaskLister } from "../done-task-lister";
 import { ITask } from "../../domain/task";
+import { DoneTaskLister } from "../done-task-lister";
 import { MockManager } from "../test/mock-manager";
 
 const dummyTask: ITask = { id: "", name: "" };

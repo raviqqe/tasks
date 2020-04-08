@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { IProject } from "../../domain/project";
-import { white } from "./style/colors";
 import { Loader } from "./Loader";
+import { white } from "./style/colors";
 
 const Container = styled.div`
   display: flex;

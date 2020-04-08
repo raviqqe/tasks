@@ -1,5 +1,5 @@
-import { MdExitToApp } from "react-icons/md";
 import React from "react";
+import { MdExitToApp } from "react-icons/md";
 import styled from "styled-components";
 import { IconButton } from "./IconButton";
 import { white } from "./style/colors";

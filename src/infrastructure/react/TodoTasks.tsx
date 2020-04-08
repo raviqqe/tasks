@@ -2,9 +2,9 @@ import React from "react";
 import { SortableContainer, SortableElement } from "react-sortable-hoc";
 import styled from "styled-components";
 import { ITask } from "../../domain/task";
-import { Task } from "./Task";
 import { Loader } from "./Loader";
 import { buttonMargin } from "./style";
+import { Task } from "./Task";
 
 const Container = styled.div`
   display: flex;

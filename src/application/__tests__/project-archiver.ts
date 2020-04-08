@@ -1,6 +1,6 @@
+import { IProject } from "../../domain/project";
 import { ProjectArchiver } from "../project-archiver";
 import { MockManager } from "../test/mock-manager";
-import { IProject } from "../../domain/project";
 
 let mockManager: MockManager;
 let projectArchiver: ProjectArchiver;

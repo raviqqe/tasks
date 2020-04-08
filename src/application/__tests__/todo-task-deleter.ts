@@ -1,5 +1,5 @@
-import { TodoTaskDeleter } from "../todo-task-deleter";
 import { MockManager } from "../test/mock-manager";
+import { TodoTaskDeleter } from "../todo-task-deleter";
 
 let mockManager: MockManager;
 let taskDeleter: TodoTaskDeleter;

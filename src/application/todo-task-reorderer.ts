@@ -1,5 +1,5 @@
-import { ITodoTaskRepository } from "./todo-task-repository";
 import { ITodoTaskPresenter } from "./todo-task-presenter";
+import { ITodoTaskRepository } from "./todo-task-repository";
 
 export class TodoTaskReorderer {
   constructor(
