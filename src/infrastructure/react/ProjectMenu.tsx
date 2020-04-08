@@ -4,9 +4,9 @@ import { IProject } from "../../domain/project";
 import { CreateProject, IProps as ICreateProjectProps } from "./CreateProject";
 import { Loader } from "./Loader";
 import { Project, IProps as IProjectProps } from "./Project";
+import { ToggleProjects } from "./ToggleProjects";
 import { boxShadow } from "./style";
 import { grey, white, lightGrey } from "./style/colors";
-import { ToggleProjects } from "./ToggleProjects";
 
 const Container = styled.div`
   background-color: ${lightGrey};
