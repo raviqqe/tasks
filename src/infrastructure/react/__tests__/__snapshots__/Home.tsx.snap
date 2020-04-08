@@ -8,7 +8,7 @@ exports[`renders 1`] = `
     className="sc-fznZeY bOoRCy"
   >
     <div
-      className="sc-fznKkj iCBXSG"
+      className="sc-fznyAO dfjfdX"
       onClick={[Function]}
     >
       
@@ -17,7 +17,7 @@ exports[`renders 1`] = `
       className="sc-fzokOt WeGtM"
     >
       <div
-        className="sc-AxiKw dXaLsK sc-fznyAO lfJVoo"
+        className="sc-AxiKw dXaLsK sc-fznKkj iScMOl"
         onClick={[Function]}
       >
         <svg
@@ -45,10 +45,10 @@ exports[`renders 1`] = `
     className="sc-fzqNJr nXcWV"
   >
     <div
-      className="sc-AxheI eQjtXF"
+      className="sc-fzoLsD bMfBsE"
     >
       <div
-        className="sc-AxmLO jgPaik"
+        className="sc-fzplWN cKPpXG"
       />
     </div>
   </div>
