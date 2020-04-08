@@ -32,7 +32,7 @@ module.exports = {
     "import/no-cycle": "error",
     "import/no-default-export": "error",
     "import/no-unused-modules": "error",
-    "import/order": ["error", { alphabetize: {} }],
+    "import/order": ["error", { alphabetize: { order: "asc" } }],
     "no-duplicate-imports": "error",
     "no-else-return": "error",
     "no-return-await": "error",
