@@ -12,11 +12,6 @@ jobs:
           apt -y update --fix-missing
           apt -y upgrade
           apt -y install inkscape
-      - uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
       - run: npm install
       - run: npm run build
       - run: npm run lint
