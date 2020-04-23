@@ -1,0 +1,29 @@
+name: main
+on:
+  - push
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    container:
+      image: node:lts
+    steps:
+      - uses: actions/checkout@master
+      - run: |
+          apt -y update --fix-missing
+          apt -y upgrade
+          apt -y install inkscape
+      - uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      - run: npm install
+      - run: npm run build
+      - run: npm run lint
+      - run: npm run test
+      - uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+      - run: npm run --silent deploy -- --token $FIREBASE_TOKEN
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
