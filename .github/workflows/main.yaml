@@ -27,3 +27,4 @@ jobs:
       - run: npm run --silent deploy -- --token $FIREBASE_TOKEN
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        if: github.ref == 'master'
