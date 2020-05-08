@@ -13,7 +13,7 @@
   "dependencies": {
     "@sentry/browser": "^5.15.5",
     "@types/react-sortable-hoc": "^0.7.1",
-    "firebase": "^7.14.2",
+    "firebase": "^7.14.3",
     "localforage": "^1.7.3",
     "lodash": "^4.17.15",
     "prettier": "^2.0.5",
