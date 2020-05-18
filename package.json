@@ -40,7 +40,7 @@
     "@types/react-test-renderer": "^16.9.2",
     "@types/styled-components": "^5.1.0",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
-    "@typescript-eslint/parser": "^2.33.0",
+    "@typescript-eslint/parser": "^2.34.0",
     "cspell": "^4.0.63",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
