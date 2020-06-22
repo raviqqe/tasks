@@ -24,7 +24,7 @@
     "react-infinite-scroller": "^1.2.4",
     "react-scripts": "^3.4.1",
     "react-sortable-hoc": "^1.11.0",
-    "react-spinners": "^0.8.3",
+    "react-spinners": "^0.9.0",
     "react-use": "^15.2.5",
     "styled-components": "^5.1.1"
   },
