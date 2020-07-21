@@ -14,7 +14,7 @@
     "@sentry/browser": "^5.19.2",
     "@types/react-sortable-hoc": "^0.7.1",
     "firebase": "^7.16.1",
-    "localforage": "^1.7.4",
+    "localforage": "^1.8.0",
     "lodash": "^4.17.19",
     "prettier": "^2.0.5",
     "pure-uuid": "^1.6.1",
