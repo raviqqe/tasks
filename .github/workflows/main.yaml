@@ -7,7 +7,7 @@ jobs:
     container:
       image: node:lts
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - run: |
           apt -y update --fix-missing
           apt -y upgrade
