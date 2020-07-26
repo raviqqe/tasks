@@ -12,7 +12,7 @@ service cloud.firestore {
           allow read, write: if request.auth.uid == userId;
         }
 
-        match /todoTaskOrders/{taskId} {
+        match /todoTaskOrders/default {
           allow read, write: if request.auth.uid == userId;
         }
 
