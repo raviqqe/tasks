@@ -55,8 +55,8 @@ export const App = ({
     />
   ) : signedIn ? (
     <ProjectMenu
-      archivedProjects={archivedProjects}
       archiveProject={archiveProject}
+      archivedProjects={archivedProjects}
       createProject={createProject}
       currentProject={currentProject}
       deleteProject={deleteProject}
