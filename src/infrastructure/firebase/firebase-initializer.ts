@@ -12,7 +12,7 @@ export class FirebaseInitializer {
     });
   }
 
-  public async initialize() {
+  public async initialize(): Promise<void> {
     await firebase.firestore().enablePersistence({ synchronizeTabs: true });
   }
 }

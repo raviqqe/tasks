@@ -10,7 +10,7 @@ export class ProjectDeleter {
     private readonly confirmationController: IConfirmationController
   ) {}
 
-  public async delete(project: IProject) {
+  public async delete(project: IProject): Promise<void> {
     if (!project.archived) {
       throw new Error("project not archived");
     } else if (

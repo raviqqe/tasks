@@ -6,7 +6,7 @@ export class TodoTaskPresenter implements ITodoTaskPresenter {
   private renderer: IRenderer | null = null;
   private tasks: ITask[] | null = null;
 
-  public setRenderer(renderer: IRenderer) {
+  public setRenderer(renderer: IRenderer): void {
     this.renderer = renderer;
   }
 
