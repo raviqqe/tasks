@@ -5,7 +5,7 @@ const KEY: string = "currentProjectID";
 
 export class LocalForageCurrentProjectRepository
   implements ICurrentProjectRepository {
-  public async get(): Promise<string> {
+  public async get(): Promise<string | null> {
     return localforage.getItem(KEY);
   }
 
