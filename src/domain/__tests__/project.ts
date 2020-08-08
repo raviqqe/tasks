@@ -33,7 +33,7 @@ describe("sortProjects", () => {
     expect(sortProjects([])).toEqual([]);
   });
 
-  it("sorts no projects", () => {
+  it("sorts projects", () => {
     expect(
       sortProjects([
         { ...dummyProject, name: "B" },
