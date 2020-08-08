@@ -10,7 +10,7 @@ export class ProjectUnarchiver {
     private readonly projectPresenter: IProjectPresenter
   ) {}
 
-  public async unarchive(project: IProject) {
+  public async unarchive(project: IProject): Promise<void> {
     if (!project.archived) {
       throw new Error("project not archived");
     }
