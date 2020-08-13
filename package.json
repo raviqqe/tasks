@@ -11,7 +11,7 @@
     "test": "react-scripts test --coverage --watchAll=false"
   },
   "dependencies": {
-    "@sentry/browser": "^5.20.1",
+    "@sentry/browser": "^5.21.1",
     "@types/react-sortable-hoc": "^0.7.1",
     "firebase": "^7.17.2",
     "localforage": "^1.9.0",
