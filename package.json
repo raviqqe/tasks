@@ -15,7 +15,7 @@
     "@types/react-sortable-hoc": "^0.7.1",
     "firebase": "^7.17.2",
     "localforage": "^1.9.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "prettier": "^2.0.5",
     "pure-uuid": "^1.6.1",
     "react": "^16.13.1",
