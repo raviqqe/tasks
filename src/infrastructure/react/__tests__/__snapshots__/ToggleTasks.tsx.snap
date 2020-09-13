@@ -3,7 +3,7 @@
 exports[`renders 1`] = `
 <button
   aria-label="Toggle Tasks"
-  className="sc-AxjAm sc-AxirZ boreDh"
+  className="sc-bdnylx sc-gtssRu jsVdZQ eBFUyR"
   onClick={[Function]}
 >
   <svg
