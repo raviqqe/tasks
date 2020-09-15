@@ -64,7 +64,6 @@ module.exports = {
     "no-else-return": "error",
     "no-lonely-if": "error",
     "no-return-await": "error",
-    "no-unused-vars": "off",
     "no-useless-return": "error",
     "react/jsx-curly-brace-presence": "error",
     "react/jsx-sort-props": "error",
