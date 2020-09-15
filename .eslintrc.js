@@ -49,8 +49,6 @@ module.exports = {
       { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
     ],
     "@typescript-eslint/prefer-readonly": "error",
-    "@typescript-eslint/require-await": "warn",
-    "@typescript-eslint/unbound-method": "warn",
     "arrow-body-style": "error",
     "dot-notation": "error",
     "import/no-cycle": "error",
