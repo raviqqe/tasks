@@ -6,10 +6,10 @@ it("renders", () => {
   expect(
     create(
       <TodoTasks
-        completeTodoTask={async () => {}}
-        reorderTodoTasks={async () => {}}
+        completeTodoTask={async () => undefined}
+        reorderTodoTasks={async () => undefined}
         todoTasks={[{ id: "id", name: "name" }]}
-        updateTodoTask={async () => {}}
+        updateTodoTask={async () => undefined}
       />
     ).toJSON()
   ).toMatchSnapshot();
@@ -19,10 +19,10 @@ it("renders with no tasks", () => {
   expect(
     create(
       <TodoTasks
-        completeTodoTask={async () => {}}
-        reorderTodoTasks={async () => {}}
+        completeTodoTask={async () => undefined}
+        reorderTodoTasks={async () => undefined}
         todoTasks={[]}
-        updateTodoTask={async () => {}}
+        updateTodoTask={async () => undefined}
       />
     ).toJSON()
   ).toMatchSnapshot();
@@ -32,10 +32,10 @@ it("renders with tasks not loaded yet", () => {
   expect(
     create(
       <TodoTasks
-        completeTodoTask={async () => {}}
-        reorderTodoTasks={async () => {}}
+        completeTodoTask={async () => undefined}
+        reorderTodoTasks={async () => undefined}
         todoTasks={null}
-        updateTodoTask={async () => {}}
+        updateTodoTask={async () => undefined}
       />
     ).toJSON()
   ).toMatchSnapshot();

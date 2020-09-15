@@ -6,7 +6,7 @@ import { ToggleProjects } from "../ToggleProjects";
 it("renders with projects unarchived", () => {
   expect(
     create(
-      <ToggleProjects projectsArchived={false} setProjectsArchived={() => {}} />
+      <ToggleProjects projectsArchived={false} setProjectsArchived={() => undefined} />
     ).toJSON()
   ).toMatchSnapshot();
 });
@@ -14,7 +14,7 @@ it("renders with projects unarchived", () => {
 it("renders with projects archived", () => {
   expect(
     create(
-      <ToggleProjects projectsArchived={true} setProjectsArchived={() => {}} />
+      <ToggleProjects projectsArchived={true} setProjectsArchived={() => undefined} />
     ).toJSON()
   ).toMatchSnapshot();
 });

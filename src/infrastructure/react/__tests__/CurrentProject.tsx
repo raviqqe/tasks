@@ -7,7 +7,7 @@ it("renders", () => {
     create(
       <CurrentProject
         currentProject={{ archived: false, id: "", name: "" }}
-        showProjects={() => {}}
+        showProjects={() => undefined}
       />
     ).toJSON()
   ).toMatchSnapshot();

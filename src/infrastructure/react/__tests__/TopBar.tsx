@@ -7,8 +7,8 @@ it("renders", () => {
     create(
       <TopBar
         currentProject={{ archived: false, id: "", name: "" }}
-        showProjects={() => {}}
-        signOut={async () => {}}
+        showProjects={() => undefined}
+        signOut={async () => undefined}
       />
     ).toJSON()
   ).toMatchSnapshot();

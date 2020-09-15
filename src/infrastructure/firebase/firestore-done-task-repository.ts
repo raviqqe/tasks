@@ -4,7 +4,7 @@ import { last } from "lodash";
 import { IDoneTaskRepository } from "../../application/done-task-repository";
 import { ITask } from "../../domain/task";
 
-const BATCH_SIZE: number = 20;
+const BATCH_SIZE = 20;
 
 export class FirestoreDoneTaskRepository implements IDoneTaskRepository {
   public async create(projectId: string, task: ITask): Promise<void> {

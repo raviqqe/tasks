@@ -4,6 +4,6 @@ import { IconButton } from "../IconButton";
 
 it("renders", () => {
   expect(
-    create(<IconButton onClick={() => {}}>+</IconButton>).toJSON()
+    create(<IconButton onClick={() => undefined}>+</IconButton>).toJSON()
   ).toMatchSnapshot();
 });

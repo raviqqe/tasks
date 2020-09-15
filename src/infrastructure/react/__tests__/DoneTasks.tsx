@@ -5,7 +5,7 @@ import { DoneTasks } from "../DoneTasks";
 it("renders", () => {
   expect(
     create(
-      <DoneTasks doneTasks={[]} listMoreDoneTasks={async () => {}} />
+      <DoneTasks doneTasks={[]} listMoreDoneTasks={async () => undefined} />
     ).toJSON()
   ).toMatchSnapshot();
 });

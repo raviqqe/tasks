@@ -1,7 +1,7 @@
 import localforage from "localforage";
 import { ICurrentProjectRepository } from "../application/current-project-repository";
 
-const KEY: string = "currentProjectID";
+const KEY = "currentProjectID";
 
 export class LocalForageCurrentProjectRepository
   implements ICurrentProjectRepository {

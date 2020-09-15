@@ -4,6 +4,6 @@ import { ToggleTasks } from "../ToggleTasks";
 
 it("renders", () => {
   expect(
-    create(<ToggleTasks setTasksDone={() => {}} tasksDone={false} />).toJSON()
+    create(<ToggleTasks setTasksDone={() => undefined} tasksDone={false} />).toJSON()
   ).toMatchSnapshot();
 });
