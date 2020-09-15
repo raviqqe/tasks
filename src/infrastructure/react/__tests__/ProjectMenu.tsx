@@ -6,16 +6,16 @@ it("renders", () => {
   expect(
     create(
       <ProjectMenu
-        archiveProject={async () => undefined}
+        archiveProject={() => Promise.resolve()}
         archivedProjects={[]}
-        createProject={async () => undefined}
+        createProject={() => Promise.resolve()}
         currentProject={{ archived: false, id: "", name: "" }}
-        deleteProject={async () => undefined}
+        deleteProject={() => Promise.resolve()}
         hideProjects={() => undefined}
         projects={[]}
-        switchCurrentProject={async () => undefined}
-        unarchiveProject={async () => undefined}
-        updateProject={async () => undefined}
+        switchCurrentProject={() => Promise.resolve()}
+        unarchiveProject={() => Promise.resolve()}
+        updateProject={() => Promise.resolve()}
       />
     ).toJSON()
   ).toMatchSnapshot();

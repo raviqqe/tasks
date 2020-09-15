@@ -72,7 +72,9 @@ it("presents an initial project even if no current project ID is set", async () 
 });
 
 it("creates a default project if none is found", async () => {
-  mockManager.projectRepository.list.mockImplementationOnce(async () => []);
+  mockManager.projectRepository.list.mockImplementationOnce(() =>
+    Promise.resolve([])
+  );
 
   await applicationInitializer.initialize();
 

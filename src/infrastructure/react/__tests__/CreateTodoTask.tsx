@@ -4,6 +4,6 @@ import { CreateTodoTask } from "../CreateTodoTask";
 
 it("renders", () => {
   expect(
-    create(<CreateTodoTask createTodoTask={async () => undefined} />).toJSON()
+    create(<CreateTodoTask createTodoTask={() => Promise.resolve()} />).toJSON()
   ).toMatchSnapshot();
 });

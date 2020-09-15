@@ -3,36 +3,36 @@ import React from "react";
 import { App, IProps } from "../App";
 
 const props: IProps = {
-  archiveProject: async () => undefined,
+  archiveProject: () => Promise.resolve(),
   archivedProjects: null,
-  completeTodoTask: async () => undefined,
-  createProject: async () => undefined,
-  createTodoTask: async () => undefined,
+  completeTodoTask: () => Promise.resolve(),
+  createProject: () => Promise.resolve(),
+  createTodoTask: () => Promise.resolve(),
   currentProject: null,
-  deleteProject: async () => undefined,
+  deleteProject: () => Promise.resolve(),
   doneTasks: null,
-  initialize: async () => undefined,
-  listMoreDoneTasks: async () => undefined,
+  initialize: () => Promise.resolve(),
+  listMoreDoneTasks: () => Promise.resolve(),
   projects: null,
-  reorderTodoTasks: async () => undefined,
+  reorderTodoTasks: () => Promise.resolve(),
   repositoryURL: "",
   signIn: () => undefined,
   signOut: () => undefined,
   signedIn: null,
-  switchCurrentProject: async () => undefined,
+  switchCurrentProject: () => Promise.resolve(),
   todoTasks: null,
-  unarchiveProject: async () => undefined,
-  updateProject: async () => undefined,
-  updateTodoTask: async () => undefined,
+  unarchiveProject: () => Promise.resolve(),
+  updateProject: () => Promise.resolve(),
+  updateTodoTask: () => Promise.resolve(),
 };
 
-it("renders before a user signs in", async () => {
+it("renders before a user signs in", () => {
   expect(
     render(<App {...props} signedIn={null} />).container
   ).toMatchSnapshot();
 });
 
-it("renders after a user signs in", async () => {
+it("renders after a user signs in", () => {
   expect(
     render(
       <App
@@ -45,7 +45,7 @@ it("renders after a user signs in", async () => {
   ).toMatchSnapshot();
 });
 
-it("renders after a user signs out", async () => {
+it("renders after a user signs out", () => {
   expect(
     render(<App {...props} signedIn={false} />).container
   ).toMatchSnapshot();
