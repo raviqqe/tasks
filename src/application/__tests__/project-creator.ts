@@ -20,7 +20,11 @@ beforeEach(() => {
 it("creates and persists a project", async () => {
   await projectCreator.create("foo");
 
-  const project = { archived: false, id: expect.any(String), name: "foo" };
+  const project = {
+    archived: false,
+    id: expect.any(String) as string,
+    name: "foo",
+  };
   expect(mockManager.projectRepository.create.mock.calls).toEqual([[project]]);
   expect(mockManager.currentProjectSwitcher.switch.mock.calls).toEqual([
     [project],
