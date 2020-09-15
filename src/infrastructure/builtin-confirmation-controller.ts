@@ -1,5 +1,5 @@
 export class BuiltinConfirmationController {
-  public async confirm(message: string): Promise<boolean> {
-    return window.confirm(message);
+  public confirm(message: string): Promise<boolean> {
+    return Promise.resolve(window.confirm(message));
   }
 }

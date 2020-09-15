@@ -4,7 +4,7 @@ import { last } from "lodash";
 import { IDoneTaskRepository } from "../../application/done-task-repository";
 import { ITask } from "../../domain/task";
 
-const BATCH_SIZE: number = 20;
+const batchSize = 20;
 
 export class FirestoreDoneTaskRepository implements IDoneTaskRepository {
   public async create(projectId: string, task: ITask): Promise<void> {
@@ -17,14 +17,14 @@ export class FirestoreDoneTaskRepository implements IDoneTaskRepository {
   }
 
   public async *list(projectId: string): AsyncIterator<ITask[], void> {
-    let result = await this.query(projectId).limit(BATCH_SIZE).get();
+    let result = await this.query(projectId).limit(batchSize).get();
 
     while (result.docs.length > 0) {
       yield result.docs.map((snapshot) => snapshot.data() as ITask);
 
       result = await this.query(projectId)
         .startAfter(last(result.docs))
-        .limit(BATCH_SIZE)
+        .limit(batchSize)
         .get();
     }
   }

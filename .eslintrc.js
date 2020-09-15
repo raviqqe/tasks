@@ -39,20 +39,16 @@ module.exports = {
         custom: { regex: "^I[A-Z]", match: true },
       },
     ],
-    "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-empty-interface": [
       "error",
       { allowSingleExtends: true },
     ],
-    "@typescript-eslint/no-inferrable-types": "off",
     "@typescript-eslint/no-require-imports": "error",
     "@typescript-eslint/no-unused-vars": [
       "error",
       { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
     ],
     "@typescript-eslint/prefer-readonly": "error",
-    "@typescript-eslint/require-await": "warn",
-    "@typescript-eslint/unbound-method": "warn",
     "arrow-body-style": "error",
     "dot-notation": "error",
     "import/no-cycle": "error",
@@ -68,12 +64,21 @@ module.exports = {
     "no-else-return": "error",
     "no-lonely-if": "error",
     "no-return-await": "error",
-    "no-unused-vars": "off",
     "no-useless-return": "error",
     "react/jsx-curly-brace-presence": "error",
     "react/jsx-sort-props": "error",
     "sort-keys": "error",
   },
+  overrides: [
+    {
+      files: ["**/__tests__/*.ts{,x}"],
+      rules: {
+        "@typescript-eslint/no-empty-function": "warn",
+        "@typescript-eslint/require-await": "warn",
+        "@typescript-eslint/unbound-method": "warn",
+      },
+    },
+  ],
   env: {
     browser: true,
     es6: true,

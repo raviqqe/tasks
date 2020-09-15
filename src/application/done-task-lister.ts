@@ -2,7 +2,7 @@ import { ITask } from "../domain/task";
 import { IDoneTaskPresenter } from "./done-task-presenter";
 import { IDoneTaskRepository } from "./done-task-repository";
 
-const defaultLimit: number = 20;
+const defaultLimit = 20;
 
 export class DoneTaskLister {
   private iterator: AsyncIterator<ITask[]> | null = null;

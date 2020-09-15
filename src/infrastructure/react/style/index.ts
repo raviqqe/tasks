@@ -20,4 +20,4 @@ export const boxShadow = css`
   box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
 `;
 
-export const buttonMargin: string = "7.5rem";
+export const buttonMargin = "7.5rem";

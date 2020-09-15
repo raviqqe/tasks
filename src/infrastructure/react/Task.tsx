@@ -32,7 +32,7 @@ const ButtonsContainer = styled.div`
 `;
 
 const DragHandle = SortableHandle(() => (
-  <IconButton onClick={() => {}}>
+  <IconButton onClick={() => undefined}>
     <MdDragHandle />
   </IconButton>
 ));

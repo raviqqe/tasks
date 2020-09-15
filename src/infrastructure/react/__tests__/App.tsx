@@ -26,13 +26,13 @@ const props: IProps = {
   updateTodoTask: async () => {},
 };
 
-it("renders before a user signs in", async () => {
+it("renders before a user signs in", () => {
   expect(
     render(<App {...props} signedIn={null} />).container
   ).toMatchSnapshot();
 });
 
-it("renders after a user signs in", async () => {
+it("renders after a user signs in", () => {
   expect(
     render(
       <App
@@ -45,7 +45,7 @@ it("renders after a user signs in", async () => {
   ).toMatchSnapshot();
 });
 
-it("renders after a user signs out", async () => {
+it("renders after a user signs out", () => {
   expect(
     render(<App {...props} signedIn={false} />).container
   ).toMatchSnapshot();
