@@ -7,7 +7,7 @@ it("renders", () => {
     create(
       <TopBar
         currentProject={{ archived: false, id: "", name: "" }}
-        showProjects={() => undefined}
+        showProjects={() => {}}
         signOut={async () => {}}
       />
     ).toJSON()

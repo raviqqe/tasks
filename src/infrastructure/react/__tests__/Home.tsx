@@ -12,7 +12,7 @@ it("renders", () => {
         doneTasks={[]}
         listMoreDoneTasks={async () => {}}
         reorderTodoTasks={async () => {}}
-        showProjects={() => undefined}
+        showProjects={() => {}}
         signOut={async () => {}}
         todoTasks={[]}
         updateTodoTask={async () => {}}

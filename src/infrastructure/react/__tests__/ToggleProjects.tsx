@@ -8,7 +8,7 @@ it("renders with projects unarchived", () => {
     create(
       <ToggleProjects
         projectsArchived={false}
-        setProjectsArchived={() => undefined}
+        setProjectsArchived={() => {}}
       />
     ).toJSON()
   ).toMatchSnapshot();
@@ -19,7 +19,7 @@ it("renders with projects archived", () => {
     create(
       <ToggleProjects
         projectsArchived={true}
-        setProjectsArchived={() => undefined}
+        setProjectsArchived={() => {}}
       />
     ).toJSON()
   ).toMatchSnapshot();
