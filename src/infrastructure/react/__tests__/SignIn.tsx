@@ -4,6 +4,6 @@ import { SignIn } from "../SignIn";
 
 it("renders", () => {
   expect(
-    create(<SignIn signIn={() => undefined} />).toJSON()
+    create(<SignIn signIn={() => {}} />).toJSON()
   ).toMatchSnapshot();
 });

@@ -4,6 +4,6 @@ import { SignOut } from "../SignOut";
 
 it("renders", () => {
   expect(
-    create(<SignOut signOut={() => undefined} />).toJSON()
+    create(<SignOut signOut={() => {}} />).toJSON()
   ).toMatchSnapshot();
 });
