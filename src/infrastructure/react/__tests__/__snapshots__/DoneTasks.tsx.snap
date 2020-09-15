@@ -3,9 +3,22 @@
 exports[`renders 1`] = `
 <div
   className="sc-eCApGN dsldaN"
+  id="done-tasks-container"
 >
   <div
-    className="sc-gKAblj itbJca"
-  />
+    className="infinite-scroll-component__outerdiv"
+    style={Object {}}
+  >
+    <div
+      className="infinite-scroll-component sc-gKAblj itbJca"
+      style={
+        Object {
+          "WebkitOverflowScrolling": "touch",
+          "height": "auto",
+          "overflow": "auto",
+        }
+      }
+    />
+  </div>
 </div>
 `;
