@@ -70,6 +70,15 @@ module.exports = {
     "react/jsx-sort-props": "error",
     "sort-keys": "error",
   },
+  overrides: [
+    {
+      files: ["**/__tests__/*.ts{,x}"],
+      rules: {
+        "@typescript-eslint/require-await": "warn",
+        "@typescript-eslint/unbound-method": "warn",
+      },
+    },
+  ],
   env: {
     browser: true,
     es6: true,
