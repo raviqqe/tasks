@@ -1,9 +1,11 @@
 import React from "react";
-import InfiniteScroller from "react-infinite-scroller";
+import InfiniteScroll from "react-infinite-scroll-component";
 import styled from "styled-components";
 import { ITask } from "../../domain/task";
 import { Loader } from "./Loader";
 import { Task } from "./Task";
+
+const doneTasksContainerId: string = "done-tasks-container";
 
 const Container = styled.div`
   display: flex;
@@ -17,7 +19,7 @@ const LoaderContainer = styled.div`
   align-items: center;
 `;
 
-const StyledInfiniteScroller = styled(InfiniteScroller)`
+const StyledInfiniteScroll = styled(InfiniteScroll)`
   display: flex;
   flex-direction: column;
   padding: 1em 0.5em;
@@ -32,19 +34,23 @@ export interface IProps {
   listMoreDoneTasks: () => Promise<void>;
 }
 
-export const DoneTasks = ({ doneTasks, listMoreDoneTasks }: IProps) =>
+export const DoneTasks = ({
+  doneTasks,
+  listMoreDoneTasks,
+}: IProps): JSX.Element =>
   doneTasks ? (
-    <Container>
-      <StyledInfiniteScroller
+    <Container id={doneTasksContainerId}>
+      <StyledInfiniteScroll
+        dataLength={doneTasks.length}
         hasMore={true}
-        loadMore={listMoreDoneTasks}
-        threshold={512}
-        useWindow={false}
+        next={listMoreDoneTasks}
+        loader={null}
+        scrollableTarget={doneTasksContainerId}
       >
         {doneTasks.map((task: ITask) => (
           <StyledTask key={task.id} task={task} />
         ))}
-      </StyledInfiniteScroller>
+      </StyledInfiniteScroll>
     </Container>
   ) : (
     <LoaderContainer>
