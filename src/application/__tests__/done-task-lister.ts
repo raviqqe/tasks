@@ -12,7 +12,9 @@ beforeEach(() => {
   mockManager.doneTaskRepository.list.mockImplementation(async function* (
     _: string,
     __: number
-  ) {});
+  ) {
+    // do nothing
+  });
   doneTaskLister = new DoneTaskLister(
     mockManager.doneTaskRepository,
     mockManager.doneTaskPresenter

@@ -6,7 +6,10 @@ import { Task } from "../Task";
 it("renders", () => {
   expect(
     create(
-      <Task task={{ id: "id", name: "name" }} updateTask={async () => undefined} />
+      <Task
+        task={{ id: "id", name: "name" }}
+        updateTask={async () => undefined}
+      />
     ).toJSON()
   ).toMatchSnapshot();
 });

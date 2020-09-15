@@ -3,5 +3,7 @@ import { create } from "react-test-renderer";
 import { SignIn } from "../SignIn";
 
 it("renders", () => {
-  expect(create(<SignIn signIn={() => undefined} />).toJSON()).toMatchSnapshot();
+  expect(
+    create(<SignIn signIn={() => undefined} />).toJSON()
+  ).toMatchSnapshot();
 });
