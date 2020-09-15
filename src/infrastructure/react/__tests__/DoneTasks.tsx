@@ -5,7 +5,7 @@ import { DoneTasks } from "../DoneTasks";
 it("renders", () => {
   expect(
     create(
-      <DoneTasks doneTasks={[]} listMoreDoneTasks={() => Promise.resolve()} />
+      <DoneTasks doneTasks={[]} listMoreDoneTasks={async () => {}} />
     ).toJSON()
   ).toMatchSnapshot();
 });

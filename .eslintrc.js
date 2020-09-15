@@ -74,6 +74,7 @@ module.exports = {
     {
       files: ["**/__tests__/*.ts{,x}"],
       rules: {
+        "@typescript-eslint/no-empty-function": "warn",
         "@typescript-eslint/require-await": "warn",
         "@typescript-eslint/unbound-method": "warn",
       },

@@ -8,7 +8,7 @@ it("renders", () => {
     create(
       <Task
         task={{ id: "id", name: "name" }}
-        updateTask={() => Promise.resolve()}
+        updateTask={async () => {}}
       />
     ).toJSON()
   ).toMatchSnapshot();

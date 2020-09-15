@@ -6,16 +6,16 @@ it("renders", () => {
   expect(
     create(
       <Home
-        completeTodoTask={() => Promise.resolve()}
-        createTodoTask={() => Promise.resolve()}
+        completeTodoTask={async () => {}}
+        createTodoTask={async () => {}}
         currentProject={{ archived: false, id: "", name: "" }}
         doneTasks={[]}
-        listMoreDoneTasks={() => Promise.resolve()}
-        reorderTodoTasks={() => Promise.resolve()}
+        listMoreDoneTasks={async () => {}}
+        reorderTodoTasks={async () => {}}
         showProjects={() => undefined}
-        signOut={() => Promise.resolve()}
+        signOut={async () => {}}
         todoTasks={[]}
-        updateTodoTask={() => Promise.resolve()}
+        updateTodoTask={async () => {}}
       />
     ).toJSON()
   ).toMatchSnapshot();
