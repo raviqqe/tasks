@@ -39,12 +39,10 @@ module.exports = {
         custom: { regex: "^I[A-Z]", match: true },
       },
     ],
-    "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-empty-interface": [
       "error",
       { allowSingleExtends: true },
     ],
-    "@typescript-eslint/no-inferrable-types": "off",
     "@typescript-eslint/no-require-imports": "error",
     "@typescript-eslint/no-unused-vars": [
       "error",
