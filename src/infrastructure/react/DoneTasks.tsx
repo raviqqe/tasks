@@ -5,7 +5,7 @@ import { ITask } from "../../domain/task";
 import { Loader } from "./Loader";
 import { Task } from "./Task";
 
-const doneTasksContainerId: string = "done-tasks-container";
+const doneTasksContainerId = "done-tasks-container";
 
 const Container = styled.div`
   display: flex;
@@ -43,8 +43,8 @@ export const DoneTasks = ({
       <StyledInfiniteScroll
         dataLength={doneTasks.length}
         hasMore={true}
-        next={listMoreDoneTasks}
         loader={null}
+        next={listMoreDoneTasks}
         scrollableTarget={doneTasksContainerId}
       >
         {doneTasks.map((task: ITask) => (
