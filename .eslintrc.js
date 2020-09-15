@@ -7,6 +7,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:prettier/recommended",
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:jest/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
@@ -18,7 +19,14 @@ module.exports = {
     project: path.join(__dirname, "tsconfig.json"),
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint", "import", "jest", "prettier", "react"],
+  plugins: [
+    "@typescript-eslint",
+    "import",
+    "jest",
+    "prettier",
+    "react",
+    "react-hooks",
+  ],
   rules: {
     "@typescript-eslint/array-type": "error",
     "@typescript-eslint/consistent-type-definitions": "error",
