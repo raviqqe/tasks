@@ -53,7 +53,10 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
   }
 
   private async getOrder(projectId: string): Promise<string[]> {
-    const data = (await this.order(projectId).get()).data();
+    const data = (await this.order(projectId).get()).data() as {
+      order: string[];
+    };
+
     return data ? data.order : [];
   }
 
