@@ -134,8 +134,8 @@ export const ProjectMenu = ({
         />
         <StyledCreateProject
           createProject={async (name: string): Promise<void> => {
-            hideProjects();
             await createProject(name);
+            hideProjects();
           }}
           projectsArchived={projectsArchived}
         />
