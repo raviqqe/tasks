@@ -77,7 +77,7 @@ export const ProjectMenu = ({
   switchCurrentProject,
   unarchiveProject,
   updateProject,
-}: IProps) => {
+}: IProps): JSX.Element => {
   const [projectsArchived, setProjectsArchived] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -134,8 +134,8 @@ export const ProjectMenu = ({
         />
         <StyledCreateProject
           createProject={async (name: string): Promise<void> => {
-            hideProjects();
             await createProject(name);
+            hideProjects();
           }}
           projectsArchived={projectsArchived}
         />
