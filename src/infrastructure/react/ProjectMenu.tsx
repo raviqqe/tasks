@@ -77,7 +77,7 @@ export const ProjectMenu = ({
   switchCurrentProject,
   unarchiveProject,
   updateProject,
-}: IProps) => {
+}: IProps): JSX.Element => {
   const [projectsArchived, setProjectsArchived] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
