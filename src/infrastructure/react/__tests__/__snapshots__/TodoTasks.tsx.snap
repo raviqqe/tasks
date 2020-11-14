@@ -2,25 +2,25 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-eCApGN dsldaN"
+  className="sc-eCssSg fVWzCA"
 >
   <div
-    className="sc-gKAblj gtFizV"
+    className="sc-gKsewC cjXoZj"
   >
     <div
-      className="sc-gtssRu fwluZN"
+      className="sc-gsTCUz wCQjM"
     >
       <div
-        className="sc-dlnjPT cXGKeO"
+        className="sc-dlfnbm djyfbA"
       >
         name
       </div>
       <div
-        className="sc-hKFyIo lhcEvW"
+        className="sc-hKgILt hXEPvM"
       >
         <div
           aria-label="Done"
-          className="sc-bdnylx AYDUA"
+          className="sc-bdfBwQ glVERM"
           onClick={[Function]}
         >
           <svg
@@ -44,7 +44,7 @@ exports[`renders 1`] = `
         </div>
         <div
           aria-label="Edit"
-          className="sc-bdnylx AYDUA"
+          className="sc-bdfBwQ glVERM"
           onClick={[Function]}
         >
           <svg
@@ -67,7 +67,7 @@ exports[`renders 1`] = `
           </svg>
         </div>
         <div
-          className="sc-bdnylx AYDUA"
+          className="sc-bdfBwQ glVERM"
           onClick={[Function]}
         >
           <svg
@@ -97,17 +97,17 @@ exports[`renders 1`] = `
 
 exports[`renders with no tasks 1`] = `
 <div
-  className="sc-eCApGN dsldaN"
+  className="sc-eCssSg fVWzCA"
 >
   <div
-    className="sc-gKAblj gtFizV"
+    className="sc-gKsewC cjXoZj"
   />
 </div>
 `;
 
 exports[`renders with tasks not loaded yet 1`] = `
 <div
-  className="sc-jSFkmK fUdupb"
+  className="sc-jSgupP cKoWCL"
 >
   <div
     className="css-0"

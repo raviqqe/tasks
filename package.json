@@ -26,7 +26,7 @@
     "react-sortable-hoc": "^1.11.0",
     "react-spinners": "^0.9.0",
     "react-use": "^15.3.4",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@testing-library/react": "^11.1.2",
