@@ -7,7 +7,7 @@
     "build:icons": "inkscape --export-width 512 --export-height 512 --export-png public/icon.png public/icon.svg",
     "deploy": "npx firebase deploy",
     "lint": "npx cspell src/**/* 'public/**/*.{html,json}' && npx eslint 'src/**/*.ts{,x}'",
-    "test": "react-scripts test --coverage --watchAll=false"
+    "test": "jest --coverage --watchAll=false"
   },
   "dependencies": {
     "@sentry/browser": "^5.27.4",
