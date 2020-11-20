@@ -5,7 +5,7 @@ export default {
   input: 'src/index.ts',
   output: {
     dir: 'output',
-    format: 'es',
+    format: 'iife',
   },
   plugins: [json(), typescript()],
 };
