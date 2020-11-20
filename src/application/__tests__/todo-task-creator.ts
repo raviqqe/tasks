@@ -25,7 +25,7 @@ it("creates and persists a task", async () => {
 
 it("formats a task before creation", async () => {
   await taskCreator.create("", "\tfoo ");
-  expect(mockManager.todoTaskRepository.create.mock.calls[0][1].name).toBe(
+  expect(mockManager.todoTaskRepository.create.mock.calls[0]?.[1].name).toBe(
     "foo"
   );
 });
