@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "npm run build:icons && CI=false react-scripts build",
+    "build": "npm run build:icons && rollup -c",
     "build:icons": "inkscape --export-width 512 --export-height 512 --export-png public/icon.png public/icon.svg",
     "deploy": "npx firebase deploy",
     "lint": "npx cspell src/**/* 'public/**/*.{html,json}' && npx eslint 'src/**/*.ts{,x}'",
-    "start": "react-scripts start",
     "test": "react-scripts test --coverage --watchAll=false"
   },
   "dependencies": {
@@ -28,6 +27,7 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^6.1.0",
     "@testing-library/react": "^11.2.1",
     "@types/jest": "^26.0.15",
     "@types/lodash": "^4.14.165",
