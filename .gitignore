@@ -3,4 +3,4 @@
 .firebase
 coverage
 node_modules
-public/index.js
+public/*.js
