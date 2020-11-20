@@ -1,3 +1,4 @@
+import json from '@rollup/plugin-json';
 import typescript from '@rollup/plugin-typescript';
 
 export default {
@@ -6,6 +7,6 @@ export default {
     dir: 'output',
     format: 'es',
   },
-  plugins: [typescript()],
+  plugins: [json(), typescript()],
 };
 
