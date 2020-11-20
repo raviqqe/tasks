@@ -42,7 +42,7 @@ export const TodoTasks = ({
   reorderTodoTasks,
   todoTasks,
   updateTodoTask,
-}: IProps) =>
+}: IProps): JSX.Element =>
   todoTasks ? (
     <Container>
       <Tasks
