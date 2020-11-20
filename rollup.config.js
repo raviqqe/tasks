@@ -9,7 +9,7 @@ export default {
   input: "src/index.ts",
   output: {
     dir: "public",
-    format: "iife",
+    format: "es",
   },
   plugins: [
     commonjs(),
