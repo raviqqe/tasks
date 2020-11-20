@@ -42,13 +42,19 @@ export const TodoTasks = ({
   reorderTodoTasks,
   todoTasks,
   updateTodoTask,
-}: IProps) =>
+}: IProps): JSX.Element =>
   todoTasks ? (
     <Container>
       <Tasks
         onSortEnd={async ({ oldIndex, newIndex }) => {
           const taskIds = todoTasks.map((task) => task.id);
-          taskIds.splice(newIndex, 0, taskIds.splice(oldIndex, 1)[0]);
+          const [taskId] = taskIds.splice(oldIndex, 1);
+
+          if (!taskId) {
+            throw new Error(`task not found at index: ${oldIndex}`);
+          }
+
+          taskIds.splice(newIndex, 0, taskId);
           await reorderTodoTasks(taskIds);
         }}
         useDragHandle={true}

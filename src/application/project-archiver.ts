@@ -1,5 +1,5 @@
 import { formatErrorMessage } from "../domain/error";
-import { IProject, sortProjects } from "../domain/project";
+import { IProject, getFirstProject } from "../domain/project";
 import { IConfirmationController } from "./confirmation-controller";
 import { CurrentProjectSwitcher } from "./current-project-switcher";
 import { IMessagePresenter } from "./message-presenter";
@@ -41,7 +41,7 @@ export class ProjectArchiver {
 
     if (project.id === currentProjectID) {
       await this.currentProjectSwitcher.switch(
-        sortProjects(await this.projectRepository.list())[0]
+        getFirstProject(await this.projectRepository.list())
       );
     }
   }

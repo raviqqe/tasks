@@ -3,6 +3,7 @@ import {
   validateProject,
   sortProjects,
   IProject,
+  getFirstProject,
 } from "../project";
 
 const dummyProject: IProject = { archived: false, id: "", name: "" };
@@ -43,5 +44,20 @@ describe("sortProjects", () => {
       { ...dummyProject, name: "a" },
       { ...dummyProject, name: "B" },
     ]);
+  });
+});
+
+describe("getFirstProject", () => {
+  it("gets the first project", () => {
+    expect(
+      getFirstProject([
+        { ...dummyProject, name: "B" },
+        { ...dummyProject, name: "a" },
+      ])
+    ).toEqual({ ...dummyProject, name: "a" });
+  });
+
+  it("throws an error if no project is found", () => {
+    expect(() => getFirstProject([])).toThrow();
   });
 });

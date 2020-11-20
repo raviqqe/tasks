@@ -24,3 +24,13 @@ export function sortProjects(projects: IProject[]): IProject[] {
     project.name.localeCompare(anotherProject.name)
   );
 }
+
+export function getFirstProject(projects: IProject[]): IProject {
+  const project = sortProjects(projects)[0];
+
+  if (!project) {
+    throw new Error("no project found");
+  }
+
+  return project;
+}

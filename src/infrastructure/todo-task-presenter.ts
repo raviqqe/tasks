@@ -23,7 +23,17 @@ export class TodoTaskPresenter implements ITodoTaskPresenter {
       const taskMap = Object.fromEntries(
         this.tasks.map((task) => [task.id, task])
       );
-      this.renderTasks(taskIds.map((id) => taskMap[id]));
+      this.renderTasks(
+        taskIds.map((id) => {
+          const task = taskMap[id];
+
+          if (!task) {
+            throw new Error(`task not found: ${id}`);
+          }
+
+          return task;
+        })
+      );
     }
   }
 
