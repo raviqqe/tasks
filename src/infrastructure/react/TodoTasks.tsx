@@ -48,7 +48,7 @@ export const TodoTasks = ({
       <Tasks
         onSortEnd={async ({ oldIndex, newIndex }) => {
           const taskIds = todoTasks.map((task) => task.id);
-          const taskId = taskIds.splice(oldIndex, 1)[0];
+          const [taskId] = taskIds.splice(oldIndex, 1);
 
           if (!taskId) {
             throw new Error(`task not found at index: ${oldIndex}`);
