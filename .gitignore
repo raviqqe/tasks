@@ -1,7 +1,6 @@
 *.log
-*.map
 *.png
 .firebase
+build
 coverage
 node_modules
-public/*.js
