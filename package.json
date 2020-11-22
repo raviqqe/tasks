@@ -5,9 +5,10 @@
   "scripts": {
     "build": "npm run build:icons && react-scripts build",
     "build:icons": "inkscape --export-width 512 --export-height 512 --export-png public/icon.png public/icon.svg",
-    "deploy": "npx firebase deploy",
+    "watch": "react-scripts watch",
     "lint": "npx cspell src/**/* 'public/**/*.{html,json}' && react-scripts lint",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "deploy": "npx firebase deploy"
   },
   "dependencies": {
     "@sentry/browser": "^5.27.4",
