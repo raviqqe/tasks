@@ -4,6 +4,6 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "public"
+    "public": "build"
   }
 }
