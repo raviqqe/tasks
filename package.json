@@ -5,9 +5,10 @@
   "scripts": {
     "build": "npm run build:icons && react-scripts build",
     "build:icons": "inkscape --export-width 512 --export-height 512 --export-png public/icon.png public/icon.svg",
-    "deploy": "npx firebase deploy",
-    "lint": "npx cspell src/**/* 'public/**/*.{html,json}' && react-scripts lint",
-    "test": "react-scripts test"
+    "watch": "react-scripts watch",
+    "lint": "cspell src/**/* 'public/**/*.{html,json}' && react-scripts lint",
+    "test": "react-scripts test",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "@sentry/browser": "^5.27.4",
@@ -27,7 +28,7 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
-    "@raviqqe/react-scripts": "^1.1.2",
+    "@raviqqe/react-scripts": "^1.2.3",
     "@testing-library/react": "^11.2.2",
     "@types/jest": "^26.0.15",
     "@types/lodash": "^4.14.165",
