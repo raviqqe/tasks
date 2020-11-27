@@ -1,8 +1,4 @@
 {
   "extends": "@raviqqe/react-tsconfig/tsconfig.json",
-  "compilerOptions": {
-    "noFallthroughCasesInSwitch": true,
-    "jsx": "react-jsx"
-  },
   "include": ["src"]
 }
