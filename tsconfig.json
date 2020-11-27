@@ -1,1 +1,10 @@
-node_modules/@raviqqe/react-scripts/dist/tsconfig.json
+{
+  "extends": "@raviqqe/react-tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src"
+  ]
+}
