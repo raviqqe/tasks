@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npm run build:icons && react-scripts build",
     "build:icons": "inkscape --export-width 512 --export-height 512 --export-png public/icon.png public/icon.svg",
-    "watch": "react-scripts watch",
+    "watch": "react-scripts build --watch",
     "lint": "cspell src/**/* 'public/**/*.{html,json}'",
     "test": "react-scripts test",
     "deploy": "firebase deploy"
