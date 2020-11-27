@@ -1,4 +1,3 @@
-
 import { create } from "react-test-renderer";
 import { SignOut } from "../SignOut";
 

@@ -1,4 +1,3 @@
-
 import InfiniteScroll from "react-infinite-scroll-component";
 import styled from "styled-components";
 import { ITask } from "../../domain/task";

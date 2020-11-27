@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 import { IProject } from "../../domain/project";
 import { Loader } from "./Loader";

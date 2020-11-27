@@ -1,4 +1,3 @@
-
 import { create } from "react-test-renderer";
 import { IconButton } from "../IconButton";
 
