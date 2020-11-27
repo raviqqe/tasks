@@ -61,7 +61,7 @@ export const Home = ({
   showProjects,
   todoTasks,
   updateTodoTask,
-}: IProps) => {
+}: IProps): JSX.Element => {
   const [tasksDone, setTasksDone] = useState(false);
 
   return (

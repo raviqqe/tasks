@@ -12,7 +12,7 @@ export interface IProps {
   signOut: () => void;
 }
 
-export const SignOut = ({ signOut }: IProps) => (
+export const SignOut = ({ signOut }: IProps): JSX.Element => (
   <StyledIconButton onClick={signOut}>
     <MdExitToApp />
   </StyledIconButton>

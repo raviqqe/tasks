@@ -27,7 +27,7 @@ const SignOutContainer = styled.div`
 
 export interface IProps extends ICurrentProjectProps, ISignOutProps {}
 
-export const TopBar = ({ currentProject, showProjects, signOut }: IProps) => (
+export const TopBar = ({ currentProject, showProjects, signOut }: IProps): JSX.Element => (
   <Container>
     <CurrentProject
       currentProject={currentProject}

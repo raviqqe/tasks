@@ -9,7 +9,7 @@ export interface IProps {
 export const ToggleProjects = ({
   projectsArchived,
   setProjectsArchived,
-}: IProps) => (
+}: IProps): JSX.Element => (
   <CircleButton
     aria-label="Toggle Projects"
     onClick={() => setProjectsArchived(!projectsArchived)}

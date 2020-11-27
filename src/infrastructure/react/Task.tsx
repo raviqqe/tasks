@@ -49,7 +49,7 @@ export const Task = ({
   task,
   updateTask,
   ...restProps
-}: IProps) => (
+}: IProps): JSX.Element => (
   <Container {...restProps}>
     <Name>{task.name}</Name>
     <ButtonsContainer>

@@ -40,7 +40,7 @@ export const App = ({
   unarchiveProject,
   updateProject,
   ...props
-}: IProps) => {
+}: IProps): JSX.Element => {
   useAsync(initialize, []);
   const [projectsShown, setProjectsShown] = useState(false);
 
