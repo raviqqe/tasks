@@ -44,16 +44,11 @@ export const App = ({
   useAsync(initialize, []);
   const [projectsShown, setProjectsShown] = useState(false);
 
-  return signedIn && !projectsShown ? (
-    <Home
-      {...props}
-      currentProject={currentProject}
-      doneTasks={doneTasks}
-      showProjects={() => setProjectsShown(true)}
-      signOut={signOut}
-      todoTasks={todoTasks}
-    />
-  ) : signedIn ? (
+  return signedIn === null ? (
+    <LoaderContainer>
+      <Loader />
+    </LoaderContainer>
+  ) : signedIn && projectsShown ? (
     <ProjectMenu
       archiveProject={archiveProject}
       archivedProjects={archivedProjects}
@@ -66,11 +61,16 @@ export const App = ({
       unarchiveProject={unarchiveProject}
       updateProject={updateProject}
     />
-  ) : signedIn === false ? (
-    <Landing repositoryURL={repositoryURL} signIn={signIn} />
+  ) : signedIn ? (
+    <Home
+      {...props}
+      currentProject={currentProject}
+      doneTasks={doneTasks}
+      showProjects={() => setProjectsShown(true)}
+      signOut={signOut}
+      todoTasks={todoTasks}
+    />
   ) : (
-    <LoaderContainer>
-      <Loader />
-    </LoaderContainer>
+    <Landing repositoryURL={repositoryURL} signIn={signIn} />
   );
 };
