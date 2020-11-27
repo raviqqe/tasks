@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useAsync } from "react-use";
 import styled from "styled-components";
 import { Home, IProps as IHomeProps } from "./Home";

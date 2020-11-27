@@ -1,4 +1,4 @@
-import React, { AriaAttributes, ReactNode } from "react";
+import { AriaAttributes, ReactNode } from "react";
 import styled from "styled-components";
 import { grey } from "./style/colors";
 
