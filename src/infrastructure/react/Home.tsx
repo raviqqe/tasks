@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import {
   CreateTodoTask,
@@ -61,7 +61,7 @@ export const Home = ({
   showProjects,
   todoTasks,
   updateTodoTask,
-}: IProps) => {
+}: IProps): JSX.Element => {
   const [tasksDone, setTasksDone] = useState(false);
 
   return (

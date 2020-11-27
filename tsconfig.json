@@ -1,1 +1,4 @@
-node_modules/@raviqqe/react-scripts/dist/tsconfig.json
+{
+  "extends": "@raviqqe/react-tsconfig/tsconfig.json",
+  "include": ["src"]
+}

@@ -1,4 +1,3 @@
-import React from "react";
 import { MdExitToApp } from "react-icons/md";
 import styled from "styled-components";
 import { IconButton } from "./IconButton";
@@ -13,7 +12,7 @@ export interface IProps {
   signOut: () => void;
 }
 
-export const SignOut = ({ signOut }: IProps) => (
+export const SignOut = ({ signOut }: IProps): JSX.Element => (
   <StyledIconButton onClick={signOut}>
     <MdExitToApp />
   </StyledIconButton>

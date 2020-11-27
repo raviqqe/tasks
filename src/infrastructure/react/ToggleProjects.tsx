@@ -1,4 +1,3 @@
-import React from "react";
 import { MdArchive, MdUnarchive } from "react-icons/md";
 import { CircleButton } from "./CircleButton";
 
@@ -10,7 +9,7 @@ export interface IProps {
 export const ToggleProjects = ({
   projectsArchived,
   setProjectsArchived,
-}: IProps) => (
+}: IProps): JSX.Element => (
   <CircleButton
     aria-label="Toggle Projects"
     onClick={() => setProjectsArchived(!projectsArchived)}

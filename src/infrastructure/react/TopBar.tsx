@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import {
   CurrentProject,
@@ -28,7 +27,11 @@ const SignOutContainer = styled.div`
 
 export interface IProps extends ICurrentProjectProps, ISignOutProps {}
 
-export const TopBar = ({ currentProject, showProjects, signOut }: IProps) => (
+export const TopBar = ({
+  currentProject,
+  showProjects,
+  signOut,
+}: IProps): JSX.Element => (
   <Container>
     <CurrentProject
       currentProject={currentProject}

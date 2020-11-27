@@ -1,4 +1,3 @@
-import React from "react";
 import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md";
 import { SortableHandle } from "react-sortable-hoc";
 import styled from "styled-components";
@@ -50,7 +49,7 @@ export const Task = ({
   task,
   updateTask,
   ...restProps
-}: IProps) => (
+}: IProps): JSX.Element => (
   <Container {...restProps}>
     <Name>{task.name}</Name>
     <ButtonsContainer>

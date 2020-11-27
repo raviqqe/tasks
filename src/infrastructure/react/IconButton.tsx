@@ -1,4 +1,4 @@
-import React, { AriaAttributes, ReactNode } from "react";
+import { AriaAttributes, ReactNode } from "react";
 import styled from "styled-components";
 import { grey } from "./style/colors";
 
@@ -14,7 +14,11 @@ interface IProps extends AriaAttributes {
   onClick: () => void;
 }
 
-export const IconButton = ({ children, onClick, ...restProps }: IProps) => (
+export const IconButton = ({
+  children,
+  onClick,
+  ...restProps
+}: IProps): JSX.Element => (
   <Button onClick={onClick} {...restProps}>
     {children}
   </Button>

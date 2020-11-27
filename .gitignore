@@ -1,5 +1,6 @@
 *.log
 *.png
+.eslintcache
 .firebase
 build
 coverage

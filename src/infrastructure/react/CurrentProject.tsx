@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { IProject } from "../../domain/project";
 import { Loader } from "./Loader";
@@ -19,7 +18,10 @@ export interface IProps {
   showProjects: () => void;
 }
 
-export const CurrentProject = ({ currentProject, showProjects }: IProps) => (
+export const CurrentProject = ({
+  currentProject,
+  showProjects,
+}: IProps): JSX.Element => (
   <Container onClick={showProjects}>
     {currentProject ? currentProject.name : <Loader />}
   </Container>

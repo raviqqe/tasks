@@ -1,4 +1,3 @@
-import React from "react";
 import { render } from "react-dom";
 import { ApplicationInitializer } from "../../application/application-initializer";
 import { CurrentProjectSwitcher } from "../../application/current-project-switcher";
