@@ -1,4 +1,5 @@
-import { render } from "@testing-library/react";import { App, IProps } from "../App";
+import { render } from "@testing-library/react";
+import { App, IProps } from "../App";
 
 const props: IProps = {
   archiveProject: async () => {},

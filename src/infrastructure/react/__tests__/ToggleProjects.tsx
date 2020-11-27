@@ -1,4 +1,5 @@
-import { fireEvent, render } from "@testing-library/react";import { create } from "react-test-renderer";
+import { fireEvent, render } from "@testing-library/react";
+import { create } from "react-test-renderer";
 import { ToggleProjects } from "../ToggleProjects";
 
 it("renders with projects unarchived", () => {

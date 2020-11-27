@@ -1,4 +1,5 @@
-import { fireEvent, render } from "@testing-library/react";import { create } from "react-test-renderer";
+import { fireEvent, render } from "@testing-library/react";
+import { create } from "react-test-renderer";
 import { Task } from "../Task";
 
 it("renders", () => {
