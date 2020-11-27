@@ -6,7 +6,10 @@ export interface IProps {
   tasksDone: boolean;
 }
 
-export const ToggleTasks = ({ setTasksDone, tasksDone }: IProps): JSX.Element => (
+export const ToggleTasks = ({
+  setTasksDone,
+  tasksDone,
+}: IProps): JSX.Element => (
   <CircleButton
     aria-label="Toggle Tasks"
     onClick={() => setTasksDone(!tasksDone)}

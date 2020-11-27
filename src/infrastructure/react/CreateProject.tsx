@@ -5,7 +5,10 @@ export interface IProps {
   createProject: (name: string) => Promise<void>;
 }
 
-export const CreateProject = ({ createProject, ...restProps }: IProps): JSX.Element => (
+export const CreateProject = ({
+  createProject,
+  ...restProps
+}: IProps): JSX.Element => (
   <CircleButton
     aria-label="Create Project"
     onClick={async () => {

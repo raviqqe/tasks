@@ -14,7 +14,11 @@ interface IProps extends AriaAttributes {
   onClick: () => void;
 }
 
-export const IconButton = ({ children, onClick, ...restProps }: IProps): JSX.Element => (
+export const IconButton = ({
+  children,
+  onClick,
+  ...restProps
+}: IProps): JSX.Element => (
   <Button onClick={onClick} {...restProps}>
     {children}
   </Button>

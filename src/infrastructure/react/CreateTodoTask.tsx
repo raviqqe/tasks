@@ -5,7 +5,10 @@ export interface IProps {
   createTodoTask: (name: string) => Promise<void>;
 }
 
-export const CreateTodoTask = ({ createTodoTask, ...restProps }: IProps): JSX.Element => (
+export const CreateTodoTask = ({
+  createTodoTask,
+  ...restProps
+}: IProps): JSX.Element => (
   <CircleButton
     aria-label="Create"
     onClick={async () => {
