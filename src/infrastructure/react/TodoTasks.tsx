@@ -1,4 +1,4 @@
-import React from "react";
+
 import { SortableContainer, SortableElement } from "react-sortable-hoc";
 import styled from "styled-components";
 import { ITask } from "../../domain/task";

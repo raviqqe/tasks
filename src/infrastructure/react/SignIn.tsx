@@ -1,4 +1,4 @@
-import React from "react";
+
 import { TextButton } from "./TextButton";
 
 interface IProps {

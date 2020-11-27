@@ -1,4 +1,4 @@
-import React from "react";
+
 import { MdExitToApp } from "react-icons/md";
 import styled from "styled-components";
 import { IconButton } from "./IconButton";
