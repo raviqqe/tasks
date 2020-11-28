@@ -24,7 +24,8 @@
     "react-sortable-hoc": "^1.11.0",
     "react-spinners": "^0.9.0",
     "react-use": "^15.3.4",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "workbox-precaching": "^5.1.4"
   },
   "devDependencies": {
     "@raviqqe/eslint-config": "^1.0.6",
