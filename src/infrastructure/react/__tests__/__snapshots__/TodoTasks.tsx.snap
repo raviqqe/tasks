@@ -109,18 +109,18 @@ exports[`renders with tasks not loaded yet 1`] = `
 <div
   className="sc-jSgupP cKoWCL"
 >
-  <div
+  <span
     className="css-0"
   >
-    <div
+    <span
       className="css-b0t2tw"
     />
-    <div
+    <span
       className="css-fz02ge"
     />
-    <div
+    <span
       className="css-1xlchjq"
     />
-  </div>
+  </span>
 </div>
 `;
