@@ -39,19 +39,19 @@ exports[`renders after a user signs in 1`] = `
       <div
         class="sc-kEjbxe jcfUNz"
       >
-        <div
+        <span
           class="css-0"
         >
-          <div
+          <span
             class="css-b0t2tw"
           />
-          <div
+          <span
             class="css-fz02ge"
           />
-          <div
+          <span
             class="css-1xlchjq"
           />
-        </div>
+        </span>
       </div>
     </div>
     <div
@@ -151,19 +151,19 @@ exports[`renders before a user signs in 1`] = `
   <div
     class="sc-iktFzd SbjxA"
   >
-    <div
+    <span
       class="css-0"
     >
-      <div
+      <span
         class="css-b0t2tw"
       />
-      <div
+      <span
         class="css-fz02ge"
       />
-      <div
+      <span
         class="css-1xlchjq"
       />
-    </div>
+    </span>
   </div>
 </div>
 `;
