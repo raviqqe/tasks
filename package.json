@@ -11,7 +11,7 @@
     "deploy": "firebase deploy"
   },
   "dependencies": {
-    "@sentry/browser": "^6.0.4",
+    "@sentry/browser": "^6.1.0",
     "@types/react-sortable-hoc": "^0.7.1",
     "firebase": "^8.2.5",
     "localforage": "^1.9.0",
