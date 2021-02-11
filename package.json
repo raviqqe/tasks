@@ -28,7 +28,7 @@
     "workbox-precaching": "^6.1.0"
   },
   "devDependencies": {
-    "@raviqqe/eslint-config": "^1.0.8",
+    "@raviqqe/eslint-config": "^1.0.9",
     "@raviqqe/react-tsconfig": "^1.0.4",
     "@testing-library/react": "^11.2.5",
     "@types/jest": "^26.0.20",
