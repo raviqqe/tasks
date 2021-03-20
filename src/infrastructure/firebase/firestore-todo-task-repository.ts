@@ -45,7 +45,7 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
         await this.tasks(projectId).get()
       ).docs.map((snapshot) => snapshot.data());
       const taskMap = Object.fromEntries(tasks.map((task) => [task.id, task]));
-      const taskIds: string[] = await this.getOrder(projectId, transaction);
+      const taskIds = await this.getOrder(projectId, transaction);
 
       // Start of read consistency resolution
       const taskIdSet = new Set(taskIds);
