@@ -4,70 +4,103 @@ import { compact, isEqual } from "lodash";
 import { ITodoTaskRepository } from "../../application/todo-task-repository";
 import { ITask } from "../../domain/task";
 
+interface IOrderDocument {
+  order: string[];
+}
+
 export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
   public async create(projectId: string, task: ITask): Promise<void> {
-    await this.tasksCollection(projectId).doc(task.id).set(task);
+    await firebase.firestore().runTransaction(async (transaction) => {
+      const taskIds = await this.getOrder(projectId, transaction);
 
-    await this.reorder(projectId, [
-      task.id,
-      ...(await this.getOrder(projectId)),
-    ]);
+      transaction.set(this.tasks(projectId).doc(task.id), task);
+      this.setOrder(projectId, [task.id, ...taskIds], transaction);
+    });
   }
 
   public async delete(projectId: string, taskId: string): Promise<void> {
-    await this.tasksCollection(projectId).doc(taskId).delete();
+    await firebase.firestore().runTransaction(async (transaction) => {
+      const taskIds = await this.getOrder(projectId, transaction);
 
-    await this.reorder(
-      projectId,
-      (await this.getOrder(projectId)).filter((id) => id !== taskId)
-    );
+      transaction.delete(this.tasks(projectId).doc(taskId));
+      this.setOrder(
+        projectId,
+        taskIds.filter((id) => id !== taskId),
+        transaction
+      );
+    });
   }
 
   public async list(projectId: string): Promise<ITask[]> {
-    const tasks: ITask[] = (
-      await this.tasksCollection(projectId).get()
-    ).docs.map((snapshot) => snapshot.data() as ITask);
-    const taskMap = Object.fromEntries(tasks.map((task) => [task.id, task]));
-    const taskIds: string[] = await this.getOrder(projectId);
-    const taskIdSet = new Set<string>(taskIds);
+    return firebase.firestore().runTransaction(async (transaction) => {
+      // TODO Use CollectionReference.prototype.getAll().
+      // https://github.com/firebase/firebase-js-sdk/issues/1176
+      const tasks: ITask[] = (
+        await this.tasks(projectId).get()
+      ).docs.map((snapshot) => snapshot.data());
+      const taskMap = Object.fromEntries(tasks.map((task) => [task.id, task]));
+      const taskIds = await this.getOrder(projectId, transaction);
 
-    const restoredTasks: ITask[] = [
-      ...tasks.filter((task) => !taskIdSet.has(task.id)),
-      ...compact(taskIds.map((id) => taskMap[id])),
-    ];
-    const restoredTaskIDs: string[] = restoredTasks.map((task) => task.id);
+      // Start of read consistency resolution
+      const taskIdSet = new Set(taskIds);
 
-    if (!isEqual(taskIds, restoredTaskIDs)) {
-      await this.reorder(projectId, restoredTaskIDs);
-    }
+      const restoredTasks: ITask[] = [
+        ...tasks.filter((task) => !taskIdSet.has(task.id)),
+        ...compact(taskIds.map((id) => taskMap[id])),
+      ];
+      const restoredTaskIds: string[] = restoredTasks.map((task) => task.id);
 
-    return restoredTasks;
+      if (!isEqual(taskIds, restoredTaskIds)) {
+        this.setOrder(projectId, restoredTaskIds, transaction);
+      }
+      // End of read consistency resolution
+
+      return restoredTasks;
+    });
   }
 
   public async reorder(projectId: string, taskIds: string[]): Promise<void> {
-    await this.order(projectId).set({ order: taskIds });
+    await firebase
+      .firestore()
+      // eslint-disable-next-line @typescript-eslint/require-await
+      .runTransaction(async (transaction) =>
+        this.setOrder(projectId, taskIds, transaction)
+      );
+  }
+
+  public setOrder(
+    projectId: string,
+    taskIds: string[],
+    transaction: firebase.firestore.Transaction
+  ): void {
+    transaction.set(this.order(projectId), { order: taskIds });
   }
 
   public async update(projectId: string, task: ITask): Promise<void> {
-    await this.tasksCollection(projectId).doc(task.id).update(task);
+    await this.tasks(projectId).doc(task.id).update(task);
   }
 
-  private async getOrder(projectId: string): Promise<string[]> {
-    const data = (await this.order(projectId).get()).data() as {
-      order: string[];
-    };
-
-    return data ? data.order : [];
+  private async getOrder(
+    projectId: string,
+    transaction: firebase.firestore.Transaction
+  ): Promise<string[]> {
+    return (await transaction.get(this.order(projectId))).data()?.order ?? [];
   }
 
-  private tasksCollection(
+  private tasks(
     projectId: string
-  ): firebase.firestore.CollectionReference {
-    return this.project(projectId).collection("todoTasks");
+  ): firebase.firestore.CollectionReference<ITask> {
+    return this.project(projectId).collection(
+      "todoTasks"
+    ) as firebase.firestore.CollectionReference<ITask>;
   }
 
-  private order(projectId: string): firebase.firestore.DocumentReference {
-    return this.project(projectId).collection("todoTaskOrders").doc("default");
+  private order(
+    projectId: string
+  ): firebase.firestore.DocumentReference<IOrderDocument> {
+    return this.project(projectId)
+      .collection("todoTaskOrders")
+      .doc("default") as firebase.firestore.DocumentReference<IOrderDocument>;
   }
 
   private project(projectId: string): firebase.firestore.DocumentReference {
