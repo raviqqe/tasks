@@ -4,8 +4,6 @@ import { compact, isEqual } from "lodash";
 import { ITodoTaskRepository } from "../../application/todo-task-repository";
 import { ITask } from "../../domain/task";
 
-/* eslint-disable @typescript-eslint/require-await */
-
 interface IOrderDocument {
   order: string[];
 }
@@ -64,6 +62,7 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
   public async reorder(projectId: string, taskIds: string[]): Promise<void> {
     await firebase
       .firestore()
+      // eslint-disable-next-line @typescript-eslint/require-await
       .runTransaction(async (transaction) =>
         this.setOrder(projectId, taskIds, transaction)
       );
