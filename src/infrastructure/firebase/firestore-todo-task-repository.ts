@@ -39,7 +39,8 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
 
   public async list(projectId: string): Promise<ITask[]> {
     return firebase.firestore().runTransaction(async (transaction) => {
-      // TODO https://github.com/firebase/firebase-js-sdk/issues/1176
+      // TODO Use CollectionReference.prototype.getAll().
+      // https://github.com/firebase/firebase-js-sdk/issues/1176
       const tasks: ITask[] = (
         await this.tasks(projectId).get()
       ).docs.map((snapshot) => snapshot.data());
