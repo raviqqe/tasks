@@ -13,27 +13,21 @@ interface IOrderDocument {
 export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
   public async create(projectId: string, task: ITask): Promise<void> {
     await firebase.firestore().runTransaction(async (transaction) => {
-      transaction.set(this.tasks(projectId).doc(task.id), task);
+      const taskIds = await this.getOrder(projectId, transaction);
 
-      this.setOrder(
-        projectId,
-        [task.id, ...(await this.getOrder(projectId, transaction))],
-        transaction
-      );
+      transaction.set(this.tasks(projectId).doc(task.id), task);
+      this.setOrder(projectId, [task.id, ...taskIds], transaction);
     });
   }
 
   public async delete(projectId: string, taskId: string): Promise<void> {
     await firebase.firestore().runTransaction(async (transaction) => {
-      transaction.delete(this.tasks(projectId).doc(taskId));
-
-      this.setOrder(
-        projectId,
-        (await this.getOrder(projectId, transaction)).filter(
-          (id) => id !== taskId
-        ),
-        transaction
+      const taskIds = (await this.getOrder(projectId, transaction)).filter(
+        (id) => id !== taskId
       );
+
+      transaction.delete(this.tasks(projectId).doc(taskId));
+      this.setOrder(projectId, taskIds, transaction);
     });
   }
 
