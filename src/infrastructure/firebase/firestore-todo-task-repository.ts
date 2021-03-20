@@ -22,12 +22,14 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
 
   public async delete(projectId: string, taskId: string): Promise<void> {
     await firebase.firestore().runTransaction(async (transaction) => {
-      const taskIds = (await this.getOrder(projectId, transaction)).filter(
-        (id) => id !== taskId
-      );
+      const taskIds = await this.getOrder(projectId, transaction);
 
       transaction.delete(this.tasks(projectId).doc(taskId));
-      this.setOrder(projectId, taskIds, transaction);
+      this.setOrder(
+        projectId,
+        taskIds.filter((id) => id !== taskId),
+        transaction
+      );
     });
   }
 
