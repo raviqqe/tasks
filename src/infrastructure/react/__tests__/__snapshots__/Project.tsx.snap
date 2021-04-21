@@ -2,15 +2,15 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-gsTCUz eVXfvn"
+  className="sc-gsDJrp dA-Ducp"
 >
   <div
-    className="sc-dlfnbm gOLDxv"
+    className="sc-dkPtyc cUMLgf"
   >
     
   </div>
   <div
-    className="sc-hKgILt hXEPvM"
+    className="sc-hKwCoD embeqr"
   />
 </div>
 `;

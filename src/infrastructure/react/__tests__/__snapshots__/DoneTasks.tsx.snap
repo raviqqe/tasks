@@ -2,7 +2,7 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-eCssSg fVWzCA"
+  className="sc-eCImvq tPbwh"
   id="done-tasks-container"
 >
   <div
@@ -10,7 +10,7 @@ exports[`renders 1`] = `
     style={Object {}}
   >
     <div
-      className="infinite-scroll-component sc-gKsewC fxcNYg"
+      className="infinite-scroll-component sc-gKckTs fWORFv"
       style={
         Object {
           "WebkitOverflowScrolling": "touch",
