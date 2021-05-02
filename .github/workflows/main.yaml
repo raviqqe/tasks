@@ -17,8 +17,6 @@ jobs:
       - run: npm run lint
       - run: npm run test
       - uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
       - run: npm run --silent deploy -- --token $FIREBASE_TOKEN
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
