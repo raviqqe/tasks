@@ -40,16 +40,16 @@ exports[`renders after a user signs in 1`] = `
         class="sc-kEqXSa jgiJjN"
       >
         <span
-          class="css-0"
+          class="css-1xdhyk6"
         >
           <span
-            class="css-b0t2tw"
+            class="css-hqq8du"
           />
           <span
-            class="css-fz02ge"
+            class="css-1h0qtnz"
           />
           <span
-            class="css-1xlchjq"
+            class="css-1ihj5oh"
           />
         </span>
       </div>
@@ -152,16 +152,16 @@ exports[`renders before a user signs in 1`] = `
     class="sc-iklJeh bPCEar"
   >
     <span
-      class="css-0"
+      class="css-1xdhyk6"
     >
       <span
-        class="css-b0t2tw"
+        class="css-hqq8du"
       />
       <span
-        class="css-fz02ge"
+        class="css-1h0qtnz"
       />
       <span
-        class="css-1xlchjq"
+        class="css-1ihj5oh"
       />
     </span>
   </div>
