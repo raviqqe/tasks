@@ -4,7 +4,8 @@ import { ICurrentProjectRepository } from "../application/current-project-reposi
 const key = "currentProjectID";
 
 export class LocalForageCurrentProjectRepository
-  implements ICurrentProjectRepository {
+  implements ICurrentProjectRepository
+{
   public async get(): Promise<string | null> {
     return localforage.getItem(key);
   }

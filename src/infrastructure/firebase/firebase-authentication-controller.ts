@@ -4,7 +4,8 @@ import { IAuthenticationController } from "../../application/authentication-cont
 import { sleep } from "../../domain/utilities";
 
 export class FirebaseAuthenticationController
-  implements IAuthenticationController {
+  implements IAuthenticationController
+{
   private signedIn: boolean | null = null;
 
   constructor() {
