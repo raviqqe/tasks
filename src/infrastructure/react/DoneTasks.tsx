@@ -1,4 +1,4 @@
-import InfiniteScroll from "react-infinite-scroll-component";
+import InfiniteScroll, { Props } from "react-infinite-scroll-component";
 import styled from "styled-components";
 import { ITask } from "../../domain/task";
 import { Loader } from "./Loader";
@@ -18,7 +18,9 @@ const LoaderContainer = styled.div`
   align-items: center;
 `;
 
-const StyledInfiniteScroll = styled(InfiniteScroll)`
+const StyledInfiniteScroll = styled((props: Props) => (
+  <InfiniteScroll {...props} />
+))`
   display: flex;
   flex-direction: column;
   padding: 1em 0.5em;
