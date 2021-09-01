@@ -18,7 +18,7 @@ export class TodoTaskCreator {
     try {
       validateTask(task);
     } catch (error) {
-      this.messagePresenter.present(formatErrorMessage(error));
+      this.messagePresenter.present(formatErrorMessage(error as Error));
       return;
     }
 
