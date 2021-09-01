@@ -3,7 +3,7 @@
 exports[`renders with projects archived 1`] = `
 <button
   aria-label="Toggle Projects"
-  className="sc-bdnxRM sc-gtsrHT hTHIMf fovUfS"
+  className="sc-bdfBQB sc-gsTEea ljFUMk jGCERI"
   onClick={[Function]}
 >
   <svg
@@ -30,7 +30,7 @@ exports[`renders with projects archived 1`] = `
 exports[`renders with projects unarchived 1`] = `
 <button
   aria-label="Toggle Projects"
-  className="sc-bdnxRM sc-gtsrHT hTHIMf fovUfS"
+  className="sc-bdfBQB sc-gsTEea ljFUMk jGCERI"
   onClick={[Function]}
 >
   <svg
