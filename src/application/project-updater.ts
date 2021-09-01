@@ -17,7 +17,7 @@ export class ProjectUpdater {
     try {
       validateProject(project);
     } catch (error) {
-      this.messagePresenter.present(formatErrorMessage(error));
+      this.messagePresenter.present(formatErrorMessage(error as Error));
       return;
     }
 
