@@ -1,5 +1,5 @@
-import "firebase/firestore";
-import firebase from "firebase/app";
+import "firebase/compat/firestore";
+import firebase from "firebase/compat/app";
 import { last } from "lodash";
 import { IDoneTaskRepository } from "../../application/done-task-repository";
 import { ITask } from "../../domain/task";

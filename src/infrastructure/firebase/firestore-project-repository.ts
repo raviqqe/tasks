@@ -1,5 +1,5 @@
-import "firebase/firestore";
-import firebase from "firebase/app";
+import "firebase/compat/firestore";
+import firebase from "firebase/compat/app";
 import { IProjectRepository } from "../../application/project-repository";
 import { IProject } from "../../domain/project";
 
