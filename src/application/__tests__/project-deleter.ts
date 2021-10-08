@@ -23,9 +23,9 @@ it("deletes a project", async () => {
   expect(mockManager.projectRepository.delete.mock.calls).toEqual([
     [project.id],
   ]);
-  expect(
-    mockManager.projectPresenter.presentDeletedProject.mock.calls
-  ).toEqual([[project.id]]);
+  expect(mockManager.projectPresenter.presentDeletedProject.mock.calls).toEqual(
+    [[project.id]]
+  );
 });
 
 it("does not delete any project not archived", async () => {
