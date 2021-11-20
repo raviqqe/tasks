@@ -76,7 +76,7 @@ export const TodoTasks = ({
       <SortableContext items={todoTasks} strategy={verticalListSortingStrategy}>
         <Container>
           <Tasks>
-            {todoTasks.map((task: ITask) => (
+            {todoTasks.map((task) => (
               <Task
                 completeTask={completeTodoTask}
                 dragHandleEnabled={true}
