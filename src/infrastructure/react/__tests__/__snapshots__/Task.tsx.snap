@@ -4,7 +4,7 @@ exports[`renders 1`] = `
 <div
   aria-describedby=""
   aria-roledescription="sortable"
-  className="sc-gsTEea WXMLY"
+  className="sc-gsDKAQ kLVmGj"
   role="button"
   style={
     Object {
@@ -15,16 +15,16 @@ exports[`renders 1`] = `
   tabIndex={0}
 >
   <div
-    className="sc-dlfnuX jLkBxb"
+    className="sc-dkPtRN kcQfb"
   >
     name
   </div>
   <div
-    className="sc-hKgJUU gnkPfS"
+    className="sc-hKwDye bPAxKa"
   >
     <div
       aria-label="Edit"
-      className="sc-bdfBQB hewmSM"
+      className="sc-bdvvtL ufBp"
       onClick={[Function]}
     >
       <svg

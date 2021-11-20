@@ -22,7 +22,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-spinners": "^0.11.0",
     "react-use": "^17.3.1",
-    "styled-components": "^5.3.1",
+    "styled-components": "^5.3.3",
     "workbox-precaching": "^6.3.0"
   },
   "devDependencies": {
