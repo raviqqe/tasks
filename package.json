@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "npm run build:icons && react-scripts build",
-    "build:icons": "inkscape --export-width 512 --export-height 512 --export-png public/icon.png public/icon.svg",
+    "build": "react-scripts build",
     "start": "react-scripts start",
     "lint": "cspell src/**/* 'public/**/*.{html,json}'",
     "test": "react-scripts test",
