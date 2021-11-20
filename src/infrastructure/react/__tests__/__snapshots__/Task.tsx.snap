@@ -10,6 +10,7 @@ exports[`renders 1`] = `
     Object {
       "transform": undefined,
       "transition": undefined,
+      "zIndex": undefined,
     }
   }
   tabIndex={0}
