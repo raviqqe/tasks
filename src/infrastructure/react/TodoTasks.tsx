@@ -1,9 +1,20 @@
-import { SortableContainer, SortableElement } from "react-sortable-hoc";
+import {
+  DndContext,
+  closestCenter,
+  useSensor,
+  useSensors,
+  PointerSensor,
+} from "@dnd-kit/core";
 import styled from "styled-components";
 import { ITask } from "../../domain/task";
 import { Loader } from "./Loader";
 import { Task } from "./Task";
 import { buttonMargin } from "./style";
+import {
+  arrayMove,
+  SortableContext,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
 
 const Container = styled.div`
   display: flex;
@@ -17,7 +28,7 @@ const LoaderContainer = styled.div`
   align-items: center;
 `;
 
-const Tasks = SortableContainer(styled.div`
+const Tasks = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1em 0.5em ${buttonMargin};
@@ -25,9 +36,7 @@ const Tasks = SortableContainer(styled.div`
   > * {
     margin: 0.5em;
   }
-`);
-
-const SortableTask = SortableElement(Task);
+`;
 
 export interface IProps {
   completeTodoTask: (task: ITask) => Promise<void>;
@@ -41,37 +50,48 @@ export const TodoTasks = ({
   reorderTodoTasks,
   todoTasks,
   updateTodoTask,
-}: IProps): JSX.Element =>
-  todoTasks ? (
-    <Container>
-      <Tasks
-        onSortEnd={async ({ oldIndex, newIndex }) => {
-          const taskIds = todoTasks.map((task) => task.id);
-          const [taskId] = taskIds.splice(oldIndex, 1);
+}: IProps): JSX.Element => {
+  const sensors = useSensors(useSensor(PointerSensor));
 
-          if (!taskId) {
-            throw new Error(`task not found at index: ${oldIndex}`);
-          }
+  return todoTasks ? (
+    <DndContext
+      collisionDetection={closestCenter}
+      sensors={sensors}
+      onDragEnd={async ({ active, over }) => {
+        if (!over || active.id === over.id) {
+          return;
+        }
 
-          taskIds.splice(newIndex, 0, taskId);
-          await reorderTodoTasks(taskIds);
-        }}
-        useDragHandle={true}
-      >
-        {todoTasks.map((task: ITask, index: number) => (
-          <SortableTask
-            completeTask={completeTodoTask}
-            dragHandleEnabled={true}
-            index={index}
-            key={task.id}
-            task={task}
-            updateTask={updateTodoTask}
-          />
-        ))}
-      </Tasks>
-    </Container>
+        const taskIds = todoTasks.map((task) => task.id);
+
+        await reorderTodoTasks(
+          arrayMove(
+            taskIds,
+            taskIds.indexOf(active.id),
+            taskIds.indexOf(over.id)
+          )
+        );
+      }}
+    >
+      <SortableContext items={todoTasks} strategy={verticalListSortingStrategy}>
+        <Container>
+          <Tasks>
+            {todoTasks.map((task: ITask) => (
+              <Task
+                completeTask={completeTodoTask}
+                dragHandleEnabled={true}
+                key={task.id}
+                task={task}
+                updateTask={updateTodoTask}
+              />
+            ))}
+          </Tasks>
+        </Container>
+      </SortableContext>
+    </DndContext>
   ) : (
     <LoaderContainer>
       <Loader />
     </LoaderContainer>
   );
+};
