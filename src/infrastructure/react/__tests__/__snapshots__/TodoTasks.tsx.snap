@@ -10,7 +10,7 @@ exports[`renders 1`] = `
     <div
       aria-describedby="DndDescribedBy-0"
       aria-roledescription="sortable"
-      class="sc-gsDKAQ obIBc"
+      class="sc-gsDKAQ kLVmGj"
       role="button"
       tabindex="0"
     >
