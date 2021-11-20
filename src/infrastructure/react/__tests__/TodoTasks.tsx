@@ -1,41 +1,41 @@
-import { create } from "react-test-renderer";
+import { render } from "@testing-library/react";
 import { TodoTasks } from "../TodoTasks";
 
 it("renders", () => {
   expect(
-    create(
+    render(
       <TodoTasks
         completeTodoTask={async () => {}}
         reorderTodoTasks={async () => {}}
         todoTasks={[{ id: "id", name: "name" }]}
         updateTodoTask={async () => {}}
       />
-    ).toJSON()
+    ).container.firstChild
   ).toMatchSnapshot();
 });
 
 it("renders with no tasks", () => {
   expect(
-    create(
+    render(
       <TodoTasks
         completeTodoTask={async () => {}}
         reorderTodoTasks={async () => {}}
         todoTasks={[]}
         updateTodoTask={async () => {}}
       />
-    ).toJSON()
+    ).container.firstChild
   ).toMatchSnapshot();
 });
 
 it("renders with tasks not loaded yet", () => {
   expect(
-    create(
+    render(
       <TodoTasks
         completeTodoTask={async () => {}}
         reorderTodoTasks={async () => {}}
         todoTasks={null}
         updateTodoTask={async () => {}}
       />
-    ).toJSON()
+    ).container.firstChild
   ).toMatchSnapshot();
 });

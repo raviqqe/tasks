@@ -1,5 +1,7 @@
+import { DraggableSyntheticListeners } from "@dnd-kit/core";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md";
-import { SortableHandle } from "react-sortable-hoc";
 import styled from "styled-components";
 import { ITask } from "../../domain/task";
 import { IconButton } from "./IconButton";
@@ -30,17 +32,18 @@ const ButtonsContainer = styled.div`
   }
 `;
 
-const DragHandle = SortableHandle(() => (
-  <IconButton onClick={() => undefined}>
+const DragHandle = (props: DraggableSyntheticListeners) => (
+  <IconButton onClick={() => undefined} {...props}>
     <MdDragHandle />
   </IconButton>
-));
+);
 
 interface IProps {
   completeTask?: (task: ITask) => Promise<void>;
   dragHandleEnabled?: boolean;
   task: ITask;
   updateTask?: (task: ITask) => Promise<void>;
+  className?: string;
 }
 
 export const Task = ({
@@ -49,32 +52,42 @@ export const Task = ({
   task,
   updateTask,
   ...restProps
-}: IProps): JSX.Element => (
-  <Container {...restProps}>
-    <Name>{task.name}</Name>
-    <ButtonsContainer>
-      {completeTask && (
-        <IconButton aria-label="Done" onClick={() => completeTask(task)}>
-          <MdCheck />
-        </IconButton>
-      )}
-      {updateTask && (
-        <IconButton
-          aria-label="Edit"
-          onClick={async () => {
-            const name = window.prompt("New task name?", task.name);
+}: IProps): JSX.Element => {
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable(task);
 
-            if (name === null) {
-              return;
-            }
+  return (
+    <Container
+      {...restProps}
+      ref={setNodeRef}
+      style={{ transform: CSS.Transform.toString(transform), transition }}
+      {...attributes}
+    >
+      <Name>{task.name}</Name>
+      <ButtonsContainer>
+        {completeTask && (
+          <IconButton aria-label="Done" onClick={() => completeTask(task)}>
+            <MdCheck />
+          </IconButton>
+        )}
+        {updateTask && (
+          <IconButton
+            aria-label="Edit"
+            onClick={async () => {
+              const name = window.prompt("New task name?", task.name);
 
-            await updateTask({ ...task, name });
-          }}
-        >
-          <MdEdit />
-        </IconButton>
-      )}
-      {dragHandleEnabled && <DragHandle />}
-    </ButtonsContainer>
-  </Container>
-);
+              if (name === null) {
+                return;
+              }
+
+              await updateTask({ ...task, name });
+            }}
+          >
+            <MdEdit />
+          </IconButton>
+        )}
+        {dragHandleEnabled && <DragHandle {...listeners} />}
+      </ButtonsContainer>
+    </Container>
+  );
+};
