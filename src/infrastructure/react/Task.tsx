@@ -8,7 +8,7 @@ import { IconButton } from "./IconButton";
 import { boxShadow } from "./style";
 import { white } from "./style/colors";
 
-const maxZIndex: number = 10000;
+const maxZIndex = 10000;
 
 const Container = styled.div`
   ${boxShadow};
