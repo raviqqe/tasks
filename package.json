@@ -11,6 +11,7 @@
     "deploy": "firebase deploy"
   },
   "dependencies": {
+    "@dnd-kit/sortable": "^5.1.0",
     "@sentry/browser": "^6.13.3",
     "@types/react-sortable-hoc": "^0.7.1",
     "firebase": "^9.1.3",
