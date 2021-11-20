@@ -5,16 +5,16 @@ import {
   useSensors,
   PointerSensor,
 } from "@dnd-kit/core";
-import styled from "styled-components";
-import { ITask } from "../../domain/task";
-import { Loader } from "./Loader";
-import { Task } from "./Task";
-import { buttonMargin } from "./style";
 import {
   arrayMove,
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
+import styled from "styled-components";
+import { ITask } from "../../domain/task";
+import { Loader } from "./Loader";
+import { Task } from "./Task";
+import { buttonMargin } from "./style";
 
 const Container = styled.div`
   display: flex;
@@ -56,7 +56,6 @@ export const TodoTasks = ({
   return todoTasks ? (
     <DndContext
       collisionDetection={closestCenter}
-      sensors={sensors}
       onDragEnd={async ({ active, over }) => {
         if (!over || active.id === over.id) {
           return;
@@ -72,6 +71,7 @@ export const TodoTasks = ({
           )
         );
       }}
+      sensors={sensors}
     >
       <SortableContext items={todoTasks} strategy={verticalListSortingStrategy}>
         <Container>

@@ -33,7 +33,7 @@ const ButtonsContainer = styled.div`
 `;
 
 const DragHandle = (props: DraggableSyntheticListeners) => (
-  <IconButton onClick={() => {}} {...props}>
+  <IconButton onClick={() => undefined} {...props}>
     <MdDragHandle />
   </IconButton>
 );
