@@ -2,19 +2,19 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-hKgJUU hlYaKL"
+  className="sc-hKwDye dIDYmL"
 >
   <div
-    className="sc-bdfBQB cbOTTQ"
+    className="sc-bdvvtL kCjKtx"
     onClick={[Function]}
   >
     
   </div>
   <div
-    className="sc-eCstlR dWcxAX"
+    className="sc-eCImPb jGHtra"
   >
     <div
-      className="sc-gsTEea ZrQZk sc-dlfnuX jRsrej"
+      className="sc-gsDKAQ onFEg sc-dkPtRN ivkkQP"
       onClick={[Function]}
     >
       <svg
