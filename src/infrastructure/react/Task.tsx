@@ -8,6 +8,8 @@ import { IconButton } from "./IconButton";
 import { boxShadow } from "./style";
 import { white } from "./style/colors";
 
+const maxZIndex: number = 10000;
+
 const Container = styled.div`
   ${boxShadow};
   display: flex;
@@ -54,8 +56,14 @@ export const Task = ({
   updateTask,
   ...restProps
 }: IProps): JSX.Element => {
-  const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable(task);
+  const {
+    attributes,
+    isSorting,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+  } = useSortable(task);
 
   return (
     <Container
@@ -64,7 +72,7 @@ export const Task = ({
       style={{
         transform: CSS.Transform.toString(transform && { ...transform, x: 0 }),
         transition,
-        zIndex: transform ? 1000 : undefined,
+        zIndex: isSorting ? maxZIndex : undefined,
       }}
       {...attributes}
     >
