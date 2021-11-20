@@ -1,3 +1,4 @@
+import { DraggableSyntheticListeners } from "@dnd-kit/core";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md";
@@ -31,7 +32,7 @@ const ButtonsContainer = styled.div`
   }
 `;
 
-const DragHandle = (props: {}) => (
+const DragHandle = (props: DraggableSyntheticListeners) => (
   <IconButton onClick={() => {}} {...props}>
     <MdDragHandle />
   </IconButton>
