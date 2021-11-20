@@ -8,10 +8,6 @@ jobs:
       image: node:lts
     steps:
       - uses: actions/checkout@main
-      - run: |
-          apt -y update --fix-missing
-          apt -y upgrade
-          apt -y install inkscape
       - run: npm install
       - run: npm run build
       - run: npm run lint
