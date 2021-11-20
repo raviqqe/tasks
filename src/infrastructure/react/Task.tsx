@@ -16,6 +16,7 @@ const Container = styled.div`
   background: ${white};
   padding: 0.8em;
   border-radius: 0.5em;
+  touch-action: none;
 `;
 
 const Name = styled.div`
