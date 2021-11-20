@@ -64,6 +64,7 @@ export const Task = ({
       style={{
         transform: CSS.Transform.toString(transform && { ...transform, x: 0 }),
         transition,
+        zIndex: transform ? 1000 : undefined,
       }}
       {...attributes}
     >
