@@ -61,7 +61,10 @@ export const Task = ({
     <Container
       {...restProps}
       ref={setNodeRef}
-      style={{ transform: CSS.Transform.toString(transform), transition }}
+      style={{
+        transform: CSS.Transform.toString(transform && { ...transform, x: 0 }),
+        transition,
+      }}
       {...attributes}
     >
       <Name>{task.name}</Name>
