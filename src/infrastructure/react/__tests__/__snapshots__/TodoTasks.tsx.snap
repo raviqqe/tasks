@@ -2,37 +2,35 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-eCstlR jDLysU"
+  class="sc-eCstlR jDLysU"
 >
   <div
-    className="sc-gKseQn dHHIwx"
+    class="sc-gKseQn dHHIwx"
   >
     <div
-      className="sc-gsTEea WXMLY"
+      aria-describedby="DndDescribedBy-0"
+      aria-roledescription="sortable"
+      class="sc-gsTEea WXMLY"
+      role="button"
+      tabindex="0"
     >
       <div
-        className="sc-dlfnuX jLkBxb"
+        class="sc-dlfnuX jLkBxb"
       >
         name
       </div>
       <div
-        className="sc-hKgJUU gnkPfS"
+        class="sc-hKgJUU gnkPfS"
       >
         <div
           aria-label="Done"
-          className="sc-bdfBQB hewmSM"
-          onClick={[Function]}
+          class="sc-bdfBQB hewmSM"
         >
           <svg
             fill="currentColor"
             height="1em"
             stroke="currentColor"
-            strokeWidth="0"
-            style={
-              Object {
-                "color": undefined,
-              }
-            }
+            stroke-width="0"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -48,19 +46,13 @@ exports[`renders 1`] = `
         </div>
         <div
           aria-label="Edit"
-          className="sc-bdfBQB hewmSM"
-          onClick={[Function]}
+          class="sc-bdfBQB hewmSM"
         >
           <svg
             fill="currentColor"
             height="1em"
             stroke="currentColor"
-            strokeWidth="0"
-            style={
-              Object {
-                "color": undefined,
-              }
-            }
+            stroke-width="0"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -75,19 +67,13 @@ exports[`renders 1`] = `
           </svg>
         </div>
         <div
-          className="sc-bdfBQB hewmSM"
-          onClick={[Function]}
+          class="sc-bdfBQB hewmSM"
         >
           <svg
             fill="currentColor"
             height="1em"
             stroke="currentColor"
-            strokeWidth="0"
-            style={
-              Object {
-                "color": undefined,
-              }
-            }
+            stroke-width="0"
             viewBox="0 0 24 24"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -109,29 +95,29 @@ exports[`renders 1`] = `
 
 exports[`renders with no tasks 1`] = `
 <div
-  className="sc-eCstlR jDLysU"
+  class="sc-eCstlR jDLysU"
 >
   <div
-    className="sc-gKseQn dHHIwx"
+    class="sc-gKseQn dHHIwx"
   />
 </div>
 `;
 
 exports[`renders with tasks not loaded yet 1`] = `
 <div
-  className="sc-jSgvzq eymMxW"
+  class="sc-jSgvzq eymMxW"
 >
   <span
-    className="css-1xdhyk6"
+    class="css-1xdhyk6"
   >
     <span
-      className="css-hqq8du"
+      class="css-hqq8du"
     />
     <span
-      className="css-1h0qtnz"
+      class="css-1h0qtnz"
     />
     <span
-      className="css-1ihj5oh"
+      class="css-1ihj5oh"
     />
   </span>
 </div>
