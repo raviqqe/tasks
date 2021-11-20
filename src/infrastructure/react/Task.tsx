@@ -58,7 +58,7 @@ export const Task = ({
 }: IProps): JSX.Element => {
   const {
     attributes,
-    isSorting,
+    isDragging,
     listeners,
     setNodeRef,
     transform,
@@ -72,7 +72,7 @@ export const Task = ({
       style={{
         transform: CSS.Transform.toString(transform && { ...transform, x: 0 }),
         transition,
-        zIndex: isSorting ? maxZIndex : undefined,
+        zIndex: isDragging ? maxZIndex : undefined,
       }}
       {...attributes}
     >
