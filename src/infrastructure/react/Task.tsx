@@ -18,7 +18,6 @@ const Container = styled.div`
   background: ${white};
   padding: 0.8em;
   border-radius: 0.5em;
-  touch-action: none;
 `;
 
 const Name = styled.div`
@@ -35,10 +34,14 @@ const ButtonsContainer = styled.div`
   }
 `;
 
+const StyledIconButton = styled(IconButton)`
+  touch-action: none;
+`;
+
 const DragHandle = (props: DraggableSyntheticListeners) => (
-  <IconButton onClick={() => undefined} {...props}>
+  <StyledIconButton onClick={() => undefined} {...props}>
     <MdDragHandle />
-  </IconButton>
+  </StyledIconButton>
 );
 
 interface IProps {
