@@ -24,7 +24,6 @@ import { FirebaseInitializer } from "./infrastructure/firebase/firebase-initiali
 import { FirestoreDoneTaskRepository } from "./infrastructure/firebase/firestore-done-task-repository";
 import { FirestoreProjectRepository } from "./infrastructure/firebase/firestore-project-repository";
 import { FirestoreTodoTaskRepository } from "./infrastructure/firebase/firestore-todo-task-repository";
-import { InfrastructureInitializer } from "./infrastructure/infrastructure-initializer";
 import { LocalForageCurrentProjectRepository } from "./infrastructure/local-forage-current-project-repository";
 import { ProjectPresenter } from "./infrastructure/project-presenter";
 import { ReactRenderer } from "./infrastructure/react";
@@ -97,7 +96,6 @@ async function main() {
     new ApplicationInitializer(
       authenticationController,
       authenticationPresenter,
-      new InfrastructureInitializer(firebaseInitializer),
       projectCreator,
       projectRepository,
       projectPresenter,

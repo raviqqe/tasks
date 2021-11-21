@@ -16,19 +16,12 @@ beforeEach(() => {
   applicationInitializer = new ApplicationInitializer(
     mockManager.authenticationController,
     mockManager.authenticationPresenter,
-    mockManager.infrastructureInitializer,
     mockManager.projectCreator,
     mockManager.projectRepository,
     mockManager.projectPresenter,
     mockManager.currentProjectSwitcher,
     mockManager.currentProjectRepository
   );
-});
-
-it("initializes infrastructure", async () => {
-  await applicationInitializer.initialize();
-
-  expect(mockManager.infrastructureInitializer.initialize).toBeCalledTimes(1);
 });
 
 it("presents sign-in state", async () => {

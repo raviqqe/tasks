@@ -3,7 +3,6 @@ import { IAuthenticationController } from "./authentication-controller";
 import { IAuthenticationPresenter } from "./authentication-presenter";
 import { ICurrentProjectRepository } from "./current-project-repository";
 import { CurrentProjectSwitcher } from "./current-project-switcher";
-import { IInfrastructureInitializer } from "./infrastructure-initializer";
 import { ProjectCreator } from "./project-creator";
 import { IProjectPresenter } from "./project-presenter";
 import { IProjectRepository } from "./project-repository";
@@ -12,7 +11,6 @@ export class ApplicationInitializer {
   constructor(
     private readonly authenticationController: IAuthenticationController,
     private readonly authenticationPresenter: IAuthenticationPresenter,
-    private readonly infrastructureInitializer: IInfrastructureInitializer,
     private readonly projectCreator: ProjectCreator,
     private readonly projectRepository: IProjectRepository,
     private readonly projectPresenter: IProjectPresenter,
@@ -21,7 +19,6 @@ export class ApplicationInitializer {
   ) {}
 
   public async initialize(): Promise<void> {
-    await this.infrastructureInitializer.initialize();
     const signedIn: boolean = await this.authenticationController.isSignedIn();
     this.authenticationPresenter.presentSignedIn(signedIn);
 
