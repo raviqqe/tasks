@@ -1,7 +1,5 @@
 import { FirebaseApp } from "firebase/app";
-import { compact, isEqual } from "lodash";
-import { ITodoTaskRepository } from "../../application/todo-task-repository";
-import { ITask } from "../../domain/task";
+import { Auth, getAuth } from "firebase/auth";
 import {
   collection,
   CollectionReference,
@@ -14,7 +12,9 @@ import {
   Transaction,
   updateDoc,
 } from "firebase/firestore";
-import { Auth, getAuth } from "firebase/auth";
+import { compact, isEqual } from "lodash";
+import { ITodoTaskRepository } from "../../application/todo-task-repository";
+import { ITask } from "../../domain/task";
 
 interface IOrderDocument {
   order: string[];

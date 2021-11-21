@@ -1,6 +1,5 @@
 import { FirebaseApp } from "firebase/app";
-import { IProjectRepository } from "../../application/project-repository";
-import { IProject } from "../../domain/project";
+import { Auth, getAuth } from "firebase/auth";
 import {
   collection,
   CollectionReference,
@@ -14,7 +13,8 @@ import {
   updateDoc,
   where,
 } from "firebase/firestore";
-import { Auth, getAuth } from "firebase/auth";
+import { IProjectRepository } from "../../application/project-repository";
+import { IProject } from "../../domain/project";
 
 export class FirestoreProjectRepository implements IProjectRepository {
   private readonly auth: Auth;
@@ -36,13 +36,13 @@ export class FirestoreProjectRepository implements IProjectRepository {
   public async list(): Promise<IProject[]> {
     return (
       await getDocs(query(this.collection(), where("archived", "==", false)))
-    ).docs.map((snapshot) => snapshot.data() as IProject);
+    ).docs.map((snapshot) => snapshot.data());
   }
 
   public async listArchived(): Promise<IProject[]> {
     return (
       await getDocs(query(this.collection(), where("archived", "==", true)))
-    ).docs.map((snapshot) => snapshot.data() as IProject);
+    ).docs.map((snapshot) => snapshot.data());
   }
 
   public async update(project: IProject): Promise<void> {

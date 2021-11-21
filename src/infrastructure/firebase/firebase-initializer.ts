@@ -1,4 +1,4 @@
-import firebase, { FirebaseApp } from "firebase/app";
+import { FirebaseApp, initializeApp } from "firebase/app";
 import {
   enableMultiTabIndexedDbPersistence,
   getFirestore,
@@ -11,7 +11,7 @@ export class FirebaseInitializer {
   ) {}
 
   public async initialize(): Promise<FirebaseApp> {
-    const app = firebase.initializeApp({
+    const app = initializeApp({
       apiKey: this.apiKey,
       authDomain: `${this.projectId}.firebaseapp.com`,
       projectId: this.projectId,

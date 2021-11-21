@@ -1,12 +1,12 @@
 import { FirebaseApp } from "firebase/app";
-import { IAuthenticationController } from "../../application/authentication-controller";
-import { sleep } from "../../domain/utilities";
 import {
   Auth,
   getAuth,
   GoogleAuthProvider,
   signInWithRedirect,
 } from "firebase/auth";
+import { IAuthenticationController } from "../../application/authentication-controller";
+import { sleep } from "../../domain/utilities";
 
 export class FirebaseAuthenticationController
   implements IAuthenticationController
