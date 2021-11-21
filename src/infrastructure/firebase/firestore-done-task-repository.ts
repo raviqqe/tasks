@@ -70,14 +70,8 @@ export class FirestoreDoneTaskRepository implements IDoneTaskRepository {
     }
 
     return collection(
-      doc(
-        collection(
-          doc(collection(this.firestore, "version/1/users"), user.uid),
-          "projects"
-        ),
-        projectId
-      ),
-      "doneTasks"
+      this.firestore,
+      `version/1/users/${user.uid}/projects/${projectId}/doneTasks`
     ) as CollectionReference<ITimestampedTask>;
   }
 }
