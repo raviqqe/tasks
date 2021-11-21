@@ -1,5 +1,13 @@
-import { render } from "@testing-library/react";
+import { act, render, waitFor } from "@testing-library/react";
 import { App, IProps } from "../App";
+
+const initialize = jest.fn();
+
+beforeEach(() => {
+  initialize.mockReset().mockResolvedValue(undefined);
+});
+
+const wait = () => waitFor(() => expect(initialize).toBeCalled());
 
 const props: IProps = {
   archiveProject: async () => {},
@@ -10,7 +18,7 @@ const props: IProps = {
   currentProject: null,
   deleteProject: async () => {},
   doneTasks: null,
-  initialize: async () => {},
+  initialize,
   listMoreDoneTasks: async () => {},
   projects: null,
   reorderTodoTasks: async () => {},
@@ -25,27 +33,39 @@ const props: IProps = {
   updateTodoTask: async () => {},
 };
 
-it("renders before a user signs in", () => {
-  expect(
-    render(<App {...props} signedIn={null} />).container
-  ).toMatchSnapshot();
+it("renders before a user signs in", async () => {
+  await act(async () => {
+    expect(
+      render(<App {...props} signedIn={null} />).container
+    ).toMatchSnapshot();
+
+    await wait();
+  });
 });
 
-it("renders after a user signs in", () => {
-  expect(
-    render(
-      <App
-        {...props}
-        currentProject={{ archived: false, id: "", name: "" }}
-        projects={[]}
-        signedIn={true}
-      />
-    ).container
-  ).toMatchSnapshot();
+it("renders after a user signs in", async () => {
+  await act(async () => {
+    expect(
+      render(
+        <App
+          {...props}
+          currentProject={{ archived: false, id: "", name: "" }}
+          projects={[]}
+          signedIn={true}
+        />
+      ).container
+    ).toMatchSnapshot();
+
+    await wait();
+  });
 });
 
-it("renders after a user signs out", () => {
-  expect(
-    render(<App {...props} signedIn={false} />).container
-  ).toMatchSnapshot();
+it("renders after a user signs out", async () => {
+  await act(async () => {
+    expect(
+      render(<App {...props} signedIn={false} />).container
+    ).toMatchSnapshot();
+
+    await wait();
+  });
 });
