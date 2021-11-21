@@ -114,8 +114,8 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
 
   private order(projectId: string): DocumentReference<IOrderDocument> {
     return doc(
-      collection(this.project(projectId), "todoTaskOrders"),
-      "default"
+      this.project(projectId),
+      "todoTaskOrders/default"
     ) as DocumentReference<IOrderDocument>;
   }
 
@@ -127,11 +127,8 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
     }
 
     return doc(
-      collection(
-        doc(collection(this.firestore, "version/1/users"), user.uid),
-        "projects"
-      ),
-      projectId
+      this.firestore,
+      `version/1/users/${user.uid}/projects/${projectId}`
     );
   }
 }

@@ -57,8 +57,8 @@ export class FirestoreProjectRepository implements IProjectRepository {
     }
 
     return collection(
-      doc(collection(this.firestore, "version/1/users"), user.uid),
-      "projects"
+      this.firestore,
+      `version/1/users/${user.uid}/projects`
     ) as CollectionReference<IProject>;
   }
 }
