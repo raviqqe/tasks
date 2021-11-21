@@ -24,7 +24,6 @@ import { FirebaseInitializer } from "./infrastructure/firebase/firebase-initiali
 import { FirestoreDoneTaskRepository } from "./infrastructure/firebase/firestore-done-task-repository";
 import { FirestoreProjectRepository } from "./infrastructure/firebase/firestore-project-repository";
 import { FirestoreTodoTaskRepository } from "./infrastructure/firebase/firestore-todo-task-repository";
-import { InfrastructureInitializer } from "./infrastructure/infrastructure-initializer";
 import { LocalForageCurrentProjectRepository } from "./infrastructure/local-forage-current-project-repository";
 import { ProjectPresenter } from "./infrastructure/project-presenter";
 import { ReactRenderer } from "./infrastructure/react";
@@ -45,12 +44,15 @@ async function main() {
     throw new Error("no root element");
   }
 
+  const firebaseApp = await firebaseInitializer.initialize();
   const authenticationPresenter = new AuthenticationPresenter();
-  const authenticationController = new FirebaseAuthenticationController();
+  const authenticationController = new FirebaseAuthenticationController(
+    firebaseApp
+  );
   const messagePresenter = new AlertMessagePresenter();
   const confirmationController = new BuiltinConfirmationController();
-  const todoTaskRepository = new FirestoreTodoTaskRepository();
-  const doneTaskRepository = new FirestoreDoneTaskRepository();
+  const todoTaskRepository = new FirestoreTodoTaskRepository(firebaseApp);
+  const doneTaskRepository = new FirestoreDoneTaskRepository(firebaseApp);
   const todoTaskPresenter = new TodoTaskPresenter();
   const doneTaskPresenter = new DoneTaskPresenter();
   const todoTaskDeleter = new TodoTaskDeleter(
@@ -65,7 +67,7 @@ async function main() {
     doneTaskRepository,
     doneTaskPresenter
   );
-  const projectRepository = new FirestoreProjectRepository();
+  const projectRepository = new FirestoreProjectRepository(firebaseApp);
   const projectPresenter = new ProjectPresenter();
   const currentProjectRepository = new LocalForageCurrentProjectRepository();
   const currentProjectSwitcher = new CurrentProjectSwitcher(
@@ -94,7 +96,6 @@ async function main() {
     new ApplicationInitializer(
       authenticationController,
       authenticationPresenter,
-      new InfrastructureInitializer(firebaseInitializer),
       projectCreator,
       projectRepository,
       projectPresenter,

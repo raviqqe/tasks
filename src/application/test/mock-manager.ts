@@ -6,7 +6,6 @@ import { CurrentProjectSwitcher } from "../current-project-switcher";
 import { DoneTaskLister } from "../done-task-lister";
 import { IDoneTaskPresenter } from "../done-task-presenter";
 import { IDoneTaskRepository } from "../done-task-repository";
-import { IInfrastructureInitializer } from "../infrastructure-initializer";
 import { IMessagePresenter } from "../message-presenter";
 import { ProjectCreator } from "../project-creator";
 import { IProjectPresenter } from "../project-presenter";
@@ -53,10 +52,6 @@ export class MockManager {
     presentMoreTasks: jest.fn(),
     presentNewTask: jest.fn(),
     presentTasks: jest.fn(),
-  };
-
-  public infrastructureInitializer: jest.Mocked<IInfrastructureInitializer> = {
-    initialize: jest.fn(),
   };
 
   public messagePresenter: jest.Mocked<IMessagePresenter> = {

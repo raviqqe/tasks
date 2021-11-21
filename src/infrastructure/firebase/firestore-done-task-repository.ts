@@ -1,53 +1,83 @@
-import "firebase/compat/firestore";
-import firebase from "firebase/compat/app";
+import { FirebaseApp } from "firebase/app";
+import { Auth, getAuth } from "firebase/auth";
+import {
+  collection,
+  CollectionReference,
+  doc,
+  Firestore,
+  getDocs,
+  getFirestore,
+  limit,
+  orderBy,
+  query,
+  Query,
+  setDoc,
+  startAfter,
+} from "firebase/firestore";
 import { last } from "lodash";
 import { IDoneTaskRepository } from "../../application/done-task-repository";
 import { ITask } from "../../domain/task";
 
+interface ITimestampedTask extends ITask {
+  createdAt: number;
+}
+
 const batchSize = 20;
 
 export class FirestoreDoneTaskRepository implements IDoneTaskRepository {
+  private readonly auth: Auth;
+  private readonly firestore: Firestore;
+
+  constructor(app: FirebaseApp) {
+    this.auth = getAuth(app);
+    this.firestore = getFirestore(app);
+  }
+
   public async create(projectId: string, task: ITask): Promise<void> {
-    await this.collection(projectId)
-      .doc(task.id)
-      .set({
-        ...task,
-        createdAt: Math.floor(Date.now() / 1000), // Unix timestamp
-      });
+    await setDoc(doc(this.collection(projectId), task.id), {
+      ...task,
+      createdAt: Math.floor(Date.now() / 1000), // Unix timestamp
+    });
   }
 
   public async *list(projectId: string): AsyncIterator<ITask[], void> {
-    let result = await this.query(projectId).limit(batchSize).get();
+    let snapshot = await getDocs(
+      query(this.query(projectId), limit(batchSize))
+    );
 
-    while (result.docs.length > 0) {
-      yield result.docs.map((snapshot) => snapshot.data() as ITask);
+    while (snapshot.docs.length > 0) {
+      yield snapshot.docs.map((snapshot) => snapshot.data() as ITask);
 
-      result = await this.query(projectId)
-        .startAfter(last(result.docs))
-        .limit(batchSize)
-        .get();
+      snapshot = await getDocs(
+        query(
+          this.query(projectId),
+          startAfter(last(snapshot.docs)),
+          limit(batchSize)
+        )
+      );
     }
   }
 
-  private query(projectId: string): firebase.firestore.Query {
-    return this.collection(projectId).orderBy("createdAt", "desc");
+  private query(projectId: string): Query {
+    return query(this.collection(projectId), orderBy("createdAt", "desc"));
   }
 
-  private collection(
-    projectId: string
-  ): firebase.firestore.CollectionReference {
-    const user = firebase.auth().currentUser;
+  private collection(projectId: string): CollectionReference<ITimestampedTask> {
+    const user = this.auth.currentUser;
 
     if (!user) {
       throw new Error("user not authenticated");
     }
 
-    return firebase
-      .firestore()
-      .collection("version/1/users")
-      .doc(user.uid)
-      .collection("projects")
-      .doc(projectId)
-      .collection("doneTasks");
+    return collection(
+      doc(
+        collection(
+          doc(collection(this.firestore, "version/1/users"), user.uid),
+          "projects"
+        ),
+        projectId
+      ),
+      "doneTasks"
+    ) as CollectionReference<ITimestampedTask>;
   }
 }
