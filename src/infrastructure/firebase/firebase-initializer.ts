@@ -1,18 +1,25 @@
-import "firebase/compat/auth";
-import "firebase/compat/firestore";
-import firebase from "firebase/compat/app";
+import firebase, { FirebaseApp } from "firebase/app";
+import {
+  enableMultiTabIndexedDbPersistence,
+  getFirestore,
+} from "firebase/firestore";
 
 export class FirebaseInitializer {
-  constructor(projectId: string, apiKey: string) {
-    firebase.initializeApp({
-      apiKey,
-      authDomain: `${projectId}.firebaseapp.com`,
-      projectId,
-      storageBucket: `${projectId}.appspot.com`,
-    });
-  }
+  constructor(
+    private readonly projectId: string,
+    private readonly apiKey: string
+  ) {}
 
-  public async initialize(): Promise<void> {
-    await firebase.firestore().enablePersistence({ synchronizeTabs: true });
+  public async initialize(): Promise<FirebaseApp> {
+    const app = firebase.initializeApp({
+      apiKey: this.apiKey,
+      authDomain: `${this.projectId}.firebaseapp.com`,
+      projectId: this.projectId,
+      storageBucket: `${this.projectId}.appspot.com`,
+    });
+
+    await enableMultiTabIndexedDbPersistence(getFirestore(app));
+
+    return app;
   }
 }

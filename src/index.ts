@@ -45,12 +45,15 @@ async function main() {
     throw new Error("no root element");
   }
 
+  const firebaseApp = await firebaseInitializer.initialize();
   const authenticationPresenter = new AuthenticationPresenter();
-  const authenticationController = new FirebaseAuthenticationController();
+  const authenticationController = new FirebaseAuthenticationController(
+    firebaseApp
+  );
   const messagePresenter = new AlertMessagePresenter();
   const confirmationController = new BuiltinConfirmationController();
-  const todoTaskRepository = new FirestoreTodoTaskRepository();
-  const doneTaskRepository = new FirestoreDoneTaskRepository();
+  const todoTaskRepository = new FirestoreTodoTaskRepository(firebaseApp);
+  const doneTaskRepository = new FirestoreDoneTaskRepository(firebaseApp);
   const todoTaskPresenter = new TodoTaskPresenter();
   const doneTaskPresenter = new DoneTaskPresenter();
   const todoTaskDeleter = new TodoTaskDeleter(
@@ -65,7 +68,7 @@ async function main() {
     doneTaskRepository,
     doneTaskPresenter
   );
-  const projectRepository = new FirestoreProjectRepository();
+  const projectRepository = new FirestoreProjectRepository(firebaseApp);
   const projectPresenter = new ProjectPresenter();
   const currentProjectRepository = new LocalForageCurrentProjectRepository();
   const currentProjectSwitcher = new CurrentProjectSwitcher(
