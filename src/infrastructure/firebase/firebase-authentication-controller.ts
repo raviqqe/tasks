@@ -16,7 +16,7 @@ export class FirebaseAuthenticationController
 
   constructor(app: FirebaseApp) {
     this.auth = getAuth(app);
-    this.auth.onAuthStateChanged((user): void => {
+    this.auth.onAuthStateChanged((user) => {
       this.signedIn = !!user;
     });
   }
