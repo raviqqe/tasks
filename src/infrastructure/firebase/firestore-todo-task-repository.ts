@@ -127,11 +127,8 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
     }
 
     return doc(
-      collection(
-        doc(collection(this.firestore, "version/1/users"), user.uid),
-        "projects"
-      ),
-      projectId
+      this.firestore,
+      `version/1/users/${user.uid}/projects/${projectId}`
     );
   }
 }
