@@ -2,11 +2,11 @@ import { FirebaseApp } from "firebase/app";
 import {
   Auth,
   getAuth,
-  getRedirectResult,
   GoogleAuthProvider,
   signInWithRedirect,
 } from "firebase/auth";
 import { IAuthenticationController } from "../../application/authentication-controller";
+import { sleep } from "../../domain/utilities";
 
 export class FirebaseAuthenticationController
   implements IAuthenticationController
@@ -31,8 +31,8 @@ export class FirebaseAuthenticationController
   }
 
   public async isSignedIn(): Promise<boolean> {
-    if (this.signedIn === null) {
-      this.signedIn = !!(await getRedirectResult(this.auth));
+    while (this.signedIn === null) {
+      await sleep(10);
     }
 
     return this.signedIn;
