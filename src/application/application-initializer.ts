@@ -19,7 +19,7 @@ export class ApplicationInitializer {
   ) {}
 
   public async initialize(): Promise<void> {
-    const signedIn = await this.authenticationController.isSignedIn();
+    const signedIn: boolean = await this.authenticationController.isSignedIn();
     this.authenticationPresenter.presentSignedIn(signedIn);
 
     if (!signedIn) {
