@@ -10,6 +10,10 @@
         "source": "**/*.html",
         "headers": [
           {
+            "key": "Access-Control-Allow-Origin",
+            "value": "https://tasks.code2d.org"
+          },
+          {
             "key": "Content-Security-Policy",
             "value": "default-src 'none'; frame-ancestors 'none'"
           },
