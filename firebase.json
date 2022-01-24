@@ -7,7 +7,7 @@
     "public": "build",
     "headers": [
       {
-        "source": "**/*.html",
+        "source": "**/*",
         "headers": [
           {
             "key": "Access-Control-Allow-Origin",
