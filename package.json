@@ -28,7 +28,7 @@
   "devDependencies": {
     "@raviqqe/eslint-config": "^1.0.9",
     "@raviqqe/react-tsconfig": "^1.0.5",
-    "@testing-library/react": "^12.1.3",
+    "@testing-library/react": "^12.1.4",
     "@types/jest": "^27.4.1",
     "@types/lodash": "^4.14.179",
     "@types/react": "^17.0.39",
