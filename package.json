@@ -10,7 +10,7 @@
     "deploy": "firebase deploy"
   },
   "dependencies": {
-    "@dnd-kit/sortable": "^6.0.0",
+    "@dnd-kit/sortable": "^6.0.1",
     "@sentry/browser": "^6.18.2",
     "firebase": "^9.6.8",
     "localforage": "^1.10.0",
