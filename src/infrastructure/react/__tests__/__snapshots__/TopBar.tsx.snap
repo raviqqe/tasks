@@ -7,9 +7,7 @@ exports[`renders 1`] = `
   <div
     className="sc-bdvvtL kCjKtx"
     onClick={[Function]}
-  >
-    
-  </div>
+  />
   <div
     className="sc-eCImPb jGHtra"
   >
