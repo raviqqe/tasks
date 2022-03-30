@@ -2,30 +2,30 @@
 
 exports[`renders 1`] = `
 <div
-  className="sc-dkPtRN jJHCLN"
+  className="sc-dkzDqf irartq"
 >
   <div
-    className="sc-hKwDye kaGgwt"
+    className="sc-hKMtZM iDWEQe"
   >
     <span
-      className="sc-eCImPb jpaWkn"
+      className="sc-eCYdqJ jxeHVh"
     >
       Be
     </span>
     <span
-      className="sc-jRQBWg gvOzBd"
+      className="sc-jSMfEi jqebZa"
     >
       Done
     </span>
   </div>
   <button
-    className="sc-bdvvtL sc-gsDKAQ fsnfKq djDaHe"
+    className="sc-bczRLJ sc-gsnTZi kyTPFR eVzcKy"
     onClick={[Function]}
   >
     Sign in
   </button>
   <a
-    className="sc-gKclnd fRvDrr"
+    className="sc-gKXOVf bIwThv"
     href="url"
     target="_blank"
   >
