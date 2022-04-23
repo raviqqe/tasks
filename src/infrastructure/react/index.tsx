@@ -1,4 +1,4 @@
-import { render } from "react-dom";
+import { createRoot, Root } from "react-dom/client";
 import { ApplicationInitializer } from "../../application/application-initializer";
 import { CurrentProjectSwitcher } from "../../application/current-project-switcher";
 import { DoneTaskLister } from "../../application/done-task-lister";
@@ -35,6 +35,7 @@ interface IProps
   > {}
 
 export class ReactRenderer {
+  private root: Root;
   private props: IProps = {
     archivedProjects: null,
     currentProject: null,
@@ -45,7 +46,7 @@ export class ReactRenderer {
   };
 
   constructor(
-    private readonly element: HTMLElement,
+    element: HTMLElement,
     presenters: IPresenter[],
     private readonly applicationInitializer: ApplicationInitializer,
     private readonly todoTaskCreator: TodoTaskCreator,
@@ -66,6 +67,8 @@ export class ReactRenderer {
     for (const presenter of presenters) {
       presenter.setRenderer(this);
     }
+
+    this.root = createRoot(element);
   }
 
   public render(): void {
@@ -101,7 +104,7 @@ export class ReactRenderer {
 
     const { currentProject } = this.props;
 
-    render(
+    this.root.render(
       <>
         <App
           {...this.props}
@@ -144,8 +147,7 @@ export class ReactRenderer {
           }}
         />
         <GlobalStyle />
-      </>,
-      this.element
+      </>
     );
   }
 }
