@@ -35,7 +35,7 @@ interface IProps
   > {}
 
 export class ReactRenderer {
-  private root: Root;
+  private readonly root: Root;
   private props: IProps = {
     archivedProjects: null,
     currentProject: null,
