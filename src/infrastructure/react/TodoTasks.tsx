@@ -66,8 +66,8 @@ export const TodoTasks = ({
         await reorderTodoTasks(
           arrayMove(
             taskIds,
-            taskIds.indexOf(active.id),
-            taskIds.indexOf(over.id)
+            taskIds.indexOf(active.id.toString()),
+            taskIds.indexOf(over.id.toString())
           )
         );
       }}
