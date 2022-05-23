@@ -3,6 +3,7 @@
 exports[`renders 1`] = `
 <div
   aria-describedby=""
+  aria-disabled={false}
   aria-roledescription="sortable"
   className="sc-gsnTZi GZWTk"
   role="button"
