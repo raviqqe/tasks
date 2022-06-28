@@ -44,16 +44,16 @@ exports[`renders after a user signs in 1`] = `
         class="sc-iqcoie kBFsDF"
       >
         <span
-          class="css-1xdhyk6"
+          style="display: inherit;"
         >
           <span
-            class="css-hqq8du"
+            style="background-color: white; width: 15px; height: 15px; margin: 2px; border-radius: 100%; display: inline-block; animation: react-spinners-PulseLoader-pulse 0.75s 0.12s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08); animation-fill-mode: both;"
           />
           <span
-            class="css-1h0qtnz"
+            style="background-color: white; width: 15px; height: 15px; margin: 2px; border-radius: 100%; display: inline-block; animation: react-spinners-PulseLoader-pulse 0.75s 0.24s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08); animation-fill-mode: both;"
           />
           <span
-            class="css-1ihj5oh"
+            style="background-color: white; width: 15px; height: 15px; margin: 2px; border-radius: 100%; display: inline-block; animation: react-spinners-PulseLoader-pulse 0.75s 0.36s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08); animation-fill-mode: both;"
           />
         </span>
       </div>
@@ -160,16 +160,16 @@ exports[`renders before a user signs in 1`] = `
     class="sc-jIZahH gZuTQT"
   >
     <span
-      class="css-1xdhyk6"
+      style="display: inherit;"
     >
       <span
-        class="css-hqq8du"
+        style="background-color: white; width: 15px; height: 15px; margin: 2px; border-radius: 100%; display: inline-block; animation: react-spinners-PulseLoader-pulse 0.75s 0.12s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08); animation-fill-mode: both;"
       />
       <span
-        class="css-1h0qtnz"
+        style="background-color: white; width: 15px; height: 15px; margin: 2px; border-radius: 100%; display: inline-block; animation: react-spinners-PulseLoader-pulse 0.75s 0.24s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08); animation-fill-mode: both;"
       />
       <span
-        class="css-1ihj5oh"
+        style="background-color: white; width: 15px; height: 15px; margin: 2px; border-radius: 100%; display: inline-block; animation: react-spinners-PulseLoader-pulse 0.75s 0.36s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08); animation-fill-mode: both;"
       />
     </span>
   </div>
