@@ -23,7 +23,7 @@
     "react-spinners": "^0.13.3",
     "react-use": "^17.4.0",
     "styled-components": "^5.3.5",
-    "workbox-precaching": "^6.5.3"
+    "workbox-precaching": "^6.5.4"
   },
   "devDependencies": {
     "@raviqqe/eslint-config": "^1.0.10",
