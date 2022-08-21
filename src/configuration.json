@@ -1,9 +1,10 @@
 {
   "firebase": {
     "apiKey": "AIzaSyA8sZm_Uf6XII864y9-dT_GgVDb891hLmQ",
+    "authDomain": "tasks.code2d.org",
     "projectId": "tasks-3e65d"
   },
-  "repositoryURL": "https://github.com/raviqqe/tasks",
+  "repositoryUrl": "https://github.com/raviqqe/tasks",
   "sentry": {
     "dsn": "https://634f6fc8761f48f89b7a9bed383217c8@sentry.io/1554249"
   }

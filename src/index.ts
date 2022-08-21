@@ -31,10 +31,7 @@ import { SentryErrorReporter } from "./infrastructure/sentry-error-reporter";
 import { TodoTaskPresenter } from "./infrastructure/todo-task-presenter";
 
 // Instantiate this at the very beginning to initialize Firebase's default app.
-const firebaseInitializer = new FirebaseInitializer(
-  configuration.firebase.projectId,
-  configuration.firebase.apiKey
-);
+const firebaseInitializer = new FirebaseInitializer(configuration.firebase);
 const errorReporter = new SentryErrorReporter(configuration.sentry.dsn);
 
 async function main() {
@@ -142,7 +139,7 @@ async function main() {
     currentProjectSwitcher,
     new SignInManager(authenticationController),
     new SignOutManager(authenticationController, authenticationPresenter),
-    configuration.repositoryURL
+    configuration.repositoryUrl
   ).render();
 
   await navigator.serviceWorker.register("/service-worker.js");
