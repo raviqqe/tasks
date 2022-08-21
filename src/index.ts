@@ -139,7 +139,7 @@ async function main() {
     currentProjectSwitcher,
     new SignInManager(authenticationController),
     new SignOutManager(authenticationController, authenticationPresenter),
-    configuration.repositoryURL
+    configuration.repositoryUrl
   ).render();
 
   await navigator.serviceWorker.register("/service-worker.js");
