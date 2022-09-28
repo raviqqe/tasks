@@ -20,7 +20,7 @@ it("updates a task", () => {
 
   fireEvent.click(container.querySelector(`[aria-label="Edit"]`) as Element);
 
-  expect(updateTask).toBeCalledTimes(1);
+  expect(updateTask).toHaveBeenCalledTimes(1);
 });
 
 it("does not update any tasks if update is cancelled", () => {
@@ -33,5 +33,5 @@ it("does not update any tasks if update is cancelled", () => {
 
   fireEvent.click(container.querySelector(`[aria-label="Edit"]`) as Element);
 
-  expect(updateTask).not.toBeCalled();
+  expect(updateTask).not.toHaveBeenCalled();
 });

@@ -30,5 +30,5 @@ it("toggles projects", () => {
 
   fireEvent.click(container.firstElementChild as Element);
 
-  expect(setProjectsArchived).toBeCalledTimes(1);
+  expect(setProjectsArchived).toHaveBeenCalledTimes(1);
 });

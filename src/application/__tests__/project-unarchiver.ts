@@ -37,5 +37,5 @@ it("unarchives a project", async () => {
 it("does not unarchive any project not archived", async () => {
   await expect(
     projectUnarchiver.unarchive({ archived: false, id: "", name: "" })
-  ).rejects.toThrowError();
+  ).rejects.toThrow();
 });

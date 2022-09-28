@@ -5,7 +5,7 @@ exports[`renders 1`] = `
   aria-describedby=""
   aria-disabled={false}
   aria-roledescription="sortable"
-  className="sc-gsnTZi GZWTk"
+  className="sc-gswNZR khuSoD"
   role="button"
   style={
     Object {
@@ -17,16 +17,16 @@ exports[`renders 1`] = `
   tabIndex={0}
 >
   <div
-    className="sc-dkzDqf grNauI"
+    className="sc-dkrFOg hvXEoS"
   >
     name
   </div>
   <div
-    className="sc-hKMtZM ctIavJ"
+    className="sc-hLBbgP dGudZU"
   >
     <div
       aria-label="Edit"
-      className="sc-bczRLJ bVpJri"
+      className="sc-bcXHqe jUftXb"
       onClick={[Function]}
     >
       <svg

@@ -29,8 +29,8 @@ it("switches a currrent project", async () => {
   expect(mockManager.currentProjectRepository.set.mock.calls).toEqual([
     [dummyProject.id],
   ]);
-  expect(mockManager.todoTaskLister.list).toBeCalledTimes(1);
-  expect(mockManager.doneTaskLister.list).toBeCalledTimes(1);
+  expect(mockManager.todoTaskLister.list).toHaveBeenCalledTimes(1);
+  expect(mockManager.doneTaskLister.list).toHaveBeenCalledTimes(1);
 });
 
 it("resets tasks before switching a current project", async () => {

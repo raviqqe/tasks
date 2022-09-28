@@ -11,10 +11,10 @@ describe("formatTask", () => {
 
 describe("validateTask", () => {
   it("throws an error with an unformatted name", () => {
-    expect(() => validateTask({ id: "", name: " foo" })).toThrowError();
+    expect(() => validateTask({ id: "", name: " foo" })).toThrow();
   });
 
   it("throws an error with an empty name", () => {
-    expect(() => validateTask({ id: "", name: "" })).toThrowError();
+    expect(() => validateTask({ id: "", name: "" })).toThrow();
   });
 });

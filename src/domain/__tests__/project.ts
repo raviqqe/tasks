@@ -19,13 +19,11 @@ describe("formatProject", () => {
 
 describe("validateProject", () => {
   it("throws an error with an unformatted name", () => {
-    expect(() =>
-      validateProject({ ...dummyProject, name: " foo" })
-    ).toThrowError();
+    expect(() => validateProject({ ...dummyProject, name: " foo" })).toThrow();
   });
 
   it("throws an error with an empty name", () => {
-    expect(() => validateProject(dummyProject)).toThrowError();
+    expect(() => validateProject(dummyProject)).toThrow();
   });
 });
 
