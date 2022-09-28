@@ -38,7 +38,9 @@ it("formats a project before update", async () => {
 it("does not update any projects with empty names", async () => {
   await projectUpdater.update({ ...dummyProject, name: "" });
 
-  expect(mockManager.messagePresenter.present).toBeCalledTimes(1);
-  expect(mockManager.projectRepository.update).not.toBeCalled();
-  expect(mockManager.projectPresenter.presentUpdatedProject).not.toBeCalled();
+  expect(mockManager.messagePresenter.present).toHaveBeenCalledTimes(1);
+  expect(mockManager.projectRepository.update).not.toHaveBeenCalled();
+  expect(
+    mockManager.projectPresenter.presentUpdatedProject
+  ).not.toHaveBeenCalled();
 });

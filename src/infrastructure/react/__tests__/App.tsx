@@ -7,7 +7,7 @@ beforeEach(() => {
   initialize.mockReset().mockResolvedValue(undefined);
 });
 
-const wait = () => waitFor(() => expect(initialize).toBeCalled());
+const wait = () => waitFor(() => expect(initialize).toHaveBeenCalled());
 
 const props: IProps = {
   archiveProject: async () => {},

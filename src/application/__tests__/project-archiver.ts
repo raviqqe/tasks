@@ -39,7 +39,7 @@ it("archives a project", async () => {
 it("does not archive any project archived already", async () => {
   await expect(
     projectArchiver.archive({ archived: true, id: "", name: "" }, "")
-  ).rejects.toThrowError();
+  ).rejects.toThrow();
 });
 
 it("does not archive the last project", async () => {
@@ -49,9 +49,9 @@ it("does not archive the last project", async () => {
 
   await projectArchiver.archive(project, "");
 
-  expect(mockManager.messagePresenter.present).toBeCalledTimes(1);
-  expect(mockManager.currentProjectSwitcher.switch).not.toBeCalled();
-  expect(mockManager.projectRepository.update).not.toBeCalled();
+  expect(mockManager.messagePresenter.present).toHaveBeenCalledTimes(1);
+  expect(mockManager.currentProjectSwitcher.switch).not.toHaveBeenCalled();
+  expect(mockManager.projectRepository.update).not.toHaveBeenCalled();
 });
 
 it("does not archive any project if it is not confirmed", async () => {
@@ -60,7 +60,7 @@ it("does not archive any project if it is not confirmed", async () => {
 
   await projectArchiver.archive({ archived: false, id: "", name: "" }, "");
 
-  expect(mockManager.projectRepository.update).not.toBeCalled();
+  expect(mockManager.projectRepository.update).not.toHaveBeenCalled();
 });
 
 it("switches a current project on archival", async () => {
@@ -100,5 +100,5 @@ it("does not switch any current projects if they are not archived", async () => 
 
   await projectArchiver.archive(projectToArchive, "anotherProject");
 
-  expect(mockManager.currentProjectSwitcher.switch).not.toBeCalled();
+  expect(mockManager.currentProjectSwitcher.switch).not.toHaveBeenCalled();
 });
