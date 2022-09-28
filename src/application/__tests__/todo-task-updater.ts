@@ -43,5 +43,5 @@ it("deletes a task if its name is empty", async () => {
 it("does not delete any tasks if it is not confirmed", async () => {
   mockManager.confirmationController.confirm.mockResolvedValue(false);
   await taskUpdater.update("", { ...dummyTask, name: "" });
-  expect(mockManager.todoTaskDeleter.delete).not.toBeCalled();
+  expect(mockManager.todoTaskDeleter.delete).not.toHaveBeenCalled();
 });

@@ -31,7 +31,7 @@ it("deletes a project", async () => {
 it("does not delete any project not archived", async () => {
   await expect(
     projectDeleter.delete({ archived: false, id: "", name: "" })
-  ).rejects.toThrowError();
+  ).rejects.toThrow();
 });
 
 it("does not delete any project if it is not confirmed", async () => {
@@ -39,5 +39,5 @@ it("does not delete any project if it is not confirmed", async () => {
 
   await projectDeleter.delete({ archived: true, id: "", name: "" });
 
-  expect(mockManager.projectRepository.update).not.toBeCalled();
+  expect(mockManager.projectRepository.update).not.toHaveBeenCalled();
 });

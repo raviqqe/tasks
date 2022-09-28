@@ -11,7 +11,7 @@ it("signs out", async () => {
 
   await signOutManager.signOut();
 
-  expect(mockManager.authenticationController.signOut).toBeCalledTimes(1);
+  expect(mockManager.authenticationController.signOut).toHaveBeenCalledTimes(1);
   expect(
     mockManager.authenticationPresenter.presentSignedIn.mock.calls
   ).toEqual([[false]]);

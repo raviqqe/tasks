@@ -4,15 +4,13 @@ on:
 jobs:
   main:
     runs-on: ubuntu-latest
-    container:
-      image: node:lts
     steps:
       - uses: actions/checkout@main
       - run: npm install
       - run: npm run build
       - run: npm run lint
       - run: npm run test
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v3
       - run: npm run --silent deploy -- --token $FIREBASE_TOKEN
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

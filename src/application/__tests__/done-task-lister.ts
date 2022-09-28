@@ -61,9 +61,11 @@ it("lists no more tasks", async () => {
   await doneTaskLister.list("");
   await doneTaskLister.listMore();
 
-  expect(mockManager.doneTaskPresenter.presentMoreTasks).toBeCalledTimes(0);
+  expect(mockManager.doneTaskPresenter.presentMoreTasks).toHaveBeenCalledTimes(
+    0
+  );
 });
 
 it("throws an error if it tries to list more tasks before listing initial ones", async () => {
-  await expect(doneTaskLister.listMore()).rejects.toThrowError();
+  await expect(doneTaskLister.listMore()).rejects.toThrow();
 });
