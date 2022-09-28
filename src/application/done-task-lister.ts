@@ -5,7 +5,7 @@ import { IDoneTaskRepository } from "./done-task-repository";
 const defaultLimit = 20;
 
 export class DoneTaskLister {
-  private iterator: AsyncIterator<ITask[]> | null = null;
+  private iterator: AsyncIterator<ITask[], void> | null = null;
 
   constructor(
     private readonly doneTaskRepository: IDoneTaskRepository,
