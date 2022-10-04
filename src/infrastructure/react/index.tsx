@@ -1,3 +1,4 @@
+import { StrictMode } from "react";
 import { createRoot, Root } from "react-dom/client";
 import { ApplicationInitializer } from "../../application/application-initializer";
 import { CurrentProjectSwitcher } from "../../application/current-project-switcher";
@@ -105,7 +106,7 @@ export class ReactRenderer {
     const { currentProject } = this.props;
 
     this.root.render(
-      <>
+      <StrictMode>
         <App
           {...this.props}
           archiveProject={(project, currentProjectID) =>
@@ -147,7 +148,7 @@ export class ReactRenderer {
           }}
         />
         <GlobalStyle />
-      </>
+      </StrictMode>
     );
   }
 }
