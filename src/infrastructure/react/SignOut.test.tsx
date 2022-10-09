@@ -1,6 +1,6 @@
-import { SignOut } from "./SignOut";
-import { it, expect } from "vitest";
 import { render } from "@testing-library/react";
+import { it, expect } from "vitest";
+import { SignOut } from "./SignOut";
 
 it("renders", () => {
   expect(

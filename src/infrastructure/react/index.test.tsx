@@ -1,4 +1,4 @@
-import { ReactRenderer } from ".";
+import { it, vi } from "vitest";
 import { ApplicationInitializer } from "../../application/application-initializer";
 import { CurrentProjectSwitcher } from "../../application/current-project-switcher";
 import { DoneTaskLister } from "../../application/done-task-lister";
@@ -13,7 +13,7 @@ import { TodoTaskCompleter } from "../../application/todo-task-completer";
 import { TodoTaskCreator } from "../../application/todo-task-creator";
 import { TodoTaskReorderer } from "../../application/todo-task-reorderer";
 import { TodoTaskUpdater } from "../../application/todo-task-updater";
-import { it, vi } from "vitest";
+import { ReactRenderer } from ".";
 
 it("renders", () => {
   new ReactRenderer(

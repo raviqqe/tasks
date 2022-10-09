@@ -1,6 +1,6 @@
-import { TopBar } from "./TopBar";
-import { it, expect } from "vitest";
 import { render } from "@testing-library/react";
+import { it, expect } from "vitest";
+import { TopBar } from "./TopBar";
 
 it("renders", () => {
   expect(

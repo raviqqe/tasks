@@ -1,6 +1,6 @@
-import { Landing } from "./Landing";
-import { expect, it } from "vitest";
 import { render } from "@testing-library/react";
+import { expect, it } from "vitest";
+import { Landing } from "./Landing";
 
 it("renders", () => {
   expect(

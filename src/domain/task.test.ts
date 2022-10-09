@@ -1,5 +1,5 @@
-import { formatTask, validateTask } from "./task";
 import { describe, expect, it } from "vitest";
+import { formatTask, validateTask } from "./task";
 
 describe("formatTask", () => {
   it("removes extra spaces in a name", () => {

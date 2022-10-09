@@ -1,6 +1,6 @@
+import { beforeEach, expect, it } from "vitest";
 import { MockManager } from "./test/mock-manager";
 import { TodoTaskReorderer } from "./todo-task-reorderer";
-import { beforeEach, expect, it } from "vitest";
 
 let mockManager: MockManager;
 let taskReorderer: TodoTaskReorderer;

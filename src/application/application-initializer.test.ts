@@ -1,7 +1,7 @@
+import { beforeEach, expect, it } from "vitest";
 import { IProject } from "../domain/project";
 import { ApplicationInitializer } from "./application-initializer";
 import { MockManager } from "./test/mock-manager";
-import { beforeEach, expect, it } from "vitest";
 
 const dummyProject: IProject = { archived: false, id: "", name: "" };
 

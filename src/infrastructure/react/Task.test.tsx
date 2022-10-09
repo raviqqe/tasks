@@ -1,6 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
-import { Task } from "./Task";
 import { it, vi, expect } from "vitest";
+import { Task } from "./Task";
 
 it("renders", () => {
   expect(

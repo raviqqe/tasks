@@ -1,6 +1,6 @@
-import { Home } from "./Home";
-import { it, expect } from "vitest";
 import { render } from "@testing-library/react";
+import { it, expect } from "vitest";
+import { Home } from "./Home";
 
 it("renders", () => {
   expect(

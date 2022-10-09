@@ -1,7 +1,7 @@
+import { beforeEach, expect, it } from "vitest";
 import { ITask } from "../domain/task";
 import { DoneTaskLister } from "./done-task-lister";
 import { MockManager } from "./test/mock-manager";
-import { beforeEach, expect, it } from "vitest";
 
 const dummyTask: ITask = { id: "", name: "" };
 

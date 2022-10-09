@@ -1,7 +1,7 @@
+import { beforeEach, expect, it } from "vitest";
 import { IProject } from "../domain/project";
 import { ProjectUnarchiver } from "./project-unarchiver";
 import { MockManager } from "./test/mock-manager";
-import { beforeEach, expect, it } from "vitest";
 
 let mockManager: MockManager;
 let projectUnarchiver: ProjectUnarchiver;
@@ -15,7 +15,7 @@ beforeEach(() => {
   );
 });
 
-it("unarchives a project", async () => {
+it("un-archives a project", async () => {
   const projectToUnarchive: IProject = { archived: true, id: "0", name: "" };
 
   mockManager.projectRepository.list.mockResolvedValue([

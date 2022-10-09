@@ -1,5 +1,5 @@
-import { sleep } from "./utilities";
 import { describe, it } from "vitest";
+import { sleep } from "./utilities";
 
 describe("sleep", () => {
   it("sleeps", async () => {
