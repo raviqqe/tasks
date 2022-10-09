@@ -21,7 +21,7 @@ beforeEach(() => {
   );
 });
 
-it("switches a currrent project", async () => {
+it("switches a current project", async () => {
   await currentProjectSwitcher.switch(dummyProject);
 
   expect(mockManager.projectPresenter.presentCurrentProject.mock.calls).toEqual(
