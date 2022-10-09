@@ -1,9 +1,10 @@
-import { create } from "react-test-renderer";
-import { Home } from "../Home";
+import { Home } from "./Home";
+import { it, expect } from "vitest";
+import { render } from "@testing-library/react";
 
 it("renders", () => {
   expect(
-    create(
+    render(
       <Home
         completeTodoTask={async () => {}}
         createTodoTask={async () => {}}
@@ -16,6 +17,6 @@ it("renders", () => {
         todoTasks={[]}
         updateTodoTask={async () => {}}
       />
-    ).toJSON()
+    ).container.firstChild
   ).toMatchSnapshot();
 });

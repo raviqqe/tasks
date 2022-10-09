@@ -1,12 +1,16 @@
-import { create } from "react-test-renderer";
-import { CircleButton } from "../CircleButton";
+import { CircleButton } from "./CircleButton";
+import { expect, it } from "vitest";
+import { render } from "@testing-library/react";
 
 it("renders", () => {
-  expect(create(<CircleButton>foo</CircleButton>).toJSON()).toMatchSnapshot();
+  expect(
+    render(<CircleButton>foo</CircleButton>).container.firstChild
+  ).toMatchSnapshot();
 });
 
 it("renders as a secondary button", () => {
   expect(
-    create(<CircleButton secondary={true}>foo</CircleButton>).toJSON()
+    render(<CircleButton secondary={true}>foo</CircleButton>).container
+      .firstChild
   ).toMatchSnapshot();
 });

@@ -1,6 +1,7 @@
-import { IProject } from "../../domain/project";
-import { ProjectArchiver } from "../project-archiver";
-import { MockManager } from "../test/mock-manager";
+import { IProject } from "../domain/project";
+import { ProjectArchiver } from "./project-archiver";
+import { MockManager } from "./test/mock-manager";
+import { beforeEach, expect, it } from "vitest";
 
 let mockManager: MockManager;
 let projectArchiver: ProjectArchiver;

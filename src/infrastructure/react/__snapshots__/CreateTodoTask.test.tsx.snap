@@ -1,0 +1,26 @@
+// Vitest Snapshot v1
+
+exports[`renders 1`] = `
+<button
+  aria-label="Create"
+  class="sc-bcXHqe sc-gswNZR bQFwRY gWKlTj"
+>
+  <svg
+    fill="currentColor"
+    height="1em"
+    stroke="currentColor"
+    stroke-width="0"
+    viewBox="0 0 24 24"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0 0h24v24H0z"
+      fill="none"
+    />
+    <path
+      d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+    />
+  </svg>
+</button>
+`;

@@ -1,4 +1,5 @@
-import { formatErrorMessage } from "../error";
+import { formatErrorMessage } from "./error";
+import { describe, expect, it } from "vitest";
 
 describe("formatErrorMessage", () => {
   it("formats a message", () => {

@@ -1,5 +1,6 @@
-import { MockManager } from "../test/mock-manager";
-import { TodoTaskDeleter } from "../todo-task-deleter";
+import { MockManager } from "./test/mock-manager";
+import { TodoTaskDeleter } from "./todo-task-deleter";
+import { beforeEach, expect, it } from "vitest";
 
 let mockManager: MockManager;
 let taskDeleter: TodoTaskDeleter;

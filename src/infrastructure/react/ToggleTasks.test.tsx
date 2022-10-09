@@ -1,8 +1,10 @@
-import { create } from "react-test-renderer";
-import { ToggleTasks } from "../ToggleTasks";
+import { ToggleTasks } from "./ToggleTasks";
+import { it, expect } from "vitest";
+import { render } from "@testing-library/react";
 
 it("renders", () => {
   expect(
-    create(<ToggleTasks setTasksDone={() => {}} tasksDone={false} />).toJSON()
+    render(<ToggleTasks setTasksDone={() => {}} tasksDone={false} />).container
+      .firstChild
   ).toMatchSnapshot();
 });

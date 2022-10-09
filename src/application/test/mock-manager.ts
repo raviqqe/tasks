@@ -14,93 +14,94 @@ import { TodoTaskDeleter } from "../todo-task-deleter";
 import { TodoTaskLister } from "../todo-task-lister";
 import { ITodoTaskPresenter } from "../todo-task-presenter";
 import { ITodoTaskRepository } from "../todo-task-repository";
+import { Mocked, vi } from "vitest";
 
 export class MockManager {
-  public authenticationController: jest.Mocked<IAuthenticationController> = {
-    isSignedIn: jest.fn(),
-    signIn: jest.fn(),
-    signOut: jest.fn(),
+  public authenticationController: Mocked<IAuthenticationController> = {
+    isSignedIn: vi.fn(),
+    signIn: vi.fn(),
+    signOut: vi.fn(),
   };
 
-  public authenticationPresenter: jest.Mocked<IAuthenticationPresenter> = {
-    presentSignedIn: jest.fn(),
+  public authenticationPresenter: Mocked<IAuthenticationPresenter> = {
+    presentSignedIn: vi.fn(),
   };
 
-  public confirmationController: jest.Mocked<IConfirmationController> = {
-    confirm: jest.fn(),
+  public confirmationController: Mocked<IConfirmationController> = {
+    confirm: vi.fn(),
   };
 
-  public currentProjectRepository: jest.Mocked<ICurrentProjectRepository> = {
-    get: jest.fn(),
-    set: jest.fn(),
+  public currentProjectRepository: Mocked<ICurrentProjectRepository> = {
+    get: vi.fn(),
+    set: vi.fn(),
   };
 
-  public currentProjectSwitcher: jest.Mocked<CurrentProjectSwitcher> = {
-    switch: jest.fn(),
-  } as unknown as jest.Mocked<CurrentProjectSwitcher>;
+  public currentProjectSwitcher: Mocked<CurrentProjectSwitcher> = {
+    switch: vi.fn(),
+  } as unknown as Mocked<CurrentProjectSwitcher>;
 
-  public doneTaskRepository: jest.Mocked<IDoneTaskRepository> = {
-    create: jest.fn(),
-    list: jest.fn(),
+  public doneTaskRepository: Mocked<IDoneTaskRepository> = {
+    create: vi.fn(),
+    list: vi.fn(),
   };
 
-  public doneTaskLister: jest.Mocked<DoneTaskLister> = {
-    list: jest.fn(),
-  } as unknown as jest.Mocked<DoneTaskLister>;
+  public doneTaskLister: Mocked<DoneTaskLister> = {
+    list: vi.fn(),
+  } as unknown as Mocked<DoneTaskLister>;
 
-  public doneTaskPresenter: jest.Mocked<IDoneTaskPresenter> = {
-    presentMoreTasks: jest.fn(),
-    presentNewTask: jest.fn(),
-    presentTasks: jest.fn(),
+  public doneTaskPresenter: Mocked<IDoneTaskPresenter> = {
+    presentMoreTasks: vi.fn(),
+    presentNewTask: vi.fn(),
+    presentTasks: vi.fn(),
   };
 
-  public messagePresenter: jest.Mocked<IMessagePresenter> = {
-    present: jest.fn(),
+  public messagePresenter: Mocked<IMessagePresenter> = {
+    present: vi.fn(),
   };
 
-  public projectCreator: jest.Mocked<ProjectCreator> = {
-    create: jest.fn(),
-  } as unknown as jest.Mocked<ProjectCreator>;
+  public projectCreator: Mocked<ProjectCreator> = {
+    create: vi.fn(),
+  } as unknown as Mocked<ProjectCreator>;
 
-  public projectPresenter: jest.Mocked<IProjectPresenter> = {
-    presentArchivedProject: jest.fn(),
-    presentArchivedProjects: jest.fn(),
-    presentCurrentProject: jest.fn(),
-    presentDeletedProject: jest.fn(),
-    presentProjects: jest.fn(),
-    presentUnarchivedProject: jest.fn(),
-    presentUpdatedProject: jest.fn(),
+  public projectPresenter: Mocked<IProjectPresenter> = {
+    presentArchivedProject: vi.fn(),
+    presentArchivedProjects: vi.fn(),
+    presentCurrentProject: vi.fn(),
+    presentDeletedProject: vi.fn(),
+    presentProjects: vi.fn(),
+    presentUnarchivedProject: vi.fn(),
+    presentUpdatedProject: vi.fn(),
   };
 
-  public projectRepository: jest.Mocked<IProjectRepository> = {
-    create: jest.fn(),
-    delete: jest.fn(),
-    list: jest.fn(),
-    listArchived: jest.fn(),
-    update: jest.fn(),
+  public projectRepository: Mocked<IProjectRepository> = {
+    create: vi.fn(),
+    delete: vi.fn(),
+    list: vi.fn(),
+    listArchived: vi.fn(),
+    update: vi.fn(),
   };
 
-  public todoTaskDeleter: jest.Mocked<TodoTaskDeleter> = {
-    delete: jest.fn(),
-  } as unknown as jest.Mocked<TodoTaskDeleter>;
+  public todoTaskDeleter: Mocked<TodoTaskDeleter> = {
+    delete: vi.fn(),
+  } as unknown as Mocked<TodoTaskDeleter>;
 
-  public todoTaskLister: jest.Mocked<TodoTaskLister> = {
-    list: jest.fn(),
-  } as unknown as jest.Mocked<TodoTaskLister>;
+  public todoTaskLister: Mocked<TodoTaskLister> = {
+    list: vi.fn(),
+  } as unknown as Mocked<TodoTaskLister>;
 
-  public todoTaskRepository: jest.Mocked<ITodoTaskRepository> = {
-    create: jest.fn(),
-    delete: jest.fn(),
-    list: jest.fn(),
-    reorder: jest.fn(),
-    update: jest.fn(),
+  public todoTaskRepository: Mocked<ITodoTaskRepository> = {
+    create: vi.fn(),
+    delete: vi.fn(),
+    list: vi.fn(),
+    reorder: vi.fn(),
+    update: vi.fn(),
   };
 
-  public todoTaskPresenter: jest.Mocked<ITodoTaskPresenter> = {
-    presentDeletedTask: jest.fn(),
-    presentNewTask: jest.fn(),
-    presentReorderedTasks: jest.fn(),
-    presentTasks: jest.fn(),
-    presentUpdatedTask: jest.fn(),
+  public todoTaskPresenter: Mocked<ITodoTaskPresenter> = {
+    presentDeletedTask: vi.fn(),
+    presentNewTask: vi.fn(),
+    presentReorderedTasks: vi.fn(),
+    presentTasks: vi.fn(),
+    presentUpdatedTask: vi.fn(),
   };
 }

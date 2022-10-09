@@ -1,25 +1,25 @@
 import { fireEvent, render } from "@testing-library/react";
-import { create } from "react-test-renderer";
-import { ToggleProjects } from "../ToggleProjects";
+import { ToggleProjects } from "./ToggleProjects";
+import { it, expect, vi } from "vitest";
 
 it("renders with projects unarchived", () => {
   expect(
-    create(
+    render(
       <ToggleProjects projectsArchived={false} setProjectsArchived={() => {}} />
-    ).toJSON()
+    ).container.firstChild
   ).toMatchSnapshot();
 });
 
 it("renders with projects archived", () => {
   expect(
-    create(
+    render(
       <ToggleProjects projectsArchived={true} setProjectsArchived={() => {}} />
-    ).toJSON()
+    ).container.firstChild
   ).toMatchSnapshot();
 });
 
 it("toggles projects", () => {
-  const setProjectsArchived = jest.fn();
+  const setProjectsArchived = vi.fn();
 
   const { container } = render(
     <ToggleProjects

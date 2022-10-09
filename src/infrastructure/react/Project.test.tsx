@@ -1,8 +1,10 @@
-import { create } from "react-test-renderer";
-import { Project } from "../Project";
+import { Project } from "./Project";
+import { it, expect } from "vitest";
+import { render } from "@testing-library/react";
 
 it("renders", () => {
   expect(
-    create(<Project project={{ archived: false, id: "", name: "" }} />).toJSON()
+    render(<Project project={{ archived: false, id: "", name: "" }} />)
+      .container.firstChild
   ).toMatchSnapshot();
 });

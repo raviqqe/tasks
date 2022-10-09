@@ -1,5 +1,6 @@
-import { SignInManager } from "../sign-in-manager";
-import { MockManager } from "../test/mock-manager";
+import { SignInManager } from "./sign-in-manager";
+import { MockManager } from "./test/mock-manager";
+import { expect, it } from "vitest";
 
 it("signs in", async () => {
   const mockManager = new MockManager();

@@ -1,9 +1,10 @@
-import { create } from "react-test-renderer";
-import { ProjectMenu } from "../ProjectMenu";
+import { ProjectMenu } from "./ProjectMenu";
+import { it, expect } from "vitest";
+import { render } from "@testing-library/react";
 
 it("renders", () => {
   expect(
-    create(
+    render(
       <ProjectMenu
         archiveProject={async () => {}}
         archivedProjects={[]}
@@ -16,6 +17,6 @@ it("renders", () => {
         unarchiveProject={async () => {}}
         updateProject={async () => {}}
       />
-    ).toJSON()
+    ).container.firstChild
   ).toMatchSnapshot();
 });

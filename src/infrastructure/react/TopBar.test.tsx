@@ -1,14 +1,15 @@
-import { create } from "react-test-renderer";
-import { TopBar } from "../TopBar";
+import { TopBar } from "./TopBar";
+import { it, expect } from "vitest";
+import { render } from "@testing-library/react";
 
 it("renders", () => {
   expect(
-    create(
+    render(
       <TopBar
         currentProject={{ archived: false, id: "", name: "" }}
         showProjects={() => {}}
         signOut={async () => {}}
       />
-    ).toJSON()
+    ).container.firstChild
   ).toMatchSnapshot();
 });

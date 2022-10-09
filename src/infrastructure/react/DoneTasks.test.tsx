@@ -1,10 +1,10 @@
-import { create } from "react-test-renderer";
-import { DoneTasks } from "../DoneTasks";
+import { DoneTasks } from "./DoneTasks";
+import { expect, it } from "vitest";
+import { render } from "@testing-library/react";
 
 it("renders", () => {
   expect(
-    create(
-      <DoneTasks doneTasks={[]} listMoreDoneTasks={async () => {}} />
-    ).toJSON()
+    render(<DoneTasks doneTasks={[]} listMoreDoneTasks={async () => {}} />)
+      .container.firstChild
   ).toMatchSnapshot();
 });

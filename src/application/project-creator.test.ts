@@ -1,5 +1,6 @@
-import { ProjectCreator } from "../project-creator";
-import { MockManager } from "../test/mock-manager";
+import { ProjectCreator } from "./project-creator";
+import { MockManager } from "./test/mock-manager";
+import { beforeEach, expect, it } from "vitest";
 
 let mockManager: MockManager;
 let projectCreator: ProjectCreator;

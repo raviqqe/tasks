@@ -1,8 +1,10 @@
-import { create } from "react-test-renderer";
-import { CreateTodoTask } from "../CreateTodoTask";
+import { CreateTodoTask } from "./CreateTodoTask";
+import { expect, it } from "vitest";
+import { render } from "@testing-library/react";
 
 it("renders", () => {
   expect(
-    create(<CreateTodoTask createTodoTask={async () => {}} />).toJSON()
+    render(<CreateTodoTask createTodoTask={async () => {}} />).container
+      .firstChild
   ).toMatchSnapshot();
 });

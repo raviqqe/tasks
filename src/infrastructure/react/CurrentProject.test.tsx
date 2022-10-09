@@ -1,13 +1,14 @@
-import { create } from "react-test-renderer";
-import { CurrentProject } from "../CurrentProject";
+import { CurrentProject } from "./CurrentProject";
+import { expect, it } from "vitest";
+import { render } from "@testing-library/react";
 
 it("renders", () => {
   expect(
-    create(
+    render(
       <CurrentProject
         currentProject={{ archived: false, id: "", name: "" }}
         showProjects={() => {}}
       />
-    ).toJSON()
+    ).container.firstChild
   ).toMatchSnapshot();
 });

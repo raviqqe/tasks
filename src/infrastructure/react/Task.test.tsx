@@ -1,18 +1,18 @@
 import { fireEvent, render } from "@testing-library/react";
-import { create } from "react-test-renderer";
-import { Task } from "../Task";
+import { Task } from "./Task";
+import { it, vi, expect } from "vitest";
 
 it("renders", () => {
   expect(
-    create(
+    render(
       <Task task={{ id: "id", name: "name" }} updateTask={async () => {}} />
-    ).toJSON()
+    ).container.firstChild
   ).toMatchSnapshot();
 });
 
 it("updates a task", () => {
-  jest.spyOn(window, "prompt").mockReturnValue("bar");
-  const updateTask = jest.fn();
+  vi.spyOn(window, "prompt").mockReturnValue("bar");
+  const updateTask = vi.fn();
 
   const { container } = render(
     <Task task={{ id: "", name: "foo" }} updateTask={updateTask} />
@@ -24,8 +24,8 @@ it("updates a task", () => {
 });
 
 it("does not update any tasks if update is cancelled", () => {
-  jest.spyOn(window, "prompt").mockReturnValue(null);
-  const updateTask = jest.fn();
+  vi.spyOn(window, "prompt").mockReturnValue(null);
+  const updateTask = vi.fn();
 
   const { container } = render(
     <Task task={{ id: "", name: "foo" }} updateTask={updateTask} />

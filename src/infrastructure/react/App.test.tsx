@@ -1,7 +1,8 @@
 import { act, render, RenderResult, waitFor } from "@testing-library/react";
-import { App, IProps } from "../App";
+import { App, IProps } from "./App";
+import { beforeEach, expect, it, vi } from "vitest";
 
-const initialize = jest.fn();
+const initialize = vi.fn();
 
 beforeEach(() => {
   initialize.mockReset().mockResolvedValue(undefined);

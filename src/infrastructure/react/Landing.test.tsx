@@ -1,8 +1,10 @@
-import { create } from "react-test-renderer";
-import { Landing } from "../Landing";
+import { Landing } from "./Landing";
+import { expect, it } from "vitest";
+import { render } from "@testing-library/react";
 
 it("renders", () => {
   expect(
-    create(<Landing repositoryURL="url" signIn={() => {}} />).toJSON()
+    render(<Landing repositoryURL="url" signIn={() => {}} />).container
+      .firstChild
   ).toMatchSnapshot();
 });
