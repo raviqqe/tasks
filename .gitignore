@@ -2,6 +2,6 @@
 *.png
 .eslintcache
 .firebase
-build
+dist
 coverage
 node_modules

@@ -1,0 +1,14 @@
+// Vitest Snapshot v1
+
+exports[`renders 1`] = `
+<div
+  class="sc-gswNZR kjiIiU"
+>
+  <div
+    class="sc-dkrFOg kGStwd"
+  />
+  <div
+    class="sc-hLBbgP dGudZU"
+  />
+</div>
+`;

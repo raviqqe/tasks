@@ -1,0 +1,17 @@
+// Vitest Snapshot v1
+
+exports[`renders 1`] = `
+<div
+  class="sc-jSUZER kIjPRJ"
+  id="done-tasks-container"
+>
+  <div
+    class="infinite-scroll-component__outerdiv"
+  >
+    <div
+      class="infinite-scroll-component sc-iBYQkv dVYlFS"
+      style="height: auto; overflow: auto;"
+    />
+  </div>
+</div>
+`;
