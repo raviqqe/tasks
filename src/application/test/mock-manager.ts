@@ -1,3 +1,4 @@
+import { Mocked, vi } from "vitest";
 import { IAuthenticationController } from "../authentication-controller";
 import { IAuthenticationPresenter } from "../authentication-presenter";
 import { IConfirmationController } from "../confirmation-controller";
@@ -14,7 +15,6 @@ import { TodoTaskDeleter } from "../todo-task-deleter";
 import { TodoTaskLister } from "../todo-task-lister";
 import { ITodoTaskPresenter } from "../todo-task-presenter";
 import { ITodoTaskRepository } from "../todo-task-repository";
-import { Mocked, vi } from "vitest";
 
 export class MockManager {
   public authenticationController: Mocked<IAuthenticationController> = {
