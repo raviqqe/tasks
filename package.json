@@ -7,7 +7,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint src/**/*.{ts,tsx}",
-    "test": "vitest",
+    "test": "vitest --coverage",
     "deploy": "firebase deploy"
   },
   "dependencies": {
