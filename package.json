@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@dnd-kit/sortable": "^7.0.1",
-    "@sentry/browser": "^7.15.0",
+    "@sentry/browser": "^7.16.0",
     "firebase": "^9.12.1",
     "localforage": "^1.10.0",
     "lodash": "^4.17.21",
