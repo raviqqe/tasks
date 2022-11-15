@@ -37,7 +37,7 @@ const props: IProps = {
 it("renders before a user signs in", async () => {
   let result: RenderResult | undefined;
 
-  act(() => {
+  await act(() => {
     result = render(<App {...props} signedIn={null} />);
   });
 
@@ -49,7 +49,7 @@ it("renders before a user signs in", async () => {
 it("renders after a user signs in", async () => {
   let result: RenderResult | undefined;
 
-  act(() => {
+  await act(() => {
     result = render(
       <App
         {...props}
@@ -68,7 +68,7 @@ it("renders after a user signs in", async () => {
 it("renders after a user signs out", async () => {
   let result: RenderResult | undefined;
 
-  act(() => {
+  await act(() => {
     result = render(<App {...props} signedIn={false} />);
   });
 
