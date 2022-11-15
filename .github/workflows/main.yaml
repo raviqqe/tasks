@@ -14,7 +14,7 @@ jobs:
       - run: npm run --silent deploy -- --token $FIREBASE_TOKEN
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
   spell_check:
     runs-on: ubuntu-latest
     steps:
