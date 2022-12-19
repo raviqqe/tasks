@@ -63,7 +63,7 @@ export class ReactRenderer {
     private readonly currentProjectSwitcher: CurrentProjectSwitcher,
     private readonly signInManager: SignInManager,
     private readonly signOutManager: SignOutManager,
-    private readonly repositoryURL: string
+    private readonly repositoryUrl: string
   ) {
     for (const presenter of presenters) {
       presenter.setRenderer(this);
@@ -131,7 +131,7 @@ export class ReactRenderer {
               await this.todoTaskReorderer.reorder(currentProject.id, taskIds);
             }
           }}
-          repositoryURL={this.repositoryURL}
+          repositoryUrl={this.repositoryUrl}
           signIn={() => this.signInManager.signIn()}
           signOut={() => this.signOutManager.signOut()}
           switchCurrentProject={(project) =>

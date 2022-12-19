@@ -31,7 +31,7 @@ export const App = ({
   doneTasks,
   initialize,
   projects,
-  repositoryURL,
+  repositoryUrl,
   signedIn,
   signIn,
   signOut,
@@ -71,6 +71,6 @@ export const App = ({
       todoTasks={todoTasks}
     />
   ) : (
-    <Landing repositoryURL={repositoryURL} signIn={signIn} />
+    <Landing repositoryUrl={repositoryUrl} signIn={signIn} />
   );
 };
