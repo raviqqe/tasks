@@ -23,7 +23,7 @@ const props: IProps = {
   listMoreDoneTasks: async () => {},
   projects: null,
   reorderTodoTasks: async () => {},
-  repositoryURL: "",
+  repositoryUrl: "",
   signIn: () => {},
   signOut: () => {},
   signedIn: null,
