@@ -21,7 +21,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-infinite-scroll-component": "^6.1.0",
-    "react-spinners": "^0.13.7",
+    "react-spinners": "^0.13.8",
     "react-use": "^17.4.0",
     "styled-components": "^5.3.6"
   },
