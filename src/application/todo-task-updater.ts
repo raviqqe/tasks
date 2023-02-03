@@ -17,7 +17,7 @@ export class TodoTaskUpdater {
 
     if (
       !task.name &&
-      (await this.confirmationController.confirm(`Delete the task?`))
+      (await this.confirmationController.confirm("Delete the task?"))
     ) {
       await this.todoTaskDeleter.delete(projectId, task.id);
       return;
