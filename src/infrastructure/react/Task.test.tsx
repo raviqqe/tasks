@@ -18,7 +18,7 @@ it("updates a task", () => {
     <Task task={{ id: "", name: "foo" }} updateTask={updateTask} />
   );
 
-  fireEvent.click(container.querySelector(`[aria-label="Edit"]`) as Element);
+  fireEvent.click(container.querySelector('[aria-label="Edit"]') as Element);
 
   expect(updateTask).toHaveBeenCalledTimes(1);
 });
@@ -31,7 +31,7 @@ it("does not update any tasks if update is cancelled", () => {
     <Task task={{ id: "", name: "foo" }} updateTask={updateTask} />
   );
 
-  fireEvent.click(container.querySelector(`[aria-label="Edit"]`) as Element);
+  fireEvent.click(container.querySelector('[aria-label="Edit"]') as Element);
 
   expect(updateTask).not.toHaveBeenCalled();
 });
