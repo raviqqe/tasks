@@ -1,5 +1,6 @@
 import { it, vi } from "vitest";
 import { ApplicationInitializer } from "../../application/application-initializer";
+import { CurrentProjectInitializer } from "../../application/current-project-initializer";
 import { CurrentProjectSwitcher } from "../../application/current-project-switcher";
 import { DoneTaskLister } from "../../application/done-task-lister";
 import { ProjectArchiver } from "../../application/project-archiver";
@@ -30,6 +31,7 @@ it("renders", () => {
     {} as ProjectUnarchiver,
     {} as ProjectDeleter,
     {} as ProjectUpdater,
+    {} as CurrentProjectInitializer,
     {} as CurrentProjectSwitcher,
     {} as SignInManager,
     {} as SignOutManager,

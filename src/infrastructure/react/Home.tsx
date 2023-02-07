@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAsync } from "react-use";
 import styled from "styled-components";
 import {
   CreateTodoTask,
@@ -48,13 +49,16 @@ export interface IProps
   extends ICreateTodoTaskProps,
     ITopBarProps,
     ITodoTasksProps,
-    IDoneTasksProps {}
+    IDoneTasksProps {
+  initializeCurrentProject: () => Promise<void>;
+}
 
 export const Home = ({
   completeTodoTask,
   createTodoTask,
   currentProject,
   doneTasks,
+  initializeCurrentProject,
   listMoreDoneTasks,
   reorderTodoTasks,
   signOut,
@@ -62,6 +66,7 @@ export const Home = ({
   todoTasks,
   updateTodoTask,
 }: IProps): JSX.Element => {
+  useAsync(initializeCurrentProject, []);
   const [tasksDone, setTasksDone] = useState(false);
 
   return (

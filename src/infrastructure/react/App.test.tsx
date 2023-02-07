@@ -20,6 +20,7 @@ const props: IProps = {
   deleteProject: async () => {},
   doneTasks: null,
   initialize,
+  initializeCurrentProject: async () => {},
   listMoreDoneTasks: async () => {},
   projects: null,
   reorderTodoTasks: async () => {},
