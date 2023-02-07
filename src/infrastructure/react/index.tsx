@@ -35,7 +35,7 @@ interface IProps
     | "todoTasks"
   > {}
 
-export class ReactRenderer {
+export class ReactRenderer implements IRenderer {
   private readonly root: Root;
   private props: IProps = {
     archivedProjects: null,
