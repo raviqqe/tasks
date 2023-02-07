@@ -1,19 +1,15 @@
 import { beforeEach, expect, it } from "vitest";
-import { IProject } from "../domain/project";
 import { ApplicationInitializer } from "./application-initializer";
 import { MockManager } from "./test/mock-manager";
-
-const dummyProject: IProject = { archived: false, id: "", name: "" };
 
 let mockManager: MockManager;
 let applicationInitializer: ApplicationInitializer;
 
 beforeEach(() => {
   mockManager = new MockManager();
+
   mockManager.authenticationController.isSignedIn.mockResolvedValue(true);
-  mockManager.currentProjectRepository.get.mockResolvedValue(dummyProject.id);
-  mockManager.projectRepository.list.mockResolvedValue([dummyProject]);
-  mockManager.projectRepository.listArchived.mockResolvedValue([]);
+
   applicationInitializer = new ApplicationInitializer(
     mockManager.currentProjectInitializer,
     mockManager.authenticationController,

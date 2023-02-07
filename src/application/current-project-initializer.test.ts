@@ -10,10 +10,11 @@ let currentProjectInitializer: CurrentProjectInitializer;
 
 beforeEach(() => {
   mockManager = new MockManager();
-  mockManager.authenticationController.isSignedIn.mockResolvedValue(true);
+
   mockManager.currentProjectRepository.get.mockResolvedValue(dummyProject.id);
   mockManager.projectRepository.list.mockResolvedValue([dummyProject]);
   mockManager.projectRepository.listArchived.mockResolvedValue([]);
+
   currentProjectInitializer = new CurrentProjectInitializer(
     mockManager.projectCreator,
     mockManager.projectRepository,
