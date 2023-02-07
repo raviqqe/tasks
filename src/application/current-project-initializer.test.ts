@@ -27,11 +27,13 @@ beforeEach(() => {
 it("presents an initial project", async () => {
   await currentProjectInitializer.initialize();
 
-  expect(mockManager.currentProjectSwitcher.switch.mock.calls).toEqual([
-    [dummyProject],
-  ]);
-  expect(mockManager.projectPresenter.presentProjects.mock.calls).toEqual([
-    [[dummyProject]],
+  expect(mockManager.currentProjectSwitcher.switch).toHaveBeenCalledOnce();
+  expect(mockManager.currentProjectSwitcher.switch).toHaveBeenCalledWith(
+    dummyProject
+  );
+  expect(mockManager.projectPresenter.presentProjects).toHaveBeenCalledOnce();
+  expect(mockManager.projectPresenter.presentProjects).toHaveBeenCalledWith([
+    dummyProject,
   ]);
 });
 
@@ -39,8 +41,11 @@ it("presents archived projects", async () => {
   await currentProjectInitializer.initialize();
 
   expect(
-    mockManager.projectPresenter.presentArchivedProjects.mock.calls
-  ).toEqual([[[]]]);
+    mockManager.projectPresenter.presentArchivedProjects
+  ).toHaveBeenCalledOnce();
+  expect(
+    mockManager.projectPresenter.presentArchivedProjects
+  ).toHaveBeenCalledWith([]);
 });
 
 it("presents an initial project even if no current project ID is set", async () => {
@@ -48,11 +53,13 @@ it("presents an initial project even if no current project ID is set", async () 
 
   await currentProjectInitializer.initialize();
 
-  expect(mockManager.currentProjectSwitcher.switch.mock.calls).toEqual([
-    [dummyProject],
-  ]);
-  expect(mockManager.projectPresenter.presentProjects.mock.calls).toEqual([
-    [[dummyProject]],
+  expect(mockManager.currentProjectSwitcher.switch).toHaveBeenCalledOnce();
+  expect(mockManager.currentProjectSwitcher.switch).toHaveBeenCalledWith(
+    dummyProject
+  );
+  expect(mockManager.projectPresenter.presentProjects).toHaveBeenCalledOnce();
+  expect(mockManager.projectPresenter.presentProjects).toHaveBeenCalledWith([
+    dummyProject,
   ]);
 });
 
@@ -61,5 +68,6 @@ it("creates a default project if none is found", async () => {
 
   await currentProjectInitializer.initialize();
 
-  expect(mockManager.projectCreator.create.mock.calls).toEqual([["main"]]);
+  expect(mockManager.projectCreator.create).toHaveBeenCalledOnce();
+  expect(mockManager.projectCreator.create).toHaveBeenCalledWith("main");
 });
