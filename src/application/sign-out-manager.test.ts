@@ -4,7 +4,6 @@ import { MockManager } from "./test/mock-manager";
 
 it("signs out", async () => {
   const mockManager = new MockManager();
-  mockManager.authenticationController.signOut.mockResolvedValue(false);
   const signOutManager = new SignOutManager(
     mockManager.authenticationController,
     mockManager.authenticationPresenter
@@ -12,8 +11,8 @@ it("signs out", async () => {
 
   await signOutManager.signOut();
 
-  expect(mockManager.authenticationController.signOut).toHaveBeenCalledTimes(1);
+  expect(mockManager.authenticationController.signOut).toHaveBeenCalledOnce();
   expect(
-    mockManager.authenticationPresenter.presentSignedIn.mock.calls
-  ).toEqual([[false]]);
+    mockManager.authenticationPresenter.presentSignedIn
+  ).toHaveBeenCalledWith(false);
 });

@@ -25,9 +25,8 @@ export class FirebaseAuthenticationController
     await signInWithRedirect(this.auth, new GoogleAuthProvider());
   }
 
-  public async signOut(): Promise<boolean> {
+  public async signOut(): Promise<void> {
     await this.auth.signOut();
-    return this.isSignedIn();
   }
 
   public async isSignedIn(): Promise<boolean> {

@@ -1,5 +1,5 @@
 export interface IAuthenticationController {
   signIn(): Promise<void>;
-  signOut(): Promise<boolean>;
+  signOut(): Promise<void>;
   isSignedIn(): Promise<boolean>;
 }

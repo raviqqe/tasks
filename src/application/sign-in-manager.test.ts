@@ -4,10 +4,15 @@ import { MockManager } from "./test/mock-manager";
 
 it("signs in", async () => {
   const mockManager = new MockManager();
-  const signInManager = new SignInManager(mockManager.authenticationController);
+  const signInManager = new SignInManager(
+    mockManager.authenticationController,
+    mockManager.authenticationPresenter
+  );
 
   await signInManager.signIn();
-  expect(mockManager.authenticationController.signIn.mock.calls).toHaveLength(
-    1
-  );
+
+  expect(mockManager.authenticationController.signIn).toHaveBeenCalledOnce();
+  expect(
+    mockManager.authenticationPresenter.presentSignedIn
+  ).toHaveBeenCalledOnce();
 });
