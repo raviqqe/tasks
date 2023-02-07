@@ -40,7 +40,7 @@ export class FirestoreDoneTaskRepository implements IDoneTaskRepository {
     });
   }
 
-  public async *list(projectId: string): AsyncIterator<ITask[]> {
+  public async *list(projectId: string): AsyncIterable<ITask[]> {
     let snapshot = await getDocs(
       query(this.query(projectId), limit(batchSize))
     );
