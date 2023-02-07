@@ -21,8 +21,8 @@ it("presents sign-in state", async () => {
   await applicationInitializer.initialize();
 
   expect(
-    mockManager.authenticationPresenter.presentSignedIn.mock.calls
-  ).toEqual([[true]]);
+    mockManager.authenticationPresenter.presentSignedIn
+  ).toHaveBeenCalledWith(true);
 });
 
 it("presents an initial project", async () => {
