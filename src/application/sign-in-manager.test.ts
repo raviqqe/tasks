@@ -5,6 +5,7 @@ import { MockManager } from "./test/mock-manager";
 it("signs in", async () => {
   const mockManager = new MockManager();
   const signInManager = new SignInManager(
+    mockManager.currentProjectInitializer,
     mockManager.authenticationController,
     mockManager.authenticationPresenter
   );
@@ -14,5 +15,8 @@ it("signs in", async () => {
   expect(mockManager.authenticationController.signIn).toHaveBeenCalledOnce();
   expect(
     mockManager.authenticationPresenter.presentSignedIn
+  ).toHaveBeenCalledOnce();
+  expect(
+    mockManager.currentProjectInitializer.initialize
   ).toHaveBeenCalledOnce();
 });

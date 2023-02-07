@@ -2,6 +2,7 @@ import { Mocked, vi } from "vitest";
 import { IAuthenticationController } from "../authentication-controller";
 import { IAuthenticationPresenter } from "../authentication-presenter";
 import { IConfirmationController } from "../confirmation-controller";
+import { CurrentProjectInitializer } from "../current-project-initializer";
 import { ICurrentProjectRepository } from "../current-project-repository";
 import { CurrentProjectSwitcher } from "../current-project-switcher";
 import { DoneTaskLister } from "../done-task-lister";
@@ -35,6 +36,10 @@ export class MockManager {
     get: vi.fn(),
     set: vi.fn(),
   };
+
+  public currentProjectInitializer: Mocked<CurrentProjectInitializer> = {
+    initialize: vi.fn(),
+  } as unknown as Mocked<CurrentProjectInitializer>;
 
   public currentProjectSwitcher: Mocked<CurrentProjectSwitcher> = {
     switch: vi.fn(),

@@ -1,27 +1,19 @@
 import { beforeEach, expect, it } from "vitest";
-import { IProject } from "../domain/project";
 import { ApplicationInitializer } from "./application-initializer";
 import { MockManager } from "./test/mock-manager";
-
-const dummyProject: IProject = { archived: false, id: "", name: "" };
 
 let mockManager: MockManager;
 let applicationInitializer: ApplicationInitializer;
 
 beforeEach(() => {
   mockManager = new MockManager();
+
   mockManager.authenticationController.isSignedIn.mockResolvedValue(true);
-  mockManager.currentProjectRepository.get.mockResolvedValue(dummyProject.id);
-  mockManager.projectRepository.list.mockResolvedValue([dummyProject]);
-  mockManager.projectRepository.listArchived.mockResolvedValue([]);
+
   applicationInitializer = new ApplicationInitializer(
+    mockManager.currentProjectInitializer,
     mockManager.authenticationController,
-    mockManager.authenticationPresenter,
-    mockManager.projectCreator,
-    mockManager.projectRepository,
-    mockManager.projectPresenter,
-    mockManager.currentProjectSwitcher,
-    mockManager.currentProjectRepository
+    mockManager.authenticationPresenter
   );
 });
 
@@ -29,48 +21,16 @@ it("presents sign-in state", async () => {
   await applicationInitializer.initialize();
 
   expect(
-    mockManager.authenticationPresenter.presentSignedIn.mock.calls
-  ).toEqual([[true]]);
+    mockManager.authenticationPresenter.presentSignedIn
+  ).toHaveBeenCalledWith(true);
 });
 
 it("presents an initial project", async () => {
   await applicationInitializer.initialize();
 
-  expect(mockManager.currentProjectSwitcher.switch.mock.calls).toEqual([
-    [dummyProject],
-  ]);
-  expect(mockManager.projectPresenter.presentProjects.mock.calls).toEqual([
-    [[dummyProject]],
-  ]);
-});
-
-it("presents archived projects", async () => {
-  await applicationInitializer.initialize();
-
   expect(
-    mockManager.projectPresenter.presentArchivedProjects.mock.calls
-  ).toEqual([[[]]]);
-});
-
-it("presents an initial project even if no current project ID is set", async () => {
-  mockManager.currentProjectRepository.get.mockResolvedValue(null);
-
-  await applicationInitializer.initialize();
-
-  expect(mockManager.currentProjectSwitcher.switch.mock.calls).toEqual([
-    [dummyProject],
-  ]);
-  expect(mockManager.projectPresenter.presentProjects.mock.calls).toEqual([
-    [[dummyProject]],
-  ]);
-});
-
-it("creates a default project if none is found", async () => {
-  mockManager.projectRepository.list.mockImplementationOnce(async () => []);
-
-  await applicationInitializer.initialize();
-
-  expect(mockManager.projectCreator.create.mock.calls).toEqual([["main"]]);
+    mockManager.currentProjectInitializer.initialize
+  ).toHaveBeenCalledOnce();
 });
 
 it("does not present any project if a user is not signed in", async () => {

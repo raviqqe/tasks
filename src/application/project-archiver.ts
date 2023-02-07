@@ -17,7 +17,7 @@ export class ProjectArchiver {
 
   public async archive(
     project: IProject,
-    currentProjectID: string
+    currentProjectId: string
   ): Promise<void> {
     if (project.archived) {
       throw new Error("project archived already");
@@ -39,7 +39,7 @@ export class ProjectArchiver {
     this.projectPresenter.presentArchivedProject(project);
     await this.projectRepository.update(project);
 
-    if (project.id === currentProjectID) {
+    if (project.id === currentProjectId) {
       await this.currentProjectSwitcher.switch(
         getFirstProject(await this.projectRepository.list())
       );

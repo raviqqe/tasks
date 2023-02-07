@@ -35,7 +35,7 @@ interface IProps
     | "todoTasks"
   > {}
 
-export class ReactRenderer {
+export class ReactRenderer implements IRenderer {
   private readonly root: Root;
   private props: IProps = {
     archivedProjects: null,
@@ -109,8 +109,8 @@ export class ReactRenderer {
       <StrictMode>
         <App
           {...this.props}
-          archiveProject={(project, currentProjectID) =>
-            this.projectArchiver.archive(project, currentProjectID)
+          archiveProject={(project, currentProjectId) =>
+            this.projectArchiver.archive(project, currentProjectId)
           }
           completeTodoTask={async (task: ITask) => {
             if (currentProject) {

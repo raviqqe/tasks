@@ -1,4 +1,5 @@
 import { ApplicationInitializer } from "./application/application-initializer";
+import { CurrentProjectInitializer } from "./application/current-project-initializer";
 import { CurrentProjectSwitcher } from "./application/current-project-switcher";
 import { DoneTaskLister } from "./application/done-task-lister";
 import { ProjectArchiver } from "./application/project-archiver";
@@ -81,6 +82,13 @@ async function main() {
     projectPresenter,
     messagePresenter
   );
+  const currentProjectInitializer = new CurrentProjectInitializer(
+    projectCreator,
+    projectRepository,
+    projectPresenter,
+    currentProjectSwitcher,
+    currentProjectRepository
+  );
 
   new ReactRenderer(
     element,
@@ -91,13 +99,9 @@ async function main() {
       todoTaskPresenter,
     ],
     new ApplicationInitializer(
+      currentProjectInitializer,
       authenticationController,
-      authenticationPresenter,
-      projectCreator,
-      projectRepository,
-      projectPresenter,
-      currentProjectSwitcher,
-      currentProjectRepository
+      authenticationPresenter
     ),
     new TodoTaskCreator(
       todoTaskRepository,
@@ -137,7 +141,11 @@ async function main() {
     ),
     new ProjectUpdater(projectRepository, projectPresenter, messagePresenter),
     currentProjectSwitcher,
-    new SignInManager(authenticationController, authenticationPresenter),
+    new SignInManager(
+      currentProjectInitializer,
+      authenticationController,
+      authenticationPresenter
+    ),
     new SignOutManager(authenticationController, authenticationPresenter),
     configuration.repositoryUrl
   ).render();
