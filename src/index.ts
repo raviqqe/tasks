@@ -137,7 +137,7 @@ async function main() {
     ),
     new ProjectUpdater(projectRepository, projectPresenter, messagePresenter),
     currentProjectSwitcher,
-    new SignInManager(authenticationController),
+    new SignInManager(authenticationController, authenticationPresenter),
     new SignOutManager(authenticationController, authenticationPresenter),
     configuration.repositoryUrl
   ).render();

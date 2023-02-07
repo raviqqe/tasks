@@ -18,13 +18,13 @@ import { ITodoTaskRepository } from "../todo-task-repository";
 
 export class MockManager {
   public authenticationController: Mocked<IAuthenticationController> = {
-    isSignedIn: vi.fn(),
-    signIn: vi.fn(),
-    signOut: vi.fn(),
+    isSignedIn: vi.fn(async () => false),
+    signIn: vi.fn(async () => {}),
+    signOut: vi.fn(async () => {}),
   };
 
   public authenticationPresenter: Mocked<IAuthenticationPresenter> = {
-    presentSignedIn: vi.fn(),
+    presentSignedIn: vi.fn((_: boolean) => {}),
   };
 
   public confirmationController: Mocked<IConfirmationController> = {

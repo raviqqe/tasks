@@ -13,7 +13,9 @@ export class DoneTaskLister {
   ) {}
 
   public async list(projectId: string): Promise<void> {
-    this.iterator = this.doneTaskRepository.list(projectId, defaultLimit);
+    this.iterator = this.doneTaskRepository
+      .list(projectId, defaultLimit)
+      [Symbol.asyncIterator]();
     this.doneTaskPresenter.presentTasks(
       (await this.iterator.next()).value || []
     );
@@ -21,7 +23,7 @@ export class DoneTaskLister {
 
   public async listMore(): Promise<void> {
     if (!this.iterator) {
-      throw new Error("iterator not initialized");
+      throw new Error("Iterator not initialized");
     }
 
     const result = await this.iterator.next();
