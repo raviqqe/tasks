@@ -3,7 +3,7 @@ import {
   Auth,
   getAuth,
   GoogleAuthProvider,
-  signInWithRedirect,
+  signInWithPopup,
 } from "firebase/auth";
 import { IAuthenticationController } from "../../application/authentication-controller";
 import { sleep } from "../../domain/utilities";
@@ -22,7 +22,7 @@ export class FirebaseAuthenticationController
   }
 
   public async signIn(): Promise<void> {
-    await signInWithRedirect(this.auth, new GoogleAuthProvider());
+    await signInWithPopup(this.auth, new GoogleAuthProvider());
   }
 
   public async signOut(): Promise<void> {
