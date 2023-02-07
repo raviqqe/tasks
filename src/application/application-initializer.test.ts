@@ -11,7 +11,6 @@ beforeEach(() => {
   mockManager.authenticationController.isSignedIn.mockResolvedValue(true);
 
   applicationInitializer = new ApplicationInitializer(
-    mockManager.currentProjectInitializer,
     mockManager.authenticationController,
     mockManager.authenticationPresenter
   );
@@ -23,14 +22,6 @@ it("presents sign-in state", async () => {
   expect(
     mockManager.authenticationPresenter.presentSignedIn
   ).toHaveBeenCalledWith(true);
-});
-
-it("presents an initial project", async () => {
-  await applicationInitializer.initialize();
-
-  expect(
-    mockManager.currentProjectInitializer.initialize
-  ).toHaveBeenCalledOnce();
 });
 
 it("does not present any project if a user is not signed in", async () => {

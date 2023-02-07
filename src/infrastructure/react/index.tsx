@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot, Root } from "react-dom/client";
 import { ApplicationInitializer } from "../../application/application-initializer";
+import { CurrentProjectInitializer } from "../../application/current-project-initializer";
 import { CurrentProjectSwitcher } from "../../application/current-project-switcher";
 import { DoneTaskLister } from "../../application/done-task-lister";
 import { ProjectArchiver } from "../../application/project-archiver";
@@ -60,6 +61,7 @@ export class ReactRenderer implements IRenderer {
     private readonly projectUnarchiver: ProjectUnarchiver,
     private readonly projectDeleter: ProjectDeleter,
     private readonly projectUpdater: ProjectUpdater,
+    private readonly currentProjectInitializer: CurrentProjectInitializer,
     private readonly currentProjectSwitcher: CurrentProjectSwitcher,
     private readonly signInManager: SignInManager,
     private readonly signOutManager: SignOutManager,
@@ -125,6 +127,9 @@ export class ReactRenderer implements IRenderer {
           }}
           deleteProject={(project) => this.projectDeleter.delete(project)}
           initialize={() => this.applicationInitializer.initialize()}
+          initializeCurrentProject={() =>
+            this.currentProjectInitializer.initialize()
+          }
           listMoreDoneTasks={() => this.doneTaskLister.listMore()}
           reorderTodoTasks={async (taskIds) => {
             if (currentProject) {

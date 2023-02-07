@@ -14,6 +14,7 @@ import { TodoTaskCreator } from "../../application/todo-task-creator";
 import { TodoTaskReorderer } from "../../application/todo-task-reorderer";
 import { TodoTaskUpdater } from "../../application/todo-task-updater";
 import { ReactRenderer } from ".";
+import { CurrentProjectInitializer } from "../../application/current-project-initializer";
 
 it("renders", () => {
   new ReactRenderer(
@@ -30,6 +31,7 @@ it("renders", () => {
     {} as ProjectUnarchiver,
     {} as ProjectDeleter,
     {} as ProjectUpdater,
+    {} as CurrentProjectInitializer,
     {} as CurrentProjectSwitcher,
     {} as SignInManager,
     {} as SignOutManager,

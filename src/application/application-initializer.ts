@@ -1,10 +1,8 @@
 import { IAuthenticationController } from "./authentication-controller";
 import { IAuthenticationPresenter } from "./authentication-presenter";
-import { CurrentProjectInitializer } from "./current-project-initializer";
 
 export class ApplicationInitializer {
   constructor(
-    private readonly currentProjectInitializer: CurrentProjectInitializer,
     private readonly authenticationController: IAuthenticationController,
     private readonly authenticationPresenter: IAuthenticationPresenter
   ) {}
@@ -16,7 +14,5 @@ export class ApplicationInitializer {
     if (!signedIn) {
       return;
     }
-
-    await this.currentProjectInitializer.initialize();
   }
 }

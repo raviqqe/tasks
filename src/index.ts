@@ -82,13 +82,6 @@ async function main() {
     projectPresenter,
     messagePresenter
   );
-  const currentProjectInitializer = new CurrentProjectInitializer(
-    projectCreator,
-    projectRepository,
-    projectPresenter,
-    currentProjectSwitcher,
-    currentProjectRepository
-  );
 
   new ReactRenderer(
     element,
@@ -99,7 +92,6 @@ async function main() {
       todoTaskPresenter,
     ],
     new ApplicationInitializer(
-      currentProjectInitializer,
       authenticationController,
       authenticationPresenter
     ),
@@ -140,12 +132,15 @@ async function main() {
       confirmationController
     ),
     new ProjectUpdater(projectRepository, projectPresenter, messagePresenter),
-    currentProjectSwitcher,
-    new SignInManager(
-      currentProjectInitializer,
-      authenticationController,
-      authenticationPresenter
+    new CurrentProjectInitializer(
+      projectCreator,
+      projectRepository,
+      projectPresenter,
+      currentProjectSwitcher,
+      currentProjectRepository
     ),
+    currentProjectSwitcher,
+    new SignInManager(authenticationController, authenticationPresenter),
     new SignOutManager(authenticationController, authenticationPresenter),
     configuration.repositoryUrl
   ).render();
