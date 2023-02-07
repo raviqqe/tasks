@@ -35,7 +35,7 @@ import { TodoTaskPresenter } from "./infrastructure/todo-task-presenter";
 const firebaseInitializer = new FirebaseInitializer(configuration.firebase);
 const errorReporter = new SentryErrorReporter(configuration.sentry.dsn);
 
-async function main() {
+const main = async () => {
   const element = document.getElementById("root");
 
   if (!element) {
@@ -144,6 +144,6 @@ async function main() {
     new SignOutManager(authenticationController, authenticationPresenter),
     configuration.repositoryUrl
   ).render();
-}
+};
 
 main().catch((error: Error) => errorReporter.report(error));
