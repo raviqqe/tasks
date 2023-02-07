@@ -109,8 +109,8 @@ export class ReactRenderer implements IRenderer {
       <StrictMode>
         <App
           {...this.props}
-          archiveProject={(project, currentProjectID) =>
-            this.projectArchiver.archive(project, currentProjectID)
+          archiveProject={(project, currentProjectId) =>
+            this.projectArchiver.archive(project, currentProjectId)
           }
           completeTodoTask={async (task: ITask) => {
             if (currentProject) {
