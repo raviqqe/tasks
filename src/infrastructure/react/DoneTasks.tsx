@@ -19,7 +19,7 @@ const LoaderContainer = styled.div`
 `;
 
 const StyledInfiniteScroll = styled((props: Props) => (
-  <InfiniteScroll.default {...props} />
+  <InfiniteScroll {...props} />
 ))`
   display: flex;
   flex-direction: column;
