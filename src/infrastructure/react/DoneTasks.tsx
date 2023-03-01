@@ -1,24 +1,24 @@
 import InfiniteScroll, { Props } from "react-infinite-scroll-component";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import { ITask } from "../../domain/task.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
 
 const doneTasksContainerId = "done-tasks-container";
 
-const Container = styled.default.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   overflow: auto;
 `;
 
-const LoaderContainer = styled.default.div`
+const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-const StyledInfiniteScroll = styled.default((props: Props) => (
+const StyledInfiniteScroll = styled((props: Props) => (
   <InfiniteScroll.default {...props} />
 ))`
   display: flex;
@@ -26,7 +26,7 @@ const StyledInfiniteScroll = styled.default((props: Props) => (
   padding: 1em 0.5em;
 `;
 
-const StyledTask = styled.default(Task)`
+const StyledTask = styled(Task)`
   margin: 0.5em;
 `;
 

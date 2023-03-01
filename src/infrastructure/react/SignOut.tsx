@@ -1,9 +1,9 @@
 import { MdExitToApp } from "react-icons/md/index.js";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import { IconButton } from "./IconButton.js";
 import { white } from "./style/colors.js";
 
-const StyledIconButton = styled.default(IconButton)`
+const StyledIconButton = styled(IconButton)`
   color: ${white};
   font-size: 1.6rem;
 `;

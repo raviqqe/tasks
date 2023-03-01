@@ -2,7 +2,7 @@ import { DraggableSyntheticListeners } from "@dnd-kit/core";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md/index.js";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import { ITask } from "../../domain/task.js";
 import { IconButton } from "./IconButton.js";
 import { white } from "./style/colors.js";
@@ -10,7 +10,7 @@ import { boxShadow } from "./style/index.js";
 
 const maxZIndex = 10000;
 
-const Container = styled.default.div`
+const Container = styled.div`
   ${boxShadow};
   display: flex;
   justify-content: space-between;
@@ -20,12 +20,12 @@ const Container = styled.default.div`
   border-radius: 0.5em;
 `;
 
-const Name = styled.default.div`
+const Name = styled.div`
   word-break: break-word;
   margin-right: 0.5ex;
 `;
 
-const ButtonsContainer = styled.default.div`
+const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
 
@@ -34,7 +34,7 @@ const ButtonsContainer = styled.default.div`
   }
 `;
 
-const StyledIconButton = styled.default(IconButton)`
+const StyledIconButton = styled(IconButton)`
   touch-action: none;
 `;
 
