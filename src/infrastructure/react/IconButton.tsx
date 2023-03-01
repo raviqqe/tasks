@@ -1,6 +1,9 @@
 import { AriaAttributes, ReactNode } from "react";
-import styled from "styled-components";
+import { defaultImport } from "default-import";
+import defaultStyled from "styled-components";
 import { grey } from "./style/colors.js";
+
+const styled = defaultImport(defaultStyled);
 
 const Button = styled.div`
   color: ${grey};

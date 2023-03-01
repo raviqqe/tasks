@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { defaultImport } from "default-import";
+import defaultStyled from "styled-components";
 import {
   CurrentProject,
   IProps as ICurrentProjectProps,
@@ -6,6 +7,8 @@ import {
 import { SignOut, IProps as ISignOutProps } from "./SignOut.js";
 import { red } from "./style/colors.js";
 import { boxShadow } from "./style/index.js";
+
+const styled = defaultImport(defaultStyled);
 
 const Container = styled.div`
   ${boxShadow}

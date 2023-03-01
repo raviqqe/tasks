@@ -5,10 +5,13 @@ import {
   MdDelete,
   MdEdit,
 } from "react-icons/md/index.js";
-import styled from "styled-components";
+import { defaultImport } from "default-import";
+import defaultStyled from "styled-components";
 import { IProject } from "../../domain/project.js";
 import { IconButton } from "./IconButton.js";
 import { black, red } from "./style/colors.js";
+
+const styled = defaultImport(defaultStyled);
 
 const Container = styled.div`
   display: flex;

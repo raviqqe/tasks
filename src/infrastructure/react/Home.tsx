@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAsync } from "react-use";
-import styled from "styled-components";
+import { defaultImport } from "default-import";
+import defaultStyled from "styled-components";
 import {
   CreateTodoTask,
   IProps as ICreateTodoTaskProps,
@@ -9,6 +10,8 @@ import { DoneTasks, IProps as IDoneTasksProps } from "./DoneTasks.js";
 import { TodoTasks, IProps as ITodoTasksProps } from "./TodoTasks.js";
 import { ToggleTasks } from "./ToggleTasks.js";
 import { TopBar, IProps as ITopBarProps } from "./TopBar.js";
+
+const styled = defaultImport(defaultStyled);
 
 const Container = styled.div`
   display: flex;

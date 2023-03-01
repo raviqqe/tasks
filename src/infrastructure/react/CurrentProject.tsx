@@ -1,7 +1,10 @@
-import styled from "styled-components";
+import { defaultImport } from "default-import";
+import defaultStyled from "styled-components";
 import { IProject } from "../../domain/project.js";
 import { Loader } from "./Loader.js";
 import { white } from "./style/colors.js";
+
+const styled = defaultImport(defaultStyled);
 
 const Container = styled.div`
   display: flex;
