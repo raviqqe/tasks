@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 import {
   CurrentProject,
   IProps as ICurrentProjectProps,
@@ -7,7 +7,7 @@ import { SignOut, IProps as ISignOutProps } from "./SignOut.js";
 import { red } from "./style/colors.js";
 import { boxShadow } from "./style/index.js";
 
-const Container = styled.div`
+const Container = styled.default.div`
   ${boxShadow}
   position: relative;
   display: flex;
@@ -18,7 +18,7 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const SignOutContainer = styled.div`
+const SignOutContainer = styled.default.div`
   position: absolute;
   right: 1em;
   top: 50%;

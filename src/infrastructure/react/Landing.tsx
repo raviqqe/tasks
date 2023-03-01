@@ -1,9 +1,9 @@
 import { GoMarkGithub } from "react-icons/go/index.js";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { SignIn } from "./SignIn.js";
 import { black, red, white } from "./style/colors.js";
 
-const Container = styled.div`
+const Container = styled.default.div`
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -16,22 +16,22 @@ const Container = styled.div`
   }
 `;
 
-const Title = styled.div`
+const Title = styled.default.div`
   font-family: "Chelsea Market", sans-serif;
   font-size: 4em;
   font-weight: bold;
   text-shadow: 0.4em 0.4em 0.4em rgba(0, 0, 0, 0.1);
 `;
 
-const White = styled.span`
+const White = styled.default.span`
   color: ${white};
 `;
 
-const Red = styled.span`
+const Red = styled.default.span`
   color: ${red};
 `;
 
-const GitHubLink = styled.a`
+const GitHubLink = styled.default.a`
   font-size: 2.5rem;
   margin: 1.5rem;
   color: ${black};

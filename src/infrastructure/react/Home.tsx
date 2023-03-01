@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAsync } from "react-use";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import {
   CreateTodoTask,
   IProps as ICreateTodoTaskProps,
@@ -10,7 +10,7 @@ import { TodoTasks, IProps as ITodoTasksProps } from "./TodoTasks.js";
 import { ToggleTasks } from "./ToggleTasks.js";
 import { TopBar, IProps as ITopBarProps } from "./TopBar.js";
 
-const Container = styled.div`
+const Container = styled.default.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +18,7 @@ const Container = styled.div`
   margin: auto;
 `;
 
-const TasksContainer = styled.div`
+const TasksContainer = styled.default.div`
   display: flex;
   flex-direction: column;
   width: 70ex;
@@ -31,7 +31,7 @@ const TasksContainer = styled.div`
   }
 `;
 
-const ButtonsContainer = styled.div`
+const ButtonsContainer = styled.default.div`
   position: fixed;
   bottom: 0.5rem;
   right: 0.5rem;
@@ -41,7 +41,7 @@ const ButtonsContainer = styled.div`
   }
 `;
 
-const StyledCreateTodoTask = styled(CreateTodoTask)<{
+const StyledCreateTodoTask = styled.default(CreateTodoTask)<{
   tasksDone: boolean;
 }>`
   visibility: ${({ tasksDone }) => (tasksDone ? "hidden" : "visible")};

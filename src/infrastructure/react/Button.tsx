@@ -1,8 +1,8 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { red, grey, white } from "./style/colors.js";
 import { boxShadow } from "./style/index.js";
 
-export const Button = styled.button<{ secondary?: boolean }>`
+export const Button = styled.default.button<{ secondary?: boolean }>`
   ${boxShadow};
   background: ${({ secondary }) => (secondary ? grey : red)};
   display: flex;

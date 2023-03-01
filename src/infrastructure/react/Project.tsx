@@ -5,19 +5,19 @@ import {
   MdDelete,
   MdEdit,
 } from "react-icons/md/index.js";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { IProject } from "../../domain/project.js";
 import { IconButton } from "./IconButton.js";
 import { black, red } from "./style/colors.js";
 
-const Container = styled.div`
+const Container = styled.default.div`
   display: flex;
   justify-content: space-between
   align-items: center;
   font-size: 1.25em;
 `;
 
-const Name = styled.div<{ highlighted: boolean }>`
+const Name = styled.default.div<{ highlighted: boolean }>`
   word-break: break-word;
   margin-right: 1em;
   flex: 1;
@@ -25,7 +25,7 @@ const Name = styled.div<{ highlighted: boolean }>`
   color: ${({ highlighted }) => (highlighted ? red : black)};
 `;
 
-const ButtonsContainer = styled.div`
+const ButtonsContainer = styled.default.div`
   display: flex;
   align-items: center;
 
