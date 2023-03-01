@@ -10,12 +10,12 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
+import { defaultImport } from "default-import";
 import defaultStyled from "styled-components";
 import { ITask } from "../../domain/task.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
 import { buttonMargin } from "./style/index.js";
-import { defaultImport } from "default-import";
 
 const styled = defaultImport(defaultStyled);
 

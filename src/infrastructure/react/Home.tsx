@@ -1,6 +1,6 @@
+import { defaultImport } from "default-import";
 import { useState } from "react";
 import { useAsync } from "react-use";
-import { defaultImport } from "default-import";
 import defaultStyled from "styled-components";
 import {
   CreateTodoTask,

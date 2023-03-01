@@ -1,5 +1,5 @@
-import defaultInfiniteScroll, { Props } from "react-infinite-scroll-component";
 import { defaultImport } from "default-import";
+import defaultInfiniteScroll, { Props } from "react-infinite-scroll-component";
 import defaultStyled from "styled-components";
 import { ITask } from "../../domain/task.js";
 import { Loader } from "./Loader.js";

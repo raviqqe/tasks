@@ -1,5 +1,5 @@
-import { AriaAttributes, ReactNode } from "react";
 import { defaultImport } from "default-import";
+import { AriaAttributes, ReactNode } from "react";
 import defaultStyled from "styled-components";
 import { grey } from "./style/colors.js";
 
