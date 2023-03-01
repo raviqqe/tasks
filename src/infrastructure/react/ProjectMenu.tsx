@@ -11,7 +11,7 @@ import { ToggleProjects } from "./ToggleProjects.js";
 import { grey, white, lightGrey } from "./style/colors.js";
 import { boxShadow } from "./style/index.js";
 
-const Container = styled.default.div`
+const Container = styled.div`
   background-color: ${lightGrey};
   display: flex;
   flex-direction: column;
@@ -20,11 +20,11 @@ const Container = styled.default.div`
   height: 100vh;
 `;
 
-const ScrollContainer = styled.default.div`
+const ScrollContainer = styled.div`
   overflow: auto;
 `;
 
-const ProjectsContainer = styled.default.div`
+const ProjectsContainer = styled.div`
   ${boxShadow}
   display: flex;
   flex-direction: column;
@@ -39,11 +39,11 @@ const ProjectsContainer = styled.default.div`
   }
 `;
 
-const Message = styled.default.div`
+const Message = styled.div`
   color: ${grey};
 `;
 
-const LowerButtonsContainer = styled.default.div`
+const LowerButtonsContainer = styled.div`
   position: fixed;
   right: 0.5rem;
   bottom: 0.5rem;
@@ -53,7 +53,7 @@ const LowerButtonsContainer = styled.default.div`
   }
 `;
 
-const StyledCreateProject = styled.default(CreateProject)<{
+const StyledCreateProject = styled(CreateProject)<{
   projectsArchived: boolean;
 }>`
   visibility: ${({ projectsArchived }) =>

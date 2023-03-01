@@ -6,7 +6,7 @@ import { IProps as ILandingProps, Landing } from "./Landing.js";
 import { Loader } from "./Loader.js";
 import { ProjectMenu, IProps as IProjectMenuProps } from "./ProjectMenu.js";
 
-const LoaderContainer = styled.default.div`
+const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

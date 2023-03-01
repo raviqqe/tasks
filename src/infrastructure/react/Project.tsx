@@ -10,14 +10,14 @@ import { IProject } from "../../domain/project.js";
 import { IconButton } from "./IconButton.js";
 import { black, red } from "./style/colors.js";
 
-const Container = styled.default.div`
+const Container = styled.div`
   display: flex;
   justify-content: space-between
   align-items: center;
   font-size: 1.25em;
 `;
 
-const Name = styled.default.div<{ highlighted: boolean }>`
+const Name = styled.div<{ highlighted: boolean }>`
   word-break: break-word;
   margin-right: 1em;
   flex: 1;
@@ -25,7 +25,7 @@ const Name = styled.default.div<{ highlighted: boolean }>`
   color: ${({ highlighted }) => (highlighted ? red : black)};
 `;
 
-const ButtonsContainer = styled.default.div`
+const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
 

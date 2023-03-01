@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { SignIn } from "./SignIn.js";
 import { black, red, white } from "./style/colors.js";
 
-const Container = styled.default.div`
+const Container = styled.div`
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -16,22 +16,22 @@ const Container = styled.default.div`
   }
 `;
 
-const Title = styled.default.div`
+const Title = styled.div`
   font-family: "Chelsea Market", sans-serif;
   font-size: 4em;
   font-weight: bold;
   text-shadow: 0.4em 0.4em 0.4em rgba(0, 0, 0, 0.1);
 `;
 
-const White = styled.default.span`
+const White = styled.span`
   color: ${white};
 `;
 
-const Red = styled.default.span`
+const Red = styled.span`
   color: ${red};
 `;
 
-const GitHubLink = styled.default.a`
+const GitHubLink = styled.a`
   font-size: 2.5rem;
   margin: 1.5rem;
   color: ${black};
