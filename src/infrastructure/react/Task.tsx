@@ -1,7 +1,7 @@
 import { DraggableSyntheticListeners } from "@dnd-kit/core";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md";
+import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md/index.js";
 import styled from "styled-components";
 import { ITask } from "../../domain/task";
 import { IconButton } from "./IconButton";

@@ -1,5 +1,10 @@
 import { forwardRef, Ref } from "react";
-import { MdArchive, MdUnarchive, MdDelete, MdEdit } from "react-icons/md";
+import {
+  MdArchive,
+  MdUnarchive,
+  MdDelete,
+  MdEdit,
+} from "react-icons/md/index.js";
 import styled from "styled-components";
 import { IProject } from "../../domain/project";
 import { IconButton } from "./IconButton";

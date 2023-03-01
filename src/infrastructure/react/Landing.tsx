@@ -1,4 +1,4 @@
-import { GoMarkGithub } from "react-icons/go";
+import { GoMarkGithub } from "react-icons/go/index.js";
 import styled from "styled-components";
 import { SignIn } from "./SignIn";
 import { black, red, white } from "./style/colors";
