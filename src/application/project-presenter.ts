@@ -1,4 +1,4 @@
-import { IProject } from "../domain/project";
+import { IProject } from "../domain/project.js";
 
 export interface IProjectPresenter {
   presentCurrentProject(project: IProject): void;

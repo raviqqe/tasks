@@ -1,5 +1,5 @@
-import { IProject } from "../domain/project";
-import { ITask } from "../domain/task";
+import { IProject } from "../domain/project.js";
+import { ITask } from "../domain/task.js";
 
 export interface IRenderer {
   renderArchivedProjects(projects: IProject[] | null): void;

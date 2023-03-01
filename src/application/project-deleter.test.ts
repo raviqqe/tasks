@@ -1,7 +1,7 @@
 import { beforeEach, expect, it } from "vitest";
-import { IProject } from "../domain/project";
-import { ProjectDeleter } from "./project-deleter";
-import { MockManager } from "./test/mock-manager";
+import { IProject } from "../domain/project.js";
+import { ProjectDeleter } from "./project-deleter.js";
+import { MockManager } from "./test/mock-manager.js";
 
 let mockManager: MockManager;
 let projectDeleter: ProjectDeleter;

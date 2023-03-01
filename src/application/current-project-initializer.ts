@@ -1,9 +1,9 @@
-import { getFirstProject } from "../domain/project";
-import { ICurrentProjectRepository } from "./current-project-repository";
-import { CurrentProjectSwitcher } from "./current-project-switcher";
-import { ProjectCreator } from "./project-creator";
-import { IProjectPresenter } from "./project-presenter";
-import { IProjectRepository } from "./project-repository";
+import { getFirstProject } from "../domain/project.js";
+import { ICurrentProjectRepository } from "./current-project-repository.js";
+import { CurrentProjectSwitcher } from "./current-project-switcher.js";
+import { ProjectCreator } from "./project-creator.js";
+import { IProjectPresenter } from "./project-presenter.js";
+import { IProjectRepository } from "./project-repository.js";
 
 const defaultProjectName = "main";
 

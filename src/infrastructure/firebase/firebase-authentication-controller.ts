@@ -5,8 +5,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { IAuthenticationController } from "../../application/authentication-controller";
-import { sleep } from "../../domain/utilities";
+import { IAuthenticationController } from "../../application/authentication-controller.js";
+import { sleep } from "../../domain/utilities.js";
 
 export class FirebaseAuthenticationController
   implements IAuthenticationController

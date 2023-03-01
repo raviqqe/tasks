@@ -13,8 +13,8 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { compact, isEqual } from "lodash";
-import { ITodoTaskRepository } from "../../application/todo-task-repository";
-import { ITask } from "../../domain/task";
+import { ITodoTaskRepository } from "../../application/todo-task-repository.js";
+import { ITask } from "../../domain/task.js";
 
 interface IOrderDocument {
   order: string[];

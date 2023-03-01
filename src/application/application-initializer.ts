@@ -1,5 +1,5 @@
-import { IAuthenticationController } from "./authentication-controller";
-import { IAuthenticationPresenter } from "./authentication-presenter";
+import { IAuthenticationController } from "./authentication-controller.js";
+import { IAuthenticationPresenter } from "./authentication-presenter.js";
 
 export class ApplicationInitializer {
   constructor(

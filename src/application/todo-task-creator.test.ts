@@ -1,6 +1,6 @@
 import { beforeEach, expect, it } from "vitest";
-import { MockManager } from "./test/mock-manager";
-import { TodoTaskCreator } from "./todo-task-creator";
+import { MockManager } from "./test/mock-manager.js";
+import { TodoTaskCreator } from "./todo-task-creator.js";
 
 let mockManager: MockManager;
 let taskCreator: TodoTaskCreator;

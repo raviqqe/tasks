@@ -13,8 +13,8 @@ import {
   updateDoc,
   where,
 } from "firebase/firestore";
-import { IProjectRepository } from "../../application/project-repository";
-import { IProject } from "../../domain/project";
+import { IProjectRepository } from "../../application/project-repository.js";
+import { IProject } from "../../domain/project.js";
 
 export class FirestoreProjectRepository implements IProjectRepository {
   private readonly auth: Auth;

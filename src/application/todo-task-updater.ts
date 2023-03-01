@@ -1,8 +1,8 @@
-import { ITask, formatTask, validateTask } from "../domain/task";
-import { IConfirmationController } from "./confirmation-controller";
-import { TodoTaskDeleter } from "./todo-task-deleter";
-import { ITodoTaskPresenter } from "./todo-task-presenter";
-import { ITodoTaskRepository } from "./todo-task-repository";
+import { ITask, formatTask, validateTask } from "../domain/task.js";
+import { IConfirmationController } from "./confirmation-controller.js";
+import { TodoTaskDeleter } from "./todo-task-deleter.js";
+import { ITodoTaskPresenter } from "./todo-task-presenter.js";
+import { ITodoTaskRepository } from "./todo-task-repository.js";
 
 export class TodoTaskUpdater {
   constructor(

@@ -1,5 +1,5 @@
-import { IAuthenticationPresenter } from "../application/authentication-presenter";
-import { IRenderer } from "./renderer";
+import { IAuthenticationPresenter } from "../application/authentication-presenter.js";
+import { IRenderer } from "./renderer.js";
 
 export class AuthenticationPresenter implements IAuthenticationPresenter {
   private renderer: IRenderer | null = null;
