@@ -15,8 +15,8 @@ import {
   startAfter,
 } from "firebase/firestore";
 import { last } from "lodash";
-import { IDoneTaskRepository } from "../../application/done-task-repository";
-import { ITask } from "../../domain/task";
+import { IDoneTaskRepository } from "../../application/done-task-repository.js";
+import { ITask } from "../../domain/task.js";
 
 interface ITimestampedTask extends ITask {
   createdAt: number;

@@ -5,7 +5,10 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@main
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: latest
       - run: npm install
       - run: npm run build
       - run: npm run lint
@@ -19,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: streetsidesoftware/cspell-action@main
+      - uses: streetsidesoftware/cspell-action@v2
         with:
           files: "**/*.{md,ts,tsx}"
   readme:

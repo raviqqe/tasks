@@ -1,9 +1,8 @@
-import UUID from "pure-uuid";
-import { formatErrorMessage } from "../domain/error";
-import { formatTask, validateTask } from "../domain/task";
-import { IMessagePresenter } from "./message-presenter";
-import { ITodoTaskPresenter } from "./todo-task-presenter";
-import { ITodoTaskRepository } from "./todo-task-repository";
+import { formatErrorMessage } from "../domain/error.js";
+import { formatTask, validateTask } from "../domain/task.js";
+import { IMessagePresenter } from "./message-presenter.js";
+import { ITodoTaskPresenter } from "./todo-task-presenter.js";
+import { ITodoTaskRepository } from "./todo-task-repository.js";
 
 export class TodoTaskCreator {
   constructor(
@@ -13,7 +12,7 @@ export class TodoTaskCreator {
   ) {}
 
   public async create(projectId: string, name: string): Promise<void> {
-    const task = formatTask({ id: new UUID(4).format(), name });
+    const task = formatTask({ id: window.crypto.randomUUID(), name });
 
     try {
       validateTask(task);

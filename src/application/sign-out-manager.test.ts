@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
-import { SignOutManager } from "./sign-out-manager";
-import { MockManager } from "./test/mock-manager";
+import { SignOutManager } from "./sign-out-manager.js";
+import { MockManager } from "./test/mock-manager.js";
 
 it("signs out", async () => {
   const mockManager = new MockManager();

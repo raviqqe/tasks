@@ -1,14 +1,17 @@
+import { defaultImport } from "default-import";
 import { useState } from "react";
 import { useAsync } from "react-use";
-import styled from "styled-components";
+import defaultStyled from "styled-components";
 import {
   CreateTodoTask,
   IProps as ICreateTodoTaskProps,
-} from "./CreateTodoTask";
-import { DoneTasks, IProps as IDoneTasksProps } from "./DoneTasks";
-import { TodoTasks, IProps as ITodoTasksProps } from "./TodoTasks";
-import { ToggleTasks } from "./ToggleTasks";
-import { TopBar, IProps as ITopBarProps } from "./TopBar";
+} from "./CreateTodoTask.js";
+import { DoneTasks, IProps as IDoneTasksProps } from "./DoneTasks.js";
+import { TodoTasks, IProps as ITodoTasksProps } from "./TodoTasks.js";
+import { ToggleTasks } from "./ToggleTasks.js";
+import { TopBar, IProps as ITopBarProps } from "./TopBar.js";
+
+const styled = defaultImport(defaultStyled);
 
 const Container = styled.div`
   display: flex;
@@ -41,7 +44,9 @@ const ButtonsContainer = styled.div`
   }
 `;
 
-const StyledCreateTodoTask = styled(CreateTodoTask)<{ tasksDone: boolean }>`
+const StyledCreateTodoTask = styled(CreateTodoTask)<{
+  tasksDone: boolean;
+}>`
   visibility: ${({ tasksDone }) => (tasksDone ? "hidden" : "visible")};
 `;
 

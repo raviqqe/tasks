@@ -1,4 +1,4 @@
-import { TextButton } from "./TextButton";
+import { TextButton } from "./TextButton.js";
 
 interface IProps {
   signIn: () => void;

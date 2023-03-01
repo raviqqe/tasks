@@ -1,12 +1,18 @@
+import { defaultImport } from "default-import";
 import { useState, useRef, useEffect } from "react";
-import styled from "styled-components";
-import { IProject } from "../../domain/project";
-import { CreateProject, IProps as ICreateProjectProps } from "./CreateProject";
-import { Loader } from "./Loader";
-import { Project, IProps as IProjectProps } from "./Project";
-import { ToggleProjects } from "./ToggleProjects";
-import { boxShadow } from "./style";
-import { grey, white, lightGrey } from "./style/colors";
+import defaultStyled from "styled-components";
+import { IProject } from "../../domain/project.js";
+import {
+  CreateProject,
+  IProps as ICreateProjectProps,
+} from "./CreateProject.js";
+import { Loader } from "./Loader.js";
+import { Project, IProps as IProjectProps } from "./Project.js";
+import { ToggleProjects } from "./ToggleProjects.js";
+import { grey, white, lightGrey } from "./style/colors.js";
+import { boxShadow } from "./style/index.js";
+
+const styled = defaultImport(defaultStyled);
 
 const Container = styled.div`
   background-color: ${lightGrey};

@@ -1,6 +1,6 @@
 import { beforeEach, expect, it } from "vitest";
-import { ApplicationInitializer } from "./application-initializer";
-import { MockManager } from "./test/mock-manager";
+import { ApplicationInitializer } from "./application-initializer.js";
+import { MockManager } from "./test/mock-manager.js";
 
 let mockManager: MockManager;
 let applicationInitializer: ApplicationInitializer;

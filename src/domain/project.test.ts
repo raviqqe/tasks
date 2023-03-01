@@ -5,7 +5,7 @@ import {
   sortProjects,
   IProject,
   getFirstProject,
-} from "./project";
+} from "./project.js";
 
 const dummyProject: IProject = { archived: false, id: "", name: "" };
 

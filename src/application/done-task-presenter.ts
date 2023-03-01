@@ -1,4 +1,4 @@
-import { ITask } from "../domain/task";
+import { ITask } from "../domain/task.js";
 
 export interface IDoneTaskPresenter {
   presentNewTask(task: ITask): void;

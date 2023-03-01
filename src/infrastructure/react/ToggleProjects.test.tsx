@@ -1,6 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 import { it, expect, vi } from "vitest";
-import { ToggleProjects } from "./ToggleProjects";
+import { ToggleProjects } from "./ToggleProjects.js";
 
 it("renders with projects unarchived", () => {
   expect(

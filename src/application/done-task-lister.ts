@@ -1,6 +1,6 @@
-import { ITask } from "../domain/task";
-import { IDoneTaskPresenter } from "./done-task-presenter";
-import { IDoneTaskRepository } from "./done-task-repository";
+import { ITask } from "../domain/task.js";
+import { IDoneTaskPresenter } from "./done-task-presenter.js";
+import { IDoneTaskRepository } from "./done-task-repository.js";
 
 const defaultLimit = 20;
 

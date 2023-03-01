@@ -1,7 +1,10 @@
-import { MdExitToApp } from "react-icons/md";
-import styled from "styled-components";
-import { IconButton } from "./IconButton";
-import { white } from "./style/colors";
+import { defaultImport } from "default-import";
+import { MdExitToApp } from "react-icons/md/index.js";
+import defaultStyled from "styled-components";
+import { IconButton } from "./IconButton.js";
+import { white } from "./style/colors.js";
+
+const styled = defaultImport(defaultStyled);
 
 const StyledIconButton = styled(IconButton)`
   color: ${white};

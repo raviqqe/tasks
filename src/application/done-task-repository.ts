@@ -1,4 +1,4 @@
-import { ITask } from "../domain/task";
+import { ITask } from "../domain/task.js";
 
 export interface IDoneTaskRepository {
   create(projectId: string, task: ITask): Promise<void>;

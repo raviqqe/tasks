@@ -1,7 +1,7 @@
-import { MdArchive, MdUnarchive } from "react-icons/md";
-import { CircleButton } from "./CircleButton";
+import { MdArchive, MdUnarchive } from "react-icons/md/index.js";
+import { CircleButton } from "./CircleButton.js";
 
-export interface IProps {
+interface IProps {
   projectsArchived: boolean;
   setProjectsArchived: (archived: boolean) => void;
 }

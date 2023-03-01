@@ -1,9 +1,17 @@
+import { defaultImport } from "default-import";
 import { forwardRef, Ref } from "react";
-import { MdArchive, MdUnarchive, MdDelete, MdEdit } from "react-icons/md";
-import styled from "styled-components";
-import { IProject } from "../../domain/project";
-import { IconButton } from "./IconButton";
-import { black, red } from "./style/colors";
+import {
+  MdArchive,
+  MdUnarchive,
+  MdDelete,
+  MdEdit,
+} from "react-icons/md/index.js";
+import defaultStyled from "styled-components";
+import { IProject } from "../../domain/project.js";
+import { IconButton } from "./IconButton.js";
+import { black, red } from "./style/colors.js";
+
+const styled = defaultImport(defaultStyled);
 
 const Container = styled.div`
   display: flex;

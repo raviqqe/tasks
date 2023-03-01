@@ -1,6 +1,9 @@
-import styled from "styled-components";
-import { boxShadow } from "./style";
-import { red, grey, white } from "./style/colors";
+import { defaultImport } from "default-import";
+import defaultStyled from "styled-components";
+import { red, grey, white } from "./style/colors.js";
+import { boxShadow } from "./style/index.js";
+
+const styled = defaultImport(defaultStyled);
 
 export const Button = styled.button<{ secondary?: boolean }>`
   ${boxShadow};

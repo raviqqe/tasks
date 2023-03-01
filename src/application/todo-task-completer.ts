@@ -1,7 +1,7 @@
-import { ITask } from "../domain/task";
-import { IDoneTaskPresenter } from "./done-task-presenter";
-import { IDoneTaskRepository } from "./done-task-repository";
-import { TodoTaskDeleter } from "./todo-task-deleter";
+import { ITask } from "../domain/task.js";
+import { IDoneTaskPresenter } from "./done-task-presenter.js";
+import { IDoneTaskRepository } from "./done-task-repository.js";
+import { TodoTaskDeleter } from "./todo-task-deleter.js";
 
 export class TodoTaskCompleter {
   constructor(

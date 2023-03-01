@@ -1,6 +1,6 @@
 import { beforeEach, expect, it } from "vitest";
-import { ProjectCreator } from "./project-creator";
-import { MockManager } from "./test/mock-manager";
+import { ProjectCreator } from "./project-creator.js";
+import { MockManager } from "./test/mock-manager.js";
 
 let mockManager: MockManager;
 let projectCreator: ProjectCreator;
