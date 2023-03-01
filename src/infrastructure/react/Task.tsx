@@ -2,11 +2,11 @@ import { DraggableSyntheticListeners } from "@dnd-kit/core";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md/index.js";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import { ITask } from "../../domain/task.js";
 import { IconButton } from "./IconButton.js";
-import { boxShadow } from "./style/index.js";
 import { white } from "./style/colors.js";
+import { boxShadow } from "./style/index.js";
 
 const maxZIndex = 10000;
 

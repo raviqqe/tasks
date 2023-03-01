@@ -1,5 +1,5 @@
 import { AriaAttributes, ReactNode } from "react";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import { grey } from "./style/colors.js";
 
 const Button = styled.div`

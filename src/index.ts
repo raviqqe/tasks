@@ -15,7 +15,7 @@ import { TodoTaskDeleter } from "./application/todo-task-deleter.js";
 import { TodoTaskLister } from "./application/todo-task-lister.js";
 import { TodoTaskReorderer } from "./application/todo-task-reorderer.js";
 import { TodoTaskUpdater } from "./application/todo-task-updater.js";
-import configuration from "./configuration.json.js";
+import configuration from "./configuration.json";
 import { AlertMessagePresenter } from "./infrastructure/alert-message-presenter.js";
 import { AuthenticationPresenter } from "./infrastructure/authentication-presenter.js";
 import { BuiltinConfirmationController } from "./infrastructure/builtin-confirmation-controller.js";
@@ -27,7 +27,7 @@ import { FirestoreProjectRepository } from "./infrastructure/firebase/firestore-
 import { FirestoreTodoTaskRepository } from "./infrastructure/firebase/firestore-todo-task-repository.js";
 import { LocalForageCurrentProjectRepository } from "./infrastructure/local-forage-current-project-repository.js";
 import { ProjectPresenter } from "./infrastructure/project-presenter.js";
-import { ReactRenderer } from "./infrastructure/react.js";
+import { ReactRenderer } from "./infrastructure/react/index.js";
 import { SentryErrorReporter } from "./infrastructure/sentry-error-reporter.js";
 import { TodoTaskPresenter } from "./infrastructure/todo-task-presenter.js";
 

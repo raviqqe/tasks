@@ -1,12 +1,15 @@
 import { useState, useRef, useEffect } from "react";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import { IProject } from "../../domain/project.js";
-import { CreateProject, IProps as ICreateProjectProps } from "./CreateProject.js";
+import {
+  CreateProject,
+  IProps as ICreateProjectProps,
+} from "./CreateProject.js";
 import { Loader } from "./Loader.js";
 import { Project, IProps as IProjectProps } from "./Project.js";
 import { ToggleProjects } from "./ToggleProjects.js";
-import { boxShadow } from "./style/index.js";
 import { grey, white, lightGrey } from "./style/colors.js";
+import { boxShadow } from "./style/index.js";
 
 const Container = styled.div`
   background-color: ${lightGrey};

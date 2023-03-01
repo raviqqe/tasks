@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAsync } from "react-use";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import { Home, IProps as IHomeProps } from "./Home.js";
 import { IProps as ILandingProps, Landing } from "./Landing.js";
 import { Loader } from "./Loader.js";

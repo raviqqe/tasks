@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAsync } from "react-use";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import {
   CreateTodoTask,
   IProps as ICreateTodoTaskProps,

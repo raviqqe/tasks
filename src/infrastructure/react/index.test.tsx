@@ -14,7 +14,7 @@ import { TodoTaskCompleter } from "../../application/todo-task-completer.js";
 import { TodoTaskCreator } from "../../application/todo-task-creator.js";
 import { TodoTaskReorderer } from "../../application/todo-task-reorderer.js";
 import { TodoTaskUpdater } from "../../application/todo-task-updater.js";
-import { ReactRenderer } from ".";
+import { ReactRenderer } from "./index.js";
 
 it("renders", () => {
   new ReactRenderer(

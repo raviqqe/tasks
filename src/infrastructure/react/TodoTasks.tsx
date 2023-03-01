@@ -10,7 +10,7 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import { ITask } from "../../domain/task.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
