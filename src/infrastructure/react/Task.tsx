@@ -3,10 +3,10 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md/index.js";
 import styled from "styled-components";
-import { ITask } from "../../domain/task";
-import { IconButton } from "./IconButton";
-import { boxShadow } from "./style";
-import { white } from "./style/colors";
+import { ITask } from "../../domain/task.js";
+import { IconButton } from "./IconButton.js";
+import { boxShadow } from "./style/index.js";
+import { white } from "./style/colors.js";
 
 const maxZIndex = 10000;
 

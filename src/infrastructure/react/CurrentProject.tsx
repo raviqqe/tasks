@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { IProject } from "../../domain/project";
-import { Loader } from "./Loader";
-import { white } from "./style/colors";
+import { IProject } from "../../domain/project.js";
+import { Loader } from "./Loader.js";
+import { white } from "./style/colors.js";
 
 const Container = styled.div`
   display: flex;

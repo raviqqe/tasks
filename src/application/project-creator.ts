@@ -1,4 +1,3 @@
-import UUID from "pure-uuid";
 import { formatErrorMessage } from "../domain/error.js";
 import { IProject, formatProject, validateProject } from "../domain/project.js";
 import { CurrentProjectSwitcher } from "./current-project-switcher.js";
@@ -17,7 +16,7 @@ export class ProjectCreator {
   public async create(name: string): Promise<void> {
     const project: IProject = formatProject({
       archived: false,
-      id: new UUID(4).format(),
+      id: window.crypto.randomUUID(),
       name,
     });
 

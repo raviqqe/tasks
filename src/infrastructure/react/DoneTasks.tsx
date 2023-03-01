@@ -1,8 +1,8 @@
 import InfiniteScroll, { Props } from "react-infinite-scroll-component";
 import styled from "styled-components";
-import { ITask } from "../../domain/task";
-import { Loader } from "./Loader";
-import { Task } from "./Task";
+import { ITask } from "../../domain/task.js";
+import { Loader } from "./Loader.js";
+import { Task } from "./Task.js";
 
 const doneTasksContainerId = "done-tasks-container";
 

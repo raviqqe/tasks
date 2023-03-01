@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { expect, it } from "vitest";
-import { CircleButton } from "./CircleButton";
+import { CircleButton } from "./CircleButton.js";
 
 it("renders", () => {
   expect(

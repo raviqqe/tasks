@@ -6,9 +6,9 @@ import {
   MdEdit,
 } from "react-icons/md/index.js";
 import styled from "styled-components";
-import { IProject } from "../../domain/project";
-import { IconButton } from "./IconButton";
-import { black, red } from "./style/colors";
+import { IProject } from "../../domain/project.js";
+import { IconButton } from "./IconButton.js";
+import { black, red } from "./style/colors.js";
 
 const Container = styled.div`
   display: flex;

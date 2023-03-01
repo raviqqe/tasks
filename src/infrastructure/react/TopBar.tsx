@@ -2,10 +2,10 @@ import styled from "styled-components";
 import {
   CurrentProject,
   IProps as ICurrentProjectProps,
-} from "./CurrentProject";
-import { SignOut, IProps as ISignOutProps } from "./SignOut";
-import { boxShadow } from "./style";
-import { red } from "./style/colors";
+} from "./CurrentProject.js";
+import { SignOut, IProps as ISignOutProps } from "./SignOut.js";
+import { boxShadow } from "./style/index.js";
+import { red } from "./style/colors.js";
 
 const Container = styled.div`
   ${boxShadow}

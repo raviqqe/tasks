@@ -1,5 +1,5 @@
 import { FaRegCheckSquare, FaRegSquare } from "react-icons/fa/index.js";
-import { CircleButton } from "./CircleButton";
+import { CircleButton } from "./CircleButton.js";
 
 interface IProps {
   setTasksDone: (done: boolean) => void;

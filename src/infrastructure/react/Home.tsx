@@ -4,11 +4,11 @@ import styled from "styled-components";
 import {
   CreateTodoTask,
   IProps as ICreateTodoTaskProps,
-} from "./CreateTodoTask";
-import { DoneTasks, IProps as IDoneTasksProps } from "./DoneTasks";
-import { TodoTasks, IProps as ITodoTasksProps } from "./TodoTasks";
-import { ToggleTasks } from "./ToggleTasks";
-import { TopBar, IProps as ITopBarProps } from "./TopBar";
+} from "./CreateTodoTask.js";
+import { DoneTasks, IProps as IDoneTasksProps } from "./DoneTasks.js";
+import { TodoTasks, IProps as ITodoTasksProps } from "./TodoTasks.js";
+import { ToggleTasks } from "./ToggleTasks.js";
+import { TopBar, IProps as ITopBarProps } from "./TopBar.js";
 
 const Container = styled.div`
   display: flex;

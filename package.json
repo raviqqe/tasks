@@ -17,14 +17,13 @@
     "firebase": "^9.17.1",
     "localforage": "^1.10.0",
     "lodash": "^4.17.21",
-    "pure-uuid": "^1.6.2",
     "react": "^18.1.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-infinite-scroll-component": "^6.1.0",
     "react-spinners": "^0.13.8",
     "react-use": "^17.4.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^6.0.0-beta.11"
   },
   "devDependencies": {
     "@raviqqe/eslint-config": "^1.0.22",

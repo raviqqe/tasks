@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button } from "./Button";
+import { Button } from "./Button.js";
 
 export const TextButton = styled(Button)`
   padding: 0.5em 1em;
