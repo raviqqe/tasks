@@ -1,9 +1,9 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { IProject } from "../../domain/project.js";
 import { Loader } from "./Loader.js";
 import { white } from "./style/colors.js";
 
-const Container = styled.div`
+const Container = styled.default.div`
   display: flex;
   align-items: center;
   color: ${white};

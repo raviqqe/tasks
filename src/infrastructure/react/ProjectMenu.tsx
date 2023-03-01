@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { IProject } from "../../domain/project.js";
 import {
   CreateProject,
@@ -11,7 +11,7 @@ import { ToggleProjects } from "./ToggleProjects.js";
 import { grey, white, lightGrey } from "./style/colors.js";
 import { boxShadow } from "./style/index.js";
 
-const Container = styled.div`
+const Container = styled.default.div`
   background-color: ${lightGrey};
   display: flex;
   flex-direction: column;
@@ -20,11 +20,11 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-const ScrollContainer = styled.div`
+const ScrollContainer = styled.default.div`
   overflow: auto;
 `;
 
-const ProjectsContainer = styled.div`
+const ProjectsContainer = styled.default.div`
   ${boxShadow}
   display: flex;
   flex-direction: column;
@@ -39,11 +39,11 @@ const ProjectsContainer = styled.div`
   }
 `;
 
-const Message = styled.div`
+const Message = styled.default.div`
   color: ${grey};
 `;
 
-const LowerButtonsContainer = styled.div`
+const LowerButtonsContainer = styled.default.div`
   position: fixed;
   right: 0.5rem;
   bottom: 0.5rem;
@@ -53,7 +53,7 @@ const LowerButtonsContainer = styled.div`
   }
 `;
 
-const StyledCreateProject = styled(CreateProject)<{
+const StyledCreateProject = styled.default(CreateProject)<{
   projectsArchived: boolean;
 }>`
   visibility: ${({ projectsArchived }) =>

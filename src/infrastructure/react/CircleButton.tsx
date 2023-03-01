@@ -1,7 +1,7 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { Button } from "./Button.js";
 
-export const CircleButton = styled(Button)`
+export const CircleButton = styled.default(Button)`
   font-size: 1.5em;
   padding: 0;
   height: 2em;
