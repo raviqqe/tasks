@@ -1,7 +1,7 @@
-import { IProject } from "../domain/project.js";
-import { CurrentProjectSwitcher } from "./current-project-switcher.js";
-import { IProjectPresenter } from "./project-presenter.js";
-import { IProjectRepository } from "./project-repository.js";
+import { type IProject } from "../domain/project.js";
+import { type CurrentProjectSwitcher } from "./current-project-switcher.js";
+import { type IProjectPresenter } from "./project-presenter.js";
+import { type IProjectRepository } from "./project-repository.js";
 
 export class ProjectUnarchiver {
   constructor(

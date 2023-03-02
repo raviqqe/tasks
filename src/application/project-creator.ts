@@ -1,9 +1,13 @@
 import { formatErrorMessage } from "../domain/error.js";
-import { IProject, formatProject, validateProject } from "../domain/project.js";
-import { CurrentProjectSwitcher } from "./current-project-switcher.js";
-import { IMessagePresenter } from "./message-presenter.js";
-import { IProjectPresenter } from "./project-presenter.js";
-import { IProjectRepository } from "./project-repository.js";
+import {
+  type IProject,
+  formatProject,
+  validateProject,
+} from "../domain/project.js";
+import { type CurrentProjectSwitcher } from "./current-project-switcher.js";
+import { type IMessagePresenter } from "./message-presenter.js";
+import { type IProjectPresenter } from "./project-presenter.js";
+import { type IProjectRepository } from "./project-repository.js";
 
 export class ProjectCreator {
   constructor(

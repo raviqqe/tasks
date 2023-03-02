@@ -1,4 +1,4 @@
-import { IProject } from "../domain/project.js";
+import { type IProject } from "../domain/project.js";
 
 export interface IProjectRepository {
   create(project: IProject): Promise<void>;

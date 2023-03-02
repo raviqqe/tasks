@@ -1,22 +1,22 @@
-import { FirebaseApp } from "firebase/app";
-import { Auth, getAuth } from "firebase/auth";
+import { type FirebaseApp } from "firebase/app";
+import { type Auth, getAuth } from "firebase/auth";
 import {
   collection,
-  CollectionReference,
+  type CollectionReference,
   doc,
-  Firestore,
+  type Firestore,
   getDocs,
   getFirestore,
   limit,
   orderBy,
   query,
-  Query,
+  type Query,
   setDoc,
   startAfter,
 } from "firebase/firestore";
 import { last } from "lodash";
-import { IDoneTaskRepository } from "../../application/done-task-repository.js";
-import { ITask } from "../../domain/task.js";
+import { type IDoneTaskRepository } from "../../application/done-task-repository.js";
+import { type ITask } from "../../domain/task.js";
 
 interface ITimestampedTask extends ITask {
   createdAt: number;

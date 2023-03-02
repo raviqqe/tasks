@@ -1,6 +1,6 @@
-import { IProjectPresenter } from "../application/project-presenter.js";
-import { sortProjects, IProject } from "../domain/project.js";
-import { IRenderer } from "./renderer.js";
+import { type IProjectPresenter } from "../application/project-presenter.js";
+import { sortProjects, type IProject } from "../domain/project.js";
+import { type IRenderer } from "./renderer.js";
 
 export class ProjectPresenter implements IProjectPresenter {
   private renderer: IRenderer | null = null;

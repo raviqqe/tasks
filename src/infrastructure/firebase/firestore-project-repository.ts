@@ -1,11 +1,11 @@
-import { FirebaseApp } from "firebase/app";
-import { Auth, getAuth } from "firebase/auth";
+import { type FirebaseApp } from "firebase/app";
+import { type Auth, getAuth } from "firebase/auth";
 import {
   collection,
-  CollectionReference,
+  type CollectionReference,
   deleteDoc,
   doc,
-  Firestore,
+  type Firestore,
   getDocs,
   getFirestore,
   query,
@@ -13,8 +13,8 @@ import {
   updateDoc,
   where,
 } from "firebase/firestore";
-import { IProjectRepository } from "../../application/project-repository.js";
-import { IProject } from "../../domain/project.js";
+import { type IProjectRepository } from "../../application/project-repository.js";
+import { type IProject } from "../../domain/project.js";
 
 export class FirestoreProjectRepository implements IProjectRepository {
   private readonly auth: Auth;

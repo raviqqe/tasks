@@ -1,13 +1,13 @@
 import { defaultImport } from "default-import";
 import { useState, useRef, useEffect } from "react";
 import defaultStyled from "styled-components";
-import { IProject } from "../../domain/project.js";
+import { type IProject } from "../../domain/project.js";
 import {
   CreateProject,
-  IProps as ICreateProjectProps,
+  type IProps as ICreateProjectProps,
 } from "./CreateProject.js";
 import { Loader } from "./Loader.js";
-import { Project, IProps as IProjectProps } from "./Project.js";
+import { Project, type IProps as IProjectProps } from "./Project.js";
 import { ToggleProjects } from "./ToggleProjects.js";
 import { grey, white, lightGrey } from "./style/colors.js";
 import { boxShadow } from "./style/index.js";

@@ -1,21 +1,21 @@
-import { Mocked, vi } from "vitest";
-import { IAuthenticationController } from "../authentication-controller.js";
-import { IAuthenticationPresenter } from "../authentication-presenter.js";
-import { IConfirmationController } from "../confirmation-controller.js";
-import { CurrentProjectInitializer } from "../current-project-initializer.js";
-import { ICurrentProjectRepository } from "../current-project-repository.js";
-import { CurrentProjectSwitcher } from "../current-project-switcher.js";
-import { DoneTaskLister } from "../done-task-lister.js";
-import { IDoneTaskPresenter } from "../done-task-presenter.js";
-import { IDoneTaskRepository } from "../done-task-repository.js";
-import { IMessagePresenter } from "../message-presenter.js";
-import { ProjectCreator } from "../project-creator.js";
-import { IProjectPresenter } from "../project-presenter.js";
-import { IProjectRepository } from "../project-repository.js";
-import { TodoTaskDeleter } from "../todo-task-deleter.js";
-import { TodoTaskLister } from "../todo-task-lister.js";
-import { ITodoTaskPresenter } from "../todo-task-presenter.js";
-import { ITodoTaskRepository } from "../todo-task-repository.js";
+import { type Mocked, vi } from "vitest";
+import { type IAuthenticationController } from "../authentication-controller.js";
+import { type IAuthenticationPresenter } from "../authentication-presenter.js";
+import { type IConfirmationController } from "../confirmation-controller.js";
+import { type CurrentProjectInitializer } from "../current-project-initializer.js";
+import { type ICurrentProjectRepository } from "../current-project-repository.js";
+import { type CurrentProjectSwitcher } from "../current-project-switcher.js";
+import { type DoneTaskLister } from "../done-task-lister.js";
+import { type IDoneTaskPresenter } from "../done-task-presenter.js";
+import { type IDoneTaskRepository } from "../done-task-repository.js";
+import { type IMessagePresenter } from "../message-presenter.js";
+import { type ProjectCreator } from "../project-creator.js";
+import { type IProjectPresenter } from "../project-presenter.js";
+import { type IProjectRepository } from "../project-repository.js";
+import { type TodoTaskDeleter } from "../todo-task-deleter.js";
+import { type TodoTaskLister } from "../todo-task-lister.js";
+import { type ITodoTaskPresenter } from "../todo-task-presenter.js";
+import { type ITodoTaskRepository } from "../todo-task-repository.js";
 
 export class MockManager {
   public authenticationController: Mocked<IAuthenticationController> = {

@@ -1,11 +1,11 @@
-import { FirebaseApp } from "firebase/app";
+import { type FirebaseApp } from "firebase/app";
 import {
-  Auth,
+  type Auth,
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { IAuthenticationController } from "../../application/authentication-controller.js";
+import { type IAuthenticationController } from "../../application/authentication-controller.js";
 import { sleep } from "../../domain/utilities.js";
 
 export class FirebaseAuthenticationController

@@ -1,4 +1,8 @@
-import { FirebaseApp, FirebaseOptions, initializeApp } from "firebase/app";
+import {
+  type FirebaseApp,
+  type FirebaseOptions,
+  initializeApp,
+} from "firebase/app";
 import {
   enableMultiTabIndexedDbPersistence,
   getFirestore,

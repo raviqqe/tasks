@@ -1,6 +1,11 @@
-import { act, render, RenderResult, waitFor } from "@testing-library/react";
+import {
+  act,
+  render,
+  type RenderResult,
+  waitFor,
+} from "@testing-library/react";
 import { beforeEach, expect, it, vi } from "vitest";
-import { App, IProps } from "./App.js";
+import { App, type IProps } from "./App.js";
 
 const initialize = vi.fn();
 

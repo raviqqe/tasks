@@ -1,6 +1,6 @@
-import { ITodoTaskPresenter } from "../application/todo-task-presenter.js";
-import { ITask } from "../domain/task.js";
-import { IRenderer } from "./renderer.js";
+import { type ITodoTaskPresenter } from "../application/todo-task-presenter.js";
+import { type ITask } from "../domain/task.js";
+import { type IRenderer } from "./renderer.js";
 
 export class TodoTaskPresenter implements ITodoTaskPresenter {
   private renderer: IRenderer | null = null;
