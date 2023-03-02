@@ -3,7 +3,7 @@
 exports[`renders 1`] = `
 <button
   aria-label="Toggle Tasks"
-  class="sc-bcXHqe sc-gswNZR hzLSTn gWKlTj"
+  class="sc-beySbM sc-guDLRT fBtkQq cHSgNE"
 >
   <svg
     fill="currentColor"
