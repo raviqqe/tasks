@@ -1,6 +1,6 @@
-import { IDoneTaskPresenter } from "../application/done-task-presenter.js";
-import { ITask } from "../domain/task.js";
-import { IRenderer } from "./renderer.js";
+import { type IDoneTaskPresenter } from "../application/done-task-presenter.js";
+import { type ITask } from "../domain/task.js";
+import { type IRenderer } from "./renderer.js";
 
 export class DoneTaskPresenter implements IDoneTaskPresenter {
   private renderer: IRenderer | null = null;

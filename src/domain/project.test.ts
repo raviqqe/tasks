@@ -3,7 +3,7 @@ import {
   formatProject,
   validateProject,
   sortProjects,
-  IProject,
+  type IProject,
   getFirstProject,
 } from "./project.js";
 

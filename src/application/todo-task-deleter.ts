@@ -1,5 +1,5 @@
-import { ITodoTaskPresenter } from "./todo-task-presenter.js";
-import { ITodoTaskRepository } from "./todo-task-repository.js";
+import { type ITodoTaskPresenter } from "./todo-task-presenter.js";
+import { type ITodoTaskRepository } from "./todo-task-repository.js";
 
 export class TodoTaskDeleter {
   constructor(

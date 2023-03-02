@@ -1,5 +1,5 @@
 import { beforeEach, expect, it } from "vitest";
-import { IProject } from "../domain/project.js";
+import { type IProject } from "../domain/project.js";
 import { CurrentProjectSwitcher } from "./current-project-switcher.js";
 import { MockManager } from "./test/mock-manager.js";
 

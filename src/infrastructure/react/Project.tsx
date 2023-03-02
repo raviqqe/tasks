@@ -1,5 +1,5 @@
 import { defaultImport } from "default-import";
-import { forwardRef, Ref } from "react";
+import { forwardRef, type Ref } from "react";
 import {
   MdArchive,
   MdUnarchive,
@@ -7,7 +7,7 @@ import {
   MdEdit,
 } from "react-icons/md/index.js";
 import defaultStyled from "styled-components";
-import { IProject } from "../../domain/project.js";
+import { type IProject } from "../../domain/project.js";
 import { IconButton } from "./IconButton.js";
 import { black, red } from "./style/colors.js";
 

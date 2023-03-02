@@ -1,10 +1,10 @@
-import { DraggableSyntheticListeners } from "@dnd-kit/core";
+import { type DraggableSyntheticListeners } from "@dnd-kit/core";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { defaultImport } from "default-import";
 import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md/index.js";
 import defaultStyled from "styled-components";
-import { ITask } from "../../domain/task.js";
+import { type ITask } from "../../domain/task.js";
 import { IconButton } from "./IconButton.js";
 import { white } from "./style/colors.js";
 import { boxShadow } from "./style/index.js";

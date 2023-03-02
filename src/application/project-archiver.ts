@@ -1,10 +1,10 @@
 import { formatErrorMessage } from "../domain/error.js";
-import { IProject, getFirstProject } from "../domain/project.js";
-import { IConfirmationController } from "./confirmation-controller.js";
-import { CurrentProjectSwitcher } from "./current-project-switcher.js";
-import { IMessagePresenter } from "./message-presenter.js";
-import { IProjectPresenter } from "./project-presenter.js";
-import { IProjectRepository } from "./project-repository.js";
+import { type IProject, getFirstProject } from "../domain/project.js";
+import { type IConfirmationController } from "./confirmation-controller.js";
+import { type CurrentProjectSwitcher } from "./current-project-switcher.js";
+import { type IMessagePresenter } from "./message-presenter.js";
+import { type IProjectPresenter } from "./project-presenter.js";
+import { type IProjectRepository } from "./project-repository.js";
 
 export class ProjectArchiver {
   constructor(

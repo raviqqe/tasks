@@ -4,12 +4,12 @@ import { useAsync } from "react-use";
 import defaultStyled from "styled-components";
 import {
   CreateTodoTask,
-  IProps as ICreateTodoTaskProps,
+  type IProps as ICreateTodoTaskProps,
 } from "./CreateTodoTask.js";
-import { DoneTasks, IProps as IDoneTasksProps } from "./DoneTasks.js";
-import { TodoTasks, IProps as ITodoTasksProps } from "./TodoTasks.js";
+import { DoneTasks, type IProps as IDoneTasksProps } from "./DoneTasks.js";
+import { TodoTasks, type IProps as ITodoTasksProps } from "./TodoTasks.js";
 import { ToggleTasks } from "./ToggleTasks.js";
-import { TopBar, IProps as ITopBarProps } from "./TopBar.js";
+import { TopBar, type IProps as ITopBarProps } from "./TopBar.js";
 
 const styled = defaultImport(defaultStyled);
 

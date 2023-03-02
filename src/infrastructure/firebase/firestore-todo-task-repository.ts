@@ -1,20 +1,20 @@
-import { FirebaseApp } from "firebase/app";
-import { Auth, getAuth } from "firebase/auth";
+import { type FirebaseApp } from "firebase/app";
+import { type Auth, getAuth } from "firebase/auth";
 import {
   collection,
-  CollectionReference,
+  type CollectionReference,
   doc,
-  DocumentReference,
-  Firestore,
+  type DocumentReference,
+  type Firestore,
   getDocs,
   getFirestore,
   runTransaction,
-  Transaction,
+  type Transaction,
   updateDoc,
 } from "firebase/firestore";
 import { compact, isEqual } from "lodash";
-import { ITodoTaskRepository } from "../../application/todo-task-repository.js";
-import { ITask } from "../../domain/task.js";
+import { type ITodoTaskRepository } from "../../application/todo-task-repository.js";
+import { type ITask } from "../../domain/task.js";
 
 interface IOrderDocument {
   order: string[];

@@ -1,10 +1,10 @@
-import { IProject } from "../domain/project.js";
-import { ICurrentProjectRepository } from "./current-project-repository.js";
-import { DoneTaskLister } from "./done-task-lister.js";
-import { IDoneTaskPresenter } from "./done-task-presenter.js";
-import { IProjectPresenter } from "./project-presenter.js";
-import { TodoTaskLister } from "./todo-task-lister.js";
-import { ITodoTaskPresenter } from "./todo-task-presenter.js";
+import { type IProject } from "../domain/project.js";
+import { type ICurrentProjectRepository } from "./current-project-repository.js";
+import { type DoneTaskLister } from "./done-task-lister.js";
+import { type IDoneTaskPresenter } from "./done-task-presenter.js";
+import { type IProjectPresenter } from "./project-presenter.js";
+import { type TodoTaskLister } from "./todo-task-lister.js";
+import { type ITodoTaskPresenter } from "./todo-task-presenter.js";
 
 export class CurrentProjectSwitcher {
   constructor(
