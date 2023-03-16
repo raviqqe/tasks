@@ -3,7 +3,7 @@
 exports[`renders with projects archived 1`] = `
 <button
   aria-label="Toggle Projects"
-  class="sc-beySbM sc-guDLRT fBtkQq cHSgNE"
+  class="sc-beqWaB sc-gueYoa cbxFOP ePjPqh"
 >
   <svg
     fill="currentColor"
@@ -28,7 +28,7 @@ exports[`renders with projects archived 1`] = `
 exports[`renders with projects unarchived 1`] = `
 <button
   aria-label="Toggle Projects"
-  class="sc-beySbM sc-guDLRT fBtkQq cHSgNE"
+  class="sc-beqWaB sc-gueYoa cbxFOP ePjPqh"
 >
   <svg
     fill="currentColor"
