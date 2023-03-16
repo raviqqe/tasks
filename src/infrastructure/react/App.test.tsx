@@ -61,7 +61,7 @@ it("renders after a user signs in", async () => {
         {...props}
         currentProject={{ archived: false, id: "", name: "" }}
         projects={[]}
-        signedIn={true}
+        signedIn
       />
     );
   });

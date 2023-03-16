@@ -49,7 +49,7 @@ export const DoneTasks = ({
     <Container id={doneTasksContainerId}>
       <StyledInfiniteScroll
         dataLength={doneTasks.length}
-        hasMore={true}
+        hasMore
         loader={null}
         next={listMoreDoneTasks}
         scrollableTarget={doneTasksContainerId}

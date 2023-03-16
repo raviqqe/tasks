@@ -82,7 +82,7 @@ export const TodoTasks = ({
             {todoTasks.map((task) => (
               <Task
                 completeTask={completeTodoTask}
-                dragHandleEnabled={true}
+                dragHandleEnabled
                 key={task.id}
                 task={task}
                 updateTask={updateTodoTask}
