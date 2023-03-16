@@ -8,6 +8,6 @@ it("renders", () => {
 
 it("renders as a secondary button", () => {
   expect(
-    render(<Button secondary={true}>foo</Button>).container.firstChild
+    render(<Button secondary>foo</Button>).container.firstChild
   ).toMatchSnapshot();
 });

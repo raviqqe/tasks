@@ -13,7 +13,7 @@ export const ToggleTasks = ({
   <CircleButton
     aria-label="Toggle Tasks"
     onClick={() => setTasksDone(!tasksDone)}
-    secondary={true}
+    secondary
   >
     {tasksDone ? <FaRegCheckSquare /> : <FaRegSquare />}
   </CircleButton>

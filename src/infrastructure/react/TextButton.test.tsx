@@ -10,6 +10,6 @@ it("renders", () => {
 
 it("renders as a secondary button", () => {
   expect(
-    render(<TextButton secondary={true}>foo</TextButton>).container.firstChild
+    render(<TextButton secondary>foo</TextButton>).container.firstChild
   ).toMatchSnapshot();
 });

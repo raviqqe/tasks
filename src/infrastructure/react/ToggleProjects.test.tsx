@@ -12,9 +12,8 @@ it("renders with projects unarchived", () => {
 
 it("renders with projects archived", () => {
   expect(
-    render(
-      <ToggleProjects projectsArchived={true} setProjectsArchived={() => {}} />
-    ).container.firstChild
+    render(<ToggleProjects projectsArchived setProjectsArchived={() => {}} />)
+      .container.firstChild
   ).toMatchSnapshot();
 });
 

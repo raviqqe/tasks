@@ -10,7 +10,6 @@ it("renders", () => {
 
 it("renders as a secondary button", () => {
   expect(
-    render(<CircleButton secondary={true}>foo</CircleButton>).container
-      .firstChild
+    render(<CircleButton secondary>foo</CircleButton>).container.firstChild
   ).toMatchSnapshot();
 });
