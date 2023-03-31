@@ -38,7 +38,7 @@
     "@vitest/coverage-c8": "^0.29.8",
     "firebase-tools": "^11.25.2",
     "jsdom": "^21.1.1",
-    "typescript": "^5.0.2",
+    "typescript": "^5.0.3",
     "vite": "^4.2.1",
     "vite-plugin-pwa": "^0.14.7",
     "vitest": "^0.29.8"
