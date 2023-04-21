@@ -15,7 +15,7 @@ import defaultStyled from "styled-components";
 import { type ITask } from "../../domain/task.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
-import { buttonMargin } from "./style/index.js";
+import { buttonMargin } from "./style.js";
 
 const styled = defaultImport(defaultStyled);
 
