@@ -17,9 +17,9 @@ import { type TodoTaskReorderer } from "../application/todo-task-reorderer.js";
 import { type TodoTaskUpdater } from "../application/todo-task-updater.js";
 import { type IProject } from "../domain/project.js";
 import { type ITask } from "../domain/task.js";
-import { type IRenderer } from "./renderer.js";
 import { App, type IProps as IAppProps } from "./react/App.js";
 import { GlobalStyle } from "./react/style.js";
+import { type IRenderer } from "./renderer.js";
 
 interface IPresenter {
   setRenderer(renderer: IRenderer): void;
