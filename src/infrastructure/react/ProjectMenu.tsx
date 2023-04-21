@@ -10,7 +10,7 @@ import { Loader } from "./Loader.js";
 import { Project, type IProps as IProjectProps } from "./Project.js";
 import { ToggleProjects } from "./ToggleProjects.js";
 import { grey, white, lightGrey } from "./style/colors.js";
-import { boxShadow } from "./style/index.js";
+import { boxShadow } from "./style.js";
 
 const styled = defaultImport(defaultStyled);
 

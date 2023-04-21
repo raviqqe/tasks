@@ -7,7 +7,7 @@ import defaultStyled from "styled-components";
 import { type ITask } from "../../domain/task.js";
 import { IconButton } from "./IconButton.js";
 import { white } from "./style/colors.js";
-import { boxShadow } from "./style/index.js";
+import { boxShadow } from "./style.js";
 
 const styled = defaultImport(defaultStyled);
 

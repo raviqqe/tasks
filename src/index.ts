@@ -27,7 +27,7 @@ import { FirestoreProjectRepository } from "./infrastructure/firebase/firestore-
 import { FirestoreTodoTaskRepository } from "./infrastructure/firebase/firestore-todo-task-repository.js";
 import { LocalForageCurrentProjectRepository } from "./infrastructure/local-forage-current-project-repository.js";
 import { ProjectPresenter } from "./infrastructure/project-presenter.js";
-import { ReactRenderer } from "./infrastructure/react/index.js";
+import { ReactRenderer } from "./infrastructure/react.js";
 import { SentryErrorReporter } from "./infrastructure/sentry-error-reporter.js";
 import { TodoTaskPresenter } from "./infrastructure/todo-task-presenter.js";
 
