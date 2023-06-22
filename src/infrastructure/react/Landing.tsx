@@ -1,5 +1,5 @@
 import { defaultImport } from "default-import";
-import { GoMarkGithub } from "react-icons/go/index.js";
+import { FaGithub } from "react-icons/fa/index.js";
 import defaultStyled from "styled-components";
 import { SignIn } from "./SignIn.js";
 import { black, red, white } from "./style/colors.js";
@@ -58,7 +58,7 @@ export const Landing = ({ repositoryUrl, signIn }: IProps): JSX.Element => (
     </Title>
     <SignIn signIn={signIn} />
     <GitHubLink href={repositoryUrl} target="_blank">
-      <GoMarkGithub />
+      <FaGithub />
     </GitHubLink>
   </Container>
 );
