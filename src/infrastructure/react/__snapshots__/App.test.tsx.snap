@@ -3,19 +3,19 @@
 exports[`renders after a user signs in 1`] = `
 <div>
   <div
-    class="sc-fnVZwJ hOGRc"
+    class="sc-fodWlo bCXzNd"
   >
     <div
-      class="sc-ksltBz linMGw"
+      class="sc-kstqqe gfcCDI"
     >
       <div
-        class="sc-dItnZ tsInm"
+        class="sc-dQqcE bVAGxY"
       />
       <div
-        class="sc-hBMVQs cTkNLa"
+        class="sc-hBEZbN iTpJXB"
       >
         <div
-          class="sc-dlnjcy iKdQUR sc-bqGGwm gxFRbB"
+          class="sc-dlfmnT hPdGfj sc-bqyJHH bPMQcp"
         >
           <svg
             fill="currentColor"
@@ -38,10 +38,10 @@ exports[`renders after a user signs in 1`] = `
       </div>
     </div>
     <div
-      class="sc-fFSQqb ivTQzp"
+      class="sc-fFuate gEeksU"
     >
       <div
-        class="sc-iqAbeH AgLxC"
+        class="sc-iqHXTm dqglLQ"
       >
         <span
           style="display: inherit;"
@@ -59,11 +59,11 @@ exports[`renders after a user signs in 1`] = `
       </div>
     </div>
     <div
-      class="sc-bkbiMO cTOQvX"
+      class="sc-bkzYJL hjnLsa"
     >
       <button
         aria-label="Toggle Tasks"
-        class="sc-bdnyYQ sc-gtsseb leWrYK iTnRyk"
+        class="sc-bdfCkl sc-gsTChe uHSCq huZGjn"
       >
         <svg
           fill="currentColor"
@@ -81,7 +81,7 @@ exports[`renders after a user signs in 1`] = `
       </button>
       <button
         aria-label="Create"
-        class="sc-bdnyYQ sc-gtsseb cTuWZN iTnRyk sc-iemYzV bdFgUB"
+        class="sc-bdfCkl sc-gsTChe gxvAEN huZGjn sc-idOiCY jDrbJl"
       >
         <svg
           fill="currentColor"
@@ -109,29 +109,29 @@ exports[`renders after a user signs in 1`] = `
 exports[`renders after a user signs out 1`] = `
 <div>
   <div
-    class="sc-hHEiMT dzctLM"
+    class="sc-hHfsPW dRgcxq"
   >
     <div
-      class="sc-dlMBjG kxaSeo"
+      class="sc-dmlrgD doFHYP"
     >
       <span
-        class="sc-kfYqWN btYhSP"
+        class="sc-kfzAZQ juKnvv"
       >
         Be
       </span>
       <span
-        class="sc-fKgJtA ivSwfn"
+        class="sc-fKFzqx gYKlqn"
       >
         Done
       </span>
     </div>
     <button
-      class="sc-bdnyYQ sc-dIvqWI cTuWZN tBDrW"
+      class="sc-bdfCkl sc-dIUgTF gxvAEN kDGVRa"
     >
       Sign in
     </button>
     <a
-      class="sc-bCwfwH hUamlh"
+      class="sc-bBXpzK cUlgQm"
       href=""
       target="_blank"
     >
@@ -156,7 +156,7 @@ exports[`renders after a user signs out 1`] = `
 exports[`renders before a user signs in 1`] = `
 <div>
   <div
-    class="sc-jJMFUa bDdwDt"
+    class="sc-jJEJfv hlmRHY"
   >
     <span
       style="display: inherit;"
