@@ -2,30 +2,30 @@
 
 exports[`renders 1`] = `
 <div
-  class="sc-jSFjzr jEYRLr"
+  class="sc-jSgtCu bSnDef"
 >
   <div
-    class="sc-iCoIIZ gleoSx"
+    class="sc-iBPSMc iRBDNd"
   >
     <div
       aria-describedby="DndDescribedBy-0"
       aria-disabled="false"
       aria-roledescription="sortable"
-      class="sc-gtsseb eSNEJA"
+      class="sc-gsTChe cBVhPP"
       role="button"
       tabindex="0"
     >
       <div
-        class="sc-dlnjcy gXGndl"
+        class="sc-dlfmnT ghrkKP"
       >
         name
       </div>
       <div
-        class="sc-hKFzvJ gPcNym"
+        class="sc-hKgJyM eAuaye"
       >
         <div
           aria-label="Done"
-          class="sc-bdnyYQ dmdheS"
+          class="sc-bdfCkl bBHKVK"
         >
           <svg
             fill="currentColor"
@@ -47,7 +47,7 @@ exports[`renders 1`] = `
         </div>
         <div
           aria-label="Edit"
-          class="sc-bdnyYQ dmdheS"
+          class="sc-bdfCkl bBHKVK"
         >
           <svg
             fill="currentColor"
@@ -68,7 +68,7 @@ exports[`renders 1`] = `
           </svg>
         </div>
         <div
-          class="sc-bdnyYQ dmdheS sc-eCAqug cGuUeh"
+          class="sc-bdfCkl bBHKVK sc-eCstFB iNqLqh"
         >
           <svg
             fill="currentColor"
@@ -96,17 +96,17 @@ exports[`renders 1`] = `
 
 exports[`renders with no tasks 1`] = `
 <div
-  class="sc-jSFjzr jEYRLr"
+  class="sc-jSgtCu bSnDef"
 >
   <div
-    class="sc-iCoIIZ gleoSx"
+    class="sc-iBPSMc iRBDNd"
   />
 </div>
 `;
 
 exports[`renders with tasks not loaded yet 1`] = `
 <div
-  class="sc-gKAaxO eSBaIT"
+  class="sc-gKsdJj kaQToS"
 >
   <span
     style="display: inherit;"
