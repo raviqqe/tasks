@@ -95,7 +95,7 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
   }
 
   public async update(projectId: string, task: ITask): Promise<void> {
-    await updateDoc(doc(this.tasks(projectId), task.id), task);
+    await updateDoc(doc(this.tasks(projectId), task.id), { ...task });
   }
 
   private async getOrder(

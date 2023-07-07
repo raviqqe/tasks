@@ -46,7 +46,7 @@ export class FirestoreProjectRepository implements IProjectRepository {
   }
 
   public async update(project: IProject): Promise<void> {
-    await updateDoc(doc(this.collection(), project.id), project);
+    await updateDoc(doc(this.collection(), project.id), { ...project });
   }
 
   private collection(): CollectionReference<IProject> {
