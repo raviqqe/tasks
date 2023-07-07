@@ -15,7 +15,7 @@
     "@dnd-kit/sortable": "^7.0.2",
     "@sentry/browser": "^7.57.0",
     "default-import": "^1.1.5",
-    "firebase": "^9.23.0",
+    "firebase": "^10.0.0",
     "localforage": "^1.10.0",
     "lodash": "^4.17.21",
     "react": "^18.1.0",
