@@ -2,13 +2,13 @@
 
 exports[`renders 1`] = `
 <div
-  class="sc-gsDKeI dUSyKz"
+  class="sc-gsMHZj ioIHvK"
 >
   <div
-    class="sc-dkPulx fRpXOh"
+    class="sc-dkHyXG kAiBBJ"
   />
   <div
-    class="sc-hKwBBi hGhkCr"
+    class="sc-hLljAB eiwMuk"
   />
 </div>
 `;
