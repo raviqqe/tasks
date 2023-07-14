@@ -14,7 +14,7 @@ export class ProjectCreator {
     private readonly currentProjectSwitcher: CurrentProjectSwitcher,
     private readonly projectRepository: IProjectRepository,
     private readonly projectPresenter: IProjectPresenter,
-    private readonly messagePresenter: IMessagePresenter
+    private readonly messagePresenter: IMessagePresenter,
   ) {}
 
   public async create(name: string): Promise<void> {

@@ -12,7 +12,7 @@ export class ProjectUpdater {
   constructor(
     private readonly projectRepository: IProjectRepository,
     private readonly projectPresenter: IProjectPresenter,
-    private readonly messagePresenter: IMessagePresenter
+    private readonly messagePresenter: IMessagePresenter,
   ) {}
 
   public async update(project: IProject): Promise<void> {

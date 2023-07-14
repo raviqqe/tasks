@@ -8,7 +8,7 @@ it("renders", () => {
       <CurrentProject
         currentProject={{ archived: false, id: "", name: "" }}
         showProjects={() => {}}
-      />
-    ).container.firstChild
+      />,
+    ).container.firstChild,
   ).toMatchSnapshot();
 });

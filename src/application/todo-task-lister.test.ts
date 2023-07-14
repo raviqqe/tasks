@@ -12,7 +12,7 @@ beforeEach(() => {
   mockManager = new MockManager();
   taskLister = new TodoTaskLister(
     mockManager.todoTaskRepository,
-    mockManager.todoTaskPresenter
+    mockManager.todoTaskPresenter,
   );
 });
 

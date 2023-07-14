@@ -8,7 +8,7 @@ export class TodoTaskCreator {
   constructor(
     private readonly todoTaskRepository: ITodoTaskRepository,
     private readonly todoTaskPresenter: ITodoTaskPresenter,
-    private readonly messagePresenter: IMessagePresenter
+    private readonly messagePresenter: IMessagePresenter,
   ) {}
 
   public async create(projectId: string, name: string): Promise<void> {

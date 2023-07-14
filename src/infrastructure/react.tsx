@@ -65,7 +65,7 @@ export class ReactRenderer implements IRenderer {
     private readonly currentProjectSwitcher: CurrentProjectSwitcher,
     private readonly signInManager: SignInManager,
     private readonly signOutManager: SignOutManager,
-    private readonly repositoryUrl: string
+    private readonly repositoryUrl: string,
   ) {
     for (const presenter of presenters) {
       presenter.setRenderer(this);
@@ -153,7 +153,7 @@ export class ReactRenderer implements IRenderer {
           }}
         />
         <GlobalStyle />
-      </StrictMode>
+      </StrictMode>,
     );
   }
 }

@@ -6,13 +6,13 @@ it("signs in", async () => {
   const mockManager = new MockManager();
   const signInManager = new SignInManager(
     mockManager.authenticationController,
-    mockManager.authenticationPresenter
+    mockManager.authenticationPresenter,
   );
 
   await signInManager.signIn();
 
   expect(mockManager.authenticationController.signIn).toHaveBeenCalledOnce();
   expect(
-    mockManager.authenticationPresenter.presentSignedIn
+    mockManager.authenticationPresenter.presentSignedIn,
   ).toHaveBeenCalledOnce();
 });

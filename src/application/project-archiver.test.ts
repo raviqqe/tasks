@@ -14,7 +14,7 @@ beforeEach(() => {
     mockManager.projectRepository,
     mockManager.projectPresenter,
     mockManager.messagePresenter,
-    mockManager.confirmationController
+    mockManager.confirmationController,
   );
 });
 
@@ -33,13 +33,13 @@ it("archives a project", async () => {
     [{ ...projectToArchive, archived: true }],
   ]);
   expect(
-    mockManager.projectPresenter.presentArchivedProject.mock.calls
+    mockManager.projectPresenter.presentArchivedProject.mock.calls,
   ).toEqual([[{ ...projectToArchive, archived: true }]]);
 });
 
 it("does not archive any project archived already", async () => {
   await expect(
-    projectArchiver.archive({ archived: true, id: "", name: "" }, "")
+    projectArchiver.archive({ archived: true, id: "", name: "" }, ""),
   ).rejects.toThrow();
 });
 

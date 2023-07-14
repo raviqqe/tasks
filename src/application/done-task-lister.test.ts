@@ -13,7 +13,7 @@ beforeEach(() => {
   mockManager.doneTaskRepository.list.mockImplementation(async function* () {});
   doneTaskLister = new DoneTaskLister(
     mockManager.doneTaskRepository,
-    mockManager.doneTaskPresenter
+    mockManager.doneTaskPresenter,
   );
 });
 
@@ -54,7 +54,7 @@ it("lists no more tasks", async () => {
   await doneTaskLister.listMore();
 
   expect(mockManager.doneTaskPresenter.presentMoreTasks).toHaveBeenCalledTimes(
-    0
+    0,
   );
 });
 

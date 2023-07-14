@@ -62,7 +62,7 @@ it("renders after a user signs in", async () => {
         currentProject={{ archived: false, id: "", name: "" }}
         projects={[]}
         signedIn
-      />
+      />,
     );
   });
 

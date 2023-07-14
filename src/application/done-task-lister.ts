@@ -9,7 +9,7 @@ export class DoneTaskLister {
 
   constructor(
     private readonly doneTaskRepository: IDoneTaskRepository,
-    private readonly doneTaskPresenter: IDoneTaskPresenter
+    private readonly doneTaskPresenter: IDoneTaskPresenter,
   ) {}
 
   public async list(projectId: string): Promise<void> {
@@ -17,7 +17,7 @@ export class DoneTaskLister {
       .list(projectId, defaultLimit)
       [Symbol.asyncIterator]();
     this.doneTaskPresenter.presentTasks(
-      (await this.iterator.next()).value || []
+      (await this.iterator.next()).value || [],
     );
   }
 

@@ -14,7 +14,7 @@ beforeEach(() => {
     mockManager.currentProjectSwitcher,
     mockManager.projectRepository,
     mockManager.projectPresenter,
-    mockManager.messagePresenter
+    mockManager.messagePresenter,
   );
 });
 
@@ -38,7 +38,7 @@ it("creates and persists a project", async () => {
 it("formats a project before creation", async () => {
   await projectCreator.create("\tfoo ");
   expect(mockManager.projectRepository.create.mock.calls[0]?.[0].name).toBe(
-    "foo"
+    "foo",
   );
 });
 

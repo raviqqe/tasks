@@ -38,7 +38,7 @@ describe("sortProjects", () => {
       sortProjects([
         { ...dummyProject, name: "B" },
         { ...dummyProject, name: "a" },
-      ])
+      ]),
     ).toEqual([
       { ...dummyProject, name: "a" },
       { ...dummyProject, name: "B" },
@@ -52,7 +52,7 @@ describe("getFirstProject", () => {
       getFirstProject([
         { ...dummyProject, name: "B" },
         { ...dummyProject, name: "a" },
-      ])
+      ]),
     ).toEqual({ ...dummyProject, name: "a" });
   });
 

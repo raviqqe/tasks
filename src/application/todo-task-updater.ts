@@ -9,7 +9,7 @@ export class TodoTaskUpdater {
     private readonly todoTaskDeleter: TodoTaskDeleter,
     private readonly todoTaskRepository: ITodoTaskRepository,
     private readonly todoTaskPresenter: ITodoTaskPresenter,
-    private readonly confirmationController: IConfirmationController
+    private readonly confirmationController: IConfirmationController,
   ) {}
 
   public async update(projectId: string, task: ITask): Promise<void> {

@@ -9,7 +9,7 @@ beforeEach(() => {
   mockManager = new MockManager();
   taskDeleter = new TodoTaskDeleter(
     mockManager.todoTaskRepository,
-    mockManager.todoTaskPresenter
+    mockManager.todoTaskPresenter,
   );
 });
 

@@ -10,8 +10,8 @@ it("renders", () => {
         reorderTodoTasks={async () => {}}
         todoTasks={[{ id: "id", name: "name" }]}
         updateTodoTask={async () => {}}
-      />
-    ).container.firstChild
+      />,
+    ).container.firstChild,
   ).toMatchSnapshot();
 });
 
@@ -23,8 +23,8 @@ it("renders with no tasks", () => {
         reorderTodoTasks={async () => {}}
         todoTasks={[]}
         updateTodoTask={async () => {}}
-      />
-    ).container.firstChild
+      />,
+    ).container.firstChild,
   ).toMatchSnapshot();
 });
 
@@ -36,7 +36,7 @@ it("renders with tasks not loaded yet", () => {
         reorderTodoTasks={async () => {}}
         todoTasks={null}
         updateTodoTask={async () => {}}
-      />
-    ).container.firstChild
+      />,
+    ).container.firstChild,
   ).toMatchSnapshot();
 });

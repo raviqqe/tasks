@@ -20,7 +20,7 @@ beforeEach(() => {
     mockManager.projectRepository,
     mockManager.projectPresenter,
     mockManager.currentProjectSwitcher,
-    mockManager.currentProjectRepository
+    mockManager.currentProjectRepository,
   );
 });
 
@@ -29,7 +29,7 @@ it("presents an initial project", async () => {
 
   expect(mockManager.currentProjectSwitcher.switch).toHaveBeenCalledOnce();
   expect(mockManager.currentProjectSwitcher.switch).toHaveBeenCalledWith(
-    dummyProject
+    dummyProject,
   );
   expect(mockManager.projectPresenter.presentProjects).toHaveBeenCalledOnce();
   expect(mockManager.projectPresenter.presentProjects).toHaveBeenCalledWith([
@@ -41,10 +41,10 @@ it("presents archived projects", async () => {
   await currentProjectInitializer.initialize();
 
   expect(
-    mockManager.projectPresenter.presentArchivedProjects
+    mockManager.projectPresenter.presentArchivedProjects,
   ).toHaveBeenCalledOnce();
   expect(
-    mockManager.projectPresenter.presentArchivedProjects
+    mockManager.projectPresenter.presentArchivedProjects,
   ).toHaveBeenCalledWith([]);
 });
 
@@ -55,7 +55,7 @@ it("presents an initial project even if no current project ID is set", async () 
 
   expect(mockManager.currentProjectSwitcher.switch).toHaveBeenCalledOnce();
   expect(mockManager.currentProjectSwitcher.switch).toHaveBeenCalledWith(
-    dummyProject
+    dummyProject,
   );
   expect(mockManager.projectPresenter.presentProjects).toHaveBeenCalledOnce();
   expect(mockManager.projectPresenter.presentProjects).toHaveBeenCalledWith([

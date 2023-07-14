@@ -13,7 +13,7 @@ export class CurrentProjectInitializer {
     private readonly projectRepository: IProjectRepository,
     private readonly projectPresenter: IProjectPresenter,
     private readonly currentProjectSwitcher: CurrentProjectSwitcher,
-    private readonly currentProjectRepository: ICurrentProjectRepository
+    private readonly currentProjectRepository: ICurrentProjectRepository,
   ) {}
 
   public async initialize(): Promise<void> {
@@ -28,11 +28,11 @@ export class CurrentProjectInitializer {
 
     await this.currentProjectSwitcher.switch(
       projects.find((project) => project.id === projectId) ??
-        getFirstProject(projects)
+        getFirstProject(projects),
     );
     this.projectPresenter.presentProjects(projects);
     this.projectPresenter.presentArchivedProjects(
-      await this.projectRepository.listArchived()
+      await this.projectRepository.listArchived(),
     );
   }
 }

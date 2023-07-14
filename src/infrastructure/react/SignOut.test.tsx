@@ -4,6 +4,6 @@ import { SignOut } from "./SignOut.js";
 
 it("renders", () => {
   expect(
-    render(<SignOut signOut={() => {}} />).container.firstChild
+    render(<SignOut signOut={() => {}} />).container.firstChild,
   ).toMatchSnapshot();
 });

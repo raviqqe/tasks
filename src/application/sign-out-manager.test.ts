@@ -6,13 +6,13 @@ it("signs out", async () => {
   const mockManager = new MockManager();
   const signOutManager = new SignOutManager(
     mockManager.authenticationController,
-    mockManager.authenticationPresenter
+    mockManager.authenticationPresenter,
   );
 
   await signOutManager.signOut();
 
   expect(mockManager.authenticationController.signOut).toHaveBeenCalledOnce();
   expect(
-    mockManager.authenticationPresenter.presentSignedIn
+    mockManager.authenticationPresenter.presentSignedIn,
   ).toHaveBeenCalledWith(false);
 });

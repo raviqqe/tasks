@@ -12,23 +12,23 @@ export class ProjectArchiver {
     private readonly projectRepository: IProjectRepository,
     private readonly projectPresenter: IProjectPresenter,
     private readonly messagePresenter: IMessagePresenter,
-    private readonly confirmationController: IConfirmationController
+    private readonly confirmationController: IConfirmationController,
   ) {}
 
   public async archive(
     project: IProject,
-    currentProjectId: string
+    currentProjectId: string,
   ): Promise<void> {
     if (project.archived) {
       throw new Error("project archived already");
     } else if ((await this.projectRepository.list()).length === 1) {
       this.messagePresenter.present(
-        formatErrorMessage(new Error("cannot archive the last project"))
+        formatErrorMessage(new Error("cannot archive the last project")),
       );
       return;
     } else if (
       !(await this.confirmationController.confirm(
-        `Archive the "${project.name}" project?`
+        `Archive the "${project.name}" project?`,
       ))
     ) {
       return;
@@ -41,7 +41,7 @@ export class ProjectArchiver {
 
     if (project.id === currentProjectId) {
       await this.currentProjectSwitcher.switch(
-        getFirstProject(await this.projectRepository.list())
+        getFirstProject(await this.projectRepository.list()),
       );
     }
   }

@@ -12,7 +12,7 @@ beforeEach(() => {
   projectDeleter = new ProjectDeleter(
     mockManager.projectRepository,
     mockManager.projectPresenter,
-    mockManager.confirmationController
+    mockManager.confirmationController,
   );
 });
 
@@ -25,13 +25,13 @@ it("deletes a project", async () => {
     [project.id],
   ]);
   expect(mockManager.projectPresenter.presentDeletedProject.mock.calls).toEqual(
-    [[project.id]]
+    [[project.id]],
   );
 });
 
 it("does not delete any project not archived", async () => {
   await expect(
-    projectDeleter.delete({ archived: false, id: "", name: "" })
+    projectDeleter.delete({ archived: false, id: "", name: "" }),
   ).rejects.toThrow();
 });
 

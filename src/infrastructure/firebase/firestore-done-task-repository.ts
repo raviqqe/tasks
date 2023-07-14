@@ -42,7 +42,7 @@ export class FirestoreDoneTaskRepository implements IDoneTaskRepository {
 
   public async *list(projectId: string): AsyncIterable<ITask[]> {
     let snapshot = await getDocs(
-      query(this.query(projectId), limit(batchSize))
+      query(this.query(projectId), limit(batchSize)),
     );
 
     while (snapshot.docs.length > 0) {
@@ -52,8 +52,8 @@ export class FirestoreDoneTaskRepository implements IDoneTaskRepository {
         query(
           this.query(projectId),
           startAfter(last(snapshot.docs)),
-          limit(batchSize)
-        )
+          limit(batchSize),
+        ),
       );
     }
   }
@@ -71,7 +71,7 @@ export class FirestoreDoneTaskRepository implements IDoneTaskRepository {
 
     return collection(
       this.firestore,
-      `version/1/users/${user.uid}/projects/${projectId}/doneTasks`
+      `version/1/users/${user.uid}/projects/${projectId}/doneTasks`,
     ) as CollectionReference<ITimestampedTask>;
   }
 }

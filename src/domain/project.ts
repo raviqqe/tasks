@@ -21,7 +21,7 @@ export function validateProject(project: IProject): void {
 
 export function sortProjects(projects: IProject[]): IProject[] {
   return projects.sort((project, anotherProject) =>
-    project.name.localeCompare(anotherProject.name)
+    project.name.localeCompare(anotherProject.name),
   );
 }
 

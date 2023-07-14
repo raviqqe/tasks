@@ -46,7 +46,7 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
       this.setOrder(
         projectId,
         taskIds.filter((id) => id !== taskId),
-        transaction
+        transaction,
       );
     });
   }
@@ -56,7 +56,7 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
       // TODO Use CollectionReference.prototype.getAll().
       // https://github.com/firebase/firebase-js-sdk/issues/1176
       const tasks: ITask[] = (await getDocs(this.tasks(projectId))).docs.map(
-        (snapshot) => snapshot.data()
+        (snapshot) => snapshot.data(),
       );
       const taskMap = Object.fromEntries(tasks.map((task) => [task.id, task]));
       const taskIds = await this.getOrder(projectId, transaction);
@@ -82,14 +82,14 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
   public async reorder(projectId: string, taskIds: string[]): Promise<void> {
     // eslint-disable-next-line @typescript-eslint/require-await
     await runTransaction(this.firestore, async (transaction) =>
-      this.setOrder(projectId, taskIds, transaction)
+      this.setOrder(projectId, taskIds, transaction),
     );
   }
 
   public setOrder(
     projectId: string,
     taskIds: string[],
-    transaction: Transaction
+    transaction: Transaction,
   ): void {
     transaction.set(this.order(projectId), { order: taskIds });
   }
@@ -100,7 +100,7 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
 
   private async getOrder(
     projectId: string,
-    transaction: Transaction
+    transaction: Transaction,
   ): Promise<string[]> {
     return (await transaction.get(this.order(projectId))).data()?.order ?? [];
   }
@@ -108,14 +108,14 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
   private tasks(projectId: string): CollectionReference<ITask> {
     return collection(
       this.project(projectId),
-      "todoTasks"
+      "todoTasks",
     ) as CollectionReference<ITask>;
   }
 
   private order(projectId: string): DocumentReference<IOrderDocument> {
     return doc(
       this.project(projectId),
-      "todoTaskOrders/default"
+      "todoTaskOrders/default",
     ) as DocumentReference<IOrderDocument>;
   }
 
@@ -128,7 +128,7 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
 
     return doc(
       this.firestore,
-      `version/1/users/${user.uid}/projects/${projectId}`
+      `version/1/users/${user.uid}/projects/${projectId}`,
     );
   }
 }

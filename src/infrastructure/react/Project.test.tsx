@@ -5,6 +5,6 @@ import { Project } from "./Project.js";
 it("renders", () => {
   expect(
     render(<Project project={{ archived: false, id: "", name: "" }} />)
-      .container.firstChild
+      .container.firstChild,
   ).toMatchSnapshot();
 });
