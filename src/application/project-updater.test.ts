@@ -13,7 +13,7 @@ beforeEach(() => {
   projectUpdater = new ProjectUpdater(
     mockManager.projectRepository,
     mockManager.projectPresenter,
-    mockManager.messagePresenter
+    mockManager.messagePresenter,
   );
 });
 
@@ -24,7 +24,7 @@ it("updates and persists a project", async () => {
     [dummyProject],
   ]);
   expect(mockManager.projectPresenter.presentUpdatedProject.mock.calls).toEqual(
-    [[dummyProject]]
+    [[dummyProject]],
   );
 });
 
@@ -42,6 +42,6 @@ it("does not update any projects with empty names", async () => {
   expect(mockManager.messagePresenter.present).toHaveBeenCalledTimes(1);
   expect(mockManager.projectRepository.update).not.toHaveBeenCalled();
   expect(
-    mockManager.projectPresenter.presentUpdatedProject
+    mockManager.projectPresenter.presentUpdatedProject,
   ).not.toHaveBeenCalled();
 });

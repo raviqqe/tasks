@@ -9,7 +9,7 @@ it("renders", () => {
         currentProject={{ archived: false, id: "", name: "" }}
         showProjects={() => {}}
         signOut={async () => {}}
-      />
-    ).container.firstChild
+      />,
+    ).container.firstChild,
   ).toMatchSnapshot();
 });

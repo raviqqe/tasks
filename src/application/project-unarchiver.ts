@@ -7,7 +7,7 @@ export class ProjectUnarchiver {
   constructor(
     private readonly currentProjectSwitcher: CurrentProjectSwitcher,
     private readonly projectRepository: IProjectRepository,
-    private readonly projectPresenter: IProjectPresenter
+    private readonly projectPresenter: IProjectPresenter,
   ) {}
 
   public async unarchive(project: IProject): Promise<void> {

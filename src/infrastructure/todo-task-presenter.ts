@@ -21,7 +21,7 @@ export class TodoTaskPresenter implements ITodoTaskPresenter {
   public presentReorderedTasks(taskIds: string[]): void {
     if (this.tasks) {
       const taskMap = Object.fromEntries(
-        this.tasks.map((task) => [task.id, task])
+        this.tasks.map((task) => [task.id, task]),
       );
       this.renderTasks(
         taskIds.map((id) => {
@@ -32,7 +32,7 @@ export class TodoTaskPresenter implements ITodoTaskPresenter {
           }
 
           return task;
-        })
+        }),
       );
     }
   }
@@ -40,8 +40,8 @@ export class TodoTaskPresenter implements ITodoTaskPresenter {
   public presentUpdatedTask(updatedTask: ITask): void {
     this.renderTasks(
       this.tasks?.map((task) =>
-        task.id === updatedTask.id ? updatedTask : task
-      )
+        task.id === updatedTask.id ? updatedTask : task,
+      ),
     );
   }
 

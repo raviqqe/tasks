@@ -17,7 +17,7 @@ it("renders", () => {
         signOut={async () => {}}
         todoTasks={[]}
         updateTodoTask={async () => {}}
-      />
-    ).container.firstChild
+      />,
+    ).container.firstChild,
   ).toMatchSnapshot();
 });

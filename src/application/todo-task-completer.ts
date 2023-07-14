@@ -7,7 +7,7 @@ export class TodoTaskCompleter {
   constructor(
     private readonly todoTaskDeleter: TodoTaskDeleter,
     private readonly doneTaskRepository: IDoneTaskRepository,
-    private readonly doneTaskPresenter: IDoneTaskPresenter
+    private readonly doneTaskPresenter: IDoneTaskPresenter,
   ) {}
 
   public async complete(projectId: string, task: ITask): Promise<void> {

@@ -27,20 +27,20 @@ export class ProjectPresenter implements IProjectPresenter {
   public presentArchivedProject(project: IProject): void {
     this.renderProjects(this.projects?.filter(({ id }) => id !== project.id));
     this.renderArchivedProjects(
-      this.archivedProjects && [project, ...this.archivedProjects]
+      this.archivedProjects && [project, ...this.archivedProjects],
     );
   }
 
   public presentDeletedProject(projectId: string): void {
     this.renderArchivedProjects(
-      this.archivedProjects?.filter((project) => project.id !== projectId)
+      this.archivedProjects?.filter((project) => project.id !== projectId),
     );
   }
 
   public presentUnarchivedProject(project: IProject): void {
     this.renderProjects(this.projects && [project, ...this.projects]);
     this.renderArchivedProjects(
-      this.archivedProjects?.filter(({ id }) => id !== project.id)
+      this.archivedProjects?.filter(({ id }) => id !== project.id),
     );
   }
 
@@ -51,8 +51,8 @@ export class ProjectPresenter implements IProjectPresenter {
 
     this.renderProjects(
       this.projects?.map((project) =>
-        project.id === updatedProject.id ? updatedProject : project
-      )
+        project.id === updatedProject.id ? updatedProject : project,
+      ),
     );
   }
 
@@ -69,7 +69,7 @@ export class ProjectPresenter implements IProjectPresenter {
   }
 
   private renderArchivedProjects(
-    projects: IProject[] | null | undefined
+    projects: IProject[] | null | undefined,
   ): void {
     this.archivedProjects = projects ? sortProjects(projects) : null;
 

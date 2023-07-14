@@ -35,6 +35,6 @@ it("renders", () => {
     {} as CurrentProjectSwitcher,
     {} as SignInManager,
     {} as SignOutManager,
-    ""
+    "",
   ).render();
 });

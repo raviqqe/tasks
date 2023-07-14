@@ -40,7 +40,7 @@ const ButtonsContainer = styled.div`
 export interface IProps {
   archiveProject?: (
     project: IProject,
-    currentProjectId: string
+    currentProjectId: string,
   ) => Promise<void>;
   currentProject?: IProject;
   deleteProject?: (project: IProject) => Promise<void>;
@@ -60,7 +60,7 @@ const ProjectWithRef = (
     unarchiveProject,
     updateProject,
   }: IProps,
-  ref: Ref<HTMLDivElement>
+  ref: Ref<HTMLDivElement>,
 ) => (
   <Container ref={ref}>
     <Name

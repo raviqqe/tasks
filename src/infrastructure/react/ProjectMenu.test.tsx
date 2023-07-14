@@ -16,7 +16,7 @@ it("renders", () => {
         switchCurrentProject={async () => {}}
         unarchiveProject={async () => {}}
         updateProject={async () => {}}
-      />
-    ).container.firstChild
+      />,
+    ).container.firstChild,
   ).toMatchSnapshot();
 });

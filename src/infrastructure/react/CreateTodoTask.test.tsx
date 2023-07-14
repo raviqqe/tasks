@@ -5,6 +5,6 @@ import { CreateTodoTask } from "./CreateTodoTask.js";
 it("renders", () => {
   expect(
     render(<CreateTodoTask createTodoTask={async () => {}} />).container
-      .firstChild
+      .firstChild,
   ).toMatchSnapshot();
 });

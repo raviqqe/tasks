@@ -45,7 +45,7 @@ const main = async () => {
   const firebaseApp = await firebaseInitializer.initialize();
   const authenticationPresenter = new AuthenticationPresenter();
   const authenticationController = new FirebaseAuthenticationController(
-    firebaseApp
+    firebaseApp,
   );
   const messagePresenter = new AlertMessagePresenter();
   const confirmationController = new BuiltinConfirmationController();
@@ -55,15 +55,15 @@ const main = async () => {
   const doneTaskPresenter = new DoneTaskPresenter();
   const todoTaskDeleter = new TodoTaskDeleter(
     todoTaskRepository,
-    todoTaskPresenter
+    todoTaskPresenter,
   );
   const todoTaskLister = new TodoTaskLister(
     todoTaskRepository,
-    todoTaskPresenter
+    todoTaskPresenter,
   );
   const doneTaskLister = new DoneTaskLister(
     doneTaskRepository,
-    doneTaskPresenter
+    doneTaskPresenter,
   );
   const projectRepository = new FirestoreProjectRepository(firebaseApp);
   const projectPresenter = new ProjectPresenter();
@@ -74,13 +74,13 @@ const main = async () => {
     todoTaskLister,
     doneTaskLister,
     todoTaskPresenter,
-    doneTaskPresenter
+    doneTaskPresenter,
   );
   const projectCreator = new ProjectCreator(
     currentProjectSwitcher,
     projectRepository,
     projectPresenter,
-    messagePresenter
+    messagePresenter,
   );
 
   new ReactRenderer(
@@ -93,23 +93,23 @@ const main = async () => {
     ],
     new ApplicationInitializer(
       authenticationController,
-      authenticationPresenter
+      authenticationPresenter,
     ),
     new TodoTaskCreator(
       todoTaskRepository,
       todoTaskPresenter,
-      messagePresenter
+      messagePresenter,
     ),
     new TodoTaskUpdater(
       todoTaskDeleter,
       todoTaskRepository,
       todoTaskPresenter,
-      confirmationController
+      confirmationController,
     ),
     new TodoTaskCompleter(
       todoTaskDeleter,
       doneTaskRepository,
-      doneTaskPresenter
+      doneTaskPresenter,
     ),
     new TodoTaskReorderer(todoTaskRepository, todoTaskPresenter),
     doneTaskLister,
@@ -119,17 +119,17 @@ const main = async () => {
       projectRepository,
       projectPresenter,
       messagePresenter,
-      confirmationController
+      confirmationController,
     ),
     new ProjectUnarchiver(
       currentProjectSwitcher,
       projectRepository,
-      projectPresenter
+      projectPresenter,
     ),
     new ProjectDeleter(
       projectRepository,
       projectPresenter,
-      confirmationController
+      confirmationController,
     ),
     new ProjectUpdater(projectRepository, projectPresenter, messagePresenter),
     new CurrentProjectInitializer(
@@ -137,12 +137,12 @@ const main = async () => {
       projectRepository,
       projectPresenter,
       currentProjectSwitcher,
-      currentProjectRepository
+      currentProjectRepository,
     ),
     currentProjectSwitcher,
     new SignInManager(authenticationController, authenticationPresenter),
     new SignOutManager(authenticationController, authenticationPresenter),
-    configuration.repositoryUrl
+    configuration.repositoryUrl,
   ).render();
 };
 

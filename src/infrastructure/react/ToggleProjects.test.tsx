@@ -5,15 +5,18 @@ import { ToggleProjects } from "./ToggleProjects.js";
 it("renders with projects unarchived", () => {
   expect(
     render(
-      <ToggleProjects projectsArchived={false} setProjectsArchived={() => {}} />
-    ).container.firstChild
+      <ToggleProjects
+        projectsArchived={false}
+        setProjectsArchived={() => {}}
+      />,
+    ).container.firstChild,
   ).toMatchSnapshot();
 });
 
 it("renders with projects archived", () => {
   expect(
     render(<ToggleProjects projectsArchived setProjectsArchived={() => {}} />)
-      .container.firstChild
+      .container.firstChild,
   ).toMatchSnapshot();
 });
 
@@ -24,10 +27,10 @@ it("toggles projects", () => {
     <ToggleProjects
       projectsArchived={false}
       setProjectsArchived={setProjectsArchived}
-    />
+    />,
   );
 
-  fireEvent.click(container.firstElementChild as Element);
+  fireEvent.click(container.firstElementChild!);
 
   expect(setProjectsArchived).toHaveBeenCalledTimes(1);
 });

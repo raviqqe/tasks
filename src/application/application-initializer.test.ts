@@ -12,7 +12,7 @@ beforeEach(() => {
 
   applicationInitializer = new ApplicationInitializer(
     mockManager.authenticationController,
-    mockManager.authenticationPresenter
+    mockManager.authenticationPresenter,
   );
 });
 
@@ -20,7 +20,7 @@ it("presents sign-in state", async () => {
   await applicationInitializer.initialize();
 
   expect(
-    mockManager.authenticationPresenter.presentSignedIn
+    mockManager.authenticationPresenter.presentSignedIn,
   ).toHaveBeenCalledWith(true);
 });
 

@@ -4,12 +4,12 @@ import { CircleButton } from "./CircleButton.js";
 
 it("renders", () => {
   expect(
-    render(<CircleButton>foo</CircleButton>).container.firstChild
+    render(<CircleButton>foo</CircleButton>).container.firstChild,
   ).toMatchSnapshot();
 });
 
 it("renders as a secondary button", () => {
   expect(
-    render(<CircleButton secondary>foo</CircleButton>).container.firstChild
+    render(<CircleButton secondary>foo</CircleButton>).container.firstChild,
   ).toMatchSnapshot();
 });

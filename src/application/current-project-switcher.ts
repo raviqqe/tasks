@@ -13,7 +13,7 @@ export class CurrentProjectSwitcher {
     private readonly todoTaskLister: TodoTaskLister,
     private readonly doneTaskLister: DoneTaskLister,
     private readonly todoTaskPresenter: ITodoTaskPresenter,
-    private readonly doneTaskPresenter: IDoneTaskPresenter
+    private readonly doneTaskPresenter: IDoneTaskPresenter,
   ) {}
 
   public async switch(project: IProject): Promise<void> {

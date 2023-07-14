@@ -17,7 +17,7 @@ beforeEach(() => {
     mockManager.todoTaskLister,
     mockManager.doneTaskLister,
     mockManager.todoTaskPresenter,
-    mockManager.doneTaskPresenter
+    mockManager.doneTaskPresenter,
   );
 });
 
@@ -25,7 +25,7 @@ it("switches a current project", async () => {
   await currentProjectSwitcher.switch(dummyProject);
 
   expect(mockManager.projectPresenter.presentCurrentProject.mock.calls).toEqual(
-    [[dummyProject]]
+    [[dummyProject]],
   );
   expect(mockManager.currentProjectRepository.set.mock.calls).toEqual([
     [dummyProject.id],

@@ -5,6 +5,6 @@ import { ToggleTasks } from "./ToggleTasks.js";
 it("renders", () => {
   expect(
     render(<ToggleTasks setTasksDone={() => {}} tasksDone={false} />).container
-      .firstChild
+      .firstChild,
   ).toMatchSnapshot();
 });

@@ -9,7 +9,7 @@ beforeEach(() => {
   mockManager = new MockManager();
   taskReorderer = new TodoTaskReorderer(
     mockManager.todoTaskRepository,
-    mockManager.todoTaskPresenter
+    mockManager.todoTaskPresenter,
   );
 });
 
@@ -21,6 +21,6 @@ it("persists a task order", async () => {
 it("presents reordered tasks", async () => {
   await taskReorderer.reorder("", []);
   expect(
-    mockManager.todoTaskPresenter.presentReorderedTasks.mock.calls
+    mockManager.todoTaskPresenter.presentReorderedTasks.mock.calls,
   ).toEqual([[[]]]);
 });

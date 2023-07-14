@@ -11,7 +11,7 @@ beforeEach(() => {
   projectUnarchiver = new ProjectUnarchiver(
     mockManager.currentProjectSwitcher,
     mockManager.projectRepository,
-    mockManager.projectPresenter
+    mockManager.projectPresenter,
   );
 });
 
@@ -31,12 +31,12 @@ it("un-archives a project", async () => {
     [{ ...projectToUnarchive, archived: false }],
   ]);
   expect(
-    mockManager.projectPresenter.presentUnarchivedProject.mock.calls
+    mockManager.projectPresenter.presentUnarchivedProject.mock.calls,
   ).toEqual([[{ ...projectToUnarchive, archived: false }]]);
 });
 
 it("does not unarchive any project not archived", async () => {
   await expect(
-    projectUnarchiver.unarchive({ archived: false, id: "", name: "" })
+    projectUnarchiver.unarchive({ archived: false, id: "", name: "" }),
   ).rejects.toThrow();
 });

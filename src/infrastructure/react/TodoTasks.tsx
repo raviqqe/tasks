@@ -70,8 +70,8 @@ export const TodoTasks = ({
           arrayMove(
             taskIds,
             taskIds.indexOf(active.id.toString()),
-            taskIds.indexOf(over.id.toString())
-          )
+            taskIds.indexOf(over.id.toString()),
+          ),
         );
       }}
       sensors={sensors}
