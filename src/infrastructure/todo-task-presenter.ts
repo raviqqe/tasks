@@ -50,7 +50,7 @@ export class TodoTaskPresenter implements ITodoTaskPresenter {
   }
 
   private renderTasks(tasks: ITask[] | null | undefined): void {
-    this.tasks = tasks || null;
+    this.tasks = tasks ?? null;
 
     this.renderer?.renderTodoTasks(this.tasks);
   }
