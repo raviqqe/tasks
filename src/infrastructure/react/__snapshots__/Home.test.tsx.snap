@@ -2,19 +2,19 @@
 
 exports[`renders 1`] = `
 <div
-  class="sc-fnymgw ePvUlY"
+  class="sc-fnGhun gmHbgv"
 >
   <div
-    class="sc-ksZauW eMnnyA"
+    class="sc-ksBlDV evpdtG"
   >
     <div
-      class="sc-ewahw dzqSzG"
+      class="sc-eDVvn ljhfHW"
     />
     <div
-      class="sc-hAZoWV iBoKTB"
+      class="sc-hBxdNW eHMkYg"
     >
       <div
-        class="sc-dkzCjb kHLBc sc-bretMz kCRyJj"
+        class="sc-dkrGVk dTmFti sc-bqWyyI fKszhb"
       >
         <svg
           fill="currentColor"
@@ -37,13 +37,13 @@ exports[`renders 1`] = `
     </div>
   </div>
   <div
-    class="sc-fEOqom bKcgZS"
+    class="sc-fEXoiN kBglix"
   >
     <div
-      class="sc-kDDqET cMSCKM"
+      class="sc-kDvvrc jRULOq"
     >
       <div
-        class="sc-crXcXV kEqHf"
+        class="sc-csuROW jEITuX"
       />
     </div>
     <div
@@ -65,11 +65,11 @@ exports[`renders 1`] = `
     />
   </div>
   <div
-    class="sc-bjUoET iRKNKZ"
+    class="sc-bjfGFA kYdwnz"
   >
     <button
       aria-label="Toggle Tasks"
-      class="sc-bczSft sc-gsnScm cHeqPM gKlRMe"
+      class="sc-bcXGWu sc-gswPWN hmYZTl duIhGY"
     >
       <svg
         fill="currentColor"
@@ -87,7 +87,7 @@ exports[`renders 1`] = `
     </button>
     <button
       aria-label="Create"
-      class="sc-bczSft sc-gsnScm dwNGev gKlRMe sc-idiyyg cZgWzT"
+      class="sc-bcXGWu sc-gswPWN KXbAi duIhGY sc-idXgxz kRHvdL"
     >
       <svg
         fill="currentColor"

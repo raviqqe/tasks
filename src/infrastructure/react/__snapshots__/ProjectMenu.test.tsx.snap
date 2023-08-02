@@ -2,21 +2,21 @@
 
 exports[`renders 1`] = `
 <div
-  class="sc-gKXNOb gSaGWh"
+  class="sc-gKPSAk gUjogE"
 >
   <div
-    class="sc-iBkiHk gyUvdh"
+    class="sc-iBYQGD fhukGA"
   >
     <div
-      class="sc-ftvSNZ hYOqwX"
+      class="sc-ftTHFa bhgioi"
     />
   </div>
   <div
-    class="sc-jqUWZQ cxgWgk"
+    class="sc-jrcSnH daFnQL"
   >
     <button
       aria-label="Toggle Projects"
-      class="sc-bczSft sc-gsnScm cHeqPM gKlRMe"
+      class="sc-bcXGWu sc-gswPWN hmYZTl duIhGY"
     >
       <svg
         fill="currentColor"
@@ -38,7 +38,7 @@ exports[`renders 1`] = `
     </button>
     <button
       aria-label="Create Project"
-      class="sc-bczSft sc-gsnScm dwNGev gKlRMe sc-kDDqET eROkIH"
+      class="sc-bcXGWu sc-gswPWN KXbAi duIhGY sc-kDvvrc cRsdtt"
     >
       <svg
         fill="currentColor"
