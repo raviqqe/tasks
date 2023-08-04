@@ -2,29 +2,29 @@
 
 exports[`renders 1`] = `
 <div
-  class="sc-dkrGVk eguqpc"
+  class="sc-dkjKgF keZmzZ"
 >
   <div
-    class="sc-hLBbCX kyLFeT"
+    class="sc-hLclGa daPIRI"
   >
     <span
-      class="sc-eDvSBu jwZBfS"
+      class="sc-eDnVMP jfxdlQ"
     >
       Be
     </span>
     <span
-      class="sc-jSVbBN kRySzp"
+      class="sc-jSwlEQ ftpaSf"
     >
       Done
     </span>
   </div>
   <button
-    class="sc-bcXGWu sc-gswPWN KXbAi ktaLLy"
+    class="sc-bcPKhP sc-grXZZQ kbdqoN gOZdGR"
   >
     Sign in
   </button>
   <a
-    class="sc-gKPSAk bhnYfR"
+    class="sc-gKHVLF gkGhh"
     href="url"
     target="_blank"
   >
