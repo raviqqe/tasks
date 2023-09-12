@@ -36,7 +36,7 @@
     "@types/styled-components": "^5.1.26",
     "@vitejs/plugin-react": "^4.0.4",
     "@vitest/coverage-v8": "^0.34.4",
-    "firebase-tools": "^12.5.2",
+    "firebase-tools": "^12.5.3",
     "jsdom": "^22.0.0",
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
