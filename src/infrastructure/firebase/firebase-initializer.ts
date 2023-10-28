@@ -17,7 +17,7 @@ interface IFirebaseConfiguration
 export class FirebaseInitializer {
   constructor(private readonly configuration: IFirebaseConfiguration) {}
 
-  public async initialize(): Promise<FirebaseApp> {
+  public initialize(): FirebaseApp {
     const app = initializeApp(this.configuration);
 
     initializeFirestore(app, {
