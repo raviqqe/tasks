@@ -35,14 +35,14 @@ import { TodoTaskPresenter } from "./infrastructure/todo-task-presenter.js";
 const firebaseInitializer = new FirebaseInitializer(configuration.firebase);
 const errorReporter = new SentryErrorReporter(configuration.sentry.dsn);
 
-const main = async () => {
+const main = () => {
   const element = document.getElementById("root");
 
   if (!element) {
     throw new Error("no root element");
   }
 
-  const firebaseApp = await firebaseInitializer.initialize();
+  const firebaseApp = firebaseInitializer.initialize();
   const authenticationPresenter = new AuthenticationPresenter();
   const authenticationController = new FirebaseAuthenticationController(
     firebaseApp,
@@ -146,4 +146,8 @@ const main = async () => {
   ).render();
 };
 
-main().catch((error: Error) => errorReporter.report(error));
+try {
+  main();
+} catch (error) {
+  errorReporter.report(error);
+}

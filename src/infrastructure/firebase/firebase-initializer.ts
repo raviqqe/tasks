@@ -4,8 +4,9 @@ import {
   initializeApp,
 } from "firebase/app";
 import {
-  enableMultiTabIndexedDbPersistence,
-  getFirestore,
+  initializeFirestore,
+  persistentLocalCache,
+  persistentMultipleTabManager,
 } from "firebase/firestore";
 
 interface IFirebaseConfiguration
@@ -16,10 +17,14 @@ interface IFirebaseConfiguration
 export class FirebaseInitializer {
   constructor(private readonly configuration: IFirebaseConfiguration) {}
 
-  public async initialize(): Promise<FirebaseApp> {
+  public initialize(): FirebaseApp {
     const app = initializeApp(this.configuration);
 
-    await enableMultiTabIndexedDbPersistence(getFirestore(app));
+    initializeFirestore(app, {
+      localCache: persistentLocalCache({
+        tabManager: persistentMultipleTabManager(),
+      }),
+    });
 
     return app;
   }
