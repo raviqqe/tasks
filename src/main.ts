@@ -35,7 +35,7 @@ import { TodoTaskPresenter } from "./infrastructure/todo-task-presenter.js";
 const firebaseInitializer = new FirebaseInitializer(configuration.firebase);
 const errorReporter = new SentryErrorReporter(configuration.sentry.dsn);
 
-const main = async () => {
+const main = () => {
   const element = document.getElementById("root");
 
   if (!element) {
@@ -146,4 +146,8 @@ const main = async () => {
   ).render();
 };
 
-main().catch((error: Error) => errorReporter.report(error));
+try {
+  main();
+} catch (error) {
+  errorReporter.report(error);
+}

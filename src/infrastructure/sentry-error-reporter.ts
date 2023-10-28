@@ -6,7 +6,7 @@ export class SentryErrorReporter implements IErrorReporter {
     sentry.init({ dsn });
   }
 
-  public report(error: Error): void {
+  public report(error: unknown): void {
     sentry.captureException(error);
   }
 }

@@ -1,3 +1,3 @@
 export interface IErrorReporter {
-  report(error: Error): void;
+  report(error: unknown): void;
 }
