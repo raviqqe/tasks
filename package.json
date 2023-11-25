@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@dnd-kit/sortable": "^8.0.0",
+    "@raviqqe/loscore": "^0.1.8",
     "@sentry/browser": "^7.81.1",
     "default-import": "^1.1.5",
     "firebase": "^10.6.0",
