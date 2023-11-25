@@ -1,3 +1,4 @@
+import { compact, deepEqual } from "@raviqqe/loscore";
 import { type FirebaseApp } from "firebase/app";
 import { type Auth, getAuth } from "firebase/auth";
 import {
@@ -12,7 +13,6 @@ import {
   type Transaction,
   updateDoc,
 } from "firebase/firestore";
-import { compact, deepEqual } from "@raviqqe/loscore";
 import { type ITodoTaskRepository } from "../../application/todo-task-repository.js";
 import { type ITask } from "../../domain/task.js";
 
