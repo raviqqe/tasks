@@ -14,7 +14,7 @@ import {
   setDoc,
   startAfter,
 } from "firebase/firestore";
-import { last } from "lodash";
+import { last } from "@raviqqe/loscore";
 import { type IDoneTaskRepository } from "../../application/done-task-repository.js";
 import { type ITask } from "../../domain/task.js";
 

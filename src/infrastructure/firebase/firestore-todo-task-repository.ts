@@ -12,7 +12,7 @@ import {
   type Transaction,
   updateDoc,
 } from "firebase/firestore";
-import { compact, isEqual } from "lodash";
+import { compact, deepEqual } from "@raviqqe/loscore";
 import { type ITodoTaskRepository } from "../../application/todo-task-repository.js";
 import { type ITask } from "../../domain/task.js";
 
@@ -70,7 +70,7 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
       ];
       const restoredTaskIds: string[] = restoredTasks.map((task) => task.id);
 
-      if (!isEqual(taskIds, restoredTaskIds)) {
+      if (!deepEqual(taskIds, restoredTaskIds)) {
         this.setOrder(projectId, restoredTaskIds, transaction);
       }
       // End of read consistency resolution
