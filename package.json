@@ -16,7 +16,7 @@
     "@raviqqe/loscore": "^0.1.9",
     "@sentry/browser": "^7.82.0",
     "default-import": "^1.1.5",
-    "firebase": "^10.6.0",
+    "firebase": "^10.7.0",
     "localforage": "^1.10.0",
     "react": "^18.1.0",
     "react-dom": "^18.2.0",
