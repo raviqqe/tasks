@@ -1,4 +1,3 @@
-import { defaultImport } from "default-import";
 import { styled } from "@linaria/react";
 import {
   CurrentProject,
@@ -7,8 +6,6 @@ import {
 import { SignOut, type IProps as ISignOutProps } from "./SignOut.js";
 import { red } from "./style/colors.js";
 import { boxShadow } from "./style.js";
-
-
 
 const Container = styled.div`
   ${boxShadow}

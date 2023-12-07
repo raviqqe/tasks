@@ -1,8 +1,5 @@
-import { defaultImport } from "default-import";
 import { styled } from "@linaria/react";
 import { Button } from "./Button.js";
-
-
 
 export const TextButton = styled(Button)`
   padding: 0.5em 1em;

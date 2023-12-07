@@ -10,14 +10,11 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { defaultImport } from "default-import";
 import { styled } from "@linaria/react";
 import { type ITask } from "../../domain/task.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
 import { buttonMargin } from "./style.js";
-
-
 
 const Container = styled.div`
   display: flex;
