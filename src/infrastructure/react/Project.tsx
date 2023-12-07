@@ -1,4 +1,3 @@
-import { defaultImport } from "default-import";
 import { forwardRef, type Ref } from "react";
 import {
   MdArchive,
@@ -10,8 +9,6 @@ import { styled } from "@linaria/react";
 import { type IProject } from "../../domain/project.js";
 import { IconButton } from "./IconButton.js";
 import { black, red } from "./style/colors.js";
-
-
 
 const Container = styled.div`
   display: flex;

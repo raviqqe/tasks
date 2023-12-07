@@ -1,10 +1,7 @@
-import { defaultImport } from "default-import";
 import { FaGithub } from "react-icons/fa/index.js";
 import { styled } from "@linaria/react";
 import { SignIn } from "./SignIn.js";
 import { black, red, white } from "./style/colors.js";
-
-
 
 const Container = styled.div`
   height: 100vh;

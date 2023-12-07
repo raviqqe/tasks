@@ -1,4 +1,3 @@
-import { defaultImport } from "default-import";
 import { useState, useRef, useEffect } from "react";
 import { styled } from "@linaria/react";
 import { type IProject } from "../../domain/project.js";
@@ -11,8 +10,6 @@ import { Project, type IProps as IProjectProps } from "./Project.js";
 import { ToggleProjects } from "./ToggleProjects.js";
 import { grey, white, lightGrey } from "./style/colors.js";
 import { boxShadow } from "./style.js";
-
-
 
 const Container = styled.div`
   background-color: ${lightGrey};
