@@ -3,7 +3,7 @@ import defaultStyled from "styled-components";
 import { red, grey, white } from "./style/colors.js";
 import { boxShadow } from "./style.js";
 
-const styled = defaultImport(defaultStyled);
+
 
 export const Button = styled.button<{ secondary?: boolean }>`
   ${boxShadow};

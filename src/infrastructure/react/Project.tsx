@@ -11,7 +11,7 @@ import { type IProject } from "../../domain/project.js";
 import { IconButton } from "./IconButton.js";
 import { black, red } from "./style/colors.js";
 
-const styled = defaultImport(defaultStyled);
+
 
 const Container = styled.div`
   display: flex;

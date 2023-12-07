@@ -10,7 +10,7 @@ import {
   type IProps as IProjectMenuProps,
 } from "./ProjectMenu.js";
 
-const styled = defaultImport(defaultStyled);
+
 
 const LoaderContainer = styled.div`
   display: flex;

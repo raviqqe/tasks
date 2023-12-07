@@ -7,7 +7,7 @@ import { type ITask } from "../../domain/task.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
 
-const styled = defaultImport(defaultStyled);
+
 const InfiniteScroll = defaultImport(defaultInfiniteScroll);
 
 const doneTasksContainerId = "done-tasks-container";

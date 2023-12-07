@@ -17,7 +17,7 @@ import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
 import { buttonMargin } from "./style.js";
 
-const styled = defaultImport(defaultStyled);
+
 
 const Container = styled.div`
   display: flex;

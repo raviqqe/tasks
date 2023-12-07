@@ -8,7 +8,7 @@ import { SignOut, type IProps as ISignOutProps } from "./SignOut.js";
 import { red } from "./style/colors.js";
 import { boxShadow } from "./style.js";
 
-const styled = defaultImport(defaultStyled);
+
 
 const Container = styled.div`
   ${boxShadow}

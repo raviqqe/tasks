@@ -12,7 +12,7 @@ import { ToggleProjects } from "./ToggleProjects.js";
 import { grey, white, lightGrey } from "./style/colors.js";
 import { boxShadow } from "./style.js";
 
-const styled = defaultImport(defaultStyled);
+
 
 const Container = styled.div`
   background-color: ${lightGrey};

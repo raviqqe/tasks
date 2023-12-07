@@ -9,7 +9,7 @@ import { IconButton } from "./IconButton.js";
 import { white } from "./style/colors.js";
 import { boxShadow } from "./style.js";
 
-const styled = defaultImport(defaultStyled);
+
 
 const maxZIndex = 10000;
 

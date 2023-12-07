@@ -11,7 +11,7 @@ import { TodoTasks, type IProps as ITodoTasksProps } from "./TodoTasks.js";
 import { ToggleTasks } from "./ToggleTasks.js";
 import { TopBar, type IProps as ITopBarProps } from "./TopBar.js";
 
-const styled = defaultImport(defaultStyled);
+
 
 const Container = styled.div`
   display: flex;
