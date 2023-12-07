@@ -1,6 +1,6 @@
 import { defaultImport } from "default-import";
 import { FaGithub } from "react-icons/fa/index.js";
-import defaultStyled from "styled-components";
+import { styled } from "@linaria/react";
 import { SignIn } from "./SignIn.js";
 import { black, red, white } from "./style/colors.js";
 

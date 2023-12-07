@@ -1,6 +1,6 @@
 import { defaultImport } from "default-import";
 import { type AriaAttributes, type ReactNode } from "react";
-import defaultStyled from "styled-components";
+import { styled } from "@linaria/react";
 import { grey } from "./style/colors.js";
 
 

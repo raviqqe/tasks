@@ -1,7 +1,7 @@
 import { defaultImport } from "default-import";
 import { useState } from "react";
 import { useAsync } from "react-use";
-import defaultStyled from "styled-components";
+import { styled } from "@linaria/react";
 import { Home, type IProps as IHomeProps } from "./Home.js";
 import { type IProps as ILandingProps, Landing } from "./Landing.js";
 import { Loader } from "./Loader.js";

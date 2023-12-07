@@ -1,5 +1,5 @@
 import { defaultImport } from "default-import";
-import defaultStyled from "styled-components";
+import { styled } from "@linaria/react";
 import { Button } from "./Button.js";
 
 

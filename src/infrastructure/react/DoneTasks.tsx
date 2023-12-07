@@ -2,7 +2,7 @@ import { defaultImport } from "default-import";
 import defaultInfiniteScroll, {
   type Props,
 } from "react-infinite-scroll-component";
-import defaultStyled from "styled-components";
+import { styled } from "@linaria/react";
 import { type ITask } from "../../domain/task.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";

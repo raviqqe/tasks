@@ -6,7 +6,7 @@ import {
   MdDelete,
   MdEdit,
 } from "react-icons/md/index.js";
-import defaultStyled from "styled-components";
+import { styled } from "@linaria/react";
 import { type IProject } from "../../domain/project.js";
 import { IconButton } from "./IconButton.js";
 import { black, red } from "./style/colors.js";

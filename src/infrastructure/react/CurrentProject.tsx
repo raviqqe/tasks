@@ -1,5 +1,5 @@
 import { defaultImport } from "default-import";
-import defaultStyled from "styled-components";
+import { styled } from "@linaria/react";
 import { type IProject } from "../../domain/project.js";
 import { Loader } from "./Loader.js";
 import { white } from "./style/colors.js";

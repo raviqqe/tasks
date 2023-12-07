@@ -1,6 +1,6 @@
 import { defaultImport } from "default-import";
 import { useState, useRef, useEffect } from "react";
-import defaultStyled from "styled-components";
+import { styled } from "@linaria/react";
 import { type IProject } from "../../domain/project.js";
 import {
   CreateProject,
