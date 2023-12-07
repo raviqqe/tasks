@@ -1,4 +1,3 @@
-import { defaultImport } from "default-import";
 import { useState } from "react";
 import { useAsync } from "react-use";
 import { styled } from "@linaria/react";
@@ -9,8 +8,6 @@ import {
   ProjectMenu,
   type IProps as IProjectMenuProps,
 } from "./ProjectMenu.js";
-
-
 
 const LoaderContainer = styled.div`
   display: flex;

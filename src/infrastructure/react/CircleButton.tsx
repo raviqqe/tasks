@@ -1,8 +1,5 @@
-import { defaultImport } from "default-import";
 import { styled } from "@linaria/react";
 import { Button } from "./Button.js";
-
-
 
 export const CircleButton = styled(Button)`
   font-size: 1.5em;

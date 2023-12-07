@@ -1,4 +1,3 @@
-import { defaultImport } from "default-import";
 import { useState } from "react";
 import { useAsync } from "react-use";
 import { styled } from "@linaria/react";
@@ -10,8 +9,6 @@ import { DoneTasks, type IProps as IDoneTasksProps } from "./DoneTasks.js";
 import { TodoTasks, type IProps as ITodoTasksProps } from "./TodoTasks.js";
 import { ToggleTasks } from "./ToggleTasks.js";
 import { TopBar, type IProps as ITopBarProps } from "./TopBar.js";
-
-
 
 const Container = styled.div`
   display: flex;

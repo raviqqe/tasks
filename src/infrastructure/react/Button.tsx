@@ -1,9 +1,6 @@
-import { defaultImport } from "default-import";
 import { styled } from "@linaria/react";
 import { red, grey, white } from "./style/colors.js";
 import { boxShadow } from "./style.js";
-
-
 
 export const Button = styled.button<{ secondary?: boolean }>`
   ${boxShadow};
