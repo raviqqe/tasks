@@ -30,7 +30,7 @@
     "@raviqqe/eslint-config": "^2.0.3",
     "@raviqqe/react-tsconfig": "^1.0.19",
     "@testing-library/react": "^14.1.2",
-    "@types/react": "^18.2.43",
+    "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.17",
     "@types/styled-components": "^5.1.34",
     "@vitejs/plugin-react": "^4.2.1",
