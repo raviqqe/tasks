@@ -14,7 +14,7 @@
   "dependencies": {
     "@dnd-kit/sortable": "^8.0.0",
     "@raviqqe/loscore": "^0.1.11",
-    "@sentry/browser": "^7.86.0",
+    "@sentry/browser": "^7.87.0",
     "default-import": "^1.1.5",
     "firebase": "^10.7.1",
     "localforage": "^1.10.0",
