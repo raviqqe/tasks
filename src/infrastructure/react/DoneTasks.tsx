@@ -3,7 +3,7 @@ import defaultInfiniteScroll, {
   type Props,
 } from "react-infinite-scroll-component";
 import defaultStyled from "styled-components";
-import { type ITask } from "../../domain/task.js";
+import { type Task } from "../../domain/task.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
 
@@ -36,15 +36,15 @@ const StyledTask = styled(Task)`
   margin: 0.5em;
 `;
 
-export interface IProps {
-  doneTasks: ITask[] | null;
+export interface Props {
+  doneTasks: Task[] | null;
   listMoreDoneTasks: () => Promise<void>;
 }
 
 export const DoneTasks = ({
   doneTasks,
   listMoreDoneTasks,
-}: IProps): JSX.Element =>
+}: Props): JSX.Element =>
   doneTasks ? (
     <Container id={doneTasksContainerId}>
       <StyledInfiniteScroll
@@ -54,7 +54,7 @@ export const DoneTasks = ({
         next={listMoreDoneTasks}
         scrollableTarget={doneTasksContainerId}
       >
-        {doneTasks.map((task: ITask) => (
+        {doneTasks.map((task: Task) => (
           <StyledTask key={task.id} task={task} />
         ))}
       </StyledInfiniteScroll>

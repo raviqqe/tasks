@@ -1,11 +1,11 @@
-import { type IProject } from "../domain/project.js";
-import { type ITask } from "../domain/task.js";
+import { type Project } from "../domain/project.js";
+import { type Task } from "../domain/task.js";
 
-export interface IRenderer {
-  renderArchivedProjects(projects: IProject[] | null): void;
-  renderCurrentProject(project: IProject): void;
-  renderDoneTasks(tasks: ITask[] | null): void;
-  renderProjects(projects: IProject[] | null): void;
+export interface Renderer {
+  renderArchivedProjects(projects: Project[] | null): void;
+  renderCurrentProject(project: Project): void;
+  renderDoneTasks(tasks: Task[] | null): void;
+  renderProjects(projects: Project[] | null): void;
   renderSignedIn(signedIn: boolean): void;
-  renderTodoTasks(tasks: ITask[] | null): void;
+  renderTodoTasks(tasks: Task[] | null): void;
 }

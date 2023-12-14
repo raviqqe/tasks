@@ -1,10 +1,10 @@
-import { type ITodoTaskPresenter } from "./todo-task-presenter.js";
-import { type ITodoTaskRepository } from "./todo-task-repository.js";
+import { type TodoTaskPresenter } from "./todo-task-presenter.js";
+import { type TodoTaskRepository } from "./todo-task-repository.js";
 
 export class TodoTaskReorderer {
   constructor(
-    private readonly todoTaskRepository: ITodoTaskRepository,
-    private readonly todoTaskPresenter: ITodoTaskPresenter,
+    private readonly todoTaskRepository: TodoTaskRepository,
+    private readonly todoTaskPresenter: TodoTaskPresenter,
   ) {}
 
   public async reorder(projectId: string, taskIds: string[]): Promise<void> {

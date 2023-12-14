@@ -7,7 +7,7 @@ import {
   MdEdit,
 } from "react-icons/md/index.js";
 import defaultStyled from "styled-components";
-import { type IProject } from "../../domain/project.js";
+import { type Project } from "../../domain/project.js";
 import { IconButton } from "./IconButton.js";
 import { black, red } from "./style/colors.js";
 
@@ -37,17 +37,17 @@ const ButtonsContainer = styled.div`
   }
 `;
 
-export interface IProps {
+export interface Props {
   archiveProject?: (
-    project: IProject,
+    project: Project,
     currentProjectId: string,
   ) => Promise<void>;
-  currentProject?: IProject;
-  deleteProject?: (project: IProject) => Promise<void>;
-  project: IProject;
-  switchCurrentProject?: (project: IProject) => Promise<void>;
-  unarchiveProject?: (project: IProject) => Promise<void>;
-  updateProject?: (project: IProject) => Promise<void>;
+  currentProject?: Project;
+  deleteProject?: (project: Project) => Promise<void>;
+  project: Project;
+  switchCurrentProject?: (project: Project) => Promise<void>;
+  unarchiveProject?: (project: Project) => Promise<void>;
+  updateProject?: (project: Project) => Promise<void>;
 }
 
 const ProjectWithRef = (
@@ -59,7 +59,7 @@ const ProjectWithRef = (
     switchCurrentProject,
     unarchiveProject,
     updateProject,
-  }: IProps,
+  }: Props,
   ref: Ref<HTMLDivElement>,
 ) => (
   <Container ref={ref}>

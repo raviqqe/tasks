@@ -1,20 +1,20 @@
-import { type ITodoTaskPresenter } from "../application/todo-task-presenter.js";
-import { type ITask } from "../domain/task.js";
-import { type IRenderer } from "./renderer.js";
+import { type TodoTaskPresenter } from "../application/todo-task-presenter.js";
+import { type Task } from "../domain/task.js";
+import { type Renderer } from "./renderer.js";
 
-export class TodoTaskPresenter implements ITodoTaskPresenter {
-  private renderer: IRenderer | null = null;
-  private tasks: ITask[] | null = null;
+export class TodoTaskPresenter implements TodoTaskPresenter {
+  private renderer: Renderer | null = null;
+  private tasks: Task[] | null = null;
 
-  public setRenderer(renderer: IRenderer): void {
+  public setRenderer(renderer: Renderer): void {
     this.renderer = renderer;
   }
 
-  public presentTasks(tasks: ITask[] | null): void {
+  public presentTasks(tasks: Task[] | null): void {
     this.renderTasks(tasks);
   }
 
-  public presentNewTask(task: ITask): void {
+  public presentNewTask(task: Task): void {
     this.renderTasks(this.tasks && [task, ...this.tasks]);
   }
 
@@ -37,7 +37,7 @@ export class TodoTaskPresenter implements ITodoTaskPresenter {
     }
   }
 
-  public presentUpdatedTask(updatedTask: ITask): void {
+  public presentUpdatedTask(updatedTask: Task): void {
     this.renderTasks(
       this.tasks?.map((task) =>
         task.id === updatedTask.id ? updatedTask : task,
@@ -49,7 +49,7 @@ export class TodoTaskPresenter implements ITodoTaskPresenter {
     this.renderTasks(this.tasks?.filter((task) => task.id !== taskId));
   }
 
-  private renderTasks(tasks: ITask[] | null | undefined): void {
+  private renderTasks(tasks: Task[] | null | undefined): void {
     this.tasks = tasks ?? null;
 
     this.renderer?.renderTodoTasks(this.tasks);

@@ -1,14 +1,14 @@
 import { MdAdd } from "react-icons/md/index.js";
 import { CircleButton } from "./CircleButton.js";
 
-export interface IProps {
+export interface Props {
   createTodoTask: (name: string) => Promise<void>;
 }
 
 export const CreateTodoTask = ({
   createTodoTask,
   ...restProps
-}: IProps): JSX.Element => (
+}: Props): JSX.Element => (
   <CircleButton
     aria-label="Create"
     onClick={async () => {

@@ -1,3 +1,3 @@
-export interface IAuthenticationPresenter {
+export interface AuthenticationPresenter {
   presentSignedIn(signedIn: boolean): void;
 }

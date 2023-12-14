@@ -12,7 +12,7 @@ import {
 } from "@dnd-kit/sortable";
 import { defaultImport } from "default-import";
 import defaultStyled from "styled-components";
-import { type ITask } from "../../domain/task.js";
+import { type Task } from "../../domain/task.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
 import { buttonMargin } from "./style.js";
@@ -41,11 +41,11 @@ const Tasks = styled.div`
   }
 `;
 
-export interface IProps {
-  completeTodoTask: (task: ITask) => Promise<void>;
+export interface Props {
+  completeTodoTask: (task: Task) => Promise<void>;
   reorderTodoTasks: (taskIds: string[]) => Promise<void>;
-  todoTasks: ITask[] | null;
-  updateTodoTask: (task: ITask) => Promise<void>;
+  todoTasks: Task[] | null;
+  updateTodoTask: (task: Task) => Promise<void>;
 }
 
 export const TodoTasks = ({
@@ -53,7 +53,7 @@ export const TodoTasks = ({
   reorderTodoTasks,
   todoTasks,
   updateTodoTask,
-}: IProps): JSX.Element => {
+}: Props): JSX.Element => {
   const sensors = useSensors(useSensor(PointerSensor));
 
   return todoTasks ? (

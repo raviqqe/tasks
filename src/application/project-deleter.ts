@@ -1,16 +1,16 @@
-import { type IProject } from "../domain/project.js";
-import { type IConfirmationController } from "./confirmation-controller.js";
-import { type IProjectPresenter } from "./project-presenter.js";
-import { type IProjectRepository } from "./project-repository.js";
+import { type Project } from "../domain/project.js";
+import { type ConfirmationController } from "./confirmation-controller.js";
+import { type ProjectPresenter } from "./project-presenter.js";
+import { type ProjectRepository } from "./project-repository.js";
 
 export class ProjectDeleter {
   constructor(
-    private readonly projectRepository: IProjectRepository,
-    private readonly projectPresenter: IProjectPresenter,
-    private readonly confirmationController: IConfirmationController,
+    private readonly projectRepository: ProjectRepository,
+    private readonly projectPresenter: ProjectPresenter,
+    private readonly confirmationController: ConfirmationController,
   ) {}
 
-  public async delete(project: IProject): Promise<void> {
+  public async delete(project: Project): Promise<void> {
     if (!project.archived) {
       throw new Error("project not archived");
     } else if (

@@ -1,7 +1,7 @@
 import { FaRegCheckSquare, FaRegSquare } from "react-icons/fa/index.js";
 import { CircleButton } from "./CircleButton.js";
 
-interface IProps {
+interface Props {
   setTasksDone: (done: boolean) => void;
   tasksDone: boolean;
 }
@@ -9,7 +9,7 @@ interface IProps {
 export const ToggleTasks = ({
   setTasksDone,
   tasksDone,
-}: IProps): JSX.Element => (
+}: Props): JSX.Element => (
   <CircleButton
     aria-label="Toggle Tasks"
     onClick={() => setTasksDone(!tasksDone)}

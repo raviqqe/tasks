@@ -1,11 +1,11 @@
-import { type IProject } from "../domain/project.js";
+import { type Project } from "../domain/project.js";
 
-export interface IProjectPresenter {
-  presentCurrentProject(project: IProject): void;
-  presentProjects(projects: IProject[]): void;
-  presentArchivedProjects(projects: IProject[]): void;
-  presentArchivedProject(project: IProject): void;
+export interface ProjectPresenter {
+  presentCurrentProject(project: Project): void;
+  presentProjects(projects: Project[]): void;
+  presentArchivedProjects(projects: Project[]): void;
+  presentArchivedProject(project: Project): void;
   presentDeletedProject(projectId: string): void;
-  presentUnarchivedProject(project: IProject): void;
-  presentUpdatedProject(project: IProject): void;
+  presentUnarchivedProject(project: Project): void;
+  presentUpdatedProject(project: Project): void;
 }

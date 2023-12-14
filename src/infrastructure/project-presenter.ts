@@ -1,30 +1,30 @@
-import { type IProjectPresenter } from "../application/project-presenter.js";
-import { sortProjects, type IProject } from "../domain/project.js";
-import { type IRenderer } from "./renderer.js";
+import { type ProjectPresenter } from "../application/project-presenter.js";
+import { sortProjects, type Project } from "../domain/project.js";
+import { type Renderer } from "./renderer.js";
 
-export class ProjectPresenter implements IProjectPresenter {
-  private renderer: IRenderer | null = null;
-  private currentProject: IProject | null = null;
-  private projects: IProject[] | null = null;
-  private archivedProjects: IProject[] | null = null;
+export class ProjectPresenter implements ProjectPresenter {
+  private renderer: Renderer | null = null;
+  private currentProject: Project | null = null;
+  private projects: Project[] | null = null;
+  private archivedProjects: Project[] | null = null;
 
-  public setRenderer(renderer: IRenderer): void {
+  public setRenderer(renderer: Renderer): void {
     this.renderer = renderer;
   }
 
-  public presentCurrentProject(project: IProject): void {
+  public presentCurrentProject(project: Project): void {
     this.renderCurrentProject(project);
   }
 
-  public presentProjects(projects: IProject[]): void {
+  public presentProjects(projects: Project[]): void {
     this.renderProjects(projects);
   }
 
-  public presentArchivedProjects(projects: IProject[]): void {
+  public presentArchivedProjects(projects: Project[]): void {
     this.renderArchivedProjects(projects);
   }
 
-  public presentArchivedProject(project: IProject): void {
+  public presentArchivedProject(project: Project): void {
     this.renderProjects(this.projects?.filter(({ id }) => id !== project.id));
     this.renderArchivedProjects(
       this.archivedProjects && [project, ...this.archivedProjects],
@@ -37,14 +37,14 @@ export class ProjectPresenter implements IProjectPresenter {
     );
   }
 
-  public presentUnarchivedProject(project: IProject): void {
+  public presentUnarchivedProject(project: Project): void {
     this.renderProjects(this.projects && [project, ...this.projects]);
     this.renderArchivedProjects(
       this.archivedProjects?.filter(({ id }) => id !== project.id),
     );
   }
 
-  public presentUpdatedProject(updatedProject: IProject): void {
+  public presentUpdatedProject(updatedProject: Project): void {
     if (this.currentProject?.id === updatedProject.id) {
       this.renderCurrentProject(updatedProject);
     }
@@ -56,20 +56,20 @@ export class ProjectPresenter implements IProjectPresenter {
     );
   }
 
-  private renderCurrentProject(project: IProject): void {
+  private renderCurrentProject(project: Project): void {
     this.currentProject = project;
 
     this.renderer?.renderCurrentProject(this.currentProject);
   }
 
-  private renderProjects(projects: IProject[] | null | undefined): void {
+  private renderProjects(projects: Project[] | null | undefined): void {
     this.projects = projects ? sortProjects(projects) : null;
 
     this.renderer?.renderProjects(this.projects);
   }
 
   private renderArchivedProjects(
-    projects: IProject[] | null | undefined,
+    projects: Project[] | null | undefined,
   ): void {
     this.archivedProjects = projects ? sortProjects(projects) : null;
 

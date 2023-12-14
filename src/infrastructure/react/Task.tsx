@@ -4,7 +4,7 @@ import { CSS } from "@dnd-kit/utilities";
 import { defaultImport } from "default-import";
 import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md/index.js";
 import defaultStyled from "styled-components";
-import { type ITask } from "../../domain/task.js";
+import { type Task } from "../../domain/task.js";
 import { IconButton } from "./IconButton.js";
 import { white } from "./style/colors.js";
 import { boxShadow } from "./style.js";
@@ -47,11 +47,11 @@ const DragHandle = (props: DraggableSyntheticListeners) => (
   </StyledIconButton>
 );
 
-interface IProps {
-  completeTask?: (task: ITask) => Promise<void>;
+interface Props {
+  completeTask?: (task: Task) => Promise<void>;
   dragHandleEnabled?: boolean;
-  task: ITask;
-  updateTask?: (task: ITask) => Promise<void>;
+  task: Task;
+  updateTask?: (task: Task) => Promise<void>;
   className?: string;
 }
 
@@ -61,7 +61,7 @@ export const Task = ({
   task,
   updateTask,
   ...restProps
-}: IProps): JSX.Element => {
+}: Props): JSX.Element => {
   const {
     attributes,
     isDragging,

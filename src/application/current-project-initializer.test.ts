@@ -1,9 +1,9 @@
 import { beforeEach, expect, it } from "vitest";
-import { type IProject } from "../domain/project.js";
+import { type Project } from "../domain/project.js";
 import { CurrentProjectInitializer } from "./current-project-initializer.js";
 import { MockManager } from "./test/mock-manager.js";
 
-const dummyProject: IProject = { archived: false, id: "", name: "" };
+const dummyProject: Project = { archived: false, id: "", name: "" };
 
 let mockManager: MockManager;
 let currentProjectInitializer: CurrentProjectInitializer;
@@ -48,7 +48,7 @@ it("presents archived projects", async () => {
   ).toHaveBeenCalledWith([]);
 });
 
-it("presents an initial project even if no current project ID is set", async () => {
+it("presents an initial project even if no current project D is set", async () => {
   mockManager.currentProjectRepository.get.mockResolvedValue(null);
 
   await currentProjectInitializer.initialize();

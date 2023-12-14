@@ -5,7 +5,7 @@ exports[`renders 1`] = `
   class="sc-jSguLX gUPsvJ"
 >
   <div
-    class="sc-iBPTVF irIIWN"
+    class="sc-iBPTVF irIWN"
   >
     <div
       aria-describedby="DndDescribedBy-0"
@@ -99,7 +99,7 @@ exports[`renders with no tasks 1`] = `
   class="sc-jSguLX gUPsvJ"
 >
   <div
-    class="sc-iBPTVF irIIWN"
+    class="sc-iBPTVF irIWN"
   />
 </div>
 `;

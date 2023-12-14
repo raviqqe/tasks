@@ -15,19 +15,19 @@ import { type TodoTaskCompleter } from "../application/todo-task-completer.js";
 import { type TodoTaskCreator } from "../application/todo-task-creator.js";
 import { type TodoTaskReorderer } from "../application/todo-task-reorderer.js";
 import { type TodoTaskUpdater } from "../application/todo-task-updater.js";
-import { type IProject } from "../domain/project.js";
-import { type ITask } from "../domain/task.js";
-import { App, type IProps as IAppProps } from "./react/App.js";
+import { type Project } from "../domain/project.js";
+import { type Task } from "../domain/task.js";
+import { App, type Props as AppProps } from "./react/App.js";
 import { GlobalStyle } from "./react/style.js";
-import { type IRenderer } from "./renderer.js";
+import { type Renderer } from "./renderer.js";
 
-interface IPresenter {
-  setRenderer(renderer: IRenderer): void;
+interface Presenter {
+  setRenderer(renderer: Renderer): void;
 }
 
-interface IProps
+interface Props
   extends Pick<
-    IAppProps,
+    AppProps,
     | "archivedProjects"
     | "currentProject"
     | "doneTasks"
@@ -36,9 +36,9 @@ interface IProps
     | "todoTasks"
   > {}
 
-export class ReactRenderer implements IRenderer {
+export class ReactRenderer implements Renderer {
   private readonly root: Root;
-  private props: IProps = {
+  private props: Props = {
     archivedProjects: null,
     currentProject: null,
     doneTasks: null,
@@ -49,7 +49,7 @@ export class ReactRenderer implements IRenderer {
 
   constructor(
     element: HTMLElement,
-    presenters: IPresenter[],
+    presenters: Presenter[],
     private readonly applicationInitializer: ApplicationInitializer,
     private readonly todoTaskCreator: TodoTaskCreator,
     private readonly todoTaskUpdater: TodoTaskUpdater,
@@ -78,19 +78,19 @@ export class ReactRenderer implements IRenderer {
     this.renderProps({});
   }
 
-  public renderArchivedProjects(archivedProjects: IProject[] | null): void {
+  public renderArchivedProjects(archivedProjects: Project[] | null): void {
     this.renderProps({ archivedProjects });
   }
 
-  public renderCurrentProject(currentProject: IProject): void {
+  public renderCurrentProject(currentProject: Project): void {
     this.renderProps({ currentProject });
   }
 
-  public renderDoneTasks(doneTasks: ITask[] | null): void {
+  public renderDoneTasks(doneTasks: Task[] | null): void {
     this.renderProps({ doneTasks });
   }
 
-  public renderProjects(projects: IProject[] | null): void {
+  public renderProjects(projects: Project[] | null): void {
     this.renderProps({ projects });
   }
 
@@ -98,11 +98,11 @@ export class ReactRenderer implements IRenderer {
     this.renderProps({ signedIn });
   }
 
-  public renderTodoTasks(todoTasks: ITask[] | null): void {
+  public renderTodoTasks(todoTasks: Task[] | null): void {
     this.renderProps({ todoTasks });
   }
 
-  private renderProps(props: Partial<IProps>): void {
+  private renderProps(props: Partial<Props>): void {
     this.props = { ...this.props, ...props };
 
     const { currentProject } = this.props;
@@ -114,7 +114,7 @@ export class ReactRenderer implements IRenderer {
           archiveProject={(project, currentProjectId) =>
             this.projectArchiver.archive(project, currentProjectId)
           }
-          completeTodoTask={async (task: ITask) => {
+          completeTodoTask={async (task: Task) => {
             if (currentProject) {
               await this.todoTaskCompleter.complete(currentProject.id, task);
             }
@@ -146,7 +146,7 @@ export class ReactRenderer implements IRenderer {
             this.projectUnarchiver.unarchive(project)
           }
           updateProject={(project) => this.projectUpdater.update(project)}
-          updateTodoTask={async (task: ITask) => {
+          updateTodoTask={async (task: Task) => {
             if (currentProject) {
               await this.todoTaskUpdater.update(currentProject.id, task);
             }

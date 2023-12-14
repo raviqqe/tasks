@@ -1,7 +1,7 @@
-import { type ITask } from "../domain/task.js";
+import { type Task } from "../domain/task.js";
 
-export interface IDoneTaskPresenter {
-  presentNewTask(task: ITask): void;
-  presentTasks(tasks: ITask[] | null): void;
-  presentMoreTasks(tasks: ITask[]): void;
+export interface DoneTaskPresenter {
+  presentNewTask(task: Task): void;
+  presentTasks(tasks: Task[] | null): void;
+  presentMoreTasks(tasks: Task[]): void;
 }

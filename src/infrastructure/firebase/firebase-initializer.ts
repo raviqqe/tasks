@@ -9,13 +9,13 @@ import {
   persistentMultipleTabManager,
 } from "firebase/firestore";
 
-interface IFirebaseConfiguration
+interface FirebaseConfiguration
   extends Required<
     Pick<FirebaseOptions, "apiKey" | "authDomain" | "projectId">
   > {}
 
 export class FirebaseInitializer {
-  constructor(private readonly configuration: IFirebaseConfiguration) {}
+  constructor(private readonly configuration: FirebaseConfiguration) {}
 
   public initialize(): FirebaseApp {
     const app = initializeApp(this.configuration);
