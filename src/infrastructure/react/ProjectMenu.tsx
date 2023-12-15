@@ -1,7 +1,7 @@
 import { defaultImport } from "default-import";
 import { useState, useRef, useEffect } from "react";
 import defaultStyled from "styled-components";
-import { type Project } from "../../domain/project.js";
+import type * as domain from "../../domain.js";
 import {
   CreateProject,
   type Props as CreateProjectProps,
@@ -66,10 +66,10 @@ const StyledCreateProject = styled(CreateProject)<{
 export interface Props
   extends CreateProjectProps,
     Required<Omit<ProjectProps, "currentProject" | "project">> {
-  archivedProjects: Project[] | null;
-  currentProject: Project | null;
+  archivedProjects: domain.Project[] | null;
+  currentProject: domain.Project | null;
   hideProjects: () => void;
-  projects: Project[] | null;
+  projects: domain.Project[] | null;
 }
 
 export const ProjectMenu = ({
