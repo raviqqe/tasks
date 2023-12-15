@@ -48,7 +48,7 @@ it("presents archived projects", async () => {
   ).toHaveBeenCalledWith([]);
 });
 
-it("presents an initial project even if no current project D is set", async () => {
+it("presents an initial project even if no current project ID is set", async () => {
   mockManager.currentProjectRepository.get.mockResolvedValue(null);
 
   await currentProjectInitializer.initialize();
