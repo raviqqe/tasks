@@ -1,22 +1,22 @@
-import { type IProject } from "../domain/project.js";
-import { type ICurrentProjectRepository } from "./current-project-repository.js";
+import { type Project } from "../domain/project.js";
+import { type CurrentProjectRepository } from "./current-project-repository.js";
 import { type DoneTaskLister } from "./done-task-lister.js";
-import { type IDoneTaskPresenter } from "./done-task-presenter.js";
-import { type IProjectPresenter } from "./project-presenter.js";
+import { type DoneTaskPresenter } from "./done-task-presenter.js";
+import { type ProjectPresenter } from "./project-presenter.js";
 import { type TodoTaskLister } from "./todo-task-lister.js";
-import { type ITodoTaskPresenter } from "./todo-task-presenter.js";
+import { type TodoTaskPresenter } from "./todo-task-presenter.js";
 
 export class CurrentProjectSwitcher {
   constructor(
-    private readonly currentProjectRepository: ICurrentProjectRepository,
-    private readonly projectPresenter: IProjectPresenter,
+    private readonly currentProjectRepository: CurrentProjectRepository,
+    private readonly projectPresenter: ProjectPresenter,
     private readonly todoTaskLister: TodoTaskLister,
     private readonly doneTaskLister: DoneTaskLister,
-    private readonly todoTaskPresenter: ITodoTaskPresenter,
-    private readonly doneTaskPresenter: IDoneTaskPresenter,
+    private readonly todoTaskPresenter: TodoTaskPresenter,
+    private readonly doneTaskPresenter: DoneTaskPresenter,
   ) {}
 
-  public async switch(project: IProject): Promise<void> {
+  public async switch(project: Project): Promise<void> {
     this.todoTaskPresenter.presentTasks(null);
     this.doneTaskPresenter.presentTasks(null);
 

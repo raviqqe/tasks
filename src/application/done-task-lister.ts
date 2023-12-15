@@ -1,15 +1,15 @@
-import { type ITask } from "../domain/task.js";
-import { type IDoneTaskPresenter } from "./done-task-presenter.js";
-import { type IDoneTaskRepository } from "./done-task-repository.js";
+import { type Task } from "../domain/task.js";
+import { type DoneTaskPresenter } from "./done-task-presenter.js";
+import { type DoneTaskRepository } from "./done-task-repository.js";
 
 const defaultLimit = 20;
 
 export class DoneTaskLister {
-  private iterator: AsyncIterator<ITask[], void> | null = null;
+  private iterator: AsyncIterator<Task[], void> | null = null;
 
   constructor(
-    private readonly doneTaskRepository: IDoneTaskRepository,
-    private readonly doneTaskPresenter: IDoneTaskPresenter,
+    private readonly doneTaskRepository: DoneTaskRepository,
+    private readonly doneTaskPresenter: DoneTaskPresenter,
   ) {}
 
   public async list(projectId: string): Promise<void> {

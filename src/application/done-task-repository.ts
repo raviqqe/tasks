@@ -1,6 +1,6 @@
-import { type ITask } from "../domain/task.js";
+import { type Task } from "../domain/task.js";
 
-export interface IDoneTaskRepository {
-  create(projectId: string, task: ITask): Promise<void>;
-  list(projectId: string, limit: number): AsyncIterable<ITask[]>;
+export interface DoneTaskRepository {
+  create(projectId: string, task: Task): Promise<void>;
+  list(projectId: string, limit: number): AsyncIterable<Task[]>;
 }

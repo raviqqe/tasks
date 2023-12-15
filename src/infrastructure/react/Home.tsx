@@ -4,12 +4,12 @@ import { useAsync } from "react-use";
 import defaultStyled from "styled-components";
 import {
   CreateTodoTask,
-  type IProps as ICreateTodoTaskProps,
+  type Props as CreateTodoTaskProps,
 } from "./CreateTodoTask.js";
-import { DoneTasks, type IProps as IDoneTasksProps } from "./DoneTasks.js";
-import { TodoTasks, type IProps as ITodoTasksProps } from "./TodoTasks.js";
+import { DoneTasks, type Props as DoneTasksProps } from "./DoneTasks.js";
+import { TodoTasks, type Props as TodoTasksProps } from "./TodoTasks.js";
 import { ToggleTasks } from "./ToggleTasks.js";
-import { TopBar, type IProps as ITopBarProps } from "./TopBar.js";
+import { TopBar, type Props as TopBarProps } from "./TopBar.js";
 
 const styled = defaultImport(defaultStyled);
 
@@ -50,11 +50,11 @@ const StyledCreateTodoTask = styled(CreateTodoTask)<{
   visibility: ${({ tasksDone }) => (tasksDone ? "hidden" : "visible")};
 `;
 
-export interface IProps
-  extends ICreateTodoTaskProps,
-    ITopBarProps,
-    ITodoTasksProps,
-    IDoneTasksProps {
+export interface Props
+  extends CreateTodoTaskProps,
+    TopBarProps,
+    TodoTasksProps,
+    DoneTasksProps {
   initializeCurrentProject: () => Promise<void>;
 }
 
@@ -70,7 +70,7 @@ export const Home = ({
   showProjects,
   todoTasks,
   updateTodoTask,
-}: IProps): JSX.Element => {
+}: Props): JSX.Element => {
   useAsync(initializeCurrentProject, []);
   const [tasksDone, setTasksDone] = useState(false);
 

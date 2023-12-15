@@ -1,9 +1,9 @@
 import { beforeEach, expect, it } from "vitest";
-import { type ITask } from "../domain/task.js";
+import { type Task } from "../domain/task.js";
 import { DoneTaskLister } from "./done-task-lister.js";
 import { MockManager } from "./test/mock-manager.js";
 
-const dummyTask: ITask = { id: "", name: "" };
+const dummyTask: Task = { id: "", name: "" };
 
 let mockManager: MockManager;
 let doneTaskLister: DoneTaskLister;

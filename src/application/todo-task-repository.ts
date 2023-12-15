@@ -1,9 +1,9 @@
-import { type ITask } from "../domain/task.js";
+import { type Task } from "../domain/task.js";
 
-export interface ITodoTaskRepository {
-  create(projectId: string, task: ITask): Promise<void>;
+export interface TodoTaskRepository {
+  create(projectId: string, task: Task): Promise<void>;
   delete(projectId: string, taskId: string): Promise<void>;
-  list(projectId: string): Promise<ITask[]>;
+  list(projectId: string): Promise<Task[]>;
   reorder(projectId: string, taskIds: string[]): Promise<void>;
-  update(projectId: string, task: ITask): Promise<void>;
+  update(projectId: string, task: Task): Promise<void>;
 }

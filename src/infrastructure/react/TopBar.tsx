@@ -2,9 +2,9 @@ import { defaultImport } from "default-import";
 import defaultStyled from "styled-components";
 import {
   CurrentProject,
-  type IProps as ICurrentProjectProps,
+  type Props as CurrentProjectProps,
 } from "./CurrentProject.js";
-import { SignOut, type IProps as ISignOutProps } from "./SignOut.js";
+import { SignOut, type Props as SignOutProps } from "./SignOut.js";
 import { red } from "./style/colors.js";
 import { boxShadow } from "./style.js";
 
@@ -28,13 +28,13 @@ const SignOutContainer = styled.div`
   transform: translateY(-50%);
 `;
 
-export interface IProps extends ICurrentProjectProps, ISignOutProps {}
+export interface Props extends CurrentProjectProps, SignOutProps {}
 
 export const TopBar = ({
   currentProject,
   showProjects,
   signOut,
-}: IProps): JSX.Element => (
+}: Props): JSX.Element => (
   <Container>
     <CurrentProject
       currentProject={currentProject}

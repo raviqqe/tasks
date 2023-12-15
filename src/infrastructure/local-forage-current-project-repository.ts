@@ -1,16 +1,16 @@
 import localforage from "localforage";
-import { type ICurrentProjectRepository } from "../application/current-project-repository.js";
+import { type CurrentProjectRepository } from "../application/current-project-repository.js";
 
-const key = "currentProjectID";
+const key = "currentProjectId";
 
 export class LocalForageCurrentProjectRepository
-  implements ICurrentProjectRepository
+  implements CurrentProjectRepository
 {
   public async get(): Promise<string | null> {
     return localforage.getItem(key);
   }
 
-  public async set(currentProjectID: string): Promise<void> {
-    await localforage.setItem(key, currentProjectID);
+  public async set(currentProjectId: string): Promise<void> {
+    await localforage.setItem(key, currentProjectId);
   }
 }

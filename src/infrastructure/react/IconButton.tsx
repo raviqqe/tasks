@@ -12,7 +12,7 @@ const Button = styled.div`
   display: flex;
 `;
 
-interface IProps extends AriaAttributes {
+interface Props extends AriaAttributes {
   children: ReactNode;
   onClick: () => void;
 }
@@ -21,7 +21,7 @@ export const IconButton = ({
   children,
   onClick,
   ...restProps
-}: IProps): JSX.Element => (
+}: Props): JSX.Element => (
   <Button onClick={onClick} {...restProps}>
     {children}
   </Button>

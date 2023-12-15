@@ -1,9 +1,9 @@
 import { TextButton } from "./TextButton.js";
 
-interface IProps {
+interface Props {
   signIn: () => void;
 }
 
-export const SignIn = ({ signIn }: IProps): JSX.Element => (
+export const SignIn = ({ signIn }: Props): JSX.Element => (
   <TextButton onClick={signIn}>Sign in</TextButton>
 );

@@ -1,14 +1,14 @@
 import { MdAdd } from "react-icons/md/index.js";
 import { CircleButton } from "./CircleButton.js";
 
-export interface IProps {
+export interface Props {
   createProject: (name: string) => Promise<void>;
 }
 
 export const CreateProject = ({
   createProject,
   ...restProps
-}: IProps): JSX.Element => (
+}: Props): JSX.Element => (
   <CircleButton
     aria-label="Create Project"
     onClick={async () => {

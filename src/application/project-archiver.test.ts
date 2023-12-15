@@ -1,5 +1,5 @@
 import { beforeEach, expect, it } from "vitest";
-import { type IProject } from "../domain/project.js";
+import { type Project } from "../domain/project.js";
 import { ProjectArchiver } from "./project-archiver.js";
 import { MockManager } from "./test/mock-manager.js";
 
@@ -19,13 +19,13 @@ beforeEach(() => {
 });
 
 it("archives a project", async () => {
-  const projectToArchive: IProject = { archived: false, id: "", name: "" };
+  const projectToArchive: Project = { archived: false, id: "", name: "" };
 
   mockManager.projectRepository.list.mockResolvedValueOnce([
     projectToArchive,
-    {} as IProject,
+    {} as Project,
   ]);
-  mockManager.projectRepository.list.mockResolvedValueOnce([{} as IProject]);
+  mockManager.projectRepository.list.mockResolvedValueOnce([{} as Project]);
 
   await projectArchiver.archive(projectToArchive, "anotherProject");
 
@@ -44,7 +44,7 @@ it("does not archive any project archived already", async () => {
 });
 
 it("does not archive the last project", async () => {
-  const project: IProject = { archived: false, id: "", name: "" };
+  const project: Project = { archived: false, id: "", name: "" };
 
   mockManager.projectRepository.list.mockResolvedValueOnce([project]);
 
@@ -57,7 +57,7 @@ it("does not archive the last project", async () => {
 
 it("does not archive any project if it is not confirmed", async () => {
   mockManager.confirmationController.confirm.mockResolvedValue(false);
-  mockManager.projectRepository.list.mockResolvedValue([{}, {}] as IProject[]);
+  mockManager.projectRepository.list.mockResolvedValue([{}, {}] as Project[]);
 
   await projectArchiver.archive({ archived: false, id: "", name: "" }, "");
 
@@ -65,8 +65,8 @@ it("does not archive any project if it is not confirmed", async () => {
 });
 
 it("switches a current project on archival", async () => {
-  const projectToArchive: IProject = { archived: false, id: "", name: "" };
-  const remainingProject: IProject = {
+  const projectToArchive: Project = { archived: false, id: "", name: "" };
+  const remainingProject: Project = {
     archived: false,
     id: "anotherProject",
     name: "",
@@ -86,8 +86,8 @@ it("switches a current project on archival", async () => {
 });
 
 it("does not switch any current projects if they are not archived", async () => {
-  const projectToArchive: IProject = { archived: false, id: "", name: "" };
-  const remainingProject: IProject = {
+  const projectToArchive: Project = { archived: false, id: "", name: "" };
+  const remainingProject: Project = {
     archived: false,
     id: "anotherProject",
     name: "",

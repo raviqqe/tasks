@@ -1,24 +1,24 @@
 import { formatErrorMessage } from "../domain/error.js";
 import {
-  type IProject,
+  type Project,
   formatProject,
   validateProject,
 } from "../domain/project.js";
 import { type CurrentProjectSwitcher } from "./current-project-switcher.js";
-import { type IMessagePresenter } from "./message-presenter.js";
-import { type IProjectPresenter } from "./project-presenter.js";
-import { type IProjectRepository } from "./project-repository.js";
+import { type MessagePresenter } from "./message-presenter.js";
+import { type ProjectPresenter } from "./project-presenter.js";
+import { type ProjectRepository } from "./project-repository.js";
 
 export class ProjectCreator {
   constructor(
     private readonly currentProjectSwitcher: CurrentProjectSwitcher,
-    private readonly projectRepository: IProjectRepository,
-    private readonly projectPresenter: IProjectPresenter,
-    private readonly messagePresenter: IMessagePresenter,
+    private readonly projectRepository: ProjectRepository,
+    private readonly projectPresenter: ProjectPresenter,
+    private readonly messagePresenter: MessagePresenter,
   ) {}
 
   public async create(name: string): Promise<void> {
-    const project: IProject = formatProject({
+    const project: Project = formatProject({
       archived: false,
       id: window.crypto.randomUUID(),
       name,

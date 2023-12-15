@@ -3,11 +3,11 @@ import {
   formatProject,
   validateProject,
   sortProjects,
-  type IProject,
+  type Project,
   getFirstProject,
 } from "./project.js";
 
-const dummyProject: IProject = { archived: false, id: "", name: "" };
+const dummyProject: Project = { archived: false, id: "", name: "" };
 
 describe("formatProject", () => {
   it("removes extra spaces in a name", () => {

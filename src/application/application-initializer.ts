@@ -1,10 +1,10 @@
-import { type IAuthenticationController } from "./authentication-controller.js";
-import { type IAuthenticationPresenter } from "./authentication-presenter.js";
+import { type AuthenticationController } from "./authentication-controller.js";
+import { type AuthenticationPresenter } from "./authentication-presenter.js";
 
 export class ApplicationInitializer {
   constructor(
-    private readonly authenticationController: IAuthenticationController,
-    private readonly authenticationPresenter: IAuthenticationPresenter,
+    private readonly authenticationController: AuthenticationController,
+    private readonly authenticationPresenter: AuthenticationPresenter,
   ) {}
 
   public async initialize(): Promise<void> {

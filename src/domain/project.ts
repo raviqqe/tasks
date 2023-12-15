@@ -1,17 +1,17 @@
-export interface IProject {
+export interface Project {
   id: string;
   name: string;
   archived: boolean;
 }
 
-export function formatProject(project: IProject): IProject {
+export function formatProject(project: Project): Project {
   return {
     ...project,
     name: project.name.trim(),
   };
 }
 
-export function validateProject(project: IProject): void {
+export function validateProject(project: Project): void {
   if (project.name.trim() !== project.name) {
     throw new Error("project name is not formatted");
   } else if (!project.name) {
@@ -19,13 +19,13 @@ export function validateProject(project: IProject): void {
   }
 }
 
-export function sortProjects(projects: IProject[]): IProject[] {
+export function sortProjects(projects: Project[]): Project[] {
   return projects.sort((project, anotherProject) =>
     project.name.localeCompare(anotherProject.name),
   );
 }
 
-export function getFirstProject(projects: IProject[]): IProject {
+export function getFirstProject(projects: Project[]): Project {
   const project = sortProjects(projects)[0];
 
   if (!project) {

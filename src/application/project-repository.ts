@@ -1,9 +1,9 @@
-import { type IProject } from "../domain/project.js";
+import { type Project } from "../domain/project.js";
 
-export interface IProjectRepository {
-  create(project: IProject): Promise<void>;
+export interface ProjectRepository {
+  create(project: Project): Promise<void>;
   delete(projectId: string): Promise<void>;
-  list(): Promise<IProject[]>;
-  listArchived(): Promise<IProject[]>;
-  update(project: IProject): Promise<void>;
+  list(): Promise<Project[]>;
+  listArchived(): Promise<Project[]>;
+  update(project: Project): Promise<void>;
 }
