@@ -2,7 +2,7 @@ import { type DoneTaskPresenter } from "../application/done-task-presenter.js";
 import { type Task } from "../domain/task.js";
 import { type Renderer } from "./renderer.js";
 
-export class DoneTaskRenderingPresenter implements DoneTaskPresenter {
+export class DoneTaskRenderer implements DoneTaskPresenter {
   private renderer: Renderer | null = null;
   private tasks: Task[] | null = null;
 

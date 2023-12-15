@@ -2,7 +2,7 @@ import { type ProjectPresenter } from "../application/project-presenter.js";
 import { sortProjects, type Project } from "../domain/project.js";
 import { type Renderer } from "./renderer.js";
 
-export class ProjectPresenter implements ProjectPresenter {
+export class ProjectRenderer implements ProjectPresenter {
   private renderer: Renderer | null = null;
   private currentProject: Project | null = null;
   private projects: Project[] | null = null;
@@ -68,9 +68,7 @@ export class ProjectPresenter implements ProjectPresenter {
     this.renderer?.renderProjects(this.projects);
   }
 
-  private renderArchivedProjects(
-    projects: Project[] | null | undefined,
-  ): void {
+  private renderArchivedProjects(projects: Project[] | null | undefined): void {
     this.archivedProjects = projects ? sortProjects(projects) : null;
 
     this.renderer?.renderArchivedProjects(this.archivedProjects);

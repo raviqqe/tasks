@@ -12,7 +12,7 @@ import {
 } from "@dnd-kit/sortable";
 import { defaultImport } from "default-import";
 import defaultStyled from "styled-components";
-import { type Task } from "../../domain/task.js";
+import type * as domain from "../../domain.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
 import { buttonMargin } from "./style.js";
@@ -42,10 +42,10 @@ const Tasks = styled.div`
 `;
 
 export interface Props {
-  completeTodoTask: (task: Task) => Promise<void>;
+  completeTodoTask: (task: domain.Task) => Promise<void>;
   reorderTodoTasks: (taskIds: string[]) => Promise<void>;
-  todoTasks: Task[] | null;
-  updateTodoTask: (task: Task) => Promise<void>;
+  todoTasks: domain.Task[] | null;
+  updateTodoTask: (task: domain.Task) => Promise<void>;
 }
 
 export const TodoTasks = ({

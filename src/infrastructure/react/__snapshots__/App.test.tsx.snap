@@ -9,7 +9,7 @@ exports[`renders after a user signs in 1`] = `
       class="sc-kstpWv iexgLp"
     >
       <div
-        class="sc-dQpV dDsHyx"
+        class="sc-dQpIV dDsHyx"
       />
       <div
         class="sc-hBEZvw jnxmKJ"
@@ -126,7 +126,7 @@ exports[`renders after a user signs out 1`] = `
       </span>
     </div>
     <button
-      class="sc-bdfCDU sc-dUfKc fRocVp cEiDjY"
+      class="sc-bdfCDU sc-dIUfKc fRocVp cEiDjY"
     >
       Sign in
     </button>
