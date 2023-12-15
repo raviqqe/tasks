@@ -51,7 +51,7 @@ interface Props {
   completeTask?: (task: domain.Task) => Promise<void>;
   dragHandleEnabled?: boolean;
   task: domain.Task;
-  updateTask?: (task: Task) => Promise<void>;
+  updateTask?: (task: domain.Task) => Promise<void>;
   className?: string;
 }
 
