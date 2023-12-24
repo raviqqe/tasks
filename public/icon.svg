@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="232.83331mm"
-   height="232.82771mm"
-   viewBox="0 0 232.83331 232.82772"
+   width="210mm"
+   height="210mm"
+   viewBox="0 0 209.99999 210.00001"
    version="1.1"
    id="svg1"
    inkscape:version="1.3.2 (091e20e, 2023-11-25)"
@@ -25,19 +25,19 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="0.51011278"
-     inkscape:cx="427.35648"
-     inkscape:cy="427.35648"
+     inkscape:cx="382.26841"
+     inkscape:cy="374.427"
      inkscape:window-width="1472"
      inkscape:window-height="805"
      inkscape:window-x="0"
      inkscape:window-y="37"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer2">
+     inkscape:current-layer="layer1">
     <inkscape:grid
        id="grid1"
        units="px"
-       originx="5.2916656"
-       originy="-37.041669"
+       originx="-6.9508128"
+       originy="-51.232395"
        spacingx="0.26458333"
        spacingy="0.26458334"
        empcolor="#0099e5"
@@ -51,37 +51,701 @@
        visible="true" />
   </sodipodi:namedview>
   <defs
-     id="defs1" />
+     id="defs1">
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter2"
+       x="-2.2554901"
+       y="-3.039968"
+       width="5.6938319"
+       height="7.3265085">
+      <feFlood
+         result="flood"
+         in="SourceGraphic"
+         flood-opacity="1.000000"
+         flood-color="rgb(0,0,0)"
+         id="feFlood1" />
+      <feGaussianBlur
+         result="blur"
+         in="SourceGraphic"
+         stdDeviation="40.000000"
+         id="feGaussianBlur1" />
+      <feOffset
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000"
+         id="feOffset1" />
+      <feComposite
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset"
+         id="feComposite1" />
+      <feComposite
+         result="fbSourceGraphic"
+         operator="over"
+         in="SourceGraphic"
+         in2="comp1"
+         id="feComposite2" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix2" />
+      <feFlood
+         id="feFlood2"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.603922"
+         flood-color="rgb(0,0,0)" />
+      <feGaussianBlur
+         id="feGaussianBlur2"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="10.000000" />
+      <feOffset
+         id="feOffset2"
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000" />
+      <feComposite
+         id="feComposite3"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite4"
+         result="fbSourceGraphic"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix4" />
+      <feFlood
+         id="feFlood4"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.149020"
+         flood-color="rgb(0,0,0)" />
+      <feGaussianBlur
+         id="feGaussianBlur4"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="10.000000" />
+      <feOffset
+         id="feOffset4"
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000" />
+      <feComposite
+         id="feComposite5"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite6"
+         result="fbSourceGraphic"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix6" />
+      <feFlood
+         id="feFlood6"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.149020"
+         flood-color="rgb(0,0,0)" />
+      <feGaussianBlur
+         id="feGaussianBlur6"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="10.000000" />
+      <feOffset
+         id="feOffset6"
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000" />
+      <feComposite
+         id="feComposite7"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite8"
+         result="fbSourceGraphic"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix8" />
+      <feFlood
+         id="feFlood8"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.000000"
+         flood-color="rgb(0,0,0)" />
+      <feGaussianBlur
+         id="feGaussianBlur8"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="10.000000" />
+      <feOffset
+         id="feOffset8"
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000" />
+      <feComposite
+         id="feComposite9"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite10"
+         result="fbSourceGraphic"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix10" />
+      <feFlood
+         id="feFlood10"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.000000"
+         flood-color="rgb(0,0,0)" />
+      <feGaussianBlur
+         id="feGaussianBlur10"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="10.000000" />
+      <feOffset
+         id="feOffset10"
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000" />
+      <feComposite
+         id="feComposite11"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite12"
+         result="fbSourceGraphic"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix12" />
+      <feFlood
+         id="feFlood12"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.000000"
+         flood-color="rgb(0,0,0)" />
+      <feGaussianBlur
+         id="feGaussianBlur12"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="10.000000" />
+      <feOffset
+         id="feOffset12"
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000" />
+      <feComposite
+         id="feComposite13"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite14"
+         result="fbSourceGraphic"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix14" />
+      <feFlood
+         id="feFlood14"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.000000"
+         flood-color="rgb(0,0,0)" />
+      <feGaussianBlur
+         id="feGaussianBlur14"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="10.000000" />
+      <feOffset
+         id="feOffset14"
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000" />
+      <feComposite
+         id="feComposite15"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite16"
+         result="fbSourceGraphic"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix16" />
+      <feFlood
+         id="feFlood16"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.000000"
+         flood-color="rgb(208,49,49)" />
+      <feGaussianBlur
+         id="feGaussianBlur16"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="10.000000" />
+      <feOffset
+         id="feOffset16"
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000" />
+      <feComposite
+         id="feComposite17"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite18"
+         result="fbSourceGraphic"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix18" />
+      <feFlood
+         id="feFlood18"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.000000"
+         flood-color="rgb(208,49,49)" />
+      <feGaussianBlur
+         id="feGaussianBlur18"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="10.000000" />
+      <feOffset
+         id="feOffset18"
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000" />
+      <feComposite
+         id="feComposite19"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite20"
+         result="fbSourceGraphic"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix20" />
+      <feFlood
+         id="feFlood20"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.000000"
+         flood-color="rgb(208,49,49)" />
+      <feGaussianBlur
+         id="feGaussianBlur20"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="10.000000" />
+      <feOffset
+         id="feOffset20"
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000" />
+      <feComposite
+         id="feComposite21"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite22"
+         result="fbSourceGraphic"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix22" />
+      <feFlood
+         id="feFlood22"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.000000"
+         flood-color="rgb(208,49,49)" />
+      <feGaussianBlur
+         id="feGaussianBlur22"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="10.000000" />
+      <feOffset
+         id="feOffset22"
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000" />
+      <feComposite
+         id="feComposite23"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite24"
+         result="fbSourceGraphic"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix36" />
+      <feFlood
+         id="feFlood36"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.168627"
+         flood-color="rgb(0,0,0)" />
+      <feGaussianBlur
+         id="feGaussianBlur36"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="0.000000" />
+      <feOffset
+         id="feOffset36"
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000" />
+      <feComposite
+         id="feComposite36"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite37"
+         result="fbSourceGraphic"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix37" />
+      <feFlood
+         id="feFlood37"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.168627"
+         flood-color="rgb(0,0,0)" />
+      <feGaussianBlur
+         id="feGaussianBlur37"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="0.000000" />
+      <feOffset
+         id="feOffset37"
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000" />
+      <feComposite
+         id="feComposite38"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite39"
+         result="fbSourceGraphic"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix48" />
+      <feFlood
+         id="feFlood48"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.200000"
+         flood-color="rgb(255,255,255)" />
+      <feGaussianBlur
+         id="feGaussianBlur48"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="0.000000" />
+      <feOffset
+         id="feOffset48"
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000" />
+      <feComposite
+         id="feComposite48"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite49"
+         result="comp2"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter40"
+       x="-0.28038207"
+       y="-0.37786627"
+       width="1.5973119"
+       height="1.8051122">
+      <feFlood
+         result="flood"
+         in="SourceGraphic"
+         flood-opacity="0.509804"
+         flood-color="rgb(0,0,0)"
+         id="feFlood35" />
+      <feGaussianBlur
+         result="blur"
+         in="SourceGraphic"
+         stdDeviation="5.000000"
+         id="feGaussianBlur35" />
+      <feOffset
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000"
+         id="feOffset35" />
+      <feComposite
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset"
+         id="feComposite35" />
+      <feComposite
+         result="fbSourceGraphic"
+         operator="over"
+         in="SourceGraphic"
+         in2="comp1"
+         id="feComposite40" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix40" />
+      <feFlood
+         id="feFlood40"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.509804"
+         flood-color="rgb(0,0,0)" />
+      <feGaussianBlur
+         id="feGaussianBlur40"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="5.000000" />
+      <feOffset
+         id="feOffset40"
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000" />
+      <feComposite
+         id="feComposite41"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite42"
+         result="fbSourceGraphic"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix42" />
+      <feFlood
+         id="feFlood42"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.509804"
+         flood-color="rgb(0,0,0)" />
+      <feGaussianBlur
+         id="feGaussianBlur42"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="5.000000" />
+      <feOffset
+         id="feOffset42"
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000" />
+      <feComposite
+         id="feComposite43"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite44"
+         result="comp2"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter46"
+       x="-0.13407777"
+       y="-0.18067354"
+       width="1.2803191"
+       height="1.3778613">
+      <feFlood
+         result="flood"
+         in="SourceGraphic"
+         flood-opacity="0.509804"
+         flood-color="rgb(0,0,0)"
+         id="feFlood44" />
+      <feGaussianBlur
+         result="blur"
+         in="SourceGraphic"
+         stdDeviation="5.000000"
+         id="feGaussianBlur44" />
+      <feOffset
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000"
+         id="feOffset44" />
+      <feComposite
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset"
+         id="feComposite45" />
+      <feComposite
+         result="comp2"
+         operator="over"
+         in="SourceGraphic"
+         in2="comp1"
+         id="feComposite46" />
+    </filter>
+  </defs>
   <g
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Layer 2"
-     transform="translate(16.463993,21.760521)">
-    <rect
-       style="fill:#8fbc8f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:5.80648;stroke-linejoin:round;stroke-miterlimit:100000;stroke-dasharray:none;stroke-opacity:1"
-       id="rect14"
-       width="232.83331"
-       height="232.82771"
-       x="-16.463993"
-       y="-21.760521"
-       inkscape:label="rect14" />
-    <rect
-       style="fill:#eaeaea;fill-rule:evenodd;stroke:#eaeaea;stroke-width:13.5714;stroke-linejoin:round;stroke-miterlimit:100000;stroke-dasharray:none"
-       id="rect2"
-       width="100.54167"
-       height="100.54167"
-       x="41.744324"
-       y="68.197815" />
-  </g>
+     transform="translate(4.2215144,7.5697931)" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(5.2916652,-37.04169)">
-    <path
-       style="fill:#cd5c5c;fill-opacity:1;fill-rule:evenodd;stroke:#cd5c5c;stroke-width:20;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1"
-       d="m 29.46383,120.21283 58.20833,79.375 L 193.50549,77.879489 87.672161,173.1295 Z"
-       id="path1"
-       sodipodi:nodetypes="ccccc" />
+     transform="translate(-6.9508134,-51.232418)">
+    <g
+       id="g1"
+       transform="translate(6.2241138,-10.755818)">
+      <rect
+         style="fill:#8fbc8f;fill-opacity:1;fill-rule:evenodd;stroke:#8fbc8f;stroke-width:22.9794;stroke-linejoin:round;stroke-miterlimit:100000;stroke-dasharray:none;stroke-opacity:1"
+         id="rect14"
+         width="121.97033"
+         height="121.96739"
+         x="31.030003"
+         y="62.776623"
+         inkscape:label="rect14"
+         transform="translate(11.172328,58.802211)" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:11.9574;stroke-linejoin:round;stroke-miterlimit:100000;stroke-dasharray:none;stroke-opacity:1"
+         id="rect2"
+         width="88.584312"
+         height="88.584312"
+         x="47.723011"
+         y="79.46817"
+         transform="translate(11.172328,58.802211)" />
+      <path
+         style="fill:#cd5c5c;fill-opacity:1;fill-rule:evenodd;stroke:#cd5c5c;stroke-width:20;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1;filter:url(#filter46)"
+         d="m 22.72104,132.66106 58.20833,79.375 L 186.7627,90.327717 80.929371,185.57773 Z"
+         id="path1"
+         sodipodi:nodetypes="ccccc" />
+    </g>
   </g>
 </svg>
