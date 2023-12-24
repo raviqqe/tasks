@@ -25,8 +25,8 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="0.51011278"
-     inkscape:cx="382.26841"
-     inkscape:cy="374.427"
+     inkscape:cx="383.24858"
+     inkscape:cy="370.5063"
      inkscape:window-width="1472"
      inkscape:window-height="805"
      inkscape:window-x="0"
@@ -676,10 +676,10 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter46"
-       x="-0.13407777"
-       y="-0.18067354"
-       width="1.2803191"
-       height="1.3778613">
+       x="-0.16498392"
+       y="-0.21598557"
+       width="1.3434189"
+       height="1.4496445">
       <feFlood
          result="flood"
          in="SourceGraphic"
@@ -710,6 +710,44 @@
          in2="comp1"
          id="feComposite46" />
     </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Drop Shadow"
+       id="filter32"
+       x="-0.16498392"
+       y="-0.21598556"
+       width="1.3434189"
+       height="1.4496445">
+      <feFlood
+         result="flood"
+         in="SourceGraphic"
+         flood-opacity="0.290196"
+         flood-color="rgb(0,0,0)"
+         id="feFlood31" />
+      <feGaussianBlur
+         result="blur"
+         in="SourceGraphic"
+         stdDeviation="5.000000"
+         id="feGaussianBlur31" />
+      <feOffset
+         result="offset"
+         in="blur"
+         dx="2.000000"
+         dy="2.000000"
+         id="feOffset31" />
+      <feComposite
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset"
+         id="feComposite31" />
+      <feComposite
+         result="comp2"
+         operator="over"
+         in="SourceGraphic"
+         in2="comp1"
+         id="feComposite32" />
+    </filter>
   </defs>
   <g
      inkscape:groupmode="layer"
@@ -721,31 +759,25 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-6.9508134,-51.232418)">
-    <g
-       id="g1"
-       transform="translate(6.2241138,-10.755818)">
-      <rect
-         style="fill:#8fbc8f;fill-opacity:1;fill-rule:evenodd;stroke:#8fbc8f;stroke-width:22.9794;stroke-linejoin:round;stroke-miterlimit:100000;stroke-dasharray:none;stroke-opacity:1"
-         id="rect14"
-         width="121.97033"
-         height="121.96739"
-         x="31.030003"
-         y="62.776623"
-         inkscape:label="rect14"
-         transform="translate(11.172328,58.802211)" />
-      <rect
-         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:11.9574;stroke-linejoin:round;stroke-miterlimit:100000;stroke-dasharray:none;stroke-opacity:1"
-         id="rect2"
-         width="88.584312"
-         height="88.584312"
-         x="47.723011"
-         y="79.46817"
-         transform="translate(11.172328,58.802211)" />
-      <path
-         style="fill:tomato;fill-opacity:1;fill-rule:evenodd;stroke:tomato;stroke-width:20;stroke-linejoin:round;stroke-miterlimit:100000;stroke-opacity:1;filter:url(#filter46)"
-         d="m 22.72104,132.66106 58.20833,79.375 L 186.7627,90.327717 80.929371,185.57773 Z"
-         id="path1"
-         sodipodi:nodetypes="ccccc" />
-    </g>
+    <rect
+       style="fill:#8fbc8f;fill-opacity:1;fill-rule:evenodd;stroke:#8fbc8f;stroke-width:22.9794;stroke-linejoin:round;stroke-miterlimit:100000;stroke-dasharray:none;stroke-opacity:1"
+       id="rect14"
+       width="121.97033"
+       height="121.96739"
+       x="47.389091"
+       y="107.19228"
+       inkscape:label="rect14" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:11.9574;stroke-linejoin:round;stroke-miterlimit:100000;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2"
+       width="88.584312"
+       height="88.584312"
+       x="64.0821"
+       y="123.88383" />
+    <path
+       style="fill:#cd5c5c;fill-opacity:1;fill-rule:evenodd;stroke:#cd5c5c;stroke-width:25;stroke-linejoin:round;stroke-miterlimit:100000;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter32)"
+       d="M 37.243973,116.71848 91.302894,199.72421 185.72534,86.314689 92.340247,152.00016 Z"
+       id="path1"
+       sodipodi:nodetypes="ccccc" />
   </g>
 </svg>
