@@ -15,13 +15,13 @@
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
      id="namedview1"
-     pagecolor="#8fbc8f"
+     pagecolor="#888888"
      bordercolor="#eeeeee"
      borderopacity="1"
      inkscape:showpageshadow="0"
      inkscape:pageopacity="0"
      inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#8fbc8f"
+     inkscape:deskcolor="#000000"
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="0.51011278"
@@ -32,7 +32,7 @@
      inkscape:window-x="0"
      inkscape:window-y="37"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1">
+     inkscape:current-layer="layer2">
     <inkscape:grid
        id="grid1"
        units="px"
@@ -52,6 +52,20 @@
   </sodipodi:namedview>
   <defs
      id="defs1" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2">
+    <rect
+       style="fill:#8fbc8f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.99999;stroke-linejoin:round;stroke-miterlimit:100000;stroke-dasharray:none;stroke-opacity:1"
+       id="rect14"
+       width="200.49434"
+       height="200.48949"
+       x="11.172328"
+       y="58.802193"
+       inkscape:label="rect14"
+       transform="translate(-11.172328,-58.802191)" />
+  </g>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
