@@ -2,21 +2,22 @@
 
 exports[`renders 1`] = `
 <div
-  class="sc-gKcmaw iINgjV"
+  class="mocked-styled-6 c9u4z6x"
 >
   <div
-    class="sc-iCfLYb bClTbH"
+    class="mocked-styled-7 s1333ybj"
   >
     <div
-      class="sc-furvoW koKzkQ"
+      class="mocked-styled-8 p1sioe7i"
     />
   </div>
   <div
-    class="sc-jrQyNv hKbFyV"
+    class="mocked-styled-10 lljgqdf"
   >
     <button
       aria-label="Toggle Projects"
-      class="sc-bdvuGq sc-gsDLol jPrSNB enJXvF"
+      class="mocked-styled-1 bunojaf cki2aja bunojaf"
+      style="--bunojaf-0: grey;"
     >
       <svg
         fill="currentColor"
@@ -38,7 +39,8 @@ exports[`renders 1`] = `
     </button>
     <button
       aria-label="Create Project"
-      class="sc-bdvuGq sc-gsDLol nounu enJXvF sc-kDTjaY imDgJH"
+      class="mocked-styled-1 bunojaf cki2aja bunojaf"
+      style="--bunojaf-0: indianred;"
     >
       <svg
         fill="currentColor"

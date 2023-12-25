@@ -2,7 +2,8 @@
 
 exports[`renders 1`] = `
 <button
-  class="sc-bdvuGq sc-gsDLol nounu lhBfAf"
+  class="mocked-styled-1 bunojaf tn2f353 bunojaf"
+  style="--bunojaf-0: indianred;"
 >
   foo
 </button>
@@ -10,7 +11,8 @@ exports[`renders 1`] = `
 
 exports[`renders as a secondary button 1`] = `
 <button
-  class="sc-bdvuGq sc-gsDLol jPrSNB lhBfAf"
+  class="mocked-styled-1 bunojaf tn2f353 bunojaf"
+  style="--bunojaf-0: grey;"
 >
   foo
 </button>

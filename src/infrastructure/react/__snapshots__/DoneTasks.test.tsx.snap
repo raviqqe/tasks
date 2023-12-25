@@ -2,14 +2,14 @@
 
 exports[`renders 1`] = `
 <div
-  class="sc-jRQCJB dUyXYG"
+  class="mocked-styled-4 c6vl79f"
   id="done-tasks-container"
 >
   <div
     class="infinite-scroll-component__outerdiv"
   >
     <div
-      class="infinite-scroll-component sc-iCfLYb hAVOpT"
+      class="infinite-scroll-component c1g3r2dm"
       style="height: auto; overflow: auto;"
     />
   </div>

@@ -5,21 +5,21 @@ exports[`renders 1`] = `
   aria-describedby=""
   aria-disabled="false"
   aria-roledescription="sortable"
-  class="sc-gsDLol ffSUtd"
+  class="mocked-styled-1 c1k6zm5c"
   role="button"
   tabindex="0"
 >
   <div
-    class="sc-dkPuFg jyLkzu"
+    class="mocked-styled-2 nbb6sm"
   >
     name
   </div>
   <div
-    class="sc-hKwCKL hUMMWT"
+    class="mocked-styled-3 b1w32vq3"
   >
     <div
       aria-label="Edit"
-      class="sc-bdvuGq bMGlxO"
+      class="mocked-styled-0 b1bs8ozj"
     >
       <svg
         fill="currentColor"

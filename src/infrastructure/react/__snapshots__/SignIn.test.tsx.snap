@@ -2,7 +2,8 @@
 
 exports[`renders 1`] = `
 <button
-  class="sc-bdvuGq sc-gsDLol nounu lhBfAf"
+  class="mocked-styled-1 bunojaf tn2f353 bunojaf"
+  style="--bunojaf-0: indianred;"
 >
   Sign in
 </button>
