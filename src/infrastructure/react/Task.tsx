@@ -7,6 +7,7 @@ import type * as domain from "../../domain.js";
 import { IconButton } from "./IconButton.js";
 import { white } from "./style/colors.js";
 import { boxShadow } from "./style.js";
+import { css } from "@linaria/core";
 
 const maxZIndex = 10000;
 
@@ -34,14 +35,16 @@ const ButtonsContainer = styled.div`
   }
 `;
 
-const StyledIconButton = styled(IconButton)`
-  touch-action: none;
-`;
-
 const DragHandle = (props: DraggableSyntheticListeners) => (
-  <StyledIconButton onClick={() => undefined} {...props}>
+  <IconButton
+    className={css`
+      touch-action: none;
+    `}
+    onClick={() => undefined}
+    {...props}
+  >
     <MdDragHandle />
-  </StyledIconButton>
+  </IconButton>
 );
 
 interface Props {
