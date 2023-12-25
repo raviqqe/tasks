@@ -64,9 +64,11 @@ export const DoneTasks = ({
       {(doneTasks ?? []).map((task) => (
         <DoneTask key={task.id} task={task} />
       ))}
-      <LoaderContainer ref={ref}>
-        <Loader />
-      </LoaderContainer>
+      {!done && (
+        <LoaderContainer ref={ref}>
+          <Loader />
+        </LoaderContainer>
+      )}
     </Container>
   );
 };
