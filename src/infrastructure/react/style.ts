@@ -2,19 +2,17 @@ import { green, black } from "./style/colors.js";
 import css from "noop-tag";
 
 export const globalStyle = css`
-  :global() {
-    body {
-      background: ${green};
-      margin: 0;
-      padding: 0;
-      color: ${black};
-      font-family: Roboto, sans-serif;
-      line-height: 1.4;
-      font-size: 16px;
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
-    }
+  body {
+    background: ${green};
+    margin: 0;
+    padding: 0;
+    color: ${black};
+    font-family: Roboto, sans-serif;
+    line-height: 1.4;
+    font-size: 16px;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
   }
 `;
 
