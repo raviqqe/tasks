@@ -42,7 +42,7 @@ export interface Props {
   updateTodoTask: (task: domain.Task) => Promise<void>;
 }
 
-export const TodoTasks = ({
+export const TodoTaskList = ({
   completeTodoTask,
   reorderTodoTasks,
   todoTasks,

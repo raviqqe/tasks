@@ -6,8 +6,14 @@ import {
   CreateTodoTask,
   type Props as CreateTodoTaskProps,
 } from "./CreateTodoTask.js";
-import { DoneTasks, type Props as DoneTasksProps } from "./DoneTasks.js";
-import { TodoTasks, type Props as TodoTasksProps } from "./TodoTasks.js";
+import {
+  DoneTaskList,
+  type Props as DoneTaskListProps,
+} from "./DoneTaskList.js";
+import {
+  TodoTaskList,
+  type Props as TodoTaskListProps,
+} from "./TodoTaskList.js";
 import { ToggleTasks } from "./ToggleTasks.js";
 import { TopBar, type Props as TopBarProps } from "./TopBar.js";
 
@@ -45,8 +51,8 @@ const ButtonsContainer = styled.div`
 export interface Props
   extends CreateTodoTaskProps,
     TopBarProps,
-    TodoTasksProps,
-    DoneTasksProps {
+    TodoTaskListProps,
+    DoneTaskListProps {
   initializeCurrentProject: () => Promise<void>;
 }
 
@@ -75,12 +81,12 @@ export const Home = ({
       />
       <TasksContainer>
         {tasksDone ? (
-          <DoneTasks
+          <DoneTaskList
             doneTasks={doneTasks}
             listMoreDoneTasks={listMoreDoneTasks}
           />
         ) : (
-          <TodoTasks
+          <TodoTaskList
             completeTodoTask={completeTodoTask}
             reorderTodoTasks={reorderTodoTasks}
             todoTasks={todoTasks}

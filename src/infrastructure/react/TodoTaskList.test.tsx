@@ -1,11 +1,11 @@
 import { render } from "@testing-library/react";
 import { it, expect } from "vitest";
-import { TodoTasks } from "./TodoTasks.js";
+import { TodoTaskList } from "./TodoTaskList.js";
 
 it("renders", () => {
   expect(
     render(
-      <TodoTasks
+      <TodoTaskList
         completeTodoTask={async () => {}}
         reorderTodoTasks={async () => {}}
         todoTasks={[{ id: "id", name: "name" }]}
@@ -18,7 +18,7 @@ it("renders", () => {
 it("renders with no tasks", () => {
   expect(
     render(
-      <TodoTasks
+      <TodoTaskList
         completeTodoTask={async () => {}}
         reorderTodoTasks={async () => {}}
         todoTasks={[]}
@@ -31,7 +31,7 @@ it("renders with no tasks", () => {
 it("renders with tasks not loaded yet", () => {
   expect(
     render(
-      <TodoTasks
+      <TodoTaskList
         completeTodoTask={async () => {}}
         reorderTodoTasks={async () => {}}
         todoTasks={null}
