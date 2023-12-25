@@ -1,5 +1,5 @@
-import { FaGithub } from "react-icons/fa/index.js";
 import { styled } from "@linaria/react";
+import { FaGithub } from "react-icons/fa/index.js";
 import { SignIn } from "./SignIn.js";
 import { black, red, white } from "./style/colors.js";
 

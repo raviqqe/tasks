@@ -1,6 +1,7 @@
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 import { useState } from "react";
 import { useAsync } from "react-use";
-import { styled } from "@linaria/react";
 import {
   CreateTodoTask,
   type Props as CreateTodoTaskProps,
@@ -9,7 +10,6 @@ import { DoneTasks, type Props as DoneTasksProps } from "./DoneTasks.js";
 import { TodoTasks, type Props as TodoTasksProps } from "./TodoTasks.js";
 import { ToggleTasks } from "./ToggleTasks.js";
 import { TopBar, type Props as TopBarProps } from "./TopBar.js";
-import { css } from "@linaria/core";
 
 const Container = styled.div`
   display: flex;

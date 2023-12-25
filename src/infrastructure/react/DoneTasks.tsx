@@ -1,10 +1,10 @@
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 import { defaultImport } from "default-import";
 import defaultInfiniteScroll from "react-infinite-scroll-component";
-import { styled } from "@linaria/react";
 import type * as domain from "../../domain.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
-import { css } from "@linaria/core";
 
 const InfiniteScroll = defaultImport(defaultInfiniteScroll);
 

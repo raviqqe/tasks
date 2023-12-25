@@ -1,6 +1,6 @@
+import { styled } from "@linaria/react";
 import { useState } from "react";
 import { useAsync } from "react-use";
-import { styled } from "@linaria/react";
 import { Home, type Props as HomeProps } from "./Home.js";
 import { type Props as LandingProps, Landing } from "./Landing.js";
 import { Loader } from "./Loader.js";
