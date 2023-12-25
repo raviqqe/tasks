@@ -3,15 +3,23 @@
 exports[`renders 1`] = `
 <div
   class="mocked-styled-4 c6vl79f"
-  id="done-tasks-container"
 >
   <div
-    class="infinite-scroll-component__outerdiv"
+    class="mocked-styled-5 lq9okup"
   >
-    <div
-      class="infinite-scroll-component c1g3r2dm"
-      style="height: auto; overflow: auto;"
-    />
+    <span
+      style="display: inherit;"
+    >
+      <span
+        style="background-color: white; width: 15px; height: 15px; margin: 2px; border-radius: 100%; display: inline-block; animation: react-spinners-PulseLoader-pulse 0.75s 0.12s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08); animation-fill-mode: both;"
+      />
+      <span
+        style="background-color: white; width: 15px; height: 15px; margin: 2px; border-radius: 100%; display: inline-block; animation: react-spinners-PulseLoader-pulse 0.75s 0.24s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08); animation-fill-mode: both;"
+      />
+      <span
+        style="background-color: white; width: 15px; height: 15px; margin: 2px; border-radius: 100%; display: inline-block; animation: react-spinners-PulseLoader-pulse 0.75s 0.36s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08); animation-fill-mode: both;"
+      />
+    </span>
   </div>
 </div>
 `;
