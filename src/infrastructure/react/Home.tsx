@@ -96,9 +96,7 @@ export const Home = ({
               ? css`
                   visibility: hidden;
                 `
-              : css`
-                  visibility: visible;
-                `
+              : undefined
           }
           createTodoTask={createTodoTask}
         />

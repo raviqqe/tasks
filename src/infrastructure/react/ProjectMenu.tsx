@@ -135,9 +135,7 @@ export const ProjectMenu = ({
               ? css`
                   visibility: hidden;
                 `
-              : css`
-                  visibility: visible;
-                `
+              : undefined
           }
           createProject={async (name: string): Promise<void> => {
             await createProject(name);
