@@ -1,16 +1,10 @@
-import { defaultImport } from "default-import";
+import { styled } from "@linaria/react";
 import { useState } from "react";
 import { useAsync } from "react-use";
-import defaultStyled from "styled-components";
 import { Home, type Props as HomeProps } from "./Home.js";
 import { type Props as LandingProps, Landing } from "./Landing.js";
 import { Loader } from "./Loader.js";
-import {
-  ProjectMenu,
-  type Props as ProjectMenuProps,
-} from "./ProjectMenu.js";
-
-const styled = defaultImport(defaultStyled);
+import { ProjectMenu, type Props as ProjectMenuProps } from "./ProjectMenu.js";
 
 const LoaderContainer = styled.div`
   display: flex;

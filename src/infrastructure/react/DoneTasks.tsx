@@ -1,13 +1,11 @@
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 import { defaultImport } from "default-import";
-import defaultInfiniteScroll, {
-  type Props as ScrollProps,
-} from "react-infinite-scroll-component";
-import defaultStyled from "styled-components";
+import defaultInfiniteScroll from "react-infinite-scroll-component";
 import type * as domain from "../../domain.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
 
-const styled = defaultImport(defaultStyled);
 const InfiniteScroll = defaultImport(defaultInfiniteScroll);
 
 const doneTasksContainerId = "done-tasks-container";
@@ -24,15 +22,7 @@ const LoaderContainer = styled.div`
   align-items: center;
 `;
 
-const StyledInfiniteScroll = styled((props: ScrollProps) => (
-  <InfiniteScroll {...props} />
-))`
-  display: flex;
-  flex-direction: column;
-  padding: 1em 0.5em;
-`;
-
-const StyledTask = styled(Task)`
+const DoneTask = styled(Task)`
   margin: 0.5em;
 `;
 
@@ -47,7 +37,12 @@ export const DoneTasks = ({
 }: Props): JSX.Element =>
   doneTasks ? (
     <Container id={doneTasksContainerId}>
-      <StyledInfiniteScroll
+      <InfiniteScroll
+        className={css`
+          display: flex;
+          flex-direction: column;
+          padding: 1em 0.5em;
+        `}
         dataLength={doneTasks.length}
         hasMore
         loader={null}
@@ -55,9 +50,9 @@ export const DoneTasks = ({
         scrollableTarget={doneTasksContainerId}
       >
         {doneTasks.map((task) => (
-          <StyledTask key={task.id} task={task} />
+          <DoneTask key={task.id} task={task} />
         ))}
-      </StyledInfiniteScroll>
+      </InfiniteScroll>
     </Container>
   ) : (
     <LoaderContainer>

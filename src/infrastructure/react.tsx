@@ -18,7 +18,7 @@ import { type TodoTaskUpdater } from "../application/todo-task-updater.js";
 import { type Project } from "../domain/project.js";
 import { type Task } from "../domain/task.js";
 import { App, type Props as AppProps } from "./react/App.js";
-import { GlobalStyle } from "./react/style.js";
+import { globalStyle } from "./react/style.js";
 import { type Renderer } from "./renderer.js";
 
 interface Presenter {
@@ -109,6 +109,7 @@ export class ReactRenderer implements Renderer {
 
     this.root.render(
       <StrictMode>
+        <style>{globalStyle}</style>
         <App
           {...this.props}
           archiveProject={(project, currentProjectId) =>
@@ -152,7 +153,6 @@ export class ReactRenderer implements Renderer {
             }
           }}
         />
-        <GlobalStyle />
       </StrictMode>,
     );
   }

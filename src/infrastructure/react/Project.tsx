@@ -1,4 +1,4 @@
-import { defaultImport } from "default-import";
+import { styled } from "@linaria/react";
 import { forwardRef, type Ref } from "react";
 import {
   MdArchive,
@@ -6,12 +6,9 @@ import {
   MdDelete,
   MdEdit,
 } from "react-icons/md/index.js";
-import defaultStyled from "styled-components";
 import type * as domain from "../../domain.js";
 import { IconButton } from "./IconButton.js";
 import { black, red } from "./style/colors.js";
-
-const styled = defaultImport(defaultStyled);
 
 const Container = styled.div`
   display: flex;

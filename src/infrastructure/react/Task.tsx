@@ -1,15 +1,13 @@
 import { type DraggableSyntheticListeners } from "@dnd-kit/core";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { defaultImport } from "default-import";
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md/index.js";
-import defaultStyled from "styled-components";
 import type * as domain from "../../domain.js";
 import { IconButton } from "./IconButton.js";
 import { white } from "./style/colors.js";
 import { boxShadow } from "./style.js";
-
-const styled = defaultImport(defaultStyled);
 
 const maxZIndex = 10000;
 
@@ -37,14 +35,16 @@ const ButtonsContainer = styled.div`
   }
 `;
 
-const StyledIconButton = styled(IconButton)`
-  touch-action: none;
-`;
-
 const DragHandle = (props: DraggableSyntheticListeners) => (
-  <StyledIconButton onClick={() => undefined} {...props}>
+  <IconButton
+    className={css`
+      touch-action: none;
+    `}
+    onClick={() => undefined}
+    {...props}
+  >
     <MdDragHandle />
-  </StyledIconButton>
+  </IconButton>
 );
 
 interface Props {

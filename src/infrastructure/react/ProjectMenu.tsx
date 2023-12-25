@@ -1,6 +1,6 @@
-import { defaultImport } from "default-import";
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 import { useState, useRef, useEffect } from "react";
-import defaultStyled from "styled-components";
 import type * as domain from "../../domain.js";
 import {
   CreateProject,
@@ -11,8 +11,6 @@ import { Project, type Props as ProjectProps } from "./Project.js";
 import { ToggleProjects } from "./ToggleProjects.js";
 import { grey, white, lightGrey } from "./style/colors.js";
 import { boxShadow } from "./style.js";
-
-const styled = defaultImport(defaultStyled);
 
 const Container = styled.div`
   background-color: ${lightGrey};
@@ -54,13 +52,6 @@ const LowerButtonsContainer = styled.div`
   > * {
     margin-top: 0.5rem;
   }
-`;
-
-const StyledCreateProject = styled(CreateProject)<{
-  projectsArchived: boolean;
-}>`
-  visibility: ${({ projectsArchived }) =>
-    projectsArchived ? "hidden" : "visible"};
 `;
 
 export interface Props
@@ -138,12 +129,18 @@ export const ProjectMenu = ({
           projectsArchived={projectsArchived}
           setProjectsArchived={setProjectsArchived}
         />
-        <StyledCreateProject
+        <CreateProject
+          className={
+            projectsArchived
+              ? css`
+                  visibility: hidden;
+                `
+              : undefined
+          }
           createProject={async (name: string): Promise<void> => {
             await createProject(name);
             hideProjects();
           }}
-          projectsArchived={projectsArchived}
         />
       </LowerButtonsContainer>
     </Container>

@@ -2,29 +2,30 @@
 
 exports[`renders 1`] = `
 <div
-  class="sc-dkPuFg fvFWsE"
+  class="mocked-styled-2 c3ap7hf"
 >
   <div
-    class="sc-hKwCKL hNTRYU"
+    class="mocked-styled-3 t1xgehma"
   >
     <span
-      class="sc-eCImbG enEhKq"
+      class="mocked-styled-4 wim0e6u"
     >
       Be
     </span>
     <span
-      class="sc-jRQCJB tavyu"
+      class="mocked-styled-5 rm1lq52"
     >
       Done
     </span>
   </div>
   <button
-    class="sc-bdvuGq sc-gsDLol nounu lhBfAf"
+    class="mocked-styled-1 bunojaf tn2f353 bunojaf"
+    style="--bunojaf-0: indianred;"
   >
     Sign in
   </button>
   <a
-    class="sc-gKcmaw gJwhqk"
+    class="mocked-styled-6 g1qnybl0"
     href="url"
     target="_blank"
   >

@@ -1,7 +1,7 @@
-import { defaultImport } from "default-import";
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 import { useState } from "react";
 import { useAsync } from "react-use";
-import defaultStyled from "styled-components";
 import {
   CreateTodoTask,
   type Props as CreateTodoTaskProps,
@@ -10,8 +10,6 @@ import { DoneTasks, type Props as DoneTasksProps } from "./DoneTasks.js";
 import { TodoTasks, type Props as TodoTasksProps } from "./TodoTasks.js";
 import { ToggleTasks } from "./ToggleTasks.js";
 import { TopBar, type Props as TopBarProps } from "./TopBar.js";
-
-const styled = defaultImport(defaultStyled);
 
 const Container = styled.div`
   display: flex;
@@ -42,12 +40,6 @@ const ButtonsContainer = styled.div`
   > * {
     margin-top: 0.5rem;
   }
-`;
-
-const StyledCreateTodoTask = styled(CreateTodoTask)<{
-  tasksDone: boolean;
-}>`
-  visibility: ${({ tasksDone }) => (tasksDone ? "hidden" : "visible")};
 `;
 
 export interface Props
@@ -98,9 +90,15 @@ export const Home = ({
       </TasksContainer>
       <ButtonsContainer>
         <ToggleTasks setTasksDone={setTasksDone} tasksDone={tasksDone} />
-        <StyledCreateTodoTask
+        <CreateTodoTask
+          className={
+            tasksDone
+              ? css`
+                  visibility: hidden;
+                `
+              : undefined
+          }
           createTodoTask={createTodoTask}
-          tasksDone={tasksDone}
         />
       </ButtonsContainer>
     </Container>

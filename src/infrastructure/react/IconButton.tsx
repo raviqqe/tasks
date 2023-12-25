@@ -1,9 +1,6 @@
-import { defaultImport } from "default-import";
+import { styled } from "@linaria/react";
 import { type AriaAttributes, type ReactNode } from "react";
-import defaultStyled from "styled-components";
 import { grey } from "./style/colors.js";
-
-const styled = defaultImport(defaultStyled);
 
 const Button = styled.div`
   color: ${grey};
@@ -13,6 +10,7 @@ const Button = styled.div`
 `;
 
 interface Props extends AriaAttributes {
+  className?: string;
   children: ReactNode;
   onClick: () => void;
 }

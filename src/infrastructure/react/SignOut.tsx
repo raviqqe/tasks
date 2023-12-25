@@ -1,12 +1,9 @@
-import { defaultImport } from "default-import";
+import { styled } from "@linaria/react";
 import { MdExitToApp } from "react-icons/md/index.js";
-import defaultStyled from "styled-components";
 import { IconButton } from "./IconButton.js";
 import { white } from "./style/colors.js";
 
-const styled = defaultImport(defaultStyled);
-
-const StyledIconButton = styled(IconButton)`
+const SignOutIconButton = styled(IconButton)`
   color: ${white};
   font-size: 1.6rem;
 `;
@@ -16,7 +13,7 @@ export interface Props {
 }
 
 export const SignOut = ({ signOut }: Props): JSX.Element => (
-  <StyledIconButton onClick={signOut}>
+  <SignOutIconButton onClick={signOut}>
     <MdExitToApp />
-  </StyledIconButton>
+  </SignOutIconButton>
 );

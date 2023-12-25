@@ -1,7 +1,7 @@
-import { createGlobalStyle, css } from "styled-components";
+import css from "noop-tag";
 import { green, black } from "./style/colors.js";
 
-export const GlobalStyle = createGlobalStyle`
+export const globalStyle = css`
   body {
     background: ${green};
     margin: 0;
@@ -16,8 +16,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const boxShadow = css`
-  box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
-`;
+export const boxShadow = {
+  boxShadow: "0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.2)",
+};
 
 export const buttonMargin = "7.5rem";

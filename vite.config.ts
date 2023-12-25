@@ -1,3 +1,4 @@
+import wywInJs from "@wyw-in-js/vite";
 import { defineConfig } from "vite";
 import { UserConfigExport } from "vitest/config";
 import react from "@vitejs/plugin-react";
@@ -6,6 +7,12 @@ import { VitePWA } from "vite-plugin-pwa";
 export default defineConfig({
   plugins: [
     react(),
+    wywInJs({
+      include: ["src/**/*.{ts,tsx}"],
+      babelOptions: {
+        presets: ["@babel/preset-typescript", "@babel/preset-react"],
+      },
+    }),
     VitePWA({
       manifest: {
         short_name: "BeDone",
