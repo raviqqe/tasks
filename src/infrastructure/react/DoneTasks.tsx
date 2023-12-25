@@ -1,19 +1,19 @@
-import { css } from "@linaria/core";
+import defaultUseInfiniteScroll from "react-infinite-scroll-hook";
 import { styled } from "@linaria/react";
-import { defaultImport } from "default-import";
-import defaultInfiniteScroll from "react-infinite-scroll-component";
 import type * as domain from "../../domain.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
+import { defaultImport } from "default-import";
+import { useEffect, useState } from "react";
+import { usePrevious } from "react-use";
 
-const InfiniteScroll = defaultImport(defaultInfiniteScroll);
-
-const doneTasksContainerId = "done-tasks-container";
+const useInfiniteScroll = defaultImport(defaultUseInfiniteScroll);
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   overflow: auto;
+  padding: 1em 0.5em;
 `;
 
 const LoaderContainer = styled.div`
@@ -34,28 +34,39 @@ export interface Props {
 export const DoneTasks = ({
   doneTasks,
   listMoreDoneTasks,
-}: Props): JSX.Element =>
-  doneTasks ? (
-    <Container id={doneTasksContainerId}>
-      <InfiniteScroll
-        className={css`
-          display: flex;
-          flex-direction: column;
-          padding: 1em 0.5em;
-        `}
-        dataLength={doneTasks.length}
-        hasMore
-        loader={null}
-        next={listMoreDoneTasks}
-        scrollableTarget={doneTasksContainerId}
-      >
-        {doneTasks.map((task) => (
-          <DoneTask key={task.id} task={task} />
-        ))}
-      </InfiniteScroll>
+}: Props): JSX.Element => {
+  const [loading, setLoading] = useState(false);
+  const [done, setDone] = useState(false);
+
+  const [ref] = useInfiniteScroll({
+    hasNextPage: !done,
+    loading,
+    onLoadMore: async () => {
+      setLoading(true);
+      await listMoreDoneTasks();
+      setLoading(false);
+    },
+  });
+
+  const oldLoading = usePrevious(loading);
+  const [length, setLength] = useState(0);
+
+  useEffect(() => {
+    if (!oldLoading && loading) {
+      setLength(doneTasks?.length ?? 0);
+    } else if (oldLoading && !loading && doneTasks?.length === length) {
+      setDone(true);
+    }
+  }, [doneTasks, length, loading, oldLoading]);
+
+  return (
+    <Container>
+      {(doneTasks ?? []).map((task) => (
+        <DoneTask key={task.id} task={task} />
+      ))}
+      <LoaderContainer ref={ref}>
+        <Loader />
+      </LoaderContainer>
     </Container>
-  ) : (
-    <LoaderContainer>
-      <Loader />
-    </LoaderContainer>
   );
+};
