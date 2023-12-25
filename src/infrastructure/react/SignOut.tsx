@@ -8,11 +8,11 @@ const StyledIconButton = styled(IconButton)`
   font-size: 1.6rem;
 `;
 
-export interface IProps {
+export interface Props {
   signOut: () => void;
 }
 
-export const SignOut = ({ signOut }: IProps): JSX.Element => (
+export const SignOut = ({ signOut }: Props): JSX.Element => (
   <StyledIconButton onClick={signOut}>
     <MdExitToApp />
   </StyledIconButton>

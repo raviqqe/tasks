@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import { styled } from "@linaria/react";
-import { type IProject } from "../../domain/project.js";
+import type * as domain from "../../domain.js";
 import {
   CreateProject,
-  type IProps as ICreateProjectProps,
+  type Props as CreateProjectProps,
 } from "./CreateProject.js";
 import { Loader } from "./Loader.js";
-import { Project, type IProps as IProjectProps } from "./Project.js";
+import { Project, type Props as ProjectProps } from "./Project.js";
 import { ToggleProjects } from "./ToggleProjects.js";
 import { grey, white, lightGrey } from "./style/colors.js";
 import { boxShadow } from "./style.js";
@@ -60,13 +60,13 @@ const StyledCreateProject = styled(CreateProject)<{
     projectsArchived ? "hidden" : "visible"};
 `;
 
-export interface IProps
-  extends ICreateProjectProps,
-    Required<Omit<IProjectProps, "currentProject" | "project">> {
-  archivedProjects: IProject[] | null;
-  currentProject: IProject | null;
+export interface Props
+  extends CreateProjectProps,
+    Required<Omit<ProjectProps, "currentProject" | "project">> {
+  archivedProjects: domain.Project[] | null;
+  currentProject: domain.Project | null;
   hideProjects: () => void;
-  projects: IProject[] | null;
+  projects: domain.Project[] | null;
 }
 
 export const ProjectMenu = ({
@@ -80,7 +80,7 @@ export const ProjectMenu = ({
   switchCurrentProject,
   unarchiveProject,
   updateProject,
-}: IProps): JSX.Element => {
+}: Props): JSX.Element => {
   const [projectsArchived, setProjectsArchived] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 

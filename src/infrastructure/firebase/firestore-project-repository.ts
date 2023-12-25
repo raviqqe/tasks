@@ -13,10 +13,10 @@ import {
   updateDoc,
   where,
 } from "firebase/firestore";
-import { type IProjectRepository } from "../../application/project-repository.js";
-import { type IProject } from "../../domain/project.js";
+import { type ProjectRepository } from "../../application/project-repository.js";
+import { type Project } from "../../domain/project.js";
 
-export class FirestoreProjectRepository implements IProjectRepository {
+export class FirestoreProjectRepository implements ProjectRepository {
   private readonly auth: Auth;
   private readonly firestore: Firestore;
 
@@ -25,7 +25,7 @@ export class FirestoreProjectRepository implements IProjectRepository {
     this.firestore = getFirestore(app);
   }
 
-  public async create(project: IProject): Promise<void> {
+  public async create(project: Project): Promise<void> {
     await setDoc(doc(this.collection(), project.id), project);
   }
 
@@ -33,23 +33,23 @@ export class FirestoreProjectRepository implements IProjectRepository {
     await deleteDoc(doc(this.collection(), projectId));
   }
 
-  public async list(): Promise<IProject[]> {
+  public async list(): Promise<Project[]> {
     return (
       await getDocs(query(this.collection(), where("archived", "==", false)))
     ).docs.map((snapshot) => snapshot.data());
   }
 
-  public async listArchived(): Promise<IProject[]> {
+  public async listArchived(): Promise<Project[]> {
     return (
       await getDocs(query(this.collection(), where("archived", "==", true)))
     ).docs.map((snapshot) => snapshot.data());
   }
 
-  public async update(project: IProject): Promise<void> {
+  public async update(project: Project): Promise<void> {
     await updateDoc(doc(this.collection(), project.id), { ...project });
   }
 
-  private collection(): CollectionReference<IProject> {
+  private collection(): CollectionReference<Project> {
     const user = this.auth.currentUser;
 
     if (!user) {
@@ -59,6 +59,6 @@ export class FirestoreProjectRepository implements IProjectRepository {
     return collection(
       this.firestore,
       `version/1/users/${user.uid}/projects`,
-    ) as CollectionReference<IProject>;
+    ) as CollectionReference<Project>;
   }
 }

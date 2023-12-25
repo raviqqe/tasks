@@ -13,14 +13,14 @@ import {
   type Transaction,
   updateDoc,
 } from "firebase/firestore";
-import { type ITodoTaskRepository } from "../../application/todo-task-repository.js";
-import { type ITask } from "../../domain/task.js";
+import { type TodoTaskRepository } from "../../application/todo-task-repository.js";
+import { type Task } from "../../domain/task.js";
 
-interface IOrderDocument {
+interface OrderDocument {
   order: string[];
 }
 
-export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
+export class FirestoreTodoTaskRepository implements TodoTaskRepository {
   private readonly auth: Auth;
   private readonly firestore: Firestore;
 
@@ -29,7 +29,7 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
     this.firestore = getFirestore(app);
   }
 
-  public async create(projectId: string, task: ITask): Promise<void> {
+  public async create(projectId: string, task: Task): Promise<void> {
     await runTransaction(this.firestore, async (transaction) => {
       const taskIds = await this.getOrder(projectId, transaction);
 
@@ -51,11 +51,11 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
     });
   }
 
-  public async list(projectId: string): Promise<ITask[]> {
+  public async list(projectId: string): Promise<Task[]> {
     return runTransaction(this.firestore, async (transaction) => {
       // TODO Use CollectionReference.prototype.getAll().
       // https://github.com/firebase/firebase-js-sdk/issues/1176
-      const tasks: ITask[] = (await getDocs(this.tasks(projectId))).docs.map(
+      const tasks: Task[] = (await getDocs(this.tasks(projectId))).docs.map(
         (snapshot) => snapshot.data(),
       );
       const taskMap = Object.fromEntries(tasks.map((task) => [task.id, task]));
@@ -64,7 +64,7 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
       // Start of read consistency resolution
       const taskIdSet = new Set(taskIds);
 
-      const restoredTasks: ITask[] = [
+      const restoredTasks: Task[] = [
         ...tasks.filter((task) => !taskIdSet.has(task.id)),
         ...compact(taskIds.map((id) => taskMap[id])),
       ];
@@ -94,7 +94,7 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
     transaction.set(this.order(projectId), { order: taskIds });
   }
 
-  public async update(projectId: string, task: ITask): Promise<void> {
+  public async update(projectId: string, task: Task): Promise<void> {
     await updateDoc(doc(this.tasks(projectId), task.id), { ...task });
   }
 
@@ -105,18 +105,18 @@ export class FirestoreTodoTaskRepository implements ITodoTaskRepository {
     return (await transaction.get(this.order(projectId))).data()?.order ?? [];
   }
 
-  private tasks(projectId: string): CollectionReference<ITask> {
+  private tasks(projectId: string): CollectionReference<Task> {
     return collection(
       this.project(projectId),
       "todoTasks",
-    ) as CollectionReference<ITask>;
+    ) as CollectionReference<Task>;
   }
 
-  private order(projectId: string): DocumentReference<IOrderDocument> {
+  private order(projectId: string): DocumentReference<OrderDocument> {
     return doc(
       this.project(projectId),
       "todoTaskOrders/default",
-    ) as DocumentReference<IOrderDocument>;
+    ) as DocumentReference<OrderDocument>;
   }
 
   private project(projectId: string): DocumentReference {

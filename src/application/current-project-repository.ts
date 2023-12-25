@@ -1,5 +1,5 @@
 // Local in applications
-export interface ICurrentProjectRepository {
+export interface CurrentProjectRepository {
   set(projectId: string): Promise<void>;
   get(): Promise<string | null>;
 }

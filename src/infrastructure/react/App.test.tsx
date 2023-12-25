@@ -5,7 +5,7 @@ import {
   waitFor,
 } from "@testing-library/react";
 import { beforeEach, expect, it, vi } from "vitest";
-import { App, type IProps } from "./App.js";
+import { App, type Props } from "./App.js";
 
 const initialize = vi.fn();
 
@@ -15,7 +15,7 @@ beforeEach(() => {
 
 const wait = () => waitFor(() => expect(initialize).toHaveBeenCalled());
 
-const props: IProps = {
+const props: Props = {
   archiveProject: async () => {},
   archivedProjects: null,
   completeTodoTask: async () => {},

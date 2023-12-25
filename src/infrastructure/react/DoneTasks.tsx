@@ -1,12 +1,11 @@
 import { defaultImport } from "default-import";
 import defaultInfiniteScroll, {
-  type Props,
+  type Props as ScrollProps,
 } from "react-infinite-scroll-component";
 import { styled } from "@linaria/react";
-import { type ITask } from "../../domain/task.js";
+import type * as domain from "../../domain.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
-
 
 const InfiniteScroll = defaultImport(defaultInfiniteScroll);
 
@@ -24,7 +23,7 @@ const LoaderContainer = styled.div`
   align-items: center;
 `;
 
-const StyledInfiniteScroll = styled((props: Props) => (
+const StyledInfiniteScroll = styled((props: ScrollProps) => (
   <InfiniteScroll {...props} />
 ))`
   display: flex;
@@ -36,15 +35,15 @@ const StyledTask = styled(Task)`
   margin: 0.5em;
 `;
 
-export interface IProps {
-  doneTasks: ITask[] | null;
+export interface Props {
+  doneTasks: domain.Task[] | null;
   listMoreDoneTasks: () => Promise<void>;
 }
 
 export const DoneTasks = ({
   doneTasks,
   listMoreDoneTasks,
-}: IProps): JSX.Element =>
+}: Props): JSX.Element =>
   doneTasks ? (
     <Container id={doneTasksContainerId}>
       <StyledInfiniteScroll
@@ -54,7 +53,7 @@ export const DoneTasks = ({
         next={listMoreDoneTasks}
         scrollableTarget={doneTasksContainerId}
       >
-        {doneTasks.map((task: ITask) => (
+        {doneTasks.map((task) => (
           <StyledTask key={task.id} task={task} />
         ))}
       </StyledInfiniteScroll>

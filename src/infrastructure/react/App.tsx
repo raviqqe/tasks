@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { useAsync } from "react-use";
 import { styled } from "@linaria/react";
-import { Home, type IProps as IHomeProps } from "./Home.js";
-import { type IProps as ILandingProps, Landing } from "./Landing.js";
+import { Home, type Props as HomeProps } from "./Home.js";
+import { type Props as LandingProps, Landing } from "./Landing.js";
 import { Loader } from "./Loader.js";
-import {
-  ProjectMenu,
-  type IProps as IProjectMenuProps,
-} from "./ProjectMenu.js";
+import { ProjectMenu, type Props as ProjectMenuProps } from "./ProjectMenu.js";
 
 const LoaderContainer = styled.div`
   display: flex;
@@ -17,10 +14,10 @@ const LoaderContainer = styled.div`
   width: 100vw;
 `;
 
-export interface IProps
-  extends Omit<IHomeProps, "showProjects">,
-    Omit<IProjectMenuProps, "hideProjects">,
-    ILandingProps {
+export interface Props
+  extends Omit<HomeProps, "showProjects">,
+    Omit<ProjectMenuProps, "hideProjects">,
+    LandingProps {
   initialize: () => Promise<void>;
   signedIn: boolean | null;
 }
@@ -43,7 +40,7 @@ export const App = ({
   unarchiveProject,
   updateProject,
   ...props
-}: IProps): JSX.Element => {
+}: Props): JSX.Element => {
   useAsync(initialize, []);
   const [projectsShown, setProjectsShown] = useState(false);
 

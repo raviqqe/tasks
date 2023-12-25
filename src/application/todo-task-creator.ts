@@ -1,14 +1,14 @@
 import { formatErrorMessage } from "../domain/error.js";
 import { formatTask, validateTask } from "../domain/task.js";
-import { type IMessagePresenter } from "./message-presenter.js";
-import { type ITodoTaskPresenter } from "./todo-task-presenter.js";
-import { type ITodoTaskRepository } from "./todo-task-repository.js";
+import { type MessagePresenter } from "./message-presenter.js";
+import { type TodoTaskPresenter } from "./todo-task-presenter.js";
+import { type TodoTaskRepository } from "./todo-task-repository.js";
 
 export class TodoTaskCreator {
   constructor(
-    private readonly todoTaskRepository: ITodoTaskRepository,
-    private readonly todoTaskPresenter: ITodoTaskPresenter,
-    private readonly messagePresenter: IMessagePresenter,
+    private readonly todoTaskRepository: TodoTaskRepository,
+    private readonly todoTaskPresenter: TodoTaskPresenter,
+    private readonly messagePresenter: MessagePresenter,
   ) {}
 
   public async create(projectId: string, name: string): Promise<void> {

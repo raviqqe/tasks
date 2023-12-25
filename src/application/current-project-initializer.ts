@@ -1,19 +1,19 @@
 import { getFirstProject } from "../domain/project.js";
-import { type ICurrentProjectRepository } from "./current-project-repository.js";
+import { type CurrentProjectRepository } from "./current-project-repository.js";
 import { type CurrentProjectSwitcher } from "./current-project-switcher.js";
 import { type ProjectCreator } from "./project-creator.js";
-import { type IProjectPresenter } from "./project-presenter.js";
-import { type IProjectRepository } from "./project-repository.js";
+import { type ProjectPresenter } from "./project-presenter.js";
+import { type ProjectRepository } from "./project-repository.js";
 
 const defaultProjectName = "main";
 
 export class CurrentProjectInitializer {
   constructor(
     private readonly projectCreator: ProjectCreator,
-    private readonly projectRepository: IProjectRepository,
-    private readonly projectPresenter: IProjectPresenter,
+    private readonly projectRepository: ProjectRepository,
+    private readonly projectPresenter: ProjectPresenter,
     private readonly currentProjectSwitcher: CurrentProjectSwitcher,
-    private readonly currentProjectRepository: ICurrentProjectRepository,
+    private readonly currentProjectRepository: CurrentProjectRepository,
   ) {}
 
   public async initialize(): Promise<void> {

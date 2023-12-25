@@ -11,7 +11,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { styled } from "@linaria/react";
-import { type ITask } from "../../domain/task.js";
+import type * as domain from "../../domain.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
 import { buttonMargin } from "./style.js";
@@ -38,11 +38,11 @@ const Tasks = styled.div`
   }
 `;
 
-export interface IProps {
-  completeTodoTask: (task: ITask) => Promise<void>;
+export interface Props {
+  completeTodoTask: (task: domain.Task) => Promise<void>;
   reorderTodoTasks: (taskIds: string[]) => Promise<void>;
-  todoTasks: ITask[] | null;
-  updateTodoTask: (task: ITask) => Promise<void>;
+  todoTasks: domain.Task[] | null;
+  updateTodoTask: (task: domain.Task) => Promise<void>;
 }
 
 export const TodoTasks = ({
@@ -50,7 +50,7 @@ export const TodoTasks = ({
   reorderTodoTasks,
   todoTasks,
   updateTodoTask,
-}: IProps): JSX.Element => {
+}: Props): JSX.Element => {
   const sensors = useSensors(useSensor(PointerSensor));
 
   return todoTasks ? (

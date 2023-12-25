@@ -3,7 +3,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md/index.js";
 import { styled } from "@linaria/react";
-import { type ITask } from "../../domain/task.js";
+import type * as domain from "../../domain.js";
 import { IconButton } from "./IconButton.js";
 import { white } from "./style/colors.js";
 import { boxShadow } from "./style.js";
@@ -44,11 +44,11 @@ const DragHandle = (props: DraggableSyntheticListeners) => (
   </StyledIconButton>
 );
 
-interface IProps {
-  completeTask?: (task: ITask) => Promise<void>;
+interface Props {
+  completeTask?: (task: domain.Task) => Promise<void>;
   dragHandleEnabled?: boolean;
-  task: ITask;
-  updateTask?: (task: ITask) => Promise<void>;
+  task: domain.Task;
+  updateTask?: (task: domain.Task) => Promise<void>;
   className?: string;
 }
 
@@ -58,7 +58,7 @@ export const Task = ({
   task,
   updateTask,
   ...restProps
-}: IProps): JSX.Element => {
+}: Props): JSX.Element => {
   const {
     attributes,
     isDragging,

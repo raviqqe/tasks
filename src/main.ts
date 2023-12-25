@@ -17,19 +17,19 @@ import { TodoTaskReorderer } from "./application/todo-task-reorderer.js";
 import { TodoTaskUpdater } from "./application/todo-task-updater.js";
 import configuration from "./configuration.json";
 import { AlertMessagePresenter } from "./infrastructure/alert-message-presenter.js";
-import { AuthenticationPresenter } from "./infrastructure/authentication-presenter.js";
+import { AuthenticationRenderer } from "./infrastructure/authentication-renderer.js";
 import { BuiltinConfirmationController } from "./infrastructure/builtin-confirmation-controller.js";
-import { DoneTaskPresenter } from "./infrastructure/done-task-presenter.js";
+import { DoneTaskRenderer } from "./infrastructure/done-task-renderer.js";
 import { FirebaseAuthenticationController } from "./infrastructure/firebase/firebase-authentication-controller.js";
 import { FirebaseInitializer } from "./infrastructure/firebase/firebase-initializer.js";
 import { FirestoreDoneTaskRepository } from "./infrastructure/firebase/firestore-done-task-repository.js";
 import { FirestoreProjectRepository } from "./infrastructure/firebase/firestore-project-repository.js";
 import { FirestoreTodoTaskRepository } from "./infrastructure/firebase/firestore-todo-task-repository.js";
 import { LocalForageCurrentProjectRepository } from "./infrastructure/local-forage-current-project-repository.js";
-import { ProjectPresenter } from "./infrastructure/project-presenter.js";
+import { ProjectRenderer } from "./infrastructure/project-renderer.js";
 import { ReactRenderer } from "./infrastructure/react.js";
 import { SentryErrorReporter } from "./infrastructure/sentry-error-reporter.js";
-import { TodoTaskPresenter } from "./infrastructure/todo-task-presenter.js";
+import { TodoTaskRenderer } from "./infrastructure/todo-task-renderer.js";
 
 // Instantiate this at the very beginning to initialize Firebase's default app.
 const firebaseInitializer = new FirebaseInitializer(configuration.firebase);
@@ -43,7 +43,7 @@ const main = () => {
   }
 
   const firebaseApp = firebaseInitializer.initialize();
-  const authenticationPresenter = new AuthenticationPresenter();
+  const authenticationPresenter = new AuthenticationRenderer();
   const authenticationController = new FirebaseAuthenticationController(
     firebaseApp,
   );
@@ -51,8 +51,8 @@ const main = () => {
   const confirmationController = new BuiltinConfirmationController();
   const todoTaskRepository = new FirestoreTodoTaskRepository(firebaseApp);
   const doneTaskRepository = new FirestoreDoneTaskRepository(firebaseApp);
-  const todoTaskPresenter = new TodoTaskPresenter();
-  const doneTaskPresenter = new DoneTaskPresenter();
+  const todoTaskPresenter = new TodoTaskRenderer();
+  const doneTaskPresenter = new DoneTaskRenderer();
   const todoTaskDeleter = new TodoTaskDeleter(
     todoTaskRepository,
     todoTaskPresenter,
@@ -66,7 +66,7 @@ const main = () => {
     doneTaskPresenter,
   );
   const projectRepository = new FirestoreProjectRepository(firebaseApp);
-  const projectPresenter = new ProjectPresenter();
+  const projectPresenter = new ProjectRenderer();
   const currentProjectRepository = new LocalForageCurrentProjectRepository();
   const currentProjectSwitcher = new CurrentProjectSwitcher(
     currentProjectRepository,

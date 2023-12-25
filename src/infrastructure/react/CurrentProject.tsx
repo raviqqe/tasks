@@ -1,5 +1,5 @@
 import { styled } from "@linaria/react";
-import { type IProject } from "../../domain/project.js";
+import { type Project } from "../../domain/project.js";
 import { Loader } from "./Loader.js";
 import { white } from "./style/colors.js";
 
@@ -13,15 +13,15 @@ const Container = styled.div`
   height: 4rem;
 `;
 
-export interface IProps {
-  currentProject: IProject | null;
+export interface Props {
+  currentProject: Project | null;
   showProjects: () => void;
 }
 
 export const CurrentProject = ({
   currentProject,
   showProjects,
-}: IProps): JSX.Element => (
+}: Props): JSX.Element => (
   <Container onClick={showProjects}>
     {currentProject ? currentProject.name : <Loader />}
   </Container>

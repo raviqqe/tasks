@@ -1,3 +1,3 @@
-export interface IMessagePresenter {
+export interface MessagePresenter {
   present(message: string): void;
 }
