@@ -3,19 +3,19 @@
 exports[`renders after a user signs in 1`] = `
 <div>
   <div
-    class="mocked-styled-16 c2c63xu"
+    class="mocked-styled-15 c2c63xu"
   >
     <div
-      class="mocked-styled-14 cwbo31g"
+      class="mocked-styled-13 cwbo31g"
     >
       <div
-        class="mocked-styled-12 c1d64uzn"
+        class="mocked-styled-11 c1d64uzn"
       />
       <div
-        class="mocked-styled-15 s1ad3abv"
+        class="mocked-styled-14 s1ad3abv"
       >
         <div
-          class="mocked-styled-13 s1j6ytea b1bs8ozj"
+          class="mocked-styled-12 s1j6ytea b1bs8ozj"
         >
           <svg
             fill="currentColor"
@@ -38,10 +38,10 @@ exports[`renders after a user signs in 1`] = `
       </div>
     </div>
     <div
-      class="mocked-styled-17 t7s45km"
+      class="mocked-styled-16 t7s45km"
     >
       <div
-        class="mocked-styled-10 l94fl90"
+        class="mocked-styled-9 l94fl90"
       >
         <span
           style="display: inherit;"
@@ -59,7 +59,7 @@ exports[`renders after a user signs in 1`] = `
       </div>
     </div>
     <div
-      class="mocked-styled-18 b1vy458d"
+      class="mocked-styled-17 b1vy458d"
     >
       <button
         aria-label="Toggle Tasks"
@@ -111,30 +111,30 @@ exports[`renders after a user signs in 1`] = `
 exports[`renders after a user signs out 1`] = `
 <div>
   <div
-    class="mocked-styled-20 c3ap7hf"
+    class="mocked-styled-19 c3ap7hf"
   >
     <div
-      class="mocked-styled-21 t1xgehma"
+      class="mocked-styled-20 t1xgehma"
     >
       <span
-        class="mocked-styled-22 wim0e6u"
+        class="mocked-styled-21 wim0e6u"
       >
         Be
       </span>
       <span
-        class="mocked-styled-23 rm1lq52"
+        class="mocked-styled-22 rm1lq52"
       >
         Done
       </span>
     </div>
     <button
-      class="mocked-styled-19 bunojaf tn2f353 bunojaf"
+      class="mocked-styled-18 bunojaf tn2f353 bunojaf"
       style="--bunojaf-0: indianred;"
     >
       Sign in
     </button>
     <a
-      class="mocked-styled-24 g1qnybl0"
+      class="mocked-styled-23 g1qnybl0"
       href=""
       target="_blank"
     >
@@ -159,7 +159,7 @@ exports[`renders after a user signs out 1`] = `
 exports[`renders before a user signs in 1`] = `
 <div>
   <div
-    class="mocked-styled-33 lmlxdpd"
+    class="mocked-styled-32 lmlxdpd"
   >
     <span
       style="display: inherit;"
