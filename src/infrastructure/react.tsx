@@ -109,6 +109,7 @@ export class ReactRenderer implements IRenderer {
 
     this.root.render(
       <StrictMode>
+        <style>{globalStyle}</style>
         <App
           {...this.props}
           archiveProject={(project, currentProjectId) =>
@@ -152,7 +153,6 @@ export class ReactRenderer implements IRenderer {
             }
           }}
         />
-        <globalStyle />
       </StrictMode>,
     );
   }
