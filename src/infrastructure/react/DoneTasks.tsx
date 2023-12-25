@@ -1,11 +1,11 @@
-import defaultUseInfiniteScroll from "react-infinite-scroll-hook";
 import { styled } from "@linaria/react";
+import { defaultImport } from "default-import";
+import { useEffect, useState } from "react";
+import defaultUseInfiniteScroll from "react-infinite-scroll-hook";
+import { usePrevious } from "react-use";
 import type * as domain from "../../domain.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
-import { defaultImport } from "default-import";
-import { useEffect, useState } from "react";
-import { usePrevious } from "react-use";
 
 const useInfiniteScroll = defaultImport(defaultUseInfiniteScroll);
 
