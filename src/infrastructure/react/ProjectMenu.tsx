@@ -10,6 +10,7 @@ import { Project, type Props as ProjectProps } from "./Project.js";
 import { ToggleProjects } from "./ToggleProjects.js";
 import { grey, white, lightGrey } from "./style/colors.js";
 import { boxShadow } from "./style.js";
+import { css } from "@linaria/core";
 
 const Container = styled.div`
   background-color: ${lightGrey};
@@ -51,13 +52,6 @@ const LowerButtonsContainer = styled.div`
   > * {
     margin-top: 0.5rem;
   }
-`;
-
-const StyledCreateProject = styled(CreateProject)<{
-  projectsArchived: boolean;
-}>`
-  visibility: ${({ projectsArchived }) =>
-    projectsArchived ? "hidden" : "visible"};
 `;
 
 export interface Props
@@ -135,12 +129,20 @@ export const ProjectMenu = ({
           projectsArchived={projectsArchived}
           setProjectsArchived={setProjectsArchived}
         />
-        <StyledCreateProject
+        <CreateProject
+          className={
+            projectsArchived
+              ? css`
+                  visibility: hidden;
+                `
+              : css`
+                  visibility: visible;
+                `
+          }
           createProject={async (name: string): Promise<void> => {
             await createProject(name);
             hideProjects();
           }}
-          projectsArchived={projectsArchived}
         />
       </LowerButtonsContainer>
     </Container>

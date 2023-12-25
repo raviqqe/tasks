@@ -9,6 +9,7 @@ import { DoneTasks, type Props as DoneTasksProps } from "./DoneTasks.js";
 import { TodoTasks, type Props as TodoTasksProps } from "./TodoTasks.js";
 import { ToggleTasks } from "./ToggleTasks.js";
 import { TopBar, type Props as TopBarProps } from "./TopBar.js";
+import { css } from "@linaria/core";
 
 const Container = styled.div`
   display: flex;
@@ -39,12 +40,6 @@ const ButtonsContainer = styled.div`
   > * {
     margin-top: 0.5rem;
   }
-`;
-
-const StyledCreateTodoTask = styled(CreateTodoTask)<{
-  tasksDone: boolean;
-}>`
-  visibility: ${({ tasksDone }) => (tasksDone ? "hidden" : "visible")};
 `;
 
 export interface Props
@@ -95,9 +90,17 @@ export const Home = ({
       </TasksContainer>
       <ButtonsContainer>
         <ToggleTasks setTasksDone={setTasksDone} tasksDone={tasksDone} />
-        <StyledCreateTodoTask
+        <CreateTodoTask
+          className={
+            tasksDone
+              ? css`
+                  visibility: hidden;
+                `
+              : css`
+                  visibility: visible;
+                `
+          }
           createTodoTask={createTodoTask}
-          tasksDone={tasksDone}
         />
       </ButtonsContainer>
     </Container>

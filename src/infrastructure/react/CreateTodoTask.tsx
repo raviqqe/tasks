@@ -2,6 +2,7 @@ import { MdAdd } from "react-icons/md/index.js";
 import { CircleButton } from "./CircleButton.js";
 
 export interface Props {
+  className?: string;
   createTodoTask: (name: string) => Promise<void>;
 }
 
