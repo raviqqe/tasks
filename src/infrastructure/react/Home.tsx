@@ -7,7 +7,7 @@ import {
   type Props as CreateTodoTaskProps,
 } from "./CreateTodoTask.js";
 import { DoneTasks, type Props as DoneTasksProps } from "./DoneTaskList.js";
-import { TodoTasks, type Props as TodoTasksProps } from "./TodoTasks.js";
+import { TodoTasks, type Props as TodoTasksProps } from "./TodoTaskList.js";
 import { ToggleTasks } from "./ToggleTasks.js";
 import { TopBar, type Props as TopBarProps } from "./TopBar.js";
 
