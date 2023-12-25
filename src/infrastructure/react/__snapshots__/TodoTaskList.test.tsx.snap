@@ -2,10 +2,10 @@
 
 exports[`renders 1`] = `
 <div
-  class="mocked-styled-4 c1yyv3ep"
+  class="mocked-styled-4 c1n8yvqw"
 >
   <div
-    class="mocked-styled-6 t84koo7"
+    class="mocked-styled-6 t12kak4i"
   >
     <div
       aria-describedby="DndDescribedBy-0"
@@ -96,17 +96,17 @@ exports[`renders 1`] = `
 
 exports[`renders with no tasks 1`] = `
 <div
-  class="mocked-styled-4 c1yyv3ep"
+  class="mocked-styled-4 c1n8yvqw"
 >
   <div
-    class="mocked-styled-6 t84koo7"
+    class="mocked-styled-6 t12kak4i"
   />
 </div>
 `;
 
 exports[`renders with tasks not loaded yet 1`] = `
 <div
-  class="mocked-styled-5 l94fl90"
+  class="mocked-styled-5 l1702i50"
 >
   <span
     style="display: inherit;"

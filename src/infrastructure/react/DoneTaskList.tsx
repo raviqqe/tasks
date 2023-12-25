@@ -28,7 +28,7 @@ export interface Props {
   listMoreDoneTasks: () => Promise<void>;
 }
 
-export const DoneTasks = ({
+export const DoneTaskList = ({
   doneTasks,
   listMoreDoneTasks,
 }: Props): JSX.Element => {
