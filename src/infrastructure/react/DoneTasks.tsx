@@ -12,6 +12,7 @@ const useInfiniteScroll = defaultImport(defaultUseInfiniteScroll);
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   overflow: auto;
   padding: 1em 0.5em;
 `;
@@ -20,10 +21,6 @@ const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const DoneTask = styled(Task)`
-  margin: 0.5em;
 `;
 
 export interface Props {
@@ -62,7 +59,7 @@ export const DoneTasks = ({
   return (
     <Container>
       {(doneTasks ?? []).map((task) => (
-        <DoneTask key={task.id} task={task} />
+        <Task key={task.id} task={task} />
       ))}
       {!done && (
         <LoaderContainer ref={ref}>

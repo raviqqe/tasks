@@ -32,10 +32,7 @@ const Tasks = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1em 0.5em ${buttonMargin};
-
-  > * {
-    margin: 0.5em;
-  }
+  gap: 1rem;
 `;
 
 export interface Props {
