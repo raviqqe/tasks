@@ -1,7 +1,7 @@
 import { green, black } from "./style/colors.js";
-import { css } from "linaria";
+import css from "noop-tag";
 
-export const GlobalStyle = css`
+export const globalStyle = css`
   :global() {
     body {
       background: ${green};

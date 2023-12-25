@@ -18,7 +18,7 @@ import { type TodoTaskUpdater } from "../application/todo-task-updater.js";
 import { type IProject } from "../domain/project.js";
 import { type ITask } from "../domain/task.js";
 import { App, type IProps as IAppProps } from "./react/App.js";
-import { GlobalStyle } from "./react/style.js";
+import { globalStyle } from "./react/style.js";
 import { type IRenderer } from "./renderer.js";
 
 interface IPresenter {
@@ -152,7 +152,7 @@ export class ReactRenderer implements IRenderer {
             }
           }}
         />
-        <GlobalStyle />
+        <globalStyle />
       </StrictMode>,
     );
   }

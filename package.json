@@ -20,6 +20,7 @@
     "firebase": "^10.7.1",
     "linaria": "^5.0.5",
     "localforage": "^1.10.0",
+    "noop-tag": "^2.0.0",
     "react": "^18.1.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
