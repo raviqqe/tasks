@@ -14,7 +14,7 @@ const Container = styled.div`
   flex-direction: column;
   gap: 1rem;
   overflow: auto;
-  padding: 1em 0.5em;
+  padding: 1rem;
 `;
 
 const LoaderContainer = styled.div`

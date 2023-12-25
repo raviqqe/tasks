@@ -31,7 +31,7 @@ const LoaderContainer = styled.div`
 const Tasks = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1em 0.5em ${buttonMargin};
+  padding: 1rem 1rem ${buttonMargin};
   gap: 1rem;
 `;
 
