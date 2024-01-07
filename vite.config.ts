@@ -20,8 +20,8 @@ export default defineConfig({
         icons: [{ src: "icon.svg", sizes: "any" }],
         start_url: ".",
         display: "standalone",
-        theme_color: "gray",
-        background_color: "gray",
+        theme_color: "indianred",
+        background_color: "indianred",
       },
       workbox: {
         navigateFallbackDenylist: [/^\/__/],
