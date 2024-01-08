@@ -44,6 +44,6 @@
     "typescript": "^5.3.3",
     "vite": "^5.0.10",
     "vite-plugin-pwa": "^0.17.3",
-    "vitest": "^1.1.2"
+    "vitest": "^1.1.3"
   }
 }
