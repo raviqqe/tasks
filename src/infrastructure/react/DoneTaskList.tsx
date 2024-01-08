@@ -1,8 +1,8 @@
 import { styled } from "@linaria/react";
 import { defaultImport } from "default-import";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import defaultUseInfiniteScroll from "react-infinite-scroll-hook";
-import { usePrevious } from "react-use";
+import { useAsync, usePrevious } from "react-use";
 import type * as domain from "../../domain.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
@@ -35,14 +35,18 @@ export const DoneTaskList = ({
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
 
+  const onLoadMore = useCallback(async () => {
+    setLoading(true);
+    await listMoreDoneTasks();
+    setLoading(false);
+  }, [listMoreDoneTasks, setLoading]);
+
+  useAsync(onLoadMore, []);
+
   const [ref] = useInfiniteScroll({
     hasNextPage: !done,
     loading,
-    onLoadMore: async () => {
-      setLoading(true);
-      await listMoreDoneTasks();
-      setLoading(false);
-    },
+    onLoadMore,
   });
 
   const oldLoading = usePrevious(loading);
