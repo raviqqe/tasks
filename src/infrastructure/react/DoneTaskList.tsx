@@ -6,6 +6,7 @@ import { useAsync, usePrevious } from "react-use";
 import type * as domain from "../../domain.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
+import { sleep } from "@raviqqe/loscore/async";
 
 const useInfiniteScroll = defaultImport(defaultUseInfiniteScroll);
 
@@ -38,6 +39,7 @@ export const DoneTaskList = ({
   const onLoadMore = useCallback(async () => {
     setLoading(true);
     await listMoreDoneTasks();
+    await sleep(0);
     setLoading(false);
   }, [listMoreDoneTasks, setLoading]);
 
