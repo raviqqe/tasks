@@ -1,3 +1,4 @@
+import { sleep } from "@raviqqe/loscore/async";
 import { type FirebaseApp } from "firebase/app";
 import {
   type Auth,
@@ -6,7 +7,6 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { type AuthenticationController } from "../../application/authentication-controller.js";
-import { sleep } from "../../domain/utilities.js";
 
 export class FirebaseAuthenticationController
   implements AuthenticationController
