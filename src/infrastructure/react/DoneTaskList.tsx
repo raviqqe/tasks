@@ -1,4 +1,5 @@
 import { styled } from "@linaria/react";
+import { sleep } from "@raviqqe/loscore/async";
 import { defaultImport } from "default-import";
 import { useCallback, useEffect, useState } from "react";
 import defaultUseInfiniteScroll from "react-infinite-scroll-hook";
@@ -38,6 +39,7 @@ export const DoneTaskList = ({
   const onLoadMore = useCallback(async () => {
     setLoading(true);
     await listMoreDoneTasks();
+    await sleep(0);
     setLoading(false);
   }, [listMoreDoneTasks, setLoading]);
 
