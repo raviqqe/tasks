@@ -1,4 +1,4 @@
-import { FaRegCheckSquare, FaRegSquare } from "react-icons/fa/index.js";
+import { FaRegCheckSquare, FaRegSquare } from "react-icons/fa";
 import { CircleButton } from "./CircleButton.js";
 
 interface Props {
