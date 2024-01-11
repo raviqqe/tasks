@@ -5,7 +5,7 @@ import {
   MdUnarchive,
   MdDelete,
   MdEdit,
-} from "react-icons/md/index.js";
+} from "react-icons/md";
 import type * as domain from "../../domain.js";
 import { IconButton } from "./IconButton.js";
 import { black, red } from "./style/colors.js";

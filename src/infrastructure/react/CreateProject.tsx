@@ -1,4 +1,4 @@
-import { MdAdd } from "react-icons/md/index.js";
+import { MdAdd } from "react-icons/md";
 import { CircleButton } from "./CircleButton.js";
 
 export interface Props {

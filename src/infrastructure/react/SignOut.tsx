@@ -1,5 +1,5 @@
 import { styled } from "@linaria/react";
-import { MdExitToApp } from "react-icons/md/index.js";
+import { MdExitToApp } from "react-icons/md";
 import { IconButton } from "./IconButton.js";
 import { white } from "./style/colors.js";
 

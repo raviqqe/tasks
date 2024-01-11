@@ -3,7 +3,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
-import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md/index.js";
+import { MdCheck, MdEdit, MdDragHandle } from "react-icons/md";
 import type * as domain from "../../domain.js";
 import { IconButton } from "./IconButton.js";
 import { white } from "./style/colors.js";

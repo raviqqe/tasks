@@ -1,4 +1,4 @@
-import { MdArchive, MdUnarchive } from "react-icons/md/index.js";
+import { MdArchive, MdUnarchive } from "react-icons/md";
 import { CircleButton } from "./CircleButton.js";
 
 interface Props {
