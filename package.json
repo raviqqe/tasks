@@ -40,7 +40,7 @@
     "@vitest/coverage-v8": "^1.2.1",
     "@wyw-in-js/vite": "^0.2.2",
     "firebase-tools": "^13.0.3",
-    "jsdom": "^23.2.0",
+    "jsdom": "^24.0.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.12",
     "vite-plugin-pwa": "^0.17.3",
