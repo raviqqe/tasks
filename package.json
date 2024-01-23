@@ -26,7 +26,7 @@
     "react-icons": "^5.0.1",
     "react-infinite-scroll-hook": "^4.1.1",
     "react-spinners": "^0.13.8",
-    "react-use": "^17.4.4"
+    "react-use": "^17.5.0"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.23.3",
