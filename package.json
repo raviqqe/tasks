@@ -33,7 +33,7 @@
     "@babel/preset-typescript": "^7.23.3",
     "@raviqqe/eslint-config": "^2.0.6",
     "@raviqqe/react-tsconfig": "^1.0.19",
-    "@testing-library/react": "^14.2.0",
+    "@testing-library/react": "^14.2.1",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "@vitejs/plugin-react": "^4.2.1",
