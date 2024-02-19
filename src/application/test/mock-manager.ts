@@ -19,7 +19,7 @@ import { type TodoTaskRepository } from "../todo-task-repository.js";
 
 export class MockManager {
   public authenticationController: Mocked<AuthenticationController> = {
-    isSignedIn: vi.fn(async () => false),
+    isSignedIn: vi.fn<[], Promise<boolean>>(async () => false),
     signIn: vi.fn(async () => {}),
     signOut: vi.fn(async () => {}),
   };
