@@ -15,7 +15,7 @@
     "@dnd-kit/sortable": "^8.0.0",
     "@linaria/core": "^6.1.0",
     "@linaria/react": "^6.1.0",
-    "@raviqqe/loscore": "^0.2.1",
+    "@raviqqe/loscore": "^0.2.2",
     "@sentry/browser": "^7.106.1",
     "default-import": "^1.1.5",
     "firebase": "^10.8.1",
