@@ -34,7 +34,7 @@
     "@raviqqe/eslint-config": "^2.0.14",
     "@raviqqe/react-tsconfig": "^1.0.19",
     "@testing-library/react": "^15.0.0",
-    "@types/react": "^18.2.75",
+    "@types/react": "^18.2.77",
     "@types/react-dom": "^18.2.24",
     "@vitejs/plugin-react": "^4.2.1",
     "@vitest/coverage-v8": "^1.4.0",
