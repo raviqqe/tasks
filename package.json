@@ -16,7 +16,7 @@
     "@linaria/core": "^6.1.0",
     "@linaria/react": "^6.1.0",
     "@raviqqe/loscore": "^0.2.3",
-    "@sentry/browser": "^7.109.0",
+    "@sentry/browser": "^7.110.0",
     "default-import": "^1.1.5",
     "firebase": "^10.11.0",
     "localforage": "^1.10.0",
