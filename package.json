@@ -37,7 +37,7 @@
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "@vitejs/plugin-react": "^4.2.1",
-    "@vitest/coverage-v8": "^1.5.0",
+    "@vitest/coverage-v8": "^1.5.1",
     "@wyw-in-js/vite": "^0.5.1",
     "firebase-tools": "^13.7.4",
     "jsdom": "^24.0.0",
