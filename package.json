@@ -18,7 +18,7 @@
     "@raviqqe/loscore": "^0.2.3",
     "@sentry/browser": "^7.112.2",
     "default-import": "^1.1.5",
-    "firebase": "^10.11.0",
+    "firebase": "^10.11.1",
     "localforage": "^1.10.0",
     "noop-tag": "^2.0.0",
     "react": "^18.1.0",
