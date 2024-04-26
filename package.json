@@ -14,7 +14,7 @@
   "dependencies": {
     "@dnd-kit/sortable": "^8.0.0",
     "@linaria/core": "^6.1.0",
-    "@linaria/react": "^6.1.0",
+    "@linaria/react": "^6.2.0",
     "@raviqqe/loscore": "^0.2.3",
     "@sentry/browser": "^7.112.2",
     "default-import": "^1.1.5",
