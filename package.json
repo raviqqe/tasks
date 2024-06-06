@@ -39,7 +39,7 @@
     "@vitejs/plugin-react": "^4.3.0",
     "@vitest/coverage-v8": "^1.6.0",
     "@wyw-in-js/vite": "^0.5.3",
-    "firebase-tools": "^13.10.2",
+    "firebase-tools": "^13.11.0",
     "jsdom": "^24.1.0",
     "typescript": "^5.4.5",
     "vite": "^5.2.12",
