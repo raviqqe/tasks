@@ -29,7 +29,7 @@
     "react-use": "^17.5.0"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.24.6",
+    "@babel/preset-react": "^7.24.7",
     "@babel/preset-typescript": "^7.24.6",
     "@raviqqe/eslint-config": "^2.1.2",
     "@raviqqe/react-tsconfig": "^1.0.19",
