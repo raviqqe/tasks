@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.24.7",
-    "@babel/preset-typescript": "^7.24.6",
+    "@babel/preset-typescript": "^7.24.7",
     "@raviqqe/eslint-config": "^2.1.2",
     "@raviqqe/react-tsconfig": "^1.0.19",
     "@testing-library/react": "^16.0.0",
