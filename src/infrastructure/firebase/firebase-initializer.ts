@@ -9,10 +9,9 @@ import {
   persistentMultipleTabManager,
 } from "firebase/firestore";
 
-interface FirebaseConfiguration
-  extends Required<
-    Pick<FirebaseOptions, "apiKey" | "authDomain" | "projectId">
-  > {}
+type FirebaseConfiguration = Required<
+  Pick<FirebaseOptions, "apiKey" | "authDomain" | "projectId">
+>;
 
 export class FirebaseInitializer {
   constructor(private readonly configuration: FirebaseConfiguration) {}

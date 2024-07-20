@@ -25,16 +25,15 @@ interface Presenter {
   setRenderer(renderer: Renderer): void;
 }
 
-interface Props
-  extends Pick<
-    AppProps,
-    | "archivedProjects"
-    | "currentProject"
-    | "doneTasks"
-    | "projects"
-    | "signedIn"
-    | "todoTasks"
-  > {}
+type Props = Pick<
+  AppProps,
+  | "archivedProjects"
+  | "currentProject"
+  | "doneTasks"
+  | "projects"
+  | "signedIn"
+  | "todoTasks"
+>;
 
 export class ReactRenderer implements Renderer {
   private readonly root: Root;
