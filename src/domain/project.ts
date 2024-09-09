@@ -1,7 +1,7 @@
 export interface Project {
+  archived: boolean;
   id: string;
   name: string;
-  archived: boolean;
 }
 
 export function formatProject(project: Project): Project {

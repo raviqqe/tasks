@@ -64,8 +64,8 @@ export const Home = ({
   initializeCurrentProject,
   listMoreDoneTasks,
   reorderTodoTasks,
-  signOut,
   showProjects,
+  signOut,
   todoTasks,
   updateTodoTask,
 }: Props): JSX.Element => {

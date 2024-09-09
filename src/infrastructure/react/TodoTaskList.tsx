@@ -1,9 +1,9 @@
 import {
-  DndContext,
   closestCenter,
+  DndContext,
+  PointerSensor,
   useSensor,
   useSensors,
-  PointerSensor,
 } from "@dnd-kit/core";
 import {
   arrayMove,

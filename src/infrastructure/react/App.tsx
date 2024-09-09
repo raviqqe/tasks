@@ -2,7 +2,7 @@ import { styled } from "@linaria/react";
 import { useState } from "react";
 import { useAsync } from "react-use";
 import { Home, type Props as HomeProps } from "./Home.js";
-import { type Props as LandingProps, Landing } from "./Landing.js";
+import { Landing, type Props as LandingProps } from "./Landing.js";
 import { Loader } from "./Loader.js";
 import { ProjectMenu, type Props as ProjectMenuProps } from "./ProjectMenu.js";
 
@@ -50,8 +50,8 @@ export const App = ({
     </LoaderContainer>
   ) : signedIn && projectsShown ? (
     <ProjectMenu
-      archiveProject={archiveProject}
       archivedProjects={archivedProjects}
+      archiveProject={archiveProject}
       createProject={createProject}
       currentProject={currentProject}
       deleteProject={deleteProject}

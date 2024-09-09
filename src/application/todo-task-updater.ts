@@ -1,4 +1,4 @@
-import { type Task, formatTask, validateTask } from "../domain/task.js";
+import { formatTask, type Task, validateTask } from "../domain/task.js";
 import { type ConfirmationController } from "./confirmation-controller.js";
 import { type TodoTaskDeleter } from "./todo-task-deleter.js";
 import { type TodoTaskPresenter } from "./todo-task-presenter.js";

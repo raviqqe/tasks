@@ -1,8 +1,8 @@
 import { formatErrorMessage } from "../domain/error.js";
 import {
+  formatProject,
   type Project,
   validateProject,
-  formatProject,
 } from "../domain/project.js";
 import { type MessagePresenter } from "./message-presenter.js";
 import { type ProjectPresenter } from "./project-presenter.js";

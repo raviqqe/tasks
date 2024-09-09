@@ -1,5 +1,5 @@
 import { fireEvent, render } from "@testing-library/react";
-import { it, vi, expect } from "vitest";
+import { expect, it, vi } from "vitest";
 import { Task } from "./Task.js";
 
 it("renders", () => {

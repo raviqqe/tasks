@@ -10,8 +10,8 @@ const Button = styled.div`
 `;
 
 interface Props extends AriaAttributes {
-  className?: string;
   children: ReactNode;
+  className?: string;
   onClick: () => void;
 }
 
