@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
 import {
   formatProject,
-  validateProject,
-  sortProjects,
-  type Project,
   getFirstProject,
+  type Project,
+  sortProjects,
+  validateProject,
 } from "./project.js";
 
 const dummyProject: Project = { archived: false, id: "", name: "" };

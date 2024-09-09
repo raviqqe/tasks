@@ -1,7 +1,7 @@
 import { formatErrorMessage } from "../domain/error.js";
 import {
-  type Project,
   formatProject,
+  type Project,
   validateProject,
 } from "../domain/project.js";
 import { type CurrentProjectSwitcher } from "./current-project-switcher.js";

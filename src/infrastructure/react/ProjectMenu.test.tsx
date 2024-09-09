@@ -1,13 +1,13 @@
 import { render } from "@testing-library/react";
-import { it, expect } from "vitest";
+import { expect, it } from "vitest";
 import { ProjectMenu } from "./ProjectMenu.js";
 
 it("renders", () => {
   expect(
     render(
       <ProjectMenu
-        archiveProject={async () => {}}
         archivedProjects={[]}
+        archiveProject={async () => {}}
         createProject={async () => {}}
         currentProject={{ archived: false, id: "", name: "" }}
         deleteProject={async () => {}}

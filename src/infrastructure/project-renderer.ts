@@ -1,5 +1,5 @@
 import { type ProjectPresenter } from "../application/project-presenter.js";
-import { sortProjects, type Project } from "../domain/project.js";
+import { type Project, sortProjects } from "../domain/project.js";
 import { type Renderer } from "./renderer.js";
 
 export class ProjectRenderer implements ProjectPresenter {

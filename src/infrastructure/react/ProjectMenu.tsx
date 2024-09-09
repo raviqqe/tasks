@@ -1,6 +1,6 @@
 import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import type * as domain from "../../domain.js";
 import {
   CreateProject,
@@ -9,7 +9,7 @@ import {
 import { Loader } from "./Loader.js";
 import { Project, type Props as ProjectProps } from "./Project.js";
 import { ToggleProjects } from "./ToggleProjects.js";
-import { grey, white, lightGrey } from "./style/colors.js";
+import { grey, lightGrey, white } from "./style/colors.js";
 import { boxShadow } from "./style.js";
 
 const Container = styled.div`

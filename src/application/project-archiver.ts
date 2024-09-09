@@ -1,5 +1,5 @@
 import { formatErrorMessage } from "../domain/error.js";
-import { type Project, getFirstProject } from "../domain/project.js";
+import { getFirstProject, type Project } from "../domain/project.js";
 import { type ConfirmationController } from "./confirmation-controller.js";
 import { type CurrentProjectSwitcher } from "./current-project-switcher.js";
 import { type MessagePresenter } from "./message-presenter.js";

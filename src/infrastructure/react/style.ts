@@ -1,5 +1,5 @@
 import { css } from "@linaria/core";
-import { green, black } from "./style/colors.js";
+import { black, green } from "./style/colors.js";
 
 export const globalStyle = css`
   :global() {
