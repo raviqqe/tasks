@@ -41,7 +41,7 @@
     "@wyw-in-js/vite": "^0.5.4",
     "firebase-tools": "^13.16.0",
     "jsdom": "^25.0.0",
-    "typescript": "^5.5.4",
+    "typescript": "^5.6.2",
     "vite": "^5.4.3",
     "vite-plugin-pwa": "^0.20.5",
     "vitest": "^2.0.1"
