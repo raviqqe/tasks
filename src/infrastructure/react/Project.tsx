@@ -1,11 +1,6 @@
 import { styled } from "@linaria/react";
 import { forwardRef, type Ref } from "react";
-import {
-  MdArchive,
-  MdDelete,
-  MdEdit,
-  MdUnarchive,
-} from "react-icons/md";
+import { MdArchive, MdDelete, MdEdit, MdUnarchive } from "react-icons/md";
 import type * as domain from "../../domain.js";
 import { IconButton } from "./IconButton.js";
 import { black, red } from "./style/colors.js";
