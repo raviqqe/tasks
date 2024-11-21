@@ -15,9 +15,9 @@ const LoaderContainer = styled.div`
 `;
 
 export interface Props
-  extends Omit<HomeProps, "showProjects">,
-    Omit<ProjectMenuProps, "hideProjects">,
-    LandingProps {
+  extends LandingProps,
+    Omit<HomeProps, "showProjects">,
+    Omit<ProjectMenuProps, "hideProjects"> {
   initialize: () => Promise<void>;
   signedIn: boolean | null;
 }

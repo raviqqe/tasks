@@ -50,9 +50,9 @@ const ButtonsContainer = styled.div`
 
 export interface Props
   extends CreateTodoTaskProps,
-    TopBarProps,
+    DoneTaskListProps,
     TodoTaskListProps,
-    DoneTaskListProps {
+    TopBarProps {
   initializeCurrentProject: () => Promise<void>;
 }
 
