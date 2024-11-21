@@ -11,20 +11,6 @@ export function formatProject(project: Project): Project {
   };
 }
 
-export function validateProject(project: Project): void {
-  if (project.name.trim() !== project.name) {
-    throw new Error("project name is not formatted");
-  } else if (!project.name) {
-    throw new Error("project name cannot be empty");
-  }
-}
-
-export function sortProjects(projects: Project[]): Project[] {
-  return projects.sort((project, anotherProject) =>
-    project.name.localeCompare(anotherProject.name),
-  );
-}
-
 export function getFirstProject(projects: Project[]): Project {
   const project = sortProjects(projects)[0];
 
@@ -33,4 +19,18 @@ export function getFirstProject(projects: Project[]): Project {
   }
 
   return project;
+}
+
+export function sortProjects(projects: Project[]): Project[] {
+  return projects.sort((project, anotherProject) =>
+    project.name.localeCompare(anotherProject.name),
+  );
+}
+
+export function validateProject(project: Project): void {
+  if (project.name.trim() !== project.name) {
+    throw new Error("project name is not formatted");
+  } else if (!project.name) {
+    throw new Error("project name cannot be empty");
+  }
 }
