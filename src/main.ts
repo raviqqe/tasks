@@ -15,7 +15,7 @@ import { TodoTaskDeleter } from "./application/todo-task-deleter.js";
 import { TodoTaskLister } from "./application/todo-task-lister.js";
 import { TodoTaskReorderer } from "./application/todo-task-reorderer.js";
 import { TodoTaskUpdater } from "./application/todo-task-updater.js";
-import configuration from "./configuration.json";
+import configuration from "./configuration.json" with { type: "json" };
 import { AlertMessagePresenter } from "./infrastructure/alert-message-presenter.js";
 import { AuthenticationRenderer } from "./infrastructure/authentication-renderer.js";
 import { BuiltinConfirmationController } from "./infrastructure/builtin-confirmation-controller.js";
