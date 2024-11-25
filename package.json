@@ -12,7 +12,7 @@
     "deploy": "firebase deploy"
   },
   "dependencies": {
-    "@dnd-kit/sortable": "^8.0.0",
+    "@dnd-kit/sortable": "^9.0.0",
     "@linaria/core": "^6.2.0",
     "@linaria/react": "^6.2.1",
     "@raviqqe/loscore": "^0.2.7",
