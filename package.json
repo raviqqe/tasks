@@ -43,7 +43,7 @@
     "firebase-tools": "^13.27.0",
     "jsdom": "^25.0.1",
     "typescript": "^5.7.2",
-    "vite": "^5.4.11",
+    "vite": "^6.0.1",
     "vite-plugin-pwa": "^0.21.1",
     "vitest": "^2.0.1"
   }
