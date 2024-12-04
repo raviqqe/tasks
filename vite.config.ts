@@ -11,7 +11,6 @@ export default defineConfig({
       include: ["src/**/*.{ts,tsx}"],
       babelOptions: {
         presets: ["@babel/preset-typescript", "@babel/preset-react"],
-        plugins: ["@babel/plugin-syntax-import-attributes"],
       },
     }),
     VitePWA({
