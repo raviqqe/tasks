@@ -12,7 +12,7 @@
     "deploy": "firebase deploy"
   },
   "dependencies": {
-    "@dnd-kit/sortable": "^9.0.0",
+    "@dnd-kit/sortable": "^10.0.0",
     "@linaria/core": "^6.2.0",
     "@linaria/react": "^6.2.1",
     "@raviqqe/loscore": "^0.2.8",
@@ -29,17 +29,17 @@
     "react-use": "^17.5.1"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.25.9",
+    "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.26.0",
     "@raviqqe/eslint-config": "^4.1.5",
     "@raviqqe/react-tsconfig": "^1.1.0",
     "@testing-library/react": "^16.0.1",
-    "@types/react": "^18.3.12",
+    "@types/react": "^18.3.13",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/coverage-v8": "^2.1.8",
     "@wyw-in-js/vite": "^0.5.5",
-    "firebase-tools": "^13.27.0",
+    "firebase-tools": "^13.28.0",
     "jsdom": "^25.0.1",
     "typescript": "^5.7.2",
     "vite": "^6.0.2",
