@@ -9,15 +9,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: latest
-      - run: npm install
+      - run: npm ci
       - run: npm run build
       - run: npm run lint
-      - run: npm run test
+      - run: npm test
       - uses: codecov/codecov-action@v5
-      - run: npm run --silent deploy -- --token $FIREBASE_TOKEN
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        if: github.ref == 'refs/heads/main'
   spell_check:
     runs-on: ubuntu-latest
     steps:
