@@ -2,30 +2,30 @@
 
 exports[`renders 1`] = `
 <div
-  class="mocked-styled-4 c1n8yvqw"
+  class="mocked-styled-4"
 >
   <div
-    class="mocked-styled-6 t12kak4i"
+    class="mocked-styled-6"
   >
     <div
       aria-describedby="DndDescribedBy-0"
       aria-disabled="false"
       aria-roledescription="sortable"
-      class="mocked-styled-1 c1k6zm5c"
+      class="mocked-styled-1"
       role="button"
       tabindex="0"
     >
       <div
-        class="mocked-styled-2 nbb6sm"
+        class="mocked-styled-2"
       >
         name
       </div>
       <div
-        class="mocked-styled-3 b1w32vq3"
+        class="mocked-styled-3"
       >
         <div
           aria-label="Done"
-          class="mocked-styled-0 b1bs8ozj"
+          class="mocked-styled-0"
         >
           <svg
             fill="currentColor"
@@ -47,7 +47,7 @@ exports[`renders 1`] = `
         </div>
         <div
           aria-label="Edit"
-          class="mocked-styled-0 b1bs8ozj"
+          class="mocked-styled-0"
         >
           <svg
             fill="currentColor"
@@ -68,7 +68,7 @@ exports[`renders 1`] = `
           </svg>
         </div>
         <div
-          class="c197y8iq b1bs8ozj"
+          class="mocked-css-1"
         >
           <svg
             fill="currentColor"
@@ -96,17 +96,17 @@ exports[`renders 1`] = `
 
 exports[`renders with no tasks 1`] = `
 <div
-  class="mocked-styled-4 c1n8yvqw"
+  class="mocked-styled-4"
 >
   <div
-    class="mocked-styled-6 t12kak4i"
+    class="mocked-styled-6"
   />
 </div>
 `;
 
 exports[`renders with tasks not loaded yet 1`] = `
 <div
-  class="mocked-styled-5 l1702i50"
+  class="mocked-styled-5"
 >
   <span
     style="display: inherit;"

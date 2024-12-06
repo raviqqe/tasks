@@ -2,10 +2,10 @@
 
 exports[`renders 1`] = `
 <div
-  class="mocked-styled-4 cxbg86i"
+  class="mocked-styled-4"
 >
   <div
-    class="mocked-styled-5 l4pu6bf"
+    class="mocked-styled-5"
   >
     <span
       style="display: inherit;"

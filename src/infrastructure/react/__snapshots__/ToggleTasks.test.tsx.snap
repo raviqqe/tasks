@@ -3,8 +3,7 @@
 exports[`renders 1`] = `
 <button
   aria-label="Toggle Tasks"
-  class="mocked-styled-1 bunojaf cki2aja bunojaf"
-  style="--bunojaf-0: grey;"
+  class="mocked-styled-1 mocked-styled-0"
 >
   <svg
     fill="currentColor"

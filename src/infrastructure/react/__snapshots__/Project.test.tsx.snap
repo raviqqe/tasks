@@ -2,14 +2,13 @@
 
 exports[`renders 1`] = `
 <div
-  class="mocked-styled-1 c1g0fyep"
+  class="mocked-styled-1"
 >
   <div
-    class="mocked-styled-2 n1wknujg"
-    style="--n1wknujg-0: auto; --n1wknujg-1: #222;"
+    class="mocked-styled-2"
   />
   <div
-    class="mocked-styled-3 b12yr94b"
+    class="mocked-styled-3"
   />
 </div>
 `;

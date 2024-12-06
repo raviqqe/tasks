@@ -2,16 +2,16 @@
 
 exports[`renders 1`] = `
 <div
-  class="mocked-styled-3 cwbo31g"
+  class="mocked-styled-3"
 >
   <div
-    class="mocked-styled-0 c1d64uzn"
+    class="mocked-styled-0"
   />
   <div
-    class="mocked-styled-4 s1ad3abv"
+    class="mocked-styled-4"
   >
     <div
-      class="mocked-styled-2 s1j6ytea b1bs8ozj"
+      class="mocked-styled-2"
     >
       <svg
         fill="currentColor"
