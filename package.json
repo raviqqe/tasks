@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@dnd-kit/sortable": "^10.0.0",
+    "@fontsource/chelsea-market": "^5.1.0",
     "@linaria/core": "^6.2.0",
     "@linaria/react": "^6.2.1",
     "@raviqqe/loscore": "^0.2.8",
