@@ -1,3 +1,5 @@
+import "@fontsource/chelsea-market";
+import "@fontsource/roboto";
 import { ApplicationInitializer } from "./application/application-initializer.js";
 import { CurrentProjectInitializer } from "./application/current-project-initializer.js";
 import { CurrentProjectSwitcher } from "./application/current-project-switcher.js";

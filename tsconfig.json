@@ -1,4 +1,4 @@
 {
   "extends": "@raviqqe/react-tsconfig/tsconfig.json",
-  "include": ["src"]
+  "include": ["src", "*.ts"]
 }

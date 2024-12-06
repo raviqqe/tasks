@@ -2,19 +2,19 @@
 
 exports[`renders 1`] = `
 <div
-  class="mocked-styled-15 c2c63xu"
+  class="mocked-styled-15"
 >
   <div
-    class="mocked-styled-13 cwbo31g"
+    class="mocked-styled-13"
   >
     <div
-      class="mocked-styled-11 c1d64uzn"
+      class="mocked-styled-11"
     />
     <div
-      class="mocked-styled-14 s1ad3abv"
+      class="mocked-styled-14"
     >
       <div
-        class="mocked-styled-12 s1j6ytea b1bs8ozj"
+        class="mocked-styled-12"
       >
         <svg
           fill="currentColor"
@@ -37,13 +37,13 @@ exports[`renders 1`] = `
     </div>
   </div>
   <div
-    class="mocked-styled-16 t7s45km"
+    class="mocked-styled-16"
   >
     <div
-      class="mocked-styled-8 c1n8yvqw"
+      class="mocked-styled-8"
     >
       <div
-        class="mocked-styled-10 t12kak4i"
+        class="mocked-styled-10"
       />
     </div>
     <div
@@ -65,12 +65,11 @@ exports[`renders 1`] = `
     />
   </div>
   <div
-    class="mocked-styled-17 b1vy458d"
+    class="mocked-styled-17"
   >
     <button
       aria-label="Toggle Tasks"
-      class="mocked-styled-1 bunojaf cki2aja bunojaf"
-      style="--bunojaf-0: grey;"
+      class="mocked-styled-1 mocked-styled-0"
     >
       <svg
         fill="currentColor"
@@ -88,8 +87,7 @@ exports[`renders 1`] = `
     </button>
     <button
       aria-label="Create"
-      class="mocked-styled-1 bunojaf cki2aja bunojaf"
-      style="--bunojaf-0: indianred;"
+      class="mocked-styled-1 mocked-styled-0"
     >
       <svg
         fill="currentColor"
