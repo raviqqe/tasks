@@ -2,6 +2,8 @@ import { styled } from "@linaria/react";
 import { FaGithub } from "react-icons/fa";
 import { SignIn } from "./SignIn.js";
 import { black, red, white } from "./style/colors.js";
+import { configuration } from "../../configuration.js";
+import { signInManager } from "../../main/sign-in-manager.js";
 
 const Container = styled.div`
   height: 100vh;
@@ -42,19 +44,14 @@ const GitHubLink = styled.a`
   line-height: 0ex;
 `;
 
-export interface Props {
-  repositoryUrl: string;
-  signIn: () => void;
-}
-
-export const Landing = ({ repositoryUrl, signIn }: Props): JSX.Element => (
+export const Landing = (): JSX.Element => (
   <Container>
     <Title>
       <White>Be</White>
       <Red>Done</Red>
     </Title>
-    <SignIn signIn={signIn} />
-    <GitHubLink href={repositoryUrl} target="_blank">
+    <SignIn signIn={() => signInManager.signIn()} />
+    <GitHubLink href={configuration.repositoryUrl} target="_blank">
       <FaGithub />
     </GitHubLink>
   </Container>

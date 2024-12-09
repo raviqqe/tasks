@@ -6,14 +6,16 @@ import {
 } from "@testing-library/react";
 import { beforeEach, expect, it, vi } from "vitest";
 import { App, type Props } from "./App.js";
+import { applicationInitializer } from "../../main/application-initializer.js";
 
-const initialize = vi.fn();
+let wait = async () => {};
 
 beforeEach(() => {
-  initialize.mockReset().mockResolvedValue(undefined);
+  const initialize = vi
+    .spyOn(applicationInitializer, "initialize")
+    .mockResolvedValue(undefined);
+  wait = () => waitFor(() => expect(initialize).toHaveBeenCalled());
 });
-
-const wait = () => waitFor(() => expect(initialize).toHaveBeenCalled());
 
 const props: Props = {
   archivedProjects: null,
@@ -24,15 +26,11 @@ const props: Props = {
   currentProject: null,
   deleteProject: async () => {},
   doneTasks: null,
-  initialize,
   initializeCurrentProject: async () => {},
   listMoreDoneTasks: async () => {},
   projects: null,
   reorderTodoTasks: async () => {},
-  repositoryUrl: "",
   signedIn: null,
-  signIn: () => {},
-  signOut: () => {},
   switchCurrentProject: async () => {},
   todoTasks: null,
   unarchiveProject: async () => {},

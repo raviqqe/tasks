@@ -25,7 +25,7 @@ exports[`renders 1`] = `
   </button>
   <a
     class="mocked-styled-6"
-    href="url"
+    href="https://github.com/raviqqe/tasks"
     target="_blank"
   >
     <svg

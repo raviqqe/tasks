@@ -8,7 +8,7 @@ const SignOutIconButton = styled(IconButton)`
   font-size: 1.6rem;
 `;
 
-export interface Props {
+interface Props {
   signOut: () => void;
 }
 
