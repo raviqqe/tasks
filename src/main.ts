@@ -21,7 +21,7 @@ import { doneTaskLister } from "./main/done-task-lister.js";
 import { doneTaskPresenter } from "./main/done-task-presenter.js";
 import { doneTaskRepository } from "./main/done-task-repository.js";
 import { errorReporter } from "./main/error-reporter.js";
-import { messagePresenter } from "./main/messange-presenter.js";
+import { messagePresenter } from "./main/message-presenter.js";
 import { projectCreator } from "./main/project-creator.js";
 import { projectPresenter } from "./main/project-presenter.js";
 import { projectRepository } from "./main/project-repository.js";
