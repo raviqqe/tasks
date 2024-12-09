@@ -15,7 +15,9 @@ const LoaderContainer = styled.div`
   width: 100vw;
 `;
 
-export interface Props extends HomeProps, ProjectMenuProps {
+export interface Props
+  extends Omit<HomeProps, "onShowProjects">,
+    Omit<ProjectMenuProps, "onHideProjects"> {
   signedIn: boolean | null;
 }
 
