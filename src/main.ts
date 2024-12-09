@@ -19,7 +19,6 @@ import { TodoTaskReorderer } from "./application/todo-task-reorderer.js";
 import { TodoTaskUpdater } from "./application/todo-task-updater.js";
 import configuration from "./configuration.json" with { type: "json" };
 import { AlertMessagePresenter } from "./infrastructure/alert-message-presenter.js";
-import { AuthenticationRenderer } from "./infrastructure/authentication-renderer.js";
 import { BuiltinConfirmationController } from "./infrastructure/builtin-confirmation-controller.js";
 import { DoneTaskRenderer } from "./infrastructure/done-task-renderer.js";
 import { FirebaseAuthenticationController } from "./infrastructure/firebase/firebase-authentication-controller.js";
@@ -29,19 +28,11 @@ import { FirestoreTodoTaskRepository } from "./infrastructure/firebase/firestore
 import { LocalForageCurrentProjectRepository } from "./infrastructure/local-forage-current-project-repository.js";
 import { ProjectRenderer } from "./infrastructure/project-renderer.js";
 import { ReactRenderer } from "./infrastructure/react.js";
-import { SentryErrorReporter } from "./infrastructure/sentry-error-reporter.js";
 import { TodoTaskRenderer } from "./infrastructure/todo-task-renderer.js";
-import { firebaseInitializer } from "./main/firebase-initializer.js";
+import { errorReporter } from "./main/error-reporter.js";
+import { firebaseApp } from "./main/firebase-app.js";
 
 const main = () => {
-  const element = document.getElementById("root");
-
-  if (!element) {
-    throw new Error("no root element");
-  }
-
-  const firebaseApp = firebaseInitializer.initialize();
-  const authenticationPresenter = new AuthenticationRenderer();
   const authenticationController = new FirebaseAuthenticationController(
     firebaseApp,
   );
@@ -80,6 +71,12 @@ const main = () => {
     projectPresenter,
     messagePresenter,
   );
+
+  const element = document.getElementById("root");
+
+  if (!element) {
+    throw new Error("no root element");
+  }
 
   new ReactRenderer(
     element,
