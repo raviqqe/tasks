@@ -6,10 +6,7 @@ export interface Props {
   onCreate: (name: string) => Promise<void>;
 }
 
-export const CreateProject = ({
-  onCreate: createProject,
-  ...restProps
-}: Props): JSX.Element => (
+export const CreateProject = ({ onCreate, ...rest }: Props): JSX.Element => (
   <CircleButton
     aria-label="Create Project"
     onClick={async () => {
@@ -19,9 +16,9 @@ export const CreateProject = ({
         return;
       }
 
-      await createProject(name);
+      await onCreate(name);
     }}
-    {...restProps}
+    {...rest}
   >
     <MdAdd />
   </CircleButton>
