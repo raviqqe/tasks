@@ -1,9 +1,9 @@
 import { styled } from "@linaria/react";
+import { signOutManager } from "../../main/sign-out-manager.js";
 import { CurrentProject, type Props } from "./CurrentProject.js";
 import { SignOut } from "./SignOut.js";
 import { red } from "./style/colors.js";
 import { boxShadow } from "./style.js";
-import { signOutManager } from "../../main/sign-out-manager.js";
 
 const Container = styled.div`
   ${boxShadow}

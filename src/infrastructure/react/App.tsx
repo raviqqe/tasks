@@ -1,11 +1,11 @@
 import { styled } from "@linaria/react";
 import { useState } from "react";
 import { useAsync } from "react-use";
+import { applicationInitializer } from "../../main/application-initializer.js";
 import { Home, type Props as HomeProps } from "./Home.js";
 import { Landing } from "./Landing.js";
 import { Loader } from "./Loader.js";
 import { ProjectMenu, type Props as ProjectMenuProps } from "./ProjectMenu.js";
-import { applicationInitializer } from "../../main/application-initializer.js";
 
 const LoaderContainer = styled.div`
   display: flex;

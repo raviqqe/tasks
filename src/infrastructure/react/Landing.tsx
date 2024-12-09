@@ -1,9 +1,9 @@
 import { styled } from "@linaria/react";
 import { FaGithub } from "react-icons/fa";
-import { SignIn } from "./SignIn.js";
-import { black, red, white } from "./style/colors.js";
 import { configuration } from "../../configuration.js";
 import { signInManager } from "../../main/sign-in-manager.js";
+import { SignIn } from "./SignIn.js";
+import { black, red, white } from "./style/colors.js";
 
 const Container = styled.div`
   height: 100vh;
