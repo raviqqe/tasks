@@ -11,6 +11,7 @@ let taskCompleter: TodoTaskCompleter;
 beforeEach(() => {
   mockManager = new MockManager();
   taskCompleter = new TodoTaskCompleter(
+    mockManager.currentProjectRepository,
     mockManager.todoTaskDeleter,
     mockManager.doneTaskRepository,
     mockManager.doneTaskPresenter,
@@ -18,7 +19,7 @@ beforeEach(() => {
 });
 
 it("completes and persists a task", async () => {
-  await taskCompleter.complete("", dummyTask);
+  await taskCompleter.complete(dummyTask);
 
   expect(mockManager.todoTaskDeleter.delete.mock.calls).toEqual([["", ""]]);
   expect(mockManager.doneTaskRepository.create.mock.calls).toEqual([

@@ -20,19 +20,15 @@ beforeEach(() => {
 const props: Props = {
   archivedProjects: null,
   archiveProject: async () => {},
-  completeTodoTask: async () => {},
   createProject: async () => {},
-  createTodoTask: async () => {},
   currentProject: null,
   deleteProject: async () => {},
   doneTasks: null,
   projects: null,
-  reorderTodoTasks: async () => {},
   signedIn: null,
   todoTasks: null,
   unarchiveProject: async () => {},
   updateProject: async () => {},
-  updateTodoTask: async () => {},
 };
 
 it("renders before a user signs in", async () => {

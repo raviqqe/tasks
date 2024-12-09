@@ -4,13 +4,9 @@ import { todoTaskCreator } from "../../main/todo-task-creator.js";
 
 export interface Props {
   className?: string;
-  createTodoTask: (name: string) => Promise<void>;
 }
 
-export const CreateTodoTask = ({
-  createTodoTask,
-  ...restProps
-}: Props): JSX.Element => (
+export const CreateTodoTask = (props: Props): JSX.Element => (
   <CircleButton
     aria-label="Create"
     onClick={async () => {
@@ -22,7 +18,7 @@ export const CreateTodoTask = ({
 
       await todoTaskCreator.create(name);
     }}
-    {...restProps}
+    {...props}
   >
     <MdAdd />
   </CircleButton>
