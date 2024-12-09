@@ -4,12 +4,7 @@ import { ReactRenderer } from "./infrastructure/react.js";
 import { authenticationPresenter } from "./main/authentication-presenter.js";
 import { doneTaskPresenter } from "./main/done-task-presenter.js";
 import { errorReporter } from "./main/error-reporter.js";
-import { projectArchiver } from "./main/project-archiver.js";
-import { projectCreator } from "./main/project-creator.js";
-import { projectDeleter } from "./main/project-deleter.js";
 import { projectPresenter } from "./main/project-presenter.js";
-import { projectUnarchiver } from "./main/project-unarchiver.js";
-import { projectUpdater } from "./main/project-updater.js";
 import { todoTaskPresenter } from "./main/todo-task-presenter.js";
 
 try {
@@ -19,20 +14,12 @@ try {
     throw new Error("no root element");
   }
 
-  new ReactRenderer(
-    element,
-    [
-      authenticationPresenter,
-      doneTaskPresenter,
-      projectPresenter,
-      todoTaskPresenter,
-    ],
-    projectCreator,
-    projectArchiver,
-    projectUnarchiver,
-    projectDeleter,
-    projectUpdater,
-  ).render();
+  new ReactRenderer(element, [
+    authenticationPresenter,
+    doneTaskPresenter,
+    projectPresenter,
+    todoTaskPresenter,
+  ]).render();
 } catch (error) {
   errorReporter.report(error);
 }

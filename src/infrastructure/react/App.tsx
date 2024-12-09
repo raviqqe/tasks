@@ -23,16 +23,11 @@ export interface Props
 
 export const App = ({
   archivedProjects,
-  archiveProject,
-  createProject,
   currentProject,
-  deleteProject,
   doneTasks,
   projects,
   signedIn,
   todoTasks,
-  unarchiveProject,
-  updateProject,
   ...props
 }: Props): JSX.Element => {
   useAsync(() => applicationInitializer.initialize(), []);
@@ -45,14 +40,9 @@ export const App = ({
   ) : signedIn && projectsShown ? (
     <ProjectMenu
       archivedProjects={archivedProjects}
-      archiveProject={archiveProject}
-      createProject={createProject}
       currentProject={currentProject}
-      deleteProject={deleteProject}
       onHideProjects={() => setProjectsShown(false)}
       projects={projects}
-      unarchiveProject={unarchiveProject}
-      updateProject={updateProject}
     />
   ) : signedIn ? (
     <Home

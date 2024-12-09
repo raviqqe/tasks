@@ -11,6 +11,11 @@ import { Project, type Props as ProjectProps } from "./Project.js";
 import { ToggleProjects } from "./ToggleProjects.js";
 import { grey, lightGrey, white } from "./style/colors.js";
 import { boxShadow } from "./style.js";
+import { projectCreator } from "../../main/project-creator.js";
+import { projectUnarchiver } from "../../main/project-unarchiver.js";
+import { projectDeleter } from "../../main/project-deleter.js";
+import { projectArchiver } from "../../main/project-archiver.js";
+import { projectUpdater } from "../../main/project-updater.js";
 
 const Container = styled.div`
   background-color: ${lightGrey};
@@ -67,14 +72,9 @@ export interface Props
 
 export const ProjectMenu = ({
   archivedProjects,
-  archiveProject,
-  createProject,
   currentProject,
-  deleteProject,
   onHideProjects,
   projects,
-  unarchiveProject,
-  updateProject,
 }: Props): JSX.Element => {
   const [projectsArchived, setProjectsArchived] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -95,11 +95,11 @@ export const ProjectMenu = ({
             ) : (
               archivedProjects.map((project) => (
                 <Project
-                  deleteProject={deleteProject}
+                  deleteProject={(project) => projectDeleter.delete(project)}
                   key={project.id}
                   project={project}
                   unarchiveProject={async (project) => {
-                    await unarchiveProject(project);
+                    await projectUnarchiver.unarchive(project);
                     onHideProjects();
                   }}
                 />
@@ -110,13 +110,13 @@ export const ProjectMenu = ({
           <ProjectsContainer>
             {projects.map((project) => (
               <Project
-                archiveProject={archiveProject}
+                archiveProject={() => projectArchiver.archive(project)}
                 currentProject={currentProject}
                 key={project.id}
                 onSwitchProject={() => onHideProjects()}
                 project={project}
                 ref={project.id === currentProject.id ? ref : null}
-                updateProject={updateProject}
+                updateProject={(project) => projectUpdater.update(project)}
               />
             ))}
           </ProjectsContainer>
@@ -136,7 +136,7 @@ export const ProjectMenu = ({
               : undefined
           }
           createProject={async (name: string): Promise<void> => {
-            await createProject(name);
+            await projectCreator.create(name);
             onHideProjects();
           }}
         />
