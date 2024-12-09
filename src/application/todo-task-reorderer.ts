@@ -10,13 +10,15 @@ export class TodoTaskReorderer {
   ) {}
 
   public async reorder(taskIds: string[]): Promise<void> {
+    // Present reordered tasks optimistically.
+    this.todoTaskPresenter.presentReorderedTasks(taskIds);
+
     const projectId = await this.currentProjectRepository.get();
 
     if (!projectId) {
       throw new Error("Project not selected");
     }
 
-    this.todoTaskPresenter.presentReorderedTasks(taskIds);
     await this.todoTaskRepository.reorder(projectId, taskIds);
   }
 }
