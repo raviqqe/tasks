@@ -3,11 +3,11 @@ import { CircleButton } from "./CircleButton.js";
 
 export interface Props {
   className?: string;
-  createProject: (name: string) => Promise<void>;
+  onCreate: (name: string) => Promise<void>;
 }
 
 export const CreateProject = ({
-  createProject,
+  onCreate: createProject,
   ...restProps
 }: Props): JSX.Element => (
   <CircleButton

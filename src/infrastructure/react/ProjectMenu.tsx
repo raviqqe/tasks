@@ -2,12 +2,9 @@ import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import { useEffect, useRef, useState } from "react";
 import type * as domain from "../../domain.js";
-import {
-  CreateProject,
-  type Props as CreateProjectProps,
-} from "./CreateProject.js";
+import { CreateProject } from "./CreateProject.js";
 import { Loader } from "./Loader.js";
-import { Project, type Props as ProjectProps } from "./Project.js";
+import { Project } from "./Project.js";
 import { ToggleProjects } from "./ToggleProjects.js";
 import { grey, lightGrey, white } from "./style/colors.js";
 import { boxShadow } from "./style.js";
@@ -16,6 +13,8 @@ import { projectUnarchiver } from "../../main/project-unarchiver.js";
 import { projectDeleter } from "../../main/project-deleter.js";
 import { projectArchiver } from "../../main/project-archiver.js";
 import { projectUpdater } from "../../main/project-updater.js";
+import { IconButton } from "./IconButton.js";
+import { MdArchive, MdDelete, MdEdit, MdUnarchive } from "react-icons/md";
 
 const Container = styled.div`
   background-color: ${lightGrey};
@@ -59,11 +58,7 @@ const LowerButtonsContainer = styled.div`
   }
 `;
 
-export interface Props
-  extends CreateProjectProps,
-    Required<
-      Omit<ProjectProps, "currentProject" | "onSwitchProject" | "project">
-    > {
+export interface Props {
   archivedProjects: domain.Project[] | null;
   currentProject: domain.Project | null;
   onHideProjects: () => void;
@@ -95,13 +90,27 @@ export const ProjectMenu = ({
             ) : (
               archivedProjects.map((project) => (
                 <Project
-                  deleteProject={(project) => projectDeleter.delete(project)}
+                  buttons={
+                    <>
+                      <IconButton
+                        aria-label="Unarchive Project"
+                        onClick={async () => {
+                          await projectUnarchiver.unarchive(project);
+                          onHideProjects();
+                        }}
+                      >
+                        <MdUnarchive />
+                      </IconButton>
+                      <IconButton
+                        aria-label="Delete Project"
+                        onClick={() => projectDeleter.delete(project)}
+                      >
+                        <MdDelete />
+                      </IconButton>
+                    </>
+                  }
                   key={project.id}
                   project={project}
-                  unarchiveProject={async (project) => {
-                    await projectUnarchiver.unarchive(project);
-                    onHideProjects();
-                  }}
                 />
               ))
             )}
@@ -110,13 +119,43 @@ export const ProjectMenu = ({
           <ProjectsContainer>
             {projects.map((project) => (
               <Project
-                archiveProject={() => projectArchiver.archive(project)}
+                buttons={
+                  <>
+                    <IconButton
+                      aria-label="Update Project"
+                      onClick={async () => {
+                        const name = window.prompt(
+                          "New project name?",
+                          project.name,
+                        );
+
+                        if (!name) {
+                          return;
+                        }
+
+                        await projectUpdater.update({ ...project, name });
+                      }}
+                    >
+                      <MdEdit />
+                    </IconButton>
+                    <IconButton
+                      aria-label="Archive project"
+                      onClick={async () => {
+                        await projectArchiver.archive(
+                          project,
+                          currentProject.id,
+                        );
+                      }}
+                    >
+                      <MdArchive />
+                    </IconButton>
+                  </>
+                }
                 currentProject={currentProject}
                 key={project.id}
-                onSwitchProject={() => onHideProjects()}
+                onSwitchProject={onHideProjects}
                 project={project}
                 ref={project.id === currentProject.id ? ref : null}
-                updateProject={(project) => projectUpdater.update(project)}
               />
             ))}
           </ProjectsContainer>
@@ -135,7 +174,7 @@ export const ProjectMenu = ({
                 `
               : undefined
           }
-          createProject={async (name: string): Promise<void> => {
+          onCreate={async (name) => {
             await projectCreator.create(name);
             onHideProjects();
           }}
