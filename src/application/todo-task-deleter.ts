@@ -13,7 +13,7 @@ export class TodoTaskDeleter {
     const projectId = await this.currentProjectRepository.get();
 
     if (!projectId) {
-      return;
+      throw new Error("Project not selected");
     }
 
     this.todoTaskPresenter.presentDeletedTask(taskId);

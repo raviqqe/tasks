@@ -13,7 +13,7 @@ export class TodoTaskReorderer {
     const projectId = await this.currentProjectRepository.get();
 
     if (!projectId) {
-      throw new Error("Project not defined");
+      throw new Error("Project not selected");
     }
 
     this.todoTaskPresenter.presentReorderedTasks(taskIds);

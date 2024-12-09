@@ -2,11 +2,16 @@ import { beforeEach, expect, it } from "vitest";
 import { MockManager } from "./test/mock-manager.js";
 import { TodoTaskCreator } from "./todo-task-creator.js";
 
+const projectId = "project-id";
+
 let mockManager: MockManager;
 let taskCreator: TodoTaskCreator;
 
 beforeEach(() => {
   mockManager = new MockManager();
+
+  mockManager.currentProjectRepository.get.mockResolvedValue(projectId);
+
   taskCreator = new TodoTaskCreator(
     mockManager.currentProjectRepository,
     mockManager.todoTaskRepository,
@@ -18,7 +23,7 @@ beforeEach(() => {
 it("creates and persists a task", async () => {
   await taskCreator.create("foo");
   expect(mockManager.todoTaskRepository.create.mock.calls).toEqual([
-    ["", { id: expect.any(String) as string, name: "foo" }],
+    [projectId, { id: expect.any(String) as string, name: "foo" }],
   ]);
   expect(mockManager.todoTaskPresenter.presentNewTask.mock.calls).toEqual([
     [{ id: expect.any(String) as string, name: "foo" }],

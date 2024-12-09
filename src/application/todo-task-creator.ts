@@ -17,7 +17,7 @@ export class TodoTaskCreator {
     const projectId = await this.currentProjectRepository.get();
 
     if (!projectId) {
-      return;
+      throw new Error("Project not selected");
     }
 
     const task = formatTask({ id: window.crypto.randomUUID(), name });

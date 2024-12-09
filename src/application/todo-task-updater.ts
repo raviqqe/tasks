@@ -18,7 +18,7 @@ export class TodoTaskUpdater {
     const projectId = await this.currentProjectRepository.get();
 
     if (!projectId) {
-      return;
+      throw new Error("Project not selected");
     }
 
     task = formatTask(task);

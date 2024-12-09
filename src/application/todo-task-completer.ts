@@ -16,7 +16,7 @@ export class TodoTaskCompleter {
     const projectId = await this.currentProjectRepository.get();
 
     if (!projectId) {
-      return;
+      throw new Error("Project not selected");
     }
 
     await this.todoTaskDeleter.delete(task.id);
