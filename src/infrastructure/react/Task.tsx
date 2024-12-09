@@ -8,6 +8,8 @@ import type * as domain from "../../domain.js";
 import { IconButton } from "./IconButton.js";
 import { white } from "./style/colors.js";
 import { boxShadow } from "./style.js";
+import { todoTaskUpdater } from "../../main/todo-task-updater.js";
+import { todoTaskCompleter } from "../../main/todo-task-completer.js";
 
 const maxZIndex = 10000;
 
@@ -49,19 +51,11 @@ const DragHandle = (props: DraggableSyntheticListeners) => (
 
 interface Props {
   className?: string;
-  completeTask?: (task: domain.Task) => Promise<void>;
-  dragHandleEnabled?: boolean;
+  editable?: boolean;
   task: domain.Task;
-  updateTask?: (task: domain.Task) => Promise<void>;
 }
 
-export const Task = ({
-  completeTask,
-  dragHandleEnabled,
-  task,
-  updateTask,
-  ...restProps
-}: Props): JSX.Element => {
+export const Task = ({ editable, task, ...restProps }: Props): JSX.Element => {
   const {
     attributes,
     isDragging,
@@ -84,12 +78,15 @@ export const Task = ({
     >
       <Name>{task.name}</Name>
       <ButtonsContainer>
-        {completeTask && (
-          <IconButton aria-label="Done" onClick={() => completeTask(task)}>
+        {editable && (
+          <IconButton
+            aria-label="Done"
+            onClick={() => todoTaskCompleter.complete(task)}
+          >
             <MdCheck />
           </IconButton>
         )}
-        {updateTask && (
+        {editable && (
           <IconButton
             aria-label="Edit"
             onClick={async () => {
@@ -99,13 +96,13 @@ export const Task = ({
                 return;
               }
 
-              await updateTask({ ...task, name });
+              await todoTaskUpdater.update({ ...task, name });
             }}
           >
             <MdEdit />
           </IconButton>
         )}
-        {dragHandleEnabled && <DragHandle {...listeners} />}
+        {editable && <DragHandle {...listeners} />}
       </ButtonsContainer>
     </Container>
   );

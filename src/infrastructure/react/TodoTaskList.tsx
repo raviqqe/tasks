@@ -67,7 +67,7 @@ export const TodoTaskList = ({ todoTasks }: Props): JSX.Element => {
         <Container>
           <Tasks>
             {todoTasks.map((task) => (
-              <Task dragHandleEnabled key={task.id} task={task} />
+              <Task editable key={task.id} task={task} />
             ))}
           </Tasks>
         </Container>
