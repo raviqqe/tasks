@@ -2,9 +2,9 @@ import { styled } from "@linaria/react";
 import { forwardRef, type Ref } from "react";
 import { MdArchive, MdDelete, MdEdit, MdUnarchive } from "react-icons/md";
 import type * as domain from "../../domain.js";
+import { currentProjectSwitcher } from "../../main/current-project-switcher.js";
 import { IconButton } from "./IconButton.js";
 import { black, red } from "./style/colors.js";
-import { currentProjectSwitcher } from "../../main/current-project-switcher.js";
 
 const Container = styled.div`
   display: flex;
@@ -37,10 +37,10 @@ export interface Props {
   ) => Promise<void>;
   currentProject?: domain.Project;
   deleteProject?: (project: domain.Project) => Promise<void>;
+  onSwitchProject?: () => void;
   project: domain.Project;
   unarchiveProject?: (project: domain.Project) => Promise<void>;
   updateProject?: (project: domain.Project) => Promise<void>;
-  onSwitchProject?: () => void;
 }
 
 const ProjectWithRef = (
@@ -58,9 +58,9 @@ const ProjectWithRef = (
   <Container ref={ref}>
     <Name
       highlighted={!!currentProject && project.id === currentProject.id}
-      onClick={() => {
+      onClick={async () => {
         onSwitchProject?.();
-        currentProjectSwitcher.switch(project);
+        await currentProjectSwitcher.switch(project);
       }}
     >
       {project.name}

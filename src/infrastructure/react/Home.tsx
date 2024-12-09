@@ -2,6 +2,7 @@ import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import { useState } from "react";
 import { useAsync } from "react-use";
+import { currentProjectInitializer } from "../../main/current-project-initializer.js";
 import {
   CreateTodoTask,
   type Props as CreateTodoTaskProps,
@@ -16,7 +17,6 @@ import {
 } from "./TodoTaskList.js";
 import { ToggleTasks } from "./ToggleTasks.js";
 import { TopBar, type Props as TopBarProps } from "./TopBar.js";
-import { currentProjectInitializer } from "../../main/current-project-initializer.js";
 
 const Container = styled.div`
   display: flex;
@@ -60,8 +60,8 @@ export const Home = ({
   createTodoTask,
   currentProject,
   doneTasks,
-  reorderTodoTasks,
   onShowProjects,
+  reorderTodoTasks,
   todoTasks,
   updateTodoTask,
 }: Props): JSX.Element => {

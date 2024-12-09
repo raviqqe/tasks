@@ -57,7 +57,7 @@ const LowerButtonsContainer = styled.div`
 export interface Props
   extends CreateProjectProps,
     Required<
-      Omit<ProjectProps, "currentProject" | "project" | "onSwitchProject">
+      Omit<ProjectProps, "currentProject" | "onSwitchProject" | "project">
     > {
   archivedProjects: domain.Project[] | null;
   currentProject: domain.Project | null;

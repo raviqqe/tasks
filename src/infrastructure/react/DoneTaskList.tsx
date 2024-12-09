@@ -5,9 +5,9 @@ import { useCallback, useEffect, useState } from "react";
 import defaultUseInfiniteScroll from "react-infinite-scroll-hook";
 import { useAsync, usePrevious } from "react-use";
 import type * as domain from "../../domain.js";
+import { doneTaskLister } from "../../main/done-task-lister.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
-import { doneTaskLister } from "../../main/done-task-lister.js";
 
 const useInfiniteScroll = defaultImport(defaultUseInfiniteScroll);
 
