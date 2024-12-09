@@ -67,10 +67,9 @@ export const App = ({
       currentProject={currentProject}
       doneTasks={doneTasks}
       showProjects={() => setProjectsShown(true)}
-      signOut={signOut}
       todoTasks={todoTasks}
     />
   ) : (
-    <Landing repositoryUrl={repositoryUrl} signIn={signIn} />
+    <Landing />
   );
 };
