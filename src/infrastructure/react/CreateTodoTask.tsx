@@ -1,5 +1,6 @@
 import { MdAdd } from "react-icons/md";
 import { CircleButton } from "./CircleButton.js";
+import { todoTaskCreator } from "../../main/todo-task-creator.js";
 
 export interface Props {
   className?: string;
@@ -19,7 +20,7 @@ export const CreateTodoTask = ({
         return;
       }
 
-      await createTodoTask(name);
+      await todoTaskCreator.create(name);
     }}
     {...restProps}
   >

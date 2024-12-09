@@ -10,11 +10,7 @@ import { projectDeleter } from "./main/project-deleter.js";
 import { projectPresenter } from "./main/project-presenter.js";
 import { projectUnarchiver } from "./main/project-unarchiver.js";
 import { projectUpdater } from "./main/project-updater.js";
-import { todoTaskCompleter } from "./main/todo-task-completer.js";
-import { todoTaskCreator } from "./main/todo-task-creator.js";
 import { todoTaskPresenter } from "./main/todo-task-presenter.js";
-import { todoTaskReorderer } from "./main/todo-task-reorderer.js";
-import { todoTaskUpdater } from "./main/todo-task-updater.js";
 
 try {
   const element = document.getElementById("root");
@@ -31,10 +27,6 @@ try {
       projectPresenter,
       todoTaskPresenter,
     ],
-    todoTaskCreator,
-    todoTaskUpdater,
-    todoTaskCompleter,
-    todoTaskReorderer,
     projectCreator,
     projectArchiver,
     projectUnarchiver,
