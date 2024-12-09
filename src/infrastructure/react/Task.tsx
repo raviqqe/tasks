@@ -79,30 +79,30 @@ export const Task = ({ editable, task, ...restProps }: Props): JSX.Element => {
       <Name>{task.name}</Name>
       <ButtonsContainer>
         {editable && (
-          <IconButton
-            aria-label="Done"
-            onClick={() => todoTaskCompleter.complete(task)}
-          >
-            <MdCheck />
-          </IconButton>
-        )}
-        {editable && (
-          <IconButton
-            aria-label="Edit"
-            onClick={async () => {
-              const name = window.prompt("New task name?", task.name);
+          <>
+            <IconButton
+              aria-label="Done"
+              onClick={() => todoTaskCompleter.complete(task)}
+            >
+              <MdCheck />
+            </IconButton>
+            <IconButton
+              aria-label="Edit"
+              onClick={async () => {
+                const name = window.prompt("New task name?", task.name);
 
-              if (name === null) {
-                return;
-              }
+                if (name === null) {
+                  return;
+                }
 
-              await todoTaskUpdater.update({ ...task, name });
-            }}
-          >
-            <MdEdit />
-          </IconButton>
+                await todoTaskUpdater.update({ ...task, name });
+              }}
+            >
+              <MdEdit />
+            </IconButton>
+            <DragHandle {...listeners} />
+          </>
         )}
-        {editable && <DragHandle {...listeners} />}
       </ButtonsContainer>
     </Container>
   );
