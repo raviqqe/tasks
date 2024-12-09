@@ -23,7 +23,6 @@ import { AuthenticationRenderer } from "./infrastructure/authentication-renderer
 import { BuiltinConfirmationController } from "./infrastructure/builtin-confirmation-controller.js";
 import { DoneTaskRenderer } from "./infrastructure/done-task-renderer.js";
 import { FirebaseAuthenticationController } from "./infrastructure/firebase/firebase-authentication-controller.js";
-import { FirebaseInitializer } from "./infrastructure/firebase/firebase-initializer.js";
 import { FirestoreDoneTaskRepository } from "./infrastructure/firebase/firestore-done-task-repository.js";
 import { FirestoreProjectRepository } from "./infrastructure/firebase/firestore-project-repository.js";
 import { FirestoreTodoTaskRepository } from "./infrastructure/firebase/firestore-todo-task-repository.js";
@@ -32,10 +31,7 @@ import { ProjectRenderer } from "./infrastructure/project-renderer.js";
 import { ReactRenderer } from "./infrastructure/react.js";
 import { SentryErrorReporter } from "./infrastructure/sentry-error-reporter.js";
 import { TodoTaskRenderer } from "./infrastructure/todo-task-renderer.js";
-
-// Instantiate this at the very beginning to initialize Firebase's default app.
-const firebaseInitializer = new FirebaseInitializer(configuration.firebase);
-const errorReporter = new SentryErrorReporter(configuration.sentry.dsn);
+import { firebaseInitializer } from "./main/firebase-initializer.js";
 
 const main = () => {
   const element = document.getElementById("root");
