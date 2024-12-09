@@ -1,15 +1,12 @@
 import { MdAdd } from "react-icons/md";
+import { todoTaskCreator } from "../../main/todo-task-creator.js";
 import { CircleButton } from "./CircleButton.js";
 
 export interface Props {
   className?: string;
-  createTodoTask: (name: string) => Promise<void>;
 }
 
-export const CreateTodoTask = ({
-  createTodoTask,
-  ...restProps
-}: Props): JSX.Element => (
+export const CreateTodoTask = (props: Props): JSX.Element => (
   <CircleButton
     aria-label="Create"
     onClick={async () => {
@@ -19,9 +16,9 @@ export const CreateTodoTask = ({
         return;
       }
 
-      await createTodoTask(name);
+      await todoTaskCreator.create(name);
     }}
-    {...restProps}
+    {...props}
   >
     <MdAdd />
   </CircleButton>

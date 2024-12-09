@@ -6,14 +6,10 @@ it("renders", () => {
   expect(
     render(
       <Home
-        completeTodoTask={async () => {}}
-        createTodoTask={async () => {}}
         currentProject={{ archived: false, id: "", name: "" }}
         doneTasks={[]}
         onShowProjects={() => {}}
-        reorderTodoTasks={async () => {}}
         todoTasks={[]}
-        updateTodoTask={async () => {}}
       />,
     ).container.firstChild,
   ).toMatchSnapshot();

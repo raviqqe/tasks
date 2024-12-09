@@ -1,21 +1,27 @@
 import { fireEvent, render } from "@testing-library/react";
-import { expect, it, vi } from "vitest";
+import { beforeEach, expect, it, type MockInstance, vi } from "vitest";
+import type * as domain from "../../domain.js";
+import { todoTaskUpdater } from "../../main/todo-task-updater.js";
 import { Task } from "./Task.js";
+
+let updateTask: MockInstance<(task: domain.Task) => Promise<void>>;
+
+beforeEach(() => {
+  updateTask = vi.spyOn(todoTaskUpdater, "update").mockResolvedValue(undefined);
+});
 
 it("renders", () => {
   expect(
-    render(
-      <Task task={{ id: "id", name: "name" }} updateTask={async () => {}} />,
-    ).container.firstChild,
+    render(<Task editable task={{ id: "id", name: "name" }} />).container
+      .firstChild,
   ).toMatchSnapshot();
 });
 
 it("updates a task", () => {
   vi.spyOn(window, "prompt").mockReturnValue("bar");
-  const updateTask = vi.fn();
 
   const { container } = render(
-    <Task task={{ id: "", name: "foo" }} updateTask={updateTask} />,
+    <Task editable task={{ id: "", name: "foo" }} />,
   );
 
   fireEvent.click(container.querySelector('[aria-label="Edit"]')!);
@@ -25,10 +31,9 @@ it("updates a task", () => {
 
 it("does not update any tasks if update is cancelled", () => {
   vi.spyOn(window, "prompt").mockReturnValue(null);
-  const updateTask = vi.fn();
 
   const { container } = render(
-    <Task task={{ id: "", name: "foo" }} updateTask={updateTask} />,
+    <Task editable task={{ id: "", name: "foo" }} />,
   );
 
   fireEvent.click(container.querySelector('[aria-label="Edit"]')!);

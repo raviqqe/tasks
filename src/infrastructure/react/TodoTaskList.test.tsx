@@ -4,39 +4,19 @@ import { TodoTaskList } from "./TodoTaskList.js";
 
 it("renders", () => {
   expect(
-    render(
-      <TodoTaskList
-        completeTodoTask={async () => {}}
-        reorderTodoTasks={async () => {}}
-        todoTasks={[{ id: "id", name: "name" }]}
-        updateTodoTask={async () => {}}
-      />,
-    ).container.firstChild,
+    render(<TodoTaskList todoTasks={[{ id: "id", name: "name" }]} />).container
+      .firstChild,
   ).toMatchSnapshot();
 });
 
 it("renders with no tasks", () => {
   expect(
-    render(
-      <TodoTaskList
-        completeTodoTask={async () => {}}
-        reorderTodoTasks={async () => {}}
-        todoTasks={[]}
-        updateTodoTask={async () => {}}
-      />,
-    ).container.firstChild,
+    render(<TodoTaskList todoTasks={[]} />).container.firstChild,
   ).toMatchSnapshot();
 });
 
 it("renders with tasks not loaded yet", () => {
   expect(
-    render(
-      <TodoTaskList
-        completeTodoTask={async () => {}}
-        reorderTodoTasks={async () => {}}
-        todoTasks={null}
-        updateTodoTask={async () => {}}
-      />,
-    ).container.firstChild,
+    render(<TodoTaskList todoTasks={null} />).container.firstChild,
   ).toMatchSnapshot();
 });

@@ -12,6 +12,7 @@ import {
 } from "@dnd-kit/sortable";
 import { styled } from "@linaria/react";
 import type * as domain from "../../domain.js";
+import { todoTaskReorderer } from "../../main/todo-task-reorderer.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
 import { buttonMargin } from "./style.js";
@@ -36,18 +37,10 @@ const Tasks = styled.div`
 `;
 
 export interface Props {
-  completeTodoTask: (task: domain.Task) => Promise<void>;
-  reorderTodoTasks: (taskIds: string[]) => Promise<void>;
   todoTasks: domain.Task[] | null;
-  updateTodoTask: (task: domain.Task) => Promise<void>;
 }
 
-export const TodoTaskList = ({
-  completeTodoTask,
-  reorderTodoTasks,
-  todoTasks,
-  updateTodoTask,
-}: Props): JSX.Element => {
+export const TodoTaskList = ({ todoTasks }: Props): JSX.Element => {
   const sensors = useSensors(useSensor(PointerSensor));
 
   return todoTasks ? (
@@ -60,7 +53,7 @@ export const TodoTaskList = ({
 
         const taskIds = todoTasks.map((task) => task.id);
 
-        await reorderTodoTasks(
+        await todoTaskReorderer.reorder(
           arrayMove(
             taskIds,
             taskIds.indexOf(active.id.toString()),
@@ -74,13 +67,7 @@ export const TodoTaskList = ({
         <Container>
           <Tasks>
             {todoTasks.map((task) => (
-              <Task
-                completeTask={completeTodoTask}
-                dragHandleEnabled
-                key={task.id}
-                task={task}
-                updateTask={updateTodoTask}
-              />
+              <Task editable key={task.id} task={task} />
             ))}
           </Tasks>
         </Container>

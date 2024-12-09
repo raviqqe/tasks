@@ -5,6 +5,8 @@ import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import { MdCheck, MdDragHandle, MdEdit } from "react-icons/md";
 import type * as domain from "../../domain.js";
+import { todoTaskCompleter } from "../../main/todo-task-completer.js";
+import { todoTaskUpdater } from "../../main/todo-task-updater.js";
 import { IconButton } from "./IconButton.js";
 import { white } from "./style/colors.js";
 import { boxShadow } from "./style.js";
@@ -49,19 +51,11 @@ const DragHandle = (props: DraggableSyntheticListeners) => (
 
 interface Props {
   className?: string;
-  completeTask?: (task: domain.Task) => Promise<void>;
-  dragHandleEnabled?: boolean;
+  editable?: boolean;
   task: domain.Task;
-  updateTask?: (task: domain.Task) => Promise<void>;
 }
 
-export const Task = ({
-  completeTask,
-  dragHandleEnabled,
-  task,
-  updateTask,
-  ...restProps
-}: Props): JSX.Element => {
+export const Task = ({ editable, task, ...restProps }: Props): JSX.Element => {
   const {
     attributes,
     isDragging,
@@ -84,28 +78,31 @@ export const Task = ({
     >
       <Name>{task.name}</Name>
       <ButtonsContainer>
-        {completeTask && (
-          <IconButton aria-label="Done" onClick={() => completeTask(task)}>
-            <MdCheck />
-          </IconButton>
-        )}
-        {updateTask && (
-          <IconButton
-            aria-label="Edit"
-            onClick={async () => {
-              const name = window.prompt("New task name?", task.name);
+        {editable && (
+          <>
+            <IconButton
+              aria-label="Done"
+              onClick={() => todoTaskCompleter.complete(task)}
+            >
+              <MdCheck />
+            </IconButton>
+            <IconButton
+              aria-label="Edit"
+              onClick={async () => {
+                const name = window.prompt("New task name?", task.name);
 
-              if (name === null) {
-                return;
-              }
+                if (name === null) {
+                  return;
+                }
 
-              await updateTask({ ...task, name });
-            }}
-          >
-            <MdEdit />
-          </IconButton>
+                await todoTaskUpdater.update({ ...task, name });
+              }}
+            >
+              <MdEdit />
+            </IconButton>
+            <DragHandle {...listeners} />
+          </>
         )}
-        {dragHandleEnabled && <DragHandle {...listeners} />}
       </ButtonsContainer>
     </Container>
   );

@@ -56,14 +56,10 @@ export interface Props
     TopBarProps {}
 
 export const Home = ({
-  completeTodoTask,
-  createTodoTask,
   currentProject,
   doneTasks,
   onShowProjects,
-  reorderTodoTasks,
   todoTasks,
-  updateTodoTask,
 }: Props): JSX.Element => {
   useAsync(() => currentProjectInitializer.initialize(), []);
   const [tasksDone, setTasksDone] = useState(false);
@@ -75,12 +71,7 @@ export const Home = ({
         {tasksDone ? (
           <DoneTaskList doneTasks={doneTasks} />
         ) : (
-          <TodoTaskList
-            completeTodoTask={completeTodoTask}
-            reorderTodoTasks={reorderTodoTasks}
-            todoTasks={todoTasks}
-            updateTodoTask={updateTodoTask}
-          />
+          <TodoTaskList todoTasks={todoTasks} />
         )}
       </TasksContainer>
       <ButtonsContainer>
@@ -93,7 +84,6 @@ export const Home = ({
                 `
               : undefined
           }
-          createTodoTask={createTodoTask}
         />
       </ButtonsContainer>
     </Container>

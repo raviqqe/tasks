@@ -1,17 +1,25 @@
 import { formatErrorMessage } from "../domain/error.js";
 import { formatTask, validateTask } from "../domain/task.js";
+import { type CurrentProjectRepository } from "./current-project-repository.js";
 import { type MessagePresenter } from "./message-presenter.js";
 import { type TodoTaskPresenter } from "./todo-task-presenter.js";
 import { type TodoTaskRepository } from "./todo-task-repository.js";
 
 export class TodoTaskCreator {
   constructor(
+    private readonly currentProjectRepository: CurrentProjectRepository,
     private readonly todoTaskRepository: TodoTaskRepository,
     private readonly todoTaskPresenter: TodoTaskPresenter,
     private readonly messagePresenter: MessagePresenter,
   ) {}
 
-  public async create(projectId: string, name: string): Promise<void> {
+  public async create(name: string): Promise<void> {
+    const projectId = await this.currentProjectRepository.get();
+
+    if (!projectId) {
+      throw new Error("Project not selected");
+    }
+
     const task = formatTask({ id: window.crypto.randomUUID(), name });
 
     try {
