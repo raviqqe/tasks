@@ -33,7 +33,7 @@ import { todoTaskDeleter } from "./main/todo-task-deleter.js";
 import { todoTaskLister } from "./main/todo-task-lister.js";
 import { doneTaskLister } from "./main/done-task-lister.js";
 
-const main = () => {
+try {
   const projectRepository = new FirestoreProjectRepository(firebaseApp);
   const projectPresenter = new ProjectRenderer();
   const currentProjectRepository = new LocalForageCurrentProjectRepository();
@@ -119,10 +119,6 @@ const main = () => {
     signOutManager,
     configuration.repositoryUrl,
   ).render();
-};
-
-try {
-  main();
 } catch (error) {
   errorReporter.report(error);
 }
