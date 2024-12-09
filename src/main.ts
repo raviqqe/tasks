@@ -2,9 +2,7 @@ import "@fontsource/chelsea-market";
 import "@fontsource/roboto";
 import { ApplicationInitializer } from "./application/application-initializer.js";
 import { CurrentProjectInitializer } from "./application/current-project-initializer.js";
-import { CurrentProjectSwitcher } from "./application/current-project-switcher.js";
 import { ProjectArchiver } from "./application/project-archiver.js";
-import { ProjectCreator } from "./application/project-creator.js";
 import { ProjectDeleter } from "./application/project-deleter.js";
 import { ProjectUnarchiver } from "./application/project-unarchiver.js";
 import { ProjectUpdater } from "./application/project-updater.js";
@@ -13,14 +11,10 @@ import { TodoTaskCreator } from "./application/todo-task-creator.js";
 import { TodoTaskReorderer } from "./application/todo-task-reorderer.js";
 import { TodoTaskUpdater } from "./application/todo-task-updater.js";
 import configuration from "./configuration.json" with { type: "json" };
-import { FirestoreProjectRepository } from "./infrastructure/firebase/firestore-project-repository.js";
-import { LocalForageCurrentProjectRepository } from "./infrastructure/local-forage-current-project-repository.js";
-import { ProjectRenderer } from "./infrastructure/project-renderer.js";
 import { ReactRenderer } from "./infrastructure/react.js";
 import { authenticationController } from "./main/authentication-controller.js";
 import { authenticationPresenter } from "./main/authentication-presenter.js";
 import { errorReporter } from "./main/error-reporter.js";
-import { firebaseApp } from "./main/firebase-app.js";
 import { signInManager } from "./main/sign-in-manager.js";
 import { signOutManager } from "./main/sign-out-manager.js";
 import { messagePresenter } from "./main/messange-presenter.js";
@@ -30,28 +24,14 @@ import { doneTaskRepository } from "./main/done-task-repository.js";
 import { todoTaskPresenter } from "./main/todo-task-presenter.js";
 import { doneTaskPresenter } from "./main/done-task-presenter.js";
 import { todoTaskDeleter } from "./main/todo-task-deleter.js";
-import { todoTaskLister } from "./main/todo-task-lister.js";
 import { doneTaskLister } from "./main/done-task-lister.js";
+import { projectRepository } from "./main/project-repository.js";
+import { projectPresenter } from "./main/project-presenter.js";
+import { currentProjectRepository } from "./main/current-project-repository.js";
+import { projectCreator } from "./main/project-creator.js";
+import { currentProjectSwitcher } from "./main/current-project-switcher.js";
 
 try {
-  const projectRepository = new FirestoreProjectRepository(firebaseApp);
-  const projectPresenter = new ProjectRenderer();
-  const currentProjectRepository = new LocalForageCurrentProjectRepository();
-  const currentProjectSwitcher = new CurrentProjectSwitcher(
-    currentProjectRepository,
-    projectPresenter,
-    todoTaskLister,
-    doneTaskLister,
-    todoTaskPresenter,
-    doneTaskPresenter,
-  );
-  const projectCreator = new ProjectCreator(
-    currentProjectSwitcher,
-    projectRepository,
-    projectPresenter,
-    messagePresenter,
-  );
-
   const element = document.getElementById("root");
 
   if (!element) {
