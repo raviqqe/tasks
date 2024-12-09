@@ -1,8 +1,5 @@
 import { styled } from "@linaria/react";
-import {
-  CurrentProject,
-  type Props as CurrentProjectProps,
-} from "./CurrentProject.js";
+import { CurrentProject, type Props } from "./CurrentProject.js";
 import { SignOut } from "./SignOut.js";
 import { red } from "./style/colors.js";
 import { boxShadow } from "./style.js";
@@ -26,7 +23,7 @@ const SignOutContainer = styled.div`
   transform: translateY(-50%);
 `;
 
-export interface Props extends CurrentProjectProps {}
+export { type Props };
 
 export const TopBar = ({
   currentProject,
