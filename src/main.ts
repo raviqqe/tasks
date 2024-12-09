@@ -13,7 +13,7 @@ import { projectArchiver } from "./main/project-archiver.js";
 import { projectCreator } from "./main/project-creator.js";
 import { projectDeleter } from "./main/project-deleter.js";
 import { projectPresenter } from "./main/project-presenter.js";
-import { pprojectUnarchiver } from "./main/project-unarchiver.js";
+import { projectUnarchiver } from "./main/project-unarchiver.js";
 import { projectUpdater } from "./main/project-updater.js";
 import { signInManager } from "./main/sign-in-manager.js";
 import { signOutManager } from "./main/sign-out-manager.js";
@@ -46,7 +46,7 @@ try {
     doneTaskLister,
     projectCreator,
     projectArchiver,
-    pprojectUnarchiver,
+    projectUnarchiver,
     projectDeleter,
     projectUpdater,
     currentProjectInitializer,
