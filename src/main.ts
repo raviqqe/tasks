@@ -26,12 +26,12 @@ import { LocalForageCurrentProjectRepository } from "./infrastructure/local-fora
 import { ProjectRenderer } from "./infrastructure/project-renderer.js";
 import { ReactRenderer } from "./infrastructure/react.js";
 import { TodoTaskRenderer } from "./infrastructure/todo-task-renderer.js";
+import { authenticationController } from "./main/authentication-controller.js";
+import { authenticationPresenter } from "./main/authentication-presenter.js";
 import { errorReporter } from "./main/error-reporter.js";
 import { firebaseApp } from "./main/firebase-app.js";
-import { signOutManager } from "./main/sign-out-manager.js";
-import { authenticationPresenter } from "./main/authentication-presenter.js";
-import { authenticationController } from "./main/authentication-controller.js";
 import { signInManager } from "./main/sign-in-manager.js";
+import { signOutManager } from "./main/sign-out-manager.js";
 
 const main = () => {
   const messagePresenter = new AlertMessagePresenter();
