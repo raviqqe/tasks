@@ -7,14 +7,9 @@ it("renders", () => {
     render(
       <ProjectMenu
         archivedProjects={[]}
-        archiveProject={async () => {}}
-        createProject={async () => {}}
         currentProject={{ archived: false, id: "", name: "" }}
-        deleteProject={async () => {}}
         onHideProjects={() => {}}
         projects={[]}
-        unarchiveProject={async () => {}}
-        updateProject={async () => {}}
       />,
     ).container.firstChild,
   ).toMatchSnapshot();

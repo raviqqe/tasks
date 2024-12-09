@@ -1,10 +1,5 @@
 import { StrictMode } from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { type ProjectArchiver } from "../application/project-archiver.js";
-import { type ProjectCreator } from "../application/project-creator.js";
-import { type ProjectDeleter } from "../application/project-deleter.js";
-import { type ProjectUnarchiver } from "../application/project-unarchiver.js";
-import { type ProjectUpdater } from "../application/project-updater.js";
 import { type Project } from "../domain/project.js";
 import { type Task } from "../domain/task.js";
 import { App, type Props as AppProps } from "./react/App.js";
@@ -36,15 +31,7 @@ export class ReactRenderer implements Renderer {
     todoTasks: null,
   };
 
-  constructor(
-    element: HTMLElement,
-    presenters: Presenter[],
-    private readonly projectCreator: ProjectCreator,
-    private readonly projectArchiver: ProjectArchiver,
-    private readonly projectUnarchiver: ProjectUnarchiver,
-    private readonly projectDeleter: ProjectDeleter,
-    private readonly projectUpdater: ProjectUpdater,
-  ) {
+  constructor(element: HTMLElement, presenters: Presenter[]) {
     for (const presenter of presenters) {
       presenter.setRenderer(this);
     }
@@ -86,18 +73,7 @@ export class ReactRenderer implements Renderer {
     this.root.render(
       <StrictMode>
         <style className={globalStyle} />
-        <App
-          {...this.props}
-          archiveProject={(project, currentProjectId) =>
-            this.projectArchiver.archive(project, currentProjectId)
-          }
-          createProject={(name: string) => this.projectCreator.create(name)}
-          deleteProject={(project) => this.projectDeleter.delete(project)}
-          unarchiveProject={(project) =>
-            this.projectUnarchiver.unarchive(project)
-          }
-          updateProject={(project) => this.projectUpdater.update(project)}
-        />
+        <App {...this.props} />
       </StrictMode>,
     );
   }

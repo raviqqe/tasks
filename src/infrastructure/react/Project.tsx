@@ -1,9 +1,7 @@
 import { styled } from "@linaria/react";
 import { forwardRef, type Ref } from "react";
-import { MdArchive, MdDelete, MdEdit, MdUnarchive } from "react-icons/md";
 import type * as domain from "../../domain.js";
 import { currentProjectSwitcher } from "../../main/current-project-switcher.js";
-import { IconButton } from "./IconButton.js";
 import { black, red } from "./style/colors.js";
 
 const Container = styled.div`
@@ -31,86 +29,27 @@ const ButtonsContainer = styled.div`
 `;
 
 export interface Props {
-  archiveProject?: (
-    project: domain.Project,
-    currentProjectId: string,
-  ) => Promise<void>;
+  buttons?: JSX.Element;
   currentProject?: domain.Project;
-  deleteProject?: (project: domain.Project) => Promise<void>;
   onSwitchProject?: () => void;
   project: domain.Project;
-  unarchiveProject?: (project: domain.Project) => Promise<void>;
-  updateProject?: (project: domain.Project) => Promise<void>;
 }
 
 const ProjectWithRef = (
-  {
-    archiveProject,
-    currentProject,
-    deleteProject,
-    onSwitchProject,
-    project,
-    unarchiveProject,
-    updateProject,
-  }: Props,
+  { buttons, currentProject, onSwitchProject, project }: Props,
   ref: Ref<HTMLDivElement>,
 ) => (
   <Container ref={ref}>
     <Name
       highlighted={!!currentProject && project.id === currentProject.id}
       onClick={async () => {
-        onSwitchProject?.();
         await currentProjectSwitcher.switch(project);
+        onSwitchProject?.();
       }}
     >
       {project.name}
     </Name>
-    <ButtonsContainer>
-      {updateProject && (
-        <IconButton
-          aria-label="Update Project"
-          onClick={async () => {
-            const name = window.prompt("New project name?", project.name);
-
-            if (!name) {
-              return;
-            }
-
-            await updateProject({ ...project, name });
-          }}
-        >
-          <MdEdit />
-        </IconButton>
-      )}
-      {archiveProject && (
-        <IconButton
-          aria-label="Archive Project"
-          onClick={async () => {
-            if (currentProject) {
-              await archiveProject(project, currentProject.id);
-            }
-          }}
-        >
-          <MdArchive />
-        </IconButton>
-      )}
-      {unarchiveProject && (
-        <IconButton
-          aria-label="Unarchive Project"
-          onClick={() => unarchiveProject(project)}
-        >
-          <MdUnarchive />
-        </IconButton>
-      )}
-      {deleteProject && (
-        <IconButton
-          aria-label="Delete Project"
-          onClick={() => deleteProject(project)}
-        >
-          <MdDelete />
-        </IconButton>
-      )}
-    </ButtonsContainer>
+    <ButtonsContainer>{buttons}</ButtonsContainer>
   </Container>
 );
 
