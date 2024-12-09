@@ -8,7 +8,6 @@ it("renders", () => {
       <TopBar
         currentProject={{ archived: false, id: "", name: "" }}
         showProjects={() => {}}
-        signOut={async () => {}}
       />,
     ).container.firstChild,
   ).toMatchSnapshot();

@@ -132,7 +132,7 @@ exports[`renders after a user signs out 1`] = `
     </button>
     <a
       class="mocked-styled-23"
-      href=""
+      href="https://github.com/raviqqe/tasks"
       target="_blank"
     >
       <svg

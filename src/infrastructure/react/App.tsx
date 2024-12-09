@@ -1,8 +1,9 @@
 import { styled } from "@linaria/react";
 import { useState } from "react";
 import { useAsync } from "react-use";
+import { applicationInitializer } from "../../main/application-initializer.js";
 import { Home, type Props as HomeProps } from "./Home.js";
-import { Landing, type Props as LandingProps } from "./Landing.js";
+import { Landing } from "./Landing.js";
 import { Loader } from "./Loader.js";
 import { ProjectMenu, type Props as ProjectMenuProps } from "./ProjectMenu.js";
 
@@ -15,10 +16,8 @@ const LoaderContainer = styled.div`
 `;
 
 export interface Props
-  extends LandingProps,
-    Omit<HomeProps, "showProjects">,
+  extends Omit<HomeProps, "showProjects">,
     Omit<ProjectMenuProps, "hideProjects"> {
-  initialize: () => Promise<void>;
   signedIn: boolean | null;
 }
 
@@ -29,19 +28,15 @@ export const App = ({
   currentProject,
   deleteProject,
   doneTasks,
-  initialize,
   projects,
-  repositoryUrl,
   signedIn,
-  signIn,
-  signOut,
   switchCurrentProject,
   todoTasks,
   unarchiveProject,
   updateProject,
   ...props
 }: Props): JSX.Element => {
-  useAsync(initialize, []);
+  useAsync(() => applicationInitializer.initialize(), []);
   const [projectsShown, setProjectsShown] = useState(false);
 
   return signedIn === null ? (
@@ -67,10 +62,9 @@ export const App = ({
       currentProject={currentProject}
       doneTasks={doneTasks}
       showProjects={() => setProjectsShown(true)}
-      signOut={signOut}
       todoTasks={todoTasks}
     />
   ) : (
-    <Landing repositoryUrl={repositoryUrl} signIn={signIn} />
+    <Landing />
   );
 };

@@ -14,7 +14,6 @@ it("renders", () => {
         listMoreDoneTasks={async () => {}}
         reorderTodoTasks={async () => {}}
         showProjects={() => {}}
-        signOut={async () => {}}
         todoTasks={[]}
         updateTodoTask={async () => {}}
       />,

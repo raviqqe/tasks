@@ -1,9 +1,7 @@
 import { styled } from "@linaria/react";
-import {
-  CurrentProject,
-  type Props as CurrentProjectProps,
-} from "./CurrentProject.js";
-import { SignOut, type Props as SignOutProps } from "./SignOut.js";
+import { signOutManager } from "../../main/sign-out-manager.js";
+import { CurrentProject, type Props } from "./CurrentProject.js";
+import { SignOut } from "./SignOut.js";
 import { red } from "./style/colors.js";
 import { boxShadow } from "./style.js";
 
@@ -25,12 +23,11 @@ const SignOutContainer = styled.div`
   transform: translateY(-50%);
 `;
 
-export interface Props extends CurrentProjectProps, SignOutProps {}
+export { type Props };
 
 export const TopBar = ({
   currentProject,
   showProjects,
-  signOut,
 }: Props): JSX.Element => (
   <Container>
     <CurrentProject
@@ -38,7 +35,7 @@ export const TopBar = ({
       showProjects={showProjects}
     />
     <SignOutContainer>
-      <SignOut signOut={signOut} />
+      <SignOut signOut={() => signOutManager.signOut()} />
     </SignOutContainer>
   </Container>
 );

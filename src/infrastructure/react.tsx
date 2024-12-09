@@ -1,6 +1,5 @@
 import { StrictMode } from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { type ApplicationInitializer } from "../application/application-initializer.js";
 import { type CurrentProjectInitializer } from "../application/current-project-initializer.js";
 import { type CurrentProjectSwitcher } from "../application/current-project-switcher.js";
 import { type DoneTaskLister } from "../application/done-task-lister.js";
@@ -9,8 +8,6 @@ import { type ProjectCreator } from "../application/project-creator.js";
 import { type ProjectDeleter } from "../application/project-deleter.js";
 import { type ProjectUnarchiver } from "../application/project-unarchiver.js";
 import { type ProjectUpdater } from "../application/project-updater.js";
-import { type SignInManager } from "../application/sign-in-manager.js";
-import { type SignOutManager } from "../application/sign-out-manager.js";
 import { type TodoTaskCompleter } from "../application/todo-task-completer.js";
 import { type TodoTaskCreator } from "../application/todo-task-creator.js";
 import { type TodoTaskReorderer } from "../application/todo-task-reorderer.js";
@@ -49,7 +46,6 @@ export class ReactRenderer implements Renderer {
   constructor(
     element: HTMLElement,
     presenters: Presenter[],
-    private readonly applicationInitializer: ApplicationInitializer,
     private readonly todoTaskCreator: TodoTaskCreator,
     private readonly todoTaskUpdater: TodoTaskUpdater,
     private readonly todoTaskCompleter: TodoTaskCompleter,
@@ -62,9 +58,6 @@ export class ReactRenderer implements Renderer {
     private readonly projectUpdater: ProjectUpdater,
     private readonly currentProjectInitializer: CurrentProjectInitializer,
     private readonly currentProjectSwitcher: CurrentProjectSwitcher,
-    private readonly signInManager: SignInManager,
-    private readonly signOutManager: SignOutManager,
-    private readonly repositoryUrl: string,
   ) {
     for (const presenter of presenters) {
       presenter.setRenderer(this);
@@ -126,7 +119,6 @@ export class ReactRenderer implements Renderer {
             }
           }}
           deleteProject={(project) => this.projectDeleter.delete(project)}
-          initialize={() => this.applicationInitializer.initialize()}
           initializeCurrentProject={() =>
             this.currentProjectInitializer.initialize()
           }
@@ -136,9 +128,6 @@ export class ReactRenderer implements Renderer {
               await this.todoTaskReorderer.reorder(currentProject.id, taskIds);
             }
           }}
-          repositoryUrl={this.repositoryUrl}
-          signIn={() => this.signInManager.signIn()}
-          signOut={() => this.signOutManager.signOut()}
           switchCurrentProject={(project) =>
             this.currentProjectSwitcher.switch(project)
           }
