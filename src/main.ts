@@ -9,7 +9,6 @@ import { ProjectCreator } from "./application/project-creator.js";
 import { ProjectDeleter } from "./application/project-deleter.js";
 import { ProjectUnarchiver } from "./application/project-unarchiver.js";
 import { ProjectUpdater } from "./application/project-updater.js";
-import { SignInManager } from "./application/sign-in-manager.js";
 import { TodoTaskCompleter } from "./application/todo-task-completer.js";
 import { TodoTaskCreator } from "./application/todo-task-creator.js";
 import { TodoTaskDeleter } from "./application/todo-task-deleter.js";
@@ -20,7 +19,6 @@ import configuration from "./configuration.json" with { type: "json" };
 import { AlertMessagePresenter } from "./infrastructure/alert-message-presenter.js";
 import { BuiltinConfirmationController } from "./infrastructure/builtin-confirmation-controller.js";
 import { DoneTaskRenderer } from "./infrastructure/done-task-renderer.js";
-import { FirebaseAuthenticationController } from "./infrastructure/firebase/firebase-authentication-controller.js";
 import { FirestoreDoneTaskRepository } from "./infrastructure/firebase/firestore-done-task-repository.js";
 import { FirestoreProjectRepository } from "./infrastructure/firebase/firestore-project-repository.js";
 import { FirestoreTodoTaskRepository } from "./infrastructure/firebase/firestore-todo-task-repository.js";
@@ -30,6 +28,10 @@ import { ReactRenderer } from "./infrastructure/react.js";
 import { TodoTaskRenderer } from "./infrastructure/todo-task-renderer.js";
 import { errorReporter } from "./main/error-reporter.js";
 import { firebaseApp } from "./main/firebase-app.js";
+import { signOutManager } from "./main/sign-out-manager.js";
+import { authenticationPresenter } from "./main/authentication-presenter.js";
+import { authenticationController } from "./main/authentication-controller.js";
+import { signInManager } from "./main/sign-in-manager.js";
 
 const main = () => {
   const messagePresenter = new AlertMessagePresenter();
@@ -131,7 +133,7 @@ const main = () => {
       currentProjectRepository,
     ),
     currentProjectSwitcher,
-    new SignInManager(authenticationController, authenticationPresenter),
+    signInManager,
     signOutManager,
     configuration.repositoryUrl,
   ).render();
