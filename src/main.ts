@@ -10,7 +10,6 @@ import { ProjectDeleter } from "./application/project-deleter.js";
 import { ProjectUnarchiver } from "./application/project-unarchiver.js";
 import { ProjectUpdater } from "./application/project-updater.js";
 import { SignInManager } from "./application/sign-in-manager.js";
-import { SignOutManager } from "./application/sign-out-manager.js";
 import { TodoTaskCompleter } from "./application/todo-task-completer.js";
 import { TodoTaskCreator } from "./application/todo-task-creator.js";
 import { TodoTaskDeleter } from "./application/todo-task-deleter.js";
@@ -33,9 +32,6 @@ import { errorReporter } from "./main/error-reporter.js";
 import { firebaseApp } from "./main/firebase-app.js";
 
 const main = () => {
-  const authenticationController = new FirebaseAuthenticationController(
-    firebaseApp,
-  );
   const messagePresenter = new AlertMessagePresenter();
   const confirmationController = new BuiltinConfirmationController();
   const todoTaskRepository = new FirestoreTodoTaskRepository(firebaseApp);
@@ -136,7 +132,7 @@ const main = () => {
     ),
     currentProjectSwitcher,
     new SignInManager(authenticationController, authenticationPresenter),
-    new SignOutManager(authenticationController, authenticationPresenter),
+    signOutManager,
     configuration.repositoryUrl,
   ).render();
 };
