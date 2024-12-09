@@ -2,6 +2,7 @@ import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import { useState } from "react";
 import { useAsync } from "react-use";
+import { currentProjectInitializer } from "../../main/current-project-initializer.js";
 import {
   CreateTodoTask,
   type Props as CreateTodoTaskProps,
@@ -52,34 +53,27 @@ export interface Props
   extends CreateTodoTaskProps,
     DoneTaskListProps,
     TodoTaskListProps,
-    TopBarProps {
-  initializeCurrentProject: () => Promise<void>;
-}
+    TopBarProps {}
 
 export const Home = ({
   completeTodoTask,
   createTodoTask,
   currentProject,
   doneTasks,
-  initializeCurrentProject,
-  listMoreDoneTasks,
+  onShowProjects,
   reorderTodoTasks,
-  showProjects,
   todoTasks,
   updateTodoTask,
 }: Props): JSX.Element => {
-  useAsync(initializeCurrentProject, []);
+  useAsync(() => currentProjectInitializer.initialize(), []);
   const [tasksDone, setTasksDone] = useState(false);
 
   return (
     <Container>
-      <TopBar currentProject={currentProject} showProjects={showProjects} />
+      <TopBar currentProject={currentProject} onShowProjects={onShowProjects} />
       <TasksContainer>
         {tasksDone ? (
-          <DoneTaskList
-            doneTasks={doneTasks}
-            listMoreDoneTasks={listMoreDoneTasks}
-          />
+          <DoneTaskList doneTasks={doneTasks} />
         ) : (
           <TodoTaskList
             completeTodoTask={completeTodoTask}

@@ -1,8 +1,5 @@
 import { StrictMode } from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { type CurrentProjectInitializer } from "../application/current-project-initializer.js";
-import { type CurrentProjectSwitcher } from "../application/current-project-switcher.js";
-import { type DoneTaskLister } from "../application/done-task-lister.js";
 import { type ProjectArchiver } from "../application/project-archiver.js";
 import { type ProjectCreator } from "../application/project-creator.js";
 import { type ProjectDeleter } from "../application/project-deleter.js";
@@ -50,14 +47,11 @@ export class ReactRenderer implements Renderer {
     private readonly todoTaskUpdater: TodoTaskUpdater,
     private readonly todoTaskCompleter: TodoTaskCompleter,
     private readonly todoTaskReorderer: TodoTaskReorderer,
-    private readonly doneTaskLister: DoneTaskLister,
     private readonly projectCreator: ProjectCreator,
     private readonly projectArchiver: ProjectArchiver,
     private readonly projectUnarchiver: ProjectUnarchiver,
     private readonly projectDeleter: ProjectDeleter,
     private readonly projectUpdater: ProjectUpdater,
-    private readonly currentProjectInitializer: CurrentProjectInitializer,
-    private readonly currentProjectSwitcher: CurrentProjectSwitcher,
   ) {
     for (const presenter of presenters) {
       presenter.setRenderer(this);
@@ -119,18 +113,11 @@ export class ReactRenderer implements Renderer {
             }
           }}
           deleteProject={(project) => this.projectDeleter.delete(project)}
-          initializeCurrentProject={() =>
-            this.currentProjectInitializer.initialize()
-          }
-          listMoreDoneTasks={() => this.doneTaskLister.listMore()}
           reorderTodoTasks={async (taskIds) => {
             if (currentProject) {
               await this.todoTaskReorderer.reorder(currentProject.id, taskIds);
             }
           }}
-          switchCurrentProject={(project) =>
-            this.currentProjectSwitcher.switch(project)
-          }
           unarchiveProject={(project) =>
             this.projectUnarchiver.unarchive(project)
           }

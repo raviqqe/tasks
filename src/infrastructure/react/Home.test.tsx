@@ -10,10 +10,8 @@ it("renders", () => {
         createTodoTask={async () => {}}
         currentProject={{ archived: false, id: "", name: "" }}
         doneTasks={[]}
-        initializeCurrentProject={async () => {}}
-        listMoreDoneTasks={async () => {}}
+        onShowProjects={() => {}}
         reorderTodoTasks={async () => {}}
-        showProjects={() => {}}
         todoTasks={[]}
         updateTodoTask={async () => {}}
       />,

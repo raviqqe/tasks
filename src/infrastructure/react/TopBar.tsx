@@ -27,12 +27,12 @@ export { type Props };
 
 export const TopBar = ({
   currentProject,
-  showProjects,
+  onShowProjects,
 }: Props): JSX.Element => (
   <Container>
     <CurrentProject
       currentProject={currentProject}
-      showProjects={showProjects}
+      onShowProjects={onShowProjects}
     />
     <SignOutContainer>
       <SignOut signOut={() => signOutManager.signOut()} />

@@ -4,7 +4,6 @@ import { DoneTaskList } from "./DoneTaskList.js";
 
 it("renders", () => {
   expect(
-    render(<DoneTaskList doneTasks={[]} listMoreDoneTasks={async () => {}} />)
-      .container.firstChild,
+    render(<DoneTaskList doneTasks={[]} />).container.firstChild,
   ).toMatchSnapshot();
 });

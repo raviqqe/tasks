@@ -56,10 +56,12 @@ const LowerButtonsContainer = styled.div`
 
 export interface Props
   extends CreateProjectProps,
-    Required<Omit<ProjectProps, "currentProject" | "project">> {
+    Required<
+      Omit<ProjectProps, "currentProject" | "onSwitchProject" | "project">
+    > {
   archivedProjects: domain.Project[] | null;
   currentProject: domain.Project | null;
-  hideProjects: () => void;
+  onHideProjects: () => void;
   projects: domain.Project[] | null;
 }
 
@@ -69,9 +71,8 @@ export const ProjectMenu = ({
   createProject,
   currentProject,
   deleteProject,
-  hideProjects,
+  onHideProjects,
   projects,
-  switchCurrentProject,
   unarchiveProject,
   updateProject,
 }: Props): JSX.Element => {
@@ -99,7 +100,7 @@ export const ProjectMenu = ({
                   project={project}
                   unarchiveProject={async (project) => {
                     await unarchiveProject(project);
-                    hideProjects();
+                    onHideProjects();
                   }}
                 />
               ))
@@ -112,12 +113,9 @@ export const ProjectMenu = ({
                 archiveProject={archiveProject}
                 currentProject={currentProject}
                 key={project.id}
+                onSwitchProject={() => onHideProjects()}
                 project={project}
                 ref={project.id === currentProject.id ? ref : null}
-                switchCurrentProject={async (project) => {
-                  hideProjects();
-                  await switchCurrentProject(project);
-                }}
                 updateProject={updateProject}
               />
             ))}
@@ -139,7 +137,7 @@ export const ProjectMenu = ({
           }
           createProject={async (name: string): Promise<void> => {
             await createProject(name);
-            hideProjects();
+            onHideProjects();
           }}
         />
       </LowerButtonsContainer>

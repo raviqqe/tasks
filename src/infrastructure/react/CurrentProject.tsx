@@ -15,14 +15,14 @@ const Container = styled.div`
 
 export interface Props {
   currentProject: Project | null;
-  showProjects: () => void;
+  onShowProjects: () => void;
 }
 
 export const CurrentProject = ({
   currentProject,
-  showProjects,
+  onShowProjects,
 }: Props): JSX.Element => (
-  <Container onClick={showProjects}>
+  <Container onClick={onShowProjects}>
     {currentProject ? currentProject.name : <Loader />}
   </Container>
 );

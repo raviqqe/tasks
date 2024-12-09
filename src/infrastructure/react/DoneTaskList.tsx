@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import defaultUseInfiniteScroll from "react-infinite-scroll-hook";
 import { useAsync, usePrevious } from "react-use";
 import type * as domain from "../../domain.js";
+import { doneTaskLister } from "../../main/done-task-lister.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
 
@@ -26,22 +27,18 @@ const LoaderContainer = styled.div`
 
 export interface Props {
   doneTasks: domain.Task[] | null;
-  listMoreDoneTasks: () => Promise<void>;
 }
 
-export const DoneTaskList = ({
-  doneTasks,
-  listMoreDoneTasks,
-}: Props): JSX.Element => {
+export const DoneTaskList = ({ doneTasks }: Props): JSX.Element => {
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
 
   const onLoadMore = useCallback(async () => {
     setLoading(true);
-    await listMoreDoneTasks();
+    await doneTaskLister.listMore();
     await sleep(0);
     setLoading(false);
-  }, [listMoreDoneTasks, setLoading]);
+  }, [setLoading]);
 
   useAsync(onLoadMore, []);
 

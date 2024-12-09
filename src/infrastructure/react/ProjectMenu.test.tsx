@@ -11,9 +11,8 @@ it("renders", () => {
         createProject={async () => {}}
         currentProject={{ archived: false, id: "", name: "" }}
         deleteProject={async () => {}}
-        hideProjects={() => {}}
+        onHideProjects={() => {}}
         projects={[]}
-        switchCurrentProject={async () => {}}
         unarchiveProject={async () => {}}
         updateProject={async () => {}}
       />,

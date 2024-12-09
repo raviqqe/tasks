@@ -16,8 +16,8 @@ const LoaderContainer = styled.div`
 `;
 
 export interface Props
-  extends Omit<HomeProps, "showProjects">,
-    Omit<ProjectMenuProps, "hideProjects"> {
+  extends Omit<HomeProps, "onShowProjects">,
+    Omit<ProjectMenuProps, "onHideProjects"> {
   signedIn: boolean | null;
 }
 
@@ -30,7 +30,6 @@ export const App = ({
   doneTasks,
   projects,
   signedIn,
-  switchCurrentProject,
   todoTasks,
   unarchiveProject,
   updateProject,
@@ -50,9 +49,8 @@ export const App = ({
       createProject={createProject}
       currentProject={currentProject}
       deleteProject={deleteProject}
-      hideProjects={() => setProjectsShown(false)}
+      onHideProjects={() => setProjectsShown(false)}
       projects={projects}
-      switchCurrentProject={switchCurrentProject}
       unarchiveProject={unarchiveProject}
       updateProject={updateProject}
     />
@@ -61,7 +59,7 @@ export const App = ({
       {...props}
       currentProject={currentProject}
       doneTasks={doneTasks}
-      showProjects={() => setProjectsShown(true)}
+      onShowProjects={() => setProjectsShown(true)}
       todoTasks={todoTasks}
     />
   ) : (
