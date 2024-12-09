@@ -62,7 +62,6 @@ export const Home = ({
   currentProject,
   doneTasks,
   initializeCurrentProject,
-  listMoreDoneTasks,
   reorderTodoTasks,
   showProjects,
   todoTasks,
@@ -76,10 +75,7 @@ export const Home = ({
       <TopBar currentProject={currentProject} showProjects={showProjects} />
       <TasksContainer>
         {tasksDone ? (
-          <DoneTaskList
-            doneTasks={doneTasks}
-            listMoreDoneTasks={listMoreDoneTasks}
-          />
+          <DoneTaskList doneTasks={doneTasks} />
         ) : (
           <TodoTaskList
             completeTodoTask={completeTodoTask}

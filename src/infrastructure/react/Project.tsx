@@ -4,6 +4,7 @@ import { MdArchive, MdDelete, MdEdit, MdUnarchive } from "react-icons/md";
 import type * as domain from "../../domain.js";
 import { IconButton } from "./IconButton.js";
 import { black, red } from "./style/colors.js";
+import { currentProjectSwitcher } from "../../main/current-project-switcher.js";
 
 const Container = styled.div`
   display: flex;
@@ -37,9 +38,9 @@ export interface Props {
   currentProject?: domain.Project;
   deleteProject?: (project: domain.Project) => Promise<void>;
   project: domain.Project;
-  switchCurrentProject?: (project: domain.Project) => Promise<void>;
   unarchiveProject?: (project: domain.Project) => Promise<void>;
   updateProject?: (project: domain.Project) => Promise<void>;
+  onSwitchProject?: () => void;
 }
 
 const ProjectWithRef = (
@@ -47,8 +48,8 @@ const ProjectWithRef = (
     archiveProject,
     currentProject,
     deleteProject,
+    onSwitchProject,
     project,
-    switchCurrentProject,
     unarchiveProject,
     updateProject,
   }: Props,
@@ -57,7 +58,10 @@ const ProjectWithRef = (
   <Container ref={ref}>
     <Name
       highlighted={!!currentProject && project.id === currentProject.id}
-      onClick={switchCurrentProject && (() => switchCurrentProject(project))}
+      onClick={() => {
+        onSwitchProject?.();
+        currentProjectSwitcher.switch(project);
+      }}
     >
       {project.name}
     </Name>

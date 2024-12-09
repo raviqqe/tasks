@@ -56,7 +56,9 @@ const LowerButtonsContainer = styled.div`
 
 export interface Props
   extends CreateProjectProps,
-    Required<Omit<ProjectProps, "currentProject" | "project">> {
+    Required<
+      Omit<ProjectProps, "currentProject" | "project" | "onSwitchProject">
+    > {
   archivedProjects: domain.Project[] | null;
   currentProject: domain.Project | null;
   hideProjects: () => void;
@@ -71,7 +73,6 @@ export const ProjectMenu = ({
   deleteProject,
   hideProjects,
   projects,
-  switchCurrentProject,
   unarchiveProject,
   updateProject,
 }: Props): JSX.Element => {
@@ -112,12 +113,9 @@ export const ProjectMenu = ({
                 archiveProject={archiveProject}
                 currentProject={currentProject}
                 key={project.id}
+                onSwitchProject={() => hideProjects()}
                 project={project}
                 ref={project.id === currentProject.id ? ref : null}
-                switchCurrentProject={async (project) => {
-                  hideProjects();
-                  await switchCurrentProject(project);
-                }}
                 updateProject={updateProject}
               />
             ))}

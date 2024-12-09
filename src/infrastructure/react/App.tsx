@@ -30,7 +30,6 @@ export const App = ({
   doneTasks,
   projects,
   signedIn,
-  switchCurrentProject,
   todoTasks,
   unarchiveProject,
   updateProject,
@@ -52,7 +51,6 @@ export const App = ({
       deleteProject={deleteProject}
       hideProjects={() => setProjectsShown(false)}
       projects={projects}
-      switchCurrentProject={switchCurrentProject}
       unarchiveProject={unarchiveProject}
       updateProject={updateProject}
     />

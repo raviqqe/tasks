@@ -2,9 +2,6 @@ import "@fontsource/chelsea-market";
 import "@fontsource/roboto";
 import { ReactRenderer } from "./infrastructure/react.js";
 import { authenticationPresenter } from "./main/authentication-presenter.js";
-import { currentProjectInitializer } from "./main/current-project-initializer.js";
-import { currentProjectSwitcher } from "./main/current-project-switcher.js";
-import { doneTaskLister } from "./main/done-task-lister.js";
 import { doneTaskPresenter } from "./main/done-task-presenter.js";
 import { errorReporter } from "./main/error-reporter.js";
 import { projectArchiver } from "./main/project-archiver.js";
@@ -38,14 +35,11 @@ try {
     todoTaskUpdater,
     todoTaskCompleter,
     todoTaskReorderer,
-    doneTaskLister,
     projectCreator,
     projectArchiver,
     projectUnarchiver,
     projectDeleter,
     projectUpdater,
-    currentProjectInitializer,
-    currentProjectSwitcher,
   ).render();
 } catch (error) {
   errorReporter.report(error);

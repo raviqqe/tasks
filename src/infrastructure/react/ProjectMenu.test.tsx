@@ -13,7 +13,6 @@ it("renders", () => {
         deleteProject={async () => {}}
         hideProjects={() => {}}
         projects={[]}
-        switchCurrentProject={async () => {}}
         unarchiveProject={async () => {}}
         updateProject={async () => {}}
       />,
