@@ -49,7 +49,7 @@ export const App = ({
       createProject={createProject}
       currentProject={currentProject}
       deleteProject={deleteProject}
-      hideProjects={() => setProjectsShown(false)}
+      onHideProjects={() => setProjectsShown(false)}
       projects={projects}
       unarchiveProject={unarchiveProject}
       updateProject={updateProject}
@@ -59,7 +59,7 @@ export const App = ({
       {...props}
       currentProject={currentProject}
       doneTasks={doneTasks}
-      showProjects={() => setProjectsShown(true)}
+      onShowProjects={() => setProjectsShown(true)}
       todoTasks={todoTasks}
     />
   ) : (

@@ -61,7 +61,7 @@ export const Home = ({
   currentProject,
   doneTasks,
   reorderTodoTasks,
-  showProjects,
+  onShowProjects: showProjects,
   todoTasks,
   updateTodoTask,
 }: Props): JSX.Element => {
@@ -70,7 +70,7 @@ export const Home = ({
 
   return (
     <Container>
-      <TopBar currentProject={currentProject} showProjects={showProjects} />
+      <TopBar currentProject={currentProject} onShowProjects={showProjects} />
       <TasksContainer>
         {tasksDone ? (
           <DoneTaskList doneTasks={doneTasks} />

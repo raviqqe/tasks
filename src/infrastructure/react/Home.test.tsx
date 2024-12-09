@@ -11,7 +11,7 @@ it("renders", () => {
         currentProject={{ archived: false, id: "", name: "" }}
         doneTasks={[]}
         reorderTodoTasks={async () => {}}
-        showProjects={() => {}}
+        onShowProjects={() => {}}
         todoTasks={[]}
         updateTodoTask={async () => {}}
       />,

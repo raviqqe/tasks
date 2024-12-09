@@ -7,7 +7,7 @@ it("renders", () => {
     render(
       <TopBar
         currentProject={{ archived: false, id: "", name: "" }}
-        showProjects={() => {}}
+        onShowProjects={() => {}}
       />,
     ).container.firstChild,
   ).toMatchSnapshot();

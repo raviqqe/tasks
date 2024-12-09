@@ -61,7 +61,7 @@ export interface Props
     > {
   archivedProjects: domain.Project[] | null;
   currentProject: domain.Project | null;
-  hideProjects: () => void;
+  onHideProjects: () => void;
   projects: domain.Project[] | null;
 }
 
@@ -71,7 +71,7 @@ export const ProjectMenu = ({
   createProject,
   currentProject,
   deleteProject,
-  hideProjects,
+  onHideProjects,
   projects,
   unarchiveProject,
   updateProject,
@@ -100,7 +100,7 @@ export const ProjectMenu = ({
                   project={project}
                   unarchiveProject={async (project) => {
                     await unarchiveProject(project);
-                    hideProjects();
+                    onHideProjects();
                   }}
                 />
               ))
@@ -113,7 +113,7 @@ export const ProjectMenu = ({
                 archiveProject={archiveProject}
                 currentProject={currentProject}
                 key={project.id}
-                onSwitchProject={() => hideProjects()}
+                onSwitchProject={() => onHideProjects()}
                 project={project}
                 ref={project.id === currentProject.id ? ref : null}
                 updateProject={updateProject}
@@ -137,7 +137,7 @@ export const ProjectMenu = ({
           }
           createProject={async (name: string): Promise<void> => {
             await createProject(name);
-            hideProjects();
+            onHideProjects();
           }}
         />
       </LowerButtonsContainer>
