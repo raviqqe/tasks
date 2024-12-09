@@ -26,7 +26,6 @@ const props: Props = {
   currentProject: null,
   deleteProject: async () => {},
   doneTasks: null,
-  initializeCurrentProject: async () => {},
   projects: null,
   reorderTodoTasks: async () => {},
   signedIn: null,

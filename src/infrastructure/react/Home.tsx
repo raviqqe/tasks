@@ -16,6 +16,7 @@ import {
 } from "./TodoTaskList.js";
 import { ToggleTasks } from "./ToggleTasks.js";
 import { TopBar, type Props as TopBarProps } from "./TopBar.js";
+import { currentProjectInitializer } from "../../main/current-project-initializer.js";
 
 const Container = styled.div`
   display: flex;
@@ -52,22 +53,19 @@ export interface Props
   extends CreateTodoTaskProps,
     DoneTaskListProps,
     TodoTaskListProps,
-    TopBarProps {
-  initializeCurrentProject: () => Promise<void>;
-}
+    TopBarProps {}
 
 export const Home = ({
   completeTodoTask,
   createTodoTask,
   currentProject,
   doneTasks,
-  initializeCurrentProject,
   reorderTodoTasks,
   showProjects,
   todoTasks,
   updateTodoTask,
 }: Props): JSX.Element => {
-  useAsync(initializeCurrentProject, []);
+  useAsync(() => currentProjectInitializer.initialize(), []);
   const [tasksDone, setTasksDone] = useState(false);
 
   return (
