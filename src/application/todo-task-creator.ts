@@ -1,6 +1,6 @@
 import { formatErrorMessage } from "../domain/error.js";
 import { formatTask, validateTask } from "../domain/task.js";
-import { CurrentProjectRepository } from "./current-project-repository.js";
+import { type CurrentProjectRepository } from "./current-project-repository.js";
 import { type MessagePresenter } from "./message-presenter.js";
 import { type TodoTaskPresenter } from "./todo-task-presenter.js";
 import { type TodoTaskRepository } from "./todo-task-repository.js";
