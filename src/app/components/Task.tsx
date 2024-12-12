@@ -7,9 +7,8 @@ import { MdCheck, MdDragHandle, MdEdit } from "react-icons/md";
 import type * as domain from "../../domain.js";
 import { todoTaskCompleter } from "../../main/todo-task-completer.js";
 import { todoTaskUpdater } from "../../main/todo-task-updater.js";
+import { boxShadow, white } from "../style.js";
 import { IconButton } from "./IconButton.js";
-import { white } from "../style.js";
-import { boxShadow } from "../style.js";
 
 const maxZIndex = 10000;
 
