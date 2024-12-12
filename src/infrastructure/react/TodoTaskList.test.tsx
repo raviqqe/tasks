@@ -1,22 +1,27 @@
 import { render } from "@testing-library/react";
-import { expect, it } from "vitest";
+import { beforeEach, expect, it, vi } from "vitest";
 import { TodoTaskList } from "./TodoTaskList.js";
+import { todoTaskPresenter } from "../../main/todo-task-presenter.js";
+import { atom } from "nanostores";
+
+beforeEach(() => {});
 
 it("renders", () => {
-  expect(
-    render(<TodoTaskList todoTasks={[{ id: "id", name: "name" }]} />).container
-      .firstChild,
-  ).toMatchSnapshot();
+  vi.spyOn(todoTaskPresenter, "tasks", "get").mockReturnValue(
+    atom([{ id: "id", name: "name" }]),
+  );
+
+  expect(render(<TodoTaskList />).container.firstChild).toMatchSnapshot();
 });
 
 it("renders with no tasks", () => {
-  expect(
-    render(<TodoTaskList todoTasks={[]} />).container.firstChild,
-  ).toMatchSnapshot();
+  vi.spyOn(todoTaskPresenter, "tasks", "get").mockReturnValue(atom([]));
+
+  expect(render(<TodoTaskList />).container.firstChild).toMatchSnapshot();
 });
 
 it("renders with tasks not loaded yet", () => {
-  expect(
-    render(<TodoTaskList todoTasks={null} />).container.firstChild,
-  ).toMatchSnapshot();
+  vi.spyOn(todoTaskPresenter, "tasks", "get").mockReturnValue(atom(null));
+
+  expect(render(<TodoTaskList />).container.firstChild).toMatchSnapshot();
 });
