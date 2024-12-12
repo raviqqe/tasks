@@ -2,7 +2,7 @@ import { type TodoTaskPresenter } from "../application/todo-task-presenter.js";
 import { type Task } from "../domain/task.js";
 import { type Renderer } from "./renderer.js";
 
-export class TodoTaskRenderer implements TodoTaskPresenter {
+export class NanostoresTodoTaskPresenter implements TodoTaskPresenter {
   private renderer: Renderer | null = null;
   private tasks: Task[] | null = null;
 
