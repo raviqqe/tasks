@@ -1,11 +1,12 @@
 import { styled } from "@linaria/react";
+import { useStore } from "@nanostores/react";
 import { sleep } from "@raviqqe/loscore/async";
 import { defaultImport } from "default-import";
 import { useCallback, useEffect, useState } from "react";
 import defaultUseInfiniteScroll from "react-infinite-scroll-hook";
 import { useAsync, usePrevious } from "react-use";
-import type * as domain from "../../domain.js";
 import { doneTaskLister } from "../../main/done-task-lister.js";
+import { doneTaskPresenter } from "../../main/done-task-presenter.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
 
@@ -25,11 +26,8 @@ const LoaderContainer = styled.div`
   align-items: center;
 `;
 
-export interface Props {
-  doneTasks: domain.Task[] | null;
-}
-
-export const DoneTaskList = ({ doneTasks }: Props): JSX.Element => {
+export const DoneTaskList = (): JSX.Element => {
+  const tasks = useStore(doneTaskPresenter.tasks);
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
 
@@ -53,15 +51,15 @@ export const DoneTaskList = ({ doneTasks }: Props): JSX.Element => {
 
   useEffect(() => {
     if (!oldLoading && loading) {
-      setLength(doneTasks?.length ?? 0);
-    } else if (oldLoading && !loading && doneTasks?.length === length) {
+      setLength(tasks?.length ?? 0);
+    } else if (oldLoading && !loading && tasks?.length === length) {
       setDone(true);
     }
-  }, [doneTasks, length, loading, oldLoading]);
+  }, [tasks, length, loading, oldLoading]);
 
   return (
     <Container>
-      {(doneTasks ?? []).map((task) => (
+      {(tasks ?? []).map((task) => (
         <Task key={task.id} task={task} />
       ))}
       {!done && (

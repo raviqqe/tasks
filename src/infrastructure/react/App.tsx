@@ -21,7 +21,7 @@ export interface Props
   extends Omit<HomeProps, "onShowProjects">,
     Omit<ProjectMenuProps, "onHideProjects"> {}
 
-export const App = ({ doneTasks, todoTasks, ...props }: Props): JSX.Element => {
+export const App = ({ todoTasks, ...props }: Props): JSX.Element => {
   useAsync(() => applicationInitializer.initialize(), []);
   const signedIn = useStore(authenticationPresenter.signedIn);
   const [projectsShown, setProjectsShown] = useState(false);
@@ -35,7 +35,6 @@ export const App = ({ doneTasks, todoTasks, ...props }: Props): JSX.Element => {
   ) : signedIn ? (
     <Home
       {...props}
-      doneTasks={doneTasks}
       onShowProjects={() => setProjectsShown(true)}
       todoTasks={todoTasks}
     />

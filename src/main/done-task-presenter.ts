@@ -1,3 +1,3 @@
-import { DoneTaskRenderer } from "../infrastructure/done-task-renderer.js";
+import { NanostoresDoneTaskPresenter } from "../infrastructure/nanostores-done-task-presenter.js";
 
-export const doneTaskPresenter = new DoneTaskRenderer();
+export const doneTaskPresenter = new NanostoresDoneTaskPresenter();

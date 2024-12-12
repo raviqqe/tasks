@@ -9,14 +9,11 @@ interface Presenter {
   setRenderer(renderer: Renderer): void;
 }
 
-type Props = Pick<AppProps, "doneTasks" | "todoTasks">;
+type Props = Pick<AppProps, "todoTasks">;
 
 export class ReactRenderer implements Renderer {
   private readonly root: Root;
-  private props: Props = {
-    doneTasks: null,
-    todoTasks: null,
-  };
+  private props: Props = { todoTasks: null };
 
   constructor(element: HTMLElement, presenters: Presenter[]) {
     for (const presenter of presenters) {
@@ -28,10 +25,6 @@ export class ReactRenderer implements Renderer {
 
   public render(): void {
     this.renderProps({});
-  }
-
-  public renderDoneTasks(doneTasks: Task[] | null): void {
-    this.renderProps({ doneTasks });
   }
 
   public renderTodoTasks(todoTasks: Task[] | null): void {
