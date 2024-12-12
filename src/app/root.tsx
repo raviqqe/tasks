@@ -12,7 +12,6 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useNavigate,
   useNavigation,
 } from "react-router";
 import { configuration } from "../configuration.js";
@@ -97,13 +96,13 @@ export const Layout = ({ children }: { children: ReactNode }): JSX.Element => {
   const signedIn = useStore(authenticationPresenter.signedIn);
   useAsync(() => applicationInitializer.initialize(), []);
   const { location } = useNavigation();
-  const navigate = useNavigate();
 
-  useAsync(async () => {
-    if (typeof signedIn === "boolean") {
-      await navigate(signedIn ? "/documents" : "/");
-    }
-  }, [signedIn]);
+  // TODO Navigate based on sign-in state.
+  //useAsync(async () => {
+  //  if (typeof signedIn === "boolean") {
+  //    await navigate(signedIn ? "/documents" : "/");
+  //  }
+  //}, [signedIn]);
 
   return (
     <html lang="en">
