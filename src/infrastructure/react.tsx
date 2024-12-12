@@ -59,10 +59,6 @@ export class ReactRenderer implements Renderer {
     this.renderProps({ projects });
   }
 
-  public renderSignedIn(signedIn: boolean): void {
-    this.renderProps({ signedIn });
-  }
-
   public renderTodoTasks(todoTasks: Task[] | null): void {
     this.renderProps({ todoTasks });
   }

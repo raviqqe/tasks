@@ -6,6 +6,5 @@ export interface Renderer {
   renderCurrentProject(project: Project): void;
   renderDoneTasks(tasks: Task[] | null): void;
   renderProjects(projects: Project[] | null): void;
-  renderSignedIn(signedIn: boolean): void;
   renderTodoTasks(tasks: Task[] | null): void;
 }
