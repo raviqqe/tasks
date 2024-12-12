@@ -35,22 +35,23 @@ export interface Props {
   project: domain.Project;
 }
 
-const ProjectWithRef = (
-  { buttons, currentProject, onSwitchProject, project }: Props,
-  ref: Ref<HTMLDivElement>,
-) => (
-  <Container ref={ref}>
-    <Name
-      highlighted={!!currentProject && project.id === currentProject.id}
-      onClick={async () => {
-        await currentProjectSwitcher.switch(project);
-        onSwitchProject?.();
-      }}
-    >
-      {project.name}
-    </Name>
-    <ButtonsContainer>{buttons}</ButtonsContainer>
-  </Container>
+export const Project = forwardRef(
+  (
+    { buttons, currentProject, onSwitchProject, project }: Props,
+    ref: Ref<HTMLDivElement>,
+  ) => (
+    <Container ref={ref}>
+      <Name
+        highlighted={!!currentProject && project.id === currentProject.id}
+        onClick={async () => {
+          await currentProjectSwitcher.switch(project);
+          onSwitchProject?.();
+        }}
+      >
+        {project.name}
+      </Name>
+      <ButtonsContainer>{buttons}</ButtonsContainer>
+    </Container>
+  ),
 );
-
-export const Project = forwardRef(ProjectWithRef);
+Project.displayName = "Project";

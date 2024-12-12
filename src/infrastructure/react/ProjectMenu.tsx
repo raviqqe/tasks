@@ -105,6 +105,7 @@ export const ProjectMenu = ({ onHideProjects }: Props): JSX.Element => {
                       </IconButton>
                     </>
                   }
+                  currentProject={currentProject}
                   key={project.id}
                   project={project}
                 />
