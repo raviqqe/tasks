@@ -15,6 +15,8 @@ import { Project } from "./Project.js";
 import { ToggleProjects } from "./ToggleProjects.js";
 import { grey, lightGrey, white } from "./style/colors.js";
 import { boxShadow } from "./style.js";
+import { useStore } from "@nanostores/react";
+import { projectPresenter } from "../../main/project-presenter.js";
 
 const Container = styled.div`
   background-color: ${lightGrey};
@@ -60,19 +62,18 @@ const LowerButtonsContainer = styled.div`
 
 export interface Props {
   archivedProjects: domain.Project[] | null;
-  currentProject: domain.Project | null;
   onHideProjects: () => void;
   projects: domain.Project[] | null;
 }
 
 export const ProjectMenu = ({
   archivedProjects,
-  currentProject,
   onHideProjects,
   projects,
 }: Props): JSX.Element => {
   const [projectsArchived, setProjectsArchived] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const currentProject = useStore(projectPresenter.currentProject);
 
   useEffect(() => {
     if (ref.current) {
