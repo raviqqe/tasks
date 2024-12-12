@@ -22,16 +22,11 @@ const props: Props = {
   currentProject: null,
   doneTasks: null,
   projects: null,
-  signedIn: null,
   todoTasks: null,
 };
 
 it("renders before a user signs in", async () => {
-  let result: RenderResult | undefined;
-
-  act(() => {
-    result = render(<App {...props} signedIn={null} />);
-  });
+  const result = await act(async () => render(<App {...props} />));
 
   expect(result?.container).toMatchSnapshot();
 

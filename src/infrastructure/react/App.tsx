@@ -6,6 +6,8 @@ import { Home, type Props as HomeProps } from "./Home.js";
 import { Landing } from "./Landing.js";
 import { Loader } from "./Loader.js";
 import { ProjectMenu, type Props as ProjectMenuProps } from "./ProjectMenu.js";
+import { useStore } from "@nanostores/react";
+import { authenticationPresenter } from "../../main/authentication-presenter.js";
 
 const LoaderContainer = styled.div`
   display: flex;
@@ -17,20 +19,18 @@ const LoaderContainer = styled.div`
 
 export interface Props
   extends Omit<HomeProps, "onShowProjects">,
-    Omit<ProjectMenuProps, "onHideProjects"> {
-  signedIn: boolean | null;
-}
+    Omit<ProjectMenuProps, "onHideProjects"> {}
 
 export const App = ({
   archivedProjects,
   currentProject,
   doneTasks,
   projects,
-  signedIn,
   todoTasks,
   ...props
 }: Props): JSX.Element => {
   useAsync(() => applicationInitializer.initialize(), []);
+  const signedIn = useStore(authenticationPresenter.signedIn);
   const [projectsShown, setProjectsShown] = useState(false);
 
   return signedIn === null ? (
