@@ -1,7 +1,10 @@
-import wywInJs from "@wyw-in-js/vite";
+import defaultWyw from "@wyw-in-js/vite";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
 import { reactRouter } from "@react-router/dev/vite";
+import { defaultImport } from "default-import";
+
+const wyw = defaultImport(defaultWyw);
 
 export default defineConfig({
   esbuild: {
@@ -9,7 +12,7 @@ export default defineConfig({
   },
   plugins: [
     reactRouter(),
-    wywInJs.default({
+    wyw({
       include: ["src/**/*.{ts,tsx}"],
       babelOptions: {
         presets: ["@babel/preset-typescript", "@babel/preset-react"],
