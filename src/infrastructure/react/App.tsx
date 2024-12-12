@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useAsync } from "react-use";
 import { applicationInitializer } from "../../main/application-initializer.js";
 import { authenticationPresenter } from "../../main/authentication-presenter.js";
-import { Home, type Props as HomeProps } from "./Home.js";
+import { Home } from "./Home.js";
 import { Landing } from "./Landing.js";
 import { Loader } from "./Loader.js";
 import { ProjectMenu, type Props as ProjectMenuProps } from "./ProjectMenu.js";
@@ -17,11 +17,7 @@ const LoaderContainer = styled.div`
   width: 100vw;
 `;
 
-export interface Props
-  extends Omit<HomeProps, "onShowProjects">,
-    Omit<ProjectMenuProps, "onHideProjects"> {}
-
-export const App = ({ todoTasks, ...props }: Props): JSX.Element => {
+export const App = (): JSX.Element => {
   useAsync(() => applicationInitializer.initialize(), []);
   const signedIn = useStore(authenticationPresenter.signedIn);
   const [projectsShown, setProjectsShown] = useState(false);
@@ -33,11 +29,7 @@ export const App = ({ todoTasks, ...props }: Props): JSX.Element => {
   ) : signedIn && projectsShown ? (
     <ProjectMenu onHideProjects={() => setProjectsShown(false)} />
   ) : signedIn ? (
-    <Home
-      {...props}
-      onShowProjects={() => setProjectsShown(true)}
-      todoTasks={todoTasks}
-    />
+    <Home onShowProjects={() => setProjectsShown(true)} />
   ) : (
     <Landing />
   );
