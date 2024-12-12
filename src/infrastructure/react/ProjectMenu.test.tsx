@@ -16,12 +16,6 @@ beforeEach(() => {
 
 it("renders", () => {
   expect(
-    render(
-      <ProjectMenu
-        archivedProjects={[]}
-        onHideProjects={() => {}}
-        projects={[]}
-      />,
-    ).container.firstChild,
+    render(<ProjectMenu onHideProjects={() => {}} />).container.firstChild,
   ).toMatchSnapshot();
 });

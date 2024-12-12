@@ -2,7 +2,6 @@ import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import { useEffect, useRef, useState } from "react";
 import { MdArchive, MdDelete, MdEdit, MdUnarchive } from "react-icons/md";
-import type * as domain from "../../domain.js";
 import { projectArchiver } from "../../main/project-archiver.js";
 import { projectCreator } from "../../main/project-creator.js";
 import { projectDeleter } from "../../main/project-deleter.js";
@@ -61,19 +60,15 @@ const LowerButtonsContainer = styled.div`
 `;
 
 export interface Props {
-  archivedProjects: domain.Project[] | null;
   onHideProjects: () => void;
-  projects: domain.Project[] | null;
 }
 
-export const ProjectMenu = ({
-  archivedProjects,
-  onHideProjects,
-  projects,
-}: Props): JSX.Element => {
+export const ProjectMenu = ({ onHideProjects }: Props): JSX.Element => {
   const [projectsArchived, setProjectsArchived] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const currentProject = useStore(projectPresenter.currentProject);
+  const archivedProjects = useStore(projectPresenter.archivedProjects);
+  const projects = useStore(projectPresenter.projects);
 
   useEffect(() => {
     if (ref.current) {

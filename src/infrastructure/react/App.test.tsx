@@ -15,10 +15,7 @@ beforeEach(() => {
 });
 
 const props: Props = {
-  archivedProjects: null,
-  currentProject: null,
   doneTasks: null,
-  projects: null,
   todoTasks: null,
 };
 
