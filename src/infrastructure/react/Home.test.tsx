@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
-import { beforeEach, expect, it, vi } from "vitest";
-import { Home } from "./Home.js";
 import { atom } from "nanostores";
+import { beforeEach, expect, it, vi } from "vitest";
 import { projectPresenter } from "../../main/project-presenter.js";
+import { Home } from "./Home.js";
 
 beforeEach(() => {
   vi.spyOn(projectPresenter, "currentProject", "get").mockReturnValue(
