@@ -1,7 +1,6 @@
 import "@fontsource/chelsea-market";
 import "@fontsource/roboto";
 import { ReactRenderer } from "./infrastructure/react.js";
-import { authenticationPresenter } from "./main/authentication-presenter.js";
 import { doneTaskPresenter } from "./main/done-task-presenter.js";
 import { errorReporter } from "./main/error-reporter.js";
 import { projectPresenter } from "./main/project-presenter.js";
@@ -15,7 +14,6 @@ try {
   }
 
   new ReactRenderer(element, [
-    authenticationPresenter,
     doneTaskPresenter,
     projectPresenter,
     todoTaskPresenter,
