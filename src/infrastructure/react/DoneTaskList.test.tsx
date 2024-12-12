@@ -1,9 +1,13 @@
 import { render } from "@testing-library/react";
-import { expect, it } from "vitest";
+import { beforeEach, expect, it, vi } from "vitest";
 import { DoneTaskList } from "./DoneTaskList.js";
+import { atom } from "nanostores";
+import { doneTaskPresenter } from "../../main/done-task-presenter.js";
+
+beforeEach(() => {
+  vi.spyOn(doneTaskPresenter, "tasks", "get").mockReturnValue(atom([]));
+});
 
 it("renders", () => {
-  expect(
-    render(<DoneTaskList doneTasks={[]} />).container.firstChild,
-  ).toMatchSnapshot();
+  expect(render(<DoneTaskList />).container.firstChild).toMatchSnapshot();
 });

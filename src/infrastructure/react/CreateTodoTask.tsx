@@ -2,7 +2,7 @@ import { MdAdd } from "react-icons/md";
 import { todoTaskCreator } from "../../main/todo-task-creator.js";
 import { CircleButton } from "./CircleButton.js";
 
-export interface Props {
+interface Props {
   className?: string;
 }
 

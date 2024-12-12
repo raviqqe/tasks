@@ -9,7 +9,7 @@ interface Presenter {
   setRenderer(renderer: Renderer): void;
 }
 
-type Props = Pick<AppProps, "doneTasks" | "todoTasks">;
+type Props = Pick<AppProps, "todoTasks">;
 
 export class ReactRenderer implements Renderer {
   private readonly root: Root;

@@ -3,14 +3,8 @@ import { styled } from "@linaria/react";
 import { useState } from "react";
 import { useAsync } from "react-use";
 import { currentProjectInitializer } from "../../main/current-project-initializer.js";
-import {
-  CreateTodoTask,
-  type Props as CreateTodoTaskProps,
-} from "./CreateTodoTask.js";
-import {
-  DoneTaskList,
-  type Props as DoneTaskListProps,
-} from "./DoneTaskList.js";
+import { CreateTodoTask } from "./CreateTodoTask.js";
+import { DoneTaskList } from "./DoneTaskList.js";
 import {
   TodoTaskList,
   type Props as TodoTaskListProps,
@@ -49,17 +43,9 @@ const ButtonsContainer = styled.div`
   }
 `;
 
-export interface Props
-  extends CreateTodoTaskProps,
-    DoneTaskListProps,
-    TodoTaskListProps,
-    TopBarProps {}
+export interface Props extends TodoTaskListProps, TopBarProps {}
 
-export const Home = ({
-  doneTasks,
-  onShowProjects,
-  todoTasks,
-}: Props): JSX.Element => {
+export const Home = ({ onShowProjects, todoTasks }: Props): JSX.Element => {
   useAsync(() => currentProjectInitializer.initialize(), []);
   const [tasksDone, setTasksDone] = useState(false);
 
@@ -67,11 +53,7 @@ export const Home = ({
     <Container>
       <TopBar onShowProjects={onShowProjects} />
       <TasksContainer>
-        {tasksDone ? (
-          <DoneTaskList doneTasks={doneTasks} />
-        ) : (
-          <TodoTaskList todoTasks={todoTasks} />
-        )}
+        {tasksDone ? <DoneTaskList /> : <TodoTaskList todoTasks={todoTasks} />}
       </TasksContainer>
       <ButtonsContainer>
         <ToggleTasks setTasksDone={setTasksDone} tasksDone={tasksDone} />
