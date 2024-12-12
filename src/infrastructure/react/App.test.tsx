@@ -1,9 +1,9 @@
 import { act, render, waitFor } from "@testing-library/react";
+import { atom } from "nanostores";
 import { beforeEach, expect, it, vi } from "vitest";
 import { applicationInitializer } from "../../main/application-initializer.js";
-import { App, type Props } from "./App.js";
-import { atom } from "nanostores";
 import { authenticationPresenter } from "../../main/authentication-presenter.js";
+import { App, type Props } from "./App.js";
 
 let wait = async () => {};
 
@@ -29,7 +29,7 @@ it("renders before a user signs in", async () => {
 
   const result = await act(async () => render(<App {...props} />));
 
-  expect(result?.container).toMatchSnapshot();
+  expect(result.container).toMatchSnapshot();
 
   await wait();
 });
@@ -49,7 +49,7 @@ it("renders after a user signs in", async () => {
     ),
   );
 
-  expect(result?.container).toMatchSnapshot();
+  expect(result.container).toMatchSnapshot();
 
   await wait();
 });
@@ -61,7 +61,7 @@ it("renders after a user signs out", async () => {
 
   const result = await act(async () => render(<App {...props} />));
 
-  expect(result?.container).toMatchSnapshot();
+  expect(result.container).toMatchSnapshot();
 
   await wait();
 });

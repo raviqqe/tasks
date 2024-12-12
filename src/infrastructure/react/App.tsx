@@ -1,13 +1,13 @@
 import { styled } from "@linaria/react";
+import { useStore } from "@nanostores/react";
 import { useState } from "react";
 import { useAsync } from "react-use";
 import { applicationInitializer } from "../../main/application-initializer.js";
+import { authenticationPresenter } from "../../main/authentication-presenter.js";
 import { Home, type Props as HomeProps } from "./Home.js";
 import { Landing } from "./Landing.js";
 import { Loader } from "./Loader.js";
 import { ProjectMenu, type Props as ProjectMenuProps } from "./ProjectMenu.js";
-import { useStore } from "@nanostores/react";
-import { authenticationPresenter } from "../../main/authentication-presenter.js";
 
 const LoaderContainer = styled.div`
   display: flex;
