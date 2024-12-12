@@ -2,8 +2,8 @@ import "@fontsource/chelsea-market";
 import "@fontsource/roboto";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { App } from "./infrastructure/react/App.js";
-import { globalStyle } from "./infrastructure/react/style.js";
+import { App } from "./app/components/App.js";
+import { globalStyle } from "./app/components/style.js";
 import { errorReporter } from "./main/error-reporter.js";
 
 try {
