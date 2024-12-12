@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
-import { beforeEach, expect, it, vi } from "vitest";
-import { TodoTaskList } from "./TodoTaskList.js";
-import { todoTaskPresenter } from "../../main/todo-task-presenter.js";
 import { atom } from "nanostores";
+import { beforeEach, expect, it, vi } from "vitest";
+import { todoTaskPresenter } from "../../main/todo-task-presenter.js";
+import { TodoTaskList } from "./TodoTaskList.js";
 
 beforeEach(() => {});
 

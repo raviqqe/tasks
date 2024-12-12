@@ -3,8 +3,8 @@ import { atom } from "nanostores";
 import { beforeEach, expect, it, vi } from "vitest";
 import { doneTaskPresenter } from "../../main/done-task-presenter.js";
 import { projectPresenter } from "../../main/project-presenter.js";
-import { Home } from "./Home.js";
 import { todoTaskPresenter } from "../../main/todo-task-presenter.js";
+import { Home } from "./Home.js";
 
 beforeEach(() => {
   vi.spyOn(projectPresenter, "currentProject", "get").mockReturnValue(

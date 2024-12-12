@@ -7,7 +7,7 @@ import { CreateTodoTask } from "./CreateTodoTask.js";
 import { DoneTaskList } from "./DoneTaskList.js";
 import { TodoTaskList } from "./TodoTaskList.js";
 import { ToggleTasks } from "./ToggleTasks.js";
-import { TopBar, type Props } from "./TopBar.js";
+import { type Props, TopBar } from "./TopBar.js";
 
 const Container = styled.div`
   display: flex;
