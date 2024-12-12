@@ -1,5 +1,5 @@
 import { type AuthenticationPresenter } from "../application/authentication-presenter.js";
-import { type Renderer } from "./renderer.js";
+import { atom } from "nanostores";
 
 export class NanostoresAuthenticationPresenter
   implements AuthenticationPresenter
@@ -7,6 +7,6 @@ export class NanostoresAuthenticationPresenter
   public readonly signedIn = atom<boolean | null>(null);
 
   public presentSignedIn(signedIn: boolean): void {
-    this.renderer?.renderSignedIn(signedIn);
+    this.signedIn.set(signedIn);
   }
 }
