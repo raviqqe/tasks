@@ -1,6 +1,6 @@
 import { styled } from "@linaria/react";
 import { type AriaAttributes, type ReactNode } from "react";
-import { grey } from "./style/colors.js";
+import { grey } from "./style.js";
 
 const Button = styled.div`
   color: ${grey};
