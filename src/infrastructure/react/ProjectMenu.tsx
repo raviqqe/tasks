@@ -1,10 +1,12 @@
 import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
+import { useStore } from "@nanostores/react";
 import { useEffect, useRef, useState } from "react";
 import { MdArchive, MdDelete, MdEdit, MdUnarchive } from "react-icons/md";
 import { projectArchiver } from "../../main/project-archiver.js";
 import { projectCreator } from "../../main/project-creator.js";
 import { projectDeleter } from "../../main/project-deleter.js";
+import { projectPresenter } from "../../main/project-presenter.js";
 import { projectUnarchiver } from "../../main/project-unarchiver.js";
 import { projectUpdater } from "../../main/project-updater.js";
 import { CreateProject } from "./CreateProject.js";
@@ -14,8 +16,6 @@ import { Project } from "./Project.js";
 import { ToggleProjects } from "./ToggleProjects.js";
 import { grey, lightGrey, white } from "./style/colors.js";
 import { boxShadow } from "./style.js";
-import { useStore } from "@nanostores/react";
-import { projectPresenter } from "../../main/project-presenter.js";
 
 const Container = styled.div`
   background-color: ${lightGrey};
