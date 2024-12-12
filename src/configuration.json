@@ -1,4 +1,7 @@
 {
+  "title": "BeDone",
+  "description": "Todo task app",
+  "domain": "tasks.code2d.org",
   "firebase": {
     "apiKey": "AIzaSyA8sZm_Uf6XII864y9-dT_GgVDb891hLmQ",
     "authDomain": "tasks-3e65d.firebaseapp.com",
