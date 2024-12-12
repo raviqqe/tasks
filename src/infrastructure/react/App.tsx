@@ -7,7 +7,7 @@ import { authenticationPresenter } from "../../main/authentication-presenter.js"
 import { Home } from "./Home.js";
 import { Landing } from "./Landing.js";
 import { Loader } from "./Loader.js";
-import { ProjectMenu, type Props as ProjectMenuProps } from "./ProjectMenu.js";
+import { ProjectMenu } from "./ProjectMenu.js";
 
 const LoaderContainer = styled.div`
   display: flex;

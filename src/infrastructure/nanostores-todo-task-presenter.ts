@@ -1,14 +1,9 @@
+import { atom } from "nanostores";
 import { type TodoTaskPresenter } from "../application/todo-task-presenter.js";
 import { type Task } from "../domain/task.js";
-import { type Renderer } from "./renderer.js";
 
 export class NanostoresTodoTaskPresenter implements TodoTaskPresenter {
-  private renderer: Renderer | null = null;
-  private tasks: Task[] | null = null;
-
-  public setRenderer(renderer: Renderer): void {
-    this.renderer = renderer;
-  }
+  public readonly tasks = atom<Task[] | null>(null);
 
   public presentTasks(tasks: Task[] | null): void {
     this.renderTasks(tasks);

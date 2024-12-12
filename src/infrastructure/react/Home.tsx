@@ -43,9 +43,9 @@ const ButtonsContainer = styled.div`
   }
 `;
 
-export interface Props extends TodoTaskListProps, TopBarProps {}
+interface Props extends TopBarProps {}
 
-export const Home = ({ onShowProjects, todoTasks }: Props): JSX.Element => {
+export const Home = ({ onShowProjects }: Props): JSX.Element => {
   useAsync(() => currentProjectInitializer.initialize(), []);
   const [tasksDone, setTasksDone] = useState(false);
 
@@ -53,7 +53,7 @@ export const Home = ({ onShowProjects, todoTasks }: Props): JSX.Element => {
     <Container>
       <TopBar onShowProjects={onShowProjects} />
       <TasksContainer>
-        {tasksDone ? <DoneTaskList /> : <TodoTaskList todoTasks={todoTasks} />}
+        {tasksDone ? <DoneTaskList /> : <TodoTaskList />}
       </TasksContainer>
       <ButtonsContainer>
         <ToggleTasks setTasksDone={setTasksDone} tasksDone={tasksDone} />

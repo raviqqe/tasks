@@ -59,7 +59,7 @@ const LowerButtonsContainer = styled.div`
   }
 `;
 
-export interface Props {
+interface Props {
   onHideProjects: () => void;
 }
 
