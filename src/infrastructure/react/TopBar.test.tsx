@@ -6,11 +6,7 @@ import { TopBar } from "./TopBar.js";
 
 beforeEach(() => {
   vi.spyOn(projectPresenter, "currentProject", "get").mockReturnValue(
-    atom({
-      archived: false,
-      id: "",
-      name: "",
-    }),
+    atom({ archived: false, id: "", name: "" }),
   );
 });
 
