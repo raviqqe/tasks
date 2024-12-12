@@ -20,46 +20,64 @@ export class NanostoresProjectPresenter implements ProjectPresenter {
   }
 
   public presentArchivedProject(project: Project): void {
-    this.renderProjects(
-      projects?.filter(({ id }) => id !== project.id) ?? null,
-    );
-
+    const projects = this.projects.get();
     const archivedProjects = this.archivedProjects.get();
+
+    if (!projects || !archivedProjects) {
+      return;
+    }
+
+    this.renderProjects(projects.filter(({ id }) => id !== project.id));
     this.renderArchivedProjects([project, ...archivedProjects]);
   }
 
   public presentDeletedProject(projectId: string): void {
+    const archivedProjects = this.archivedProjects.get();
+
+    if (!archivedProjects) {
+      return;
+    }
+
     this.renderArchivedProjects(
-      this.archivedProjects?.filter((project) => project.id !== projectId),
+      archivedProjects.filter((project) => project.id !== projectId),
     );
   }
 
   public presentUnarchivedProject(project: Project): void {
-    this.renderProjects(this.projects && [project, ...this.projects]);
+    const projects = this.projects.get();
+    const archivedProjects = this.archivedProjects.get();
+
+    if (!projects || !archivedProjects) {
+      return;
+    }
+
+    this.renderProjects([project, ...projects]);
     this.renderArchivedProjects(
-      this.archivedProjects?.filter(({ id }) => id !== project.id),
+      archivedProjects.filter(({ id }) => id !== project.id),
     );
   }
 
   public presentUpdatedProject(updatedProject: Project): void {
-    if (this.currentProject.get()?.id === updatedProject.id) {
+    const projects = this.projects.get();
+
+    if (!projects) {
+      return;
+    } else if (this.currentProject.get()?.id === updatedProject.id) {
       this.currentProject.set(updatedProject);
     }
 
     this.renderProjects(
-      this.projects
-        .get()
-        ?.map((project) =>
-          project.id === updatedProject.id ? updatedProject : project,
-        ) ?? null,
+      projects.map((project) =>
+        project.id === updatedProject.id ? updatedProject : project,
+      ),
     );
   }
 
-  private renderProjects(projects: Project[] | null): void {
+  private renderProjects(projects: Project[]): void {
     this.projects.set(projects ? sortProjects(projects) : null);
   }
 
-  private renderArchivedProjects(projects: Project[] | null): void {
+  private renderArchivedProjects(projects: Project[]): void {
     this.archivedProjects.set(projects ? sortProjects(projects) : null);
   }
 }

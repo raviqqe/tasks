@@ -1,14 +1,19 @@
 import { render } from "@testing-library/react";
-import { expect, it } from "vitest";
+import { expect, it, vi } from "vitest";
 import { CurrentProject } from "./CurrentProject.js";
+import { projectPresenter } from "../../main/project-presenter.js";
+import { atom } from "nanostores";
 
 it("renders", () => {
+  vi.spyOn(projectPresenter, "currentProject", "get").mockReturnValue(
+    atom({
+      archived: false,
+      id: "",
+      name: "",
+    }),
+  );
+
   expect(
-    render(
-      <CurrentProject
-        currentProject={{ archived: false, id: "", name: "" }}
-        onShowProjects={() => {}}
-      />,
-    ).container.firstChild,
+    render(<CurrentProject onShowProjects={() => {}} />).container.firstChild,
   ).toMatchSnapshot();
 });

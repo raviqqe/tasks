@@ -4,8 +4,6 @@ import { CurrentProject, type Props } from "./CurrentProject.js";
 import { SignOut } from "./SignOut.js";
 import { red } from "./style/colors.js";
 import { boxShadow } from "./style.js";
-import { useStore } from "@nanostores/react";
-import { projectPresenter } from "../../main/project-presenter.js";
 
 const Container = styled.div`
   ${boxShadow}
