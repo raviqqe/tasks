@@ -12,12 +12,7 @@ interface Presenter {
 
 type Props = Pick<
   AppProps,
-  | "archivedProjects"
-  | "currentProject"
-  | "doneTasks"
-  | "projects"
-  | "signedIn"
-  | "todoTasks"
+  "archivedProjects" | "currentProject" | "doneTasks" | "projects" | "todoTasks"
 >;
 
 export class ReactRenderer implements Renderer {
@@ -27,7 +22,6 @@ export class ReactRenderer implements Renderer {
     currentProject: null,
     doneTasks: null,
     projects: null,
-    signedIn: null,
     todoTasks: null,
   };
 
@@ -57,10 +51,6 @@ export class ReactRenderer implements Renderer {
 
   public renderProjects(projects: Project[] | null): void {
     this.renderProps({ projects });
-  }
-
-  public renderSignedIn(signedIn: boolean): void {
-    this.renderProps({ signedIn });
   }
 
   public renderTodoTasks(todoTasks: Task[] | null): void {

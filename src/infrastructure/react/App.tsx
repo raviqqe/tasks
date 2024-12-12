@@ -1,7 +1,9 @@
 import { styled } from "@linaria/react";
+import { useStore } from "@nanostores/react";
 import { useState } from "react";
 import { useAsync } from "react-use";
 import { applicationInitializer } from "../../main/application-initializer.js";
+import { authenticationPresenter } from "../../main/authentication-presenter.js";
 import { Home, type Props as HomeProps } from "./Home.js";
 import { Landing } from "./Landing.js";
 import { Loader } from "./Loader.js";
@@ -17,20 +19,18 @@ const LoaderContainer = styled.div`
 
 export interface Props
   extends Omit<HomeProps, "onShowProjects">,
-    Omit<ProjectMenuProps, "onHideProjects"> {
-  signedIn: boolean | null;
-}
+    Omit<ProjectMenuProps, "onHideProjects"> {}
 
 export const App = ({
   archivedProjects,
   currentProject,
   doneTasks,
   projects,
-  signedIn,
   todoTasks,
   ...props
 }: Props): JSX.Element => {
   useAsync(() => applicationInitializer.initialize(), []);
+  const signedIn = useStore(authenticationPresenter.signedIn);
   const [projectsShown, setProjectsShown] = useState(false);
 
   return signedIn === null ? (
