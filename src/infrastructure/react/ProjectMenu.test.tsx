@@ -8,6 +8,10 @@ beforeEach(() => {
   vi.spyOn(projectPresenter, "currentProject", "get").mockReturnValue(
     atom({ archived: false, id: "", name: "" }),
   );
+  vi.spyOn(projectPresenter, "archivedProjects", "get").mockReturnValue(
+    atom([]),
+  );
+  vi.spyOn(projectPresenter, "projects", "get").mockReturnValue(atom([]));
 });
 
 it("renders", () => {
