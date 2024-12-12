@@ -5,12 +5,9 @@ import { useAsync } from "react-use";
 import { currentProjectInitializer } from "../../main/current-project-initializer.js";
 import { CreateTodoTask } from "./CreateTodoTask.js";
 import { DoneTaskList } from "./DoneTaskList.js";
-import {
-  TodoTaskList,
-  type Props as TodoTaskListProps,
-} from "./TodoTaskList.js";
+import { TodoTaskList } from "./TodoTaskList.js";
 import { ToggleTasks } from "./ToggleTasks.js";
-import { TopBar, type Props as TopBarProps } from "./TopBar.js";
+import { type Props, TopBar } from "./TopBar.js";
 
 const Container = styled.div`
   display: flex;
@@ -43,9 +40,7 @@ const ButtonsContainer = styled.div`
   }
 `;
 
-export interface Props extends TodoTaskListProps, TopBarProps {}
-
-export const Home = ({ onShowProjects, todoTasks }: Props): JSX.Element => {
+export const Home = ({ onShowProjects }: Props): JSX.Element => {
   useAsync(() => currentProjectInitializer.initialize(), []);
   const [tasksDone, setTasksDone] = useState(false);
 
@@ -53,7 +48,7 @@ export const Home = ({ onShowProjects, todoTasks }: Props): JSX.Element => {
     <Container>
       <TopBar onShowProjects={onShowProjects} />
       <TasksContainer>
-        {tasksDone ? <DoneTaskList /> : <TodoTaskList todoTasks={todoTasks} />}
+        {tasksDone ? <DoneTaskList /> : <TodoTaskList />}
       </TasksContainer>
       <ButtonsContainer>
         <ToggleTasks setTasksDone={setTasksDone} tasksDone={tasksDone} />

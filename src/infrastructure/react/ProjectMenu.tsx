@@ -59,7 +59,7 @@ const LowerButtonsContainer = styled.div`
   }
 `;
 
-export interface Props {
+interface Props {
   onHideProjects: () => void;
 }
 
@@ -105,6 +105,7 @@ export const ProjectMenu = ({ onHideProjects }: Props): JSX.Element => {
                       </IconButton>
                     </>
                   }
+                  currentProject={currentProject}
                   key={project.id}
                   project={project}
                 />

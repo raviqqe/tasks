@@ -11,7 +11,8 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { styled } from "@linaria/react";
-import type * as domain from "../../domain.js";
+import { useStore } from "@nanostores/react";
+import { todoTaskPresenter } from "../../main/todo-task-presenter.js";
 import { todoTaskReorderer } from "../../main/todo-task-reorderer.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
@@ -36,11 +37,8 @@ const Tasks = styled.div`
   gap: 1rem;
 `;
 
-export interface Props {
-  todoTasks: domain.Task[] | null;
-}
-
-export const TodoTaskList = ({ todoTasks }: Props): JSX.Element => {
+export const TodoTaskList = (): JSX.Element => {
+  const todoTasks = useStore(todoTaskPresenter.tasks);
   const sensors = useSensors(useSensor(PointerSensor));
 
   return todoTasks ? (
