@@ -12,11 +12,11 @@ export class NanostoresProjectPresenter implements ProjectPresenter {
   }
 
   public presentProjects(projects: Project[]): void {
-    this.renderProjects(projects);
+    this.projects.set(sortProjects(projects));
   }
 
   public presentArchivedProjects(projects: Project[]): void {
-    this.renderArchivedProjects(projects);
+    this.archivedProjects.set(sortProjects(projects));
   }
 
   public presentArchivedProject(project: Project): void {
@@ -27,8 +27,8 @@ export class NanostoresProjectPresenter implements ProjectPresenter {
       return;
     }
 
-    this.renderProjects(projects.filter(({ id }) => id !== project.id));
-    this.renderArchivedProjects([project, ...archivedProjects]);
+    this.presentProjects(projects.filter(({ id }) => id !== project.id));
+    this.presentArchivedProjects([project, ...archivedProjects]);
   }
 
   public presentDeletedProject(projectId: string): void {
@@ -38,7 +38,7 @@ export class NanostoresProjectPresenter implements ProjectPresenter {
       return;
     }
 
-    this.renderArchivedProjects(
+    this.presentArchivedProjects(
       archivedProjects.filter((project) => project.id !== projectId),
     );
   }
@@ -51,8 +51,8 @@ export class NanostoresProjectPresenter implements ProjectPresenter {
       return;
     }
 
-    this.renderProjects([project, ...projects]);
-    this.renderArchivedProjects(
+    this.presentProjects([project, ...projects]);
+    this.presentArchivedProjects(
       archivedProjects.filter(({ id }) => id !== project.id),
     );
   }
@@ -66,18 +66,10 @@ export class NanostoresProjectPresenter implements ProjectPresenter {
       this.currentProject.set(updatedProject);
     }
 
-    this.renderProjects(
+    this.presentProjects(
       projects.map((project) =>
         project.id === updatedProject.id ? updatedProject : project,
       ),
     );
-  }
-
-  private renderProjects(projects: Project[]): void {
-    this.projects.set(sortProjects(projects));
-  }
-
-  private renderArchivedProjects(projects: Project[]): void {
-    this.archivedProjects.set(sortProjects(projects));
   }
 }
