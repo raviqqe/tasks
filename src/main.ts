@@ -3,7 +3,6 @@ import "@fontsource/roboto";
 import { ReactRenderer } from "./infrastructure/react.js";
 import { doneTaskPresenter } from "./main/done-task-presenter.js";
 import { errorReporter } from "./main/error-reporter.js";
-import { projectPresenter } from "./main/project-presenter.js";
 import { todoTaskPresenter } from "./main/todo-task-presenter.js";
 
 try {
@@ -13,11 +12,7 @@ try {
     throw new Error("no root element");
   }
 
-  new ReactRenderer(element, [
-    doneTaskPresenter,
-    projectPresenter,
-    todoTaskPresenter,
-  ]).render();
+  new ReactRenderer(element, [doneTaskPresenter, todoTaskPresenter]).render();
 } catch (error) {
   errorReporter.report(error);
 }
