@@ -42,7 +42,7 @@ export const Project = forwardRef(
   ) => (
     <Container ref={ref}>
       <Name
-        highlighted={!!currentProject && project.id === currentProject.id}
+        highlighted={project.id === currentProject?.id}
         onClick={async () => {
           await currentProjectSwitcher.switch(project);
           onSwitchProject?.();
