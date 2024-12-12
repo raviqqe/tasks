@@ -34,11 +34,6 @@ export class ReactRenderer implements Renderer {
   private renderProps(props: Partial<Props>): void {
     this.props = { ...this.props, ...props };
 
-    this.root.render(
-      <StrictMode>
-        <style className={globalStyle} />
-        <App {...this.props} />
-      </StrictMode>,
-    );
+    this.root.;
   }
 }

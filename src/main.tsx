@@ -1,8 +1,7 @@
 import "@fontsource/chelsea-market";
 import "@fontsource/roboto";
-import { ReactRenderer } from "./infrastructure/react.js";
 import { errorReporter } from "./main/error-reporter.js";
-import { todoTaskPresenter } from "./main/todo-task-presenter.js";
+import { render } from "react-dom";
 
 try {
   const element = document.getElementById("root");
@@ -11,7 +10,12 @@ try {
     throw new Error("no root element");
   }
 
-  new ReactRenderer(element, [todoTaskPresenter]).render();
+  render(
+      <StrictMode>
+        <style className={globalStyle} />
+        <App {...this.props} />
+      </StrictMode>,
+    )
 } catch (error) {
   errorReporter.report(error);
 }
