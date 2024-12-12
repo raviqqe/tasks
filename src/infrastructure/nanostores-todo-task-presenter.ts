@@ -6,47 +6,60 @@ export class NanostoresTodoTaskPresenter implements TodoTaskPresenter {
   public readonly tasks = atom<Task[] | null>(null);
 
   public presentTasks(tasks: Task[] | null): void {
-    this.renderTasks(tasks);
+    this.tasks.set(tasks);
   }
 
   public presentNewTask(task: Task): void {
-    this.renderTasks(this.tasks && [task, ...this.tasks]);
+    const tasks = this.tasks.get();
+
+    if (!tasks) {
+      return;
+    }
+
+    this.presentTasks([task, ...tasks]);
   }
 
   public presentReorderedTasks(taskIds: string[]): void {
-    if (this.tasks) {
-      const taskMap = Object.fromEntries(
-        this.tasks.map((task) => [task.id, task]),
-      );
-      this.renderTasks(
-        taskIds.map((id) => {
-          const task = taskMap[id];
+    const tasks = this.tasks.get();
 
-          if (!task) {
-            throw new Error(`task not found: ${id}`);
-          }
-
-          return task;
-        }),
-      );
+    if (!tasks) {
+      return;
     }
+
+    const taskMap = Object.fromEntries(tasks.map((task) => [task.id, task]));
+
+    this.presentTasks(
+      taskIds.map((id) => {
+        const task = taskMap[id];
+
+        if (!task) {
+          throw new Error(`task not found: ${id}`);
+        }
+
+        return task;
+      }),
+    );
   }
 
   public presentUpdatedTask(updatedTask: Task): void {
-    this.renderTasks(
-      this.tasks?.map((task) =>
-        task.id === updatedTask.id ? updatedTask : task,
-      ),
+    const tasks = this.tasks.get();
+
+    if (!tasks) {
+      return;
+    }
+
+    this.presentTasks(
+      tasks.map((task) => (task.id === updatedTask.id ? updatedTask : task)),
     );
   }
 
   public presentDeletedTask(taskId: string): void {
-    this.renderTasks(this.tasks?.filter((task) => task.id !== taskId));
-  }
+    const tasks = this.tasks.get();
 
-  private renderTasks(tasks: Task[] | null | undefined): void {
-    this.tasks = tasks ?? null;
+    if (!tasks) {
+      return;
+    }
 
-    this.renderer?.renderTodoTasks(this.tasks);
+    this.presentTasks(tasks.filter((task) => task.id !== taskId));
   }
 }
