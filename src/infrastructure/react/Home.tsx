@@ -5,12 +5,9 @@ import { useAsync } from "react-use";
 import { currentProjectInitializer } from "../../main/current-project-initializer.js";
 import { CreateTodoTask } from "./CreateTodoTask.js";
 import { DoneTaskList } from "./DoneTaskList.js";
-import {
-  TodoTaskList,
-  type Props as TodoTaskListProps,
-} from "./TodoTaskList.js";
+import { TodoTaskList } from "./TodoTaskList.js";
 import { ToggleTasks } from "./ToggleTasks.js";
-import { TopBar, type Props as TopBarProps } from "./TopBar.js";
+import { TopBar, type Props } from "./TopBar.js";
 
 const Container = styled.div`
   display: flex;
@@ -42,8 +39,6 @@ const ButtonsContainer = styled.div`
     margin-top: 0.5rem;
   }
 `;
-
-interface Props extends TopBarProps {}
 
 export const Home = ({ onShowProjects }: Props): JSX.Element => {
   useAsync(() => currentProjectInitializer.initialize(), []);
