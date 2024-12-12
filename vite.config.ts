@@ -1,12 +1,15 @@
 import wywInJs from "@wyw-in-js/vite";
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
+import { reactRouter } from "@react-router/dev/vite";
 
 export default defineConfig({
+  esbuild: {
+    legalComments: "external",
+  },
   plugins: [
-    react(),
-    (wywInJs as unknown as typeof import("@wyw-in-js/vite").default)({
+    reactRouter(),
+    wywInJs.default({
       include: ["src/**/*.{ts,tsx}"],
       babelOptions: {
         presets: ["@babel/preset-typescript", "@babel/preset-react"],

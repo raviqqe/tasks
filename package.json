@@ -19,6 +19,7 @@
     "@linaria/react": "^6.2.1",
     "@nanostores/react": "^0.8.2",
     "@raviqqe/loscore": "^0.2.10",
+    "@react-router/node": "^7.0.2",
     "@sentry/browser": "^8.43.0",
     "default-import": "^2.0.4",
     "firebase": "^11.0.2",
@@ -29,6 +30,7 @@
     "react-dom": "^18.3.1",
     "react-icons": "^5.4.0",
     "react-infinite-scroll-hook": "^5.0.1",
+    "react-router": "^7.0.2",
     "react-spinners": "^0.15.0",
     "react-use": "^17.6.0"
   },
@@ -37,6 +39,7 @@
     "@babel/preset-typescript": "^7.26.0",
     "@raviqqe/eslint-config": "^4.1.6",
     "@raviqqe/react-tsconfig": "^1.2.0",
+    "@react-router/dev": "^7.0.2",
     "@testing-library/react": "^16.1.0",
     "@types/react": "^18.3.13",
     "@types/react-dom": "^18.3.1",
@@ -47,7 +50,7 @@
     "firebase-tools": "^13.28.0",
     "jsdom": "^25.0.1",
     "typescript": "^5.7.2",
-    "vite": "^6.0.3",
+    "vite": "^5.4.11",
     "vite-plugin-pwa": "^0.21.1",
     "vitest": "^2.0.1"
   }
