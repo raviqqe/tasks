@@ -1,14 +1,14 @@
 import { styled } from "@linaria/react";
+import { useStore } from "@nanostores/react";
 import { sleep } from "@raviqqe/loscore/async";
 import { defaultImport } from "default-import";
 import { useCallback, useEffect, useState } from "react";
 import defaultUseInfiniteScroll from "react-infinite-scroll-hook";
 import { useAsync, usePrevious } from "react-use";
 import { doneTaskLister } from "../../main/done-task-lister.js";
+import { doneTaskPresenter } from "../../main/done-task-presenter.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
-import { useStore } from "@nanostores/react";
-import { doneTaskPresenter } from "../../main/done-task-presenter.js";
 
 const useInfiniteScroll = defaultImport(defaultUseInfiniteScroll);
 
