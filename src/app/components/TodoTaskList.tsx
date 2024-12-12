@@ -16,7 +16,7 @@ import { todoTaskPresenter } from "../../main/todo-task-presenter.js";
 import { todoTaskReorderer } from "../../main/todo-task-reorderer.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
-import { buttonMargin } from "./style.js";
+import { buttonMargin } from "../style.js";
 
 const Container = styled.div`
   display: flex;

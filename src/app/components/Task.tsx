@@ -8,8 +8,8 @@ import type * as domain from "../../domain.js";
 import { todoTaskCompleter } from "../../main/todo-task-completer.js";
 import { todoTaskUpdater } from "../../main/todo-task-updater.js";
 import { IconButton } from "./IconButton.js";
-import { white } from "./style.js";
-import { boxShadow } from "./style.js";
+import { white } from "../style.js";
+import { boxShadow } from "../style.js";
 
 const maxZIndex = 10000;
 

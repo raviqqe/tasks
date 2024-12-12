@@ -2,7 +2,7 @@ import { styled } from "@linaria/react";
 import { forwardRef, type Ref } from "react";
 import type * as domain from "../../domain.js";
 import { currentProjectSwitcher } from "../../main/current-project-switcher.js";
-import { black, red } from "./style.js";
+import { black, red } from "../style.js";
 
 const Container = styled.div`
   display: flex;

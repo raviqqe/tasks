@@ -2,7 +2,7 @@ import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
 import { projectPresenter } from "../../main/project-presenter.js";
 import { Loader } from "./Loader.js";
-import { white } from "./style.js";
+import { white } from "../style.js";
 
 const Container = styled.div`
   display: flex;

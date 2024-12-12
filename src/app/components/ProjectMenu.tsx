@@ -14,8 +14,8 @@ import { IconButton } from "./IconButton.js";
 import { Loader } from "./Loader.js";
 import { Project } from "./Project.js";
 import { ToggleProjects } from "./ToggleProjects.js";
-import { grey, lightGrey, white } from "./style.js";
-import { boxShadow } from "./style.js";
+import { grey, lightGrey, white } from "../style.js";
+import { boxShadow } from "../style.js";
 
 const Container = styled.div`
   background-color: ${lightGrey};

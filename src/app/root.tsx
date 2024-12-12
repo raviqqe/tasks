@@ -19,7 +19,7 @@ import { configuration } from "../configuration.js";
 import { applicationInitializer } from "../main/application-initializer.js";
 import { authenticationPresenter } from "../main/authentication-presenter.js";
 import { Loader } from "./components/Loader.js";
-import { black, yellow } from "./style.js";
+import { black, yellow } from "../style.js";
 
 export const meta: MetaFunction = () => [
   {

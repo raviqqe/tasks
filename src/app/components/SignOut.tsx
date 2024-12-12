@@ -1,7 +1,7 @@
 import { styled } from "@linaria/react";
 import { MdExitToApp } from "react-icons/md";
 import { IconButton } from "./IconButton.js";
-import { white } from "./style.js";
+import { white } from "../style.js";
 
 const SignOutIconButton = styled(IconButton)`
   color: ${white};
