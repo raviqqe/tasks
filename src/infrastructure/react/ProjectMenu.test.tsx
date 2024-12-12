@@ -1,16 +1,21 @@
 import { render } from "@testing-library/react";
-import { expect, it } from "vitest";
+import { atom } from "nanostores";
+import { beforeEach, expect, it, vi } from "vitest";
+import { projectPresenter } from "../../main/project-presenter.js";
 import { ProjectMenu } from "./ProjectMenu.js";
+
+beforeEach(() => {
+  vi.spyOn(projectPresenter, "currentProject", "get").mockReturnValue(
+    atom({ archived: false, id: "", name: "" }),
+  );
+  vi.spyOn(projectPresenter, "archivedProjects", "get").mockReturnValue(
+    atom([]),
+  );
+  vi.spyOn(projectPresenter, "projects", "get").mockReturnValue(atom([]));
+});
 
 it("renders", () => {
   expect(
-    render(
-      <ProjectMenu
-        archivedProjects={[]}
-        currentProject={{ archived: false, id: "", name: "" }}
-        onHideProjects={() => {}}
-        projects={[]}
-      />,
-    ).container.firstChild,
+    render(<ProjectMenu onHideProjects={() => {}} />).container.firstChild,
   ).toMatchSnapshot();
 });

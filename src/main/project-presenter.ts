@@ -1,3 +1,3 @@
-import { ProjectRenderer } from "../infrastructure/project-renderer.js";
+import { NanostoresProjectPresenter } from "../infrastructure/nanostores-project-presenter.js";
 
-export const projectPresenter = new ProjectRenderer();
+export const projectPresenter = new NanostoresProjectPresenter();

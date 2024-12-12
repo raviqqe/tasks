@@ -25,15 +25,9 @@ const SignOutContainer = styled.div`
 
 export { type Props };
 
-export const TopBar = ({
-  currentProject,
-  onShowProjects,
-}: Props): JSX.Element => (
+export const TopBar = ({ onShowProjects }: Props): JSX.Element => (
   <Container>
-    <CurrentProject
-      currentProject={currentProject}
-      onShowProjects={onShowProjects}
-    />
+    <CurrentProject onShowProjects={onShowProjects} />
     <SignOutContainer>
       <SignOut signOut={() => signOutManager.signOut()} />
     </SignOutContainer>

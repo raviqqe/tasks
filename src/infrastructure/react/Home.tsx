@@ -56,7 +56,6 @@ export interface Props
     TopBarProps {}
 
 export const Home = ({
-  currentProject,
   doneTasks,
   onShowProjects,
   todoTasks,
@@ -66,7 +65,7 @@ export const Home = ({
 
   return (
     <Container>
-      <TopBar currentProject={currentProject} onShowProjects={onShowProjects} />
+      <TopBar onShowProjects={onShowProjects} />
       <TasksContainer>
         {tasksDone ? (
           <DoneTaskList doneTasks={doneTasks} />
