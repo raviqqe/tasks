@@ -1,7 +1,8 @@
 import { styled } from "@linaria/react";
-import { type Project } from "../../domain/project.js";
 import { Loader } from "./Loader.js";
 import { white } from "./style/colors.js";
+import { useStore } from "@nanostores/react";
+import { projectPresenter } from "../../main/project-presenter.js";
 
 const Container = styled.div`
   display: flex;
@@ -14,15 +15,15 @@ const Container = styled.div`
 `;
 
 export interface Props {
-  currentProject: Project | null;
   onShowProjects: () => void;
 }
 
-export const CurrentProject = ({
-  currentProject,
-  onShowProjects,
-}: Props): JSX.Element => (
-  <Container onClick={onShowProjects}>
-    {currentProject ? currentProject.name : <Loader />}
-  </Container>
-);
+export const CurrentProject = ({ onShowProjects }: Props): JSX.Element => {
+  const project = useStore(projectPresenter.currentProject);
+
+  return (
+    <Container onClick={onShowProjects}>
+      {project?.name ?? <Loader />}
+    </Container>
+  );
+};

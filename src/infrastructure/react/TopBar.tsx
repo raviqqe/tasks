@@ -4,6 +4,8 @@ import { CurrentProject, type Props } from "./CurrentProject.js";
 import { SignOut } from "./SignOut.js";
 import { red } from "./style/colors.js";
 import { boxShadow } from "./style.js";
+import { useStore } from "@nanostores/react";
+import { projectPresenter } from "../../main/project-presenter.js";
 
 const Container = styled.div`
   ${boxShadow}
@@ -25,17 +27,13 @@ const SignOutContainer = styled.div`
 
 export { type Props };
 
-export const TopBar = ({
-  currentProject,
-  onShowProjects,
-}: Props): JSX.Element => (
-  <Container>
-    <CurrentProject
-      currentProject={currentProject}
-      onShowProjects={onShowProjects}
-    />
-    <SignOutContainer>
-      <SignOut signOut={() => signOutManager.signOut()} />
-    </SignOutContainer>
-  </Container>
-);
+export const TopBar = ({ onShowProjects }: Props): JSX.Element => {
+  return (
+    <Container>
+      <CurrentProject onShowProjects={onShowProjects} />
+      <SignOutContainer>
+        <SignOut signOut={() => signOutManager.signOut()} />
+      </SignOutContainer>
+    </Container>
+  );
+};
