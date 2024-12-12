@@ -6,11 +6,7 @@ import { projectPresenter } from "../../main/project-presenter.js";
 
 beforeEach(() => {
   vi.spyOn(projectPresenter, "currentProject", "get").mockReturnValue(
-    atom({
-      archived: false,
-      id: "",
-      name: "",
-    }),
+    atom({ archived: false, id: "", name: "" }),
   );
 });
 

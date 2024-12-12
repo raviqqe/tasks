@@ -36,15 +36,7 @@ it("renders after a user signs in", async () => {
     atom(true),
   );
 
-  const result = await act(async () =>
-    render(
-      <App
-        {...props}
-        currentProject={{ archived: false, id: "", name: "" }}
-        projects={[]}
-      />,
-    ),
-  );
+  const result = await act(async () => render(<App {...props} />));
 
   expect(result.container).toMatchSnapshot();
 
