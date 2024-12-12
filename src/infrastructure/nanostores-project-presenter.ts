@@ -74,10 +74,10 @@ export class NanostoresProjectPresenter implements ProjectPresenter {
   }
 
   private renderProjects(projects: Project[]): void {
-    this.projects.set(projects ? sortProjects(projects) : null);
+    this.projects.set(sortProjects(projects));
   }
 
   private renderArchivedProjects(projects: Project[]): void {
-    this.archivedProjects.set(projects ? sortProjects(projects) : null);
+    this.archivedProjects.set(sortProjects(projects));
   }
 }
