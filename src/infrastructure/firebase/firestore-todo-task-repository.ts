@@ -1,3 +1,4 @@
+import { compact, isEqual } from "es-toolkit";
 import { type FirebaseApp } from "firebase/app";
 import { type Auth, getAuth } from "firebase/auth";
 import {
@@ -14,7 +15,6 @@ import {
 } from "firebase/firestore/lite";
 import { type TodoTaskRepository } from "../../application/todo-task-repository.js";
 import { type Task } from "../../domain/task.js";
-import { compact, isEqual } from "es-toolkit";
 
 interface OrderDocument {
   order: string[];

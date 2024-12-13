@@ -1,3 +1,4 @@
+import { last } from "es-toolkit";
 import { type FirebaseApp } from "firebase/app";
 import { type Auth, getAuth } from "firebase/auth";
 import {
@@ -16,7 +17,6 @@ import {
 } from "firebase/firestore/lite";
 import { type DoneTaskRepository } from "../../application/done-task-repository.js";
 import { type Task } from "../../domain/task.js";
-import { last } from "es-toolkit";
 
 interface TimestampedTask extends Task {
   createdAt: number;

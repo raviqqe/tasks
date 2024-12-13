@@ -1,8 +1,8 @@
-import { delay } from "es-toolkit";
 import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
 import { useAsync, usePrevious } from "@raviqqe/react-hooks";
 import { defaultImport } from "default-import";
+import { delay } from "es-toolkit";
 import { useCallback, useEffect, useState } from "react";
 import defaultUseInfiniteScroll from "react-infinite-scroll-hook";
 import { doneTaskLister } from "../../main/done-task-lister.js";
