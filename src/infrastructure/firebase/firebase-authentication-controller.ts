@@ -1,4 +1,3 @@
-import { sleep } from "@raviqqe/loscore/async";
 import { type FirebaseApp } from "firebase/app";
 import {
   type Auth,
@@ -7,6 +6,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { type AuthenticationController } from "../../application/authentication-controller.js";
+import { delay } from "es-toolkit";
 
 export class FirebaseAuthenticationController
   implements AuthenticationController
@@ -31,7 +31,7 @@ export class FirebaseAuthenticationController
 
   public async isSignedIn(): Promise<boolean> {
     while (this.signedIn === null) {
-      await sleep(10);
+      await delay(10);
     }
 
     return this.signedIn;
