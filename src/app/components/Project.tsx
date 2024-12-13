@@ -20,7 +20,7 @@ export const Project = forwardRef(
     <div className={styles.container} ref={ref}>
       <div
         className={classes("name", {
-          clickable: !!onClick,
+          clickable: onClick,
           highlighted: project.id === currentProject?.id,
         })}
         onClick={onClick}
