@@ -9,7 +9,7 @@ import {
 export default [
   index("./routes/index.tsx"),
   ...prefix("tasks", [
-    layout("./tasks/layout.tsx", [
+    layout("./routes/tasks/layout.tsx", [
       route("/", "./routes/tasks/index.tsx"),
       route("done", "./routes/tasks/done.tsx"),
     ]),
