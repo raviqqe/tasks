@@ -7,10 +7,7 @@ interface Props {
 }
 
 export const SignOut = ({ signOut }: Props): JSX.Element => (
-  <IconButton
-    style={{ color: white, fontSize: "1.6rem" }}
-    onClick={signOut}
-  >
+  <IconButton style={{ color: white, fontSize: "1.6rem" }} onClick={signOut}>
     <MdExitToApp />
-  </SignOutIconButton>
+  </IconButton>
 );
