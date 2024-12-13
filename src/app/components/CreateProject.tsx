@@ -1,7 +1,7 @@
 import { MdAdd } from "react-icons/md";
 import { CircleButton } from "./CircleButton.js";
 
-export interface Props {
+interface Props {
   className?: string;
   onCreate: (name: string) => Promise<void>;
 }
