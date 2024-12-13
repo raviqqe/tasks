@@ -21,7 +21,7 @@
     "@raviqqe/loscore": "^0.2.10",
     "@raviqqe/react-hooks": "^0.5.3",
     "@react-router/node": "^7.0.2",
-    "@sentry/browser": "^8.43.0",
+    "@sentry/browser": "^8.44.0",
     "default-import": "^2.0.4",
     "firebase": "^11.0.2",
     "isbot": "^5.1.17",
