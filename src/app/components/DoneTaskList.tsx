@@ -23,35 +23,19 @@ const LoaderContainer = styled.div`
 
 export const DoneTaskList = (): JSX.Element => {
   const tasks = useStore(doneTaskPresenter.tasks);
-  const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
 
   useAsync(() => doneTaskLister.list(), []);
 
   const listMore = useCallback(async () => {
-    setLoading(true);
     await doneTaskLister.listMore();
-    setLoading(false);
-  }, [setLoading]);
-
+    setDone(true);
+  }, [tasks]);
   const ref = useInfiniteScroll<HTMLDivElement>(listMore);
-
-  const oldLoading = usePrevious(loading);
-  const [length, setLength] = useState(0);
-
-  useEffect(() => {
-    if (!oldLoading && loading) {
-      setLength(tasks?.length ?? 0);
-    } else if (oldLoading && !loading && tasks?.length === length) {
-      setDone(true);
-    }
-  }, [tasks, length, loading, oldLoading]);
 
   return (
     <Container>
-      {(tasks ?? []).map((task) => (
-        <Task key={task.id} task={task} />
-      ))}
+      {tasks?.map((task) => <Task key={task.id} task={task} />)}
       {!done && (
         <LoaderContainer ref={ref}>
           <Loader />
