@@ -1,7 +1,7 @@
 import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
-import { useAsync, useInfiniteScroll, usePrevious } from "@raviqqe/react-hooks";
-import { useCallback, useEffect, useState } from "react";
+import { useAsync, useInfiniteScroll } from "@raviqqe/react-hooks";
+import { useCallback, useState } from "react";
 import { doneTaskLister } from "../../main/done-task-lister.js";
 import { doneTaskPresenter } from "../../main/done-task-presenter.js";
 import { Loader } from "./Loader.js";
