@@ -2,7 +2,8 @@
 
 exports[`renders 1`] = `
 <div
-  class="mocked-styled-1"
+  class="mocked-styled-0"
+  style="color: white; font-size: 1.6rem;"
 >
   <svg
     fill="currentColor"
