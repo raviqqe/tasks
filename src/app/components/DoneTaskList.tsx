@@ -1,16 +1,11 @@
 import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
-import { useAsync, usePrevious } from "@raviqqe/react-hooks";
-import { defaultImport } from "default-import";
-import { delay } from "es-toolkit";
+import { useAsync, useInfiniteScroll, usePrevious } from "@raviqqe/react-hooks";
 import { useCallback, useEffect, useState } from "react";
-import defaultUseInfiniteScroll from "react-infinite-scroll-hook";
 import { doneTaskLister } from "../../main/done-task-lister.js";
 import { doneTaskPresenter } from "../../main/done-task-presenter.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
-
-const useInfiniteScroll = defaultImport(defaultUseInfiniteScroll);
 
 const Container = styled.div`
   display: flex;
@@ -33,20 +28,13 @@ export const DoneTaskList = (): JSX.Element => {
 
   useAsync(() => doneTaskLister.list(), []);
 
-  const onLoadMore = useCallback(async () => {
+  const listMore = useCallback(async () => {
     setLoading(true);
     await doneTaskLister.listMore();
-    await delay(0);
     setLoading(false);
   }, [setLoading]);
 
-  useAsync(onLoadMore, []);
-
-  const [ref] = useInfiniteScroll({
-    hasNextPage: !done,
-    loading,
-    onLoadMore,
-  });
+  const ref = useInfiniteScroll<HTMLDivElement>(listMore);
 
   const oldLoading = usePrevious(loading);
   const [length, setLength] = useState(0);
