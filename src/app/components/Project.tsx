@@ -44,8 +44,8 @@ export const Project = forwardRef(
         <Name
           highlighted={project.id === currentProject?.id}
           onClick={async () => {
-            await currentProjectSwitcher.switch(project);
             await navigate("/tasks");
+            await currentProjectSwitcher.switch(project);
           }}
         >
           {project.name}
