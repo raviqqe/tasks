@@ -69,10 +69,8 @@ export const ProjectMenu = (): JSX.Element => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ block: "center" });
-    }
-  });
+    ref.current?.scrollIntoView({ block: "center" });
+  }, [ref.current]);
 
   return currentProject && archivedProjects && projects ? (
     <Container>
