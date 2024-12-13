@@ -1,7 +1,7 @@
-import { render } from "@testing-library/react";
 import { atom } from "nanostores";
 import { expect, it, vi } from "vitest";
 import { projectPresenter } from "../../main/project-presenter.js";
+import { renderRouter } from "../test.js";
 import { CurrentProject } from "./CurrentProject.js";
 
 it("renders", () => {
@@ -13,5 +13,7 @@ it("renders", () => {
     }),
   );
 
-  expect(render(<CurrentProject />).container.firstChild).toMatchSnapshot();
+  expect(
+    renderRouter(<CurrentProject />).container.firstChild,
+  ).toMatchSnapshot();
 });

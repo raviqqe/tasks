@@ -1,7 +1,7 @@
-import { render } from "@testing-library/react";
 import { atom } from "nanostores";
 import { beforeEach, expect, it, vi } from "vitest";
 import { projectPresenter } from "../../main/project-presenter.js";
+import { renderRouter } from "../test.js";
 import { ProjectMenu } from "./ProjectMenu.js";
 
 beforeEach(() => {
@@ -15,5 +15,5 @@ beforeEach(() => {
 });
 
 it("renders", () => {
-  expect(render(<ProjectMenu />).container.firstChild).toMatchSnapshot();
+  expect(renderRouter(<ProjectMenu />).container.firstChild).toMatchSnapshot();
 });
