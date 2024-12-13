@@ -8,7 +8,7 @@ exports[`renders 1`] = `
     class="mocked-styled-5"
   >
     <span
-      style="display: inherit;"
+      style="display: initial;"
     >
       <span
         style="background-color: white; width: 15px; height: 15px; margin: 2px; border-radius: 100%; display: inline-block; animation: react-spinners-PulseLoader-pulse 0.75s 0.12s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08); animation-fill-mode: both;"

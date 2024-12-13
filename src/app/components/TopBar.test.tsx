@@ -1,7 +1,7 @@
-import { render } from "@testing-library/react";
 import { atom } from "nanostores";
 import { beforeEach, expect, it, vi } from "vitest";
 import { projectPresenter } from "../../main/project-presenter.js";
+import { renderRouter } from "../test.js";
 import { TopBar } from "./TopBar.js";
 
 beforeEach(() => {
@@ -11,7 +11,5 @@ beforeEach(() => {
 });
 
 it("renders", () => {
-  expect(
-    render(<TopBar onShowProjects={() => {}} />).container.firstChild,
-  ).toMatchSnapshot();
+  expect(renderRouter(<TopBar />).container.firstChild).toMatchSnapshot();
 });

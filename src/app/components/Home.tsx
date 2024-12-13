@@ -7,7 +7,7 @@ import { CreateTodoTask } from "./CreateTodoTask.js";
 import { DoneTaskList } from "./DoneTaskList.js";
 import { TodoTaskList } from "./TodoTaskList.js";
 import { ToggleTasks } from "./ToggleTasks.js";
-import { type Props, TopBar } from "./TopBar.js";
+import { TopBar } from "./TopBar.js";
 
 const Container = styled.div`
   display: flex;
@@ -40,13 +40,13 @@ const ButtonsContainer = styled.div`
   }
 `;
 
-export const Home = ({ onShowProjects }: Props): JSX.Element => {
+export const Home = (): JSX.Element => {
   useAsync(() => currentProjectInitializer.initialize(), []);
   const [tasksDone, setTasksDone] = useState(false);
 
   return (
     <Container>
-      <TopBar onShowProjects={onShowProjects} />
+      <TopBar />
       <TasksContainer>
         {tasksDone ? <DoneTaskList /> : <TodoTaskList />}
       </TasksContainer>

@@ -3,6 +3,7 @@ import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
 import { useEffect, useRef, useState } from "react";
 import { MdArchive, MdDelete, MdEdit, MdUnarchive } from "react-icons/md";
+import { useNavigate } from "react-router";
 import { projectArchiver } from "../../main/project-archiver.js";
 import { projectCreator } from "../../main/project-creator.js";
 import { projectDeleter } from "../../main/project-deleter.js";
@@ -58,16 +59,13 @@ const LowerButtonsContainer = styled.div`
   }
 `;
 
-interface Props {
-  onHideProjects: () => void;
-}
-
-export const ProjectMenu = ({ onHideProjects }: Props): JSX.Element => {
-  const [projectsArchived, setProjectsArchived] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+export const ProjectMenu = (): JSX.Element => {
   const currentProject = useStore(projectPresenter.currentProject);
   const archivedProjects = useStore(projectPresenter.archivedProjects);
   const projects = useStore(projectPresenter.projects);
+  const [projectsArchived, setProjectsArchived] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (ref.current) {
@@ -90,8 +88,8 @@ export const ProjectMenu = ({ onHideProjects }: Props): JSX.Element => {
                       <IconButton
                         aria-label="Unarchive Project"
                         onClick={async () => {
+                          await navigate("/tasks");
                           await projectUnarchiver.unarchive(project);
-                          onHideProjects();
                         }}
                       >
                         <MdUnarchive />
@@ -149,7 +147,6 @@ export const ProjectMenu = ({ onHideProjects }: Props): JSX.Element => {
                 }
                 currentProject={currentProject}
                 key={project.id}
-                onSwitchProject={onHideProjects}
                 project={project}
                 ref={project.id === currentProject.id ? ref : null}
               />
@@ -172,7 +169,7 @@ export const ProjectMenu = ({ onHideProjects }: Props): JSX.Element => {
           }
           onCreate={async (name) => {
             await projectCreator.create(name);
-            onHideProjects();
+            await navigate("/tasks");
           }}
         />
       </LowerButtonsContainer>
