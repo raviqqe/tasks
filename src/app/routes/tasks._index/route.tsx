@@ -1,4 +1,3 @@
-import { type JSX } from "react";
 import {
   closestCenter,
   DndContext,
@@ -14,12 +13,13 @@ import {
 import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
 import { useAsync } from "@raviqqe/react-hooks";
+import { type JSX } from "react";
 import { todoTaskLister } from "../../../main/todo-task-lister.js";
 import { todoTaskPresenter } from "../../../main/todo-task-presenter.js";
 import { todoTaskReorderer } from "../../../main/todo-task-reorderer.js";
-import { buttonMargin } from "../../style.js";
 import { Loader } from "../../components/Loader.js";
 import { Task } from "../../components/Task.js";
+import { buttonMargin } from "../../style.js";
 
 const Container = styled.div`
   display: flex;
