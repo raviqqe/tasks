@@ -147,7 +147,6 @@ export const ProjectMenu = (): JSX.Element => {
                 }
                 currentProject={currentProject}
                 key={project.id}
-                onSwitchProject={onHideProjects}
                 project={project}
                 ref={project.id === currentProject.id ? ref : null}
               />
@@ -170,7 +169,7 @@ export const ProjectMenu = (): JSX.Element => {
           }
           onCreate={async (name) => {
             await projectCreator.create(name);
-            onHideProjects();
+            await navigate("/tasks");
           }}
         />
       </LowerButtonsContainer>
