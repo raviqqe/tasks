@@ -1,5 +1,5 @@
 import { styled } from "@linaria/react";
-import { type AriaAttributes, type ReactNode } from "react";
+import { CSSProperties, type AriaAttributes, type ReactNode } from "react";
 import { grey } from "../style.js";
 
 const Button = styled.div`
@@ -13,14 +13,16 @@ interface Props extends AriaAttributes {
   children: ReactNode;
   className?: string;
   onClick: () => void;
+  style?: CSSProperties;
 }
 
 export const IconButton = ({
   children,
   onClick,
-  ...restProps
+  style,
+  ...rest
 }: Props): JSX.Element => (
-  <Button onClick={onClick} {...restProps}>
+  <Button onClick={onClick} {...rest}>
     {children}
   </Button>
 );
