@@ -13,6 +13,8 @@ export class DoneTaskLister {
   ) {}
 
   public async list(projectId: string): Promise<void> {
+    this.doneTaskPresenter.presentTasks(null);
+
     this.iterator = this.doneTaskRepository
       .list(projectId, defaultLimit)
       [Symbol.asyncIterator]();
