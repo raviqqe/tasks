@@ -13,7 +13,6 @@ import {
   Scripts,
   ScrollRestoration,
   useNavigate,
-  useNavigation,
 } from "react-router";
 import { configuration } from "../configuration.js";
 import { applicationInitializer } from "../main/application-initializer.js";
@@ -96,7 +95,6 @@ const LoaderContainer = styled.div`
 export const Layout = ({ children }: { children: ReactNode }): JSX.Element => {
   const signedIn = useStore(authenticationPresenter.signedIn);
   useAsync(() => applicationInitializer.initialize(), []);
-  const { location } = useNavigation();
   const navigate = useNavigate();
 
   useAsync(async () => {
@@ -118,7 +116,7 @@ export const Layout = ({ children }: { children: ReactNode }): JSX.Element => {
         <base target="_blank" />
       </head>
       <Body>
-        {location || signedIn === null ? (
+        {signedIn === null ? (
           <LoaderContainer>
             <Loader />
           </LoaderContainer>
