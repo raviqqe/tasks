@@ -4,6 +4,7 @@ import { useStore } from "@nanostores/react";
 import { type JSX, useEffect, useRef, useState } from "react";
 import { MdArchive, MdDelete, MdEdit, MdUnarchive } from "react-icons/md";
 import { useNavigate } from "react-router";
+import { currentProjectSwitcher } from "../../../main/current-project-switcher.js";
 import { projectArchiver } from "../../../main/project-archiver.js";
 import { projectCreator } from "../../../main/project-creator.js";
 import { projectDeleter } from "../../../main/project-deleter.js";
@@ -16,7 +17,6 @@ import { Loader } from "../../components/Loader.js";
 import { Project } from "../../components/Project.js";
 import { ToggleProjects } from "../../components/ToggleProjects.js";
 import { boxShadow, grey, lightGrey, white } from "../../style.js";
-import { currentProjectSwitcher } from "../../../main/current-project-switcher.js";
 
 const Container = styled.div`
   background-color: ${lightGrey};
