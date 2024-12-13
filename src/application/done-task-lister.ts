@@ -1,4 +1,5 @@
 import { type Task } from "../domain/task.js";
+import { CurrentProjectRepository } from "./current-project-repository.js";
 import { type DoneTaskPresenter } from "./done-task-presenter.js";
 import { type DoneTaskRepository } from "./done-task-repository.js";
 
@@ -8,11 +9,18 @@ export class DoneTaskLister {
   private iterator: AsyncIterator<Task[], void> | null = null;
 
   constructor(
+    private readonly currentProjectRepository: CurrentProjectRepository,
     private readonly doneTaskRepository: DoneTaskRepository,
     private readonly doneTaskPresenter: DoneTaskPresenter,
   ) {}
 
-  public async list(projectId: string): Promise<void> {
+  public async list(): Promise<void> {
+    const projectId = await this.currentProjectRepository.get();
+
+    if (!projectId) {
+      throw new Error("Current project not defined");
+    }
+
     this.doneTaskPresenter.presentTasks(null);
 
     this.iterator = this.doneTaskRepository
