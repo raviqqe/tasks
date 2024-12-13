@@ -31,6 +31,8 @@ export const DoneTaskList = (): JSX.Element => {
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
 
+  useAsync(() => doneTaskLister.list(), []);
+
   const onLoadMore = useCallback(async () => {
     setLoading(true);
     await doneTaskLister.listMore();
