@@ -1,10 +1,8 @@
 import { render } from "@testing-library/react";
 import { atom } from "nanostores";
-import { beforeEach, expect, it, vi } from "vitest";
+import { expect, it, vi } from "vitest";
 import { todoTaskPresenter } from "../../main/todo-task-presenter.js";
 import { TodoTaskList } from "./TodoTaskList.js";
-
-beforeEach(() => {});
 
 it("renders", () => {
   vi.spyOn(todoTaskPresenter, "tasks", "get").mockReturnValue(
