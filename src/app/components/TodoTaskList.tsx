@@ -29,7 +29,6 @@ const Container = styled.div`
 const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
 `;
 
 const Tasks = styled.div`
