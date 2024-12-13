@@ -1,20 +1,19 @@
 import { FaRegCheckSquare, FaRegSquare } from "react-icons/fa";
 import { CircleButton } from "./CircleButton.js";
+import { useLocation, useNavigate } from "react-router";
 
-interface Props {
-  setTasksDone: (done: boolean) => void;
-  tasksDone: boolean;
-}
+export const ToggleTasks = (): JSX.Element => {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const done = pathname === "/tasks/done";
 
-export const ToggleTasks = ({
-  setTasksDone,
-  tasksDone,
-}: Props): JSX.Element => (
-  <CircleButton
-    aria-label="Toggle Tasks"
-    onClick={() => setTasksDone(!tasksDone)}
-    secondary
-  >
-    {tasksDone ? <FaRegCheckSquare /> : <FaRegSquare />}
-  </CircleButton>
-);
+  return (
+    <CircleButton
+      aria-label="Toggle Tasks"
+      onClick={() => navigate(done ? "/tasks" : "/tasks/done")}
+      secondary
+    >
+      {done ? <FaRegCheckSquare /> : <FaRegSquare />}
+    </CircleButton>
+  );
+};

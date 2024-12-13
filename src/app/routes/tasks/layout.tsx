@@ -1,12 +1,12 @@
 import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import { useAsync } from "@raviqqe/react-hooks";
-import { type JSX, useState } from "react";
+import { type JSX } from "react";
 import { currentProjectInitializer } from "../../../main/current-project-initializer.js";
 import { CreateTodoTask } from "../../components/CreateTodoTask.js";
 import { ToggleTasks } from "../../components/ToggleTasks.js";
 import { TopBar } from "../../components/TopBar.js";
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 
 const Container = styled.div`
   display: flex;
@@ -41,7 +41,7 @@ const ButtonsContainer = styled.div`
 
 export default (): JSX.Element => {
   useAsync(() => currentProjectInitializer.initialize(), []);
-  const [tasksDone, setTasksDone] = useState(false);
+  const { pathname } = useLocation();
 
   return (
     <Container>
@@ -50,10 +50,10 @@ export default (): JSX.Element => {
         <Outlet />
       </TasksContainer>
       <ButtonsContainer>
-        <ToggleTasks setTasksDone={setTasksDone} tasksDone={tasksDone} />
+        <ToggleTasks />
         <CreateTodoTask
           className={
-            tasksDone
+            pathname === "/tasks/done"
               ? css`
                   visibility: hidden;
                 `
