@@ -1,8 +1,8 @@
 import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
 import { projectPresenter } from "../../main/project-presenter.js";
+import { white } from "../style.js";
 import { Loader } from "./Loader.js";
-import { white } from "./style/colors.js";
 
 const Container = styled.div`
   display: flex;

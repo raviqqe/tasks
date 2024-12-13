@@ -14,9 +14,9 @@ import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
 import { todoTaskPresenter } from "../../main/todo-task-presenter.js";
 import { todoTaskReorderer } from "../../main/todo-task-reorderer.js";
+import { buttonMargin } from "../style.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
-import { buttonMargin } from "./style.js";
 
 const Container = styled.div`
   display: flex;

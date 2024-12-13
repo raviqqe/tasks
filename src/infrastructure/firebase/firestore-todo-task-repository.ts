@@ -12,7 +12,7 @@ import {
   runTransaction,
   type Transaction,
   updateDoc,
-} from "firebase/firestore";
+} from "firebase/firestore/lite";
 import { type TodoTaskRepository } from "../../application/todo-task-repository.js";
 import { type Task } from "../../domain/task.js";
 

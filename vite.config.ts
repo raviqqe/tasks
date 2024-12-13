@@ -1,12 +1,18 @@
-import wywInJs from "@wyw-in-js/vite";
+import defaultWyw from "@wyw-in-js/vite";
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
+import { reactRouter } from "@react-router/dev/vite";
+import { defaultImport } from "default-import";
+
+const wyw = defaultImport(defaultWyw);
 
 export default defineConfig({
+  esbuild: {
+    legalComments: "external",
+  },
   plugins: [
-    react(),
-    (wywInJs as unknown as typeof import("@wyw-in-js/vite").default)({
+    reactRouter(),
+    wyw({
       include: ["src/**/*.{ts,tsx}"],
       babelOptions: {
         presets: ["@babel/preset-typescript", "@babel/preset-react"],
@@ -27,4 +33,7 @@ export default defineConfig({
       },
     }),
   ],
+  ssr: {
+    noExternal: ["react-spinners"],
+  },
 });

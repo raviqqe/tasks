@@ -12,7 +12,7 @@ import {
   setDoc,
   updateDoc,
   where,
-} from "firebase/firestore";
+} from "firebase/firestore/lite";
 import { type ProjectRepository } from "../../application/project-repository.js";
 import { type Project } from "../../domain/project.js";
 

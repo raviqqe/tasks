@@ -9,13 +9,12 @@ import { projectDeleter } from "../../main/project-deleter.js";
 import { projectPresenter } from "../../main/project-presenter.js";
 import { projectUnarchiver } from "../../main/project-unarchiver.js";
 import { projectUpdater } from "../../main/project-updater.js";
+import { boxShadow, grey, lightGrey, white } from "../style.js";
 import { CreateProject } from "./CreateProject.js";
 import { IconButton } from "./IconButton.js";
 import { Loader } from "./Loader.js";
 import { Project } from "./Project.js";
 import { ToggleProjects } from "./ToggleProjects.js";
-import { grey, lightGrey, white } from "./style/colors.js";
-import { boxShadow } from "./style.js";
 
 const Container = styled.div`
   background-color: ${lightGrey};

@@ -1,7 +1,7 @@
 import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
+import { useAsync } from "@raviqqe/react-hooks";
 import { useState } from "react";
-import { useAsync } from "react-use";
 import { currentProjectInitializer } from "../../main/current-project-initializer.js";
 import { CreateTodoTask } from "./CreateTodoTask.js";
 import { DoneTaskList } from "./DoneTaskList.js";
