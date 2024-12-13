@@ -6,23 +6,12 @@ import { currentProjectSwitcher } from "../../main/current-project-switcher.js";
 import { black, red } from "../style.js";
 import styles from "./Project.module.css";
 
-const Container = styled.div``;
-
 const Name = styled.div<{ highlighted: boolean }>`
   word-break: break-word;
   margin-right: 1em;
   flex: 1;
   cursor: ${({ onClick }) => (onClick ? "pointer" : "auto")};
   color: ${({ highlighted }) => (highlighted ? red : black)};
-`;
-
-const ButtonsContainer = styled.div`
-  display: flex;
-  align-items: center;
-
-  > :not(:first-child) {
-    margin-left: 0.25rem;
-  }
 `;
 
 export interface Props {
@@ -36,7 +25,7 @@ export const Project = forwardRef(
     const navigate = useNavigate();
 
     return (
-      <Container ref={ref}>
+      <div className={styles.container} ref={ref}>
         <Name
           highlighted={project.id === currentProject?.id}
           onClick={async () => {
@@ -46,8 +35,8 @@ export const Project = forwardRef(
         >
           {project.name}
         </Name>
-        <ButtonsContainer>{buttons}</ButtonsContainer>
-      </Container>
+        <div className={styles.buttons}>{buttons}</div>
+      </div>
     );
   },
 );

@@ -4,3 +4,12 @@
   align-items: center;
   font-size: 1.25em;
 }
+
+.buttons {
+  display: flex;
+  align-items: center;
+
+  > :not(:first-child) {
+    margin-left: 0.25rem;
+  }
+}
