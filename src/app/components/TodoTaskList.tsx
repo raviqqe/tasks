@@ -17,6 +17,8 @@ import { todoTaskReorderer } from "../../main/todo-task-reorderer.js";
 import { buttonMargin } from "../style.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
+import { useAsync } from "@raviqqe/react-hooks";
+import { todoTaskLister } from "../../main/todo-task-lister.js";
 
 const Container = styled.div`
   display: flex;
@@ -40,6 +42,8 @@ const Tasks = styled.div`
 export const TodoTaskList = (): JSX.Element => {
   const todoTasks = useStore(todoTaskPresenter.tasks);
   const sensors = useSensors(useSensor(PointerSensor));
+
+  useAsync(() => todoTaskLister.list(), []);
 
   return todoTasks ? (
     <DndContext
