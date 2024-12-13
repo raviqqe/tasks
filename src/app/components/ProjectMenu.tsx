@@ -15,6 +15,7 @@ import { IconButton } from "./IconButton.js";
 import { Loader } from "./Loader.js";
 import { Project } from "./Project.js";
 import { ToggleProjects } from "./ToggleProjects.js";
+import { useNavigate } from "react-router";
 
 const Container = styled.div`
   background-color: ${lightGrey};
@@ -58,16 +59,13 @@ const LowerButtonsContainer = styled.div`
   }
 `;
 
-interface Props {
-  onHideProjects: () => void;
-}
-
-export const ProjectMenu = ({ onHideProjects }: Props): JSX.Element => {
-  const [projectsArchived, setProjectsArchived] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+export const ProjectMenu = (): JSX.Element => {
   const currentProject = useStore(projectPresenter.currentProject);
   const archivedProjects = useStore(projectPresenter.archivedProjects);
   const projects = useStore(projectPresenter.projects);
+  const [projectsArchived, setProjectsArchived] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (ref.current) {
@@ -90,8 +88,8 @@ export const ProjectMenu = ({ onHideProjects }: Props): JSX.Element => {
                       <IconButton
                         aria-label="Unarchive Project"
                         onClick={async () => {
+                          await navigate("/tasks");
                           await projectUnarchiver.unarchive(project);
-                          onHideProjects();
                         }}
                       >
                         <MdUnarchive />
