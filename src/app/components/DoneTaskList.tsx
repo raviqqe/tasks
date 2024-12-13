@@ -1,8 +1,8 @@
 import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
-import { sleep } from "@raviqqe/loscore/async";
 import { useAsync, usePrevious } from "@raviqqe/react-hooks";
 import { defaultImport } from "default-import";
+import { delay } from "es-toolkit";
 import { useCallback, useEffect, useState } from "react";
 import defaultUseInfiniteScroll from "react-infinite-scroll-hook";
 import { doneTaskLister } from "../../main/done-task-lister.js";
@@ -34,7 +34,7 @@ export const DoneTaskList = (): JSX.Element => {
   const onLoadMore = useCallback(async () => {
     setLoading(true);
     await doneTaskLister.listMore();
-    await sleep(0);
+    await delay(0);
     setLoading(false);
   }, [setLoading]);
 

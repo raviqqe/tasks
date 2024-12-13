@@ -1,4 +1,4 @@
-import { last } from "@raviqqe/loscore";
+import { last } from "es-toolkit";
 import { type FirebaseApp } from "firebase/app";
 import { type Auth, getAuth } from "firebase/auth";
 import {
