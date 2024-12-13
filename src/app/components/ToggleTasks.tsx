@@ -1,6 +1,6 @@
 import { FaRegCheckSquare, FaRegSquare } from "react-icons/fa";
-import { CircleButton } from "./CircleButton.js";
 import { useLocation, useNavigate } from "react-router";
+import { CircleButton } from "./CircleButton.js";
 
 export const ToggleTasks = (): JSX.Element => {
   const { pathname } = useLocation();
