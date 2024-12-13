@@ -14,10 +14,6 @@ beforeEach(() => {
   currentProjectSwitcher = new CurrentProjectSwitcher(
     mockManager.currentProjectRepository,
     mockManager.projectPresenter,
-    mockManager.todoTaskLister,
-    mockManager.doneTaskLister,
-    mockManager.todoTaskPresenter,
-    mockManager.doneTaskPresenter,
   );
 });
 
@@ -29,18 +25,5 @@ it("switches a current project", async () => {
   );
   expect(mockManager.currentProjectRepository.set.mock.calls).toEqual([
     [dummyProject.id],
-  ]);
-  expect(mockManager.todoTaskLister.list).toHaveBeenCalledTimes(1);
-  expect(mockManager.doneTaskLister.list).toHaveBeenCalledTimes(1);
-});
-
-it("resets tasks before switching a current project", async () => {
-  await currentProjectSwitcher.switch(dummyProject);
-
-  expect(mockManager.todoTaskPresenter.presentTasks.mock.calls).toEqual([
-    [null],
-  ]);
-  expect(mockManager.doneTaskPresenter.presentTasks.mock.calls).toEqual([
-    [null],
   ]);
 });

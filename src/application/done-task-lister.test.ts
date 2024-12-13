@@ -10,8 +10,10 @@ let doneTaskLister: DoneTaskLister;
 
 beforeEach(() => {
   mockManager = new MockManager();
+  mockManager.currentProjectRepository.get.mockResolvedValue("id");
   mockManager.doneTaskRepository.list.mockImplementation(async function* () {});
   doneTaskLister = new DoneTaskLister(
+    mockManager.currentProjectRepository,
     mockManager.doneTaskRepository,
     mockManager.doneTaskPresenter,
   );
@@ -22,17 +24,21 @@ it("lists tasks", async () => {
     yield [dummyTask];
   });
 
-  await doneTaskLister.list("");
+  await doneTaskLister.list();
 
   expect(mockManager.doneTaskPresenter.presentTasks.mock.calls).toEqual([
+    [null],
     [[dummyTask]],
   ]);
 });
 
 it("lists no tasks", async () => {
-  await doneTaskLister.list("");
+  await doneTaskLister.list();
 
-  expect(mockManager.doneTaskPresenter.presentTasks.mock.calls).toEqual([[[]]]);
+  expect(mockManager.doneTaskPresenter.presentTasks.mock.calls).toEqual([
+    [null],
+    [[]],
+  ]);
 });
 
 it("lists more tasks", async () => {
@@ -41,7 +47,7 @@ it("lists more tasks", async () => {
     yield [dummyTask];
   });
 
-  await doneTaskLister.list("");
+  await doneTaskLister.list();
   await doneTaskLister.listMore();
 
   expect(mockManager.doneTaskPresenter.presentMoreTasks.mock.calls).toEqual([
@@ -50,7 +56,7 @@ it("lists more tasks", async () => {
 });
 
 it("lists no more tasks", async () => {
-  await doneTaskLister.list("");
+  await doneTaskLister.list();
   await doneTaskLister.listMore();
 
   expect(mockManager.doneTaskPresenter.presentMoreTasks).toHaveBeenCalledTimes(

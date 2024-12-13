@@ -10,7 +10,9 @@ let taskLister: TodoTaskLister;
 
 beforeEach(() => {
   mockManager = new MockManager();
+  mockManager.currentProjectRepository.get.mockResolvedValue("id");
   taskLister = new TodoTaskLister(
+    mockManager.currentProjectRepository,
     mockManager.todoTaskRepository,
     mockManager.todoTaskPresenter,
   );
@@ -18,14 +20,18 @@ beforeEach(() => {
 
 it("lists tasks", async () => {
   mockManager.todoTaskRepository.list.mockResolvedValue([dummyTask]);
-  await taskLister.list("");
+  await taskLister.list();
   expect(mockManager.todoTaskPresenter.presentTasks.mock.calls).toEqual([
+    [null],
     [[dummyTask]],
   ]);
 });
 
 it("lists no tasks", async () => {
   mockManager.todoTaskRepository.list.mockResolvedValue([]);
-  await taskLister.list("");
-  expect(mockManager.todoTaskPresenter.presentTasks.mock.calls).toEqual([[[]]]);
+  await taskLister.list();
+  expect(mockManager.todoTaskPresenter.presentTasks.mock.calls).toEqual([
+    [null],
+    [[]],
+  ]);
 });

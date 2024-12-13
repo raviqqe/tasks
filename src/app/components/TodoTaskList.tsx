@@ -12,6 +12,8 @@ import {
 } from "@dnd-kit/sortable";
 import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
+import { useAsync } from "@raviqqe/react-hooks";
+import { todoTaskLister } from "../../main/todo-task-lister.js";
 import { todoTaskPresenter } from "../../main/todo-task-presenter.js";
 import { todoTaskReorderer } from "../../main/todo-task-reorderer.js";
 import { buttonMargin } from "../style.js";
@@ -40,6 +42,8 @@ const Tasks = styled.div`
 export const TodoTaskList = (): JSX.Element => {
   const todoTasks = useStore(todoTaskPresenter.tasks);
   const sensors = useSensors(useSensor(PointerSensor));
+
+  useAsync(() => todoTaskLister.list(), []);
 
   return todoTasks ? (
     <DndContext
