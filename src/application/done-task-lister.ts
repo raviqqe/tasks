@@ -1,5 +1,5 @@
 import { type Task } from "../domain/task.js";
-import { CurrentProjectRepository } from "./current-project-repository.js";
+import { type CurrentProjectRepository } from "./current-project-repository.js";
 import { type DoneTaskPresenter } from "./done-task-presenter.js";
 import { type DoneTaskRepository } from "./done-task-repository.js";
 

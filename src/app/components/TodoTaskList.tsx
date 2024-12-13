@@ -12,13 +12,13 @@ import {
 } from "@dnd-kit/sortable";
 import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
+import { useAsync } from "@raviqqe/react-hooks";
+import { todoTaskLister } from "../../main/todo-task-lister.js";
 import { todoTaskPresenter } from "../../main/todo-task-presenter.js";
 import { todoTaskReorderer } from "../../main/todo-task-reorderer.js";
 import { buttonMargin } from "../style.js";
 import { Loader } from "./Loader.js";
 import { Task } from "./Task.js";
-import { useAsync } from "@raviqqe/react-hooks";
-import { todoTaskLister } from "../../main/todo-task-lister.js";
 
 const Container = styled.div`
   display: flex;
