@@ -3,6 +3,7 @@ import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
 import { useEffect, useRef, useState } from "react";
 import { MdArchive, MdDelete, MdEdit, MdUnarchive } from "react-icons/md";
+import { useNavigate } from "react-router";
 import { projectArchiver } from "../../main/project-archiver.js";
 import { projectCreator } from "../../main/project-creator.js";
 import { projectDeleter } from "../../main/project-deleter.js";
@@ -15,7 +16,6 @@ import { IconButton } from "./IconButton.js";
 import { Loader } from "./Loader.js";
 import { Project } from "./Project.js";
 import { ToggleProjects } from "./ToggleProjects.js";
-import { useNavigate } from "react-router";
 
 const Container = styled.div`
   background-color: ${lightGrey};

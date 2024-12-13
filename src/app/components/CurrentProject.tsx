@@ -1,9 +1,9 @@
 import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
+import { useNavigate } from "react-router";
 import { projectPresenter } from "../../main/project-presenter.js";
 import { white } from "../style.js";
 import { Loader } from "./Loader.js";
-import { useNavigate } from "react-router";
 
 const Container = styled.div`
   display: flex;

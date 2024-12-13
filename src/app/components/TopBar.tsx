@@ -22,13 +22,11 @@ const SignOutContainer = styled.div`
   transform: translateY(-50%);
 `;
 
-export const TopBar = (): JSX.Element => {
-  return (
-    <Container>
-      <CurrentProject />
-      <SignOutContainer>
-        <SignOut signOut={() => signOutManager.signOut()} />
-      </SignOutContainer>
-    </Container>
-  );
-};
+export const TopBar = (): JSX.Element => (
+  <Container>
+    <CurrentProject />
+    <SignOutContainer>
+      <SignOut signOut={() => signOutManager.signOut()} />
+    </SignOutContainer>
+  </Container>
+);
