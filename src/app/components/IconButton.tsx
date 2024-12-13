@@ -1,5 +1,10 @@
 import { styled } from "@linaria/react";
-import { type AriaAttributes, type CSSProperties, type ReactNode } from "react";
+import {
+  type AriaAttributes,
+  type CSSProperties,
+  type JSX,
+  type ReactNode,
+} from "react";
 import { grey } from "../style.js";
 
 const Button = styled.div`
