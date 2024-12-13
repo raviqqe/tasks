@@ -4,13 +4,9 @@ import { useNavigate } from "react-router";
 import type * as domain from "../../domain.js";
 import { currentProjectSwitcher } from "../../main/current-project-switcher.js";
 import { black, red } from "../style.js";
+import styles from "./Project.module.css";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: space-between
-  align-items: center;
-  font-size: 1.25em;
-`;
+const Container = styled.div``;
 
 const Name = styled.div<{ highlighted: boolean }>`
   word-break: break-word;
