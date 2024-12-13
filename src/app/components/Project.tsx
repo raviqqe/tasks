@@ -14,7 +14,7 @@ const Name = styled.div<{ highlighted: boolean }>`
   color: ${({ highlighted }) => (highlighted ? red : black)};
 `;
 
-export interface Props {
+interface Props {
   buttons?: JSX.Element;
   currentProject?: domain.Project;
   project: domain.Project;
