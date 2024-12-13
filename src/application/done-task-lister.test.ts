@@ -25,6 +25,7 @@ it("lists tasks", async () => {
   await doneTaskLister.list("");
 
   expect(mockManager.doneTaskPresenter.presentTasks.mock.calls).toEqual([
+    [null],
     [[dummyTask]],
   ]);
 });
@@ -32,7 +33,10 @@ it("lists tasks", async () => {
 it("lists no tasks", async () => {
   await doneTaskLister.list("");
 
-  expect(mockManager.doneTaskPresenter.presentTasks.mock.calls).toEqual([[[]]]);
+  expect(mockManager.doneTaskPresenter.presentTasks.mock.calls).toEqual([
+    [null],
+    [[]],
+  ]);
 });
 
 it("lists more tasks", async () => {

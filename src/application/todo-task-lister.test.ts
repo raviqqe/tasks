@@ -20,6 +20,7 @@ it("lists tasks", async () => {
   mockManager.todoTaskRepository.list.mockResolvedValue([dummyTask]);
   await taskLister.list("");
   expect(mockManager.todoTaskPresenter.presentTasks.mock.calls).toEqual([
+    [null],
     [[dummyTask]],
   ]);
 });
@@ -27,5 +28,8 @@ it("lists tasks", async () => {
 it("lists no tasks", async () => {
   mockManager.todoTaskRepository.list.mockResolvedValue([]);
   await taskLister.list("");
-  expect(mockManager.todoTaskPresenter.presentTasks.mock.calls).toEqual([[[]]]);
+  expect(mockManager.todoTaskPresenter.presentTasks.mock.calls).toEqual([
+    [null],
+    [[]],
+  ]);
 });
