@@ -1,4 +1,4 @@
 import { type JSX } from "react";
-import { App } from "../components/App.js";
+import { Landing } from "../components/Landing.js";
 
-export default (): JSX.Element => <App />;
+export default (): JSX.Element => <Landing />;
