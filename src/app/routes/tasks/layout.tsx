@@ -2,12 +2,13 @@ import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import { useAsync } from "@raviqqe/react-hooks";
 import { type JSX, useState } from "react";
-import { currentProjectInitializer } from "../../main/current-project-initializer.js";
-import { CreateTodoTask } from "../components/CreateTodoTask.js";
-import { DoneTaskList } from "../components/DoneTaskList.js";
-import { TodoTaskList } from "../components/TodoTaskList.js";
-import { ToggleTasks } from "../components/ToggleTasks.js";
-import { TopBar } from "../components/TopBar.js";
+import { currentProjectInitializer } from "../../../main/current-project-initializer.js";
+import { CreateTodoTask } from "../../components/CreateTodoTask.js";
+import { DoneTaskList } from "../../components/DoneTaskList.js";
+import { TodoTaskList } from "../../components/TodoTaskList.js";
+import { ToggleTasks } from "../../components/ToggleTasks.js";
+import { TopBar } from "../../components/TopBar.js";
+import { Outlet } from "react-router";
 
 const Container = styled.div`
   display: flex;
@@ -48,7 +49,7 @@ export default (): JSX.Element => {
     <Container>
       <TopBar />
       <TasksContainer>
-        {tasksDone ? <DoneTaskList /> : <TodoTaskList />}
+        <Outlet />
       </TasksContainer>
       <ButtonsContainer>
         <ToggleTasks setTasksDone={setTasksDone} tasksDone={tasksDone} />
