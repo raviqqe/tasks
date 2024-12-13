@@ -4,24 +4,30 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "dist",
     "headers": [
       {
         "source": "**/*",
         "headers": [
           {
-            "key": "Content-Security-Policy",
-            "value": "default-src 'self' tasks-3e65d.firebaseapp.com *.google.com *.googleapis.com *.gstatic.com sentry.io plausible.io; style-src 'self' 'unsafe-inline' *.googleapis.com; frame-ancestors 'none'"
+            "key": "content-security-policy",
+            "value": "default-src 'self' *.googleapis.com plausible.io tasks-3e65d.firebaseapp.com; font-src data: https:; img-src https:; frame-ancestors 'none'; script-src 'self' 'unsafe-inline' apis.google.com plausible.io; style-src 'self' 'unsafe-inline'"
           },
           {
-            "key": "Strict-Transport-Security",
+            "key": "strict-transport-security",
             "value": "max-age=63072000; includeSubDomains; preload"
           },
           {
-            "key": "X-Frame-Options",
+            "key": "x-frame-options",
             "value": "DENY"
           }
         ]
+      }
+    ],
+    "public": "build/client",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
       }
     ]
   }
