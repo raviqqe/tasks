@@ -19,7 +19,6 @@ interface Props extends AriaAttributes {
 export const IconButton = ({
   children,
   onClick,
-  style,
   ...rest
 }: Props): JSX.Element => (
   <Button onClick={onClick} {...rest}>
