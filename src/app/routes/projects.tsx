@@ -59,7 +59,7 @@ const LowerButtonsContainer = styled.div`
   }
 `;
 
-export const ProjectMenu = (): JSX.Element => {
+export default (): JSX.Element => {
   const currentProject = useStore(projectPresenter.currentProject);
   const archivedProjects = useStore(projectPresenter.archivedProjects);
   const projects = useStore(projectPresenter.projects);
