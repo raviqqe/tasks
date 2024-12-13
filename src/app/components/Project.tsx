@@ -1,58 +1,34 @@
-import { styled } from "@linaria/react";
-import { forwardRef, type Ref } from "react";
-import { useNavigate } from "react-router";
+import classNames from "classnames/bind";
+import { forwardRef, type JSX, type Ref } from "react";
 import type * as domain from "../../domain.js";
-import { currentProjectSwitcher } from "../../main/current-project-switcher.js";
-import { black, red } from "../style.js";
+import styles from "./Project.module.css";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: space-between
-  align-items: center;
-  font-size: 1.25em;
-`;
+const classes = classNames.bind(styles);
 
-const Name = styled.div<{ highlighted: boolean }>`
-  word-break: break-word;
-  margin-right: 1em;
-  flex: 1;
-  cursor: ${({ onClick }) => (onClick ? "pointer" : "auto")};
-  color: ${({ highlighted }) => (highlighted ? red : black)};
-`;
-
-const ButtonsContainer = styled.div`
-  display: flex;
-  align-items: center;
-
-  > :not(:first-child) {
-    margin-left: 0.25rem;
-  }
-`;
-
-export interface Props {
+interface Props {
   buttons?: JSX.Element;
   currentProject?: domain.Project;
+  onClick?: () => Promise<void>;
   project: domain.Project;
 }
 
 export const Project = forwardRef(
-  ({ buttons, currentProject, project }: Props, ref: Ref<HTMLDivElement>) => {
-    const navigate = useNavigate();
-
-    return (
-      <Container ref={ref}>
-        <Name
-          highlighted={project.id === currentProject?.id}
-          onClick={async () => {
-            await navigate("/tasks");
-            await currentProjectSwitcher.switch(project);
-          }}
-        >
-          {project.name}
-        </Name>
-        <ButtonsContainer>{buttons}</ButtonsContainer>
-      </Container>
-    );
-  },
+  (
+    { buttons, currentProject, onClick, project }: Props,
+    ref: Ref<HTMLDivElement>,
+  ): JSX.Element => (
+    <div className={styles.container} ref={ref}>
+      <div
+        className={classes("name", {
+          clickable: onClick,
+          highlighted: project.id === currentProject?.id,
+        })}
+        onClick={onClick}
+      >
+        {project.name}
+      </div>
+      <div className={styles.buttons}>{buttons}</div>
+    </div>
+  ),
 );
 Project.displayName = "Project";

@@ -4,6 +4,7 @@ import { useStore } from "@nanostores/react";
 import { type JSX, useEffect, useRef, useState } from "react";
 import { MdArchive, MdDelete, MdEdit, MdUnarchive } from "react-icons/md";
 import { useNavigate } from "react-router";
+import { currentProjectSwitcher } from "../../../main/current-project-switcher.js";
 import { projectArchiver } from "../../../main/project-archiver.js";
 import { projectCreator } from "../../../main/project-creator.js";
 import { projectDeleter } from "../../../main/project-deleter.js";
@@ -145,6 +146,10 @@ export default (): JSX.Element => {
                 }
                 currentProject={currentProject}
                 key={project.id}
+                onClick={async () => {
+                  await navigate("/tasks");
+                  await currentProjectSwitcher.switch(project);
+                }}
                 project={project}
                 ref={project.id === currentProject.id ? ref : null}
               />

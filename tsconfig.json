@@ -1,4 +1,15 @@
 {
   "extends": "@raviqqe/react-tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "goToDefinition": true,
+          "noUncheckedIndexedAccess": true
+        }
+      }
+    ]
+  },
   "include": ["src", "*.ts"]
 }

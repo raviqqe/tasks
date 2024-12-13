@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.25em;
+}
+
+.name {
+  color: var(--black);
+  word-break: break-word;
+  margin-right: 1em;
+  flex: 1;
+
+  &.clickable {
+    cursor: pointer;
+  }
+
+  &.highlighted {
+    color: var(--red);
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+
+  > :not(:first-child) {
+    margin-left: 0.25rem;
+  }
+}
