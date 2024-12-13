@@ -33,4 +33,7 @@ export default defineConfig({
       },
     }),
   ],
+  ssr: {
+    noExternal: ["react-spinners"],
+  },
 });
