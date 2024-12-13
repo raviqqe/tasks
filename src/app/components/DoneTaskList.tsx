@@ -28,8 +28,12 @@ export const DoneTaskList = (): JSX.Element => {
   useAsync(() => doneTaskLister.list(), []);
 
   const listMore = useCallback(async () => {
+    if (!tasks) {
+      return;
+    }
+
     await doneTaskLister.listMore();
-    setDone(true);
+    setDone(doneTaskPresenter.tasks.get()?.length === tasks.length);
   }, [tasks]);
   const ref = useInfiniteScroll<HTMLDivElement>(listMore);
 
