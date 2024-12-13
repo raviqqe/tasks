@@ -1,40 +1,33 @@
-import { styled } from "@linaria/react";
-import { forwardRef, type Ref } from "react";
-import { useNavigate } from "react-router";
+import { type JSX, forwardRef, type Ref } from "react";
 import type * as domain from "../../domain.js";
-import { currentProjectSwitcher } from "../../main/current-project-switcher.js";
-import { black, red } from "../style.js";
 import styles from "./Project.module.css";
+import classNames from "classnames/bind";
 
-const Name = styled.div<{ highlighted: boolean }>`
-  word-break: break-word;
-  margin-right: 1em;
-  flex: 1;
-  cursor: ${({ onClick }) => (onClick ? "pointer" : "auto")};
-  color: ${({ highlighted }) => (highlighted ? red : black)};
-`;
+const classes = classNames.bind(styles);
 
 interface Props {
   buttons?: JSX.Element;
   currentProject?: domain.Project;
   project: domain.Project;
+  onClick?: () => Promise<void>;
 }
 
 export const Project = forwardRef(
-  ({ buttons, currentProject, project }: Props, ref: Ref<HTMLDivElement>) => {
-    const navigate = useNavigate();
-
+  (
+    { buttons, currentProject, onClick, project }: Props,
+    ref: Ref<HTMLDivElement>,
+  ): JSX.Element => {
     return (
       <div className={styles.container} ref={ref}>
-        <Name
-          highlighted={project.id === currentProject?.id}
-          onClick={async () => {
-            await navigate("/tasks");
-            await currentProjectSwitcher.switch(project);
-          }}
+        <div
+          className={classes("name", {
+            clickable: !!onClick,
+            highlighted: project.id === currentProject?.id,
+          })}
+          onClick={onClick}
         >
           {project.name}
-        </Name>
+        </div>
         <div className={styles.buttons}>{buttons}</div>
       </div>
     );

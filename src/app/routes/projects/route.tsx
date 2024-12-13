@@ -16,6 +16,7 @@ import { Loader } from "../../components/Loader.js";
 import { Project } from "../../components/Project.js";
 import { ToggleProjects } from "../../components/ToggleProjects.js";
 import { boxShadow, grey, lightGrey, white } from "../../style.js";
+import { currentProjectSwitcher } from "../../../main/current-project-switcher.js";
 
 const Container = styled.div`
   background-color: ${lightGrey};
@@ -145,6 +146,10 @@ export default (): JSX.Element => {
                 }
                 currentProject={currentProject}
                 key={project.id}
+                onClick={async () => {
+                  await navigate("/tasks");
+                  await currentProjectSwitcher.switch(project);
+                }}
                 project={project}
                 ref={project.id === currentProject.id ? ref : null}
               />

@@ -18,7 +18,7 @@ import { configuration } from "../configuration.js";
 import { applicationInitializer } from "../main/application-initializer.js";
 import { authenticationPresenter } from "../main/authentication-presenter.js";
 import { Loader } from "./components/Loader.js";
-import { black, green } from "./style.js";
+import { black, green, red } from "./style.js";
 
 export const meta: MetaFunction = () => [
   {
@@ -73,6 +73,9 @@ export const links: LinksFunction = () => [
 ];
 
 const Body = styled.body`
+  --black: ${black};
+  --red: ${red};
+
   background: ${green};
   margin: 0;
   padding: 0;
