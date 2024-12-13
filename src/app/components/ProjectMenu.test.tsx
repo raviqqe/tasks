@@ -15,7 +15,5 @@ beforeEach(() => {
 });
 
 it("renders", () => {
-  expect(
-    render(<ProjectMenu onHideProjects={() => {}} />).container.firstChild,
-  ).toMatchSnapshot();
+  expect(render(<ProjectMenu />).container.firstChild).toMatchSnapshot();
 });

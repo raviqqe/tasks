@@ -1,7 +1,7 @@
 import { styled } from "@linaria/react";
 import { signOutManager } from "../../main/sign-out-manager.js";
 import { boxShadow, red } from "../style.js";
-import { CurrentProject, type Props } from "./CurrentProject.js";
+import { CurrentProject } from "./CurrentProject.js";
 import { SignOut } from "./SignOut.js";
 
 const Container = styled.div`
@@ -22,13 +22,13 @@ const SignOutContainer = styled.div`
   transform: translateY(-50%);
 `;
 
-export { type Props };
-
-export const TopBar = ({ onShowProjects }: Props): JSX.Element => (
-  <Container>
-    <CurrentProject onShowProjects={onShowProjects} />
-    <SignOutContainer>
-      <SignOut signOut={() => signOutManager.signOut()} />
-    </SignOutContainer>
-  </Container>
-);
+export const TopBar = (): JSX.Element => {
+  return (
+    <Container>
+      <CurrentProject />
+      <SignOutContainer>
+        <SignOut signOut={() => signOutManager.signOut()} />
+      </SignOutContainer>
+    </Container>
+  );
+};

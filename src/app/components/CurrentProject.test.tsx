@@ -13,7 +13,5 @@ it("renders", () => {
     }),
   );
 
-  expect(
-    render(<CurrentProject onShowProjects={() => {}} />).container.firstChild,
-  ).toMatchSnapshot();
+  expect(render(<CurrentProject />).container.firstChild).toMatchSnapshot();
 });

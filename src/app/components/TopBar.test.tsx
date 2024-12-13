@@ -11,7 +11,5 @@ beforeEach(() => {
 });
 
 it("renders", () => {
-  expect(
-    render(<TopBar onShowProjects={() => {}} />).container.firstChild,
-  ).toMatchSnapshot();
+  expect(render(<TopBar />).container.firstChild).toMatchSnapshot();
 });

@@ -3,6 +3,7 @@ import { useStore } from "@nanostores/react";
 import { projectPresenter } from "../../main/project-presenter.js";
 import { white } from "../style.js";
 import { Loader } from "./Loader.js";
+import { useNavigate } from "react-router";
 
 const Container = styled.div`
   display: flex;
@@ -14,15 +15,12 @@ const Container = styled.div`
   height: 4rem;
 `;
 
-export interface Props {
-  onShowProjects: () => void;
-}
-
-export const CurrentProject = ({ onShowProjects }: Props): JSX.Element => {
+export const CurrentProject = (): JSX.Element => {
   const project = useStore(projectPresenter.currentProject);
+  const navigate = useNavigate();
 
   return (
-    <Container onClick={onShowProjects}>
+    <Container onClick={() => navigate("/projects")}>
       {project?.name ?? <Loader />}
     </Container>
   );
