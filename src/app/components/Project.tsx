@@ -17,7 +17,7 @@ export const Project = forwardRef(
     { buttons, currentProject, onClick, project }: Props,
     ref: Ref<HTMLDivElement>,
   ): JSX.Element => (
-    <div className={styles.container} ref={ref}>
+    <div className={styles.root} ref={ref}>
       <div
         className={classes("name", {
           clickable: onClick,
