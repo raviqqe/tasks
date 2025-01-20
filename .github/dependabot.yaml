@@ -15,3 +15,11 @@ updates:
           - react-dom
           - "@types/react"
           - "@types/react-dom"
+      react_router:
+        patterns:
+          - react-router
+          - "@react-router/*"
+      vitest:
+        patterns:
+          - vitest
+          - "@vitest/*"
