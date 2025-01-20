@@ -1,4 +1,4 @@
-import { beforeAll, vi } from "vitest";
+import { afterEach, beforeAll, vi } from "vitest";
 
 beforeAll(() => {
   vi.stubGlobal(
@@ -10,4 +10,8 @@ beforeAll(() => {
       unobserve: vi.fn(),
     })),
   );
+});
+
+afterEach(() => {
+  vi.restoreAllMocks();
 });
