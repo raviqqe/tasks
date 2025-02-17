@@ -22,7 +22,7 @@
     "@react-router/node": "^7.1.5",
     "@sentry/browser": "^9.1.0",
     "classnames": "^2.5.1",
-    "default-import": "^2.0.7",
+    "default-import": "^2.0.8",
     "es-toolkit": "^1.32.0",
     "firebase": "^11.3.1",
     "isbot": "^5.1.22",
