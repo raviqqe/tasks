@@ -44,7 +44,7 @@
     "@types/react": "^18.3.13",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/coverage-v8": "^3.0.8",
-    "@wyw-in-js/vite": "^0.5.5",
+    "@wyw-in-js/vite": "^0.6.0",
     "eslint": "^9.22.0",
     "firebase-tools": "^13.34.0",
     "jsdom": "^26.0.0",
