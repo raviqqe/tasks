@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.26.3",
-    "@babel/preset-typescript": "^7.26.0",
+    "@babel/preset-typescript": "^7.27.0",
     "@raviqqe/eslint-config": "^4.1.16",
     "@raviqqe/react-tsconfig": "^1.2.0",
     "@react-router/dev": "^7.4.0",
