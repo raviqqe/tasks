@@ -17,7 +17,7 @@
     "@fontsource/roboto": "^5.2.5",
     "@linaria/core": "^6.2.0",
     "@linaria/react": "^6.3.0",
-    "@nanostores/react": "^0.8.4",
+    "@nanostores/react": "^1.0.0",
     "@raviqqe/react-hooks": "^0.5.3",
     "@react-router/node": "^7.5.0",
     "@sentry/browser": "^9.12.0",
