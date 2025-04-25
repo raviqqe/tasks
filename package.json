@@ -24,7 +24,7 @@
     "classnames": "^2.5.1",
     "default-import": "^2.0.8",
     "es-toolkit": "^1.35.0",
-    "firebase": "^11.6.0",
+    "firebase": "^11.6.1",
     "isbot": "^5.1.26",
     "localforage": "^1.10.0",
     "nanostores": "^1.0.1",
