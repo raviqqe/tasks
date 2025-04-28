@@ -25,7 +25,7 @@
     "default-import": "^2.0.8",
     "es-toolkit": "^1.36.0",
     "firebase": "^11.6.1",
-    "isbot": "^5.1.26",
+    "isbot": "^5.1.27",
     "localforage": "^1.10.0",
     "nanostores": "^1.0.1",
     "react": "^18.1.0",
