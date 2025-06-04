@@ -20,7 +20,7 @@
     "@nanostores/react": "^1.0.0",
     "@raviqqe/react-hooks": "^0.5.3",
     "@react-router/node": "^7.6.2",
-    "@sentry/browser": "^9.24.0",
+    "@sentry/browser": "^9.25.1",
     "classnames": "^2.5.1",
     "default-import": "^2.0.8",
     "es-toolkit": "^1.38.0",
