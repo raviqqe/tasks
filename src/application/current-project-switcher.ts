@@ -3,10 +3,16 @@ import { type CurrentProjectRepository } from "./current-project-repository.js";
 import { type ProjectPresenter } from "./project-presenter.js";
 
 export class CurrentProjectSwitcher {
+  private readonly currentProjectRepository: CurrentProjectRepository;
+  private readonly projectPresenter: ProjectPresenter;
+
   constructor(
-    private readonly currentProjectRepository: CurrentProjectRepository,
-    private readonly projectPresenter: ProjectPresenter,
-  ) {}
+    currentProjectRepository: CurrentProjectRepository,
+    projectPresenter: ProjectPresenter,
+  ) {
+    this.currentProjectRepository = currentProjectRepository;
+    this.projectPresenter = projectPresenter;
+  }
 
   public async switch(project: Project): Promise<void> {
     this.projectPresenter.presentCurrentProject(project);
