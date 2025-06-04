@@ -8,13 +8,25 @@ import { type ProjectRepository } from "./project-repository.js";
 const defaultProjectName = "main";
 
 export class CurrentProjectInitializer {
+  private readonly projectCreator: ProjectCreator;
+  private readonly projectRepository: ProjectRepository;
+  private readonly projectPresenter: ProjectPresenter;
+  private readonly currentProjectSwitcher: CurrentProjectSwitcher;
+  private readonly currentProjectRepository: CurrentProjectRepository;
+
   constructor(
-    private readonly projectCreator: ProjectCreator,
-    private readonly projectRepository: ProjectRepository,
-    private readonly projectPresenter: ProjectPresenter,
-    private readonly currentProjectSwitcher: CurrentProjectSwitcher,
-    private readonly currentProjectRepository: CurrentProjectRepository,
-  ) {}
+    projectCreator: ProjectCreator,
+    projectRepository: ProjectRepository,
+    projectPresenter: ProjectPresenter,
+    currentProjectSwitcher: CurrentProjectSwitcher,
+    currentProjectRepository: CurrentProjectRepository,
+  ) {
+    this.projectCreator = projectCreator;
+    this.projectRepository = projectRepository;
+    this.projectPresenter = projectPresenter;
+    this.currentProjectSwitcher = currentProjectSwitcher;
+    this.currentProjectRepository = currentProjectRepository;
+  }
 
   public async initialize(): Promise<void> {
     const projects = await this.projectRepository.list();

@@ -9,11 +9,19 @@ import { type ProjectPresenter } from "./project-presenter.js";
 import { type ProjectRepository } from "./project-repository.js";
 
 export class ProjectUpdater {
+  private readonly projectRepository: ProjectRepository;
+  private readonly projectPresenter: ProjectPresenter;
+  private readonly messagePresenter: MessagePresenter;
+
   constructor(
-    private readonly projectRepository: ProjectRepository,
-    private readonly projectPresenter: ProjectPresenter,
-    private readonly messagePresenter: MessagePresenter,
-  ) {}
+    projectRepository: ProjectRepository,
+    projectPresenter: ProjectPresenter,
+    messagePresenter: MessagePresenter,
+  ) {
+    this.projectRepository = projectRepository;
+    this.projectPresenter = projectPresenter;
+    this.messagePresenter = messagePresenter;
+  }
 
   public async update(project: Project): Promise<void> {
     project = formatProject(project);

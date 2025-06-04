@@ -7,13 +7,25 @@ import { type ProjectPresenter } from "./project-presenter.js";
 import { type ProjectRepository } from "./project-repository.js";
 
 export class ProjectArchiver {
+  private readonly currentProjectSwitcher: CurrentProjectSwitcher;
+  private readonly projectRepository: ProjectRepository;
+  private readonly projectPresenter: ProjectPresenter;
+  private readonly messagePresenter: MessagePresenter;
+  private readonly confirmationController: ConfirmationController;
+
   constructor(
-    private readonly currentProjectSwitcher: CurrentProjectSwitcher,
-    private readonly projectRepository: ProjectRepository,
-    private readonly projectPresenter: ProjectPresenter,
-    private readonly messagePresenter: MessagePresenter,
-    private readonly confirmationController: ConfirmationController,
-  ) {}
+    currentProjectSwitcher: CurrentProjectSwitcher,
+    projectRepository: ProjectRepository,
+    projectPresenter: ProjectPresenter,
+    messagePresenter: MessagePresenter,
+    confirmationController: ConfirmationController,
+  ) {
+    this.currentProjectSwitcher = currentProjectSwitcher;
+    this.projectRepository = projectRepository;
+    this.projectPresenter = projectPresenter;
+    this.messagePresenter = messagePresenter;
+    this.confirmationController = confirmationController;
+  }
 
   public async archive(
     project: Project,

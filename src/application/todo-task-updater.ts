@@ -6,13 +6,25 @@ import { type TodoTaskPresenter } from "./todo-task-presenter.js";
 import { type TodoTaskRepository } from "./todo-task-repository.js";
 
 export class TodoTaskUpdater {
+  private readonly currentProjectRepository: CurrentProjectRepository;
+  private readonly todoTaskDeleter: TodoTaskDeleter;
+  private readonly todoTaskRepository: TodoTaskRepository;
+  private readonly todoTaskPresenter: TodoTaskPresenter;
+  private readonly confirmationController: ConfirmationController;
+
   constructor(
-    private readonly currentProjectRepository: CurrentProjectRepository,
-    private readonly todoTaskDeleter: TodoTaskDeleter,
-    private readonly todoTaskRepository: TodoTaskRepository,
-    private readonly todoTaskPresenter: TodoTaskPresenter,
-    private readonly confirmationController: ConfirmationController,
-  ) {}
+    currentProjectRepository: CurrentProjectRepository,
+    todoTaskDeleter: TodoTaskDeleter,
+    todoTaskRepository: TodoTaskRepository,
+    todoTaskPresenter: TodoTaskPresenter,
+    confirmationController: ConfirmationController,
+  ) {
+    this.currentProjectRepository = currentProjectRepository;
+    this.todoTaskDeleter = todoTaskDeleter;
+    this.todoTaskRepository = todoTaskRepository;
+    this.todoTaskPresenter = todoTaskPresenter;
+    this.confirmationController = confirmationController;
+  }
 
   public async update(task: Task): Promise<void> {
     const projectId = await this.currentProjectRepository.get();

@@ -6,12 +6,22 @@ import { type TodoTaskPresenter } from "./todo-task-presenter.js";
 import { type TodoTaskRepository } from "./todo-task-repository.js";
 
 export class TodoTaskCreator {
+  private readonly currentProjectRepository: CurrentProjectRepository;
+  private readonly todoTaskRepository: TodoTaskRepository;
+  private readonly todoTaskPresenter: TodoTaskPresenter;
+  private readonly messagePresenter: MessagePresenter;
+
   constructor(
-    private readonly currentProjectRepository: CurrentProjectRepository,
-    private readonly todoTaskRepository: TodoTaskRepository,
-    private readonly todoTaskPresenter: TodoTaskPresenter,
-    private readonly messagePresenter: MessagePresenter,
-  ) {}
+    currentProjectRepository: CurrentProjectRepository,
+    todoTaskRepository: TodoTaskRepository,
+    todoTaskPresenter: TodoTaskPresenter,
+    messagePresenter: MessagePresenter,
+  ) {
+    this.currentProjectRepository = currentProjectRepository;
+    this.todoTaskRepository = todoTaskRepository;
+    this.todoTaskPresenter = todoTaskPresenter;
+    this.messagePresenter = messagePresenter;
+  }
 
   public async create(name: string): Promise<void> {
     const projectId = await this.currentProjectRepository.get();

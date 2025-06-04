@@ -3,11 +3,19 @@ import { type TodoTaskPresenter } from "./todo-task-presenter.js";
 import { type TodoTaskRepository } from "./todo-task-repository.js";
 
 export class TodoTaskDeleter {
+  private readonly currentProjectRepository: CurrentProjectRepository;
+  private readonly todoTaskRepository: TodoTaskRepository;
+  private readonly todoTaskPresenter: TodoTaskPresenter;
+
   constructor(
-    private readonly currentProjectRepository: CurrentProjectRepository,
-    private readonly todoTaskRepository: TodoTaskRepository,
-    private readonly todoTaskPresenter: TodoTaskPresenter,
-  ) {}
+    currentProjectRepository: CurrentProjectRepository,
+    todoTaskRepository: TodoTaskRepository,
+    todoTaskPresenter: TodoTaskPresenter,
+  ) {
+    this.currentProjectRepository = currentProjectRepository;
+    this.todoTaskRepository = todoTaskRepository;
+    this.todoTaskPresenter = todoTaskPresenter;
+  }
 
   public async delete(taskId: string): Promise<void> {
     const projectId = await this.currentProjectRepository.get();

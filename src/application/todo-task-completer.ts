@@ -5,12 +5,22 @@ import { type DoneTaskRepository } from "./done-task-repository.js";
 import { type TodoTaskDeleter } from "./todo-task-deleter.js";
 
 export class TodoTaskCompleter {
+  private readonly currentProjectRepository: CurrentProjectRepository;
+  private readonly todoTaskDeleter: TodoTaskDeleter;
+  private readonly doneTaskRepository: DoneTaskRepository;
+  private readonly doneTaskPresenter: DoneTaskPresenter;
+
   constructor(
-    private readonly currentProjectRepository: CurrentProjectRepository,
-    private readonly todoTaskDeleter: TodoTaskDeleter,
-    private readonly doneTaskRepository: DoneTaskRepository,
-    private readonly doneTaskPresenter: DoneTaskPresenter,
-  ) {}
+    currentProjectRepository: CurrentProjectRepository,
+    todoTaskDeleter: TodoTaskDeleter,
+    doneTaskRepository: DoneTaskRepository,
+    doneTaskPresenter: DoneTaskPresenter,
+  ) {
+    this.currentProjectRepository = currentProjectRepository;
+    this.todoTaskDeleter = todoTaskDeleter;
+    this.doneTaskRepository = doneTaskRepository;
+    this.doneTaskPresenter = doneTaskPresenter;
+  }
 
   public async complete(task: Task): Promise<void> {
     const projectId = await this.currentProjectRepository.get();
