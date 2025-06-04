@@ -4,11 +4,19 @@ import { type ProjectPresenter } from "./project-presenter.js";
 import { type ProjectRepository } from "./project-repository.js";
 
 export class ProjectDeleter {
+  private readonly projectRepository: ProjectRepository;
+  private readonly projectPresenter: ProjectPresenter;
+  private readonly confirmationController: ConfirmationController;
+
   constructor(
-    private readonly projectRepository: ProjectRepository,
-    private readonly projectPresenter: ProjectPresenter,
-    private readonly confirmationController: ConfirmationController,
-  ) {}
+    projectRepository: ProjectRepository,
+    projectPresenter: ProjectPresenter,
+    confirmationController: ConfirmationController,
+  ) {
+    this.projectRepository = projectRepository;
+    this.projectPresenter = projectPresenter;
+    this.confirmationController = confirmationController;
+  }
 
   public async delete(project: Project): Promise<void> {
     if (!project.archived) {

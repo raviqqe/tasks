@@ -6,13 +6,20 @@ import { type DoneTaskRepository } from "./done-task-repository.js";
 const defaultLimit = 20;
 
 export class DoneTaskLister {
+  private readonly currentProjectRepository: CurrentProjectRepository;
+  private readonly doneTaskRepository: DoneTaskRepository;
+  private readonly doneTaskPresenter: DoneTaskPresenter;
   private iterator: AsyncIterator<Task[], void> | null = null;
 
   constructor(
-    private readonly currentProjectRepository: CurrentProjectRepository,
-    private readonly doneTaskRepository: DoneTaskRepository,
-    private readonly doneTaskPresenter: DoneTaskPresenter,
-  ) {}
+    currentProjectRepository: CurrentProjectRepository,
+    doneTaskRepository: DoneTaskRepository,
+    doneTaskPresenter: DoneTaskPresenter,
+  ) {
+    this.currentProjectRepository = currentProjectRepository;
+    this.doneTaskRepository = doneTaskRepository;
+    this.doneTaskPresenter = doneTaskPresenter;
+  }
 
   public async list(): Promise<void> {
     const projectId = await this.currentProjectRepository.get();
@@ -25,7 +32,7 @@ export class DoneTaskLister {
 
     this.iterator = this.doneTaskRepository
       .list(projectId, defaultLimit)
-      [Symbol.asyncIterator]();
+    [Symbol.asyncIterator]();
     this.doneTaskPresenter.presentTasks(
       (await this.iterator.next()).value || [],
     );
