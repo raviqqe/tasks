@@ -40,7 +40,7 @@ export class CurrentProjectInitializer {
 
     await this.currentProjectSwitcher.switch(
       projects.find((project) => project.id === projectId) ??
-      getFirstProject(projects),
+        getFirstProject(projects),
     );
     this.projectPresenter.presentProjects(projects);
     this.projectPresenter.presentArchivedProjects(

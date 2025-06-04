@@ -32,7 +32,7 @@ export class DoneTaskLister {
 
     this.iterator = this.doneTaskRepository
       .list(projectId, defaultLimit)
-    [Symbol.asyncIterator]();
+      [Symbol.asyncIterator]();
     this.doneTaskPresenter.presentTasks(
       (await this.iterator.next()).value || [],
     );
