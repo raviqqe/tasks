@@ -10,12 +10,22 @@ import { type ProjectPresenter } from "./project-presenter.js";
 import { type ProjectRepository } from "./project-repository.js";
 
 export class ProjectCreator {
+  private readonly currentProjectSwitcher: CurrentProjectSwitcher;
+  private readonly projectRepository: ProjectRepository;
+  private readonly projectPresenter: ProjectPresenter;
+  private readonly messagePresenter: MessagePresenter;
+
   constructor(
-    private readonly currentProjectSwitcher: CurrentProjectSwitcher,
-    private readonly projectRepository: ProjectRepository,
-    private readonly projectPresenter: ProjectPresenter,
-    private readonly messagePresenter: MessagePresenter,
-  ) {}
+    currentProjectSwitcher: CurrentProjectSwitcher,
+    projectRepository: ProjectRepository,
+    projectPresenter: ProjectPresenter,
+    messagePresenter: MessagePresenter,
+  ) {
+    this.currentProjectSwitcher = currentProjectSwitcher;
+    this.projectRepository = projectRepository;
+    this.projectPresenter = projectPresenter;
+    this.messagePresenter = messagePresenter;
+  }
 
   public async create(name: string): Promise<void> {
     const project: Project = formatProject({
