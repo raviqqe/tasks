@@ -2,13 +2,13 @@
 
 exports[`renders 1`] = `
 <div
-  class="_root_4736e6"
+  class="_root_f1e5e0"
 >
   <div
-    class="_name_4736e6"
+    class="_name_f1e5e0"
   />
   <div
-    class="_buttons_4736e6"
+    class="_buttons_f1e5e0"
   />
 </div>
 `;
