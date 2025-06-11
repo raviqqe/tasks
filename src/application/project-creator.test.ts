@@ -23,7 +23,7 @@ it("creates and persists a project", async () => {
 
   const project = {
     archived: false,
-    id: expect.any(String),
+    id: expect.any(String) as unknown,
     name: "foo",
   };
   expect(mockManager.projectRepository.create.mock.calls).toEqual([[project]]);
