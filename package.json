@@ -23,7 +23,7 @@
     "@sentry/browser": "^9.35.0",
     "classnames": "^2.5.1",
     "default-import": "^2.0.8",
-    "es-toolkit": "^1.39.6",
+    "es-toolkit": "^1.39.7",
     "firebase": "^11.10.0",
     "isbot": "^5.1.28",
     "localforage": "^1.10.0",
