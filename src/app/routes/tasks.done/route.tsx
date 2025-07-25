@@ -39,7 +39,9 @@ export default (): JSX.Element => {
 
   return (
     <Container>
-      {tasks?.map((task) => <Task key={task.id} task={task} />)}
+      {tasks?.map((task) => (
+        <Task key={task.id} task={task} />
+      ))}
       {!done && (
         <LoaderContainer ref={ref}>
           <Loader />
