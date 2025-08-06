@@ -34,7 +34,8 @@ export class DoneTaskLister {
       .list(projectId, defaultLimit)
       [Symbol.asyncIterator]();
     this.doneTaskPresenter.presentTasks(
-      (await this.iterator.next()).value || [],
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      (await this.iterator.next()).value ?? [],
     );
   }
 
