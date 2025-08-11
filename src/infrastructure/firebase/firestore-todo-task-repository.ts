@@ -80,7 +80,7 @@ export class FirestoreTodoTaskRepository implements TodoTaskRepository {
   }
 
   public async reorder(projectId: string, taskIds: string[]): Promise<void> {
-    // eslint-disable-next-line @typescript-eslint/require-await
+    
     await runTransaction(this.firestore, async (transaction) =>
       this.setOrder(projectId, taskIds, transaction),
     );
