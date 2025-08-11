@@ -1,7 +1,7 @@
-import { type Task } from "../domain/task.js";
-import { type CurrentProjectRepository } from "./current-project-repository.js";
-import { type DoneTaskPresenter } from "./done-task-presenter.js";
-import { type DoneTaskRepository } from "./done-task-repository.js";
+import type { Task } from "../domain/task.js";
+import type { CurrentProjectRepository } from "./current-project-repository.js";
+import type { DoneTaskPresenter } from "./done-task-presenter.js";
+import type { DoneTaskRepository } from "./done-task-repository.js";
 
 const defaultLimit = 20;
 
@@ -11,7 +11,7 @@ export class DoneTaskLister {
   private readonly doneTaskPresenter: DoneTaskPresenter;
   private iterator: AsyncIterator<Task[], void> | null = null;
 
-  constructor(
+  public constructor(
     currentProjectRepository: CurrentProjectRepository,
     doneTaskRepository: DoneTaskRepository,
     doneTaskPresenter: DoneTaskPresenter,
@@ -34,7 +34,6 @@ export class DoneTaskLister {
       .list(projectId, defaultLimit)
       [Symbol.asyncIterator]();
     this.doneTaskPresenter.presentTasks(
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       (await this.iterator.next()).value ?? [],
     );
   }

@@ -1,8 +1,8 @@
-import { type FirebaseApp } from "firebase/app";
+import type { FirebaseApp } from "firebase/app";
 import { type Auth, getAuth } from "firebase/auth";
 import {
-  collection,
   type CollectionReference,
+  collection,
   deleteDoc,
   doc,
   type Firestore,
@@ -13,14 +13,14 @@ import {
   updateDoc,
   where,
 } from "firebase/firestore/lite";
-import { type ProjectRepository } from "../../application/project-repository.js";
-import { type Project } from "../../domain/project.js";
+import type { ProjectRepository } from "../../application/project-repository.js";
+import type { Project } from "../../domain/project.js";
 
 export class FirestoreProjectRepository implements ProjectRepository {
   private readonly auth: Auth;
   private readonly firestore: Firestore;
 
-  constructor(app: FirebaseApp) {
+  public constructor(app: FirebaseApp) {
     this.auth = getAuth(app);
     this.firestore = getFirestore(app);
   }

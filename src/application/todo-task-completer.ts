@@ -1,8 +1,8 @@
-import { type Task } from "../domain/task.js";
-import { type CurrentProjectRepository } from "./current-project-repository.js";
-import { type DoneTaskPresenter } from "./done-task-presenter.js";
-import { type DoneTaskRepository } from "./done-task-repository.js";
-import { type TodoTaskDeleter } from "./todo-task-deleter.js";
+import type { Task } from "../domain/task.js";
+import type { CurrentProjectRepository } from "./current-project-repository.js";
+import type { DoneTaskPresenter } from "./done-task-presenter.js";
+import type { DoneTaskRepository } from "./done-task-repository.js";
+import type { TodoTaskDeleter } from "./todo-task-deleter.js";
 
 export class TodoTaskCompleter {
   private readonly currentProjectRepository: CurrentProjectRepository;
@@ -10,7 +10,7 @@ export class TodoTaskCompleter {
   private readonly doneTaskRepository: DoneTaskRepository;
   private readonly doneTaskPresenter: DoneTaskPresenter;
 
-  constructor(
+  public constructor(
     currentProjectRepository: CurrentProjectRepository,
     todoTaskDeleter: TodoTaskDeleter,
     doneTaskRepository: DoneTaskRepository,

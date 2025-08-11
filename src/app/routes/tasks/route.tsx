@@ -1,7 +1,7 @@
 import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import { useAsync } from "@raviqqe/react-hooks";
-import { type JSX } from "react";
+import type { JSX } from "react";
 import { Outlet, useLocation } from "react-router";
 import { currentProjectInitializer } from "../../../main/current-project-initializer.js";
 import { CreateTodoTask } from "../../components/CreateTodoTask.js";

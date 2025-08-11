@@ -1,4 +1,4 @@
-import { type Task } from "../domain/task.js";
+import type { Task } from "../domain/task.js";
 
 export interface DoneTaskRepository {
   create(projectId: string, task: Task): Promise<void>;

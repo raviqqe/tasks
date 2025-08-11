@@ -1,4 +1,4 @@
-import { type DraggableSyntheticListeners } from "@dnd-kit/core";
+import type { DraggableSyntheticListeners } from "@dnd-kit/core";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { css } from "@linaria/core";
@@ -10,6 +10,7 @@ import { todoTaskUpdater } from "../../main/todo-task-updater.js";
 import { boxShadow, white } from "../style.js";
 import { IconButton } from "./IconButton.js";
 
+// biome-ignore lint/style/useNamingConvention: Correct spelling
 const maxZIndex = 10000;
 
 const Container = styled.div`

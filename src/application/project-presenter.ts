@@ -1,4 +1,4 @@
-import { type Project } from "../domain/project.js";
+import type { Project } from "../domain/project.js";
 
 export interface ProjectPresenter {
   presentArchivedProject(project: Project): void;

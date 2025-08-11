@@ -1,4 +1,4 @@
-import { type JSX } from "react";
+import type { JSX } from "react";
 import { PulseLoader } from "react-spinners";
 import { white } from "../style.js";
 

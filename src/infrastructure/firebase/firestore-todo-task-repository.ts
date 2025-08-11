@@ -1,11 +1,11 @@
 import { compact, isEqual } from "es-toolkit";
-import { type FirebaseApp } from "firebase/app";
+import type { FirebaseApp } from "firebase/app";
 import { type Auth, getAuth } from "firebase/auth";
 import {
-  collection,
   type CollectionReference,
-  doc,
+  collection,
   type DocumentReference,
+  doc,
   type Firestore,
   getDocs,
   getFirestore,
@@ -13,8 +13,8 @@ import {
   type Transaction,
   updateDoc,
 } from "firebase/firestore/lite";
-import { type TodoTaskRepository } from "../../application/todo-task-repository.js";
-import { type Task } from "../../domain/task.js";
+import type { TodoTaskRepository } from "../../application/todo-task-repository.js";
+import type { Task } from "../../domain/task.js";
 
 interface OrderDocument {
   order: string[];
@@ -24,7 +24,7 @@ export class FirestoreTodoTaskRepository implements TodoTaskRepository {
   private readonly auth: Auth;
   private readonly firestore: Firestore;
 
-  constructor(app: FirebaseApp) {
+  public constructor(app: FirebaseApp) {
     this.auth = getAuth(app);
     this.firestore = getFirestore(app);
   }
@@ -80,7 +80,6 @@ export class FirestoreTodoTaskRepository implements TodoTaskRepository {
   }
 
   public async reorder(projectId: string, taskIds: string[]): Promise<void> {
-    // eslint-disable-next-line @typescript-eslint/require-await
     await runTransaction(this.firestore, async (transaction) =>
       this.setOrder(projectId, taskIds, transaction),
     );

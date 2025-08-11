@@ -1,4 +1,4 @@
-import { type Task } from "../domain/task.js";
+import type { Task } from "../domain/task.js";
 
 export interface TodoTaskPresenter {
   presentDeletedTask(taskId: string): void;

@@ -1,11 +1,11 @@
-import { render, type RenderResult } from "@testing-library/react";
-import { type JSX } from "react";
+import { type RenderResult, render } from "@testing-library/react";
+import type { JSX } from "react";
 import { createRoutesStub } from "react-router";
 
 export const renderRouter = (element: JSX.Element): RenderResult => {
   const Component = createRoutesStub([
     {
-      // eslint-disable-next-line @typescript-eslint/naming-convention
+      // biome-ignore lint/style/useNamingConvention: External API
       Component: () => element,
       path: "/",
     },

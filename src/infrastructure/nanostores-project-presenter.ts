@@ -1,5 +1,5 @@
 import { atom } from "nanostores";
-import { type ProjectPresenter } from "../application/project-presenter.js";
+import type { ProjectPresenter } from "../application/project-presenter.js";
 import { type Project, sortProjects } from "../domain/project.js";
 
 export class NanostoresProjectPresenter implements ProjectPresenter {

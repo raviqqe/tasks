@@ -1,8 +1,8 @@
+import { reactRouter } from "@react-router/dev/vite";
 import defaultWyw from "@wyw-in-js/vite";
+import { defaultImport } from "default-import";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
-import { reactRouter } from "@react-router/dev/vite";
-import { defaultImport } from "default-import";
 
 const wyw = defaultImport(defaultWyw);
 
@@ -13,20 +13,22 @@ export default defineConfig({
   plugins: [
     reactRouter(),
     wyw({
-      include: ["src/**/*.{ts,tsx}"],
       babelOptions: {
         presets: ["@babel/preset-typescript", "@babel/preset-react"],
       },
+      include: ["src/**/*.{ts,tsx}"],
     }),
     VitePWA({
       manifest: {
-        short_name: "BeDone",
-        name: "BeDone",
-        icons: [{ src: "icon.svg", sizes: "any" }],
-        start_url: ".",
-        display: "standalone",
-        theme_color: "indianred",
+        // biome-ignore-start lint/style/useNamingConvention: External API
         background_color: "indianred",
+        display: "standalone",
+        icons: [{ sizes: "any", src: "icon.svg" }],
+        name: "BeDone",
+        short_name: "BeDone",
+        start_url: ".",
+        theme_color: "indianred",
+        // biome-ignore-end lint/style/useNamingConvention: External API
       },
       workbox: {
         navigateFallbackDenylist: [/^\/__/],

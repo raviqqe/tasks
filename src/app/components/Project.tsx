@@ -18,6 +18,8 @@ export const Project = forwardRef(
     ref: Ref<HTMLDivElement>,
   ): JSX.Element => (
     <div className={styles.root} ref={ref}>
+      {/* biome-ignore lint/a11y/noStaticElementInteractions: TODO */}
+      {/* biome-ignore lint/a11y/useKeyWithClickEvents: TODO */}
       <div
         className={classes("name", {
           clickable: onClick,

@@ -1,9 +1,9 @@
 import { getFirstProject } from "../domain/project.js";
-import { type CurrentProjectRepository } from "./current-project-repository.js";
-import { type CurrentProjectSwitcher } from "./current-project-switcher.js";
-import { type ProjectCreator } from "./project-creator.js";
-import { type ProjectPresenter } from "./project-presenter.js";
-import { type ProjectRepository } from "./project-repository.js";
+import type { CurrentProjectRepository } from "./current-project-repository.js";
+import type { CurrentProjectSwitcher } from "./current-project-switcher.js";
+import type { ProjectCreator } from "./project-creator.js";
+import type { ProjectPresenter } from "./project-presenter.js";
+import type { ProjectRepository } from "./project-repository.js";
 
 const defaultProjectName = "main";
 
@@ -14,7 +14,7 @@ export class CurrentProjectInitializer {
   private readonly currentProjectSwitcher: CurrentProjectSwitcher;
   private readonly currentProjectRepository: CurrentProjectRepository;
 
-  constructor(
+  public constructor(
     projectCreator: ProjectCreator,
     projectRepository: ProjectRepository,
     projectPresenter: ProjectPresenter,

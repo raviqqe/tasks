@@ -4,10 +4,10 @@ import {
   type Project,
   validateProject,
 } from "../domain/project.js";
-import { type CurrentProjectSwitcher } from "./current-project-switcher.js";
-import { type MessagePresenter } from "./message-presenter.js";
-import { type ProjectPresenter } from "./project-presenter.js";
-import { type ProjectRepository } from "./project-repository.js";
+import type { CurrentProjectSwitcher } from "./current-project-switcher.js";
+import type { MessagePresenter } from "./message-presenter.js";
+import type { ProjectPresenter } from "./project-presenter.js";
+import type { ProjectRepository } from "./project-repository.js";
 
 export class ProjectCreator {
   private readonly currentProjectSwitcher: CurrentProjectSwitcher;
@@ -15,7 +15,7 @@ export class ProjectCreator {
   private readonly projectPresenter: ProjectPresenter;
   private readonly messagePresenter: MessagePresenter;
 
-  constructor(
+  public constructor(
     currentProjectSwitcher: CurrentProjectSwitcher,
     projectRepository: ProjectRepository,
     projectPresenter: ProjectPresenter,
