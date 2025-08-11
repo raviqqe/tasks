@@ -80,7 +80,6 @@ export class FirestoreTodoTaskRepository implements TodoTaskRepository {
   }
 
   public async reorder(projectId: string, taskIds: string[]): Promise<void> {
-    
     await runTransaction(this.firestore, async (transaction) =>
       this.setOrder(projectId, taskIds, transaction),
     );
