@@ -11,7 +11,7 @@ type FirebaseConfiguration = Required<
 export class FirebaseInitializer {
   private readonly configuration: FirebaseConfiguration;
 
-  constructor(configuration: FirebaseConfiguration) {
+  public constructor(configuration: FirebaseConfiguration) {
     this.configuration = configuration;
   }
 

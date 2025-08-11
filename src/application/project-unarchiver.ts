@@ -8,7 +8,7 @@ export class ProjectUnarchiver {
   private readonly projectRepository: ProjectRepository;
   private readonly projectPresenter: ProjectPresenter;
 
-  constructor(
+  public constructor(
     currentProjectSwitcher: CurrentProjectSwitcher,
     projectRepository: ProjectRepository,
     projectPresenter: ProjectPresenter,

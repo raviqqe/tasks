@@ -13,7 +13,7 @@ export class ProjectArchiver {
   private readonly messagePresenter: MessagePresenter;
   private readonly confirmationController: ConfirmationController;
 
-  constructor(
+  public constructor(
     currentProjectSwitcher: CurrentProjectSwitcher,
     projectRepository: ProjectRepository,
     projectPresenter: ProjectPresenter,

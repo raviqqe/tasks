@@ -15,7 +15,7 @@ export class ProjectCreator {
   private readonly projectPresenter: ProjectPresenter;
   private readonly messagePresenter: MessagePresenter;
 
-  constructor(
+  public constructor(
     currentProjectSwitcher: CurrentProjectSwitcher,
     projectRepository: ProjectRepository,
     projectPresenter: ProjectPresenter,

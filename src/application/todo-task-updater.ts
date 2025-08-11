@@ -12,7 +12,7 @@ export class TodoTaskUpdater {
   private readonly todoTaskPresenter: TodoTaskPresenter;
   private readonly confirmationController: ConfirmationController;
 
-  constructor(
+  public constructor(
     currentProjectRepository: CurrentProjectRepository,
     todoTaskDeleter: TodoTaskDeleter,
     todoTaskRepository: TodoTaskRepository,

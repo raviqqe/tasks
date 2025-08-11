@@ -10,7 +10,7 @@ export class TodoTaskCompleter {
   private readonly doneTaskRepository: DoneTaskRepository;
   private readonly doneTaskPresenter: DoneTaskPresenter;
 
-  constructor(
+  public constructor(
     currentProjectRepository: CurrentProjectRepository,
     todoTaskDeleter: TodoTaskDeleter,
     doneTaskRepository: DoneTaskRepository,

@@ -5,7 +5,7 @@ export class ApplicationInitializer {
   private readonly authenticationController: AuthenticationController;
   private readonly authenticationPresenter: AuthenticationPresenter;
 
-  constructor(
+  public constructor(
     authenticationController: AuthenticationController,
     authenticationPresenter: AuthenticationPresenter,
   ) {

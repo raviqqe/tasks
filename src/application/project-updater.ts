@@ -13,7 +13,7 @@ export class ProjectUpdater {
   private readonly projectPresenter: ProjectPresenter;
   private readonly messagePresenter: MessagePresenter;
 
-  constructor(
+  public constructor(
     projectRepository: ProjectRepository,
     projectPresenter: ProjectPresenter,
     messagePresenter: MessagePresenter,

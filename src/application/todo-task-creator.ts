@@ -11,7 +11,7 @@ export class TodoTaskCreator {
   private readonly todoTaskPresenter: TodoTaskPresenter;
   private readonly messagePresenter: MessagePresenter;
 
-  constructor(
+  public constructor(
     currentProjectRepository: CurrentProjectRepository,
     todoTaskRepository: TodoTaskRepository,
     todoTaskPresenter: TodoTaskPresenter,

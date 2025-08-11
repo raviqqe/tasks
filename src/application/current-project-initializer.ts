@@ -14,7 +14,7 @@ export class CurrentProjectInitializer {
   private readonly currentProjectSwitcher: CurrentProjectSwitcher;
   private readonly currentProjectRepository: CurrentProjectRepository;
 
-  constructor(
+  public constructor(
     projectCreator: ProjectCreator,
     projectRepository: ProjectRepository,
     projectPresenter: ProjectPresenter,

@@ -7,7 +7,7 @@ export class TodoTaskReorderer {
   private readonly todoTaskRepository: TodoTaskRepository;
   private readonly todoTaskPresenter: TodoTaskPresenter;
 
-  constructor(
+  public constructor(
     currentProjectRepository: CurrentProjectRepository,
     todoTaskRepository: TodoTaskRepository,
     todoTaskPresenter: TodoTaskPresenter,

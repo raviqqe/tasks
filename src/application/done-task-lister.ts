@@ -11,7 +11,7 @@ export class DoneTaskLister {
   private readonly doneTaskPresenter: DoneTaskPresenter;
   private iterator: AsyncIterator<Task[], void> | null = null;
 
-  constructor(
+  public constructor(
     currentProjectRepository: CurrentProjectRepository,
     doneTaskRepository: DoneTaskRepository,
     doneTaskPresenter: DoneTaskPresenter,

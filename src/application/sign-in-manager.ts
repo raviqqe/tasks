@@ -5,7 +5,7 @@ export class SignInManager {
   private readonly authenticationController: AuthenticationController;
   private readonly authenticationPresenter: AuthenticationPresenter;
 
-  constructor(
+  public constructor(
     authenticationController: AuthenticationController,
     authenticationPresenter: AuthenticationPresenter,
   ) {

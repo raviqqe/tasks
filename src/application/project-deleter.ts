@@ -8,7 +8,7 @@ export class ProjectDeleter {
   private readonly projectPresenter: ProjectPresenter;
   private readonly confirmationController: ConfirmationController;
 
-  constructor(
+  public constructor(
     projectRepository: ProjectRepository,
     projectPresenter: ProjectPresenter,
     confirmationController: ConfirmationController,

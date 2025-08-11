@@ -6,7 +6,7 @@ export class CurrentProjectSwitcher {
   private readonly currentProjectRepository: CurrentProjectRepository;
   private readonly projectPresenter: ProjectPresenter;
 
-  constructor(
+  public constructor(
     currentProjectRepository: CurrentProjectRepository,
     projectPresenter: ProjectPresenter,
   ) {
