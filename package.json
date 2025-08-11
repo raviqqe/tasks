@@ -37,7 +37,7 @@
     "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.1",
     "@biomejs/biome": "^2.1.4",
-    "@raviqqe/biome-config": "^2.0.15",
+    "@raviqqe/biome-config": "^2.0.16",
     "@raviqqe/react-tsconfig": "^2.0.0",
     "@react-router/dev": "^7.8.0",
     "@react-router/fs-routes": "^7.8.0",
