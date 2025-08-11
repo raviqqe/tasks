@@ -1,5 +1,5 @@
-import { type AuthenticationController } from "./authentication-controller.js";
-import { type AuthenticationPresenter } from "./authentication-presenter.js";
+import type { AuthenticationController } from "./authentication-controller.js";
+import type { AuthenticationPresenter } from "./authentication-presenter.js";
 
 export class SignInManager {
   private readonly authenticationController: AuthenticationController;

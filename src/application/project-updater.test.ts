@@ -1,5 +1,5 @@
 import { beforeEach, expect, it } from "vitest";
-import { type Project } from "../domain/project.js";
+import type { Project } from "../domain/project.js";
 import { ProjectUpdater } from "./project-updater.js";
 import { MockManager } from "./test/mock-manager.js";
 

@@ -1,6 +1,6 @@
 import { atom } from "nanostores";
-import { type DoneTaskPresenter } from "../application/done-task-presenter.js";
-import { type Task } from "../domain/task.js";
+import type { DoneTaskPresenter } from "../application/done-task-presenter.js";
+import type { Task } from "../domain/task.js";
 
 export class NanostoresDoneTaskPresenter implements DoneTaskPresenter {
   public readonly tasks = atom<Task[] | null>(null);

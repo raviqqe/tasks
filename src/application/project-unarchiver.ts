@@ -1,7 +1,7 @@
-import { type Project } from "../domain/project.js";
-import { type CurrentProjectSwitcher } from "./current-project-switcher.js";
-import { type ProjectPresenter } from "./project-presenter.js";
-import { type ProjectRepository } from "./project-repository.js";
+import type { Project } from "../domain/project.js";
+import type { CurrentProjectSwitcher } from "./current-project-switcher.js";
+import type { ProjectPresenter } from "./project-presenter.js";
+import type { ProjectRepository } from "./project-repository.js";
 
 export class ProjectUnarchiver {
   private readonly currentProjectSwitcher: CurrentProjectSwitcher;

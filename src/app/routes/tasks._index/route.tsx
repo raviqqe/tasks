@@ -13,7 +13,7 @@ import {
 import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
 import { useAsync } from "@raviqqe/react-hooks";
-import { type JSX } from "react";
+import type { JSX } from "react";
 import { todoTaskLister } from "../../../main/todo-task-lister.js";
 import { todoTaskPresenter } from "../../../main/todo-task-presenter.js";
 import { todoTaskReorderer } from "../../../main/todo-task-reorderer.js";

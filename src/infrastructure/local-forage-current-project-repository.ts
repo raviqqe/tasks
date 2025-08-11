@@ -1,5 +1,5 @@
 import localforage from "localforage";
-import { type CurrentProjectRepository } from "../application/current-project-repository.js";
+import type { CurrentProjectRepository } from "../application/current-project-repository.js";
 
 const key = "currentProjectId";
 

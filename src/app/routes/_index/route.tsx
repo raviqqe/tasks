@@ -1,5 +1,5 @@
 import { styled } from "@linaria/react";
-import { type JSX } from "react";
+import type { JSX } from "react";
 import { FaGithub } from "react-icons/fa";
 import { configuration } from "../../../configuration.js";
 import { signInManager } from "../../../main/sign-in-manager.js";

@@ -1,6 +1,6 @@
-import { type CurrentProjectRepository } from "./current-project-repository.js";
-import { type TodoTaskPresenter } from "./todo-task-presenter.js";
-import { type TodoTaskRepository } from "./todo-task-repository.js";
+import type { CurrentProjectRepository } from "./current-project-repository.js";
+import type { TodoTaskPresenter } from "./todo-task-presenter.js";
+import type { TodoTaskRepository } from "./todo-task-repository.js";
 
 export class TodoTaskReorderer {
   private readonly currentProjectRepository: CurrentProjectRepository;

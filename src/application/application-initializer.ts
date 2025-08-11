@@ -1,5 +1,5 @@
-import { type AuthenticationController } from "./authentication-controller.js";
-import { type AuthenticationPresenter } from "./authentication-presenter.js";
+import type { AuthenticationController } from "./authentication-controller.js";
+import type { AuthenticationPresenter } from "./authentication-presenter.js";
 
 export class ApplicationInitializer {
   private readonly authenticationController: AuthenticationController;

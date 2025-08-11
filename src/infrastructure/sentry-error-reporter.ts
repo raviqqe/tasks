@@ -1,5 +1,5 @@
 import * as sentry from "@sentry/browser";
-import { type ErrorReporter } from "./error-reporter.js";
+import type { ErrorReporter } from "./error-reporter.js";
 
 export class SentryErrorReporter implements ErrorReporter {
   constructor(dsn: string) {

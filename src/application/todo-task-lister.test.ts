@@ -1,5 +1,5 @@
 import { beforeEach, expect, it } from "vitest";
-import { type Task } from "../domain/task.js";
+import type { Task } from "../domain/task.js";
 import { MockManager } from "./test/mock-manager.js";
 import { TodoTaskLister } from "./todo-task-lister.js";
 

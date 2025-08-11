@@ -4,9 +4,9 @@ import {
   type Project,
   validateProject,
 } from "../domain/project.js";
-import { type MessagePresenter } from "./message-presenter.js";
-import { type ProjectPresenter } from "./project-presenter.js";
-import { type ProjectRepository } from "./project-repository.js";
+import type { MessagePresenter } from "./message-presenter.js";
+import type { ProjectPresenter } from "./project-presenter.js";
+import type { ProjectRepository } from "./project-repository.js";
 
 export class ProjectUpdater {
   private readonly projectRepository: ProjectRepository;

@@ -1,4 +1,4 @@
-import { type Task } from "../domain/task.js";
+import type { Task } from "../domain/task.js";
 
 export interface DoneTaskPresenter {
   presentMoreTasks(tasks: Task[]): void;

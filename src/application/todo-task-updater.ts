@@ -1,9 +1,9 @@
 import { formatTask, type Task, validateTask } from "../domain/task.js";
-import { type ConfirmationController } from "./confirmation-controller.js";
-import { type CurrentProjectRepository } from "./current-project-repository.js";
-import { type TodoTaskDeleter } from "./todo-task-deleter.js";
-import { type TodoTaskPresenter } from "./todo-task-presenter.js";
-import { type TodoTaskRepository } from "./todo-task-repository.js";
+import type { ConfirmationController } from "./confirmation-controller.js";
+import type { CurrentProjectRepository } from "./current-project-repository.js";
+import type { TodoTaskDeleter } from "./todo-task-deleter.js";
+import type { TodoTaskPresenter } from "./todo-task-presenter.js";
+import type { TodoTaskRepository } from "./todo-task-repository.js";
 
 export class TodoTaskUpdater {
   private readonly currentProjectRepository: CurrentProjectRepository;
