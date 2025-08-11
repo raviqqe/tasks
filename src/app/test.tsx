@@ -5,7 +5,7 @@ import { createRoutesStub } from "react-router";
 export const renderRouter = (element: JSX.Element): RenderResult => {
   const Component = createRoutesStub([
     {
-      // eslint-disable-next-line @typescript-eslint/naming-convention
+      // biome-ignore lint/style/useNamingConvention: External API
       Component: () => element,
       path: "/",
     },
