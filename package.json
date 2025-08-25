@@ -28,7 +28,7 @@
     "isbot": "^5.1.30",
     "localforage": "^1.10.0",
     "nanostores": "^1.0.1",
-    "react": "^18.1.0",
+    "react": "^19.1.1",
     "react-icons": "^5.5.0",
     "react-router": "^7.5.2",
     "react-spinners": "^0.17.0"
@@ -42,7 +42,7 @@
     "@react-router/dev": "^7.8.2",
     "@react-router/fs-routes": "^7.8.2",
     "@testing-library/react": "^16.3.0",
-    "@types/react": "^18.3.13",
+    "@types/react": "^19.1.11",
     "@vitejs/plugin-react": "^5.0.1",
     "@vitest/coverage-v8": "^3.2.4",
     "@wyw-in-js/vite": "^0.7.0",
