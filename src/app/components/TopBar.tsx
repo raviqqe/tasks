@@ -1,4 +1,5 @@
 import { styled } from "@linaria/react";
+import type { JSX } from "react";
 import { signOutManager } from "../../main/sign-out-manager.js";
 import { boxShadow, red } from "../style.js";
 import { CurrentProject } from "./CurrentProject.js";

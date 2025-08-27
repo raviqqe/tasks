@@ -3,6 +3,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
+import type { JSX } from "react";
 import { MdCheck, MdDragHandle, MdEdit } from "react-icons/md";
 import type * as domain from "../../domain.js";
 import { todoTaskCompleter } from "../../main/todo-task-completer.js";
