@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { MdArchive, MdUnarchive } from "react-icons/md";
 import { CircleButton } from "./CircleButton.js";
 

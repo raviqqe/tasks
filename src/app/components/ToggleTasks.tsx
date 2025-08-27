@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { FaRegCheckSquare, FaRegSquare } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router";
 import { CircleButton } from "./CircleButton.js";

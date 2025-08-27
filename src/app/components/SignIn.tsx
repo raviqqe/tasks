@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { TextButton } from "./TextButton.js";
 
 interface Props {

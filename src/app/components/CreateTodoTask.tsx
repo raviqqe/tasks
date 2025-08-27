@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { MdAdd } from "react-icons/md";
 import { todoTaskCreator } from "../../main/todo-task-creator.js";
 import { CircleButton } from "./CircleButton.js";

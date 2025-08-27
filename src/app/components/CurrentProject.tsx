@@ -1,5 +1,6 @@
 import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
+import type { JSX } from "react";
 import { useNavigate } from "react-router";
 import { projectPresenter } from "../../main/project-presenter.js";
 import { white } from "../style.js";
