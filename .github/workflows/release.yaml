@@ -8,11 +8,8 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v4
-        with:
-          node-version: latest
-      - run: npm ci
-      - run: npm run build
-      - run: npm run deploy
+      - uses: ./.github/actions/setup
+      - run: node --run build
+      - run: node --run deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

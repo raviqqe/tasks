@@ -6,13 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v4
-        with:
-          node-version: latest
-      - run: npm ci
-      - run: npm run build
-      - run: npm run lint
-      - run: npm test
+      - uses: ./.github/actions/setup
+      - run: node --run build
+      - run: node --run lint
+      - run: node --run test
       - uses: codecov/codecov-action@v5
   spell_check:
     runs-on: ubuntu-latest
