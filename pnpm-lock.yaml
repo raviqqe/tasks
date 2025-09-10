@@ -39,8 +39,8 @@ importers:
         specifier: ^7.8.2
         version: 7.8.2(react-router@7.8.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.9.2)
       '@sentry/browser':
-        specifier: ^10.10.0
-        version: 10.10.0
+        specifier: ^10.11.0
+        version: 10.11.0
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -1847,28 +1847,28 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@sentry-internal/browser-utils@10.10.0':
-    resolution: {integrity: sha512-209QN9vsQBwJcS+9DU7B4yl9mb4OqCt2kdL3LYDvqsuOdpICpwfowdK3RMn825Ruf4KLJa0KHM1scQbXZCc4lw==}
+  '@sentry-internal/browser-utils@10.11.0':
+    resolution: {integrity: sha512-fnMlz5ntap6x4vRsLOHwPqXh7t82StgAiRt+EaqcMX0t9l8C0w0df8qwrONKXvE5GdHWTNFJj5qR15FERSkg3Q==}
     engines: {node: '>=18'}
 
-  '@sentry-internal/feedback@10.10.0':
-    resolution: {integrity: sha512-oSU4F/ebOsJA9Eof0me9hLpSDTSelpnEY6gmhU9sHyIG+U7hJRuCfeGICxQOzBtteepWRhAaZEv4s9ZBh3iD2w==}
+  '@sentry-internal/feedback@10.11.0':
+    resolution: {integrity: sha512-ADey51IIaa29kepb8B7aSgSGSrcyT7QZdRsN1rhitefzrruHzpSUci5c2EPIvmWfKJq8Wnvukm9BHXZXAAIOzA==}
     engines: {node: '>=18'}
 
-  '@sentry-internal/replay-canvas@10.10.0':
-    resolution: {integrity: sha512-mJBNB0EBbE3vzL7lgd8lDoWWhRaRwxXdI4Kkx3r39u2+1qTdJP/xHbJDihyemCaw7gRL1FR/GC44JLipzEfkKQ==}
+  '@sentry-internal/replay-canvas@10.11.0':
+    resolution: {integrity: sha512-brWQ90IYQyZr44IpTprlmvbtz4l2ABzLdpP94Egh12Onf/q6n4CjLKaA25N5kX0uggHqX1Rs7dNaG0mP3ETHhA==}
     engines: {node: '>=18'}
 
-  '@sentry-internal/replay@10.10.0':
-    resolution: {integrity: sha512-sKFYWBaft0ET6gd5B0pThR6gYTjaUECXCzVAnSYxy64a2/PK6lV93BtnA1C2Q34Yhv/0scdyIbZtfTnSsEgwUg==}
+  '@sentry-internal/replay@10.11.0':
+    resolution: {integrity: sha512-t4M2bxMp2rKGK/l7bkVWjN+xVw9H9V12jAeXmO/Fskz2RcG1ZNLQnKSx/W/zCRMk8k7xOQFsfiApq+zDN+ziKA==}
     engines: {node: '>=18'}
 
-  '@sentry/browser@10.10.0':
-    resolution: {integrity: sha512-STBs29meUk0CvluIOXXnnRGRtjKsJN9fAHS3dUu3GMjmow4rxKBiBbAwoPYftAVdfvGypT7zQCQ+K30dbRxp0g==}
+  '@sentry/browser@10.11.0':
+    resolution: {integrity: sha512-qemaKCJKJHHCyGBpdLq23xL5u9Xvir20XN7YFTnHcEq4Jvj0GoWsslxKi5cQB2JvpYn62WxTiDgVLeQlleZhSg==}
     engines: {node: '>=18'}
 
-  '@sentry/core@10.10.0':
-    resolution: {integrity: sha512-4O1O6my/vYE98ZgfEuLEwOOuHzqqzfBT6IdRo1yiQM7/AXcmSl0H/k4HJtXCiCTiHm+veEuTDBHp0GQZmpIbtA==}
+  '@sentry/core@10.11.0':
+    resolution: {integrity: sha512-39Rxn8cDXConx3+SKOCAhW+/hklM7UDaz+U1OFzFMDlT59vXSpfI6bcXtNiFDrbOxlQ2hX8yAqx8YRltgSftoA==}
     engines: {node: '>=18'}
 
   '@sindresorhus/is@4.6.0':
@@ -4593,8 +4593,8 @@ packages:
     resolution: {integrity: sha512-00o4I+DVrefhv+nX0ulyi3biSHCPDe+yLv5o/p6d/UVlirijB8E16FtfwSAi4g3tcqrQ4lRAqQSoFEZJehYEcw==}
     engines: {node: '>= 0.4'}
 
-  regenerate-unicode-properties@10.2.0:
-    resolution: {integrity: sha512-DqHn3DwbmmPVzeKj9woBadqmXxLvQoQIwu7nopMc72ztvxVmVk2SBhSnx67zuye5TP+lJsb/TBQsjLKhnDf3MA==}
+  regenerate-unicode-properties@10.2.2:
+    resolution: {integrity: sha512-m03P+zhBeQd1RGnYxrGyDAPpWX/epKirLrp8e3qevZdVkKtnCrjjWczIbYc8+xd6vcTStVlqfycTx1KR4LOr0g==}
     engines: {node: '>=4'}
 
   regenerate@1.4.2:
@@ -4604,8 +4604,8 @@ packages:
     resolution: {integrity: sha512-dYqgNSZbDwkaJ2ceRd9ojCGjBq+mOm9LmtXnAnEGyHhN/5R7iDW2TRw3h+o/jCFxus3P2LfWIIiwowAjANm7IA==}
     engines: {node: '>= 0.4'}
 
-  regexpu-core@6.2.0:
-    resolution: {integrity: sha512-H66BPQMrv+V16t8xtmq+UC0CBpiTBA60V8ibS1QVReIp8T1z8hwFxqcGzm9K6lgsN7sB5edVH8a+ze6Fqm4weA==}
+  regexpu-core@6.3.0:
+    resolution: {integrity: sha512-ulzJYRb0qgR4t8eTgHeL7nnKL/4ul2yjnuTBEDIpYG7cSs8CcADE1q18RFFChXLP8WwRgPrHThGbYplvASdujw==}
     engines: {node: '>=4'}
 
   registry-auth-token@5.1.0:
@@ -5217,8 +5217,8 @@ packages:
     resolution: {integrity: sha512-5kaZCrbp5mmbz5ulBkDkbY0SsPOjKqVS35VpL9ulMPfSl0J0Xsm+9Evphv9CoIZFwre7aJoa94AY6seMKGVN5Q==}
     engines: {node: '>=4'}
 
-  unicode-match-property-value-ecmascript@2.2.0:
-    resolution: {integrity: sha512-4IehN3V/+kkr5YeSSDDQG8QLqO26XpL2XP3GQtqwlT/QYSECAwFztxVHjlbh0+gjJ3XmNLS0zDsbgs9jWKExLg==}
+  unicode-match-property-value-ecmascript@2.2.1:
+    resolution: {integrity: sha512-JQ84qTuMg4nVkx8ga4A16a1epI9H6uTXAknqxkGF/aFfRLw1xC/Bp24HNLaZhHSkWd3+84t8iXnp1J0kYcZHhg==}
     engines: {node: '>=4'}
 
   unicode-property-aliases-ecmascript@2.1.0:
@@ -5774,7 +5774,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.28.3
       '@babel/helper-annotate-as-pure': 7.27.3
-      regexpu-core: 6.2.0
+      regexpu-core: 6.3.0
       semver: 6.3.1
 
   '@babel/helper-define-polyfill-provider@0.6.5(@babel/core@7.28.3)':
@@ -7593,33 +7593,33 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.50.1':
     optional: true
 
-  '@sentry-internal/browser-utils@10.10.0':
+  '@sentry-internal/browser-utils@10.11.0':
     dependencies:
-      '@sentry/core': 10.10.0
+      '@sentry/core': 10.11.0
 
-  '@sentry-internal/feedback@10.10.0':
+  '@sentry-internal/feedback@10.11.0':
     dependencies:
-      '@sentry/core': 10.10.0
+      '@sentry/core': 10.11.0
 
-  '@sentry-internal/replay-canvas@10.10.0':
+  '@sentry-internal/replay-canvas@10.11.0':
     dependencies:
-      '@sentry-internal/replay': 10.10.0
-      '@sentry/core': 10.10.0
+      '@sentry-internal/replay': 10.11.0
+      '@sentry/core': 10.11.0
 
-  '@sentry-internal/replay@10.10.0':
+  '@sentry-internal/replay@10.11.0':
     dependencies:
-      '@sentry-internal/browser-utils': 10.10.0
-      '@sentry/core': 10.10.0
+      '@sentry-internal/browser-utils': 10.11.0
+      '@sentry/core': 10.11.0
 
-  '@sentry/browser@10.10.0':
+  '@sentry/browser@10.11.0':
     dependencies:
-      '@sentry-internal/browser-utils': 10.10.0
-      '@sentry-internal/feedback': 10.10.0
-      '@sentry-internal/replay': 10.10.0
-      '@sentry-internal/replay-canvas': 10.10.0
-      '@sentry/core': 10.10.0
+      '@sentry-internal/browser-utils': 10.11.0
+      '@sentry-internal/feedback': 10.11.0
+      '@sentry-internal/replay': 10.11.0
+      '@sentry-internal/replay-canvas': 10.11.0
+      '@sentry/core': 10.11.0
 
-  '@sentry/core@10.10.0': {}
+  '@sentry/core@10.11.0': {}
 
   '@sindresorhus/is@4.6.0': {}
 
@@ -10778,7 +10778,7 @@ snapshots:
       get-proto: 1.0.1
       which-builtin-type: 1.2.1
 
-  regenerate-unicode-properties@10.2.0:
+  regenerate-unicode-properties@10.2.2:
     dependencies:
       regenerate: 1.4.2
 
@@ -10793,14 +10793,14 @@ snapshots:
       gopd: 1.2.0
       set-function-name: 2.0.2
 
-  regexpu-core@6.2.0:
+  regexpu-core@6.3.0:
     dependencies:
       regenerate: 1.4.2
-      regenerate-unicode-properties: 10.2.0
+      regenerate-unicode-properties: 10.2.2
       regjsgen: 0.8.0
       regjsparser: 0.12.0
       unicode-match-property-ecmascript: 2.0.0
-      unicode-match-property-value-ecmascript: 2.2.0
+      unicode-match-property-value-ecmascript: 2.2.1
 
   registry-auth-token@5.1.0:
     dependencies:
@@ -11571,7 +11571,7 @@ snapshots:
       unicode-canonical-property-names-ecmascript: 2.0.1
       unicode-property-aliases-ecmascript: 2.1.0
 
-  unicode-match-property-value-ecmascript@2.2.0: {}
+  unicode-match-property-value-ecmascript@2.2.1: {}
 
   unicode-property-aliases-ecmascript@2.1.0: {}
 
