@@ -70,6 +70,10 @@ export const links: LinksFunction = () => [
     href: "/icon.svg",
     rel: "icon",
   },
+  {
+    href: "/manifest.json",
+    rel: "manifest",
+  },
 ];
 
 const Body = styled.body`
