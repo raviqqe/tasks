@@ -19,17 +19,7 @@ export default defineConfig({
       include: ["src/**/*.{ts,tsx}"],
     }),
     VitePWA({
-      manifest: {
-        // biome-ignore-start lint/style/useNamingConvention: External API
-        background_color: "indianred",
-        display: "standalone",
-        icons: [{ sizes: "any", src: "icon.svg" }],
-        name: "BeDone",
-        short_name: "BeDone",
-        start_url: ".",
-        theme_color: "indianred",
-        // biome-ignore-end lint/style/useNamingConvention: External API
-      },
+      manifest: false,
       workbox: {
         navigateFallbackDenylist: [/^\/__/],
       },

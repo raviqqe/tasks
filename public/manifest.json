@@ -1,0 +1,15 @@
+{
+  "background_color": "indianred",
+  "display": "standalone",
+  "icons": [
+    {
+      "purpose": "maskable",
+      "sizes": "any",
+      "src": "icon.svg"
+    }
+  ],
+  "name": "BeDone",
+  "short_name": "BeDone",
+  "start_url": ".",
+  "theme_color": "indianred"
+}
