@@ -6,9 +6,6 @@ import { VitePWA } from "vite-plugin-pwa";
 
 const wyw = defaultImport(defaultWyw);
 
-const name = "BeDone";
-const color = "indianred";
-
 export default defineConfig({
   esbuild: {
     legalComments: "external",
@@ -24,19 +21,13 @@ export default defineConfig({
     VitePWA({
       manifest: {
         // biome-ignore-start lint/style/useNamingConvention: External API
-        background_color: color,
+        background_color: "indianred",
         display: "standalone",
-        icons: [
-          {
-            purpose: "maskable",
-            sizes: "any",
-            src: "icon.svg",
-          },
-        ],
-        name,
-        short_name: name,
+        icons: [{ sizes: "any", src: "icon.svg" }],
+        name: "BeDone",
+        short_name: "BeDone",
         start_url: ".",
-        theme_color: color,
+        theme_color: "indianred",
         // biome-ignore-end lint/style/useNamingConvention: External API
       },
       workbox: {
