@@ -21,8 +21,8 @@ importers:
         specifier: ^5.2.6
         version: 5.2.6
       '@fontsource/roboto':
-        specifier: ^5.2.6
-        version: 5.2.6
+        specifier: ^5.2.7
+        version: 5.2.7
       '@linaria/core':
         specifier: ^6.3.0
         version: 6.3.0
@@ -1243,8 +1243,8 @@ packages:
   '@fontsource/chelsea-market@5.2.6':
     resolution: {integrity: sha512-kwk7edgt05OtbSiL1TPwgUvM1/HVl8p9okID9mnA2pXufxZcdkj/RpiquZGOHlSci4OSrwnuXorcEYPauZDcEg==}
 
-  '@fontsource/roboto@5.2.6':
-    resolution: {integrity: sha512-hzarG7yAhMoP418smNgfY4fO7UmuUEm5JUtbxCoCcFHT0hOJB+d/qAEyoNjz7YkPU5OjM2LM8rJnW8hfm0JLaA==}
+  '@fontsource/roboto@5.2.7':
+    resolution: {integrity: sha512-fca6Jtyxn6kPR51+TTTMCFm0FOhnKaLEYYiAQc8P/4iFCKoKGR0aX89QR4CfP+N64RPXJus64UxhJaVENnSM6Q==}
 
   '@google-cloud/cloud-sql-connector@1.8.3':
     resolution: {integrity: sha512-Xmh1U0cw5goTWchBqvXfcffz2B6eGUnMH+iY6NTz6A+WlsvlDtAi87NlMst4yKYNfF7gRmNnnJTcK25I6TR6cA==}
@@ -6998,7 +6998,7 @@ snapshots:
 
   '@fontsource/chelsea-market@5.2.6': {}
 
-  '@fontsource/roboto@5.2.6': {}
+  '@fontsource/roboto@5.2.7': {}
 
   '@google-cloud/cloud-sql-connector@1.8.3':
     dependencies:
