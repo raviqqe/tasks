@@ -21,8 +21,8 @@ importers:
         specifier: ^5.2.6
         version: 5.2.6
       '@fontsource/roboto':
-        specifier: ^5.2.7
-        version: 5.2.7
+        specifier: ^5.2.8
+        version: 5.2.8
       '@linaria/core':
         specifier: ^6.3.0
         version: 6.3.0
@@ -1250,8 +1250,8 @@ packages:
   '@fontsource/chelsea-market@5.2.6':
     resolution: {integrity: sha512-kwk7edgt05OtbSiL1TPwgUvM1/HVl8p9okID9mnA2pXufxZcdkj/RpiquZGOHlSci4OSrwnuXorcEYPauZDcEg==}
 
-  '@fontsource/roboto@5.2.7':
-    resolution: {integrity: sha512-fca6Jtyxn6kPR51+TTTMCFm0FOhnKaLEYYiAQc8P/4iFCKoKGR0aX89QR4CfP+N64RPXJus64UxhJaVENnSM6Q==}
+  '@fontsource/roboto@5.2.8':
+    resolution: {integrity: sha512-oh9g4Cg3loVMz9MWeKWfDI+ooxxG1aRVetkiKIb2ESS2rrryGecQ/y4pAj4z5A5ebyw450dYRi/c4k/I3UBhHA==}
 
   '@google-cloud/cloud-sql-connector@1.8.3':
     resolution: {integrity: sha512-Xmh1U0cw5goTWchBqvXfcffz2B6eGUnMH+iY6NTz6A+WlsvlDtAi87NlMst4yKYNfF7gRmNnnJTcK25I6TR6cA==}
@@ -2267,8 +2267,8 @@ packages:
     resolution: {integrity: sha512-mcE+Wr2CAhHNWxXN/DdTI+n4gsPc5QpXpWnyCQWiQYIYZX+ZMJ8juXZgjRa/0/YPJo/NSsgW15/YgmI4nbysYw==}
     hasBin: true
 
-  baseline-browser-mapping@2.8.4:
-    resolution: {integrity: sha512-L+YvJwGAgwJBV1p6ffpSTa2KRc69EeeYGYjRVWKs0GKrK+LON0GC0gV+rKSNtALEDvMDqkvCFq9r1r94/Gjwxw==}
+  baseline-browser-mapping@2.8.5:
+    resolution: {integrity: sha512-TiU4qUT9jdCuh4aVOG7H1QozyeI2sZRqoRPdqBIaslfNt4WUSanRBueAwl2x5jt4rXBMim3lIN2x6yT8PDi24Q==}
     hasBin: true
 
   basic-auth-connect@1.1.0:
@@ -2809,8 +2809,8 @@ packages:
   electron-to-chromium@1.5.218:
     resolution: {integrity: sha512-uwwdN0TUHs8u6iRgN8vKeWZMRll4gBkz+QMqdS7DDe49uiK68/UX92lFb61oiFPrpYZNeZIqa4bA7O6Aiasnzg==}
 
-  electron-to-chromium@1.5.219:
-    resolution: {integrity: sha512-JqaXfxHOS0WvKweEnrPHWRm8cnPVbdB7vXCQHPPFoAJFM3xig5/+/H08ZVkvJf4unvj8yncKy6MerOPj1NW1GQ==}
+  electron-to-chromium@1.5.221:
+    resolution: {integrity: sha512-/1hFJ39wkW01ogqSyYoA4goOXOtMRy6B+yvA1u42nnsEGtHzIzmk93aPISumVQeblj47JUHLC9coCjUxb1EvtQ==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -7059,7 +7059,7 @@ snapshots:
 
   '@fontsource/chelsea-market@5.2.6': {}
 
-  '@fontsource/roboto@5.2.7': {}
+  '@fontsource/roboto@5.2.8': {}
 
   '@google-cloud/cloud-sql-connector@1.8.3':
     dependencies:
@@ -8180,7 +8180,7 @@ snapshots:
 
   baseline-browser-mapping@2.8.3: {}
 
-  baseline-browser-mapping@2.8.4: {}
+  baseline-browser-mapping@2.8.5: {}
 
   basic-auth-connect@1.1.0:
     dependencies:
@@ -8271,9 +8271,9 @@ snapshots:
 
   browserslist@4.26.2:
     dependencies:
-      baseline-browser-mapping: 2.8.4
+      baseline-browser-mapping: 2.8.5
       caniuse-lite: 1.0.30001743
-      electron-to-chromium: 1.5.219
+      electron-to-chromium: 1.5.221
       node-releases: 2.0.21
       update-browserslist-db: 1.1.3(browserslist@4.26.2)
 
@@ -8739,7 +8739,7 @@ snapshots:
 
   electron-to-chromium@1.5.218: {}
 
-  electron-to-chromium@1.5.219: {}
+  electron-to-chromium@1.5.221: {}
 
   emoji-regex@8.0.0: {}
 

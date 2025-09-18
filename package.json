@@ -19,7 +19,7 @@
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
     "@fontsource/chelsea-market": "^5.2.6",
-    "@fontsource/roboto": "^5.2.7",
+    "@fontsource/roboto": "^5.2.8",
     "@linaria/core": "^6.3.0",
     "@linaria/react": "^6.3.0",
     "@nanostores/react": "^1.0.0",
