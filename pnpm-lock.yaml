@@ -18,8 +18,8 @@ importers:
         specifier: ^3.2.2
         version: 3.2.2(react@19.1.1)
       '@fontsource/chelsea-market':
-        specifier: ^5.2.6
-        version: 5.2.6
+        specifier: ^5.2.7
+        version: 5.2.7
       '@fontsource/roboto':
         specifier: ^5.2.8
         version: 5.2.8
@@ -1247,8 +1247,8 @@ packages:
   '@firebase/webchannel-wrapper@1.0.4':
     resolution: {integrity: sha512-6m8+P+dE/RPl4OPzjTxcTbQ0rGeRyeTvAi9KwIffBVCiAMKrfXfLZaqD1F+m8t4B5/Q5aHsMozOgirkH1F5oMQ==}
 
-  '@fontsource/chelsea-market@5.2.6':
-    resolution: {integrity: sha512-kwk7edgt05OtbSiL1TPwgUvM1/HVl8p9okID9mnA2pXufxZcdkj/RpiquZGOHlSci4OSrwnuXorcEYPauZDcEg==}
+  '@fontsource/chelsea-market@5.2.7':
+    resolution: {integrity: sha512-1wlfbNbncFvt4RVM1brbfvSBGOwQT244g8UM2+PSoZgvS8ljSubMVOt/Xh2K9/KVZjAdyQ1PKoNXk4ges6TCaw==}
 
   '@fontsource/roboto@5.2.8':
     resolution: {integrity: sha512-oh9g4Cg3loVMz9MWeKWfDI+ooxxG1aRVetkiKIb2ESS2rrryGecQ/y4pAj4z5A5ebyw450dYRi/c4k/I3UBhHA==}
@@ -7061,7 +7061,7 @@ snapshots:
 
   '@firebase/webchannel-wrapper@1.0.4': {}
 
-  '@fontsource/chelsea-market@5.2.6': {}
+  '@fontsource/chelsea-market@5.2.7': {}
 
   '@fontsource/roboto@5.2.8': {}
 
