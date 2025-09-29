@@ -33,8 +33,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0(nanostores@1.0.1)(react@19.1.1)
       '@raviqqe/react-hooks':
-        specifier: ^0.6.6
-        version: 0.6.6
+        specifier: ^0.6.8
+        version: 0.6.8
       '@react-router/node':
         specifier: ^7.9.3
         version: 7.9.3(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.9.2)
@@ -1654,8 +1654,8 @@ packages:
     peerDependencies:
       '@biomejs/biome': ^2.1.4
 
-  '@raviqqe/react-hooks@0.6.6':
-    resolution: {integrity: sha512-xs0e5KYPQobL4k/jZ3lQk/WuNaMYdqEOOmsI4+PJGw5NBGleqk79xpKHjcs9ri74AAmd9DkV84MZj0aJe//sKQ==}
+  '@raviqqe/react-hooks@0.6.8':
+    resolution: {integrity: sha512-e1lUQdu6lP0JiOVziyiG/gNiw3om+smetGs1G18dh4BvpRnEOkvDbzkjnAgzAwJmz5cudJjPrv+AJF6vgGiqDw==}
     engines: {node: '>=24.6.0'}
 
   '@raviqqe/react-tsconfig@2.0.1':
@@ -7458,7 +7458,7 @@ snapshots:
     dependencies:
       '@biomejs/biome': 2.2.4
 
-  '@raviqqe/react-hooks@0.6.6':
+  '@raviqqe/react-hooks@0.6.8':
     dependencies:
       es-toolkit: 1.39.10
       react: 19.1.1
