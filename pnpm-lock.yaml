@@ -37,7 +37,7 @@ importers:
         version: 0.6.8
       '@react-router/node':
         specifier: ^7.9.3
-        version: 7.9.3(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.9.2)
+        version: 7.9.3(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.9.3)
       '@sentry/browser':
         specifier: ^10.16.0
         version: 10.16.0
@@ -95,10 +95,10 @@ importers:
         version: 2.0.1
       '@react-router/dev':
         specifier: ^7.9.3
-        version: 7.9.3(@types/node@24.5.2)(@vitejs/plugin-rsc@0.4.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.2)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1)
+        version: 7.9.3(@types/node@24.5.2)(@vitejs/plugin-rsc@0.4.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.3)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1)
       '@react-router/fs-routes':
         specifier: ^7.9.3
-        version: 7.9.3(@react-router/dev@7.9.3(@types/node@24.5.2)(@vitejs/plugin-rsc@0.4.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.2)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1))(typescript@5.9.2)
+        version: 7.9.3(@react-router/dev@7.9.3(@types/node@24.5.2)(@vitejs/plugin-rsc@0.4.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.3)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1))(typescript@5.9.3)
       '@testing-library/react':
         specifier: ^16.3.0
         version: 16.3.0(@testing-library/dom@10.4.1)(@types/react@19.1.16)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -113,7 +113,7 @@ importers:
         version: 3.2.4(vitest@3.2.4(@types/node@24.5.2)(happy-dom@15.11.7)(jsdom@27.0.0(postcss@8.5.6))(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))
       '@wyw-in-js/vite':
         specifier: ^0.7.0
-        version: 0.7.0(typescript@5.9.2)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))
+        version: 0.7.0(typescript@5.9.3)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))
       firebase-tools:
         specifier: ^14.17.0
         version: 14.17.0(@types/node@24.5.2)(encoding@0.1.13)
@@ -121,11 +121,11 @@ importers:
         specifier: ^27.0.0
         version: 27.0.0(postcss@8.5.6)
       typescript:
-        specifier: ^5.9.2
-        version: 5.9.2
+        specifier: ^5.9.3
+        version: 5.9.3
       typescript-plugin-css-modules:
         specifier: ^5.2.0
-        version: 5.2.0(typescript@5.9.2)
+        version: 5.2.0(typescript@5.9.3)
       vite:
         specifier: ^7.1.7
         version: 7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
@@ -5237,8 +5237,8 @@ packages:
     peerDependencies:
       typescript: '>=4.0.0'
 
-  typescript@5.9.2:
-    resolution: {integrity: sha512-CWBzXQrc/qOkhidw1OzBTQuYRbfyxDXJMVJ1XNwUHGROVmuaeiEm3OslpZ1RV96d7SKKjZKrSJu3+t/xlw3R9A==}
+  typescript@5.9.3:
+    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -7473,9 +7473,9 @@ snapshots:
 
   '@raviqqe/tsconfig@2.0.2':
     dependencies:
-      typescript: 5.9.2
+      typescript: 5.9.3
 
-  '@react-router/dev@7.9.3(@types/node@24.5.2)(@vitejs/plugin-rsc@0.4.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.2)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1)':
+  '@react-router/dev@7.9.3(@types/node@24.5.2)(@vitejs/plugin-rsc@0.4.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.3)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1)':
     dependencies:
       '@babel/core': 7.28.4
       '@babel/generator': 7.28.3
@@ -7485,7 +7485,7 @@ snapshots:
       '@babel/traverse': 7.28.4
       '@babel/types': 7.28.4
       '@npmcli/package-json': 4.0.1
-      '@react-router/node': 7.9.3(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.9.2)
+      '@react-router/node': 7.9.3(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.9.3)
       '@remix-run/node-fetch-server': 0.9.0
       arg: 5.0.2
       babel-dead-code-elimination: 1.0.10
@@ -7503,12 +7503,12 @@ snapshots:
       react-router: 7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       semver: 7.7.2
       tinyglobby: 0.2.15
-      valibot: 0.41.0(typescript@5.9.2)
+      valibot: 0.41.0(typescript@5.9.3)
       vite: 7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
       vite-node: 3.2.4(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
     optionalDependencies:
       '@vitejs/plugin-rsc': 0.4.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))
-      typescript: 5.9.2
+      typescript: 5.9.3
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -7525,19 +7525,19 @@ snapshots:
       - tsx
       - yaml
 
-  '@react-router/fs-routes@7.9.3(@react-router/dev@7.9.3(@types/node@24.5.2)(@vitejs/plugin-rsc@0.4.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.2)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1))(typescript@5.9.2)':
+  '@react-router/fs-routes@7.9.3(@react-router/dev@7.9.3(@types/node@24.5.2)(@vitejs/plugin-rsc@0.4.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.3)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1))(typescript@5.9.3)':
     dependencies:
-      '@react-router/dev': 7.9.3(@types/node@24.5.2)(@vitejs/plugin-rsc@0.4.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.2)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1)
+      '@react-router/dev': 7.9.3(@types/node@24.5.2)(@vitejs/plugin-rsc@0.4.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.3)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1)
       minimatch: 9.0.5
     optionalDependencies:
-      typescript: 5.9.2
+      typescript: 5.9.3
 
-  '@react-router/node@7.9.3(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.9.2)':
+  '@react-router/node@7.9.3(react-router@7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.9.3)':
     dependencies:
       '@mjackson/node-fetch-server': 0.2.0
       react-router: 7.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
     optionalDependencies:
-      typescript: 5.9.2
+      typescript: 5.9.3
 
   '@remix-run/node-fetch-server@0.9.0': {}
 
@@ -7907,7 +7907,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@wyw-in-js/transform@0.7.0(typescript@5.9.2)':
+  '@wyw-in-js/transform@0.7.0(typescript@5.9.3)':
     dependencies:
       '@babel/core': 7.28.4
       '@babel/generator': 7.28.3
@@ -7919,7 +7919,7 @@ snapshots:
       '@wyw-in-js/processor-utils': 0.7.0
       '@wyw-in-js/shared': 0.7.0
       babel-merge: 3.0.0(@babel/core@7.28.4)
-      cosmiconfig: 8.3.6(typescript@5.9.2)
+      cosmiconfig: 8.3.6(typescript@5.9.3)
       happy-dom: 15.11.7
       source-map: 0.7.6
       stylis: 4.3.6
@@ -7928,10 +7928,10 @@ snapshots:
       - supports-color
       - typescript
 
-  '@wyw-in-js/vite@0.7.0(typescript@5.9.2)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))':
+  '@wyw-in-js/vite@0.7.0(typescript@5.9.3)(vite@7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))':
     dependencies:
       '@wyw-in-js/shared': 0.7.0
-      '@wyw-in-js/transform': 0.7.0(typescript@5.9.2)
+      '@wyw-in-js/transform': 0.7.0(typescript@5.9.3)
       vite: 7.1.7(@types/node@24.5.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
     transitivePeerDependencies:
       - supports-color
@@ -8508,14 +8508,14 @@ snapshots:
       object-assign: 4.1.1
       vary: 1.1.2
 
-  cosmiconfig@8.3.6(typescript@5.9.2):
+  cosmiconfig@8.3.6(typescript@5.9.3):
     dependencies:
       import-fresh: 3.3.1
       js-yaml: 4.1.0
       parse-json: 5.2.0
       path-type: 4.0.0
     optionalDependencies:
-      typescript: 5.9.2
+      typescript: 5.9.3
 
   crc-32@1.2.2: {}
 
@@ -11620,7 +11620,7 @@ snapshots:
     dependencies:
       is-typedarray: 1.0.0
 
-  typescript-plugin-css-modules@5.2.0(typescript@5.9.2):
+  typescript-plugin-css-modules@5.2.0(typescript@5.9.3):
     dependencies:
       '@types/postcss-modules-local-by-default': 4.0.2
       '@types/postcss-modules-scope': 3.0.4
@@ -11637,14 +11637,14 @@ snapshots:
       sass: 1.91.0
       source-map-js: 1.2.1
       tsconfig-paths: 4.2.0
-      typescript: 5.9.2
+      typescript: 5.9.3
     optionalDependencies:
       stylus: 0.62.0
     transitivePeerDependencies:
       - supports-color
       - ts-node
 
-  typescript@5.9.2: {}
+  typescript@5.9.3: {}
 
   unbox-primitive@1.1.0:
     dependencies:
@@ -11738,9 +11738,9 @@ snapshots:
 
   uuid@9.0.1: {}
 
-  valibot@0.41.0(typescript@5.9.2):
+  valibot@0.41.0(typescript@5.9.3):
     optionalDependencies:
-      typescript: 5.9.2
+      typescript: 5.9.3
 
   valid-url@1.0.9: {}
 
