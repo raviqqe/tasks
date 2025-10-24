@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.27.1",
-    "@babel/preset-typescript": "^7.27.1",
+    "@babel/preset-typescript": "^7.28.5",
     "@biomejs/biome": "^2.2.7",
     "@raviqqe/biome-config": "^2.0.18",
     "@raviqqe/react-tsconfig": "^2.0.1",
