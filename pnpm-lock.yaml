@@ -51,8 +51,8 @@ importers:
         specifier: ^1.40.0
         version: 1.41.0
       firebase:
-        specifier: ^12.4.0
-        version: 12.4.0
+        specifier: ^12.5.0
+        version: 12.5.0
       isbot:
         specifier: ^5.1.31
         version: 5.1.31
@@ -95,10 +95,10 @@ importers:
         version: 2.0.1
       '@react-router/dev':
         specifier: ^7.9.5
-        version: 7.9.5(@types/node@24.7.0)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.3)(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1)
+        version: 7.9.5(@types/node@24.9.2)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.3)(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1)
       '@react-router/fs-routes':
         specifier: ^7.9.5
-        version: 7.9.5(@react-router/dev@7.9.5(@types/node@24.7.0)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.3)(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1))(typescript@5.9.3)
+        version: 7.9.5(@react-router/dev@7.9.5(@types/node@24.9.2)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.3)(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1))(typescript@5.9.3)
       '@testing-library/react':
         specifier: ^16.3.0
         version: 16.3.0(@testing-library/dom@10.4.1)(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -107,16 +107,16 @@ importers:
         version: 19.2.2
       '@vitejs/plugin-react':
         specifier: ^5.1.0
-        version: 5.1.0(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))
+        version: 5.1.0(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))
       '@vitest/coverage-v8':
         specifier: ^4.0.5
-        version: 4.0.5(vitest@4.0.5(@types/node@24.7.0)(happy-dom@15.11.7)(jsdom@27.0.1(postcss@8.5.6))(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))
+        version: 4.0.5(vitest@4.0.5(@types/node@24.9.2)(happy-dom@15.11.7)(jsdom@27.0.1(postcss@8.5.6))(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))
       '@wyw-in-js/vite':
         specifier: ^0.7.0
-        version: 0.7.0(typescript@5.9.3)(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))
+        version: 0.7.0(typescript@5.9.3)(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))
       firebase-tools:
         specifier: ^14.22.0
-        version: 14.22.0(@types/node@24.7.0)(encoding@0.1.13)(typescript@5.9.3)
+        version: 14.22.0(@types/node@24.9.2)(encoding@0.1.13)(typescript@5.9.3)
       jsdom:
         specifier: ^27.0.1
         version: 27.0.1(postcss@8.5.6)
@@ -125,16 +125,16 @@ importers:
         version: 5.9.3
       typescript-plugin-css-modules:
         specifier: ^5.2.0
-        version: 5.2.0(ts-node@10.9.2(@types/node@24.7.0)(typescript@5.9.3))(typescript@5.9.3)
+        version: 5.2.0(ts-node@10.9.2(@types/node@24.9.2)(typescript@5.9.3))(typescript@5.9.3)
       vite:
         specifier: ^7.1.12
-        version: 7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
+        version: 7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
       vite-plugin-pwa:
         specifier: ^1.1.0
-        version: 1.1.0(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(workbox-build@7.3.0(@types/babel__core@7.20.5))(workbox-window@7.3.0)
+        version: 1.1.0(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(workbox-build@7.3.0(@types/babel__core@7.20.5))(workbox-window@7.3.0)
       vitest:
         specifier: ^4.0.5
-        version: 4.0.5(@types/node@24.7.0)(happy-dom@15.11.7)(jsdom@27.0.1(postcss@8.5.6))(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
+        version: 4.0.5(@types/node@24.9.2)(happy-dom@15.11.7)(jsdom@27.0.1(postcss@8.5.6))(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
 
 packages:
 
@@ -1032,8 +1032,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@firebase/ai@2.4.0':
-    resolution: {integrity: sha512-YilG6AJ/nYpCKtxZyvEzBRAQv5bU+2tBOKX4Ps0rNNSdxN39aT37kGhjATbk1kq1z5Lq7mkWglw/ajAF3lOWUg==}
+  '@firebase/ai@2.5.0':
+    resolution: {integrity: sha512-OXv/jZLRjV9jTejWA4KOvW8gM1hNsLvQSCPwKhi2CEfe0Nap3rM6z+Ial0PGqXga0WgzhpypEvJOFvaAUFX3kg==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       '@firebase/app': 0.x
@@ -1070,19 +1070,19 @@ packages:
     peerDependencies:
       '@firebase/app': 0.x
 
-  '@firebase/app-compat@0.5.4':
-    resolution: {integrity: sha512-T7ifGmb+awJEcp542Ek4HtNfBxcBrnuk1ggUdqyFEdsXHdq7+wVlhvE6YukTL7NS8hIkEfL7TMAPx/uCNqt30g==}
+  '@firebase/app-compat@0.5.5':
+    resolution: {integrity: sha512-lVG/nRnXaot0rQSZazmTNqy83ti9O3+kdwoaE0d5wahRIWNoDirbIMcGVjDDgdmf4IE6FYreWOMh0L3DV1475w==}
     engines: {node: '>=20.0.0'}
 
   '@firebase/app-types@0.9.3':
     resolution: {integrity: sha512-kRVpIl4vVGJ4baogMDINbyrIOtOxqhkZQg4jTq3l8Lw6WSk0xfpEYzezFu+Kl4ve4fbPl79dvwRtaFqAC/ucCw==}
 
-  '@firebase/app@0.14.4':
-    resolution: {integrity: sha512-pUxEGmR+uu21OG/icAovjlu1fcYJzyVhhT0rsCrn+zi+nHtrS43Bp9KPn9KGa4NMspCUE++nkyiqziuIvJdwzw==}
+  '@firebase/app@0.14.5':
+    resolution: {integrity: sha512-zyNY77xJOGwcuB+xCxF8z8lSiHvD4ox7BCsqLEHEvgqQoRjxFZ0fkROR6NV5QyXmCqRLodMM8J5d2EStOocWIw==}
     engines: {node: '>=20.0.0'}
 
-  '@firebase/auth-compat@0.6.0':
-    resolution: {integrity: sha512-J0lGSxXlG/lYVi45wbpPhcWiWUMXevY4fvLZsN1GHh+po7TZVng+figdHBVhFheaiipU8HZyc7ljw1jNojM2nw==}
+  '@firebase/auth-compat@0.6.1':
+    resolution: {integrity: sha512-I0o2ZiZMnMTOQfqT22ur+zcGDVSAfdNZBHo26/Tfi8EllfR1BO7aTVo2rt/ts8o/FWsK8pOALLeVBGhZt8w/vg==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       '@firebase/app-compat': 0.x
@@ -1096,8 +1096,8 @@ packages:
       '@firebase/app-types': 0.x
       '@firebase/util': 1.x
 
-  '@firebase/auth@1.11.0':
-    resolution: {integrity: sha512-5j7+ua93X+IRcJ1oMDTClTo85l7Xe40WSkoJ+shzPrX7OISlVWLdE1mKC57PSD+/LfAbdhJmvKixINBw2ESK6w==}
+  '@firebase/auth@1.11.1':
+    resolution: {integrity: sha512-Mea0G/BwC1D0voSG+60Ylu3KZchXAFilXQ/hJXWCw3gebAu+RDINZA0dJMNeym7HFxBaBaByX8jSa7ys5+F2VA==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       '@firebase/app': 0.x
@@ -1986,8 +1986,8 @@ packages:
   '@types/long@4.0.2':
     resolution: {integrity: sha512-MqTGEo5bj5t157U6fA/BiDynNkn0YknVdh48CMPkTSpFTVmvao5UQmm7uEF6xBEo7qIMAlY/JSleYaE6VOdpaA==}
 
-  '@types/node@24.7.0':
-    resolution: {integrity: sha512-IbKooQVqUBrlzWTi79E8Fw78l8k1RNtlDDNWsFZs7XonuQSJ8oNYfEeclhprUldXISRMLzBpILuKgPlIxm+/Yw==}
+  '@types/node@24.9.2':
+    resolution: {integrity: sha512-uWN8YqxXxqFMX2RqGOrumsKeti4LlmIMIyV0lgut4jx7KQBcBiW6vkDtIBvHnHIquwNfJhk8v2OtmO8zXWHfPA==}
 
   '@types/postcss-modules-local-by-default@4.0.2':
     resolution: {integrity: sha512-CtYCcD+L+trB3reJPny+bKWKMzPfxEyQpKIwit7kErnOexf5/faaGpkFy4I5AwbV4hp1sk7/aTg0tt0B67VkLQ==}
@@ -3073,8 +3073,8 @@ packages:
     engines: {node: '>=20.0.0 || >=22.0.0'}
     hasBin: true
 
-  firebase@12.4.0:
-    resolution: {integrity: sha512-/chNgDQ6ppPPGOQO4jctxOa/5JeQxuhaxA7Y90K0I+n/wPfoO8mRveedhVUdo7ExLcWUivnnow/ouSLYSI5Icw==}
+  firebase@12.5.0:
+    resolution: {integrity: sha512-Ak8JcpH7FL6kiv0STwkv5+3CYEROO9iFWSx7OCZVvc4kIIABAIyAGs1mPGaHRxGUIApFZdMCXA7baq17uS6Mow==}
 
   fn.name@1.1.0:
     resolution: {integrity: sha512-GRnmB5gPyJpAhTQdSZTSp9uaPSvl09KoYcMQtsB9rQoOmzs9dH6ffeccH+Z+cv6P68Hu5bC6JjRh4Ah/mHSNRw==}
@@ -5273,8 +5273,8 @@ packages:
     resolution: {integrity: sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw==}
     engines: {node: '>= 0.4'}
 
-  undici-types@7.14.0:
-    resolution: {integrity: sha512-QQiYxHuyZ9gQUIrmPo3IA+hUl4KYk8uSA7cHrcKd/l3p1OTpZcM0Tbp9x7FAtXdAYhlasd60ncPpgu6ihG6TOA==}
+  undici-types@7.16.0:
+    resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
 
   unicode-canonical-property-names-ecmascript@2.0.1:
     resolution: {integrity: sha512-dA8WbNeb2a6oQzAQ55YlT5vQAWGV9WXOsi3SskE3bcCdM0P4SDd+24zS/OCacdRq5BkdsRj9q3Pg6YyQoxIGqg==}
@@ -5782,14 +5782,14 @@ snapshots:
       call-me-maybe: 1.0.2
       js-yaml: 4.1.0
 
-  '@apphosting/build@0.1.6(@types/node@24.7.0)(typescript@5.9.3)':
+  '@apphosting/build@0.1.6(@types/node@24.9.2)(typescript@5.9.3)':
     dependencies:
       '@apphosting/common': 0.0.8
       '@npmcli/promise-spawn': 3.0.0
       colorette: 2.0.20
       commander: 11.1.0
       npm-pick-manifest: 9.1.0
-      ts-node: 10.9.2(@types/node@24.7.0)(typescript@5.9.3)
+      ts-node: 10.9.2(@types/node@24.9.2)(typescript@5.9.3)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -5968,7 +5968,7 @@ snapshots:
   '@babel/helpers@7.28.4':
     dependencies:
       '@babel/template': 7.27.2
-      '@babel/types': 7.28.4
+      '@babel/types': 7.28.5
 
   '@babel/parser@7.28.5':
     dependencies:
@@ -6536,7 +6536,7 @@ snapshots:
     dependencies:
       '@babel/code-frame': 7.27.1
       '@babel/parser': 7.28.5
-      '@babel/types': 7.28.4
+      '@babel/types': 7.28.5
 
   '@babel/traverse@7.28.5':
     dependencies:
@@ -6748,9 +6748,9 @@ snapshots:
   '@esbuild/win32-x64@0.25.10':
     optional: true
 
-  '@firebase/ai@2.4.0(@firebase/app-types@0.9.3)(@firebase/app@0.14.4)':
+  '@firebase/ai@2.5.0(@firebase/app-types@0.9.3)(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app': 0.14.4
+      '@firebase/app': 0.14.5
       '@firebase/app-check-interop-types': 0.3.3
       '@firebase/app-types': 0.9.3
       '@firebase/component': 0.7.0
@@ -6758,11 +6758,11 @@ snapshots:
       '@firebase/util': 1.13.0
       tslib: 2.8.1
 
-  '@firebase/analytics-compat@0.2.25(@firebase/app-compat@0.5.4)(@firebase/app@0.14.4)':
+  '@firebase/analytics-compat@0.2.25(@firebase/app-compat@0.5.5)(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/analytics': 0.10.19(@firebase/app@0.14.4)
+      '@firebase/analytics': 0.10.19(@firebase/app@0.14.5)
       '@firebase/analytics-types': 0.8.3
-      '@firebase/app-compat': 0.5.4
+      '@firebase/app-compat': 0.5.5
       '@firebase/component': 0.7.0
       '@firebase/util': 1.13.0
       tslib: 2.8.1
@@ -6771,20 +6771,20 @@ snapshots:
 
   '@firebase/analytics-types@0.8.3': {}
 
-  '@firebase/analytics@0.10.19(@firebase/app@0.14.4)':
+  '@firebase/analytics@0.10.19(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app': 0.14.4
+      '@firebase/app': 0.14.5
       '@firebase/component': 0.7.0
-      '@firebase/installations': 0.6.19(@firebase/app@0.14.4)
+      '@firebase/installations': 0.6.19(@firebase/app@0.14.5)
       '@firebase/logger': 0.5.0
       '@firebase/util': 1.13.0
       tslib: 2.8.1
 
-  '@firebase/app-check-compat@0.4.0(@firebase/app-compat@0.5.4)(@firebase/app@0.14.4)':
+  '@firebase/app-check-compat@0.4.0(@firebase/app-compat@0.5.5)(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app-check': 0.11.0(@firebase/app@0.14.4)
+      '@firebase/app-check': 0.11.0(@firebase/app@0.14.5)
       '@firebase/app-check-types': 0.5.3
-      '@firebase/app-compat': 0.5.4
+      '@firebase/app-compat': 0.5.5
       '@firebase/component': 0.7.0
       '@firebase/logger': 0.5.0
       '@firebase/util': 1.13.0
@@ -6796,17 +6796,17 @@ snapshots:
 
   '@firebase/app-check-types@0.5.3': {}
 
-  '@firebase/app-check@0.11.0(@firebase/app@0.14.4)':
+  '@firebase/app-check@0.11.0(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app': 0.14.4
+      '@firebase/app': 0.14.5
       '@firebase/component': 0.7.0
       '@firebase/logger': 0.5.0
       '@firebase/util': 1.13.0
       tslib: 2.8.1
 
-  '@firebase/app-compat@0.5.4':
+  '@firebase/app-compat@0.5.5':
     dependencies:
-      '@firebase/app': 0.14.4
+      '@firebase/app': 0.14.5
       '@firebase/component': 0.7.0
       '@firebase/logger': 0.5.0
       '@firebase/util': 1.13.0
@@ -6814,7 +6814,7 @@ snapshots:
 
   '@firebase/app-types@0.9.3': {}
 
-  '@firebase/app@0.14.4':
+  '@firebase/app@0.14.5':
     dependencies:
       '@firebase/component': 0.7.0
       '@firebase/logger': 0.5.0
@@ -6822,10 +6822,10 @@ snapshots:
       idb: 7.1.1
       tslib: 2.8.1
 
-  '@firebase/auth-compat@0.6.0(@firebase/app-compat@0.5.4)(@firebase/app-types@0.9.3)(@firebase/app@0.14.4)':
+  '@firebase/auth-compat@0.6.1(@firebase/app-compat@0.5.5)(@firebase/app-types@0.9.3)(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app-compat': 0.5.4
-      '@firebase/auth': 1.11.0(@firebase/app@0.14.4)
+      '@firebase/app-compat': 0.5.5
+      '@firebase/auth': 1.11.1(@firebase/app@0.14.5)
       '@firebase/auth-types': 0.13.0(@firebase/app-types@0.9.3)(@firebase/util@1.13.0)
       '@firebase/component': 0.7.0
       '@firebase/util': 1.13.0
@@ -6842,9 +6842,9 @@ snapshots:
       '@firebase/app-types': 0.9.3
       '@firebase/util': 1.13.0
 
-  '@firebase/auth@1.11.0(@firebase/app@0.14.4)':
+  '@firebase/auth@1.11.1(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app': 0.14.4
+      '@firebase/app': 0.14.5
       '@firebase/component': 0.7.0
       '@firebase/logger': 0.5.0
       '@firebase/util': 1.13.0
@@ -6855,9 +6855,9 @@ snapshots:
       '@firebase/util': 1.13.0
       tslib: 2.8.1
 
-  '@firebase/data-connect@0.3.11(@firebase/app@0.14.4)':
+  '@firebase/data-connect@0.3.11(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app': 0.14.4
+      '@firebase/app': 0.14.5
       '@firebase/auth-interop-types': 0.2.4
       '@firebase/component': 0.7.0
       '@firebase/logger': 0.5.0
@@ -6888,11 +6888,11 @@ snapshots:
       faye-websocket: 0.11.4
       tslib: 2.8.1
 
-  '@firebase/firestore-compat@0.4.2(@firebase/app-compat@0.5.4)(@firebase/app-types@0.9.3)(@firebase/app@0.14.4)':
+  '@firebase/firestore-compat@0.4.2(@firebase/app-compat@0.5.5)(@firebase/app-types@0.9.3)(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app-compat': 0.5.4
+      '@firebase/app-compat': 0.5.5
       '@firebase/component': 0.7.0
-      '@firebase/firestore': 4.9.2(@firebase/app@0.14.4)
+      '@firebase/firestore': 4.9.2(@firebase/app@0.14.5)
       '@firebase/firestore-types': 3.0.3(@firebase/app-types@0.9.3)(@firebase/util@1.13.0)
       '@firebase/util': 1.13.0
       tslib: 2.8.1
@@ -6905,9 +6905,9 @@ snapshots:
       '@firebase/app-types': 0.9.3
       '@firebase/util': 1.13.0
 
-  '@firebase/firestore@4.9.2(@firebase/app@0.14.4)':
+  '@firebase/firestore@4.9.2(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app': 0.14.4
+      '@firebase/app': 0.14.5
       '@firebase/component': 0.7.0
       '@firebase/logger': 0.5.0
       '@firebase/util': 1.13.0
@@ -6916,11 +6916,11 @@ snapshots:
       '@grpc/proto-loader': 0.7.15
       tslib: 2.8.1
 
-  '@firebase/functions-compat@0.4.1(@firebase/app-compat@0.5.4)(@firebase/app@0.14.4)':
+  '@firebase/functions-compat@0.4.1(@firebase/app-compat@0.5.5)(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app-compat': 0.5.4
+      '@firebase/app-compat': 0.5.5
       '@firebase/component': 0.7.0
-      '@firebase/functions': 0.13.1(@firebase/app@0.14.4)
+      '@firebase/functions': 0.13.1(@firebase/app@0.14.5)
       '@firebase/functions-types': 0.6.3
       '@firebase/util': 1.13.0
       tslib: 2.8.1
@@ -6929,9 +6929,9 @@ snapshots:
 
   '@firebase/functions-types@0.6.3': {}
 
-  '@firebase/functions@0.13.1(@firebase/app@0.14.4)':
+  '@firebase/functions@0.13.1(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app': 0.14.4
+      '@firebase/app': 0.14.5
       '@firebase/app-check-interop-types': 0.3.3
       '@firebase/auth-interop-types': 0.2.4
       '@firebase/component': 0.7.0
@@ -6939,11 +6939,11 @@ snapshots:
       '@firebase/util': 1.13.0
       tslib: 2.8.1
 
-  '@firebase/installations-compat@0.2.19(@firebase/app-compat@0.5.4)(@firebase/app-types@0.9.3)(@firebase/app@0.14.4)':
+  '@firebase/installations-compat@0.2.19(@firebase/app-compat@0.5.5)(@firebase/app-types@0.9.3)(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app-compat': 0.5.4
+      '@firebase/app-compat': 0.5.5
       '@firebase/component': 0.7.0
-      '@firebase/installations': 0.6.19(@firebase/app@0.14.4)
+      '@firebase/installations': 0.6.19(@firebase/app@0.14.5)
       '@firebase/installations-types': 0.5.3(@firebase/app-types@0.9.3)
       '@firebase/util': 1.13.0
       tslib: 2.8.1
@@ -6955,9 +6955,9 @@ snapshots:
     dependencies:
       '@firebase/app-types': 0.9.3
 
-  '@firebase/installations@0.6.19(@firebase/app@0.14.4)':
+  '@firebase/installations@0.6.19(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app': 0.14.4
+      '@firebase/app': 0.14.5
       '@firebase/component': 0.7.0
       '@firebase/util': 1.13.0
       idb: 7.1.1
@@ -6967,11 +6967,11 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@firebase/messaging-compat@0.2.23(@firebase/app-compat@0.5.4)(@firebase/app@0.14.4)':
+  '@firebase/messaging-compat@0.2.23(@firebase/app-compat@0.5.5)(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app-compat': 0.5.4
+      '@firebase/app-compat': 0.5.5
       '@firebase/component': 0.7.0
-      '@firebase/messaging': 0.12.23(@firebase/app@0.14.4)
+      '@firebase/messaging': 0.12.23(@firebase/app@0.14.5)
       '@firebase/util': 1.13.0
       tslib: 2.8.1
     transitivePeerDependencies:
@@ -6979,22 +6979,22 @@ snapshots:
 
   '@firebase/messaging-interop-types@0.2.3': {}
 
-  '@firebase/messaging@0.12.23(@firebase/app@0.14.4)':
+  '@firebase/messaging@0.12.23(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app': 0.14.4
+      '@firebase/app': 0.14.5
       '@firebase/component': 0.7.0
-      '@firebase/installations': 0.6.19(@firebase/app@0.14.4)
+      '@firebase/installations': 0.6.19(@firebase/app@0.14.5)
       '@firebase/messaging-interop-types': 0.2.3
       '@firebase/util': 1.13.0
       idb: 7.1.1
       tslib: 2.8.1
 
-  '@firebase/performance-compat@0.2.22(@firebase/app-compat@0.5.4)(@firebase/app@0.14.4)':
+  '@firebase/performance-compat@0.2.22(@firebase/app-compat@0.5.5)(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app-compat': 0.5.4
+      '@firebase/app-compat': 0.5.5
       '@firebase/component': 0.7.0
       '@firebase/logger': 0.5.0
-      '@firebase/performance': 0.7.9(@firebase/app@0.14.4)
+      '@firebase/performance': 0.7.9(@firebase/app@0.14.5)
       '@firebase/performance-types': 0.2.3
       '@firebase/util': 1.13.0
       tslib: 2.8.1
@@ -7003,22 +7003,22 @@ snapshots:
 
   '@firebase/performance-types@0.2.3': {}
 
-  '@firebase/performance@0.7.9(@firebase/app@0.14.4)':
+  '@firebase/performance@0.7.9(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app': 0.14.4
+      '@firebase/app': 0.14.5
       '@firebase/component': 0.7.0
-      '@firebase/installations': 0.6.19(@firebase/app@0.14.4)
+      '@firebase/installations': 0.6.19(@firebase/app@0.14.5)
       '@firebase/logger': 0.5.0
       '@firebase/util': 1.13.0
       tslib: 2.8.1
       web-vitals: 4.2.4
 
-  '@firebase/remote-config-compat@0.2.20(@firebase/app-compat@0.5.4)(@firebase/app@0.14.4)':
+  '@firebase/remote-config-compat@0.2.20(@firebase/app-compat@0.5.5)(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app-compat': 0.5.4
+      '@firebase/app-compat': 0.5.5
       '@firebase/component': 0.7.0
       '@firebase/logger': 0.5.0
-      '@firebase/remote-config': 0.7.0(@firebase/app@0.14.4)
+      '@firebase/remote-config': 0.7.0(@firebase/app@0.14.5)
       '@firebase/remote-config-types': 0.5.0
       '@firebase/util': 1.13.0
       tslib: 2.8.1
@@ -7027,20 +7027,20 @@ snapshots:
 
   '@firebase/remote-config-types@0.5.0': {}
 
-  '@firebase/remote-config@0.7.0(@firebase/app@0.14.4)':
+  '@firebase/remote-config@0.7.0(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app': 0.14.4
+      '@firebase/app': 0.14.5
       '@firebase/component': 0.7.0
-      '@firebase/installations': 0.6.19(@firebase/app@0.14.4)
+      '@firebase/installations': 0.6.19(@firebase/app@0.14.5)
       '@firebase/logger': 0.5.0
       '@firebase/util': 1.13.0
       tslib: 2.8.1
 
-  '@firebase/storage-compat@0.4.0(@firebase/app-compat@0.5.4)(@firebase/app-types@0.9.3)(@firebase/app@0.14.4)':
+  '@firebase/storage-compat@0.4.0(@firebase/app-compat@0.5.5)(@firebase/app-types@0.9.3)(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app-compat': 0.5.4
+      '@firebase/app-compat': 0.5.5
       '@firebase/component': 0.7.0
-      '@firebase/storage': 0.14.0(@firebase/app@0.14.4)
+      '@firebase/storage': 0.14.0(@firebase/app@0.14.5)
       '@firebase/storage-types': 0.8.3(@firebase/app-types@0.9.3)(@firebase/util@1.13.0)
       '@firebase/util': 1.13.0
       tslib: 2.8.1
@@ -7053,9 +7053,9 @@ snapshots:
       '@firebase/app-types': 0.9.3
       '@firebase/util': 1.13.0
 
-  '@firebase/storage@0.14.0(@firebase/app@0.14.4)':
+  '@firebase/storage@0.14.0(@firebase/app@0.14.5)':
     dependencies:
-      '@firebase/app': 0.14.4
+      '@firebase/app': 0.14.5
       '@firebase/component': 0.7.0
       '@firebase/util': 1.13.0
       tslib: 2.8.1
@@ -7124,7 +7124,7 @@ snapshots:
   '@grpc/grpc-js@1.9.15':
     dependencies:
       '@grpc/proto-loader': 0.7.15
-      '@types/node': 24.7.0
+      '@types/node': 24.9.2
 
   '@grpc/proto-loader@0.7.15':
     dependencies:
@@ -7142,128 +7142,128 @@ snapshots:
 
   '@inquirer/ansi@1.0.0': {}
 
-  '@inquirer/checkbox@4.2.4(@types/node@24.7.0)':
+  '@inquirer/checkbox@4.2.4(@types/node@24.9.2)':
     dependencies:
       '@inquirer/ansi': 1.0.0
-      '@inquirer/core': 10.2.2(@types/node@24.7.0)
+      '@inquirer/core': 10.2.2(@types/node@24.9.2)
       '@inquirer/figures': 1.0.13
-      '@inquirer/type': 3.0.8(@types/node@24.7.0)
+      '@inquirer/type': 3.0.8(@types/node@24.9.2)
       yoctocolors-cjs: 2.1.3
     optionalDependencies:
-      '@types/node': 24.7.0
+      '@types/node': 24.9.2
 
-  '@inquirer/confirm@5.1.18(@types/node@24.7.0)':
+  '@inquirer/confirm@5.1.18(@types/node@24.9.2)':
     dependencies:
-      '@inquirer/core': 10.2.2(@types/node@24.7.0)
-      '@inquirer/type': 3.0.8(@types/node@24.7.0)
+      '@inquirer/core': 10.2.2(@types/node@24.9.2)
+      '@inquirer/type': 3.0.8(@types/node@24.9.2)
     optionalDependencies:
-      '@types/node': 24.7.0
+      '@types/node': 24.9.2
 
-  '@inquirer/core@10.2.2(@types/node@24.7.0)':
+  '@inquirer/core@10.2.2(@types/node@24.9.2)':
     dependencies:
       '@inquirer/ansi': 1.0.0
       '@inquirer/figures': 1.0.13
-      '@inquirer/type': 3.0.8(@types/node@24.7.0)
+      '@inquirer/type': 3.0.8(@types/node@24.9.2)
       cli-width: 4.1.0
       mute-stream: 2.0.0
       signal-exit: 4.1.0
       wrap-ansi: 6.2.0
       yoctocolors-cjs: 2.1.3
     optionalDependencies:
-      '@types/node': 24.7.0
+      '@types/node': 24.9.2
 
-  '@inquirer/editor@4.2.20(@types/node@24.7.0)':
+  '@inquirer/editor@4.2.20(@types/node@24.9.2)':
     dependencies:
-      '@inquirer/core': 10.2.2(@types/node@24.7.0)
-      '@inquirer/external-editor': 1.0.2(@types/node@24.7.0)
-      '@inquirer/type': 3.0.8(@types/node@24.7.0)
+      '@inquirer/core': 10.2.2(@types/node@24.9.2)
+      '@inquirer/external-editor': 1.0.2(@types/node@24.9.2)
+      '@inquirer/type': 3.0.8(@types/node@24.9.2)
     optionalDependencies:
-      '@types/node': 24.7.0
+      '@types/node': 24.9.2
 
-  '@inquirer/expand@4.0.20(@types/node@24.7.0)':
+  '@inquirer/expand@4.0.20(@types/node@24.9.2)':
     dependencies:
-      '@inquirer/core': 10.2.2(@types/node@24.7.0)
-      '@inquirer/type': 3.0.8(@types/node@24.7.0)
+      '@inquirer/core': 10.2.2(@types/node@24.9.2)
+      '@inquirer/type': 3.0.8(@types/node@24.9.2)
       yoctocolors-cjs: 2.1.3
     optionalDependencies:
-      '@types/node': 24.7.0
+      '@types/node': 24.9.2
 
-  '@inquirer/external-editor@1.0.2(@types/node@24.7.0)':
+  '@inquirer/external-editor@1.0.2(@types/node@24.9.2)':
     dependencies:
       chardet: 2.1.0
       iconv-lite: 0.7.0
     optionalDependencies:
-      '@types/node': 24.7.0
+      '@types/node': 24.9.2
 
   '@inquirer/figures@1.0.13': {}
 
-  '@inquirer/input@4.2.4(@types/node@24.7.0)':
+  '@inquirer/input@4.2.4(@types/node@24.9.2)':
     dependencies:
-      '@inquirer/core': 10.2.2(@types/node@24.7.0)
-      '@inquirer/type': 3.0.8(@types/node@24.7.0)
+      '@inquirer/core': 10.2.2(@types/node@24.9.2)
+      '@inquirer/type': 3.0.8(@types/node@24.9.2)
     optionalDependencies:
-      '@types/node': 24.7.0
+      '@types/node': 24.9.2
 
-  '@inquirer/number@3.0.20(@types/node@24.7.0)':
+  '@inquirer/number@3.0.20(@types/node@24.9.2)':
     dependencies:
-      '@inquirer/core': 10.2.2(@types/node@24.7.0)
-      '@inquirer/type': 3.0.8(@types/node@24.7.0)
+      '@inquirer/core': 10.2.2(@types/node@24.9.2)
+      '@inquirer/type': 3.0.8(@types/node@24.9.2)
     optionalDependencies:
-      '@types/node': 24.7.0
+      '@types/node': 24.9.2
 
-  '@inquirer/password@4.0.20(@types/node@24.7.0)':
-    dependencies:
-      '@inquirer/ansi': 1.0.0
-      '@inquirer/core': 10.2.2(@types/node@24.7.0)
-      '@inquirer/type': 3.0.8(@types/node@24.7.0)
-    optionalDependencies:
-      '@types/node': 24.7.0
-
-  '@inquirer/prompts@7.8.6(@types/node@24.7.0)':
-    dependencies:
-      '@inquirer/checkbox': 4.2.4(@types/node@24.7.0)
-      '@inquirer/confirm': 5.1.18(@types/node@24.7.0)
-      '@inquirer/editor': 4.2.20(@types/node@24.7.0)
-      '@inquirer/expand': 4.0.20(@types/node@24.7.0)
-      '@inquirer/input': 4.2.4(@types/node@24.7.0)
-      '@inquirer/number': 3.0.20(@types/node@24.7.0)
-      '@inquirer/password': 4.0.20(@types/node@24.7.0)
-      '@inquirer/rawlist': 4.1.8(@types/node@24.7.0)
-      '@inquirer/search': 3.1.3(@types/node@24.7.0)
-      '@inquirer/select': 4.3.4(@types/node@24.7.0)
-    optionalDependencies:
-      '@types/node': 24.7.0
-
-  '@inquirer/rawlist@4.1.8(@types/node@24.7.0)':
-    dependencies:
-      '@inquirer/core': 10.2.2(@types/node@24.7.0)
-      '@inquirer/type': 3.0.8(@types/node@24.7.0)
-      yoctocolors-cjs: 2.1.3
-    optionalDependencies:
-      '@types/node': 24.7.0
-
-  '@inquirer/search@3.1.3(@types/node@24.7.0)':
-    dependencies:
-      '@inquirer/core': 10.2.2(@types/node@24.7.0)
-      '@inquirer/figures': 1.0.13
-      '@inquirer/type': 3.0.8(@types/node@24.7.0)
-      yoctocolors-cjs: 2.1.3
-    optionalDependencies:
-      '@types/node': 24.7.0
-
-  '@inquirer/select@4.3.4(@types/node@24.7.0)':
+  '@inquirer/password@4.0.20(@types/node@24.9.2)':
     dependencies:
       '@inquirer/ansi': 1.0.0
-      '@inquirer/core': 10.2.2(@types/node@24.7.0)
-      '@inquirer/figures': 1.0.13
-      '@inquirer/type': 3.0.8(@types/node@24.7.0)
+      '@inquirer/core': 10.2.2(@types/node@24.9.2)
+      '@inquirer/type': 3.0.8(@types/node@24.9.2)
+    optionalDependencies:
+      '@types/node': 24.9.2
+
+  '@inquirer/prompts@7.8.6(@types/node@24.9.2)':
+    dependencies:
+      '@inquirer/checkbox': 4.2.4(@types/node@24.9.2)
+      '@inquirer/confirm': 5.1.18(@types/node@24.9.2)
+      '@inquirer/editor': 4.2.20(@types/node@24.9.2)
+      '@inquirer/expand': 4.0.20(@types/node@24.9.2)
+      '@inquirer/input': 4.2.4(@types/node@24.9.2)
+      '@inquirer/number': 3.0.20(@types/node@24.9.2)
+      '@inquirer/password': 4.0.20(@types/node@24.9.2)
+      '@inquirer/rawlist': 4.1.8(@types/node@24.9.2)
+      '@inquirer/search': 3.1.3(@types/node@24.9.2)
+      '@inquirer/select': 4.3.4(@types/node@24.9.2)
+    optionalDependencies:
+      '@types/node': 24.9.2
+
+  '@inquirer/rawlist@4.1.8(@types/node@24.9.2)':
+    dependencies:
+      '@inquirer/core': 10.2.2(@types/node@24.9.2)
+      '@inquirer/type': 3.0.8(@types/node@24.9.2)
       yoctocolors-cjs: 2.1.3
     optionalDependencies:
-      '@types/node': 24.7.0
+      '@types/node': 24.9.2
 
-  '@inquirer/type@3.0.8(@types/node@24.7.0)':
+  '@inquirer/search@3.1.3(@types/node@24.9.2)':
+    dependencies:
+      '@inquirer/core': 10.2.2(@types/node@24.9.2)
+      '@inquirer/figures': 1.0.13
+      '@inquirer/type': 3.0.8(@types/node@24.9.2)
+      yoctocolors-cjs: 2.1.3
     optionalDependencies:
-      '@types/node': 24.7.0
+      '@types/node': 24.9.2
+
+  '@inquirer/select@4.3.4(@types/node@24.9.2)':
+    dependencies:
+      '@inquirer/ansi': 1.0.0
+      '@inquirer/core': 10.2.2(@types/node@24.9.2)
+      '@inquirer/figures': 1.0.13
+      '@inquirer/type': 3.0.8(@types/node@24.9.2)
+      yoctocolors-cjs: 2.1.3
+    optionalDependencies:
+      '@types/node': 24.9.2
+
+  '@inquirer/type@3.0.8(@types/node@24.9.2)':
+    optionalDependencies:
+      '@types/node': 24.9.2
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -7528,7 +7528,7 @@ snapshots:
     dependencies:
       typescript: 5.9.3
 
-  '@react-router/dev@7.9.5(@types/node@24.7.0)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.3)(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1)':
+  '@react-router/dev@7.9.5(@types/node@24.9.2)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.3)(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1)':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/generator': 7.28.5
@@ -7558,10 +7558,10 @@ snapshots:
       semver: 7.7.3
       tinyglobby: 0.2.15
       valibot: 1.1.0(typescript@5.9.3)
-      vite: 7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
-      vite-node: 3.2.4(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
+      vite: 7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
+      vite-node: 3.2.4(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
     optionalDependencies:
-      '@vitejs/plugin-rsc': 0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))
+      '@vitejs/plugin-rsc': 0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))
       typescript: 5.9.3
     transitivePeerDependencies:
       - '@types/node'
@@ -7579,9 +7579,9 @@ snapshots:
       - tsx
       - yaml
 
-  '@react-router/fs-routes@7.9.5(@react-router/dev@7.9.5(@types/node@24.7.0)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.3)(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1))(typescript@5.9.3)':
+  '@react-router/fs-routes@7.9.5(@react-router/dev@7.9.5(@types/node@24.9.2)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.3)(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1))(typescript@5.9.3)':
     dependencies:
-      '@react-router/dev': 7.9.5(@types/node@24.7.0)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.3)(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1)
+      '@react-router/dev': 7.9.5(@types/node@24.9.2)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(typescript@5.9.3)(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(yaml@2.8.1)
       minimatch: 9.0.5
     optionalDependencies:
       typescript: 5.9.3
@@ -7829,9 +7829,9 @@ snapshots:
 
   '@types/long@4.0.2': {}
 
-  '@types/node@24.7.0':
+  '@types/node@24.9.2':
     dependencies:
-      undici-types: 7.14.0
+      undici-types: 7.16.0
 
   '@types/postcss-modules-local-by-default@4.0.2':
     dependencies:
@@ -7848,7 +7848,7 @@ snapshots:
   '@types/request@2.48.13':
     dependencies:
       '@types/caseless': 0.12.5
-      '@types/node': 24.7.0
+      '@types/node': 24.9.2
       '@types/tough-cookie': 4.0.5
       form-data: 2.5.5
 
@@ -7860,7 +7860,7 @@ snapshots:
 
   '@types/trusted-types@2.0.7': {}
 
-  '@vitejs/plugin-react@5.1.0(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))':
+  '@vitejs/plugin-react@5.1.0(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.28.5)
@@ -7868,11 +7868,11 @@ snapshots:
       '@rolldown/pluginutils': 1.0.0-beta.43
       '@types/babel__core': 7.20.5
       react-refresh: 0.18.0
-      vite: 7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
+      vite: 7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))':
+  '@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))':
     dependencies:
       '@mjackson/node-fetch-server': 0.7.0
       es-module-lexer: 1.7.0
@@ -7882,11 +7882,11 @@ snapshots:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
       turbo-stream: 3.1.0
-      vite: 7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
-      vitefu: 1.1.1(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))
+      vite: 7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
+      vitefu: 1.1.1(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))
     optional: true
 
-  '@vitest/coverage-v8@4.0.5(vitest@4.0.5(@types/node@24.7.0)(happy-dom@15.11.7)(jsdom@27.0.1(postcss@8.5.6))(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))':
+  '@vitest/coverage-v8@4.0.5(vitest@4.0.5(@types/node@24.9.2)(happy-dom@15.11.7)(jsdom@27.0.1(postcss@8.5.6))(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))':
     dependencies:
       '@bcoe/v8-coverage': 1.0.2
       '@vitest/utils': 4.0.5
@@ -7899,7 +7899,7 @@ snapshots:
       magicast: 0.3.5
       std-env: 3.10.0
       tinyrainbow: 3.0.3
-      vitest: 4.0.5(@types/node@24.7.0)(happy-dom@15.11.7)(jsdom@27.0.1(postcss@8.5.6))(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
+      vitest: 4.0.5(@types/node@24.9.2)(happy-dom@15.11.7)(jsdom@27.0.1(postcss@8.5.6))(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -7912,13 +7912,13 @@ snapshots:
       chai: 6.2.0
       tinyrainbow: 3.0.3
 
-  '@vitest/mocker@4.0.5(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))':
+  '@vitest/mocker@4.0.5(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))':
     dependencies:
       '@vitest/spy': 4.0.5
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
+      vite: 7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
 
   '@vitest/pretty-format@4.0.5':
     dependencies:
@@ -7993,11 +7993,11 @@ snapshots:
       - supports-color
       - typescript
 
-  '@wyw-in-js/vite@0.7.0(typescript@5.9.3)(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))':
+  '@wyw-in-js/vite@0.7.0(typescript@5.9.3)(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))':
     dependencies:
       '@wyw-in-js/shared': 0.7.0
       '@wyw-in-js/transform': 0.7.0(typescript@5.9.3)
-      vite: 7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
+      vite: 7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -9126,15 +9126,15 @@ snapshots:
       locate-path: 6.0.0
       path-exists: 4.0.0
 
-  firebase-tools@14.22.0(@types/node@24.7.0)(encoding@0.1.13)(typescript@5.9.3):
+  firebase-tools@14.22.0(@types/node@24.9.2)(encoding@0.1.13)(typescript@5.9.3):
     dependencies:
-      '@apphosting/build': 0.1.6(@types/node@24.7.0)(typescript@5.9.3)
+      '@apphosting/build': 0.1.6(@types/node@24.9.2)(typescript@5.9.3)
       '@apphosting/common': 0.0.8
       '@electric-sql/pglite': 0.3.10
       '@electric-sql/pglite-tools': 0.2.15(@electric-sql/pglite@0.3.10)
       '@google-cloud/cloud-sql-connector': 1.8.3
       '@google-cloud/pubsub': 4.11.0(encoding@0.1.13)
-      '@inquirer/prompts': 7.8.6(@types/node@24.7.0)
+      '@inquirer/prompts': 7.8.6(@types/node@24.9.2)
       '@modelcontextprotocol/sdk': 1.19.1
       abort-controller: 3.0.0
       ajv: 8.17.1
@@ -9216,35 +9216,35 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  firebase@12.4.0:
+  firebase@12.5.0:
     dependencies:
-      '@firebase/ai': 2.4.0(@firebase/app-types@0.9.3)(@firebase/app@0.14.4)
-      '@firebase/analytics': 0.10.19(@firebase/app@0.14.4)
-      '@firebase/analytics-compat': 0.2.25(@firebase/app-compat@0.5.4)(@firebase/app@0.14.4)
-      '@firebase/app': 0.14.4
-      '@firebase/app-check': 0.11.0(@firebase/app@0.14.4)
-      '@firebase/app-check-compat': 0.4.0(@firebase/app-compat@0.5.4)(@firebase/app@0.14.4)
-      '@firebase/app-compat': 0.5.4
+      '@firebase/ai': 2.5.0(@firebase/app-types@0.9.3)(@firebase/app@0.14.5)
+      '@firebase/analytics': 0.10.19(@firebase/app@0.14.5)
+      '@firebase/analytics-compat': 0.2.25(@firebase/app-compat@0.5.5)(@firebase/app@0.14.5)
+      '@firebase/app': 0.14.5
+      '@firebase/app-check': 0.11.0(@firebase/app@0.14.5)
+      '@firebase/app-check-compat': 0.4.0(@firebase/app-compat@0.5.5)(@firebase/app@0.14.5)
+      '@firebase/app-compat': 0.5.5
       '@firebase/app-types': 0.9.3
-      '@firebase/auth': 1.11.0(@firebase/app@0.14.4)
-      '@firebase/auth-compat': 0.6.0(@firebase/app-compat@0.5.4)(@firebase/app-types@0.9.3)(@firebase/app@0.14.4)
-      '@firebase/data-connect': 0.3.11(@firebase/app@0.14.4)
+      '@firebase/auth': 1.11.1(@firebase/app@0.14.5)
+      '@firebase/auth-compat': 0.6.1(@firebase/app-compat@0.5.5)(@firebase/app-types@0.9.3)(@firebase/app@0.14.5)
+      '@firebase/data-connect': 0.3.11(@firebase/app@0.14.5)
       '@firebase/database': 1.1.0
       '@firebase/database-compat': 2.1.0
-      '@firebase/firestore': 4.9.2(@firebase/app@0.14.4)
-      '@firebase/firestore-compat': 0.4.2(@firebase/app-compat@0.5.4)(@firebase/app-types@0.9.3)(@firebase/app@0.14.4)
-      '@firebase/functions': 0.13.1(@firebase/app@0.14.4)
-      '@firebase/functions-compat': 0.4.1(@firebase/app-compat@0.5.4)(@firebase/app@0.14.4)
-      '@firebase/installations': 0.6.19(@firebase/app@0.14.4)
-      '@firebase/installations-compat': 0.2.19(@firebase/app-compat@0.5.4)(@firebase/app-types@0.9.3)(@firebase/app@0.14.4)
-      '@firebase/messaging': 0.12.23(@firebase/app@0.14.4)
-      '@firebase/messaging-compat': 0.2.23(@firebase/app-compat@0.5.4)(@firebase/app@0.14.4)
-      '@firebase/performance': 0.7.9(@firebase/app@0.14.4)
-      '@firebase/performance-compat': 0.2.22(@firebase/app-compat@0.5.4)(@firebase/app@0.14.4)
-      '@firebase/remote-config': 0.7.0(@firebase/app@0.14.4)
-      '@firebase/remote-config-compat': 0.2.20(@firebase/app-compat@0.5.4)(@firebase/app@0.14.4)
-      '@firebase/storage': 0.14.0(@firebase/app@0.14.4)
-      '@firebase/storage-compat': 0.4.0(@firebase/app-compat@0.5.4)(@firebase/app-types@0.9.3)(@firebase/app@0.14.4)
+      '@firebase/firestore': 4.9.2(@firebase/app@0.14.5)
+      '@firebase/firestore-compat': 0.4.2(@firebase/app-compat@0.5.5)(@firebase/app-types@0.9.3)(@firebase/app@0.14.5)
+      '@firebase/functions': 0.13.1(@firebase/app@0.14.5)
+      '@firebase/functions-compat': 0.4.1(@firebase/app-compat@0.5.5)(@firebase/app@0.14.5)
+      '@firebase/installations': 0.6.19(@firebase/app@0.14.5)
+      '@firebase/installations-compat': 0.2.19(@firebase/app-compat@0.5.5)(@firebase/app-types@0.9.3)(@firebase/app@0.14.5)
+      '@firebase/messaging': 0.12.23(@firebase/app@0.14.5)
+      '@firebase/messaging-compat': 0.2.23(@firebase/app-compat@0.5.5)(@firebase/app@0.14.5)
+      '@firebase/performance': 0.7.9(@firebase/app@0.14.5)
+      '@firebase/performance-compat': 0.2.22(@firebase/app-compat@0.5.5)(@firebase/app@0.14.5)
+      '@firebase/remote-config': 0.7.0(@firebase/app@0.14.5)
+      '@firebase/remote-config-compat': 0.2.20(@firebase/app-compat@0.5.5)(@firebase/app@0.14.5)
+      '@firebase/storage': 0.14.0(@firebase/app@0.14.5)
+      '@firebase/storage-compat': 0.4.0(@firebase/app-compat@0.5.5)(@firebase/app-types@0.9.3)(@firebase/app@0.14.5)
       '@firebase/util': 1.13.0
     transitivePeerDependencies:
       - '@react-native-async-storage/async-storage'
@@ -10679,13 +10679,13 @@ snapshots:
 
   possible-typed-array-names@1.1.0: {}
 
-  postcss-load-config@3.1.4(postcss@8.5.6)(ts-node@10.9.2(@types/node@24.7.0)(typescript@5.9.3)):
+  postcss-load-config@3.1.4(postcss@8.5.6)(ts-node@10.9.2(@types/node@24.9.2)(typescript@5.9.3)):
     dependencies:
       lilconfig: 2.1.0
       yaml: 1.10.2
     optionalDependencies:
       postcss: 8.5.6
-      ts-node: 10.9.2(@types/node@24.7.0)(typescript@5.9.3)
+      ts-node: 10.9.2(@types/node@24.9.2)(typescript@5.9.3)
 
   postcss-modules-extract-imports@3.1.0(postcss@8.5.6):
     dependencies:
@@ -10778,7 +10778,7 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 24.7.0
+      '@types/node': 24.9.2
       long: 5.3.2
 
   proxy-addr@2.0.7:
@@ -11611,14 +11611,14 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  ts-node@10.9.2(@types/node@24.7.0)(typescript@5.9.3):
+  ts-node@10.9.2(@types/node@24.9.2)(typescript@5.9.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 24.7.0
+      '@types/node': 24.9.2
       acorn: 8.15.0
       acorn-walk: 8.3.4
       arg: 4.1.3
@@ -11694,7 +11694,7 @@ snapshots:
     dependencies:
       is-typedarray: 1.0.0
 
-  typescript-plugin-css-modules@5.2.0(ts-node@10.9.2(@types/node@24.7.0)(typescript@5.9.3))(typescript@5.9.3):
+  typescript-plugin-css-modules@5.2.0(ts-node@10.9.2(@types/node@24.9.2)(typescript@5.9.3))(typescript@5.9.3):
     dependencies:
       '@types/postcss-modules-local-by-default': 4.0.2
       '@types/postcss-modules-scope': 3.0.4
@@ -11703,7 +11703,7 @@ snapshots:
       less: 4.4.1
       lodash.camelcase: 4.3.0
       postcss: 8.5.6
-      postcss-load-config: 3.1.4(postcss@8.5.6)(ts-node@10.9.2(@types/node@24.7.0)(typescript@5.9.3))
+      postcss-load-config: 3.1.4(postcss@8.5.6)(ts-node@10.9.2(@types/node@24.9.2)(typescript@5.9.3))
       postcss-modules-extract-imports: 3.1.0(postcss@8.5.6)
       postcss-modules-local-by-default: 4.2.0(postcss@8.5.6)
       postcss-modules-scope: 3.2.1(postcss@8.5.6)
@@ -11727,7 +11727,7 @@ snapshots:
       has-symbols: 1.1.0
       which-boxed-primitive: 1.1.1
 
-  undici-types@7.14.0: {}
+  undici-types@7.16.0: {}
 
   unicode-canonical-property-names-ecmascript@2.0.1: {}
 
@@ -11829,13 +11829,13 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite-node@3.2.4(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1):
+  vite-node@3.2.4(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1):
     dependencies:
       cac: 6.7.14
       debug: 4.4.3
       es-module-lexer: 1.7.0
       pathe: 2.0.3
-      vite: 7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
+      vite: 7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -11850,18 +11850,18 @@ snapshots:
       - tsx
       - yaml
 
-  vite-plugin-pwa@1.1.0(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(workbox-build@7.3.0(@types/babel__core@7.20.5))(workbox-window@7.3.0):
+  vite-plugin-pwa@1.1.0(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))(workbox-build@7.3.0(@types/babel__core@7.20.5))(workbox-window@7.3.0):
     dependencies:
       debug: 4.4.3
       pretty-bytes: 6.1.1
       tinyglobby: 0.2.15
-      vite: 7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
+      vite: 7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
       workbox-build: 7.3.0(@types/babel__core@7.20.5)
       workbox-window: 7.3.0
     transitivePeerDependencies:
       - supports-color
 
-  vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1):
+  vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1):
     dependencies:
       esbuild: 0.25.10
       fdir: 6.5.0(picomatch@4.0.3)
@@ -11870,7 +11870,7 @@ snapshots:
       rollup: 4.52.3
       tinyglobby: 0.2.15
     optionalDependencies:
-      '@types/node': 24.7.0
+      '@types/node': 24.9.2
       fsevents: 2.3.3
       less: 4.4.1
       sass: 1.91.0
@@ -11878,15 +11878,15 @@ snapshots:
       terser: 5.44.0
       yaml: 2.8.1
 
-  vitefu@1.1.1(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)):
+  vitefu@1.1.1(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)):
     optionalDependencies:
-      vite: 7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
+      vite: 7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
     optional: true
 
-  vitest@4.0.5(@types/node@24.7.0)(happy-dom@15.11.7)(jsdom@27.0.1(postcss@8.5.6))(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1):
+  vitest@4.0.5(@types/node@24.9.2)(happy-dom@15.11.7)(jsdom@27.0.1(postcss@8.5.6))(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1):
     dependencies:
       '@vitest/expect': 4.0.5
-      '@vitest/mocker': 4.0.5(vite@7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))
+      '@vitest/mocker': 4.0.5(vite@7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1))
       '@vitest/pretty-format': 4.0.5
       '@vitest/runner': 4.0.5
       '@vitest/snapshot': 4.0.5
@@ -11903,10 +11903,10 @@ snapshots:
       tinyexec: 0.3.2
       tinyglobby: 0.2.15
       tinyrainbow: 3.0.3
-      vite: 7.1.12(@types/node@24.7.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
+      vite: 7.1.12(@types/node@24.9.2)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.0)(yaml@2.8.1)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 24.7.0
+      '@types/node': 24.9.2
       happy-dom: 15.11.7
       jsdom: 27.0.1(postcss@8.5.6)
     transitivePeerDependencies:
