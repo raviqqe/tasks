@@ -30,7 +30,7 @@
     "default-import": "^2.0.8",
     "es-toolkit": "^1.40.0",
     "firebase": "^12.5.0",
-    "isbot": "^5.1.31",
+    "isbot": "^5.1.32",
     "localforage": "^1.10.0",
     "nanostores": "^1.0.1",
     "react": "^19.2.0",
