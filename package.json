@@ -48,7 +48,7 @@
     "@react-router/dev": "^7.9.5",
     "@react-router/fs-routes": "^7.9.5",
     "@testing-library/react": "^16.3.0",
-    "@types/react": "^19.2.2",
+    "@types/react": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.0",
     "@vitest/coverage-v8": "^4.0.8",
     "@wyw-in-js/vite": "^0.8.0",
