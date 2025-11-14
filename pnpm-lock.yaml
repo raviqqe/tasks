@@ -36,8 +36,8 @@ importers:
         specifier: ^0.6.8
         version: 0.6.8
       '@react-router/node':
-        specifier: ^7.9.5
-        version: 7.9.5(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(typescript@5.9.3)
+        specifier: ^7.9.6
+        version: 7.9.6(react-router@7.9.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(typescript@5.9.3)
       '@sentry/browser':
         specifier: ^10.25.0
         version: 10.25.0
@@ -72,8 +72,8 @@ importers:
         specifier: ^5.5.0
         version: 5.5.0(react@19.2.0)
       react-router:
-        specifier: ^7.9.5
-        version: 7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^7.9.6
+        version: 7.9.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react-spinners:
         specifier: ^0.17.0
         version: 0.17.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -94,11 +94,11 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
       '@react-router/dev':
-        specifier: ^7.9.5
-        version: 7.9.5(@types/node@24.10.0)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(typescript@5.9.3)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1))(yaml@2.8.1)
+        specifier: ^7.9.6
+        version: 7.9.6(@types/node@24.10.0)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(typescript@5.9.3)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1))(yaml@2.8.1)
       '@react-router/fs-routes':
-        specifier: ^7.9.5
-        version: 7.9.5(@react-router/dev@7.9.5(@types/node@24.10.0)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(typescript@5.9.3)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1))(yaml@2.8.1))(typescript@5.9.3)
+        specifier: ^7.9.6
+        version: 7.9.6(@react-router/dev@7.9.6(@types/node@24.10.0)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(typescript@5.9.3)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1))(yaml@2.8.1))(typescript@5.9.3)
       '@testing-library/react':
         specifier: ^16.3.0
         version: 16.3.0(@testing-library/dom@10.4.1)(@types/react@19.2.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -1688,14 +1688,14 @@ packages:
     resolution: {integrity: sha512-ySX6Lsem2y4/6Vnes92HhEw7xzVMZoXXnHoO/i8YQk8ZUtiIJmY2xAwcn4ERJAp4wW4Y6yYgPP0ieVig55REZQ==}
     engines: {node: '>=24.6.0'}
 
-  '@react-router/dev@7.9.5':
-    resolution: {integrity: sha512-MkWI4zN7VbQ0tteuJtX5hmDINNS26IW236a8lM8+o1344xdnT/ZsBvcUh8AkzDdCRYEz1blgzgirpj0Wc1gmXg==}
+  '@react-router/dev@7.9.6':
+    resolution: {integrity: sha512-pBkbczGwI+NcZPcK8JPvWGWdjUpT/+okXYp6IXvt7zI3WLxr5hQLLRox5FkLiVxkykbqARO1hk9NRp9KFwJ2sA==}
     engines: {node: '>=20.0.0'}
     hasBin: true
     peerDependencies:
-      '@react-router/serve': ^7.9.5
+      '@react-router/serve': ^7.9.6
       '@vitejs/plugin-rsc': '*'
-      react-router: ^7.9.5
+      react-router: ^7.9.6
       typescript: ^5.1.0
       vite: ^5.1.0 || ^6.0.0 || ^7.0.0
       wrangler: ^3.28.2 || ^4.0.0
@@ -1709,21 +1709,21 @@ packages:
       wrangler:
         optional: true
 
-  '@react-router/fs-routes@7.9.5':
-    resolution: {integrity: sha512-LE6WXgNC53YJ40QF2m8QV5iJYX1O+hF6H/Oz5sodgnFaal6sfMZAMp+lPb1Hm8pYDpwz6zXpUsKa+Btl9/r/Qg==}
+  '@react-router/fs-routes@7.9.6':
+    resolution: {integrity: sha512-wl0hRJS0tFwBpxkz2rcEFCqpAvLS6t2F68ZEJptvu7BPFLJ5CgVDEuzNgY0XMCdzGkr8GeGIRvC8K6tqD0+9dw==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
-      '@react-router/dev': ^7.9.5
+      '@react-router/dev': ^7.9.6
       typescript: ^5.1.0
     peerDependenciesMeta:
       typescript:
         optional: true
 
-  '@react-router/node@7.9.5':
-    resolution: {integrity: sha512-3mDd32mXh3gEkG0cLPnUaoLkY1pApsTPqn7O1j+P8aLf997uYz5lYDjt33vtMhaotlRM0x+5JziAKtz/76YBpQ==}
+  '@react-router/node@7.9.6':
+    resolution: {integrity: sha512-XzU8gPHwSl2Qh8/bOV30npbpH2fWOO3sFg+SwhX3+IddD1a/0C2KQzRiW/qAngkvZTJVdbca5Qp+FJjCCE7sNw==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
-      react-router: 7.9.5
+      react-router: 7.9.6
       typescript: ^5.1.0
     peerDependenciesMeta:
       typescript:
@@ -2308,8 +2308,8 @@ packages:
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
 
-  baseline-browser-mapping@2.8.27:
-    resolution: {integrity: sha512-2CXFpkjVnY2FT+B6GrSYxzYf65BJWEqz5tIRHCvNsZZ2F3CmsCB37h8SpYgKG7y9C4YAeTipIPWG7EmFmhAeXA==}
+  baseline-browser-mapping@2.8.28:
+    resolution: {integrity: sha512-gYjt7OIqdM0PcttNYP2aVrr2G0bMALkBaoehD4BuRGjAOtipg0b6wHg1yNL+s5zSnLZZrGHOw4IrND8CD+3oIQ==}
     hasBin: true
 
   basic-auth-connect@1.1.0:
@@ -2834,8 +2834,8 @@ packages:
     engines: {node: '>=0.10.0'}
     hasBin: true
 
-  electron-to-chromium@1.5.250:
-    resolution: {integrity: sha512-/5UMj9IiGDMOFBnN4i7/Ry5onJrAGSbOGo3s9FEKmwobGq6xw832ccET0CE3CkkMBZ8GJSlUIesZofpyurqDXw==}
+  electron-to-chromium@1.5.251:
+    resolution: {integrity: sha512-lmyEOp4G0XT3qrYswNB4np1kx90k6QCXpnSHYv2xEsUuEu8JCobpDVYO6vMseirQyyCC6GCIGGxd5szMBa0tRA==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -4271,8 +4271,8 @@ packages:
     resolution: {integrity: sha512-LaNjtRWUBY++zB5nE/NwcaoMylSPk+S+ZHNB1TzdbMJMny6dynpAGt7X/tl/QYq3TIeE6nxHppbo2LGymrG5Pw==}
     engines: {node: '>=10'}
 
-  p-map@7.0.3:
-    resolution: {integrity: sha512-VkndIv2fIB99swvQoA65bm+fsmt6UNdGeIB0oxBs+WhAhdh08QA04JXpI7rbB9r08/nkbysKoya9rtDERYOYMA==}
+  p-map@7.0.4:
+    resolution: {integrity: sha512-tkAQEw8ysMzmkhgw8k+1U/iPhWNhykKnSk4Rd5zLoPJCuJaGRPo6YposrZgaxHKzDHdDWWZvE/Sk7hsL2X/CpQ==}
     engines: {node: '>=18'}
 
   p-throttle@7.0.0:
@@ -4629,8 +4629,8 @@ packages:
     resolution: {integrity: sha512-QgT5//D3jfjJb6Gsjxv0Slpj23ip+HtOpnNgnb2S5zU3CB26G/IDPGoy4RJB42wzFE46DRsstbW6tKHoKbhAxw==}
     engines: {node: '>=0.10.0'}
 
-  react-router@7.9.5:
-    resolution: {integrity: sha512-JmxqrnBZ6E9hWmf02jzNn9Jm3UqyeimyiwzD69NjxGySG6lIz/1LVPsoTCwN7NBX2XjCEa1LIX5EMz1j2b6u6A==}
+  react-router@7.9.6:
+    resolution: {integrity: sha512-Y1tUp8clYRXpfPITyuifmSoE2vncSME18uVLgaqyxh9H35JWpIfzHo+9y3Fzh5odk/jxPW29IgLgzcdwxGqyNA==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       react: '>=18'
@@ -7538,7 +7538,7 @@ snapshots:
     dependencies:
       typescript: 5.9.3
 
-  '@react-router/dev@7.9.5(@types/node@24.10.0)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(typescript@5.9.3)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1))(yaml@2.8.1)':
+  '@react-router/dev@7.9.6(@types/node@24.10.0)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(typescript@5.9.3)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1))(yaml@2.8.1)':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/generator': 7.28.5
@@ -7548,7 +7548,7 @@ snapshots:
       '@babel/traverse': 7.28.5
       '@babel/types': 7.28.5
       '@npmcli/package-json': 4.0.1
-      '@react-router/node': 7.9.5(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(typescript@5.9.3)
+      '@react-router/node': 7.9.6(react-router@7.9.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(typescript@5.9.3)
       '@remix-run/node-fetch-server': 0.9.0
       arg: 5.0.2
       babel-dead-code-elimination: 1.0.10
@@ -7559,12 +7559,12 @@ snapshots:
       isbot: 5.1.32
       jsesc: 3.0.2
       lodash: 4.17.21
-      p-map: 7.0.3
+      p-map: 7.0.4
       pathe: 1.1.2
       picocolors: 1.1.1
       prettier: 3.6.2
       react-refresh: 0.14.2
-      react-router: 7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      react-router: 7.9.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       semver: 7.7.3
       tinyglobby: 0.2.15
       valibot: 1.1.0(typescript@5.9.3)
@@ -7589,17 +7589,17 @@ snapshots:
       - tsx
       - yaml
 
-  '@react-router/fs-routes@7.9.5(@react-router/dev@7.9.5(@types/node@24.10.0)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(typescript@5.9.3)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1))(yaml@2.8.1))(typescript@5.9.3)':
+  '@react-router/fs-routes@7.9.6(@react-router/dev@7.9.6(@types/node@24.10.0)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(typescript@5.9.3)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1))(yaml@2.8.1))(typescript@5.9.3)':
     dependencies:
-      '@react-router/dev': 7.9.5(@types/node@24.10.0)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(typescript@5.9.3)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1))(yaml@2.8.1)
+      '@react-router/dev': 7.9.6(@types/node@24.10.0)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1)))(less@4.4.1)(react-router@7.9.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(typescript@5.9.3)(vite@7.2.2(@types/node@24.10.0)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.1))(yaml@2.8.1)
       minimatch: 9.0.5
     optionalDependencies:
       typescript: 5.9.3
 
-  '@react-router/node@7.9.5(react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(typescript@5.9.3)':
+  '@react-router/node@7.9.6(react-router@7.9.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(typescript@5.9.3)':
     dependencies:
       '@mjackson/node-fetch-server': 0.2.0
-      react-router: 7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      react-router: 7.9.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
     optionalDependencies:
       typescript: 5.9.3
 
@@ -8209,7 +8209,7 @@ snapshots:
 
   base64-js@1.5.1: {}
 
-  baseline-browser-mapping@2.8.27: {}
+  baseline-browser-mapping@2.8.28: {}
 
   basic-auth-connect@1.1.0:
     dependencies:
@@ -8292,9 +8292,9 @@ snapshots:
 
   browserslist@4.28.0:
     dependencies:
-      baseline-browser-mapping: 2.8.27
+      baseline-browser-mapping: 2.8.28
       caniuse-lite: 1.0.30001754
-      electron-to-chromium: 1.5.250
+      electron-to-chromium: 1.5.251
       node-releases: 2.0.27
       update-browserslist-db: 1.1.4(browserslist@4.28.0)
 
@@ -8328,7 +8328,7 @@ snapshots:
       minipass-collect: 2.0.1
       minipass-flush: 1.0.5
       minipass-pipeline: 1.2.4
-      p-map: 7.0.3
+      p-map: 7.0.4
       ssri: 12.0.0
       tar: 7.5.2
       unique-filename: 4.0.0
@@ -8740,7 +8740,7 @@ snapshots:
     dependencies:
       jake: 10.9.4
 
-  electron-to-chromium@1.5.250: {}
+  electron-to-chromium@1.5.251: {}
 
   emoji-regex@8.0.0: {}
 
@@ -10521,7 +10521,7 @@ snapshots:
     dependencies:
       p-limit: 3.1.0
 
-  p-map@7.0.3: {}
+  p-map@7.0.4: {}
 
   p-throttle@7.0.0: {}
 
@@ -10864,7 +10864,7 @@ snapshots:
 
   react-refresh@0.18.0: {}
 
-  react-router@7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  react-router@7.9.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
       cookie: 1.0.2
       react: 19.2.0
