@@ -31,7 +31,7 @@ importers:
         version: 6.3.0(react@19.2.0)
       '@nanostores/react':
         specifier: ^1.0.0
-        version: 1.0.0(nanostores@1.0.1)(react@19.2.0)
+        version: 1.0.0(nanostores@1.1.0)(react@19.2.0)
       '@raviqqe/react-hooks':
         specifier: ^0.6.8
         version: 0.6.8
@@ -60,8 +60,8 @@ importers:
         specifier: ^1.10.0
         version: 1.10.0
       nanostores:
-        specifier: ^1.0.1
-        version: 1.0.1
+        specifier: ^1.1.0
+        version: 1.1.0
       react:
         specifier: ^19.2.0
         version: 19.2.0
@@ -4099,8 +4099,8 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanostores@1.0.1:
-    resolution: {integrity: sha512-kNZ9xnoJYKg/AfxjrVL4SS0fKX++4awQReGqWnwTRHxeHGZ1FJFVgTqr/eMrNQdp0Tz7M7tG/TDaX8QfHDwVCw==}
+  nanostores@1.1.0:
+    resolution: {integrity: sha512-yJBmDJr18xy47dbNVlHcgdPrulSn1nhSE6Ns9vTG+Nx9VPT6iV1MD6aQFp/t52zpf82FhLLTXAXr30NuCnxvwA==}
     engines: {node: ^20.0.0 || >=22.0.0}
 
   nearley@2.20.1:
@@ -7357,9 +7357,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@nanostores/react@1.0.0(nanostores@1.0.1)(react@19.2.0)':
+  '@nanostores/react@1.0.0(nanostores@1.1.0)(react@19.2.0)':
     dependencies:
-      nanostores: 1.0.1
+      nanostores: 1.1.0
       react: 19.2.0
 
   '@npmcli/agent@3.0.0':
@@ -10327,7 +10327,7 @@ snapshots:
 
   nanoid@3.3.11: {}
 
-  nanostores@1.0.1: {}
+  nanostores@1.1.0: {}
 
   nearley@2.20.1:
     dependencies:
