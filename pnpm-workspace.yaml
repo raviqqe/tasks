@@ -1,2 +1,4 @@
 ignoredBuiltDependencies:
   - esbuild
+  - protobufjs
+  - re2
