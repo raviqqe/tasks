@@ -91,8 +91,8 @@ importers:
         specifier: ^2.0.21
         version: 2.0.21(@biomejs/biome@2.3.8)
       '@raviqqe/react-tsconfig':
-        specifier: ^2.0.1
-        version: 2.0.1
+        specifier: ^2.0.2
+        version: 2.0.2
       '@react-router/dev':
         specifier: ^7.10.1
         version: 7.10.1(@types/node@24.10.1)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(vite@7.2.6(@types/node@24.10.1)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.2)))(less@4.4.1)(react-router@7.10.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(typescript@5.9.3)(vite@7.2.6(@types/node@24.10.1)(less@4.4.1)(sass@1.91.0)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.2))(yaml@2.8.2)
@@ -1669,12 +1669,12 @@ packages:
     resolution: {integrity: sha512-e1lUQdu6lP0JiOVziyiG/gNiw3om+smetGs1G18dh4BvpRnEOkvDbzkjnAgzAwJmz5cudJjPrv+AJF6vgGiqDw==}
     engines: {node: '>=24.6.0'}
 
-  '@raviqqe/react-tsconfig@2.0.1':
-    resolution: {integrity: sha512-eeneru1zgke/iym/xpjdvu5bGWNyOJhVpGSNl+rAHtWaytCycUAYiTF3NLq4FYDfYNu3cFxbwR0XQcw6iCFMoQ==}
+  '@raviqqe/react-tsconfig@2.0.2':
+    resolution: {integrity: sha512-dWIaX5677uqoE1GGUNt8Kj/czmL9puEDQPumsE/HR0zc+ABz37/AgTB4fSJMsQO5/qZdBOrueJ2sqiPt9+hcVg==}
     engines: {node: ^24.7.0}
 
-  '@raviqqe/tsconfig@2.0.2':
-    resolution: {integrity: sha512-ySX6Lsem2y4/6Vnes92HhEw7xzVMZoXXnHoO/i8YQk8ZUtiIJmY2xAwcn4ERJAp4wW4Y6yYgPP0ieVig55REZQ==}
+  '@raviqqe/tsconfig@2.0.3':
+    resolution: {integrity: sha512-9eTFd1ye3CcD0vfoPVkLzBr+cOTx/Vk5+feJb9KM4rWxEx3zGtXvAr2v3Er2DOdP8w0c2KhwKXFB/By2NffIHA==}
     engines: {node: '>=24.6.0'}
 
   '@react-router/dev@7.10.1':
@@ -7459,11 +7459,11 @@ snapshots:
       es-toolkit: 1.42.0
       react: 19.2.1
 
-  '@raviqqe/react-tsconfig@2.0.1':
+  '@raviqqe/react-tsconfig@2.0.2':
     dependencies:
-      '@raviqqe/tsconfig': 2.0.2
+      '@raviqqe/tsconfig': 2.0.3
 
-  '@raviqqe/tsconfig@2.0.2':
+  '@raviqqe/tsconfig@2.0.3':
     dependencies:
       typescript: 5.9.3
 
