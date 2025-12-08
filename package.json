@@ -44,7 +44,7 @@
     "@babel/preset-typescript": "^7.28.5",
     "@biomejs/biome": "^2.3.8",
     "@raviqqe/biome-config": "^2.0.21",
-    "@raviqqe/react-tsconfig": "^2.0.1",
+    "@raviqqe/react-tsconfig": "^2.0.2",
     "@react-router/dev": "^7.10.1",
     "@react-router/fs-routes": "^7.10.1",
     "@testing-library/react": "^16.3.0",
