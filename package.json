@@ -23,7 +23,7 @@
     "@linaria/core": "^6.3.0",
     "@linaria/react": "^6.3.0",
     "@nanostores/react": "^1.0.0",
-    "@raviqqe/react-hooks": "^0.6.8",
+    "@raviqqe/react-hooks": "^0.6.9",
     "@react-router/node": "^7.10.1",
     "@sentry/browser": "^10.29.0",
     "classnames": "^2.5.1",
