@@ -112,8 +112,8 @@ importers:
         specifier: ^4.0.16
         version: 4.0.16(vitest@4.0.16(@opentelemetry/api@1.9.0)(@types/node@25.0.3)(happy-dom@20.0.11)(jsdom@27.3.0(postcss@8.5.6))(less@4.4.2)(sass@1.95.1)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.2))
       '@wyw-in-js/vite':
-        specifier: ^0.8.0
-        version: 0.8.0(typescript@5.9.3)(vite@7.3.0(@types/node@25.0.3)(less@4.4.2)(sass@1.95.1)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.2))
+        specifier: ^0.8.1
+        version: 0.8.1(typescript@5.9.3)(vite@7.3.0(@types/node@25.0.3)(less@4.4.2)(sass@1.95.1)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.2))
       firebase-tools:
         specifier: ^15.1.0
         version: 15.1.0(@types/node@25.0.3)(encoding@0.1.13)(hono@4.11.1)(typescript@5.9.3)
@@ -1992,8 +1992,8 @@ packages:
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
-  '@types/node@20.19.26':
-    resolution: {integrity: sha512-0l6cjgF0XnihUpndDhk+nyD3exio3iKaYROSgvh/qSevPXax3L8p5DBRFjbvalnwatGgHEQn2R88y2fA3g4irg==}
+  '@types/node@20.19.27':
+    resolution: {integrity: sha512-N2clP5pJhB2YnZJ3PIHFk5RkygRX5WO/5f0WC08tp0wd+sv0rsJk3MqWn3CbNmT2J505a5336jaQj4ph1AdMug==}
 
   '@types/node@25.0.3':
     resolution: {integrity: sha512-W609buLVRVmeW693xKfzHeIV6nJGGz98uCPfeXI1ELMLXVeKYZ9m15fAMSaUPBHYLGFsVRcMmSCksQOrZV9BYA==}
@@ -2067,24 +2067,24 @@ packages:
     resolution: {integrity: sha512-5YAZMUmF+S2HaqheKfew6ybbYBMnF10PjIgI7ieyuFxCohyqJNF4xdo6oHftv2z5Z4vCQ0OZHtDOQyDImBYwmg==}
     engines: {node: '>=16.0.0'}
 
-  '@wyw-in-js/processor-utils@0.8.0':
-    resolution: {integrity: sha512-tH4IQRFEzJ3rSL0hEmP1XgAiyWJjYoiWOTf1Gtfp21l+p4S9gHeE0TgYjGoW/VqwZBo+6QSGaUYlI4AYsdeHtA==}
+  '@wyw-in-js/processor-utils@0.8.1':
+    resolution: {integrity: sha512-aUY8kDXVVLLigS+TbZ3eRlu79Ft1wwgdhUUN0s4DXN9uhPrq1iT3i6WG1BX202flDaBWdV9EXFzeQuUTzinm2g==}
     engines: {node: '>=16.0.0'}
 
   '@wyw-in-js/shared@0.6.0':
     resolution: {integrity: sha512-BozBos29AuMWOvjjKf+bYYN+Vku0Nar6+y5oxrJXIZzUEKiWTVnIxO256vi8cUBGfo/DH44o+qZTkkdSN2pPXw==}
     engines: {node: '>=16.0.0'}
 
-  '@wyw-in-js/shared@0.8.0':
-    resolution: {integrity: sha512-WCxLXRwgziXWOSvDVzLGURvyk8//YiX1U/jaFuOB8Dn6p2kJr2k76PEjbKdg4qgf03D2GL+jhbUgayRS9nN0zw==}
+  '@wyw-in-js/shared@0.8.1':
+    resolution: {integrity: sha512-GM9sLkKj7joyppZ+lkmAbrrJqH8QljDTm23bigwpAMihT+jGiGxTU8vJzGjRMj/yPZJumqsuGLXg6dZBUZbm5A==}
     engines: {node: '>=16.0.0'}
 
-  '@wyw-in-js/transform@0.8.0':
-    resolution: {integrity: sha512-SjPeEcWibAjysEYMmJXBQdaiCsltqYkUAieOhvoDysNZPiqaijGiAJEa0i/WKyAJoMIzTQq8qLVhIhVRxJvWJQ==}
+  '@wyw-in-js/transform@0.8.1':
+    resolution: {integrity: sha512-sgtvVAnHGoLR1TNzcR69uUtFeOZilSmQjHlXUu6INffVcu9sFA/iy2LsMOtTyrt4wc+1iVHJXyiGZGL5PM0y0g==}
     engines: {node: '>=16.0.0'}
 
-  '@wyw-in-js/vite@0.8.0':
-    resolution: {integrity: sha512-oHLSdKC5+QF0DUv2xJXV5cQthb3wH4XodIuHyg2Gl8TfpGN7q20oEcoJwrxv+tsTu2A9FyWxDUXq+MaUl/bxsA==}
+  '@wyw-in-js/vite@0.8.1':
+    resolution: {integrity: sha512-ZsV9wGW8wqpHuVLLmObKfNX/5jwhCTdK6aaB2FHSootUD0vbDH9eOMAc8oyqcrnz203DcVJVBvoMRrn7CnV+uw==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       vite: '>=3.2.7'
@@ -7698,7 +7698,7 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
-  '@types/node@20.19.26':
+  '@types/node@20.19.27':
     dependencies:
       undici-types: 6.21.0
 
@@ -7801,10 +7801,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@wyw-in-js/processor-utils@0.8.0':
+  '@wyw-in-js/processor-utils@0.8.1':
     dependencies:
       '@babel/generator': 7.28.5
-      '@wyw-in-js/shared': 0.8.0
+      '@wyw-in-js/shared': 0.8.1
     transitivePeerDependencies:
       - supports-color
 
@@ -7816,7 +7816,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@wyw-in-js/shared@0.8.0':
+  '@wyw-in-js/shared@0.8.1':
     dependencies:
       debug: 4.4.3
       find-up: 5.0.0
@@ -7824,7 +7824,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@wyw-in-js/transform@0.8.0(typescript@5.9.3)':
+  '@wyw-in-js/transform@0.8.1(typescript@5.9.3)':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/generator': 7.28.5
@@ -7833,8 +7833,8 @@ snapshots:
       '@babel/template': 7.27.2
       '@babel/traverse': 7.28.5
       '@babel/types': 7.28.5
-      '@wyw-in-js/processor-utils': 0.8.0
-      '@wyw-in-js/shared': 0.8.0
+      '@wyw-in-js/processor-utils': 0.8.1
+      '@wyw-in-js/shared': 0.8.1
       babel-merge: 3.0.0(@babel/core@7.28.5)
       cosmiconfig: 8.3.6(typescript@5.9.3)
       happy-dom: 20.0.11
@@ -7845,10 +7845,10 @@ snapshots:
       - supports-color
       - typescript
 
-  '@wyw-in-js/vite@0.8.0(typescript@5.9.3)(vite@7.3.0(@types/node@25.0.3)(less@4.4.2)(sass@1.95.1)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.2))':
+  '@wyw-in-js/vite@0.8.1(typescript@5.9.3)(vite@7.3.0(@types/node@25.0.3)(less@4.4.2)(sass@1.95.1)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.2))':
     dependencies:
-      '@wyw-in-js/shared': 0.8.0
-      '@wyw-in-js/transform': 0.8.0(typescript@5.9.3)
+      '@wyw-in-js/shared': 0.8.1
+      '@wyw-in-js/transform': 0.8.1(typescript@5.9.3)
       vite: 7.3.0(@types/node@25.0.3)(less@4.4.2)(sass@1.95.1)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.2)
     transitivePeerDependencies:
       - supports-color
@@ -9357,7 +9357,7 @@ snapshots:
 
   happy-dom@20.0.11:
     dependencies:
-      '@types/node': 20.19.26
+      '@types/node': 20.19.27
       '@types/whatwg-mimetype': 3.0.2
       whatwg-mimetype: 3.0.0
 
