@@ -2,7 +2,7 @@
 
 exports[`renders 1`] = `
 <button
-  class="mocked-styled-0"
+  class="_root_32b42f"
 >
   foo
 </button>
@@ -10,7 +10,7 @@ exports[`renders 1`] = `
 
 exports[`renders as a secondary button 1`] = `
 <button
-  class="mocked-styled-0"
+  class="_root_32b42f _secondary_32b42f"
 >
   foo
 </button>
