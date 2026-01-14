@@ -1,9 +1,4 @@
 .root {
-  height: 100%;
-  width: 100%;
-}
-
-.theme {
   --black: #222;
   --red: indianred;
   --white: white;
@@ -11,7 +6,9 @@
   --lightGrey: lightgrey;
   --green: darkseagreen;
   --box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
+}
 
+.body {
   background: var(--green);
   margin: 0;
   padding: 0;

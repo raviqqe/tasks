@@ -98,7 +98,7 @@ export const Layout = ({ children }: { children: ReactNode }): JSX.Element => {
         />
         <base target="_blank" />
       </head>
-      <body className={styles.theme}>
+      <body className={styles.body}>
         {signedIn === null ? (
           <div className={styles.loaderContainer}>
             <Loader />
