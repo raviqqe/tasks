@@ -57,10 +57,8 @@ export default (): JSX.Element => {
       </SortableContext>
     </DndContext>
   ) : (
-    <div className={styles.root}>
-      <div className={styles.loaderContainer}>
-        <Loader />
-      </div>
+    <div className={styles.loaderContainer}>
+      <Loader />
     </div>
   );
 };
