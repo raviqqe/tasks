@@ -12,7 +12,11 @@ export const Button = ({
   ...rest
 }: Props): JSX.Element => (
   <button
-    className={classNames(styles.root, secondary && styles.secondary, className)}
+    className={classNames(
+      styles.root,
+      secondary && styles.secondary,
+      className,
+    )}
     {...rest}
   />
 );
