@@ -17,7 +17,7 @@ import { configuration } from "../configuration.js";
 import { applicationInitializer } from "../main/application-initializer.js";
 import { authenticationPresenter } from "../main/authentication-presenter.js";
 import { Loader } from "./components/Loader.js";
-import styles from "./Root.module.css";
+import styles from "./root.module.css";
 
 export const meta: MetaFunction = () => [
   {
