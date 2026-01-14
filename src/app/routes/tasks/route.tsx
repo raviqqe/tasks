@@ -14,10 +14,10 @@ export default (): JSX.Element => {
   return (
     <div className={styles.root}>
       <TopBar />
-      <div className={styles.tasksContainer}>
+      <div className={styles.tasks}>
         <Outlet />
       </div>
-      <div className={styles.buttonsContainer}>
+      <div className={styles.buttons}>
         <ToggleTasks />
         <CreateTodoTask
           className={pathname === "/tasks/done" ? styles.hidden : undefined}

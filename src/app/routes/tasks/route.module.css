@@ -6,7 +6,7 @@
   margin: auto;
 }
 
-.tasksContainer {
+.tasks {
   display: flex;
   flex-direction: column;
   width: 70ex;
@@ -19,7 +19,7 @@
   }
 }
 
-.buttonsContainer {
+.buttons {
   position: fixed;
   bottom: 0.5rem;
   right: 0.5rem;
