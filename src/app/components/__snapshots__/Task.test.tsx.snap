@@ -5,21 +5,22 @@ exports[`renders 1`] = `
   aria-describedby=""
   aria-disabled="false"
   aria-roledescription="sortable"
-  class="mocked-styled-1"
+  class="_root_36ea92"
   role="button"
   tabindex="0"
 >
   <div
-    class="mocked-styled-2"
+    class="_name_36ea92"
   >
     name
   </div>
   <div
-    class="mocked-styled-3"
+    class="_buttons_36ea92"
   >
-    <div
+    <button
       aria-label="Done"
-      class="mocked-styled-0"
+      class="_root_5d89d9"
+      type="button"
     >
       <svg
         fill="currentColor"
@@ -38,10 +39,11 @@ exports[`renders 1`] = `
           d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
         />
       </svg>
-    </div>
-    <div
+    </button>
+    <button
       aria-label="Edit"
-      class="mocked-styled-0"
+      class="_root_5d89d9"
+      type="button"
     >
       <svg
         fill="currentColor"
@@ -60,9 +62,10 @@ exports[`renders 1`] = `
           d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
         />
       </svg>
-    </div>
-    <div
-      class="mocked-css-0"
+    </button>
+    <button
+      class="_root_5d89d9 _dragHandle_36ea92"
+      type="button"
     >
       <svg
         fill="currentColor"
@@ -81,7 +84,7 @@ exports[`renders 1`] = `
           d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"
         />
       </svg>
-    </div>
+    </button>
   </div>
 </div>
 `;

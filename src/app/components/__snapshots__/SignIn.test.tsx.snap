@@ -2,7 +2,7 @@
 
 exports[`renders 1`] = `
 <button
-  class="mocked-styled-1 mocked-styled-0"
+  class="_root_32b42f _root_97d9f6"
 >
   Sign in
 </button>

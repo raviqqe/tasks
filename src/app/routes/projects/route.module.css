@@ -1,0 +1,45 @@
+.root {
+  background-color: var(--lightGrey);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.scrollContainer {
+  overflow: auto;
+}
+
+.projectsContainer {
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem;
+  max-width: 50ex;
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+
+  > :not(:first-child) {
+    margin-top: 0.75rem;
+  }
+}
+
+.message {
+  color: var(--grey);
+}
+
+.lowerButtonsContainer {
+  position: fixed;
+  right: 0.5rem;
+  bottom: 0.5rem;
+
+  > * {
+    margin-top: 0.5rem;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}

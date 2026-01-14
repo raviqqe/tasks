@@ -1,0 +1,34 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin: auto;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  width: 70ex;
+  max-width: 100%;
+  flex: 1;
+  overflow: hidden;
+
+  > * {
+    flex: 1;
+  }
+}
+
+.buttons {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.5rem;
+
+  > * {
+    margin-top: 0.5rem;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}

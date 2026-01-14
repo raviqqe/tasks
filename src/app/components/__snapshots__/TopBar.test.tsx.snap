@@ -2,17 +2,19 @@
 
 exports[`renders 1`] = `
 <div
-  class="mocked-styled-2"
+  class="_root_334cb3"
 >
-  <div
-    class="mocked-styled-0"
+  <button
+    class="_root_08d325"
+    type="button"
   />
   <div
-    class="mocked-styled-3"
+    class="_signOut_334cb3"
   >
-    <div
-      class="mocked-styled-1"
-      style="color: white; font-size: 1.6rem;"
+    <button
+      class="_root_5d89d9"
+      style="color: var(--white); font-size: 1.6rem;"
+      type="button"
     >
       <svg
         fill="currentColor"
@@ -31,7 +33,7 @@ exports[`renders 1`] = `
           d="M10.09 15.59 11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5a2 2 0 0 0-2 2v4h2V5h14v14H5v-4H3v4a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
         />
       </svg>
-    </div>
+    </button>
   </div>
 </div>
 `;

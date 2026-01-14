@@ -1,7 +1,8 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders 1`] = `
-<div
-  class="mocked-styled-0"
+<button
+  class="_root_08d325"
+  type="button"
 />
 `;

@@ -1,0 +1,16 @@
+.root {
+  box-shadow: var(--box-shadow);
+  background: var(--red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.secondary {
+  background: var(--grey);
+}

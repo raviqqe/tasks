@@ -1,5 +1,3 @@
-import { css } from "@linaria/core";
-import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
 import { type JSX, useEffect, useRef, useState } from "react";
 import { MdArchive, MdDelete, MdEdit, MdUnarchive } from "react-icons/md";
@@ -16,49 +14,7 @@ import { IconButton } from "../../components/IconButton.js";
 import { Loader } from "../../components/Loader.js";
 import { Project } from "../../components/Project.js";
 import { ToggleProjects } from "../../components/ToggleProjects.js";
-import { boxShadow, grey, lightGrey, white } from "../../style.js";
-
-const Container = styled.div`
-  background-color: ${lightGrey};
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-`;
-
-const ScrollContainer = styled.div`
-  overflow: auto;
-`;
-
-const ProjectsContainer = styled.div`
-  ${boxShadow}
-  display: flex;
-  flex-direction: column;
-  margin: 1.5rem;
-  max-width: 50ex;
-  background-color: ${white};
-  border-radius: 0.5rem;
-  padding: 1rem 1.5rem;
-
-  > :not(:first-child) {
-    margin-top: 0.75rem;
-  }
-`;
-
-const Message = styled.div`
-  color: ${grey};
-`;
-
-const LowerButtonsContainer = styled.div`
-  position: fixed;
-  right: 0.5rem;
-  bottom: 0.5rem;
-
-  > * {
-    margin-top: 0.5rem;
-  }
-`;
+import styles from "./route.module.css";
 
 export default (): JSX.Element => {
   const currentProject = useStore(projectPresenter.currentProject);
@@ -73,12 +29,12 @@ export default (): JSX.Element => {
   }, [ref.current]);
 
   return currentProject && archivedProjects && projects ? (
-    <Container>
-      <ScrollContainer>
+    <div className={styles.root}>
+      <div className={styles.scrollContainer}>
         {projectsArchived ? (
-          <ProjectsContainer>
+          <div className={styles.projectsContainer}>
             {archivedProjects.length === 0 ? (
-              <Message>No archived projects</Message>
+              <div className={styles.message}>No archived projects</div>
             ) : (
               archivedProjects.map((project) => (
                 <Project
@@ -107,9 +63,9 @@ export default (): JSX.Element => {
                 />
               ))
             )}
-          </ProjectsContainer>
+          </div>
         ) : (
-          <ProjectsContainer>
+          <div className={styles.projectsContainer}>
             {projects.map((project) => (
               <Project
                 buttons={
@@ -154,32 +110,26 @@ export default (): JSX.Element => {
                 ref={project.id === currentProject.id ? ref : null}
               />
             ))}
-          </ProjectsContainer>
+          </div>
         )}
-      </ScrollContainer>
-      <LowerButtonsContainer>
+      </div>
+      <div className={styles.lowerButtonsContainer}>
         <ToggleProjects
           projectsArchived={projectsArchived}
           setProjectsArchived={setProjectsArchived}
         />
         <CreateProject
-          className={
-            projectsArchived
-              ? css`
-                  visibility: hidden;
-                `
-              : undefined
-          }
+          className={projectsArchived ? styles.hidden : undefined}
           onCreate={async (name) => {
             await projectCreator.create(name);
             await navigate("/tasks");
           }}
         />
-      </LowerButtonsContainer>
-    </Container>
+      </div>
+    </div>
   ) : (
-    <Container>
+    <div className={styles.root}>
       <Loader />
-    </Container>
+    </div>
   );
 };
