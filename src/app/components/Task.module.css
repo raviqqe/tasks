@@ -1,0 +1,27 @@
+.root {
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--white);
+  padding: 0.8em;
+  border-radius: 0.5em;
+}
+
+.name {
+  word-break: break-word;
+  margin-right: 0.5ex;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+
+  > :not(:first-child) {
+    margin-left: 0.25rem;
+  }
+}
+
+.dragHandle {
+  touch-action: none;
+}

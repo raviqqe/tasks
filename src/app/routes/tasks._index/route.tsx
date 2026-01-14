@@ -10,7 +10,6 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { styled } from "@linaria/react";
 import { useStore } from "@nanostores/react";
 import { useAsync } from "@raviqqe/react-hooks";
 import type { JSX } from "react";
@@ -19,26 +18,7 @@ import { todoTaskPresenter } from "../../../main/todo-task-presenter.js";
 import { todoTaskReorderer } from "../../../main/todo-task-reorderer.js";
 import { Loader } from "../../components/Loader.js";
 import { Task } from "../../components/Task.js";
-import { buttonMargin } from "../../style.js";
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-`;
-
-const LoaderContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-`;
-
-const Tasks = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 1rem 1rem ${buttonMargin};
-  gap: 1rem;
-`;
+import styles from "./route.module.css";
 
 export default (): JSX.Element => {
   const todoTasks = useStore(todoTaskPresenter.tasks);
@@ -67,18 +47,20 @@ export default (): JSX.Element => {
       sensors={sensors}
     >
       <SortableContext items={todoTasks} strategy={verticalListSortingStrategy}>
-        <Container>
-          <Tasks>
+        <div className={styles.root}>
+          <div className={styles.tasks}>
             {todoTasks.map((task) => (
               <Task editable key={task.id} task={task} />
             ))}
-          </Tasks>
-        </Container>
+          </div>
+        </div>
       </SortableContext>
     </DndContext>
   ) : (
-    <LoaderContainer>
-      <Loader />
-    </LoaderContainer>
+    <div className={styles.root}>
+      <div className={styles.loaderContainer}>
+        <Loader />
+      </div>
+    </div>
   );
 };

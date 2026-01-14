@@ -1,0 +1,18 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem 7.5rem;
+  gap: 1rem;
+}

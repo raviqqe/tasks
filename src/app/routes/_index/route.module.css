@@ -1,0 +1,38 @@
+.root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  > * {
+    margin: 2rem;
+  }
+}
+
+.title {
+  font-family: "Chelsea Market", sans-serif;
+  font-size: 4em;
+  font-weight: bold;
+  text-shadow: 0.4em 0.4em 0.4em rgba(0, 0, 0, 0.1);
+}
+
+.white {
+  color: var(--white);
+}
+
+.red {
+  color: var(--red);
+}
+
+.githubLink {
+  font-size: 2.5rem;
+  margin: 1.5rem;
+  color: var(--black);
+  display: block;
+  position: fixed;
+  bottom: 0em;
+  right: 0em;
+  line-height: 0ex;
+}

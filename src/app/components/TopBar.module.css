@@ -1,0 +1,17 @@
+.root {
+  box-shadow: var(--box-shadow);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background-color: var(--red);
+  width: 100%;
+}
+
+.signOut {
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+}

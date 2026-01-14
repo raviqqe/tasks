@@ -1,27 +1,17 @@
-import { styled } from "@linaria/react";
-import type { AriaAttributes, CSSProperties, JSX, ReactNode } from "react";
-import { grey } from "../style.js";
+import classNames from "classnames";
+import type { ButtonHTMLAttributes, JSX, ReactNode } from "react";
+import styles from "./IconButton.module.css";
 
-const Button = styled.div`
-  color: ${grey};
-  cursor: pointer;
-  font-size: 1.5em;
-  display: flex;
-`;
-
-interface Props extends AriaAttributes {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  className?: string;
-  onClick: () => void;
-  style?: CSSProperties;
 }
 
-export const IconButton = ({
-  children,
-  onClick,
-  ...rest
-}: Props): JSX.Element => (
-  <Button onClick={onClick} {...rest}>
+export const IconButton = ({ children, className, ...rest }: Props): JSX.Element => (
+  <button
+    className={classNames(styles.root, className)}
+    type="button"
+    {...rest}
+  >
     {children}
-  </Button>
+  </button>
 );
