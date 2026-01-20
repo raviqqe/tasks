@@ -7598,7 +7598,7 @@ snapshots:
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 25.0.9
+      '@types/node': 20.19.30
     optional: true
 
   '@vitejs/plugin-react@5.1.2(vite@7.3.1(@types/node@25.0.9)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.0)(yaml@2.8.2))':
