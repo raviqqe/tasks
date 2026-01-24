@@ -1,6 +1,6 @@
 import type { JSX } from "react";
 import { FaGithub } from "react-icons/fa";
-import { configuration } from "../../../configuration.js";
+import configuration from "../../../configuration.json" with { type: "json" };
 import { signInManager } from "../../../main/sign-in-manager.js";
 import { SignIn } from "../../components/SignIn.js";
 import styles from "./route.module.css";

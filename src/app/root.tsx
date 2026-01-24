@@ -13,7 +13,7 @@ import {
   ScrollRestoration,
   useNavigate,
 } from "react-router";
-import { configuration } from "../configuration.js";
+import configuration from "../configuration.json" with { type: "json" };
 import { applicationInitializer } from "../main/application-initializer.js";
 import { authenticationPresenter } from "../main/authentication-presenter.js";
 import { Loader } from "./components/Loader.js";
