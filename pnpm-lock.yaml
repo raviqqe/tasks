@@ -86,13 +86,13 @@ importers:
         version: 7.13.0(@react-router/dev@7.13.0(@types/node@25.0.10)(jiti@2.6.1)(less@4.5.1)(react-router@7.13.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(sass@1.97.2)(stylus@0.62.0)(terser@5.46.0)(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.10)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.0)(yaml@2.8.2))(yaml@2.8.2))(typescript@5.9.3)
       '@testing-library/react':
         specifier: ^16.3.2
-        version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.9))(@types/react@19.2.9)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.10))(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@types/react':
-        specifier: ^19.2.9
-        version: 19.2.9
+        specifier: ^19.2.10
+        version: 19.2.10
       '@types/react-dom':
         specifier: ^19.2.3
-        version: 19.2.3(@types/react@19.2.9)
+        version: 19.2.3(@types/react@19.2.10)
       '@vitejs/plugin-react':
         specifier: ^5.1.2
         version: 5.1.2(vite@7.3.1(@types/node@25.0.10)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.0)(yaml@2.8.2))
@@ -2434,8 +2434,8 @@ packages:
     peerDependencies:
       '@types/react': ^19.2.0
 
-  '@types/react@19.2.9':
-    resolution: {integrity: sha512-Lpo8kgb/igvMIPeNV2rsYKTgaORYdO1XGVZ4Qz3akwOj0ySGYMPlQWa8BaLn0G63D1aSaAQ5ldR06wCpChQCjA==}
+  '@types/react@19.2.10':
+    resolution: {integrity: sha512-WPigyYuGhgZ/cTPRXB2EwUw+XvsRA3GqHlsP4qteqrnnjDrApbS7MxcGr/hke5iUoeB7E/gQtrs9I37zAJ0Vjw==}
 
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
@@ -5441,6 +5441,7 @@ packages:
   tar@7.5.6:
     resolution: {integrity: sha512-xqUeu2JAIJpXyvskvU3uvQW8PAmHrtXp2KDuMJwQqW8Sqq0CaZBAQ+dKS3RBXVhU4wC5NjAdKrmh84241gO9cA==}
     engines: {node: '>=18'}
+    deprecated: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exhorbitant rates) by contacting i@izs.me
 
   tcp-port-used@1.0.2:
     resolution: {integrity: sha512-l7ar8lLUD3XS1V2lfoJlCBaeoaWo/2xfYt81hM7VlvR4RrMVFqfmzfhLVk40hAb368uitje5gPtBRL1m/DGvLA==}
@@ -8549,15 +8550,15 @@ snapshots:
       picocolors: 1.1.1
       pretty-format: 27.5.1
 
-  '@testing-library/react@16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.9))(@types/react@19.2.9)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@testing-library/react@16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.10))(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@babel/runtime': 7.28.6
       '@testing-library/dom': 10.4.1
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
     optionalDependencies:
-      '@types/react': 19.2.9
-      '@types/react-dom': 19.2.3(@types/react@19.2.9)
+      '@types/react': 19.2.10
+      '@types/react-dom': 19.2.3(@types/react@19.2.10)
 
   '@tootallnate/once@2.0.0': {}
 
@@ -8651,11 +8652,11 @@ snapshots:
     dependencies:
       postcss: 8.5.6
 
-  '@types/react-dom@19.2.3(@types/react@19.2.9)':
+  '@types/react-dom@19.2.3(@types/react@19.2.10)':
     dependencies:
-      '@types/react': 19.2.9
+      '@types/react': 19.2.10
 
-  '@types/react@19.2.9':
+  '@types/react@19.2.10':
     dependencies:
       csstype: 3.2.3
 
@@ -8674,7 +8675,7 @@ snapshots:
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 25.0.10
+      '@types/node': 20.19.30
     optional: true
 
   '@vitejs/plugin-react@5.1.2(vite@7.3.1(@types/node@25.0.10)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.0)(yaml@2.8.2))':
