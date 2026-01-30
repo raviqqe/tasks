@@ -44,7 +44,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
     "@vitest/coverage-v8": "^4.0.18",
-    "firebase-tools": "^15.4.0",
+    "firebase-tools": "^15.5.1",
     "jsdom": "^27.4.0",
     "knip": "^5.82.1",
     "typescript": "^5.9.3",
