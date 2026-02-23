@@ -16,7 +16,7 @@
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
     "@fontsource/chelsea-market": "^5.2.7",
-    "@fontsource/roboto": "^5.2.9",
+    "@fontsource/roboto": "^5.2.10",
     "@nanostores/react": "^1.0.0",
     "@raviqqe/react-hooks": "^0.6.9",
     "@react-router/node": "^7.13.0",

@@ -21,8 +21,8 @@ importers:
         specifier: ^5.2.7
         version: 5.2.7
       '@fontsource/roboto':
-        specifier: ^5.2.9
-        version: 5.2.9
+        specifier: ^5.2.10
+        version: 5.2.10
       '@nanostores/react':
         specifier: ^1.0.0
         version: 1.0.0(nanostores@1.1.0)(react@19.2.4)
@@ -1249,8 +1249,8 @@ packages:
   '@fontsource/chelsea-market@5.2.7':
     resolution: {integrity: sha512-1wlfbNbncFvt4RVM1brbfvSBGOwQT244g8UM2+PSoZgvS8ljSubMVOt/Xh2K9/KVZjAdyQ1PKoNXk4ges6TCaw==}
 
-  '@fontsource/roboto@5.2.9':
-    resolution: {integrity: sha512-ZTkyHiPk74B/aj8BZWbsxD5Yu+Lq+nR64eV4wirlrac2qXR7jYk2h6JlLYuOuoruTkGQWNw2fMuKNavw7/rg0w==}
+  '@fontsource/roboto@5.2.10':
+    resolution: {integrity: sha512-8HlA5FtSfz//oFSr2eL7GFXAiE7eIkcGOtx7tjsLKq+as702x9+GU7K95iDeWFapHC4M2hv9RrpXKRTGGBI8Zg==}
 
   '@google-cloud/cloud-sql-connector@1.9.1':
     resolution: {integrity: sha512-K7pkjQCq3u6r6KTeAbEdSDCXKmL5Ve8TNPAoek6ndkFmt44kvAZh0sTwRBipkGM0B5UmWljFROqCWGP4IHXBpg==}
@@ -7540,7 +7540,7 @@ snapshots:
 
   '@fontsource/chelsea-market@5.2.7': {}
 
-  '@fontsource/roboto@5.2.9': {}
+  '@fontsource/roboto@5.2.10': {}
 
   '@google-cloud/cloud-sql-connector@1.9.1':
     dependencies:
