@@ -1,6 +1,7 @@
 ignoredBuiltDependencies:
   - '@firebase/util'
   - '@parcel/watcher'
+  - '@sentry/cli'
   - esbuild
   - less
   - protobufjs
