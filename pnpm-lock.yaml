@@ -39,8 +39,8 @@ importers:
         specifier: ^2.5.1
         version: 2.5.1
       es-toolkit:
-        specifier: ^1.44.0
-        version: 1.44.0
+        specifier: ^1.45.0
+        version: 1.45.0
       firebase:
         specifier: ^12.10.0
         version: 12.10.0
@@ -3339,8 +3339,8 @@ packages:
     resolution: {integrity: sha512-w+5mJ3GuFL+NjVtJlvydShqE1eN3h3PbI7/5LAsYJP/2qtuMXjfL2LpHSRqo4b4eSF5K/DH1JXKUAHSB2UW50g==}
     engines: {node: '>= 0.4'}
 
-  es-toolkit@1.44.0:
-    resolution: {integrity: sha512-6penXeZalaV88MM3cGkFZZfOoLGWshWWfdy0tWw/RlVVyhvMaWSBTOvXNeiW3e5FwdS5ePW0LGEu17zT139ktg==}
+  es-toolkit@1.45.0:
+    resolution: {integrity: sha512-RArCX+Zea16+R1jg4mH223Z8p/ivbJjIkU3oC6ld2bdUfmDxiCkFYSi9zLOR2anucWJUeH4Djnzgd0im0nD3dw==}
 
   esbuild@0.27.2:
     resolution: {integrity: sha512-HyNQImnsOC7X9PMNaCIeAm4ISCQXs5a5YasTXVliKv4uuBo1dKrG0A+uQS8M5eXjVMnLg3WgXaKvprHlFJQffw==}
@@ -8186,7 +8186,7 @@ snapshots:
 
   '@raviqqe/react-hooks@0.6.9':
     dependencies:
-      es-toolkit: 1.44.0
+      es-toolkit: 1.45.0
       react: 19.2.4
 
   '@raviqqe/react-tsconfig@2.0.2':
@@ -9638,7 +9638,7 @@ snapshots:
       is-date-object: 1.1.0
       is-symbol: 1.1.1
 
-  es-toolkit@1.44.0: {}
+  es-toolkit@1.45.0: {}
 
   esbuild@0.27.2:
     optionalDependencies:
