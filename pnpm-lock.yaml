@@ -80,10 +80,10 @@ importers:
         version: 2.0.2
       '@react-router/dev':
         specifier: ^7.13.2
-        version: 7.13.2(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(react-router@7.13.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3))(yaml@2.8.3)
+        version: 7.13.2(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(react-router@7.13.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2))(yaml@2.8.2)
       '@react-router/fs-routes':
         specifier: ^7.13.2
-        version: 7.13.2(@react-router/dev@7.13.2(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(react-router@7.13.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3))(yaml@2.8.3))(typescript@5.9.3)
+        version: 7.13.2(@react-router/dev@7.13.2(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(react-router@7.13.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2))(yaml@2.8.2))(typescript@5.9.3)
       '@testing-library/react':
         specifier: ^16.3.2
         version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -95,10 +95,10 @@ importers:
         version: 19.2.3(@types/react@19.2.14)
       '@vitejs/plugin-react':
         specifier: ^5.2.0
-        version: 5.2.0(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3))
+        version: 5.2.0(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2))
       '@vitest/coverage-v8':
         specifier: ^4.1.1
-        version: 4.1.1(vitest@4.1.1(@opentelemetry/api@1.9.0)(@types/node@25.5.0)(happy-dom@20.1.0)(jsdom@29.0.1)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3)))
+        version: 4.1.1(vitest@4.1.1(@opentelemetry/api@1.9.0)(@types/node@25.5.0)(happy-dom@20.1.0)(jsdom@29.0.1)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2)))
       firebase-tools:
         specifier: ^15.11.0
         version: 15.11.0(@types/node@25.5.0)(encoding@0.1.13)(typescript@5.9.3)
@@ -116,13 +116,13 @@ importers:
         version: 5.2.0(ts-node@10.9.2(@types/node@25.5.0)(typescript@5.9.3))(typescript@5.9.3)
       vite:
         specifier: ^7.3.1
-        version: 7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3)
+        version: 7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2)
       vite-plugin-pwa:
         specifier: ^1.2.0
-        version: 1.2.0(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3))(workbox-build@7.3.0(@types/babel__core@7.20.5))(workbox-window@7.3.0)
+        version: 1.2.0(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2))(workbox-build@7.3.0(@types/babel__core@7.20.5))(workbox-window@7.3.0)
       vitest:
         specifier: ^4.1.1
-        version: 4.1.1(@opentelemetry/api@1.9.0)(@types/node@25.5.0)(happy-dom@20.1.0)(jsdom@29.0.1)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3))
+        version: 4.1.1(@opentelemetry/api@1.9.0)(@types/node@25.5.0)(happy-dom@20.1.0)(jsdom@29.0.1)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2))
 
 packages:
 
@@ -258,17 +258,12 @@ packages:
     resolution: {integrity: sha512-z+PwLziMNBeSQJonizz2AGnndLsP2DeGHIxDAn+wdHOGuo4Fo1x1HBPPXeE9TAOPHNNWQKCSlA2VZyYyyibDnQ==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/helpers@7.29.2':
-    resolution: {integrity: sha512-HoGuUs4sCZNezVEKdVcwqmZN8GoHirLUcLaYVNBK2J0DadGtdcqgr3BCbvH8+XUo4NGjNl3VOtSjEKNzqfFgKw==}
+  '@babel/helpers@7.28.6':
+    resolution: {integrity: sha512-xOBvwq86HHdB7WUDTfKfT/Vuxh7gElQ+Sfti2Cy6yIWNW05P8iUslOVcZ4/sKbE+/jQaukQAdz/gf3724kYdqw==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/parser@7.29.2':
-    resolution: {integrity: sha512-4GgRzy/+fsBa72/RZVJmGKPmZu9Byn8o4MoLpmNe1m8ZfYnz5emHLQz3U4gLud6Zwl0RZIcgiLD7Uq7ySFuDLA==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-
-  '@babel/parser@7.29.2':
-    resolution: {integrity: sha512-4GgRzy/+fsBa72/RZVJmGKPmZu9Byn8o4MoLpmNe1m8ZfYnz5emHLQz3U4gLud6Zwl0RZIcgiLD7Uq7ySFuDLA==}
+  '@babel/parser@7.29.0':
+    resolution: {integrity: sha512-IyDgFV5GeDUVX4YdF/3CPULtVGSXXMLh1xVIgdCgxApktqnQV0r7/8Nqthg+8YLGaAtdyIlo2qIdZrbCv4+7ww==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -2935,8 +2930,8 @@ packages:
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
 
-  baseline-browser-mapping@2.10.10:
-    resolution: {integrity: sha512-sUoJ3IMxx4AyRqO4MLeHlnGDkyXRoUG0/AI9fjK+vS72ekpV0yWVY7O0BVjmBcRtkNcsAO2QDZ4tdKKGoI6YaQ==}
+  baseline-browser-mapping@2.10.7:
+    resolution: {integrity: sha512-1ghYO3HnxGec0TCGBXiDLVns4eCSx4zJpxnHrlqFQajmhfKMQBzUGDdkMK7fUW7PTHTeLf+j87aTuKuuwWzMGw==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -3042,8 +3037,8 @@ packages:
     resolution: {integrity: sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==}
     engines: {node: '>=10'}
 
-  caniuse-lite@1.0.30001781:
-    resolution: {integrity: sha512-RdwNCyMsNBftLjW6w01z8bKEvT6e/5tpPVEgtn22TiLGlstHOVecsX2KHFkD5e/vRnIE4EGzpuIODb3mtswtkw==}
+  caniuse-lite@1.0.30001778:
+    resolution: {integrity: sha512-PN7uxFL+ExFJO61aVmP1aIEG4i9whQd4eoSCebav62UwDyp5OHh06zN4jqKSMePVgxHifCw1QJxdRkA1Pisekg==}
 
   chai@6.2.2:
     resolution: {integrity: sha512-NUPRluOfOiTKBKvWPtSD4PhFvWCqOi0BGStNWs57X9js7XGTprSmFoz5F0tWhR4WPjNeR9jXqdC7/UpSJTnlRg==}
@@ -3339,8 +3334,8 @@ packages:
   decimal.js@10.6.0:
     resolution: {integrity: sha512-YpgQiITW3JXGntzdUmyUR1V812Hn8T1YVXhCu+wO3OpS4eU9l4YdD3qjyiKdV6mvV29zapkMeD390UVEf2lkUg==}
 
-  dedent@1.7.2:
-    resolution: {integrity: sha512-WzMx3mW98SN+zn3hgemf4OzdmyNhhhKz5Ay0pUfQiMQ3e1g+xmTJWp/pKdwKVXhdSkAEGIIzqeuWrL3mV/AXbA==}
+  dedent@1.7.1:
+    resolution: {integrity: sha512-9JmrhGZpOlEgOLdQgSm0zxFaYoQon408V1v49aqTWuXENVlnCuY9JBZcXZiCsZQWDjTm5Qf/nIvAy77mXDAjEg==}
     peerDependencies:
       babel-plugin-macros: ^3.1.0
     peerDependenciesMeta:
@@ -3438,8 +3433,8 @@ packages:
     engines: {node: '>=0.10.0'}
     hasBin: true
 
-  electron-to-chromium@1.5.321:
-    resolution: {integrity: sha512-L2C7Q279W2D/J4PLZLk7sebOILDSWos7bMsMNN06rK482umHUrh/3lM8G7IlHFOYip2oAg5nha1rCMxr/rs6ZQ==}
+  electron-to-chromium@1.5.313:
+    resolution: {integrity: sha512-QBMrTWEf00GXZmJyx2lbYD45jpI3TUFnNIzJ5BBc8piGUDwMPa1GV6HJWTZVvY/eiN3fSopl7NRbgGp9sZ9LTA==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -4977,16 +4972,12 @@ packages:
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
-  picomatch@2.3.2:
-    resolution: {integrity: sha512-V7+vQEJ06Z+c5tSye8S+nHUfI51xoXIXjHQ99cQtKUkQqqO1kO/KCJUfZXuB47h/YBlDhah2H3hdUGXn8ie0oA==}
+  picomatch@2.3.1:
+    resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
 
   picomatch@4.0.3:
     resolution: {integrity: sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==}
-    engines: {node: '>=12'}
-
-  picomatch@4.0.4:
-    resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
     engines: {node: '>=12'}
 
   pify@4.0.1:
@@ -5482,8 +5473,8 @@ packages:
     resolution: {integrity: sha512-KAkBqZl3c2GvNgNhcoyJae1aKldDW0LO279wF9bk1PnluRTETKBq0WyzRXxEhoQLk56yHaOY4JCBEKDuJIET5g==}
     engines: {node: '>=20.0.0'}
 
-  smol-toml@1.6.1:
-    resolution: {integrity: sha512-dWUG8F5sIIARXih1DTaQAX4SsiTXhInKf1buxdY9DIg4ZYPZK5nGM1VRIYmEbDbsHt7USo99xSLFu5Q1IqTmsg==}
+  smol-toml@1.6.0:
+    resolution: {integrity: sha512-4zemZi0HvTnYwLfrpk/CF9LOd9Lt87kAt50GnqhMpyF9U3poDAP2+iukq2bZsO/ufegbYehBkqINbsWxj4l4cw==}
     engines: {node: '>= 18'}
 
   socks-proxy-agent@8.0.5:
@@ -5707,8 +5698,8 @@ packages:
   tinybench@2.9.0:
     resolution: {integrity: sha512-0+DUvqWMValLmha6lr4kD8iAMK1HzV0/aKnCtWb9v9641TnP/MFb7Pc2bxoxQjTXAErryXVgUOfv2YqNllqGeg==}
 
-  tinyexec@1.0.4:
-    resolution: {integrity: sha512-u9r3uZC0bdpGOXtlxUIdwf9pkmvhqJdrVCH9fapQtgy/OeTTMZ1nqH7agtvEfmGui6e1XxjcdrlxvxJvc3sMqw==}
+  tinyexec@1.0.2:
+    resolution: {integrity: sha512-W/KYk+NFhkmsYpuHq5JykngiOCnxeVL8v8dFnqxSD8qEEdRfXk1SDM6JzNqcERbcGYj9tMrDQBYV9cjgnunFIg==}
     engines: {node: '>=18'}
 
   tinyglobby@0.2.15:
@@ -5921,8 +5912,8 @@ packages:
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
 
-  valibot@1.3.1:
-    resolution: {integrity: sha512-sfdRir/QFM0JaF22hqTroPc5xy4DimuGQVKFrzF1YfGwaS1nJot3Y8VqMdLO2Lg27fMzat2yD3pY5PbAYO39Gg==}
+  valibot@1.2.0:
+    resolution: {integrity: sha512-mm1rxUsmOxzrwnX5arGS+U4T25RdvpPjPN4yR0u9pUBov9+zGVtO84tif1eY4r6zWxVxu3KzIyknJy3rxfRZZg==}
     peerDependencies:
       typescript: '>=5'
     peerDependenciesMeta:
@@ -6211,8 +6202,8 @@ packages:
       utf-8-validate:
         optional: true
 
-  ws@8.20.0:
-    resolution: {integrity: sha512-sAt8BhgNbzCtgGbt2OxmpuryO63ZoDk/sqaB/znQm94T4fCEsy/yV+7CdC1kJhOU9lboAEU7R3kquuycDoibVA==}
+  ws@8.19.0:
+    resolution: {integrity: sha512-blAT2mjOEIi0ZzruJfIhb3nps74PRWTCz1IjglWEEpQl5XS/UNama6u2/rjFkDDouqr4L67ry+1aGIALViWjDg==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -6252,17 +6243,12 @@ packages:
     resolution: {integrity: sha512-YgvUTfwqyc7UXVMrB+SImsVYSmTS8X/tSrtdNZMImM+n7+QTriRXyXim0mBrTXNeqzVF0KWGgHPeiyViFFrNDw==}
     engines: {node: '>=18'}
 
-  yaml@1.10.3:
-    resolution: {integrity: sha512-vIYeF1u3CjlhAFekPPAk2h/Kv4T3mAkMox5OymRiJQB0spDP10LHvt+K7G9Ny6NuuMAb25/6n1qyUjAcGNf/AA==}
+  yaml@1.10.2:
+    resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
 
   yaml@2.8.2:
     resolution: {integrity: sha512-mplynKqc1C2hTVYxd0PU2xQAc22TI1vShAYGksCCfxbn/dFwnHTNi1bvYsBTkhdUNtGIf5xNOg938rrSSYvS9A==}
-    engines: {node: '>= 14.6'}
-    hasBin: true
-
-  yaml@2.8.3:
-    resolution: {integrity: sha512-AvbaCLOO2Otw/lW5bmh9d/WEdcDFdQp2Z2ZUH3pX9U2ihyUY0nvLv7J6TrWowklRGPYbB/IuIMfYgxaCPg5Bpg==}
     engines: {node: '>= 14.6'}
     hasBin: true
 
@@ -6378,8 +6364,8 @@ snapshots:
       '@babel/generator': 7.29.1
       '@babel/helper-compilation-targets': 7.28.6
       '@babel/helper-module-transforms': 7.28.6(@babel/core@7.29.0)
-      '@babel/helpers': 7.29.2
-      '@babel/parser': 7.29.2
+      '@babel/helpers': 7.28.6
+      '@babel/parser': 7.29.0
       '@babel/template': 7.28.6
       '@babel/traverse': 7.29.0
       '@babel/types': 7.29.0
@@ -6394,7 +6380,7 @@ snapshots:
 
   '@babel/generator@7.29.1':
     dependencies:
-      '@babel/parser': 7.29.2
+      '@babel/parser': 7.29.0
       '@babel/types': 7.29.0
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
@@ -6513,16 +6499,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/helpers@7.29.2':
+  '@babel/helpers@7.28.6':
     dependencies:
       '@babel/template': 7.28.6
       '@babel/types': 7.29.0
 
-  '@babel/parser@7.29.2':
-    dependencies:
-      '@babel/types': 7.29.0
-
-  '@babel/parser@7.29.2':
+  '@babel/parser@7.29.0':
     dependencies:
       '@babel/types': 7.29.0
 
@@ -7046,7 +7028,7 @@ snapshots:
   '@babel/template@7.28.6':
     dependencies:
       '@babel/code-frame': 7.29.0
-      '@babel/parser': 7.29.2
+      '@babel/parser': 7.29.0
       '@babel/types': 7.29.0
 
   '@babel/traverse@7.29.0':
@@ -7054,7 +7036,7 @@ snapshots:
       '@babel/code-frame': 7.29.0
       '@babel/generator': 7.29.1
       '@babel/helper-globals': 7.28.0
-      '@babel/parser': 7.29.2
+      '@babel/parser': 7.29.0
       '@babel/template': 7.28.6
       '@babel/types': 7.29.0
       debug: 4.4.3
@@ -8368,7 +8350,7 @@ snapshots:
       detect-libc: 2.1.2
       is-glob: 4.0.3
       node-addon-api: 7.1.1
-      picomatch: 4.0.4
+      picomatch: 4.0.3
     optionalDependencies:
       '@parcel/watcher-android-arm64': 2.5.4
       '@parcel/watcher-darwin-arm64': 2.5.4
@@ -8447,11 +8429,11 @@ snapshots:
     dependencies:
       typescript: 5.9.3
 
-  '@react-router/dev@7.13.2(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(react-router@7.13.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3))(yaml@2.8.3)':
+  '@react-router/dev@7.13.2(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(react-router@7.13.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2))(yaml@2.8.2)':
     dependencies:
       '@babel/core': 7.29.0
       '@babel/generator': 7.29.1
-      '@babel/parser': 7.29.2
+      '@babel/parser': 7.29.0
       '@babel/plugin-syntax-jsx': 7.28.6(@babel/core@7.29.0)
       '@babel/preset-typescript': 7.28.5(@babel/core@7.29.0)
       '@babel/traverse': 7.29.0
@@ -8461,7 +8443,7 @@ snapshots:
       arg: 5.0.2
       babel-dead-code-elimination: 1.0.12
       chokidar: 4.0.3
-      dedent: 1.7.2
+      dedent: 1.7.1
       es-module-lexer: 1.7.0
       exit-hook: 2.2.1
       isbot: 5.1.36
@@ -8476,9 +8458,9 @@ snapshots:
       react-router: 7.13.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       semver: 7.7.4
       tinyglobby: 0.2.15
-      valibot: 1.3.1(typescript@5.9.3)
-      vite: 7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3)
-      vite-node: 3.2.4(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3)
+      valibot: 1.2.0(typescript@5.9.3)
+      vite: 7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2)
+      vite-node: 3.2.4(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2)
     optionalDependencies:
       typescript: 5.9.3
     transitivePeerDependencies:
@@ -8496,9 +8478,9 @@ snapshots:
       - tsx
       - yaml
 
-  '@react-router/fs-routes@7.13.2(@react-router/dev@7.13.2(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(react-router@7.13.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3))(yaml@2.8.3))(typescript@5.9.3)':
+  '@react-router/fs-routes@7.13.2(@react-router/dev@7.13.2(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(react-router@7.13.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2))(yaml@2.8.2))(typescript@5.9.3)':
     dependencies:
-      '@react-router/dev': 7.13.2(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(react-router@7.13.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3))(yaml@2.8.3)
+      '@react-router/dev': 7.13.2(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(react-router@7.13.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2))(yaml@2.8.2)
       minimatch: 9.0.9
     optionalDependencies:
       typescript: 5.9.3
@@ -8553,14 +8535,14 @@ snapshots:
     dependencies:
       '@types/estree': 0.0.39
       estree-walker: 1.0.1
-      picomatch: 2.3.2
+      picomatch: 2.3.1
       rollup: 2.80.0
 
   '@rollup/pluginutils@5.3.0(rollup@2.80.0)':
     dependencies:
       '@types/estree': 1.0.8
       estree-walker: 2.0.2
-      picomatch: 4.0.4
+      picomatch: 4.0.3
     optionalDependencies:
       rollup: 2.80.0
 
@@ -8892,7 +8874,7 @@ snapshots:
 
   '@types/babel__core@7.20.5':
     dependencies:
-      '@babel/parser': 7.29.2
+      '@babel/parser': 7.29.0
       '@babel/types': 7.29.0
       '@types/babel__generator': 7.27.0
       '@types/babel__template': 7.4.4
@@ -8904,7 +8886,7 @@ snapshots:
 
   '@types/babel__template@7.4.4':
     dependencies:
-      '@babel/parser': 7.29.2
+      '@babel/parser': 7.29.0
       '@babel/types': 7.29.0
 
   '@types/babel__traverse@7.28.0':
@@ -8982,10 +8964,10 @@ snapshots:
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 20.19.37
+      '@types/node': 25.5.0
     optional: true
 
-  '@vitejs/plugin-react@5.2.0(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3))':
+  '@vitejs/plugin-react@5.2.0(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2))':
     dependencies:
       '@babel/core': 7.29.0
       '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.29.0)
@@ -8993,11 +8975,11 @@ snapshots:
       '@rolldown/pluginutils': 1.0.0-rc.3
       '@types/babel__core': 7.20.5
       react-refresh: 0.18.0
-      vite: 7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3)
+      vite: 7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-v8@4.1.1(vitest@4.1.1(@opentelemetry/api@1.9.0)(@types/node@25.5.0)(happy-dom@20.1.0)(jsdom@29.0.1)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3)))':
+  '@vitest/coverage-v8@4.1.1(vitest@4.1.1(@opentelemetry/api@1.9.0)(@types/node@25.5.0)(happy-dom@20.1.0)(jsdom@29.0.1)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2)))':
     dependencies:
       '@bcoe/v8-coverage': 1.0.2
       '@vitest/utils': 4.1.1
@@ -9009,7 +8991,7 @@ snapshots:
       obug: 2.1.1
       std-env: 4.0.0
       tinyrainbow: 3.1.0
-      vitest: 4.1.1(@opentelemetry/api@1.9.0)(@types/node@25.5.0)(happy-dom@20.1.0)(jsdom@29.0.1)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3))
+      vitest: 4.1.1(@opentelemetry/api@1.9.0)(@types/node@25.5.0)(happy-dom@20.1.0)(jsdom@29.0.1)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2))
 
   '@vitest/expect@4.1.1':
     dependencies:
@@ -9020,13 +9002,13 @@ snapshots:
       chai: 6.2.2
       tinyrainbow: 3.1.0
 
-  '@vitest/mocker@4.1.1(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3))':
+  '@vitest/mocker@4.1.1(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2))':
     dependencies:
       '@vitest/spy': 4.1.1
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3)
+      vite: 7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2)
 
   '@vitest/pretty-format@4.1.1':
     dependencies:
@@ -9127,7 +9109,7 @@ snapshots:
   anymatch@3.1.3:
     dependencies:
       normalize-path: 3.0.0
-      picomatch: 2.3.2
+      picomatch: 2.3.1
 
   archiver-utils@5.0.2:
     dependencies:
@@ -9219,7 +9201,7 @@ snapshots:
   babel-dead-code-elimination@1.0.12:
     dependencies:
       '@babel/core': 7.29.0
-      '@babel/parser': 7.29.2
+      '@babel/parser': 7.29.0
       '@babel/traverse': 7.29.0
       '@babel/types': 7.29.0
     transitivePeerDependencies:
@@ -9288,7 +9270,7 @@ snapshots:
 
   base64-js@1.5.1: {}
 
-  baseline-browser-mapping@2.10.10: {}
+  baseline-browser-mapping@2.10.7: {}
 
   basic-auth-connect@1.1.0:
     dependencies:
@@ -9375,9 +9357,9 @@ snapshots:
 
   browserslist@4.28.1:
     dependencies:
-      baseline-browser-mapping: 2.10.10
-      caniuse-lite: 1.0.30001781
-      electron-to-chromium: 1.5.321
+      baseline-browser-mapping: 2.10.7
+      caniuse-lite: 1.0.30001778
+      electron-to-chromium: 1.5.313
       node-releases: 2.0.36
       update-browserslist-db: 1.2.3(browserslist@4.28.1)
 
@@ -9436,7 +9418,7 @@ snapshots:
 
   camelcase@6.3.0: {}
 
-  caniuse-lite@1.0.30001781: {}
+  caniuse-lite@1.0.30001778: {}
 
   chai@6.2.2: {}
 
@@ -9715,7 +9697,7 @@ snapshots:
 
   decimal.js@10.6.0: {}
 
-  dedent@1.7.2: {}
+  dedent@1.7.1: {}
 
   deep-equal-in-any-order@2.2.0:
     dependencies:
@@ -9799,7 +9781,7 @@ snapshots:
     dependencies:
       jake: 10.9.4
 
-  electron-to-chromium@1.5.321: {}
+  electron-to-chromium@1.5.313: {}
 
   emoji-regex@8.0.0: {}
 
@@ -10138,10 +10120,6 @@ snapshots:
   fdir@6.5.0(picomatch@4.0.3):
     optionalDependencies:
       picomatch: 4.0.3
-
-  fdir@6.5.0(picomatch@4.0.4):
-    optionalDependencies:
-      picomatch: 4.0.4
 
   fecha@4.2.3: {}
 
@@ -10596,7 +10574,7 @@ snapshots:
       '@types/whatwg-mimetype': 3.0.2
       '@types/ws': 8.18.1
       whatwg-mimetype: 3.0.0
-      ws: 8.20.0
+      ws: 8.19.0
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -11096,11 +11074,11 @@ snapshots:
       oxc-parser: 0.120.0
       oxc-resolver: 11.19.1
       picocolors: 1.1.1
-      picomatch: 4.0.4
-      smol-toml: 1.6.1
+      picomatch: 4.0.3
+      smol-toml: 1.6.0
       strip-json-comments: 5.0.3
       unbash: 2.2.0
-      yaml: 2.8.3
+      yaml: 2.8.2
       zod: 4.3.6
 
   kuler@2.0.0: {}
@@ -11218,7 +11196,7 @@ snapshots:
 
   magicast@0.5.2:
     dependencies:
-      '@babel/parser': 7.29.2
+      '@babel/parser': 7.29.0
       '@babel/types': 7.29.0
       source-map-js: 1.2.1
 
@@ -11288,7 +11266,7 @@ snapshots:
   micromatch@4.0.8:
     dependencies:
       braces: 3.0.3
-      picomatch: 2.3.2
+      picomatch: 2.3.1
 
   mime-db@1.52.0: {}
 
@@ -11543,7 +11521,7 @@ snapshots:
 
   openapi3-ts@3.2.0:
     dependencies:
-      yaml: 2.8.3
+      yaml: 2.8.2
 
   ora@5.4.1:
     dependencies:
@@ -11730,11 +11708,9 @@ snapshots:
 
   picocolors@1.1.1: {}
 
-  picomatch@2.3.2: {}
+  picomatch@2.3.1: {}
 
   picomatch@4.0.3: {}
-
-  picomatch@4.0.4: {}
 
   pify@4.0.1:
     optional: true
@@ -11759,7 +11735,7 @@ snapshots:
   postcss-load-config@3.1.4(postcss@8.5.6)(ts-node@10.9.2(@types/node@25.5.0)(typescript@5.9.3)):
     dependencies:
       lilconfig: 2.1.0
-      yaml: 1.10.3
+      yaml: 1.10.2
     optionalDependencies:
       postcss: 8.5.6
       ts-node: 10.9.2(@types/node@25.5.0)(typescript@5.9.3)
@@ -11991,7 +11967,7 @@ snapshots:
 
   readdirp@3.6.0:
     dependencies:
-      picomatch: 2.3.2
+      picomatch: 2.3.1
 
   readdirp@4.1.2: {}
 
@@ -12324,7 +12300,7 @@ snapshots:
 
   smob@1.6.1: {}
 
-  smol-toml@1.6.1: {}
+  smol-toml@1.6.0: {}
 
   socks-proxy-agent@8.0.5:
     dependencies:
@@ -12623,12 +12599,12 @@ snapshots:
 
   tinybench@2.9.0: {}
 
-  tinyexec@1.0.4: {}
+  tinyexec@1.0.2: {}
 
   tinyglobby@0.2.15:
     dependencies:
-      fdir: 6.5.0(picomatch@4.0.4)
-      picomatch: 4.0.4
+      fdir: 6.5.0(picomatch@4.0.3)
+      picomatch: 4.0.3
 
   tinyrainbow@3.1.0: {}
 
@@ -12859,7 +12835,7 @@ snapshots:
 
   v8-compile-cache-lib@3.0.1: {}
 
-  valibot@1.3.1(typescript@5.9.3):
+  valibot@1.2.0(typescript@5.9.3):
     optionalDependencies:
       typescript: 5.9.3
 
@@ -12869,13 +12845,13 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite-node@3.2.4(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3):
+  vite-node@3.2.4(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2):
     dependencies:
       cac: 6.7.14
       debug: 4.4.3
       es-module-lexer: 1.7.0
       pathe: 2.0.3
-      vite: 7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3)
+      vite: 7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -12890,18 +12866,18 @@ snapshots:
       - tsx
       - yaml
 
-  vite-plugin-pwa@1.2.0(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3))(workbox-build@7.3.0(@types/babel__core@7.20.5))(workbox-window@7.3.0):
+  vite-plugin-pwa@1.2.0(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2))(workbox-build@7.3.0(@types/babel__core@7.20.5))(workbox-window@7.3.0):
     dependencies:
       debug: 4.4.3
       pretty-bytes: 6.1.1
       tinyglobby: 0.2.15
-      vite: 7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3)
+      vite: 7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2)
       workbox-build: 7.3.0(@types/babel__core@7.20.5)
       workbox-window: 7.3.0
     transitivePeerDependencies:
       - supports-color
 
-  vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3):
+  vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2):
     dependencies:
       esbuild: 0.27.2
       fdir: 6.5.0(picomatch@4.0.3)
@@ -12917,12 +12893,12 @@ snapshots:
       sass: 1.97.2
       stylus: 0.62.0
       terser: 5.46.1
-      yaml: 2.8.3
+      yaml: 2.8.2
 
-  vitest@4.1.1(@opentelemetry/api@1.9.0)(@types/node@25.5.0)(happy-dom@20.1.0)(jsdom@29.0.1)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3)):
+  vitest@4.1.1(@opentelemetry/api@1.9.0)(@types/node@25.5.0)(happy-dom@20.1.0)(jsdom@29.0.1)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2)):
     dependencies:
       '@vitest/expect': 4.1.1
-      '@vitest/mocker': 4.1.1(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3))
+      '@vitest/mocker': 4.1.1(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2))
       '@vitest/pretty-format': 4.1.1
       '@vitest/runner': 4.1.1
       '@vitest/snapshot': 4.1.1
@@ -12933,13 +12909,13 @@ snapshots:
       magic-string: 0.30.21
       obug: 2.1.1
       pathe: 2.0.3
-      picomatch: 4.0.4
+      picomatch: 4.0.3
       std-env: 4.0.0
       tinybench: 2.9.0
-      tinyexec: 1.0.4
+      tinyexec: 1.0.2
       tinyglobby: 0.2.15
       tinyrainbow: 3.1.0
-      vite: 7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.3)
+      vite: 7.3.1(@types/node@25.5.0)(jiti@2.6.1)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.46.1)(yaml@2.8.2)
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@opentelemetry/api': 1.9.0
@@ -13224,7 +13200,7 @@ snapshots:
 
   ws@7.5.10: {}
 
-  ws@8.20.0:
+  ws@8.19.0:
     optional: true
 
   xdg-basedir@4.0.0: {}
@@ -13245,11 +13221,9 @@ snapshots:
   yallist@5.0.0:
     optional: true
 
-  yaml@1.10.3: {}
+  yaml@1.10.2: {}
 
   yaml@2.8.2: {}
-
-  yaml@2.8.3: {}
 
   yargs-parser@20.2.9: {}
 
