@@ -11,29 +11,29 @@ import type { AuthenticationController } from "../../application/authentication-
 export class FirebaseAuthenticationController
   implements AuthenticationController
 {
-  private readonly auth: Auth;
-  private signedIn: boolean | null = null;
+  readonly #auth: Auth;
+  #signedIn: boolean | null = null;
 
   constructor(app: FirebaseApp) {
-    this.auth = getAuth(app);
-    this.auth.onAuthStateChanged((user) => {
-      this.signedIn = !!user;
+    this.#auth = getAuth(app);
+    this.#auth.onAuthStateChanged((user) => {
+      this.#signedIn = !!user;
     });
   }
 
   async signIn(): Promise<void> {
-    await signInWithPopup(this.auth, new GoogleAuthProvider());
+    await signInWithPopup(this.#auth, new GoogleAuthProvider());
   }
 
   async signOut(): Promise<void> {
-    await this.auth.signOut();
+    await this.#auth.signOut();
   }
 
   async isSignedIn(): Promise<boolean> {
-    while (this.signedIn === null) {
+    while (this.#signedIn === null) {
       await delay(10);
     }
 
-    return this.signedIn;
+    return this.#signedIn;
   }
 }

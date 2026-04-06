@@ -17,47 +17,47 @@ import type { ProjectRepository } from "../../application/project-repository.js"
 import type { Project } from "../../domain/project.js";
 
 export class FirestoreProjectRepository implements ProjectRepository {
-  private readonly auth: Auth;
-  private readonly firestore: Firestore;
+  readonly #auth: Auth;
+  readonly #firestore: Firestore;
 
   constructor(app: FirebaseApp) {
-    this.auth = getAuth(app);
-    this.firestore = getFirestore(app);
+    this.#auth = getAuth(app);
+    this.#firestore = getFirestore(app);
   }
 
   async create(project: Project): Promise<void> {
-    await setDoc(doc(this.collection(), project.id), project);
+    await setDoc(doc(this.#collection(), project.id), project);
   }
 
   async delete(projectId: string): Promise<void> {
-    await deleteDoc(doc(this.collection(), projectId));
+    await deleteDoc(doc(this.#collection(), projectId));
   }
 
   async list(): Promise<Project[]> {
     return (
-      await getDocs(query(this.collection(), where("archived", "==", false)))
+      await getDocs(query(this.#collection(), where("archived", "==", false)))
     ).docs.map((snapshot) => snapshot.data());
   }
 
   async listArchived(): Promise<Project[]> {
     return (
-      await getDocs(query(this.collection(), where("archived", "==", true)))
+      await getDocs(query(this.#collection(), where("archived", "==", true)))
     ).docs.map((snapshot) => snapshot.data());
   }
 
   async update(project: Project): Promise<void> {
-    await updateDoc(doc(this.collection(), project.id), { ...project });
+    await updateDoc(doc(this.#collection(), project.id), { ...project });
   }
 
-  private collection(): CollectionReference<Project> {
-    const user = this.auth.currentUser;
+  #collection(): CollectionReference<Project> {
+    const user = this.#auth.currentUser;
 
     if (!user) {
       throw new Error("user not authenticated");
     }
 
     return collection(
-      this.firestore,
+      this.#firestore,
       `version/1/users/${user.uid}/projects`,
     ) as CollectionReference<Project>;
   }

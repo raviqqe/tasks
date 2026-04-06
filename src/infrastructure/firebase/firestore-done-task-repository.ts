@@ -25,16 +25,16 @@ interface TimestampedTask extends Task {
 const batchSize = 20;
 
 export class FirestoreDoneTaskRepository implements DoneTaskRepository {
-  private readonly auth: Auth;
-  private readonly firestore: Firestore;
+  readonly #auth: Auth;
+  readonly #firestore: Firestore;
 
   constructor(app: FirebaseApp) {
-    this.auth = getAuth(app);
-    this.firestore = getFirestore(app);
+    this.#auth = getAuth(app);
+    this.#firestore = getFirestore(app);
   }
 
   async create(projectId: string, task: Task): Promise<void> {
-    await setDoc(doc(this.collection(projectId), task.id), {
+    await setDoc(doc(this.#collection(projectId), task.id), {
       ...task,
       createdAt: Math.floor(Date.now() / 1000), // Unix timestamp
     });
@@ -42,7 +42,7 @@ export class FirestoreDoneTaskRepository implements DoneTaskRepository {
 
   async *list(projectId: string): AsyncIterable<Task[], void> {
     let snapshot = await getDocs(
-      query(this.query(projectId), limit(batchSize)),
+      query(this.#query(projectId), limit(batchSize)),
     );
 
     while (snapshot.docs.length > 0) {
@@ -50,7 +50,7 @@ export class FirestoreDoneTaskRepository implements DoneTaskRepository {
 
       snapshot = await getDocs(
         query(
-          this.query(projectId),
+          this.#query(projectId),
           startAfter(last(snapshot.docs)),
           limit(batchSize),
         ),
@@ -58,19 +58,19 @@ export class FirestoreDoneTaskRepository implements DoneTaskRepository {
     }
   }
 
-  private query(projectId: string): Query {
-    return query(this.collection(projectId), orderBy("createdAt", "desc"));
+  #query(projectId: string): Query {
+    return query(this.#collection(projectId), orderBy("createdAt", "desc"));
   }
 
-  private collection(projectId: string): CollectionReference<TimestampedTask> {
-    const user = this.auth.currentUser;
+  #collection(projectId: string): CollectionReference<TimestampedTask> {
+    const user = this.#auth.currentUser;
 
     if (!user) {
       throw new Error("user not authenticated");
     }
 
     return collection(
-      this.firestore,
+      this.#firestore,
       `version/1/users/${user.uid}/projects/${projectId}/doneTasks`,
     ) as CollectionReference<TimestampedTask>;
   }

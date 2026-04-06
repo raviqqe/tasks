@@ -4,32 +4,32 @@ import type { ProjectPresenter } from "./project-presenter.js";
 import type { ProjectRepository } from "./project-repository.js";
 
 export class ProjectDeleter {
-  private readonly projectRepository: ProjectRepository;
-  private readonly projectPresenter: ProjectPresenter;
-  private readonly confirmationController: ConfirmationController;
+  readonly #projectRepository: ProjectRepository;
+  readonly #projectPresenter: ProjectPresenter;
+  readonly #confirmationController: ConfirmationController;
 
   constructor(
     projectRepository: ProjectRepository,
     projectPresenter: ProjectPresenter,
     confirmationController: ConfirmationController,
   ) {
-    this.projectRepository = projectRepository;
-    this.projectPresenter = projectPresenter;
-    this.confirmationController = confirmationController;
+    this.#projectRepository = projectRepository;
+    this.#projectPresenter = projectPresenter;
+    this.#confirmationController = confirmationController;
   }
 
   async delete(project: Project): Promise<void> {
     if (!project.archived) {
       throw new Error("project not archived");
     } else if (
-      !(await this.confirmationController.confirm(
+      !(await this.#confirmationController.confirm(
         `Delete the "${project.name}" project?`,
       ))
     ) {
       return;
     }
 
-    this.projectPresenter.presentDeletedProject(project.id);
-    await this.projectRepository.delete(project.id);
+    this.#projectPresenter.presentDeletedProject(project.id);
+    await this.#projectRepository.delete(project.id);
   }
 }

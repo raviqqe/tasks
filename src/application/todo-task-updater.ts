@@ -6,11 +6,11 @@ import type { TodoTaskPresenter } from "./todo-task-presenter.js";
 import type { TodoTaskRepository } from "./todo-task-repository.js";
 
 export class TodoTaskUpdater {
-  private readonly currentProjectRepository: CurrentProjectRepository;
-  private readonly todoTaskDeleter: TodoTaskDeleter;
-  private readonly todoTaskRepository: TodoTaskRepository;
-  private readonly todoTaskPresenter: TodoTaskPresenter;
-  private readonly confirmationController: ConfirmationController;
+  readonly #currentProjectRepository: CurrentProjectRepository;
+  readonly #todoTaskDeleter: TodoTaskDeleter;
+  readonly #todoTaskRepository: TodoTaskRepository;
+  readonly #todoTaskPresenter: TodoTaskPresenter;
+  readonly #confirmationController: ConfirmationController;
 
   constructor(
     currentProjectRepository: CurrentProjectRepository,
@@ -19,15 +19,15 @@ export class TodoTaskUpdater {
     todoTaskPresenter: TodoTaskPresenter,
     confirmationController: ConfirmationController,
   ) {
-    this.currentProjectRepository = currentProjectRepository;
-    this.todoTaskDeleter = todoTaskDeleter;
-    this.todoTaskRepository = todoTaskRepository;
-    this.todoTaskPresenter = todoTaskPresenter;
-    this.confirmationController = confirmationController;
+    this.#currentProjectRepository = currentProjectRepository;
+    this.#todoTaskDeleter = todoTaskDeleter;
+    this.#todoTaskRepository = todoTaskRepository;
+    this.#todoTaskPresenter = todoTaskPresenter;
+    this.#confirmationController = confirmationController;
   }
 
   async update(task: Task): Promise<void> {
-    const projectId = await this.currentProjectRepository.get();
+    const projectId = await this.#currentProjectRepository.get();
 
     if (!projectId) {
       throw new Error("Project not selected");
@@ -37,9 +37,9 @@ export class TodoTaskUpdater {
 
     if (
       !task.name &&
-      (await this.confirmationController.confirm("Delete the task?"))
+      (await this.#confirmationController.confirm("Delete the task?"))
     ) {
-      await this.todoTaskDeleter.delete(task.id);
+      await this.#todoTaskDeleter.delete(task.id);
       return;
     } else if (!task.name) {
       return;
@@ -47,7 +47,7 @@ export class TodoTaskUpdater {
 
     validateTask(task);
 
-    this.todoTaskPresenter.presentUpdatedTask(task);
-    await this.todoTaskRepository.update(projectId, task);
+    this.#todoTaskPresenter.presentUpdatedTask(task);
+    await this.#todoTaskRepository.update(projectId, task);
   }
 }
