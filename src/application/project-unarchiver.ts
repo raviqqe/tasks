@@ -4,18 +4,18 @@ import type { ProjectPresenter } from "./project-presenter.js";
 import type { ProjectRepository } from "./project-repository.js";
 
 export class ProjectUnarchiver {
-  private readonly currentProjectSwitcher: CurrentProjectSwitcher;
-  private readonly projectRepository: ProjectRepository;
-  private readonly projectPresenter: ProjectPresenter;
+  readonly #currentProjectSwitcher: CurrentProjectSwitcher;
+  readonly #projectRepository: ProjectRepository;
+  readonly #projectPresenter: ProjectPresenter;
 
   constructor(
     currentProjectSwitcher: CurrentProjectSwitcher,
     projectRepository: ProjectRepository,
     projectPresenter: ProjectPresenter,
   ) {
-    this.currentProjectSwitcher = currentProjectSwitcher;
-    this.projectRepository = projectRepository;
-    this.projectPresenter = projectPresenter;
+    this.#currentProjectSwitcher = currentProjectSwitcher;
+    this.#projectRepository = projectRepository;
+    this.#projectPresenter = projectPresenter;
   }
 
   async unarchive(project: Project): Promise<void> {
@@ -25,8 +25,8 @@ export class ProjectUnarchiver {
 
     project = { ...project, archived: false };
 
-    this.projectPresenter.presentUnarchivedProject(project);
-    await this.currentProjectSwitcher.switch(project);
-    await this.projectRepository.update(project);
+    this.#projectPresenter.presentUnarchivedProject(project);
+    await this.#currentProjectSwitcher.switch(project);
+    await this.#projectRepository.update(project);
   }
 }

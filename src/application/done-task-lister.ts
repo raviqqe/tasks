@@ -6,49 +6,49 @@ import type { DoneTaskRepository } from "./done-task-repository.js";
 const defaultLimit = 20;
 
 export class DoneTaskLister {
-  private readonly currentProjectRepository: CurrentProjectRepository;
-  private readonly doneTaskRepository: DoneTaskRepository;
-  private readonly doneTaskPresenter: DoneTaskPresenter;
-  private iterator: AsyncIterator<Task[], void> | null = null;
+  readonly #currentProjectRepository: CurrentProjectRepository;
+  readonly #doneTaskRepository: DoneTaskRepository;
+  readonly #doneTaskPresenter: DoneTaskPresenter;
+  #iterator: AsyncIterator<Task[], void> | null = null;
 
   constructor(
     currentProjectRepository: CurrentProjectRepository,
     doneTaskRepository: DoneTaskRepository,
     doneTaskPresenter: DoneTaskPresenter,
   ) {
-    this.currentProjectRepository = currentProjectRepository;
-    this.doneTaskRepository = doneTaskRepository;
-    this.doneTaskPresenter = doneTaskPresenter;
+    this.#currentProjectRepository = currentProjectRepository;
+    this.#doneTaskRepository = doneTaskRepository;
+    this.#doneTaskPresenter = doneTaskPresenter;
   }
 
   async list(): Promise<void> {
-    const projectId = await this.currentProjectRepository.get();
+    const projectId = await this.#currentProjectRepository.get();
 
     if (!projectId) {
       throw new Error("Current project not defined");
     }
 
-    this.doneTaskPresenter.presentTasks(null);
+    this.#doneTaskPresenter.presentTasks(null);
 
-    this.iterator = this.doneTaskRepository
+    this.#iterator = this.#doneTaskRepository
       .list(projectId, defaultLimit)
       [Symbol.asyncIterator]();
-    this.doneTaskPresenter.presentTasks(
-      (await this.iterator.next()).value ?? [],
+    this.#doneTaskPresenter.presentTasks(
+      (await this.#iterator.next()).value ?? [],
     );
   }
 
   async listMore(): Promise<void> {
-    if (!this.iterator) {
+    if (!this.#iterator) {
       throw new Error("Iterator not initialized");
     }
 
-    const result = await this.iterator.next();
+    const result = await this.#iterator.next();
 
     if (result.done) {
       return;
     }
 
-    this.doneTaskPresenter.presentMoreTasks(result.value);
+    this.#doneTaskPresenter.presentMoreTasks(result.value);
   }
 }

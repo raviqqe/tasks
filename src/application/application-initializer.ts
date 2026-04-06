@@ -2,20 +2,20 @@ import type { AuthenticationController } from "./authentication-controller.js";
 import type { AuthenticationPresenter } from "./authentication-presenter.js";
 
 export class ApplicationInitializer {
-  private readonly authenticationController: AuthenticationController;
-  private readonly authenticationPresenter: AuthenticationPresenter;
+  readonly #authenticationController: AuthenticationController;
+  readonly #authenticationPresenter: AuthenticationPresenter;
 
   constructor(
     authenticationController: AuthenticationController,
     authenticationPresenter: AuthenticationPresenter,
   ) {
-    this.authenticationController = authenticationController;
-    this.authenticationPresenter = authenticationPresenter;
+    this.#authenticationController = authenticationController;
+    this.#authenticationPresenter = authenticationPresenter;
   }
 
   async initialize(): Promise<void> {
-    this.authenticationPresenter.presentSignedIn(
-      await this.authenticationController.isSignedIn(),
+    this.#authenticationPresenter.presentSignedIn(
+      await this.#authenticationController.isSignedIn(),
     );
   }
 }

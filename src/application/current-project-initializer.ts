@@ -8,11 +8,11 @@ import type { ProjectRepository } from "./project-repository.js";
 const defaultProjectName = "main";
 
 export class CurrentProjectInitializer {
-  private readonly projectCreator: ProjectCreator;
-  private readonly projectRepository: ProjectRepository;
-  private readonly projectPresenter: ProjectPresenter;
-  private readonly currentProjectSwitcher: CurrentProjectSwitcher;
-  private readonly currentProjectRepository: CurrentProjectRepository;
+  readonly #projectCreator: ProjectCreator;
+  readonly #projectRepository: ProjectRepository;
+  readonly #projectPresenter: ProjectPresenter;
+  readonly #currentProjectSwitcher: CurrentProjectSwitcher;
+  readonly #currentProjectRepository: CurrentProjectRepository;
 
   constructor(
     projectCreator: ProjectCreator,
@@ -21,30 +21,30 @@ export class CurrentProjectInitializer {
     currentProjectSwitcher: CurrentProjectSwitcher,
     currentProjectRepository: CurrentProjectRepository,
   ) {
-    this.projectCreator = projectCreator;
-    this.projectRepository = projectRepository;
-    this.projectPresenter = projectPresenter;
-    this.currentProjectSwitcher = currentProjectSwitcher;
-    this.currentProjectRepository = currentProjectRepository;
+    this.#projectCreator = projectCreator;
+    this.#projectRepository = projectRepository;
+    this.#projectPresenter = projectPresenter;
+    this.#currentProjectSwitcher = currentProjectSwitcher;
+    this.#currentProjectRepository = currentProjectRepository;
   }
 
   async initialize(): Promise<void> {
-    const projects = await this.projectRepository.list();
+    const projects = await this.#projectRepository.list();
 
     if (!projects.length) {
-      await this.projectCreator.create(defaultProjectName);
+      await this.#projectCreator.create(defaultProjectName);
       return;
     }
 
-    const projectId = await this.currentProjectRepository.get();
+    const projectId = await this.#currentProjectRepository.get();
 
-    await this.currentProjectSwitcher.switch(
+    await this.#currentProjectSwitcher.switch(
       projects.find((project) => project.id === projectId) ??
         getFirstProject(projects),
     );
-    this.projectPresenter.presentProjects(projects);
-    this.projectPresenter.presentArchivedProjects(
-      await this.projectRepository.listArchived(),
+    this.#projectPresenter.presentProjects(projects);
+    this.#projectPresenter.presentArchivedProjects(
+      await this.#projectRepository.listArchived(),
     );
   }
 }

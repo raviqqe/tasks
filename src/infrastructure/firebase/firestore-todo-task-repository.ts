@@ -21,28 +21,28 @@ interface OrderDocument {
 }
 
 export class FirestoreTodoTaskRepository implements TodoTaskRepository {
-  private readonly auth: Auth;
-  private readonly firestore: Firestore;
+  readonly #auth: Auth;
+  readonly #firestore: Firestore;
 
   constructor(app: FirebaseApp) {
-    this.auth = getAuth(app);
-    this.firestore = getFirestore(app);
+    this.#auth = getAuth(app);
+    this.#firestore = getFirestore(app);
   }
 
   async create(projectId: string, task: Task): Promise<void> {
-    await runTransaction(this.firestore, async (transaction) => {
-      const taskIds = await this.getOrder(projectId, transaction);
+    await runTransaction(this.#firestore, async (transaction) => {
+      const taskIds = await this.#getOrder(projectId, transaction);
 
-      transaction.set(doc(this.tasks(projectId), task.id), task);
+      transaction.set(doc(this.#tasks(projectId), task.id), task);
       this.setOrder(projectId, [task.id, ...taskIds], transaction);
     });
   }
 
   async delete(projectId: string, taskId: string): Promise<void> {
-    await runTransaction(this.firestore, async (transaction) => {
-      const taskIds = await this.getOrder(projectId, transaction);
+    await runTransaction(this.#firestore, async (transaction) => {
+      const taskIds = await this.#getOrder(projectId, transaction);
 
-      transaction.delete(doc(this.tasks(projectId), taskId));
+      transaction.delete(doc(this.#tasks(projectId), taskId));
       this.setOrder(
         projectId,
         taskIds.filter((id) => id !== taskId),
@@ -52,14 +52,14 @@ export class FirestoreTodoTaskRepository implements TodoTaskRepository {
   }
 
   async list(projectId: string): Promise<Task[]> {
-    return runTransaction(this.firestore, async (transaction) => {
+    return runTransaction(this.#firestore, async (transaction) => {
       // TODO Use CollectionReference.prototype.getAll().
       // https://github.com/firebase/firebase-js-sdk/issues/1176
-      const tasks: Task[] = (await getDocs(this.tasks(projectId))).docs.map(
+      const tasks: Task[] = (await getDocs(this.#tasks(projectId))).docs.map(
         (snapshot) => snapshot.data(),
       );
       const taskMap = Object.fromEntries(tasks.map((task) => [task.id, task]));
-      const taskIds = await this.getOrder(projectId, transaction);
+      const taskIds = await this.#getOrder(projectId, transaction);
 
       // Start of read consistency resolution
       const taskIdSet = new Set(taskIds);
@@ -80,7 +80,7 @@ export class FirestoreTodoTaskRepository implements TodoTaskRepository {
   }
 
   async reorder(projectId: string, taskIds: string[]): Promise<void> {
-    await runTransaction(this.firestore, async (transaction) =>
+    await runTransaction(this.#firestore, async (transaction) =>
       this.setOrder(projectId, taskIds, transaction),
     );
   }
@@ -90,43 +90,43 @@ export class FirestoreTodoTaskRepository implements TodoTaskRepository {
     taskIds: string[],
     transaction: Transaction,
   ): void {
-    transaction.set(this.order(projectId), { order: taskIds });
+    transaction.set(this.#order(projectId), { order: taskIds });
   }
 
   async update(projectId: string, task: Task): Promise<void> {
-    await updateDoc(doc(this.tasks(projectId), task.id), { ...task });
+    await updateDoc(doc(this.#tasks(projectId), task.id), { ...task });
   }
 
-  private async getOrder(
+  async #getOrder(
     projectId: string,
     transaction: Transaction,
   ): Promise<string[]> {
-    return (await transaction.get(this.order(projectId))).data()?.order ?? [];
+    return (await transaction.get(this.#order(projectId))).data()?.order ?? [];
   }
 
-  private tasks(projectId: string): CollectionReference<Task> {
+  #tasks(projectId: string): CollectionReference<Task> {
     return collection(
-      this.project(projectId),
+      this.#project(projectId),
       "todoTasks",
     ) as CollectionReference<Task>;
   }
 
-  private order(projectId: string): DocumentReference<OrderDocument> {
+  #order(projectId: string): DocumentReference<OrderDocument> {
     return doc(
-      this.project(projectId),
+      this.#project(projectId),
       "todoTaskOrders/default",
     ) as DocumentReference<OrderDocument>;
   }
 
-  private project(projectId: string): DocumentReference {
-    const user = this.auth.currentUser;
+  #project(projectId: string): DocumentReference {
+    const user = this.#auth.currentUser;
 
     if (!user) {
       throw new Error("user not authenticated");
     }
 
     return doc(
-      this.firestore,
+      this.#firestore,
       `version/1/users/${user.uid}/projects/${projectId}`,
     );
   }

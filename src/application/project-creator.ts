@@ -10,10 +10,10 @@ import type { ProjectPresenter } from "./project-presenter.js";
 import type { ProjectRepository } from "./project-repository.js";
 
 export class ProjectCreator {
-  private readonly currentProjectSwitcher: CurrentProjectSwitcher;
-  private readonly projectRepository: ProjectRepository;
-  private readonly projectPresenter: ProjectPresenter;
-  private readonly messagePresenter: MessagePresenter;
+  readonly #currentProjectSwitcher: CurrentProjectSwitcher;
+  readonly #projectRepository: ProjectRepository;
+  readonly #projectPresenter: ProjectPresenter;
+  readonly #messagePresenter: MessagePresenter;
 
   constructor(
     currentProjectSwitcher: CurrentProjectSwitcher,
@@ -21,10 +21,10 @@ export class ProjectCreator {
     projectPresenter: ProjectPresenter,
     messagePresenter: MessagePresenter,
   ) {
-    this.currentProjectSwitcher = currentProjectSwitcher;
-    this.projectRepository = projectRepository;
-    this.projectPresenter = projectPresenter;
-    this.messagePresenter = messagePresenter;
+    this.#currentProjectSwitcher = currentProjectSwitcher;
+    this.#projectRepository = projectRepository;
+    this.#projectPresenter = projectPresenter;
+    this.#messagePresenter = messagePresenter;
   }
 
   async create(name: string): Promise<void> {
@@ -37,12 +37,14 @@ export class ProjectCreator {
     try {
       validateProject(project);
     } catch (error) {
-      this.messagePresenter.present(formatErrorMessage(error as Error));
+      this.#messagePresenter.present(formatErrorMessage(error as Error));
       return;
     }
 
-    await this.projectRepository.create(project);
-    await this.currentProjectSwitcher.switch(project);
-    this.projectPresenter.presentProjects(await this.projectRepository.list());
+    await this.#projectRepository.create(project);
+    await this.#currentProjectSwitcher.switch(project);
+    this.#projectPresenter.presentProjects(
+      await this.#projectRepository.list(),
+    );
   }
 }
