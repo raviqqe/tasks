@@ -27,10 +27,7 @@ export class ProjectArchiver {
     this.confirmationController = confirmationController;
   }
 
-  async archive(
-    project: Project,
-    currentProjectId: string,
-  ): Promise<void> {
+  async archive(project: Project, currentProjectId: string): Promise<void> {
     if (project.archived) {
       throw new Error("project archived already");
     } else if ((await this.projectRepository.list()).length === 1) {
