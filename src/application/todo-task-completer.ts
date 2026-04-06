@@ -10,7 +10,7 @@ export class TodoTaskCompleter {
   private readonly doneTaskRepository: DoneTaskRepository;
   private readonly doneTaskPresenter: DoneTaskPresenter;
 
-  public constructor(
+  constructor(
     currentProjectRepository: CurrentProjectRepository,
     todoTaskDeleter: TodoTaskDeleter,
     doneTaskRepository: DoneTaskRepository,
@@ -22,7 +22,7 @@ export class TodoTaskCompleter {
     this.doneTaskPresenter = doneTaskPresenter;
   }
 
-  public async complete(task: Task): Promise<void> {
+  async complete(task: Task): Promise<void> {
     const projectId = await this.currentProjectRepository.get();
 
     if (!projectId) {

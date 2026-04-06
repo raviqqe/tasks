@@ -20,32 +20,32 @@ export class FirestoreProjectRepository implements ProjectRepository {
   private readonly auth: Auth;
   private readonly firestore: Firestore;
 
-  public constructor(app: FirebaseApp) {
+  constructor(app: FirebaseApp) {
     this.auth = getAuth(app);
     this.firestore = getFirestore(app);
   }
 
-  public async create(project: Project): Promise<void> {
+  async create(project: Project): Promise<void> {
     await setDoc(doc(this.collection(), project.id), project);
   }
 
-  public async delete(projectId: string): Promise<void> {
+  async delete(projectId: string): Promise<void> {
     await deleteDoc(doc(this.collection(), projectId));
   }
 
-  public async list(): Promise<Project[]> {
+  async list(): Promise<Project[]> {
     return (
       await getDocs(query(this.collection(), where("archived", "==", false)))
     ).docs.map((snapshot) => snapshot.data());
   }
 
-  public async listArchived(): Promise<Project[]> {
+  async listArchived(): Promise<Project[]> {
     return (
       await getDocs(query(this.collection(), where("archived", "==", true)))
     ).docs.map((snapshot) => snapshot.data());
   }
 
-  public async update(project: Project): Promise<void> {
+  async update(project: Project): Promise<void> {
     await updateDoc(doc(this.collection(), project.id), { ...project });
   }
 

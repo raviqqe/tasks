@@ -7,7 +7,7 @@ export class TodoTaskLister {
   private readonly todoTaskRepository: TodoTaskRepository;
   private readonly todoTaskPresenter: TodoTaskPresenter;
 
-  public constructor(
+  constructor(
     currentProjectRepository: CurrentProjectRepository,
     todoTaskRepository: TodoTaskRepository,
     todoTaskPresenter: TodoTaskPresenter,
@@ -17,7 +17,7 @@ export class TodoTaskLister {
     this.todoTaskPresenter = todoTaskPresenter;
   }
 
-  public async list(): Promise<void> {
+  async list(): Promise<void> {
     const projectId = await this.currentProjectRepository.get();
 
     if (!projectId) {

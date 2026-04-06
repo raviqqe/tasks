@@ -5,7 +5,7 @@ export class ApplicationInitializer {
   private readonly authenticationController: AuthenticationController;
   private readonly authenticationPresenter: AuthenticationPresenter;
 
-  public constructor(
+  constructor(
     authenticationController: AuthenticationController,
     authenticationPresenter: AuthenticationPresenter,
   ) {
@@ -13,7 +13,7 @@ export class ApplicationInitializer {
     this.authenticationPresenter = authenticationPresenter;
   }
 
-  public async initialize(): Promise<void> {
+  async initialize(): Promise<void> {
     this.authenticationPresenter.presentSignedIn(
       await this.authenticationController.isSignedIn(),
     );

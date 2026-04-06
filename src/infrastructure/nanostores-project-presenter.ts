@@ -3,23 +3,23 @@ import type { ProjectPresenter } from "../application/project-presenter.js";
 import { type Project, sortProjects } from "../domain/project.js";
 
 export class NanostoresProjectPresenter implements ProjectPresenter {
-  public readonly currentProject = atom<Project | null>(null);
-  public readonly projects = atom<Project[] | null>(null);
-  public readonly archivedProjects = atom<Project[] | null>(null);
+  readonly currentProject = atom<Project | null>(null);
+  readonly projects = atom<Project[] | null>(null);
+  readonly archivedProjects = atom<Project[] | null>(null);
 
-  public presentCurrentProject(project: Project): void {
+  presentCurrentProject(project: Project): void {
     this.currentProject.set(project);
   }
 
-  public presentProjects(projects: Project[]): void {
+  presentProjects(projects: Project[]): void {
     this.projects.set(sortProjects(projects));
   }
 
-  public presentArchivedProjects(projects: Project[]): void {
+  presentArchivedProjects(projects: Project[]): void {
     this.archivedProjects.set(sortProjects(projects));
   }
 
-  public presentArchivedProject(project: Project): void {
+  presentArchivedProject(project: Project): void {
     const projects = this.projects.get();
     const archivedProjects = this.archivedProjects.get();
 
@@ -31,7 +31,7 @@ export class NanostoresProjectPresenter implements ProjectPresenter {
     this.presentArchivedProjects([project, ...archivedProjects]);
   }
 
-  public presentDeletedProject(projectId: string): void {
+  presentDeletedProject(projectId: string): void {
     const archivedProjects = this.archivedProjects.get();
 
     if (!archivedProjects) {
@@ -43,7 +43,7 @@ export class NanostoresProjectPresenter implements ProjectPresenter {
     );
   }
 
-  public presentUnarchivedProject(project: Project): void {
+  presentUnarchivedProject(project: Project): void {
     const projects = this.projects.get();
     const archivedProjects = this.archivedProjects.get();
 
@@ -57,7 +57,7 @@ export class NanostoresProjectPresenter implements ProjectPresenter {
     );
   }
 
-  public presentUpdatedProject(updatedProject: Project): void {
+  presentUpdatedProject(updatedProject: Project): void {
     const projects = this.projects.get();
 
     if (!projects) {

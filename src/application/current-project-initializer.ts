@@ -14,7 +14,7 @@ export class CurrentProjectInitializer {
   private readonly currentProjectSwitcher: CurrentProjectSwitcher;
   private readonly currentProjectRepository: CurrentProjectRepository;
 
-  public constructor(
+  constructor(
     projectCreator: ProjectCreator,
     projectRepository: ProjectRepository,
     projectPresenter: ProjectPresenter,
@@ -28,7 +28,7 @@ export class CurrentProjectInitializer {
     this.currentProjectRepository = currentProjectRepository;
   }
 
-  public async initialize(): Promise<void> {
+  async initialize(): Promise<void> {
     const projects = await this.projectRepository.list();
 
     if (!projects.length) {

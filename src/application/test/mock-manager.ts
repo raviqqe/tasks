@@ -18,57 +18,57 @@ import type { TodoTaskPresenter } from "../todo-task-presenter.js";
 import type { TodoTaskRepository } from "../todo-task-repository.js";
 
 export class MockManager {
-  public authenticationController: Mocked<AuthenticationController> = {
+  authenticationController: Mocked<AuthenticationController> = {
     isSignedIn: vi.fn(async () => false),
     signIn: vi.fn(async () => {}),
     signOut: vi.fn(async () => {}),
   };
 
-  public authenticationPresenter: Mocked<AuthenticationPresenter> = {
+  authenticationPresenter: Mocked<AuthenticationPresenter> = {
     presentSignedIn: vi.fn((_: boolean) => {}),
   };
 
-  public confirmationController: Mocked<ConfirmationController> = {
+  confirmationController: Mocked<ConfirmationController> = {
     confirm: vi.fn(),
   };
 
-  public currentProjectRepository: Mocked<CurrentProjectRepository> = {
+  currentProjectRepository: Mocked<CurrentProjectRepository> = {
     get: vi.fn(),
     set: vi.fn(),
   };
 
-  public currentProjectInitializer: Mocked<CurrentProjectInitializer> = {
+  currentProjectInitializer: Mocked<CurrentProjectInitializer> = {
     initialize: vi.fn(),
   } as unknown as Mocked<CurrentProjectInitializer>;
 
-  public currentProjectSwitcher: Mocked<CurrentProjectSwitcher> = {
+  currentProjectSwitcher: Mocked<CurrentProjectSwitcher> = {
     switch: vi.fn(),
   } as unknown as Mocked<CurrentProjectSwitcher>;
 
-  public doneTaskRepository: Mocked<DoneTaskRepository> = {
+  doneTaskRepository: Mocked<DoneTaskRepository> = {
     create: vi.fn(),
     list: vi.fn(),
   };
 
-  public doneTaskLister: Mocked<DoneTaskLister> = {
+  doneTaskLister: Mocked<DoneTaskLister> = {
     list: vi.fn(),
   } as unknown as Mocked<DoneTaskLister>;
 
-  public doneTaskPresenter: Mocked<DoneTaskPresenter> = {
+  doneTaskPresenter: Mocked<DoneTaskPresenter> = {
     presentMoreTasks: vi.fn(),
     presentNewTask: vi.fn(),
     presentTasks: vi.fn(),
   };
 
-  public messagePresenter: Mocked<MessagePresenter> = {
+  messagePresenter: Mocked<MessagePresenter> = {
     present: vi.fn(),
   };
 
-  public projectCreator: Mocked<ProjectCreator> = {
+  projectCreator: Mocked<ProjectCreator> = {
     create: vi.fn(),
   } as unknown as Mocked<ProjectCreator>;
 
-  public projectPresenter: Mocked<ProjectPresenter> = {
+  projectPresenter: Mocked<ProjectPresenter> = {
     presentArchivedProject: vi.fn(),
     presentArchivedProjects: vi.fn(),
     presentCurrentProject: vi.fn(),
@@ -78,7 +78,7 @@ export class MockManager {
     presentUpdatedProject: vi.fn(),
   };
 
-  public projectRepository: Mocked<ProjectRepository> = {
+  projectRepository: Mocked<ProjectRepository> = {
     create: vi.fn(),
     delete: vi.fn(),
     list: vi.fn(),
@@ -86,15 +86,15 @@ export class MockManager {
     update: vi.fn(),
   };
 
-  public todoTaskDeleter: Mocked<TodoTaskDeleter> = {
+  todoTaskDeleter: Mocked<TodoTaskDeleter> = {
     delete: vi.fn(),
   } as unknown as Mocked<TodoTaskDeleter>;
 
-  public todoTaskLister: Mocked<TodoTaskLister> = {
+  todoTaskLister: Mocked<TodoTaskLister> = {
     list: vi.fn(),
   } as unknown as Mocked<TodoTaskLister>;
 
-  public todoTaskRepository: Mocked<TodoTaskRepository> = {
+  todoTaskRepository: Mocked<TodoTaskRepository> = {
     create: vi.fn(),
     delete: vi.fn(),
     list: vi.fn(),
@@ -102,7 +102,7 @@ export class MockManager {
     update: vi.fn(),
   };
 
-  public todoTaskPresenter: Mocked<TodoTaskPresenter> = {
+  todoTaskPresenter: Mocked<TodoTaskPresenter> = {
     presentDeletedTask: vi.fn(),
     presentNewTask: vi.fn(),
     presentReorderedTasks: vi.fn(),

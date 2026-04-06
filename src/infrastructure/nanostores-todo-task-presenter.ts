@@ -3,13 +3,13 @@ import type { TodoTaskPresenter } from "../application/todo-task-presenter.js";
 import type { Task } from "../domain/task.js";
 
 export class NanostoresTodoTaskPresenter implements TodoTaskPresenter {
-  public readonly tasks = atom<Task[] | null>(null);
+  readonly tasks = atom<Task[] | null>(null);
 
-  public presentTasks(tasks: Task[] | null): void {
+  presentTasks(tasks: Task[] | null): void {
     this.tasks.set(tasks);
   }
 
-  public presentNewTask(task: Task): void {
+  presentNewTask(task: Task): void {
     const tasks = this.tasks.get();
 
     if (!tasks) {
@@ -19,7 +19,7 @@ export class NanostoresTodoTaskPresenter implements TodoTaskPresenter {
     this.presentTasks([task, ...tasks]);
   }
 
-  public presentReorderedTasks(taskIds: string[]): void {
+  presentReorderedTasks(taskIds: string[]): void {
     const tasks = this.tasks.get();
 
     if (!tasks) {
@@ -41,7 +41,7 @@ export class NanostoresTodoTaskPresenter implements TodoTaskPresenter {
     );
   }
 
-  public presentUpdatedTask(updatedTask: Task): void {
+  presentUpdatedTask(updatedTask: Task): void {
     const tasks = this.tasks.get();
 
     if (!tasks) {
@@ -53,7 +53,7 @@ export class NanostoresTodoTaskPresenter implements TodoTaskPresenter {
     );
   }
 
-  public presentDeletedTask(taskId: string): void {
+  presentDeletedTask(taskId: string): void {
     const tasks = this.tasks.get();
 
     if (!tasks) {
