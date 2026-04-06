@@ -14,22 +14,22 @@ export class FirebaseAuthenticationController
   private readonly auth: Auth;
   private signedIn: boolean | null = null;
 
-  public constructor(app: FirebaseApp) {
+  constructor(app: FirebaseApp) {
     this.auth = getAuth(app);
     this.auth.onAuthStateChanged((user) => {
       this.signedIn = !!user;
     });
   }
 
-  public async signIn(): Promise<void> {
+  async signIn(): Promise<void> {
     await signInWithPopup(this.auth, new GoogleAuthProvider());
   }
 
-  public async signOut(): Promise<void> {
+  async signOut(): Promise<void> {
     await this.auth.signOut();
   }
 
-  public async isSignedIn(): Promise<boolean> {
+  async isSignedIn(): Promise<boolean> {
     while (this.signedIn === null) {
       await delay(10);
     }

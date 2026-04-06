@@ -7,7 +7,7 @@ export class TodoTaskDeleter {
   private readonly todoTaskRepository: TodoTaskRepository;
   private readonly todoTaskPresenter: TodoTaskPresenter;
 
-  public constructor(
+  constructor(
     currentProjectRepository: CurrentProjectRepository,
     todoTaskRepository: TodoTaskRepository,
     todoTaskPresenter: TodoTaskPresenter,
@@ -17,7 +17,7 @@ export class TodoTaskDeleter {
     this.todoTaskPresenter = todoTaskPresenter;
   }
 
-  public async delete(taskId: string): Promise<void> {
+  async delete(taskId: string): Promise<void> {
     const projectId = await this.currentProjectRepository.get();
 
     if (!projectId) {

@@ -5,7 +5,7 @@ export class SignOutManager {
   private readonly authenticationController: AuthenticationController;
   private readonly authenticationPresenter: AuthenticationPresenter;
 
-  public constructor(
+  constructor(
     authenticationController: AuthenticationController,
     authenticationPresenter: AuthenticationPresenter,
   ) {
@@ -13,7 +13,7 @@ export class SignOutManager {
     this.authenticationPresenter = authenticationPresenter;
   }
 
-  public async signOut(): Promise<void> {
+  async signOut(): Promise<void> {
     await this.authenticationController.signOut();
 
     this.authenticationPresenter.presentSignedIn(

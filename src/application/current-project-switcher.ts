@@ -6,7 +6,7 @@ export class CurrentProjectSwitcher {
   private readonly currentProjectRepository: CurrentProjectRepository;
   private readonly projectPresenter: ProjectPresenter;
 
-  public constructor(
+  constructor(
     currentProjectRepository: CurrentProjectRepository,
     projectPresenter: ProjectPresenter,
   ) {
@@ -14,7 +14,7 @@ export class CurrentProjectSwitcher {
     this.projectPresenter = projectPresenter;
   }
 
-  public async switch(project: Project): Promise<void> {
+  async switch(project: Project): Promise<void> {
     this.projectPresenter.presentCurrentProject(project);
     await this.currentProjectRepository.set(project.id);
   }

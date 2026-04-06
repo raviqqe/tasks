@@ -13,7 +13,7 @@ export class ProjectUpdater {
   private readonly projectPresenter: ProjectPresenter;
   private readonly messagePresenter: MessagePresenter;
 
-  public constructor(
+  constructor(
     projectRepository: ProjectRepository,
     projectPresenter: ProjectPresenter,
     messagePresenter: MessagePresenter,
@@ -23,7 +23,7 @@ export class ProjectUpdater {
     this.messagePresenter = messagePresenter;
   }
 
-  public async update(project: Project): Promise<void> {
+  async update(project: Project): Promise<void> {
     project = formatProject(project);
 
     try {

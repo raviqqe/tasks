@@ -7,7 +7,7 @@ export class TodoTaskReorderer {
   private readonly todoTaskRepository: TodoTaskRepository;
   private readonly todoTaskPresenter: TodoTaskPresenter;
 
-  public constructor(
+  constructor(
     currentProjectRepository: CurrentProjectRepository,
     todoTaskRepository: TodoTaskRepository,
     todoTaskPresenter: TodoTaskPresenter,
@@ -17,7 +17,7 @@ export class TodoTaskReorderer {
     this.todoTaskPresenter = todoTaskPresenter;
   }
 
-  public async reorder(taskIds: string[]): Promise<void> {
+  async reorder(taskIds: string[]): Promise<void> {
     // Present reordered tasks optimistically.
     this.todoTaskPresenter.presentReorderedTasks(taskIds);
 

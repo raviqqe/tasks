@@ -11,7 +11,7 @@ export class DoneTaskLister {
   private readonly doneTaskPresenter: DoneTaskPresenter;
   private iterator: AsyncIterator<Task[], void> | null = null;
 
-  public constructor(
+  constructor(
     currentProjectRepository: CurrentProjectRepository,
     doneTaskRepository: DoneTaskRepository,
     doneTaskPresenter: DoneTaskPresenter,
@@ -21,7 +21,7 @@ export class DoneTaskLister {
     this.doneTaskPresenter = doneTaskPresenter;
   }
 
-  public async list(): Promise<void> {
+  async list(): Promise<void> {
     const projectId = await this.currentProjectRepository.get();
 
     if (!projectId) {
@@ -38,7 +38,7 @@ export class DoneTaskLister {
     );
   }
 
-  public async listMore(): Promise<void> {
+  async listMore(): Promise<void> {
     if (!this.iterator) {
       throw new Error("Iterator not initialized");
     }

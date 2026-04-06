@@ -4,9 +4,9 @@ import type { AuthenticationPresenter } from "../application/authentication-pres
 export class NanostoresAuthenticationPresenter
   implements AuthenticationPresenter
 {
-  public readonly signedIn = atom<boolean | null>(null);
+  readonly signedIn = atom<boolean | null>(null);
 
-  public presentSignedIn(signedIn: boolean): void {
+  presentSignedIn(signedIn: boolean): void {
     this.signedIn.set(signedIn);
   }
 }

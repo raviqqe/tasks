@@ -8,7 +8,7 @@ export class ProjectUnarchiver {
   private readonly projectRepository: ProjectRepository;
   private readonly projectPresenter: ProjectPresenter;
 
-  public constructor(
+  constructor(
     currentProjectSwitcher: CurrentProjectSwitcher,
     projectRepository: ProjectRepository,
     projectPresenter: ProjectPresenter,
@@ -18,7 +18,7 @@ export class ProjectUnarchiver {
     this.projectPresenter = projectPresenter;
   }
 
-  public async unarchive(project: Project): Promise<void> {
+  async unarchive(project: Project): Promise<void> {
     if (!project.archived) {
       throw new Error("project not archived");
     }

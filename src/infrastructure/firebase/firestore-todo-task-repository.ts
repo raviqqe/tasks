@@ -24,12 +24,12 @@ export class FirestoreTodoTaskRepository implements TodoTaskRepository {
   private readonly auth: Auth;
   private readonly firestore: Firestore;
 
-  public constructor(app: FirebaseApp) {
+  constructor(app: FirebaseApp) {
     this.auth = getAuth(app);
     this.firestore = getFirestore(app);
   }
 
-  public async create(projectId: string, task: Task): Promise<void> {
+  async create(projectId: string, task: Task): Promise<void> {
     await runTransaction(this.firestore, async (transaction) => {
       const taskIds = await this.getOrder(projectId, transaction);
 
@@ -38,7 +38,7 @@ export class FirestoreTodoTaskRepository implements TodoTaskRepository {
     });
   }
 
-  public async delete(projectId: string, taskId: string): Promise<void> {
+  async delete(projectId: string, taskId: string): Promise<void> {
     await runTransaction(this.firestore, async (transaction) => {
       const taskIds = await this.getOrder(projectId, transaction);
 
@@ -51,7 +51,7 @@ export class FirestoreTodoTaskRepository implements TodoTaskRepository {
     });
   }
 
-  public async list(projectId: string): Promise<Task[]> {
+  async list(projectId: string): Promise<Task[]> {
     return runTransaction(this.firestore, async (transaction) => {
       // TODO Use CollectionReference.prototype.getAll().
       // https://github.com/firebase/firebase-js-sdk/issues/1176
@@ -79,13 +79,13 @@ export class FirestoreTodoTaskRepository implements TodoTaskRepository {
     });
   }
 
-  public async reorder(projectId: string, taskIds: string[]): Promise<void> {
+  async reorder(projectId: string, taskIds: string[]): Promise<void> {
     await runTransaction(this.firestore, async (transaction) =>
       this.setOrder(projectId, taskIds, transaction),
     );
   }
 
-  public setOrder(
+  setOrder(
     projectId: string,
     taskIds: string[],
     transaction: Transaction,
@@ -93,7 +93,7 @@ export class FirestoreTodoTaskRepository implements TodoTaskRepository {
     transaction.set(this.order(projectId), { order: taskIds });
   }
 
-  public async update(projectId: string, task: Task): Promise<void> {
+  async update(projectId: string, task: Task): Promise<void> {
     await updateDoc(doc(this.tasks(projectId), task.id), { ...task });
   }
 

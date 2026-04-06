@@ -28,19 +28,19 @@ export class FirestoreDoneTaskRepository implements DoneTaskRepository {
   private readonly auth: Auth;
   private readonly firestore: Firestore;
 
-  public constructor(app: FirebaseApp) {
+  constructor(app: FirebaseApp) {
     this.auth = getAuth(app);
     this.firestore = getFirestore(app);
   }
 
-  public async create(projectId: string, task: Task): Promise<void> {
+  async create(projectId: string, task: Task): Promise<void> {
     await setDoc(doc(this.collection(projectId), task.id), {
       ...task,
       createdAt: Math.floor(Date.now() / 1000), // Unix timestamp
     });
   }
 
-  public async *list(projectId: string): AsyncIterable<Task[], void> {
+  async *list(projectId: string): AsyncIterable<Task[], void> {
     let snapshot = await getDocs(
       query(this.query(projectId), limit(batchSize)),
     );

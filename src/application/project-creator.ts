@@ -15,7 +15,7 @@ export class ProjectCreator {
   private readonly projectPresenter: ProjectPresenter;
   private readonly messagePresenter: MessagePresenter;
 
-  public constructor(
+  constructor(
     currentProjectSwitcher: CurrentProjectSwitcher,
     projectRepository: ProjectRepository,
     projectPresenter: ProjectPresenter,
@@ -27,7 +27,7 @@ export class ProjectCreator {
     this.messagePresenter = messagePresenter;
   }
 
-  public async create(name: string): Promise<void> {
+  async create(name: string): Promise<void> {
     const project: Project = formatProject({
       archived: false,
       id: window.crypto.randomUUID(),

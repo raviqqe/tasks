@@ -8,7 +8,7 @@ export class ProjectDeleter {
   private readonly projectPresenter: ProjectPresenter;
   private readonly confirmationController: ConfirmationController;
 
-  public constructor(
+  constructor(
     projectRepository: ProjectRepository,
     projectPresenter: ProjectPresenter,
     confirmationController: ConfirmationController,
@@ -18,7 +18,7 @@ export class ProjectDeleter {
     this.confirmationController = confirmationController;
   }
 
-  public async delete(project: Project): Promise<void> {
+  async delete(project: Project): Promise<void> {
     if (!project.archived) {
       throw new Error("project not archived");
     } else if (

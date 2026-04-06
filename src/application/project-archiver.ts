@@ -13,7 +13,7 @@ export class ProjectArchiver {
   private readonly messagePresenter: MessagePresenter;
   private readonly confirmationController: ConfirmationController;
 
-  public constructor(
+  constructor(
     currentProjectSwitcher: CurrentProjectSwitcher,
     projectRepository: ProjectRepository,
     projectPresenter: ProjectPresenter,
@@ -27,10 +27,7 @@ export class ProjectArchiver {
     this.confirmationController = confirmationController;
   }
 
-  public async archive(
-    project: Project,
-    currentProjectId: string,
-  ): Promise<void> {
+  async archive(project: Project, currentProjectId: string): Promise<void> {
     if (project.archived) {
       throw new Error("project archived already");
     } else if ((await this.projectRepository.list()).length === 1) {

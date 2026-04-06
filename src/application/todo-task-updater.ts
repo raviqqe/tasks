@@ -12,7 +12,7 @@ export class TodoTaskUpdater {
   private readonly todoTaskPresenter: TodoTaskPresenter;
   private readonly confirmationController: ConfirmationController;
 
-  public constructor(
+  constructor(
     currentProjectRepository: CurrentProjectRepository,
     todoTaskDeleter: TodoTaskDeleter,
     todoTaskRepository: TodoTaskRepository,
@@ -26,7 +26,7 @@ export class TodoTaskUpdater {
     this.confirmationController = confirmationController;
   }
 
-  public async update(task: Task): Promise<void> {
+  async update(task: Task): Promise<void> {
     const projectId = await this.currentProjectRepository.get();
 
     if (!projectId) {
