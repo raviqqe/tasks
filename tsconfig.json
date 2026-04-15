@@ -1,6 +1,7 @@
 {
   "extends": "@raviqqe/react-tsconfig/tsconfig.json",
   "compilerOptions": {
+    "noUncheckedSideEffectImports": false,
     "plugins": [
       {
         "name": "typescript-plugin-css-modules",
