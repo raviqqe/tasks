@@ -36,7 +36,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.4.13",
     "@raviqqe/biome-config": "^2.0.26",
-    "@raviqqe/react-tsconfig": "^2.0.3",
+    "@raviqqe/react-tsconfig": "^2.0.4",
     "@react-router/dev": "^7.14.2",
     "@react-router/fs-routes": "^7.14.2",
     "@testing-library/react": "^16.3.2",
