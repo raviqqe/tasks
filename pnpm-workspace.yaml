@@ -1,8 +1,8 @@
-ignoredBuiltDependencies:
-  - '@firebase/util'
-  - '@parcel/watcher'
-  - '@sentry/cli'
-  - esbuild
-  - less
-  - protobufjs
-  - re2
+allowBuilds:
+  "@firebase/util": set this to true or false
+  "@parcel/watcher": set this to true or false
+  "@sentry/cli": set this to true or false
+  esbuild: set this to true or false
+  less: set this to true or false
+  protobufjs: set this to true or false
+  re2: set this to true or false
