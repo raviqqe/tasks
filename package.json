@@ -20,7 +20,7 @@
     "@nanostores/react": "^1.1.0",
     "@raviqqe/react-hooks": "^0.6.9",
     "@react-router/node": "^7.15.0",
-    "@sentry/react-router": "^10.52.0",
+    "@sentry/react-router": "^10.53.1",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.46.1",
     "firebase": "^12.13.0",
