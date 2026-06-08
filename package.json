@@ -18,7 +18,7 @@
     "@fontsource/chelsea-market": "^5.2.7",
     "@fontsource/roboto": "^5.2.10",
     "@nanostores/react": "^1.1.0",
-    "@raviqqe/react-hooks": "^0.6.9",
+    "@raviqqe/react-hooks": "^0.6.10",
     "@react-router/node": "^7.17.0",
     "@sentry/react-router": "^10.56.0",
     "classnames": "^2.5.1",
