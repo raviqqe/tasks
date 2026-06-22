@@ -1,5 +1,5 @@
 {
-  "extends": "@raviqqe/react-tsconfig/tsconfig.json",
+  "extends": "@raviqqe/react-tsconfig",
   "compilerOptions": {
     "noUncheckedSideEffectImports": false,
     "plugins": [
