@@ -76,8 +76,8 @@ importers:
         specifier: ^2.0.27
         version: 2.0.27(@biomejs/biome@2.4.16)
       '@raviqqe/react-tsconfig':
-        specifier: ^2.0.4
-        version: 2.0.4
+        specifier: ^2.0.5
+        version: 2.0.5
       '@react-router/dev':
         specifier: ^7.17.0
         version: 7.17.0(@types/node@26.0.1)(jiti@2.7.0)(less@4.5.1)(lightningcss@1.32.0)(react-router@7.17.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(sass@1.97.2)(stylus@0.62.0)(terser@5.48.0)(typescript@6.0.3)(vite@8.0.16(@types/node@26.0.1)(esbuild@0.27.7)(jiti@2.7.0)(less@4.5.1)(sass@1.97.2)(stylus@0.62.0)(terser@5.48.0)(yaml@2.9.0))(yaml@2.9.0)
@@ -1908,8 +1908,8 @@ packages:
     resolution: {integrity: sha512-bW1nn1k8HbAyUl3+0GzWZeNPFtZOj6zeT/JHfE4s/kPhf8Q0txzUushNSJl8gZ06gQw9I+cX5RPS4VdkGRg4Hw==}
     engines: {node: '>=26.3.0'}
 
-  '@raviqqe/react-tsconfig@2.0.4':
-    resolution: {integrity: sha512-xFDFED9/MQ1CkfQjsnCyAvGdS1HfXCNtbQ0I8KQ9G84vJY+6muKuPLTgx/4Z2k8qBXmB9rsYwYpHucz7FNZfyA==}
+  '@raviqqe/react-tsconfig@2.0.5':
+    resolution: {integrity: sha512-hY+53GQGquxNQlMJcHmAXZ1H0uUvcSKhGhArV9bRS0ZL+a0b3O136/9Pnybg8KvmrkOhf4jemI7WpeqAXh4a0w==}
     engines: {node: '>=25.8.0'}
 
   '@raviqqe/tsconfig@3.0.1':
@@ -7994,7 +7994,7 @@ snapshots:
       es-toolkit: 1.47.1
       react: 19.2.7
 
-  '@raviqqe/react-tsconfig@2.0.4':
+  '@raviqqe/react-tsconfig@2.0.5':
     dependencies:
       '@raviqqe/tsconfig': 3.0.1
 
