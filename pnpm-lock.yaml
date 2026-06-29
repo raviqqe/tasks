@@ -73,8 +73,8 @@ importers:
         specifier: ^2.4.16
         version: 2.4.16
       '@raviqqe/biome-config':
-        specifier: ^2.0.26
-        version: 2.0.26(@biomejs/biome@2.4.16)
+        specifier: ^2.0.27
+        version: 2.0.27(@biomejs/biome@2.4.16)
       '@raviqqe/react-tsconfig':
         specifier: ^2.0.4
         version: 2.0.4
@@ -1898,8 +1898,8 @@ packages:
   '@protobufjs/utf8@1.1.1':
     resolution: {integrity: sha512-oOAWABowe8EAbMyWKM0tYDKi8Yaox52D+HWZhAIJqQXbqe0xI/GV7FhLWqlEKreMkfDjshR5FKgi3mnle0h6Eg==}
 
-  '@raviqqe/biome-config@2.0.26':
-    resolution: {integrity: sha512-ADO26BEwO/r0Ht5Qg6k2Co1SRMWn3xGmm2u5hX6FJhl1sEs2InTBCKSFzdofy1wiYluUgi9fkF7xuaC2+0hDGQ==}
+  '@raviqqe/biome-config@2.0.27':
+    resolution: {integrity: sha512-UZWiCOgQDkUZb9qkJ9Y5rvlqjWMK/EIquQw31gs6RZbi1NiD0aWNCIJXAZiClfpl1faIy0Y6Bp7trlJx/SxYAA==}
     engines: {node: '>=25.2.1'}
     peerDependencies:
       '@biomejs/biome': ^2.1.4
@@ -7991,7 +7991,7 @@ snapshots:
 
   '@protobufjs/utf8@1.1.1': {}
 
-  '@raviqqe/biome-config@2.0.26(@biomejs/biome@2.4.16)':
+  '@raviqqe/biome-config@2.0.27(@biomejs/biome@2.4.16)':
     dependencies:
       '@biomejs/biome': 2.4.16
 
