@@ -100,8 +100,8 @@ importers:
         specifier: ^4.1.11
         version: 4.1.11(vitest@4.1.11)
       firebase-tools:
-        specifier: ^15.27.0
-        version: 15.27.0(@types/node@26.2.0)(supports-color@7.2.0)
+        specifier: ^15.28.1
+        version: 15.28.1(@types/node@26.2.0)(supports-color@7.2.0)
       jsdom:
         specifier: ^30.0.1
         version: 30.0.1
@@ -3471,8 +3471,8 @@ packages:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
     engines: {node: '>=10'}
 
-  firebase-tools@15.27.0:
-    resolution: {integrity: sha512-gQMMPkv20hAuCUy596Z/GPA0YiwJEr6xEwvJnc+BeZnMlJVYZcl4OL8vvPNqDDcQmrXlNRNAP/qpyVc+5jkxTw==}
+  firebase-tools@15.28.1:
+    resolution: {integrity: sha512-5qbKmO0Am0++a335zzUe9/TFdM/dn6jGNKVp2JUcHwDrOK+5wU0LT/fGX+8rjQM8AwfzPp+eMowWX1uDGI+aQg==}
     engines: {node: '>=20.0.0 || >=22.0.0 || >=24.0.0'}
     hasBin: true
 
@@ -3728,8 +3728,8 @@ packages:
   highlight.js@10.7.3:
     resolution: {integrity: sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==}
 
-  hono@4.13.2:
-    resolution: {integrity: sha512-JydRilDRkYBQMt9qR9U92mXxmbGqsqSn/IKOrh4e7/gEbn+0zSr8igTu0obwJoNGN4sez28DIql7FBHWydoJpA==}
+  hono@4.13.3:
+    resolution: {integrity: sha512-r8AO2mYHoLxSHkgafNeC/BXyb2vWRxD3jem4Ts+ptav8oTG5FIRifAjuJEmZI4bSvvc2ns0GxmIYiZnHqN3mMw==}
     engines: {node: '>=16.9.0'}
 
   html-encoding-sniffer@6.0.0:
@@ -3823,8 +3823,8 @@ packages:
     resolution: {integrity: sha512-7PnF4oN3CvZF23ADhA5wRaYEQpJ8qygSkbtTXWBeXWXmEVRXK+1ITciHWwHhsjv1TmW0MgacIv6hEi5pX5NQdA==}
     engines: {node: '>=10'}
 
-  install-artifact-from-github@1.7.0:
-    resolution: {integrity: sha512-qAb91yAKVF9rFY4rVP21ZtYUyCScxAFt9udwzVWNLBE1pQcdQeB2gd1HlNPcQNYCzCDvJ/QJQPuWQ6aTmSlU8g==}
+  install-artifact-from-github@1.8.0:
+    resolution: {integrity: sha512-EA861BGTOO91yuymA5V6Sx//J5471NBpMHnVZJetquqOYknm4zz25Y2tk/f74ggxerqtd8nfBrn9eaR0oxReEA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4516,9 +4516,9 @@ packages:
     resolution: {integrity: sha512-myRT3DiWPHqho5PrJaIRyaMv2kgYf0mUVgBNOYMuCH5Ki1yEiQaf/ZJuQ62nvpc44wL5WDbTX7yGJi1Neevw8w==}
     engines: {node: '>= 0.6'}
 
-  negotiator@1.0.0:
-    resolution: {integrity: sha512-8Ofs/AUQh8MaEcrlq5xOX0CQ9ypTF5dl78mjlMNfOK08fzpgTHQRQPBxcPlEtIw0yRpws+Zo/3r+5WRby7u3Gg==}
-    engines: {node: '>= 0.6'}
+  negotiator@1.1.0:
+    resolution: {integrity: sha512-NMPBRMJgiQHjbd8phG3Vebdx4kZ1H121rbl5IkMqeOsahptB9BKo/d7oJ3zTXqTgagn2bWlNSXkh0QUGM31RYg==}
+    engines: {node: '>=18'}
 
   netmask@2.1.1:
     resolution: {integrity: sha512-eonl3sLUha+S1GzTPxychyhnUzKyeQkZ7jLjKrBagJgPla13F+uQ71HgpFefyHgqrjEbCPkDArxYsjY8/+gLKA==}
@@ -5665,8 +5665,8 @@ packages:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
 
-  uuid@14.0.1:
-    resolution: {integrity: sha512-6ZxzVpzDXDa3bJWaHilVayA+BH/1zmxCJoVgvmqJnid/gPoKHxUrS/aC/T6LGQtNHT+XHG9fXPJB4d+IrU30Ew==}
+  uuid@14.0.2:
+    resolution: {integrity: sha512-xZe/16rV4aa+HGSOCiY2YeLT1OybRLrrkL/Rqaq7p7GMVXjFh+6wN4oMYgjFmnSnhY8t6Xpdl2l9qmnHYuMHwQ==}
     hasBin: true
 
   uuid@9.0.1:
@@ -7305,9 +7305,9 @@ snapshots:
       protobufjs: 7.6.5
       yargs: 17.7.3
 
-  '@hono/node-server@2.1.1(hono@4.13.2)':
+  '@hono/node-server@2.1.1(hono@4.13.3)':
     dependencies:
-      hono: 4.13.2
+      hono: 4.13.3
 
   '@inquirer/ansi@1.0.2': {}
 
@@ -7479,7 +7479,7 @@ snapshots:
 
   '@modelcontextprotocol/sdk@1.30.0(supports-color@7.2.0)(zod@4.4.3)':
     dependencies:
-      '@hono/node-server': 2.1.1(hono@4.13.2)
+      '@hono/node-server': 2.1.1(hono@4.13.3)
       ajv: 8.20.0
       ajv-formats: 3.0.1(ajv@8.20.0)
       content-type: 1.0.5
@@ -7489,7 +7489,7 @@ snapshots:
       eventsource-parser: 3.1.1
       express: 5.2.1(supports-color@7.2.0)
       express-rate-limit: 8.6.2(express@5.2.1(supports-color@7.2.0))(supports-color@7.2.0)
-      hono: 4.13.2
+      hono: 4.13.3
       jose: 6.2.9
       json-schema-typed: 8.0.2
       pkce-challenge: 5.0.1
@@ -8422,7 +8422,7 @@ snapshots:
   accepts@2.0.0:
     dependencies:
       mime-types: 3.0.2
-      negotiator: 1.0.0
+      negotiator: 1.1.0
 
   acorn@8.18.0: {}
 
@@ -9492,7 +9492,7 @@ snapshots:
       locate-path: 6.0.0
       path-exists: 4.0.0
 
-  firebase-tools@15.27.0(@types/node@26.2.0)(supports-color@7.2.0):
+  firebase-tools@15.28.1(@types/node@26.2.0)(supports-color@7.2.0):
     dependencies:
       '@apphosting/common': 0.0.8
       '@electric-sql/pglite': 0.3.16
@@ -9948,7 +9948,7 @@ snapshots:
 
   highlight.js@10.7.3: {}
 
-  hono@4.13.2: {}
+  hono@4.13.3: {}
 
   html-encoding-sniffer@6.0.0:
     dependencies:
@@ -10041,7 +10041,7 @@ snapshots:
 
   ini@2.0.0: {}
 
-  install-artifact-from-github@1.7.0:
+  install-artifact-from-github@1.8.0:
     optional: true
 
   internal-slot@1.1.0:
@@ -10690,7 +10690,9 @@ snapshots:
 
   negotiator@0.6.4: {}
 
-  negotiator@1.0.0: {}
+  negotiator@1.1.0:
+    dependencies:
+      content-type: 2.1.0
 
   netmask@2.1.1: {}
 
@@ -11165,7 +11167,7 @@ snapshots:
 
   re2@1.26.1:
     dependencies:
-      install-artifact-from-github: 1.7.0
+      install-artifact-from-github: 1.8.0
       nan: 2.28.0
       node-gyp: 13.0.1
     optional: true
@@ -12048,7 +12050,7 @@ snapshots:
   universal-analytics@0.5.4(supports-color@7.2.0):
     dependencies:
       debug: 4.4.3(supports-color@7.2.0)
-      uuid: 14.0.1
+      uuid: 14.0.2
     transitivePeerDependencies:
       - supports-color
 
@@ -12093,7 +12095,7 @@ snapshots:
 
   utils-merge@1.0.1: {}
 
-  uuid@14.0.1: {}
+  uuid@14.0.2: {}
 
   uuid@9.0.1: {}
 
