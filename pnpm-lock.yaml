@@ -25,7 +25,7 @@ importers:
         version: 5.3.0
       '@nanostores/react':
         specifier: ^1.1.0
-        version: 1.1.0(nanostores@1.5.1)(react@19.2.8)
+        version: 1.1.0(nanostores@1.5.2)(react@19.2.8)
       '@raviqqe/react-hooks':
         specifier: ^0.6.11
         version: 0.6.11
@@ -51,8 +51,8 @@ importers:
         specifier: ^1.10.0
         version: 1.10.0
       nanostores:
-        specifier: ^1.5.1
-        version: 1.5.1
+        specifier: ^1.5.2
+        version: 1.5.2
       react:
         specifier: ^19.2.8
         version: 19.2.8
@@ -4501,8 +4501,8 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanostores@1.5.1:
-    resolution: {integrity: sha512-DNIX+HyFpo14fKGe0NsX9/aPzdKGiSZwX5xEMpDwQrDdo2iTiUYunOCCQLYwJrziKVe8ZOtVvcv0dEVI8lMx2g==}
+  nanostores@1.5.2:
+    resolution: {integrity: sha512-B0UbxzK1s0CN8Xht6r+7iT5+xV8PTaRERR1nATeplRv1Rw5YLWfVAid0hkqY3EceqpG4RjTk8GAwIxQY39Rnwg==}
     engines: {node: ^20.0.0 || >=22.0.0}
 
   nearley@2.20.1:
@@ -7514,9 +7514,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@nanostores/react@1.1.0(nanostores@1.5.1)(react@19.2.8)':
+  '@nanostores/react@1.1.0(nanostores@1.5.2)(react@19.2.8)':
     dependencies:
-      nanostores: 1.5.1
+      nanostores: 1.5.2
       react: 19.2.8
 
   '@napi-rs/lzma-linux-x64-gnu@1.5.1':
@@ -10684,7 +10684,7 @@ snapshots:
 
   nanoid@3.3.18: {}
 
-  nanostores@1.5.1: {}
+  nanostores@1.5.2: {}
 
   nearley@2.20.1:
     dependencies:
