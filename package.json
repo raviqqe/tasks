@@ -34,7 +34,7 @@
     "react-spinners": "^0.17.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.9",
+    "@biomejs/biome": "^2.5.10",
     "@raviqqe/biome-config": "^2.0.27",
     "@raviqqe/react-tsconfig": "^2.0.5",
     "@react-router/dev": "^8.3.0",
