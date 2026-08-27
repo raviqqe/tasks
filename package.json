@@ -41,7 +41,7 @@
     "@react-router/fs-routes": "^8.3.0",
     "@testing-library/react": "^16.3.2",
     "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.4",
+    "@types/react-dom": "^19.2.5",
     "@vitejs/plugin-react": "^6.1.0",
     "@vitest/coverage-v8": "^4.1.11",
     "firebase-tools": "^15.28.1",
