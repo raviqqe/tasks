@@ -5,6 +5,7 @@ import { createRoutesStub } from "react-router";
 export const renderRouter = (element: JSX.Element): RenderResult => {
   const Component = createRoutesStub([
     {
+      // biome-ignore lint/correctness/noComponentHookFactories: Created once per test
       // biome-ignore lint/style/useNamingConvention: External API
       Component: () => element,
       path: "/",
