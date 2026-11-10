@@ -22,7 +22,7 @@
     "@react-router/node": "^8.5.1",
     "@sentry/react-router": "^11.11.0",
     "classnames": "^2.5.1",
-    "es-toolkit": "^1.53.1",
+    "es-toolkit": "^1.53.2",
     "firebase": "^13.2.0",
     "isbot": "^5.2.2",
     "localforage": "^1.10.0",
