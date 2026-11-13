@@ -24,7 +24,7 @@
     "classnames": "^2.5.1",
     "es-toolkit": "^1.53.2",
     "firebase": "^13.2.0",
-    "isbot": "^5.2.2",
+    "isbot": "^5.2.3",
     "localforage": "^1.10.0",
     "nanostores": "^1.5.5",
     "react": "^19.3.1",
