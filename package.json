@@ -23,7 +23,7 @@
     "@sentry/react-router": "^11.13.0",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.53.2",
-    "firebase": "^13.3.0",
+    "firebase": "^13.4.0",
     "isbot": "^5.2.3",
     "localforage": "^1.10.0",
     "nanostores": "^1.5.5",
