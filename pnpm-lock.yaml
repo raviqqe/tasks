@@ -267,8 +267,8 @@ importers:
         specifier: ^5.1.1
         version: 5.1.1(vitest@5.1.1)
       firebase-tools:
-        specifier: ^15.36.0
-        version: 15.36.0(@types/node@26.6.4)(supports-color@7.2.0)
+        specifier: ^15.37.0
+        version: 15.37.0(@types/node@26.6.4)(supports-color@7.2.0)
       jsdom:
         specifier: ^31.0.1
         version: 31.0.1
@@ -3660,8 +3660,8 @@ packages:
     resolution: {integrity: sha512-S8KoZgRZN+a5rNwqTxlZZePjT/4cnm0ROV70LedRHZ0p8u9fRID0hJUZQpkKLzro8LfmC8sx23bY6tVNxv8pQA==}
     engines: {node: '>= 18.0.0'}
 
-  firebase-tools@15.36.0:
-    resolution: {integrity: sha512-z1fnT75IkGmARzRSP9Blb4BzAnYJOhwoSbe/lKpUKy/hpQzLhUM39KUesAfUM5U1PnDu6syFdwV1JsSGcdQ32w==}
+  firebase-tools@15.37.0:
+    resolution: {integrity: sha512-px7Du9nXLHxANs0RzqB5EPnVGNChJju9bTAEJewWniGKtJoFTMYgRIEH30FfA1llYK5LwgYCko3bcl0bIq4BvQ==}
     engines: {node: '>=20.0.0 || >=22.0.0 || >=24.0.0'}
     hasBin: true
 
@@ -5704,8 +5704,8 @@ packages:
   undici-types@8.9.0:
     resolution: {integrity: sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg==}
 
-  undici@6.29.0:
-    resolution: {integrity: sha512-R+RODBqp6i2pPflGdq+xIOUkl+RNfGgHwoinecKu/JCuf2uO06cOKoDbI2P7Dn6KcswdKwrczbU6IYJ6K8X+wg==}
+  undici@6.29.1:
+    resolution: {integrity: sha512-EvRlUt/QqAEvXdQeRMYUfwOQsfzpDztykrG2owGEE/rBOBoYv9uF39ZzsNDh4lTFHhTr2XOZjKkYgueD12ZmGA==}
     engines: {node: '>=18.17'}
 
   undici@8.12.4:
@@ -9523,7 +9523,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  firebase-tools@15.36.0(@types/node@26.6.4)(supports-color@7.2.0):
+  firebase-tools@15.37.0(@types/node@26.6.4)(supports-color@7.2.0):
     dependencies:
       '@electric-sql/pglite': 0.3.16
       '@electric-sql/pglite-tools': 0.2.21(@electric-sql/pglite@0.3.16)
@@ -9584,7 +9584,7 @@ snapshots:
       tcp-port-used: 1.0.3(supports-color@7.2.0)
       tmp: 0.2.7
       triple-beam: 1.4.1
-      undici: 6.29.0
+      undici: 6.29.1
       update-notifier-cjs: 5.1.7
       winston: 3.19.0
       winston-transport: 4.9.0
@@ -12026,7 +12026,7 @@ snapshots:
 
   undici-types@8.9.0: {}
 
-  undici@6.29.0: {}
+  undici@6.29.1: {}
 
   undici@8.12.4: {}
 
